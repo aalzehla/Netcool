@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool MIB Manager" />
+<meta name="abstract" content="Netcool MIB Manager es una aplicación de interfaz gráfica de usuario basada en IBM Eclipse que puede utilizar para analizar archivos de base de información de gestión (MIB) de protocolo simple de gestión de red (SNMP), a partir de los cuales se pueden generar archivos de reglas de Netcool. Está pensado como sustituto del programa de utilidad mib2rules." />
+<meta name="Description" content="Netcool MIB Manager es una aplicación de interfaz gráfica de usuario basada en IBM Eclipse que puede utilizar para analizar archivos de base de información de gestión (MIB) de protocolo simple de gestión de red (SNMP), a partir de los cuales se pueden generar archivos de reglas de Netcool. Está pensado como sustituto del programa de utilidad mib2rules." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="the_mib_manager" />
+<meta name="DC.Language" content="es-es" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<title>MIB Manager analiza archivos MIB de SNMP y genera archivos de reglas. Sustituye al programa de utilidad mib2rules.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="the_mib_manager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versión 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">Netcool MIB Manager</span>
+es una aplicación de interfaz gráfica de usuario basada en IBM® Eclipse que puede
+utilizar para analizar archivos de base de información de gestión (MIB) de protocolo simple de gestión de red (SNMP), a
+partir de los cuales se pueden generar archivos de reglas de Netcool. Está pensado como sustituto del programa de utilidad <span class="keyword cmdname">mib2rules</span>.</p>
+<div class="section"><p class="p"><span class="keyword">Tivoli
+Netcool/OMNIbus</span> incluye también un
+programa de utilidad de línea de mandatos de
+<span class="keyword">Netcool MIB Manager</span>
+(<span class="keyword cmdname">nco_mibmanager_batch</span>) que puede utilizar para emitir mandatos manualmente o de forma programática.</p>
+<div class="p"><span class="keyword">Netcool MIB Manager</span> tiene las características siguientes:<ul class="ul"><li class="li">Importa archivos MIB de SNMP y resuelve dependencias para construir un árbol identificador de objeto (OID).</li>
+<li class="li">Puede exportar algunos o todos los objetos SNMP importados a los archivos de reglas de Netcool
+y a otros formatos de archivo.</li>
+<li class="li">Incluye las MIB base y las MIB de RFC que se necesitan más a menudo en otros archivos MIB.</li>
+<li class="li">Incluye definiciones de dispositivo para habilitar la agrupación centrada en el dispositivo de módulos MIB importados.</li>
+<li class="li">Puede filtrar y buscar módulos MIB y el árbol OID por nombre de objeto u OID.</li>
+<li class="li">Puede generar condiciones de excepción SNMP para enviar al analizador SNMP (<span class="ph filepath">nco_p_mttrapd</span>)
+u otros agentes de SNMP.</li>
+<li class="li">Tiene una interfaz de línea de mandatos que puede utilizar para importar datos de MIB y exportar archivos de reglas. Puede emitir mandatos manualmente o llamarlos de forma programática.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html">Inicio de MIB Manager</a></span><br />
+Inicie la interfaz gráfica de usuario de
+<span class="keyword">MIB Manager</span>
+desde la línea de mandatos. No está diseñado para ejecutarse bajo el control de procesos o como un servicio de Windows.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html">Utilización de Netcool MIB Manager</a></span><br />
+Puede utilizar <span class="keyword">MIB Manager</span> para analizar módulos MIB y crear archivos de reglas de Netcool.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html">Configuración de las preferencias globales</a></span><br />
+Puede configurar varias preferencias globales de <span class="keyword">MIB Manager</span> desde la ventana <span class="keyword wintitle">Preferencias</span>.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html">Acerca de SNMP</a></span><br />
+En esta sección se proporciona información adicional sobre la
+arquitectura de protocolo simple de gestión de red (SNMP), la base de información de gestión (MIB) de SNMP y
+algunos conceptos de MIB adicionales.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Soporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

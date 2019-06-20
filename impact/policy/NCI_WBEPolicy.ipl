@@ -1,0 +1,66 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+//This function will send a message to WBE
+//create an Object with the NewObject() function,
+//populate the Name-Value pairs and send the object
+//to the SendEventToWBE function
+
+Function SendEventToWBE(MsgObject) {
+
+    Msg = "<connector xmlns=\"http://wbe.ibm.com/6.2/Event/Netcool-Impact\" name=\"Netcool Impact\" version=\"6.2\">";
+    Msg = Msg + "<connector-bundle name=\"Netcool Impact\" type=\"Event\">";
+    Msg = Msg + "<Netcool-Omnibus-Event-Object>";
+
+    EventKeys = Keys(MsgObject);
+
+    i=0;
+    while (i<Length(EventKeys)) {
+        Msg = Msg + "<" + EventKeys[i] + " type=\"String\">" + MsgObject[EventKeys[i]] + "</" + EventKeys[i] + ">";
+        i=i+1;
+    }
+
+    Msg = Msg + "</Netcool-Omnibus-Event-Object>";
+    Msg = Msg + "</connector-bundle>";
+    Msg = Msg + "</connector>";
+
+    Log("Sending Message: " + Msg);
+    SendJMSMessage("SendToWBE", null, Msg);
+}
+
+//This function will take a WBE JMSMessage and return an
+//object with the Name-Value pairs populated.  When a JMS
+//Message is received send the @JMSMessage variable to this
+//function to format the message into a standard Impact Object.
+
+Function ParseWBEMessage(message, returnObject) {
+
+    returnObject = NewObject();
+
+    message= Rextract(message, "<connector [^>]*><connector-bundle [^>]*><[^>]*>(.*)<[^>]*>.*connector-bundle>.*connector>");
+    while(message != "") {
+        fieldName = Rextract(message, "^<([^ ]*) type=[^>]*>");
+        type = Rextract(message, "^<[^ ]* type=\"([^\"]*)\"");
+        fieldValue = Rextract(message, "<" + fieldName + "[^>]*>([^<]*)<");
+        message = Rextract(message, "<" + fieldName + "[^>]*>[^<]*</" + fieldName + ">(.*)");
+        if (type == "Integer") {
+            returnObject[fieldName] = Int(fieldValue);
+        } elseif (type == "Real") {
+            returnObject[fieldName] = Float(fieldValue);
+        } else {
+            returnObject[fieldName] = fieldValue;
+        }
+    }
+}
+MsgObject = NewObject();
+MsgObject.Identifier='Test Id';
+MsgObject.Node='Test Node';
+MsgObject.Severity =5;
+SendEventToWBE(MsgObject); 

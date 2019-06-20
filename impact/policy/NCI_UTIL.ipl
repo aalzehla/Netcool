@@ -1,0 +1,335 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/**
+ * Functions for creating, deleting, and running files locally using JRExec
+ * and remotely using SSH.
+ */
+log("start of UTIL policy");
+
+
+// WORKING WITH STRINGS
+
+function getLastChar(lastChar, fullString){
+	a=length(fullString);
+	lastChar=substring(fullString, a-1, a);
+
+}
+
+
+function getFirstChar(firstChar, fullString){
+	firstChar=substring(fullString, 0, 1);
+}
+
+
+
+function quoteString(theString){
+
+	getFirstChar(firstChar, theString);
+	getLastChar(lastChar, theString);
+	if ((firstChar != '"') and (lastChar!='"')){
+		theString = '"' + theString + '"';
+	}
+
+	if ((firstChar == '"') and (lastChar!='"')){
+		theString = theString + '"';
+	}
+
+	if ((firstChar != '"') and (lastChar=='"')){
+		theString = '"' + theString;
+	}
+}
+
+
+// This translate the HTML Escape sequences to normal characters.   
+
+function unescapeHTMLCharacters(inString, oString ) {
+   encodedStr = {"&#39;","&amp","\\\\&quot;","&quot;","&lt;","&gt;","&#59;",  "&#37;","&#40;","&#41;","&#43;", "&#61;", "&#33;", "&#42;" , "&#45;", "&#47;"};  
+   replacementStr = {"'","&",'"','"',"<",">",";","%","(", ")","+","=","!","*","-","/"};                         
+
+   len = Length(encodedStr);
+   oo = 0;
+   oString = inString; 
+   while( oo < len ) {
+      Log(3,"Encoded Str : " + encodedStr[oo]  + " Replacement Str : " + replacementStr[oo] ); 
+      oString = Replace(oString, encodedStr[oo], replacementStr[oo], 99);
+      Log("oString : " + oString); 
+      oo = oo + 1; 
+   }     
+}
+
+
+
+
+
+
+//WORKING WITH FILES
+
+function generatelUniqueFileName(fullFileName, destinationDir, extension, platform){
+	if(destinationDir != NULL && extension != NULL && platform != NULL){
+		//gen File name
+		x=getdate();
+		fileName=localtime(x, "yyyy_MM_dd_HH_mm_ss");
+
+
+		//check for . in extension
+		getFirstChar(firstChar, extension);
+		if(firstChar!="."){
+			extension ="." + extension;
+		}
+
+
+
+		//determine full destinationDir 
+		if (platform=="unix"){
+
+			getLastChar(lastChar, destinationDir);
+
+			if (lastChar == "/"){
+				fullFileName=destinationDir + fileName + "__" + random(1000) + extension;
+			}
+			else{
+				fullFileName=destinationDir + "/" + fileName + "__" + random(1000) + extension;
+			}
+
+		}
+
+		if (platform=="ms"){
+			//long file name issues with bat files
+			extension=".xml";
+			fileName="";
+
+			getLastChar(lastChar, destinationDir);
+
+			if (lastChar == "\\"){
+				fullFileName=destinationDir + fileName + "_" + random(1000) + extension;
+			}
+			else{
+				fullFileName=destinationDir + "\\" + fileName + "_" + random(1000) + extension;
+			}
+		}
+
+		if(platform != "ms" and platform != "unix"){
+			log("invalid platform passed to function createUniqueFile");
+		}
+
+		//log(fullFileName);
+
+	}
+	else{
+	log("NULL parameter passed to generatelUniqueFileName function");
+	}
+
+}
+
+
+
+
+
+
+// ESTABLISH SSH SESSION
+
+
+function createSSHSession(sshSession, sshInfo){
+	//establish session
+	sshSession=CommandResponse(sshInfo.hostname, sshInfo.username, sshInfo.UserCredentials, sshInfo.Options, sshInfo.sshPort, 60, 120);
+
+
+	/* EXAMPLE sshInfo
+	sshInfo=newobject();
+	sshInfo.hostname="spiderman";
+	sshInfo.username="netcool";
+	sshInfo.sshPort=22;
+	sshInfo.expectList={"[netcool@spiderman ~]$ "};
+
+	sshInfo.UserCredentials=newobject();
+	sshInfo.UserCredentials.Password=decrypt("7E6C7364EFD7CD69"); 			//run nci_crypt on password
+	sshInfo.UserCredentials.PassPhrase=decrypt("F1B254C40C873DC64E51BAAAA7644CB6"); 	//run nci_crypt on passphrase
+	sshInfo.UserCredentials.KeyFile="/opt/ibm/netcool/impact/integrations/ssh/id_rsa";
+
+	sshInfo.Options=newobject();
+	sshInfo.Options.Service="ssh";
+	sshInfo.Options.AutoInitiate=TRUE;
+	sshInfo.Options.CmdTerminator="\n";
+	sshInfo.Options.InitialPrompt="[netcool@spiderman ~]$ ";
+	*/
+}
+
+
+function endSSHSession(sshSession){
+	sshSession.Disconnect=true;
+}
+
+
+
+
+
+// CREATE AND DELETE A TEXT FILE USING ECHO
+
+
+
+function cleanTextForEcho(text){
+	//THIS ONE \ IS A PROBLEM text=Replace(text, "\\\\", "A", 10000000);
+	text=Replace(text, '<', '\\\\\<', 10000000);
+	text=Replace(text, '"', '\\\\\"', 10000000);
+	text=Replace(text, '>', '\\\\\>', 10000000);
+	text=Replace(text, '&', '\\\\\&', 10000000);
+	text=Replace(text, "'", "\\\\\'", 10000000);
+	text=Replace(text, "`", "\\\\\`", 10000000);
+	text=Replace(text, "~", "\\\\\~", 10000000);
+	text=Replace(text, "#", "\\\\\#", 10000000);
+	text=Replace(text, "\;", "\\\\\;", 10000000);
+	text=Replace(text, "\)", "\\\\\)", 10000000);
+	text=Replace(text, "\(", "\\\\\(", 10000000);
+	text=Replace(text, "\$", "\\\\\$", 10000000);
+	//NO DO NOT USE | text=Replace(text, "|", "\\\\\|", 10000000);
+	text=Replace(text, "\*", "\\\\\*", 10000000);
+
+	//log("\n" + text + "\n");
+
+}
+
+
+function cleanTextForWinEcho(text){
+	text=Replace(text, "\^", "\^\^", 10000000); // this needs to be first
+
+	text=Replace(text, "<", "^<", 10000000);
+
+	text=Replace(text, ">", "^>", 10000000);
+
+	text=Replace(text, "&", "^&", 10000000);
+
+	text=Replace(text, "\|", "^|", 10000000);
+
+
+}
+
+
+function createLocalFile(fileName, text, cmdOutput){
+
+	//log("fileName is " + fileName);
+	//log("Creating XML file........");
+
+	outFile = NewJavaObject("java.io.FileWriter", {fileName});
+	JavaCall(null, outFile, "write", {text});
+	JavaCall(null, outFile, "close", {});
+
+	cmdOutput="used java dsa.  Check server log for results";
+
+}
+
+/*
+function createLocalWinFile(fileName, text, cmdOutput){
+
+	//log("fileName is " + fileName);
+	//log("text is " + text);
+	//log("Creating local XML file using JRExec........");
+
+	cmdOutput=JRExecAction("echo", {text, ">", fileName}, false, 1000);
+
+}
+*/
+
+
+
+
+function deleteLocalFile(fileName, cmdOutput){
+	deleteMe = NewJavaObject("java.io.File", {fileName});
+	JavaCall(null, deleteMe, "delete", {});
+	cmdOutput="used java dsa.  Check server log for results";
+}
+
+
+
+/*
+function deleteLocalWinFile(fileName, cmdOutput){
+	cmdOutput=JRExecAction(del, {fileName}, false, 1000);
+}
+*/
+
+
+
+
+function createRemoteFile(fullFileName, text, sshExpectList, sshSession, cmdOutput){
+	//quoteString(fullFileName);
+	sshSession.SendCommand = "echo " + text + " > " + fullFileName;
+	sshSession.ExpectList = sshExpectList;
+	cmdOutput="remote file creation shouldn't provide output " + sshSession.ResponseReceived;
+
+
+}
+
+
+/*
+function createRemoteWinFile(fullFileName, text, sshExpectList, sshSession, cmdOutput){
+	//quoteString(fullFileName);
+	//log("pre cleaning: " + text);
+	cleanTextForWinEcho(text);
+	//log("post cleaning: " + text);
+	sshSession.SendCommand = "echo " + text + " > " + fullFileName;
+	sshSession.ExpectList = sshExpectList;
+	cmdOutput="remote file creation shouldn't provide output " + sshSession.ResponseReceived;
+
+
+}
+*/
+
+function deleteRemoteFile(fullFileName, sshExpectList, sshSession, cmdOutput){
+	//quoteString(fullFileName);
+	sshSession.SendCommand = "rm -rf " + fullFileName;
+	sshSession.ExpectList = sshExpectList;
+	cmdOutput="remote file deletion shouldn't provide output " + sshSession.ResponseReceived;
+}
+
+
+function deleteRemoteWinFile(fullFileName, sshExpectList, sshSession, cmdOutput){
+	//quoteString(fullFileName);
+	sshSession.SendCommand = "del " + fullFileName;
+	sshSession.ExpectList = sshExpectList;
+	cmdOutput="remote file deletion shouldn't provide output " + sshSession.ResponseReceived;
+}
+
+
+
+
+//RUN
+
+function callLocalCLI_API(pathToAPI, filePointer, targetFile, cmdOutput){
+	//quoteString(pathToAPI);
+	//quoteString(targetFile);
+
+	//uses jrexec
+	//requires that jrexec be started by user with correct environmental variables
+	//e.g. $WAAPI_HOME
+	if(filePointer == NULL){
+		cmdOutput=JRExecAction(pathToAPI, {targetFile}, false, 1000);
+	}
+	else{
+		cmdOutput=JRExecAction(pathToAPI, {filePointer, targetFile}, false, 1000);
+	}
+	//log("UTIL output is: \n" + cmdOutput);
+
+}
+
+
+function callRemoteCLI_API(pathToAPI, filePointer, targetFile, sshExpectList, sshSession, cmdOutput){
+	//quoteString(pathToAPI);
+	//quoteString(targetFile);
+
+	//requires that user used for sshSession have correct environmental variables
+	//e.g. $WAAPI_HOME
+
+	sshSession.SendCommand = pathToAPI + " " + filePointer + " " + targetFile;
+	sshSession.ExpectList = sshExpectList;
+	cmdOutput=sshSession.ResponseReceived;
+}
+
+////////////////////////////////////////////////////////TESTING

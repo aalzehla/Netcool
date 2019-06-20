@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring font sizes for the UNIX event list windows" />
+<meta name="abstract" content="The NCOEvent resource file contains definitions for the user interface elements of the event list windows." />
+<meta name="Description" content="The NCOEvent resource file contains definitions for the user interface elements of the event list windows." />
+<meta name="DC.subject" content="configuring font sizes, event list, font sizes" />
+<meta name="keywords" content="configuring font sizes, event list, font sizes" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_configuringfontsunixdsktop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsizesunixevntlst" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>Configuring font sizes for the UNIX event list windows</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsizesunixevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring font sizes for the UNIX event
+list windows</h1>
+<div class="body taskbody"><p class="shortdesc">The <span class="ph filepath">NCOEvent</span> resource file contains
+definitions for the user interface elements of the event list windows.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><div class="p">You can use this resource file to change the font size
+of the menus, toolbar buttons, field labels and entries, push buttons,
+status bar, column headers, and event data in the following event
+list windows:<ul class="ul"><li class="li"><span class="keyword wintitle">Login</span> window for the event list</li>
+<li class="li"><span class="keyword wintitle">Event List</span> monitor box window</li>
+<li class="li">Event list</li>
+<li class="li">All other windows that are accessible from the monitor box window
+and event list. These windows include the Filter Builder, the View
+Builder, and other windows that you open by clicking a menu option.</li>
+</ul>
+</div>
+<p class="p">You can also use the <span class="ph filepath">NCOEvent</span> resource
+file to change other attributes for the event list windows; for example,
+font types, string values, and colors.</p>
+<p class="p">If you use the Conductor
+(<kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd>) to provide
+single sign-on access to the desktop tools, the font changes that
+you make in the <span class="ph filepath">NCOEvent</span> resource file are reflected
+in the monitor box window, the event list, and the associated windows.
+If you start the event list from a command prompt (<kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd>),
+the font changes are reflected in the <span class="keyword wintitle">Login</span> window,
+the monitor box window, the event list, and associated windows.</p>
+<p class="p">To
+configure font sizes for the UNIX event
+list windows:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Go to the following location:</span> <p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+<p class="p">Where <var class="keyword varname">arch</var> is
+the operating system directory and <var class="keyword varname">locale_name</var> is
+the full locale name; for example en_GB.ISO8859-1. Note that some
+locale names in this directory might be symbolic links.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> For your changes to be visible, the <var class="keyword varname">locale_name</var> value
+must match your current locale. You can run the <span class="keyword cmdname">locale</span> command
+(without any arguments) to list the current locale.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Edit the <span class="ph filepath">NCOEvent</span> resource file to
+change the font sizes for the event list resources as required:</span> <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="90%" rules="all" frame="border" border="1"><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="33.33333333333333%" id="d27384e107">Resource</th>
+<th class="entry" valign="bottom" width="66.66666666666666%" id="d27384e109">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects most of the text on all the windows;
+for example, menus, toolbar buttons, most field labels, and push buttons.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*XmText.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects descriptive text items such as journal
+entries.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*XmTextField.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects editable text; for example, the <span class="ph uicontrol">Username</span> and <span class="ph uicontrol">Password</span> entries
+in the <span class="keyword wintitle">Login</span> window for the event list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*XmLabel.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects non-editable labels; for example, the <span class="ph uicontrol">Username</span> and <span class="ph uicontrol">Password</span> field
+labels in the <span class="keyword wintitle">Login</span> window for the event list,
+or the <span class="ph uicontrol">Number</span> and <span class="ph uicontrol">Metric</span> labels
+on monitor boxes.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*main_status_line.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the status message that is displayed
+in the status bar of the monitor box window after login; for example, <samp class="ph msgph">Ready.</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*main_user_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the name of the logged-in user, which
+is displayed in the status bar of the monitor box window after login.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*main_server_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the ObjectServer name that is displayed
+in the status bar of the monitor box window after login.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*sub_status_line.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the status message that is displayed
+in the status bar of an event list; for example, <samp class="ph msgph">No rows modified.</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*sub_clock.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the date and time displayed in the status
+bar of an event list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*sub_user_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the name of the logged-in user, which
+is displayed in the status bar of an event list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*sub_server_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the ObjectServer name that is displayed
+in the status bar of an event list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 ">NCOEvent*sub_matrix.labelFont</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the column headers in an event list
+table.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d27384e107 "><strong class="ph b">NCOEvent*sub_matrix.fontList</strong></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d27384e109 ">Affects the text for the event data in an event
+list table.<div class="note note"><span class="notetitle">Note:</span> This resource is not listed in the <span class="ph filepath">NCOEvent</span> resource
+file, but can be added if you want to change the font for the event
+data. You can copy and paste the NCOEvent*sub_matrix.labelFont line,
+so that it is duplicated within the file. Then amend the pasted line
+by changing the <samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp> portion
+to <samp class="ph codeph">NCOEvent*sub_matrix.fontList</samp></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <p class="p">For example, to increase the font size
+of any of these resources from <strong class="ph b">12</strong> to <strong class="ph b">24</strong>, you can change <samp class="ph codeph">-adobe-helvetica-bold-r-normal--<strong class="ph b">12</strong>-*-75-75-*-*-iso*-*</samp> to <samp class="ph codeph">-adobe-helvetica-bold-r-normal--<strong class="ph b">24</strong>-*-75-75-*-*-iso*-*</samp></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save your changes.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">For the changes to take effect, close all open monitor
+box and event list windows, and then reopen them.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="You can customize the appearance of the event list.">Customizing the appearance of the event list</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+<div><a class="link" href="omn_con_configuringfontsunixdsktop.html" title="If you want to view the UNIX desktop in your locale, you might find it necessary to configure the fonts that are needed to display the text in the encoding of your locale.">Configuring fonts for the UNIX desktop</a></div>
+<div><a class="link" href="omn_usr_startingconductor.html" title="The Conductor provides single sign-on access to all the Tivoli Netcool/OMNIbus desktop tools that you can use to view and manage alerts.">Starting the Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="關於 SNMP" />
+<meta name="abstract" content="本節提供有關「簡易網路管理通訊協定 (SNMP)」架構、SNMP 管理資訊庫 (MIB) 及一些其他 MIB 概念的其他相關資訊。" />
+<meta name="Description" content="本節提供有關「簡易網路管理通訊協定 (SNMP)」架構、SNMP 管理資訊庫 (MIB) 及一些其他 MIB 概念的其他相關資訊。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>關於 SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">關於 SNMP</h1>
+<div class="body refbody"><p class="shortdesc">本節提供有關「簡易網路管理通訊協定 (SNMP)」架構、SNMP 管理資訊庫 (MIB) 及一些其他 MIB 概念的其他相關資訊。</p>
+<div class="section"><p class="p">在 SNMP 架構中，管理程式元件管理代理程式。代理程式是網路裝置上執行的軟體或應用程式，它會回應資訊要求（Set 和
+Get），然後產生自主通知（稱為設陷）。管理程式是用來接收設陷及提供機制（以便從網路裝置 SET 或 GET SNMP 物件）的軟體。</p>
+<p class="p">若要接收自主設陷，則管理程式會執行在 TCP/IP SNMP 設陷埠（埠 162）上接聽的應用程式。SNMP SET 和 GET 使用埠 161。此應用程式通常稱為 Trapd 或設陷常駐程式。設陷常駐程式是在背景執行並處理電腦上的服務的處理程序。Netcool Trapd 應用程式稱為 SNMP 探測器（<span class="ph filepath">nco_p_mttrapd</span>，其中 <span class="ph filepath">mt</span> 是多執行緒的縮寫），且位於 <span class="ph filepath">$OMNIHOME/probes/</span> 目錄中。
+<span class="keyword">MIB Manager</span> 所產生的規則檔案設計為供 SNMP 探測器使用。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">安全性</h2><p class="p">SNMP v1 和 v2 中的基本安全是透過使用社群字串提供的。
+社群字串是純文字密碼，隨所有要求一起傳送。存在個別的社群字串供唯讀存取及讀寫存取。<span class="keyword">MIB Manager</span> 必須瞭解裝置上定義的社群字串，才能執行任何要求（若為 GET 則為唯讀，若為 SET 則為讀寫），且 SNMP 設陷及通知會與預先定義的社群字串一起傳送到 <span class="keyword">MIB Manager</span>。</p>
+<p class="p">所有支援 SNMP 的網路裝置都具有用於定義社群字串的機制。標準預設唯讀密碼是公用的，而標準預設讀寫密碼是專用的。
+如果裝置上未設定任何社群字串，則它通常為下列其中一個密碼。基於安全考量，應儘快變更預設密碼。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">其他資訊</h2><div class="p">若要充分瞭解 SNMP 架構及 MIB，則下列書籍很有用：<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP（第三版）</cite>，作者
+Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite>，作者 David Perkins 和 Evan
+McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">如需 ASN.1 及「基本編碼規則 (BER)」（用於將 SNMP 資料編碼為「通訊協定資料單元 (PUD)」封包以在網路上傳輸）的討論，請參閱下列書籍：</p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management
+Standards</cite>，作者：William Stallings (Addison-Wesley, 1993)。</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">MIB 概念與設計</a></span><br />
+所有定義以供特定裝置使用的 SNMP MIB 模組包含該裝置的 MIB。術語 MIB 通常用來說明單一模組定義，但是，這在技術上是不正確的。
+實際上，MIB 是用來管理特定裝置（無論該裝置與硬體還是軟體相關）之所有模組的組合。因此，由供應商或在 RFC 中定義的每個模組，更精確的名稱為 SNMP MIB 模組。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">MIB 物件類型</a></span><br />
+本主題說明在 SNMP v1 和 v2 中定義的數種類型。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">有效的 MIB 物件格式</a></span><br />
+本主題說明有效的 MIB 物件格式。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager 是基於 IBM Eclipse 的 GUI 應用程式，您可以使用它來剖析可從中產生 Netcool 規則檔案的「簡易網路管理通訊協定 (SNMP)」管理資訊庫 (MIB) 檔案。它預期作為 mib2rules 公用程式的取代項目。">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

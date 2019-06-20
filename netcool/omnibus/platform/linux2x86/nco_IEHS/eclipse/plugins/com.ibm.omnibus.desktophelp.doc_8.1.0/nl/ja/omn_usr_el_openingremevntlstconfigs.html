@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="リモート・イベント・リスト構成を開く" />
+<meta name="abstract" content="リモート・サーバーに配置された 1 つ以上のイベント・リストを開くために、リモート・イベント・リスト構成ファイルを開くことができます。 HTTP または FTP を使用してサーバーにアクセス可能である必要があります。" />
+<meta name="Description" content="リモート・サーバーに配置された 1 つ以上のイベント・リストを開くために、リモート・イベント・リスト構成ファイルを開くことができます。 HTTP または FTP を使用してサーバーにアクセス可能である必要があります。" />
+<meta name="DC.subject" content="イベント・リスト構成, 開く, リモート" />
+<meta name="keywords" content="イベント・リスト構成, 開く, リモート" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_openingremevntlstconfigs" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevntlstconfigs.html" />
+<title>リモート・イベント・リスト構成を開く</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_openingremevntlstconfigs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">リモート・イベント・リスト構成を開く</h1>
+<div class="body taskbody"><p class="shortdesc">リモート・サーバーに配置された 1 つ以上のイベント・リストを開くために、リモート・イベント・リスト構成ファイルを開くことができます。 HTTP または FTP を使用してサーバーにアクセス可能である必要があります。</p>
+<div class="section context">リモート・イベント・リスト構成ファイルを開くには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウから、<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「開く」</span></span>をクリックします。 </span> 「<span class="keyword wintitle">構成を開く</span>」ウィンドウが開きます。 </li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。<span class="ph uicontrol">「ファイル名」</span>フィールドにリモート・ファイルの Web アドレスを入力し、<span class="ph uicontrol">「OK」</span>をクリックします。 Web アドレスのフォーマットには、以下のいずれかを使用する必要があります。</span> <p class="p"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p">サーバーがデフォルトのポートを使用していない場合にのみ、オプションのポート番号 <var class="keyword varname">:port</var> を
+指定する必要があります。 HTTP の場合、
+Web サーバーはリモート・ホスト上で稼働している必要があります。 </p>
+
+<p class="p"><span class="ph">オプションで、<var class="keyword varname">servername</var> 値の IPv4 または IPv6 アドレスを指定することもできます。 IPv6 アドレスを指定する場合は、例えば以下のように、アドレスを大括弧 [] で囲みます。</span></p>
+
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+
+<p class="p">FTP を使用する場合、パスはホーム・ディレクトリーからの相対パスである必要があります。例えば、<span class="ph filepath">/<var class="keyword varname">mydir</var>/<var class="keyword varname">myconfig</var>.elc</span> です。</p>
+
+<p class="p">リモート・ファイルのコピーが、ローカル・キャッシュに
+書き込まれます。 Windows システムの場合、以前に開いたリモート・ファイルを指定すると、キャッシュされたコピーが使用されます。 リモート・ファイルが検索できない場合は、
+エラー・メッセージが表示されます。</p>
+
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div>検索が成功した場合は「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウが最新表示され、
+その構成内にモニター・ボックスが表示されます。さらに、イベント・リストのタイトル・バーに選択された構成ファイル名が表示されます。 </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="「イベント・リスト」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (.elc) ファイルになります。">イベント・リスト構成の操作</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

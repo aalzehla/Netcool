@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="监视和管理事件列表中的事件" />
+<meta name="abstract" content="您可使用事件列表来监视和管理警报。 ObjectServer 收到事件、警报、消息或数据项时，将创建警报。 每个警报由 ObjectServer alerts.status 表的行中的信息列（或字段）组成。" />
+<meta name="description" content="您可使用事件列表来监视和管理警报。 ObjectServer 收到事件、警报、消息或数据项时，将创建警报。 每个警报由 ObjectServer alerts.status 表的行中的信息列（或字段）组成。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_performingcollectiveacts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_netcoolismineventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringsaeinevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringpredictiveevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringtaddmevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_identifyrootcauseevent.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringmanagevnts" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>监视和管理事件列表中的事件</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringmanagevnts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">监视和管理事件列表中的事件</h1>
+<div class="body conbody"><p class="shortdesc">您可使用事件列表来监视和管理警报。
+ObjectServer 收到事件、警报、消息或数据项时，将创建警报。 每个警报由 ObjectServer alerts.status 表的行中的信息列（或字段）组成。</p>
+<p class="p">可使用过滤器和视图来确定事件列表中显示的警报信息。 <dfn class="term">过滤器</dfn>使您能够根据特定条件显示警报子集。 <dfn class="term">视图</dfn>使您能够选择要显示的警报字段。 </p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_startingeventlist.html">启动事件列表</a></span><br />
+要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。
+您可以从 Conductor、命令行或 Windows <span class="ph uicontrol">开始</span>菜单启动事件列表。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_managingevents.html">使用事件列表来管理事件</a></span><br />
+使用事件列表来管理事件。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_performingcollectiveacts.html">对事件列表执行统一操作</a></span><br />
+在“<span class="keyword wintitle">事件列表</span>”监视器框窗口上，每个监视器框代表一个事件列表，这些列表包含与过滤器和视图的特定配置相匹配的事件。 可以单独访问每个事件列表并管理事件。 也可以对所有事件列表执行一些统一的操作。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_workingwithevntlstconfigs.html">处理事件列表配置</a></span><br />
+可以保存为“<span class="keyword wintitle">事件列表</span>”监视器框窗口上的所有监视器框定义的过滤器、视图以及其他事件配置。 该信息保存在事件列表配置（<span class="ph filepath">.elc</span>）文件中。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_netcoolismineventlist.html">事件列表中的因特网服务监视器</a></span><br />
+<span class="keyword">IBM Tivoli Composite Application
+Manager for Internet Service Monitoring</span> 与其余 <span class="keyword">Tivoli Netcool/OMNIbus</span> 产品套件配合使用。 监视器和探测器生成的事件可发送到同一个 ObjectServer，并且您可使用同一个桌面处理这些事件。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringsaeinevntlst.html">监视事件列表中的影响服务事件</a></span><br />
+<span class="ph">影响服务事件（SAE）是一种警报，它警告操作员一个关键客户服务已受到一个或多个网络事件的影响。影响服务事件在 <span class="keyword">IBM Tivoli Network Manager IP Edition</span> 内生成。</span></li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringpredictiveevents.html">监视事件列表中的预测事件</a></span><br />
+预测事件表示对即将发生的阈值违例的预测。这些事件不同于转发给 <span class="keyword">Tivoli Netcool/OMNIbus</span> 的其他事件，因为它们表示尚未发生但很可能在近期发生的情况、故障或状态。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringtaddmevents.html">监视事件列表中的 TADDM 事件</a></span><br />
+在您的 IT 环境中检测到配置更改时，将在 <span class="keyword">IBM
+Tivoli Application Dependency Discovery Manager</span> 内生成 <span class="keyword">TADDM</span> 事件。如果您的系统已配置为支持该功能，那么可以通过 <span class="keyword">Tivoli Netcool/OMNIbus</span> 事件列表监视 <span class="keyword">TADDM</span> 事件。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_identifyrootcauseevent.html">从事件列表中找出根本原因事件</a></span><br />
+在虚拟化环境中，<span class="keyword">Tivoli Netcool/OMNIbus</span> 可以关联事件来确定哪些事件是其他症状事件的根本原因事件。如果您的系统上启用了此功能，您可以在事件列表中找出症状事件后的根本原因事件。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_runningtransientevntlsts.html">从命令行、脚本和工具运行瞬时事件列表</a></span><br />
+您可直接从命令行、脚本或部分事件列表工具运行定制的瞬时事件列表。</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

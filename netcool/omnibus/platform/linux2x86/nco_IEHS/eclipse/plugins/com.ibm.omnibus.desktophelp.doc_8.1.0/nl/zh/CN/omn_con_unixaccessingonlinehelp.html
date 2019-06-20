@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="在 UNIX 上访问联机帮助" />
+<meta name="abstract" content="联机帮助是使用 IBM Eclipse 帮助系统（IEHS）（一种 Web 应用程序）进行部署的。根据您的安装和配置设置，您能以单机方式或信息中心方式访问联机帮助。" />
+<meta name="description" content="联机帮助是使用 IBM Eclipse 帮助系统（IEHS）（一种 Web 应用程序）进行部署的。根据您的安装和配置设置，您能以单机方式或信息中心方式访问联机帮助。" />
+<meta name="DC.subject" content="联机帮助, 访问, 配置, 单机方式, 信息中心方式, IBM Eclipse 帮助系统（IEHS）, IEHS（IBM Eclipse 帮助系统）, IEHS, 关闭服务器" />
+<meta name="keywords" content="联机帮助, 访问, 配置, 单机方式, 信息中心方式, IBM Eclipse 帮助系统（IEHS）, IEHS（IBM Eclipse 帮助系统）, IEHS, 关闭服务器" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_unixaccessingonlinehelp" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>在 UNIX 上访问联机帮助</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_unixaccessingonlinehelp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">在 UNIX 上访问联机帮助</h1>
+<div class="body taskbody"><p class="shortdesc">联机帮助是使用 IBM® Eclipse 帮助系统（IEHS）（一种 Web 应用程序）进行部署的。根据您的安装和配置设置，您能以单机方式或信息中心方式访问联机帮助。</p>
+<div class="section context"><p class="p">要配置和访问联机帮助，请以下表所描述的方式继续操作。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 帮助配置设置</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d5786e59">设置</th>
+<th class="entry" valign="bottom" width="75%" id="d5786e61">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d5786e59 ">浏览器（UNIX）的环境变量</td>
+<td class="entry" valign="top" width="75%" headers="d5786e61 ">将您浏览器的目录位置添加到以下环境变量（如果尚未添加）：<ul class="ul"><li class="li">PATH</li>
+<li class="li">LD_LIBRARY_PATH（Solaris 和 Linux）、LIBPATH（AIX®）或 SHLIB_PATH（HP-UX）</li>
+<li class="li">特定于浏览器的环境变量；例如：MOZILLA_FIVE_HOME</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5786e59 ">单机方式</td>
+<td class="entry" valign="top" width="75%" headers="d5786e61 ">要以单机方式使用联机帮助，您必须在 <span class="keyword">Tivoli Netcool/OMNIbus</span> 安装期间已选择了<span class="ph uicontrol">本地帮助系统</span>功能部件。 <div class="p">在安装后，只有在其他本地服务正在使用缺省 IEHS 端口号 8888 时才有必要进行配置。 如果正是这种情况，请按如下所示编辑 IEHS 配置文件 <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span>： <ul class="ul"><li class="li">IEHSMode：0</li>
+<li class="li">IEHSHost：<var class="keyword varname">空白</var></li>
+<li class="li">IEHSPort：<var class="keyword varname">未用端口号</var></li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">注：</span> 在更改配置文件中的端口号后，您必须关闭本地 IEHS 服务器以使您的更改生效。 运行 <kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd> 命令。
+（如果更改了浏览器的环境变量设置，那么您也必须关闭 IEHS 服务器以使您的更改生效。） </div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5786e59 ">信息中心方式</td>
+<td class="entry" valign="top" width="75%" headers="d5786e61 ">信息中心方式中，您的系统管理员会配置此设置，以便所有的用户可以共享联机帮助系统的同一个 IEHS Web 服务器，这样可减轻本地主机或工作站上的负载。<p class="p">如果您的系统管理员通知您必须以信息中心方式访问联机帮助，那么您必须以如下方式配置本地 IEHS 配置文件 <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span>： </p>
+<ul class="ul"><li class="li">IEHSMode：1</li>
+<li class="li">IEHSHost：<var class="keyword varname">IEHS 服务器的 IP 地址或主机名</var></li>
+<li class="li">IEHSPort：<var class="keyword varname">运行 IEHS 服务器所用的端口号</var></li>
+</ul>
+<p class="p">系统管理员将提供 IEHSHost 和 IEHSPort 设置。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">当您以单机方式访问联机帮助时，缺省帮助浏览器窗口会自动打开，并带有相关文本。 本地 IEHS 服务器将开始处理第一个帮助请求，并一直运行到您将其关闭为止。 要关闭本地 IEHS 服务器，请运行以下命令：</p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd></p>
+<p class="p">通常，仅在重新引导计算机之前才运行 <span class="keyword cmdname">help_end</span> 命令。</p>
+<p class="p">在您能够以信息中心方式访问联机帮助之前，您的系统管理员必须启动指定的远程 IEHS 服务器。</p>
+<div class="note note"><span class="notetitle">注：</span> 单机方式中，只有在本地计算机上运行的浏览器才能显示帮助主题。 如果有一个打开的浏览器在其他主机上运行，那么帮助系统会尝试使用该浏览器来显示联机帮助。 这会生成以下错误消息： <br /><samp class="ph systemoutput">在尝试连接到本地主机 <var class="keyword varname">name</var> 时连接遭到拒绝</samp> <br />请关闭窗口以在正确的浏览器中显示帮助。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="您可使用 Conductor 来管理 Tivoli Netcool/OMNIbus 桌面 工具（或客户机应用程序）。">访问桌面工具</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

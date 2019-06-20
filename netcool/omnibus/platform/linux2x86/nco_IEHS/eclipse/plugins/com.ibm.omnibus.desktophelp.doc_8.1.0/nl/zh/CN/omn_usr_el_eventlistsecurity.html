@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="事件列表安全性" />
+<meta name="abstract" content="所有 Tivoli Netcool/OMNIbus 用户均属于一个或多个用户组。 对每个组都指定了一个或多个角色，用于确定该组的许可权。 用户能够访问的桌面工具以及能够使用此桌面工具执行的任务取决于用户所属的组和为该组分配的角色。" />
+<meta name="description" content="所有 Tivoli Netcool/OMNIbus 用户均属于一个或多个用户组。 对每个组都指定了一个或多个角色，用于确定该组的许可权。 用户能够访问的桌面工具以及能够使用此桌面工具执行的任务取决于用户所属的组和为该组分配的角色。" />
+<meta name="DC.subject" content="事件列表, 安全性, AlertSecurityModel 属性, ObjectServer 属性" />
+<meta name="keywords" content="事件列表, 安全性, AlertSecurityModel 属性, ObjectServer 属性" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_sec_implementingauth.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_assigningownrshptoevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_acknowledgingdeack.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_eventlistsecurity" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_managingevents.html" />
+<title>事件列表安全性</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_eventlistsecurity">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">事件列表安全性</h1>
+<div class="body conbody"><p class="shortdesc">所有 <span class="keyword">Tivoli Netcool/OMNIbus</span> 用户均属于一个或多个用户<dfn class="term">组</dfn>。 对每个组都指定了一个或多个<dfn class="term">角色</dfn>，用于确定该组的许可权。 用户能够访问的桌面工具以及能够使用此桌面工具执行的任务取决于用户所属的组和为该组分配的角色。</p>
+<p class="p">“普通”、“管理员”和“系统”组在事件列表中提供组的行级安全性。 
+<span class="keyword parmname parmname">AlertSecurityModel</span> ObjectServer 属性确定是否在事件列表中执行组的行级安全性。</p>
+<p class="p">缺省情况下禁用 <span class="keyword parmname parmname">AlertSecurityModel</span> 属性，不执行组的行级安全性。 在这种情况下：</p>
+<ul class="ul"><li class="li">“普通”组成员可修改分配给他们自己或 <samp class="ph tt">nobody</samp> 用户的行。 当从 ObjectServer 接收到警报时，警报在缺省情况下分配给 <samp class="ph tt">nobody</samp> 用户。</li>
+<li class="li">“管理员”组成员可修改分配给他们自己、<samp class="ph tt">nobody</samp> 用户或“普通”组成员的行。</li>
+</ul>
+<p class="p">如果启用了 <span class="keyword parmname parmname">AlertSecurityModel</span> 属性，那么只有作为行所有者的组中用户才能对该行进行修改。 在这种情况下，“普通”组或“管理员”组的成员可以修改分配给其所在组的行。</p>
+<p class="p">“系统”组的成员可修改任何行。</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_managingevents.html" title="使用事件列表来管理事件。">使用事件列表来管理事件</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_con_sec_implementingauth.html" title="许可权控制对 ObjectServer 中对象和数据的访问。 通过将一个或多个许可权合并到角色中，您可以迅速有效地管理访问。">通过使用组和角色来实施授权</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_assigningownrshptoevents.html" title="事件从探测器到达时，除非已将事件的所有权分配给了特定用户，否则此事件的所有者为 nobody 用户。 具有相应特权的用户可以在整个问题生命周期内取得事件的所有权，或将事件分配给特定的用户或组。">将所有权分配给事件</a></div>
+<div><a class="link" href="omn_usr_el_acknowledgingdeack.html" title="可以在事件列表内应答和取消应答事件，但仅当您有许可权时才能进行此操作。">应答和取消应答事件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

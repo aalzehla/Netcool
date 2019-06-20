@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Multicultural support" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus uses the International Components for Unicode (ICU) library for character set conversion, and supports the character encodings that ICU supports." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus uses the International Components for Unicode (ICU) library for character set conversion, and supports the character encodings that ICU supports." />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_i18nsupport" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Multicultural support</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_i18nsupport">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Multicultural support</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> uses the International Components for Unicode (ICU) library
+for character set conversion, and supports the character encodings
+that ICU supports.</p>
+<p class="p">ICU is a cross-platform Unicode-based globalization library that
+includes support for locale-sensitive string comparison, date formatting,
+time formatting, number formatting, currency formatting, message formatting,
+text boundary detection, and character set conversion. For a list
+of the supported character encodings, see the ICU Web site at <a class="xref" href="http://www.icu-project.org/" target="_blank" title="(Opens in a new tab or window)">http://www.icu-project.org/</a>.</p>
+<p class="p">Text data is automatically converted between character encodings
+if a client and an ObjectServer are using different encodings. Run
+the ObjectServer in an encoding that includes all of the characters
+that are used in all locations in your <span class="keyword">Tivoli Netcool/OMNIbus</span> deployment. If your deployment uses data from different
+languages, run the ObjectServer in 8-bit Unicode Transition Format
+(UTF-8) encoding to ensure that it can handle all text data.</p>
+<div class="note note"><span class="notetitle">Note:</span> If you are using external authentication sources
+to verify user credentials, you must establish whether these authentication
+sources also support multi-byte characters. If multi-byte characters
+are not supported, you must specify user names and passwords by using
+ASCII characters.</div>
+<div class="section"><h2 class="title sectiontitle">Configuring fonts for the historical view of the AEN client</h2><p class="p">If an accelerated event contains national language characters,
+those characters might be rendered incorrectly in the <span class="keyword wintitle">Historical Data Viewer</span> window of the Accelerated
+Event Notification (AEN) client. To resolve this problem, change the
+font used in the <span class="keyword wintitle">Historical Data Viewer</span> window. This font is defined in the AEN properties file. To change
+the font:</p>
+<ol class="ol"><li class="li">Open the following file:<ul class="ul"><li class="li"><img src="ngunix.gif" alt="For UNIX operating system" /> <span class="ph filepath"><var class="keyword varname">userhome</var>/.netcool/nco_aen_settings/aen.properties</span></li>
+<li class="li"><img src="ngwin.gif" alt="For Windows operating system" /> <span class="ph filepath"><var class="keyword varname">userhome</var>\.netcool\nco_aen_settings\aen.properties</span></li>
+</ul>
+</li>
+<li class="li">Add a line to the end of the file in the following format: <kbd class="ph userinput">system.List.font=<var class="keyword varname">fontname</var>,<var class="keyword varname">fontstyle</var>,<var class="keyword varname">fontsize</var></kbd><p class="p">For example, if Simplified
+Chinese characters are displaying incorrectly, add the following line: <kbd class="ph userinput">system.List.font=courier,BOLD,11</kbd></p>
+</li>
+<li class="li">Restart the AEN client.</li>
+</ol>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

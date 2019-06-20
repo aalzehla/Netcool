@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating tables" />
+<meta name="abstract" content="A table has a fixed number of data-typed columns. The name of each column is unique to the table. A table contains zero or more rows of data in the format defined by the table's column list. The fully-qualified table name includes the database name and the table name, separated by a period." />
+<meta name="Description" content="A table has a fixed number of data-typed columns. The name of each column is unique to the table. A table contains zero or more rows of data in the format defined by the table's column list. The fully-qualified table name includes the database name and the table name, separated by a period." />
+<meta name="DC.subject" content="creating, tables" />
+<meta name="keywords" content="creating, tables" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringdatabases.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_addingedittablecols.html" />
+<meta name="DC.Relation" scheme="URI" content="column_details.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingtables" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringdatabases.html" />
+<title>Creating tables</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingtables">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating tables</h1>
+<div class="body taskbody"><p class="shortdesc">A table has a fixed number of data-typed columns. The name
+of each column is unique to the table. A table contains zero or more
+rows of data in the format defined by the table's column list. The
+fully-qualified table name includes the database name and the table
+name, separated by a period. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">For example, the <samp class="ph tt">status</samp> table in the alerts database
+is identified as alerts.status.</p>
+<p class="p">To
+create a table:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">System</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Databases</span>. </span> The <span class="keyword wintitle">Databases,
+Tables and Columns</span> pane opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Select the database in which you are creating the table.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the toolbar, click <span class="ph uicontrol">Create Table</span>.</span> The <span class="keyword wintitle">Table Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type the table name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select one of the following table types: <ul class="ul"><li class="li"><span class="ph uicontrol">Persistent</span>: When the ObjectServer restarts, a persistent
+table is recreated with all data.</li>
+<li class="li"><span class="ph uicontrol">Virtual</span>: When the ObjectServer restarts, a virtual
+table is re-created with the same table description, but without
+any data.</li>
+</ul>
+</dd>
+<dt class="dt dlterm"><var class="keyword varname">Table area</var></dt>
+<dd class="dd">This area lists details for all columns in the table. You can use the
+up and down arrows to the right to change the order of a selected column in
+the table.</dd>
+<dt class="dt dlterm">Add column</dt>
+<dd class="dd">Click this button if you want to add a new column to the table. The <span class="keyword wintitle">Column
+Details</span> window opens. Complete this window and save your changes. </dd>
+<dd class="dd"> When you return to the <span class="keyword wintitle">Table Details</span> window, the
+new column is added to the list of columns.</dd>
+<dt class="dt dlterm">Edit column</dt>
+<dd class="dd">Click this button if you want to edit the details of a selected column.
+The <span class="keyword wintitle">Column Details</span> window opens. Edit the details and
+save your changes.</dd>
+<dd class="dd"> When you return to the <span class="keyword wintitle">Table Details</span> window, the
+updates to the column details are reflected in the column list.</dd>
+<dt class="dt dlterm">Delete column</dt>
+<dd class="dd">Click this button if you want to drop a selected column from the table.
+No confirmation is required for the deletion.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the table details and close the window. New
+tables are added to the <span class="keyword wintitle">Databases, Tables and Columns</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><div class="note tip"><span class="tiptitle">Tip:</span> You can use the <span class="ph uicontrol">Data View</span> tab
+on the <span class="keyword wintitle">Databases, Tables and Columns</span> window to
+view table data, and use the <span class="ph uicontrol">Column Definitions</span> tab
+to view detailed information about the columns in the table.</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringdatabases.html" title="Database configuration involves the creation and maintenance of database tables, and columns within the tables.">Configuring databases</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_addingedittablecols.html" title="You can add new columns to ObjectServer tables or edit existing columns. The maximum number of columns in a table is 512, excluding the system-maintained columns. The maximum row size for a table, which is the sum of the length of the columns in the row, is 64 KB. You cannot add PRIMARY KEY columns to existing tables.">Adding and editing table columns</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="column_details.html" title="Use this window to set up a new column or edit the details of an existing column.">Column Details</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl-pl" lang="pl-pl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Widok Moduły MIB" />
+<meta name="abstract" content="Widok Moduły MIB stanowi reprezentację wszystkich zaimportowanych modułów MIB i umożliwia wyszukiwanie oraz usuwanie modułów MIB, a także wyszukiwanie określonych wartości MIB." />
+<meta name="Description" content="Widok Moduły MIB stanowi reprezentację wszystkich zaimportowanych modułów MIB i umożliwia wyszukiwanie oraz usuwanie modułów MIB, a także wyszukiwanie określonych wartości MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mibtree" />
+<meta name="DC.Language" content="pl-pl" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="mibtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus wersja 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Widok Moduły MIB</h1>
+<div class="body refbody"><p class="shortdesc">Widok <span class="keyword wintitle">Moduły MIB</span> stanowi reprezentację wszystkich zaimportowanych modułów MIB i umożliwia wyszukiwanie oraz usuwanie modułów MIB, a także wyszukiwanie określonych wartości MIB.</p>
+<div class="section"><p class="p">Można poruszać się po widoku <span class="keyword wintitle">Moduły MIB</span>, rozwijając i zwijając węzły w drzewie MIB. Najwyższy poziom gałęzi drzewa MIB to nazwy modułów MIB, które zawierają inne elementy należące do tych modułów.</p>
+<div class="p">W widoku <span class="keyword wintitle">Moduły MIB</span> można filtrować dane, wybierając jedną z następujących opcji z listy rozwijanej <span class="ph uicontrol">Widok</span>:<ul class="ul"><li class="li"><span class="ph uicontrol">Wszystkie</span></li>
+<li class="li"><span class="ph uicontrol">Moduły</span></li>
+<li class="li"><span class="ph uicontrol">Wyliczenia</span></li>
+<li class="li"><span class="ph uicontrol">Konwencje tekstowe</span></li>
+<li class="li"><span class="ph uicontrol">Składnie</span></li>
+<li class="li"><span class="ph uicontrol">Importowanie</span></li>
+<li class="li"><span class="ph uicontrol">Eksportowanie</span></li>
+<li class="li"><span class="ph uicontrol">Kolumny</span></li>
+<li class="li"><span class="ph uicontrol">Opisy</span></li>
+</ul>
+</div>
+<p class="p">Aby przeszukać widok <span class="keyword wintitle">Moduły MIB</span> w celu znalezienia określonej wartości, należy wpisać tekst w polu <span class="ph uicontrol">Szukaj</span> i nacisnąć klawisz <span class="ph uicontrol">Enter</span> lub kliknąć ikonę <img class="image" src="../gifs/find.gif" alt="Ikona wyszukiwania" /> (Szukaj).</p>
+<p class="p">Program <span class="keyword">MIB Manager</span> zaczyna wyszukiwanie od wybranego elementu lub, jeśli żaden element nie jest zaznaczony, od pierwszej pozycji na liście. Aby znaleźć następną pasującą pozycję na liście, klikaj ponownie ikonę <img class="image" src="../gifs/find.gif" alt="Ikona wyszukiwania" /> (Szukaj).</p>
+<p class="p">Jeśli element jest zlokalizowany, jest on automatycznie podświetlony i wyświetlony w widoku <span class="keyword wintitle">Moduły MIB</span>. </p>
+<p class="p">W polu <span class="ph uicontrol">Szukaj</span> podaj poprawne wyrażenie regularne lub wpisz zwykły tekst, stanowiący pełną lub częściową nazwę obiektu.</p>
+<p class="p">Aby usunąć jeden lub więcej modułów MIB, należy kliknąć prawym przyciskiem myszy wybrany moduł lub moduły MIB, a następnie z menu podręcznego wybrać opcję <span class="ph uicontrol">Usuń</span>. Wybrany moduł MIB jest usuwany z programu <span class="keyword">MIB Manager</span>. Oryginalne pliki źródłowe MIB, dostarczone dla importu MIB, nie są jednak usuwane.</p>
+<div class="p"><div class="note note"><span class="notetitle">Uwaga:</span> Moduł MIB należy usunąć tylko w przypadku, gdy zawiera błędy i istnieje nowa wersja zastępująca ten moduł. Usuwanie modułów MIB za pomocą tej metody może spowodować braki w zależnościach MIB. W trakcie procesu eksportowania, razem z komunikatami o błędach i ostrzeżeniami, mogą być również generowane w plikach dziennika niepełne pliki reguł.</div>
+</div>
+<p class="p">Poniższa tabela zawiera listę ikon widoku <span class="keyword wintitle">Moduły MIB</span> i opisuje każdą z nich.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabela 1. Ikony widoku Moduły MIB i obiekty, które reprezentują:</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="28.14070351758794%" id="d4487e116">Ikona</th>
+<th class="entry" valign="top" width="71.85929648241206%" id="d4487e118">Reprezentacja</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "> <div class="image"><img class="image" src="../gifs/exports.gif" alt="Ikona eksportów" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">EXPORTS (eksporty)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "> <div class="image"><img class="image" src="../gifs/export.gif" alt="Ikona eksportu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">EXPORT (eksport)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "> <div class="image"><img class="image" src="../gifs/imports.gif" alt="Ikona importów" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">IMPORTS (importy)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "> <div class="image"><img class="image" src="../gifs/import.gif" alt="Ikona importu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">IMPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="Ikona identyfikatora obiektu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">OBJECT IDENTIFIER, OBJECT-IDENTITY (identyfikator obiektu, tożsamość obiektu)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="Możliwości agenta" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">AGENT-CAPABILITIES (możliwości agenta)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="Ikona zgodności modułu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">MODULE-COMPLIANCE (zgodność modułu)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/module_identity.gif" alt="Tożsamość modułu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">MODULE, MODULE-IDENTITY (moduł, tożsamość modułu)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/obj_group.gif" alt="Grupa obiektów" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">OBJECT-GROUP (grupa obiektów)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="Grupa powiadomień" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">NOTIFICATION-GROUP (grupa powiadomień)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="Typ pułapki" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">TRAP-TYPE (typ pułapki w wersji v1)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="Typ powiadomień" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">NOTIFICATION-TYPE (typ powiadomień dla pułapki w wersji v2)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="Ogólny typ obiektu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">OBJECT-TYPE (ogólny typ obiektu)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="Licznik" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">COUNTER (licznik)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="Licznik 32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">COUNTER32 (licznik typu 32)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="Licznik 64" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">COUNTER64 (licznik typu 64)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="Wskaźnik wartości" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">GAUGE (wskaźnik wartości)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="Wskaźnik wartości 32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">GAUGE32 (wskaźnik wartości typu 32)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="Liczba całkowita" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">INTEGER (liczba całkowita)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="Liczba całkowita 32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">INTEGER32 (liczba całkowita typu 32)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="Adres IP" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">IpAddress (adres IP)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="Adres sieciowy" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">NetworkAddress (adres sieciowy)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">OID (identyfikator obiektu)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="Łańcuch oktetów" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">OCTET STRING (łańcuch oktetów)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="Tabela sekwencji" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">SEQUENCE (tabela)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="Wpis tabeli sekwencji" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">SEQUENCE (wpis, wiersz tabeli)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="Zliczenia czasu" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">TIMETICKS (zliczenia czasu)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4487e116 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="Konwencja tekstowa" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4487e118 ">TEXTUAL-CONVENTION (konwencja tekstowa)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Temat nadrzędny:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Za pomocą programu MIB Manager można analizować moduły MIB i tworzyć pliki reguł programu Netcool.">Używanie programu Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteka</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Wsparcie</a> |</span>
+<br />
+</div>
+</body>
+</html>

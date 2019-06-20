@@ -1,0 +1,130 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2003, 2015. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# IC_start - Start IEHS in Infocentre mode
+#
+# --
+#######################################
+
+#######################################
+# MAIN
+#######################################
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+	echo "Cannot find nco_common" 1>&2
+	exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export OMNIHOME NCHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+
+if [ "$NCHOME" = ""  ]
+then
+	echo Cannot find your NCHOME environment
+	exit 1
+fi
+# redefine OMNIHOME to NCHOME/omnibus
+OMNIHOME="$NCHOME/omnibus"
+CONFIGFILE="$OMNIHOME/etc/nco_IEHS.cfg"
+#
+# Locate JRE
+#
+if [ -n "$NCO_JRE_64" -a -x "$NCO_JRE_64/bin/java" ]
+then
+	JAVA="$NCO_JRE_64/bin/java"
+elif [ -n "$NCO_JRE" -a -x "$NCO_JRE/bin/java" ]
+then
+	JAVA="$NCO_JRE/bin/java"
+else
+	JAVA=`ls "$NCHOME/platform/$ARCH/"jre_*.*.*"/jre/bin/java" 2> /dev/null | tail -1`
+	if [ -z "$JAVA" -o ! -x "$JAVA" ]
+	then
+		echo "Cannot find your Java environment"
+		echo "$NCHOME/platform/$ARCH/jre_*.*.*/jre"
+		exit 1
+	fi
+fi
+#
+# Set classpath to only include relevant jar files
+#
+if [ -z "${CLASSPATH}" ]; then
+	export CLASSPATH
+fi
+CLASSPATH=${OMNIHOME}/platform/${ARCH}/nco_IEHS/eclipse/plugins/org.eclipse.help.base_3.5.0.v201006080911/helpbase.jar
+
+IEHSPATH=${OMNIHOME}/platform/${ARCH}/nco_IEHS
+
+HOSTOPTION=""
+
+#
+# Read host, port number from  nco_IEHS.cfg
+#
+if [ -r $CONFIGFILE ]; then
+	# Remove comment lines
+	COMMENTLINE="/^\#/d"
+	# Remove IEHSPort: string in found lines
+	IEHSPORT="s/IEHSPort://g"
+	# Remove IEHSHost: string in found lines
+	IEHSHOST="s/IEHSHost://g"
+	SPACE="s/ //g"
+	# Only return the first returned IEHSPort line
+	PORTNUM=`cat $CONFIGFILE | 
+		sed -e "$COMMENTLINE" | grep IEHSPort | sed -e "$IEHSPORT" | sed -e "$SPACE" | sed -n "1p"`
+	if [ "$PORTNUM" = "" ]; then
+		echo "IEHSPort: is not configurated properly in $CONFIGFILE"
+		exit 1
+	fi
+	# Only return the first returned IEHSHost line
+	HOSTNAME=`cat $CONFIGFILE |
+		sed -e "$COMMENTLINE" |grep IEHSHost | sed -e "$IEHSHOST" | sed -e "$SPACE" | sed -n "1p"`
+	if [ "$HOSTNAME" = "" ]; then
+		HOSTNAME="local machine"
+	else
+		HOSTOPTION=" -host $HOSTNAME "
+	fi
+else
+	echo "Can't find $CONFIGFILE or it's not readable"
+	exit 1
+fi
+#
+# Get the version of latest omnibus desktop plug-in for plugin_customization.ini file
+#
+versionlist=`ls -d "$NCHOME/omnibus/platform/$ARCH/nco_IEHS/eclipse/plugins/com.ibm.omnibus.desktophelp.doc_"*.*.*  2> /dev/null `
+PLUGIN_VER=`echo "$versionlist" \
+	| sed 's/^.*desktophelp\.doc_\([0-9]*\.[0-9]*\.[0-9]*\)*$/\1/' \
+	| awk -F. '{printf "%010d%010d%010d %s\n", $1, $2, $3, $0}' \
+	| sort \
+	| awk '{printf "%s\n", $2}' \
+	| tail -1`
+
+echo "INFO: IEHS Information Center server is running on host: $HOSTNAME port: $PORTNUM"
+
+#
+# Uset XPG_SUS_ENV in case it's set on AIX
+#
+unset XPG_SUS_ENV
+
+# Startup IEHS Infocentre
+#
+${JAVA} -classpath ${CLASSPATH} org.eclipse.help.standalone.Infocenter -eclipsehome ${IEHSPATH}/eclipse -plugincustomization ${IEHSPATH}/eclipse/plugins/com.ibm.omnibus.desktophelp.doc_${PLUGIN_VER}/plugin_customization.ini  ${HOSTOPTION} -port $PORTNUM -command start -noexec -configuration configuration_iehs
+

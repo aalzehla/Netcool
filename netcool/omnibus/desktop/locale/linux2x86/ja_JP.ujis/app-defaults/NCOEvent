@@ -1,0 +1,2923 @@
+
+
+! ****************************************************************************
+! Main event list resource set.
+! ****************************************************************************
+NCOEvent*foreground: White
+NCOEvent*background: Slate Grey
+NCOEvent*fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*XmText.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*XmTextField.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*XmLabel.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*main_status_line.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*main_user_field.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*main_server_field.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*sub_status_line.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*sub_clock.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*sub_user_field.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+NCOEvent*sub_server_field.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:,-*-*-*-r-normal--24-*-75-75-*-*-iso*-*:large
+
+NCOEvent*print_fsb.width:400
+
+! Tool tip background colours
+NCOEvent*xrtGearBackground: wheat
+NCOEvent*xrtGearFontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+
+NCOEvent*xrtBackgroundColor: "Slate Grey"
+NCOEvent*xrtForegroundColor: "white"
+NCOEvent*xrtAxisFont: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+
+NCOEvent*XmToggleButton.selectColor: red
+NCOEvent*XmToggleButton.fillOnSelect: True
+NCOEvent*XmToggleButtonGadget.selectColor: red
+NCOEvent*XmToggleButtonGadget.fillOnSelect: True
+NCOEvent*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+NCOEvent*XmTextField.background: CadetBlue
+NCOEvent*XmText.background: CadetBlue
+NCOEvent*XmXrtIntField.background: CadetBlue
+
+NCOEvent*main_status_line.background: Slate Grey
+NCOEvent*main_user_field.background: Slate Grey
+NCOEvent*main_server_field.background: Slate Grey
+NCOEvent*sub_status_line.background: Slate Grey
+NCOEvent*sub_clock.background: Slate Grey
+NCOEvent*sub_user_field.background: Slate Grey
+NCOEvent*sub_server_field.background: Slate Grey
+
+NCOEvent*output_text.background: Slate Grey
+
+NCOEvent*error_dialog_popup.title: エラー
+NCOEvent*warning_dialog_popup.title: 警告
+
+NCOEvent*new_question_dialog_popup.title: 変更を中止しますか?
+NCOEvent*new_question_dialog.messageString: 新しい構成を作成すると、変更した定義が失われます。\n新しい構成を作成しますか?
+NCOEvent*new_question_dialog.okLabelString: はい
+NCOEvent*new_question_dialog.cancelLabelString: いいえ
+NCOEvent*new_question_dialog.helpLabelString: ヘルプ
+
+NCOEvent*open_question_dialog_popup.title: 変更を中止しますか?
+NCOEvent*open_question_dialog.messageString: 新しい構成を開くと、変更した定義が失われます。\n新しい構成を開きますか?
+NCOEvent*open_question_dialog.okLabelString: はい
+NCOEvent*open_question_dialog.cancelLabelString: いいえ
+NCOEvent*open_question_dialog.helpLabelString: ヘルプ
+
+NCOEvent*exit_question_dialog_popup.title: 変更を中止しますか?
+NCOEvent*exit_question_dialog.messageString: このアプリケーションを終了すると、変更した定義が失われます。\nアプリケーションを終了しますか?
+NCOEvent*exit_question_dialog.okLabelString: はい
+NCOEvent*exit_question_dialog.cancelLabelString: いいえ
+NCOEvent*exit_question_dialog.helpLabelString: ヘルプ
+
+NCOEvent*view_drop_help_dialog_popup.title: ビューの除去サイトのヘルプ
+NCOEvent*view_drop_help_dialog.messageString: ここでは、ビュー・ファイルを除去できます。\nビューを除去すると、それが現在の構成に追加されます。\n\n「OK」を押して除去を開始するか、操作をキャンセルしてください。\n
+
+NCOEvent*filter_drop_help_dialog_popup.title: フィルターの除去サイトのヘルプ
+NCOEvent*filter_drop_help_dialog.messageString: ここでは、フィルター・ファイルを除去できます。\nフィルターを除去すると、それが現在の構成に追加されます。\n\n「OK」を押して除去を開始するか、操作をキャンセルしてください。\n
+
+NCOEvent*matrix_drop_help_dialog_popup.title: 除去サイトのヘルプ
+NCOEvent*matrix_drop_help_dialog.messageString: ここでは、ビュー、フィルター、構成ファイルを除去できます。\nビューまたはフィルターを除去すると、それが現在の構成に追加され、\n現在のビューまたはフィルターとして設定されます。\n構成ファイルを除去すると、以下のいずれかの影響を受ける場合があります。\n\n1. データをコピーすると、構成データが現在の構成に追加されます。\n2. データを移動すると、現在の構成が置換されます。\n\n「OK」を押して除去を開始するか、操作をキャンセルしてください。\n
+
+! Need to set foreground of colour labels
+NCOEvent*unack_crit_label.foreground:  black
+NCOEvent*unack_major_label.foreground: black
+NCOEvent*unack_minor_label.foreground: black
+NCOEvent*unack_warn_label.foreground:  black
+NCOEvent*unack_indet_label.foreground: black
+NCOEvent*unack_clear_label.foreground: black
+NCOEvent*unack_close_label.foreground: black
+NCOEvent*ack_crit_label.foreground:  White
+NCOEvent*ack_major_label.foreground: White
+NCOEvent*ack_minor_label.foreground: White
+NCOEvent*ack_warn_label.foreground:  White
+NCOEvent*ack_indet_label.foreground: White
+NCOEvent*ack_clear_label.foreground: White
+NCOEvent*ack_close_label.foreground: White
+
+! Journal editor dialogs
+
+NCOEvent*jnext_q_dialog_popup.title: 変更を中止しますか?
+NCOEvent*jnext_q_dialog.messageString: 次の項目に移動すると、変更したジャーナルの詳細が失われます。\n次の項目に移動しますか?
+NCOEvent*jnext_q_dialog.okLabelString: はい
+NCOEvent*jnext_q_dialog.cancelLabelString: いいえ
+NCOEvent*jnext_q_dialog.helpLabelString: ヘルプ
+
+NCOEvent*jprev_q_dialog_popup.title: 変更を中止しますか?
+NCOEvent*jprev_q_dialog.messageString: 前の項目に移動すると、変更したジャーナルの詳細が失われます。\n前の項目に移動しますか?
+NCOEvent*jprev_q_dialog.okLabelString: はい
+NCOEvent*jprev_q_dialog.cancelLabelString: いいえ
+NCOEvent*jprev_q_dialog.helpLabelString: ヘルプ
+
+NCOEvent*jclose_q_dialog_popup.title: 変更を中止しますか?
+NCOEvent*jclose_q_dialog.messageString: このウィンドウを閉じると、変更したジャーナルの詳細が失われます。\nこのウィンドウを閉じますか?
+NCOEvent*jclose_q_dialog.okLabelString: はい
+NCOEvent*jclose_q_dialog.cancelLabelString: いいえ
+NCOEvent*jclose_q_dialog.helpLabelString: ヘルプ
+
+NCOEvent*extension_dialog_popup.title: 正しくない拡張子を使用しますか?
+NCOEvent*extension_dialog.messageString: 指定したファイル名の拡張子が .elc でありません\nこのファイル名でデータを保存しますか?
+NCOEvent*extension_dialog.okLabelString: はい
+NCOEvent*extension_dialog.cancelLabelString: いいえ
+NCOEvent*extension_dialog.helpLabelString: ヘルプ
+
+! Set matrix resources
+
+NCOEvent*sub_matrix.gridType:	XmGRID_SHADOW_IN
+NCOEvent*sub_matrix.rows:           1
+NCOEvent*sub_matrix.columns:        1
+NCOEvent*sub_matrix.columnWidths:   10
+
+NCOEvent*sub_matrix.cellMarginWidth: 		0
+NCOEvent*sub_matrix.cellMarginHeight:		0
+NCOEvent*sub_matrix.cellShadowThickness: 	1
+NCOEvent*sub_matrix.cellShadowType:		XmSHADOW_OUT
+NCOEvent*sub_matrix.highlightColor:		black
+
+NCOEvent*sub_matrix.showArrows: False
+
+NCOEvent*sub_matrix.foreground: black
+NCOEvent*sub_matrix.rowLabelColor: White
+NCOEvent*sub_matrix.columnLabelColor: White
+NCOEvent*sub_matrix.selectedBackground: White
+NCOEvent*sub_matrix.selectedForeground: black
+
+NCOEvent*sub_matrix.allowColumnResize:   True
+
+NCOEvent*sub_matrix.labelFont: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+
+!
+! This resource controls the scrolling while selecting in the event matrix
+! It also has a side effect that it will jump the event matrix back to the
+! selected row if the cursor leaves and then reenters the matrix window
+!
+NCOEvent*sub_matrix.selectScrollVisible: True
+
+NCOEvent*sub_matrix.translations:   #replace\n		Shift ~Ctrl<Btn1Down>: SelectCell(Match)\n		Ctrl ~Shift<Btn1Down>: SelectCell(AddSelect)\n		Shift Ctrl<Btn1Down>: ResizeColumns()\n		~Shift ~Ctrl<Btn1Down>(2): SelectCell(DClick)\n		~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n		<Btn2Down>:      ProcessDrag()\n		<Btn3Down>:      SelectCell(Menu)\n		<Key>osfUp:      SelectCell(Up)\n		<Key>osfDown:    SelectCell(Down)\n		<Key>space:      SelectCell(KeySelect)\n		<Key>Tab:	 TraverseNext()\n		Shift<Key>Tab:	 TraversePrev()\n		<FocusIn>:	 MatrixFocusIn()\n		<FocusOut>:	 MatrixFocusOut()
+NCOEvent*sub_matrix.clip.translations:   #replace\n		Shift ~Ctrl<Btn1Down>: SelectCell(Match)\n		Ctrl ~Shift<Btn1Down>: SelectCell(AddSelect)\n		Shift Ctrl<Btn1Down>: ResizeColumns()\n		~Shift ~Ctrl<Btn1Down>(2): SelectCell(DClick)\n		~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n		<Btn2Down>:      ProcessDrag()\n		<Btn3Down>:      SelectCell(Menu)\n		<Key>osfUp:      SelectCell(Up)\n		<Key>osfDown:    SelectCell(Down)\n		<Key>space:      SelectCell(KeySelect)\n		<Key>Tab:	 TraverseNext()\n		Shift<Key>Tab:	 TraversePrev()\n		<FocusIn>:	 MatrixFocusIn()\n		<FocusOut>:	 MatrixFocusOut()
+
+NCOEvent*config_list.translations:	#override\n		<Btn2Down>:     ConfigDragStart()
+
+NCOEvent*user_menu.numColumns: 4
+NCOEvent*user_menu.packing: XmPACK_COLUMN
+NCOEvent*user_menu.orientation: XmVERTICAL
+
+NCOEvent*no_user_button.labelString: [ユーザーなし]
+
+! Defaults for monitor boxes
+NCOEvent*fs_number_label.labelString:   0
+NCOEvent*fs_highest_label.labelString:  0
+NCOEvent*fs_lowest_label.labelString:   0
+NCOEvent*fs_metric_label.labelString:   0
+
+!
+! Ident: $Id: Global.res 1.2 1997/02/20 14:36:47 adam Development $
+!
+
+
+*viewBuilderSortFontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+*view_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+
+*view_builder*vb_new_question_dialog_popup.title: 変更を中止しますか?
+*view_builder*vb_new_question_dialog.messageString: 新しいビューを作成すると、変更した定義が失われます。\n新しいビューを作成しますか?
+*view_builder*vb_new_question_dialog.okLabelString: はい
+*view_builder*vb_new_question_dialog.cancelLabelString: いいえ
+*view_builder*vb_new_question_dialog.helpLabelString: ヘルプ
+
+*view_builder*vb_open_question_dialog_popup.title: 変更を中止しますか?
+*view_builder*vb_open_question_dialog.messageString: 新しいビューを開くと、変更した定義が失われます。\n新しいビューを開きますか?
+*view_builder*vb_open_question_dialog.okLabelString: はい
+*view_builder*vb_open_question_dialog.cancelLabelString: いいえ
+*view_builder*vb_open_question_dialog.helpLabelString: ヘルプ
+
+*view_builder*vb_exit_question_dialog_popup.title: 変更を中止しますか?
+*view_builder*vb_exit_question_dialog.messageString: このウィンドウを閉じると、変更した定義が失われます。\nこのウィンドウを閉じますか?
+*view_builder*vb_exit_question_dialog.okLabelString: はい
+*view_builder*vb_exit_question_dialog.cancelLabelString: いいえ
+*view_builder*vb_exit_question_dialog.helpLabelString: ヘルプ
+
+*view_builder*display_matrix.labelFont: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+
+*view_builder*display_matrix.gridType:	XmGRID_SHADOW_IN
+*view_builder*display_matrix.height:         80
+*view_builder*display_matrix.rows:           2
+*view_builder*display_matrix.columns:        1
+*view_builder*display_matrix.columnWidths:   10
+
+*view_builder*display_matrix.cellMarginWidth: 		2
+*view_builder*display_matrix.cellMarginHeight: 		2
+*view_builder*display_matrix.cellShadowThickness:	1
+*view_builder*display_matrix.cellShadowType: 		XmSHADOW_OUT
+
+*view_builder*display_matrix.showArrows: True
+*view_builder*display_matrix.allowColumnResize: True
+
+*view_builder*display_matrix.foreground: black
+*view_builder*display_matrix.rowLabelColor: White
+*view_builder*display_matrix.columnLabelColor: White
+*view_builder*display_matrix.selectedBackground: White
+*view_builder*display_matrix.selectedForeground: black
+
+*view_builder*display_matrix.translations:   #replace\n			Shift Ctrl<Btn1Down>: ResizeColumns()\n                        <Btn1Down>:      SelectCell(select)\n                        <Btn2Down>:      SelectCell(drag)\n                        <Btn3Down>:      SelectCell(menu)
+*view_builder*display_matrix.traversalOn:	False
+
+*view_builder*display_column_list.translations:	#override\n			<Btn2Down>:      VbDpyDragStart()
+*view_builder*sort_column_list.translations:	#override\n			<Btn2Down>:      VbSortDragStart()
+
+*view_builder*display_matrix.labelFont: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+*view_builder*vb_extension_dialog_popup.title: 正しくない拡張子を使用しますか?
+*view_builder*vb_extension_dialog.messageString: 指定したファイル名の拡張子が .elv でありません\nこのファイル名でデータを保存しますか?
+*view_builder*vb_extension_dialog.okLabelString: はい
+*view_builder*vb_extension_dialog.cancelLabelString: いいえ
+*view_builder*vb_extension_dialog.helpLabelString: ヘルプ
+! Generated by X-Designer
+
+
+! view_builder
+*view_builder*view_builder.width: 500
+*view_builder*view_builder.title: ビュー・ビルダー
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*view_builder*file_cascade_button.labelString: ファイル(F)
+*view_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*view_builder*file_new_button.labelString: 新規(N)
+*view_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*view_builder*file_open_button.labelString: 開く(O)...
+*view_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*view_builder*file_save_button.labelString: 保存(S)
+*view_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*view_builder*file_save_as_button.labelString: 別名保存(A)...
+*view_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*view_builder*file_close_button.labelString: 閉じる(C)
+*view_builder*file_close_button.mnemonic: C
+
+! vb_mb
+
+! vb_apply_button
+*view_builder*vb_apply_button.labelString: 適用
+
+! vb_close_button
+*view_builder*vb_close_button.labelString: 閉じる
+
+! vb_help_button
+*view_builder*vb_help_button.labelString: ヘルプ
+
+! form2
+
+! label1
+*view_builder*name_label.labelString: ビュー名
+
+! name_field
+
+! view_editable_toggle
+*view_builder*view_editable_toggle.labelString: 編集可能
+
+! frame2
+
+! dnd_target
+
+! disp_cols_form
+*view_builder*disp_cols_form.paneMinimum: 1
+
+! label2
+*view_builder*display_columns_label.labelString: 列の表示
+
+! frame4
+
+! display_matrix
+
+! rowcol1
+
+! disp_add_button
+*view_builder*disp_add_button.labelString: 追加
+
+! disp_remove_button
+*view_builder*disp_remove_button.labelString: 削除
+
+! display_column_list
+
+! rowcol2
+
+! move_first_button
+*view_builder*move_first_button.labelString: 最初
+
+! move_left_button
+*view_builder*move_left_button.labelString: 左方
+
+! move_right_button
+*view_builder*move_right_button.labelString: 右方
+
+! move_last_button
+*view_builder*move_last_button.labelString: 最後
+
+! aligner1
+
+! column_label
+*view_builder*column_label.labelString: 列
+
+! column_field
+
+! title_label
+*view_builder*title_label.labelString: タイトル
+
+! title_field
+
+! column_align_menu
+*view_builder*column_align_menu.labelString: 行末揃え
+
+! label3
+
+! column_align_beginning
+*view_builder*column_align_beginning.labelString: 左方
+
+! column_align_center
+*view_builder*column_align_center.labelString: 中心
+
+! column_align_end
+*view_builder*column_align_end.labelString: 右方
+
+! title_align_menu
+*view_builder*title_align_menu.labelString: 行末揃え
+
+! label4
+
+! title_align_beginning
+*view_builder*title_align_beginning.labelString: 左方
+
+! title_align_center
+*view_builder*title_align_center.labelString: 中心
+
+! title_align_end
+*view_builder*title_align_end.labelString: 右方
+
+! width_label
+*view_builder*width_label.labelString: 幅
+
+! width_scale
+
+! label5
+*view_builder*column_details_label.labelString: 列の詳細
+
+! label6
+*view_builder*num_fixed_label.labelString: 固定列
+
+! num_fixed_scale
+
+! sort_cols_form
+*view_builder*sort_cols_form.paneMinimum: 1
+
+! label7
+*view_builder*sort_columns_label.labelString: 列のソート
+
+! sort_column_list
+
+! rowcol3
+
+! sort_add_button
+*view_builder*sort_add_button.labelString: 追加
+
+! sort_remove_button
+*view_builder*sort_remove_button.labelString: 削除
+
+! sort_sw
+
+! sort_da
+
+! rowcol4
+
+! move_top_button
+*view_builder*move_top_button.labelString: 一番上へ
+
+! move_up_button
+*view_builder*move_up_button.labelString: 上へ
+
+! move_down_button
+*view_builder*move_down_button.labelString: 下へ
+
+! move_bottom_button
+*view_builder*move_bottom_button.labelString: 一番下へ
+
+! restrict_rows_rowcol
+
+! label16
+*view_builder*label16.labelString: 行の制限
+
+! restrict_rows_sub_rowcol
+
+! restrict_rows_toggle
+*view_builder*restrict_rows_toggle.labelString: 行数の制限
+
+! min_label
+*view_builder*min_label.labelString: 最小
+
+! restrict_rows_min_spin
+
+! max_label
+*view_builder*max_label.labelString: 最大
+
+! restrict_rows_max_spin
+
+! default_label
+*view_builder*default_label.labelString: デフォルト
+
+! restrict_rows_default_spin
+
+! restrict_rows_from_eventlist_toggle
+*view_builder*restrict_rows_from_eventlist_toggle.labelString: イベント・リストから設定
+
+
+! vb_sort_popup
+*view_builder*vb_sort_popup.menuPost: <Button3>
+
+! sp_change_button
+*view_builder*sp_change_button.labelString: 変更
+
+! sp_top_button
+*view_builder*sp_top_button.labelString: 一番上へ
+
+! sp_up_button
+*view_builder*sp_up_button.labelString: 上へ
+
+! sp_down_button
+*view_builder*sp_down_button.labelString: 下へ
+
+! sp_bottom_button
+*view_builder*sp_bottom_button.labelString: 一番下へ
+
+! sp_delete_button
+*view_builder*sp_delete_button.labelString: 削除
+
+! vb_display_popup
+*view_builder*vb_display_popup.menuPost: <Button3>
+
+! dp_first_button
+*view_builder*dp_first_button.labelString: 最初
+
+! dp_left_button
+*view_builder*dp_left_button.labelString: 左方
+
+! dp_right_button
+*view_builder*dp_right_button.labelString: 右方
+
+! dp_last_button
+*view_builder*dp_last_button.labelString: 最後
+
+! dp_delete_button
+*view_builder*dp_delete_button.labelString: 削除
+
+
+! vb_save_dialog
+*view_builder*vb_save_dialog.title: ビューの保存...
+
+! vb_save_file_sb
+*view_builder*vb_save_file_sb.applyLabelString: フィルター
+*view_builder*vb_save_file_sb.okLabelString: OK
+*view_builder*vb_save_file_sb.cancelLabelString: キャンセル
+*view_builder*vb_save_file_sb.helpLabelString: ヘルプ
+*view_builder*vb_save_file_sb.selectionLabelString: 選択
+*view_builder*vb_save_file_sb.filterLabelString: ファイル・フィルター
+*view_builder*vb_save_file_sb.fileListLabelString: ファイル
+*view_builder*vb_save_file_sb.dirListLabelString: ディレクトリー
+*view_builder*vb_save_file_sb.pattern: *.elv
+
+! label10
+*view_builder*vb_save_file_sb.FilterLabel.labelString: ファイル・フィルター
+
+! save_backup_toggle
+*view_builder*save_backup_toggle.labelString: 既存ファイルのバックアップ
+
+
+! vb_open_dialog
+*view_builder*vb_open_dialog.title: ビューを開く...
+
+! vb_open_file_sb
+*view_builder*vb_open_file_sb.applyLabelString: フィルター
+*view_builder*vb_open_file_sb.okLabelString: OK
+*view_builder*vb_open_file_sb.cancelLabelString: キャンセル
+*view_builder*vb_open_file_sb.helpLabelString: ヘルプ
+*view_builder*vb_open_file_sb.selectionLabelString: 選択
+*view_builder*vb_open_file_sb.filterLabelString: ファイル・フィルター
+*view_builder*vb_open_file_sb.fileListLabelString: ファイル
+*view_builder*vb_open_file_sb.dirListLabelString: ディレクトリー
+*view_builder*vb_open_file_sb.pattern: *.elv
+
+! label14
+*view_builder*vb_open_file_sb.FilterLabel.labelString: ファイル・フィルター
+
+!
+! SCCS: @(#)Global.res (libfb) 3.5 01/15/97 14:08:49
+!
+
+
+*filter_builder*XmToggleButton.selectColor: red
+*filter_builder*XmToggleButton.fillOnSelect: True
+*filter_builder*XmToggleButtonGadget.selectColor: red
+*filter_builder*XmToggleButtonGadget.fillOnSelect: True
+*filter_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+*filter_builder*XmTextField.background: Cadet Blue
+*filter_builder*XmText.background: Cadet Blue
+
+*filter_builder*status_line.background: Slate Grey
+*filter_builder*user_field.background: Slate Grey
+*filter_builder*server_field.background: Slate Grey
+
+*filter_builder*int_conversions_combo*XmList*background: CadetBlue
+
+
+*filter_builder*string_editor.width: 80
+
+*filter_builder*fb_new_question_dialog_popup.title: 変更を中止しますか?
+*filter_builder*fb_new_question_dialog.messageString: 新しいフィルターを作成すると、変更した定義が失われます。\n新しいフィルターを作成しますか?
+*filter_builder*fb_new_question_dialog.okLabelString: はい
+*filter_builder*fb_new_question_dialog.cancelLabelString: いいえ
+*filter_builder*fb_new_question_dialog.helpLabelString: ヘルプ
+
+*filter_builder*fb_open_question_dialog_popup.title: 変更を中止しますか?
+*filter_builder*fb_open_question_dialog.messageString: 新しいフィルターを開くと、変更した定義が失われます。\n新しいフィルターを開きますか?
+*filter_builder*fb_open_question_dialog.okLabelString: はい
+*filter_builder*fb_open_question_dialog.cancelLabelString: いいえ
+*filter_builder*fb_open_question_dialog.helpLabelString: ヘルプ
+
+*filter_builder*fb_exit_question_dialog_popup.title: 変更を中止しますか?
+*filter_builder*fb_exit_question_dialog.messageString: このウィンドウを閉じると、変更した定義が失われます。\nこのウィンドウを閉じますか?
+*filter_builder*fb_exit_question_dialog.okLabelString: はい
+*filter_builder*fb_exit_question_dialog.cancelLabelString: いいえ
+*filter_builder*fb_exit_question_dialog.helpLabelString: ヘルプ
+
+*filter_builder*fb_extension_dialog_popup.title: 正しくない拡張子を使用しますか?
+*filter_builder*fb_extension_dialog.messageString: 指定したファイル名の拡張子が .elf でありません\nこのファイル名でデータを保存しますか?
+*filter_builder*fb_extension_dialog.okLabelString: はい
+*filter_builder*fb_extension_dialog.cancelLabelString: いいえ
+*filter_builder*fb_extension_dialog.helpLabelString: ヘルプ
+
+*filter_builder*component_button.translations: #override\n		<Btn2Down>:	FbDoNothing()
+
+! LIBFB_MSG0001
+NCOEvent*filter_builder.libfbPasteMismatch.messageString: 貼り付け操作でテーブルが一致しません
+! LIBFB_MSG0002
+NCOEvent*fb_edit_mb.libfbInvalidSQL.messageString: SQL ステートメントが無効です。 ステートメントの内容を確認してください。
+! LIBFB_MSG0003
+NCOEvent*fb_edit_mb.libfbInvalidComplex.messageString: 複合式のステートメントが無効です。 ステートメントの内容を確認してください。
+! LIBFB_MSG0004
+NCOEvent*libfbInvalidLeftExpr.messageString: 左の式が無効です。 指定した\nリテラルのデータ・タイプと使用する列参照および関連する演算子を確認してください。
+! Generated by X-Designer
+
+
+! fb_edit_dialog
+*filter_builder*fb_edit_dialog.title: フィルター SQL の編集
+
+! fb_edit_mb
+
+! fb_edit_ok_button
+*filter_builder*fb_edit_ok_button.labelString: OK
+
+! fb_edit_cancel_button
+*filter_builder*fb_edit_cancel_button.labelString: キャンセル
+
+! fb_edit_help_button
+*filter_builder*fb_edit_help_button.labelString: ヘルプ
+
+! fb_edit_text
+
+
+! filter_builder
+*filter_builder*filter_builder.width: 850
+*filter_builder*filter_builder.height: 700
+*filter_builder*filter_builder.title: フィルター・ビルダー
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*filter_builder*file_cascade_button.labelString: ファイル(F)
+*filter_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*filter_builder*file_new_button.labelString: 新規(N)
+*filter_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*filter_builder*file_open_button.labelString: 開く(O)...
+*filter_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*filter_builder*file_save_button.labelString: 保存(S)
+*filter_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*filter_builder*file_save_as_button.labelString: 別名保存(A)...
+*filter_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*filter_builder*file_close_button.labelString: 閉じる(C)
+*filter_builder*file_close_button.mnemonic: C
+
+! edit_cascade_button
+*filter_builder*edit_cascade_button.labelString: 編集(E)
+*filter_builder*edit_cascade_button.mnemonic: E
+
+! edit_menu
+
+! edit_cut_button
+*filter_builder*edit_cut_button.labelString: 切り取り(T)
+*filter_builder*edit_cut_button.mnemonic: t
+*filter_builder*edit_cut_button.accelerator: Shift<Key>osfDelete
+*filter_builder*edit_cut_button.acceleratorText: Shift+Del
+
+! edit_copy_button
+*filter_builder*edit_copy_button.labelString: コピー(C)
+*filter_builder*edit_copy_button.mnemonic: C
+*filter_builder*edit_copy_button.accelerator: Ctrl<Key>osfInsert
+*filter_builder*edit_copy_button.acceleratorText: Ctrl+Insert
+
+! edit_paste_button
+*filter_builder*edit_paste_button.labelString: 貼り付け(P)
+*filter_builder*edit_paste_button.mnemonic: P
+*filter_builder*edit_paste_button.accelerator: Shift<Key>osfInsert
+*filter_builder*edit_paste_button.acceleratorText: Shift+Ins
+
+! fb_mb
+
+! form2
+
+! label1
+*filter_builder*name_label.labelString: フィルター名
+
+! name_field
+
+! filter_editable_toggle
+*filter_builder*filter_editable_toggle.labelString: 編集可能
+
+! frame2
+
+! dnd_target
+
+! separator3
+
+! button_rc
+
+! rowcol4
+
+! predicate_button
+*filter_builder*predicate_button.labelString: 条件
+
+! negate_button
+*filter_builder*negate_button.labelString: 否定
+
+! leading_logical_button
+*filter_builder*leading_logical_button.labelString: 先頭の\nロジック
+
+! trailing_logical_button
+*filter_builder*trailing_logical_button.labelString: 末尾の\nロジック
+
+! subquery_button
+*filter_builder*subquery_button.labelString: サブ照会
+
+! rowcol3
+
+! edit_delcomp_button
+*filter_builder*edit_delcomp_button.labelString: エレメントの\n削除
+
+! edit_deltree_button
+*filter_builder*edit_deltree_button.labelString: ツリーの\n削除
+
+! rowcol2
+
+! fb_edit_sql_button
+*filter_builder*fb_edit_sql_button.labelString: SQL の\n編集...
+
+! separator6
+
+! main_sw
+*filter_builder*main_sw.height: 330
+
+! tree
+
+! separator5
+
+! sql_text
+
+! separator7
+
+! form
+
+! in_form
+
+! rowcol1
+
+! fb_in_value_add_button
+*filter_builder*form*fb_in_value_add_button.labelString: 追加
+
+! fb_in_value_remove_button
+*filter_builder*form*fb_in_value_remove_button.labelString: 削除
+
+! in_list
+
+! separator8
+
+! metric_form
+
+! metric_function_menu
+*filter_builder*metric_function_menu.labelString: メトリック:
+
+! label2
+
+! metric_avg_button
+*filter_builder*metric_avg_button.labelString: 平均
+
+! metric_count_button
+*filter_builder*metric_count_button.labelString: カウント
+
+! metric_sum_button
+*filter_builder*metric_sum_button.labelString: 合計
+
+! metric_min_button
+*filter_builder*metric_min_button.labelString: 最小
+
+! metric_max_button
+*filter_builder*metric_max_button.labelString: 最大
+
+! metric_field_menu
+*filter_builder*metric_field_menu.labelString: :
+
+! label3
+
+! metric_field_button
+
+! fb_apply_button
+*filter_builder*fb_apply_button.labelString: 適用
+
+! fb_close_button
+*filter_builder*fb_close_button.labelString: 閉じる
+
+! fb_help_button
+*filter_builder*fb_help_button.labelString: ヘルプ
+
+
+! fb_save_dialog
+*filter_builder*fb_save_dialog.title: フィルターの保存...
+
+! fb_save_file_sb
+*filter_builder*fb_save_file_sb.applyLabelString: フィルター
+*filter_builder*fb_save_file_sb.okLabelString: OK
+*filter_builder*fb_save_file_sb.cancelLabelString: キャンセル
+*filter_builder*fb_save_file_sb.helpLabelString: ヘルプ
+*filter_builder*fb_save_file_sb.selectionLabelString: 選択
+*filter_builder*fb_save_file_sb.filterLabelString: ファイル・フィルター
+*filter_builder*fb_save_file_sb.fileListLabelString: ファイル
+*filter_builder*fb_save_file_sb.dirListLabelString: ディレクトリー
+*filter_builder*fb_save_file_sb.pattern: *.elf
+
+! label6
+*filter_builder*fb_save_file_sb.FilterLabel.labelString: ファイル・フィルター
+
+! save_backup_toggle
+*filter_builder*save_backup_toggle.labelString: 既存ファイルの保存
+
+
+! fb_open_dialog
+*filter_builder*fb_open_dialog.title: フィルターを開く...
+
+! fb_open_file_sb
+*filter_builder*fb_open_file_sb.applyLabelString: フィルター
+*filter_builder*fb_open_file_sb.okLabelString: OK
+*filter_builder*fb_open_file_sb.cancelLabelString: キャンセル
+*filter_builder*fb_open_file_sb.helpLabelString: ヘルプ
+*filter_builder*fb_open_file_sb.selectionLabelString: 選択
+*filter_builder*fb_open_file_sb.filterLabelString: ファイル・フィルター
+*filter_builder*fb_open_file_sb.fileListLabelString: ファイル
+*filter_builder*fb_open_file_sb.dirListLabelString: ディレクトリー
+*filter_builder*fb_open_file_sb.pattern: *.elf
+
+! label10
+*filter_builder*fb_open_file_sb.FilterLabel.labelString: ファイル・フィルター
+
+
+! predicate_component
+
+! predicate_type_menu
+*filter_builder*predicate_type_menu.labelString: 式のタイプ
+
+! label23
+
+! predicate_type_simple
+*filter_builder*predicate_type_simple.labelString: シンプル
+
+! predicate_type_complex
+*filter_builder*predicate_type_complex.labelString: 複雑
+
+! predicate_type_freeform
+*filter_builder*predicate_type_freeform.labelString: フリー・フォーム
+
+! predicate_field_menu
+*filter_builder*predicate_field_menu.labelString: 列
+
+! label12
+
+! predicate_field_menu_button
+
+! predicate_op_menu
+*filter_builder*predicate_op_menu.labelString: 演算子
+
+! label13
+
+! predicate_op_menu_button
+
+! predicate_op_menu_rc
+
+! predicate_op_eq_button
+*filter_builder*predicate_op_eq_button.labelString: 等しい
+
+! predicate_op_lt_button
+*filter_builder*predicate_op_lt_button.labelString: より小さい
+
+! predicate_op_lte_button
+*filter_builder*predicate_op_lte_button.labelString: より小さいまたは等しい
+
+! predicate_op_like_button
+*filter_builder*predicate_op_like_button.labelString: 類似
+
+! predicate_op_in_button
+*filter_builder*predicate_op_in_button.labelString: 以内
+
+! predicate_op_ne_button
+*filter_builder*predicate_op_ne_button.labelString: 等しくない
+
+! predicate_op_gt_button
+*filter_builder*predicate_op_gt_button.labelString: より大きい
+
+! predicate_op_gte_button
+*filter_builder*predicate_op_gte_button.labelString: より大きいまたは等しい
+
+! predicate_op_nlike_button
+*filter_builder*predicate_op_nlike_button.labelString: 除外
+
+! predicate_op_nin_button
+*filter_builder*predicate_op_nin_button.labelString: 以外
+
+! logical_component
+
+! logical_and_toggle
+*filter_builder*logical_and_toggle.labelString: 論理 AND
+
+! logical_or_toggle
+*filter_builder*logical_or_toggle.labelString: 論理 OR
+
+! subquery_component
+
+! subquery_selection_menu
+*filter_builder*subquery_selection_menu.labelString: 列
+
+! label14
+
+! subquery_selection_menu_button
+
+! subquery_op_menu
+*filter_builder*subquery_op_menu.labelString: 演算子
+
+! label15
+
+! subquery_op_menu_button
+
+! subquery_op_menu_rc
+
+! subquery_op_in_button
+*filter_builder*subquery_op_in_button.labelString: 以内
+
+! subquery_op_nin_button
+*filter_builder*subquery_op_nin_button.labelString: 以外
+
+! subquery_field_menu
+*filter_builder*subquery_field_menu.labelString: 選択
+
+! label16
+
+! subquery_field_menu_button
+
+! subquery_table_menu
+*filter_builder*subquery_table_menu.labelString: から
+
+! label17
+
+! subquery_table_menu_button
+
+! subquery_table_menu_rc
+
+! subquery_status_table_button
+
+! subquery_details_table_button
+
+! subquery_journal_table_button
+
+! time_editor
+
+! te_type_menu
+
+! te_absolute_button
+*filter_builder*te_absolute_button.labelString: 絶対
+
+! te_relative_button
+*filter_builder*te_relative_button.labelString: 相対
+
+! te_relative_field
+
+! te_absolute_form
+
+! label22
+*filter_builder*date_day_label.labelString: dd:
+
+! te_field1
+
+! te_up1
+
+! te_down1
+
+! label19
+*filter_builder*date_month_label.labelString: mm:
+
+! te_field2
+
+! te_up2
+
+! te_down2
+
+! label20
+*filter_builder*date_year_label.labelString: yyyy:
+
+! te_field3
+
+! te_up3
+
+! te_down3
+
+! label24
+*filter_builder*time_hour_label.labelString: hh:
+
+! te_field4
+
+! te_up4
+
+! te_down4
+
+! label26
+*filter_builder*time_minute_label.labelString: mm:
+
+! te_field5
+
+! te_up5
+
+! te_down5
+
+! label27
+*filter_builder*time_second_label.labelString: ss:
+
+! te_field6
+
+! te_up6
+
+! te_down6
+
+! int_editor
+
+! int_conversions_menu
+
+! int_conversions_combo
+
+! int_field
+*filter_builder*int_field.width: 80
+
+! int_inc_button
+
+! int_dec_button
+
+! exp_editor
+
+! complex_text_sb_h
+
+! complex_text_sb_v
+
+! complex_text_fld
+
+! complex_edit_btn
+*filter_builder*complex_edit_btn.labelString: 編集...
+
+! Generated by X-Designer
+
+
+! about_dialog
+NCOEvent*about_dialog.allowShellResize: false
+NCOEvent*about_dialog.title: 製品情報...
+
+! about_form
+NCOEvent*about_form.autoUnmanage: false
+
+! about_image
+
+! Generated by X-Designer
+
+
+! sdown_dialog
+NCOEvent*sdown_dialog.allowShellResize: true
+NCOEvent*sdown_dialog.title: 接続の失敗
+
+! sdown_mb
+NCOEvent*sdown_mb.autoUnmanage: true
+NCOEvent*sdown_mb.dialogType: DIALOG_ERROR
+NCOEvent*sdown_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*sdown_mb.messageString: 接続を試みたサーバーは、\n応答していないようです。\n\n別のサーバー名を使用してやり直してください。
+NCOEvent*sdown_mb.okLabelString: OK
+NCOEvent*sdown_mb.cancelLabelString: キャンセル
+NCOEvent*sdown_mb.helpLabelString: ヘルプ
+
+! button2
+NCOEvent*sdown_mb.Help.sensitive: false
+
+
+! fatal_dialog
+NCOEvent*fatal_dialog.allowShellResize: true
+NCOEvent*fatal_dialog.title: ログインの失敗
+
+! fatal_mb
+NCOEvent*fatal_mb.autoUnmanage: true
+NCOEvent*fatal_mb.dialogType: DIALOG_ERROR
+NCOEvent*fatal_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*fatal_mb.messageString: 指定したユーザー名および/またはパスワードは、\n認識されませんでした。\n\n3 回の試行回数が終了しました。
+NCOEvent*fatal_mb.okLabelString: OK
+NCOEvent*fatal_mb.cancelLabelString: キャンセル
+NCOEvent*fatal_mb.helpLabelString: ヘルプ
+
+! button5
+NCOEvent*fatal_mb.Help.sensitive: false
+
+
+! attempt_dialog
+NCOEvent*attempt_dialog.allowShellResize: true
+NCOEvent*attempt_dialog.title: ログインの失敗
+
+! attempt_mb
+NCOEvent*attempt_mb.autoUnmanage: true
+NCOEvent*attempt_mb.dialogType: DIALOG_ERROR
+NCOEvent*attempt_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*attempt_mb.messageString: 指定したユーザー名および/またはパスワードは、\n認識されませんでした。 再試行してください。
+NCOEvent*attempt_mb.okLabelString: OK
+NCOEvent*attempt_mb.cancelLabelString: キャンセル
+NCOEvent*attempt_mb.helpLabelString: ヘルプ
+
+! button8
+NCOEvent*attempt_mb.Help.sensitive: false
+
+
+! login_dialog
+NCOEvent*login_dialog.allowShellResize: true
+NCOEvent*login_dialog.title: ログイン
+
+! login_mb
+NCOEvent*login_mb.autoUnmanage: false
+NCOEvent*login_mb.dialogType: DIALOG_TEMPLATE
+
+! login_ok_button
+NCOEvent*login_ok_button.labelString: OK
+
+! login_cancel_button
+NCOEvent*login_cancel_button.labelString: キャンセル
+
+! login_help_button
+NCOEvent*login_help_button.sensitive: false
+NCOEvent*login_help_button.labelString: ヘルプ
+
+! login_mframe
+
+! login_mform
+
+! login_tframe
+NCOEvent*login_tframe.shadowType: SHADOW_OUT
+NCOEvent*login_tframe.marginHeight: 3
+NCOEvent*login_tframe.marginWidth: 3
+
+! login_big_label
+NCOEvent*login_big_label.labelString:  
+NCOEvent*login_big_label.alignment: ALIGNMENT_CENTER
+
+! login_msg
+NCOEvent*login_little_label.labelString: 続行するには、ユーザー名と\nパスワードを入力してください
+
+! login_credentials
+
+! login_username_label
+NCOEvent*login_username_label.labelString: ユーザー名
+
+! login_username_field
+NCOEvent*login_username_field.xrtGearResizeWidth: true
+
+! login_password_label
+NCOEvent*login_password_label.labelString: パスワード
+
+! login_password_field
+NCOEvent*login_password_field.xrtGearResizeWidth: true
+
+! login_sep
+
+! login_server_menu
+NCOEvent*login_server_menu.navigationType: TAB_GROUP
+NCOEvent*login_server_menu.labelString: サーバー
+
+! login_server_label
+
+! login_server_cascade
+
+NCOEvent*OclMessage.MSG_00003.messageString: 警告: 
+NCOEvent*OclMessage.MSG_00004.messageString: エラー: 
+NCOEvent*OclMessage.MSG_00005.messageString: 致命的エラー: 
+NCOEvent*OclMessage.MSG_00006.messageString: あなたは有効なユーザーでありません\n
+NCOEvent*OclMessage.MSG_00007.messageString: クライアント・エラーを開きます。
+NCOEvent*OclMessage.MSG_00008.messageString: クライアント・メッセージを開きます。
+NCOEvent*OclMessage.MSG_00009.messageString: サーバー・メッセージ:
+NCOEvent*OclMessage.MSG_00010.messageString: サーバー・コンテキストを割り振れませんでした\n
+NCOEvent*OclMessage.MSG_00011.messageString: サーバー・コンテキストを初期化できませんでした\n
+NCOEvent*OclMessage.MSG_00012.messageString: クライアント・メッセージ・コールバックを設定できませんでした\n
+NCOEvent*OclMessage.MSG_00013.messageString: サーバー・メッセージ・コールバックを設定できませんでした\n
+NCOEvent*OclMessage.MSG_00014.messageString: サーバーが突然シャットダウンしました\n
+NCOEvent*OclMessage.MSG_00015.messageString: 接続コンテキストを割り振れませんでした\n
+NCOEvent*OclMessage.MSG_00016.messageString: 次の接続プロパティーを設定できませんでした: ユーザー名\n
+NCOEvent*OclMessage.MSG_00017.messageString: 次の接続プロパティーを設定できませんでした: パスワード\n
+NCOEvent*OclMessage.MSG_00018.messageString: 次の接続プロパティーを設定できませんでした: アプリケーション名\n
+NCOEvent*OclMessage.MSG_00019.messageString: 接続できませんでした\n
+NCOEvent*OclMessage.MSG_00020.messageString: 切断できませんでした\n
+NCOEvent*OclMessage.MSG_00021.messageString: 接続コンテキストを除去できませんでした\n
+NCOEvent*OclMessage.MSG_00022.messageString: サーバー・コンテキストをシャットダウンできませんでした\n
+NCOEvent*OclMessage.MSG_00023.messageString: サーバー・コンテキストを除去できませんでした\n
+NCOEvent*OclMessage.MSG_00024.messageString: コマンド・コンテキストを割り振れませんでした\n
+NCOEvent*OclMessage.MSG_00025.messageString: コマンドを処理できませんでした\n
+NCOEvent*OclMessage.MSG_00026.messageString: コマンドを送信できませんでした\n
+NCOEvent*OclMessage.MSG_00027.messageString: コマンドを打ち切ることができませんでした\n
+NCOEvent*OclMessage.MSG_00028.messageString: SQL 要求を実行できませんでした\n
+NCOEvent*OclMessage.MSG_00029.messageString: %1$s: 表示を開けません\n
+NCOEvent*OclMessage.MSG_00030.messageString: オプションが不明です: %1$s\n
+NCOEvent*OclMessage.MSG_00031.messageString: Object Server に接続できませんでした\n
+NCOEvent*OclMessage.MSG_00032.messageString: 警告: XKeysymDB のパスを修正できませんでした。\n
+NCOEvent*OclMessage.MSG_00033.messageString: サーバー・ホスト名を取得できませんでした\n
+NCOEvent*OclMessage.MSG_00034.messageString: データベース・アラートを使用できませんでした\n
+NCOEvent*OclMessage.MSG_00035.messageString: インターフェース・プロパティーを設定できませんでした\n
+NCOEvent*OclMessage.MSG_00036.messageString: メッセージ番号のデコード: レイヤー %1$ld、発信元 %2$ld、重大度 %3$ld、番号 %4$ld\n
+NCOEvent*OclMessage.MSG_00037.messageString: メッセージ・ストリング: %1$s\n
+NCOEvent*OclMessage.MSG_00038.messageString: オペレーティング・システムのエラー: %1$s\n
+NCOEvent*OclMessage.MSG_00039.messageString: メッセージ番号のデコード: 番号 %1$ld、重大度 %2$ld、状態 %3$ld、行 %4$ld\n
+NCOEvent*OclMessage.MSG_00040.messageString: 起点のサーバー「%1$s」\n
+NCOEvent*OclMessage.MSG_00041.messageString: プロシージャー「%1$s」\n
+NCOEvent*OclMessage.MSG_00042.messageString: メッセージ・ストリング: %1$s\n
+NCOEvent*OclMessage.MSG_00043.messageString: ** 拡張診断トレースの開始 **\n
+NCOEvent*OclMessage.MSG_00044.messageString: ** 拡張診断トレースの終了 **\n
+NCOEvent*OclMessage.MSG_00045.messageString: 結果を処理できませんでした\n
+NCOEvent*OclMessage.MSG_00046.messageString: 予期しない結果が戻されました\n
+NCOEvent*OclMessage.MSG_00047.messageString: 列をバインドできませんでした\n
+NCOEvent*OclMessage.MSG_00048.messageString: 行を取り出せませんでした\n
+NCOEvent*OclMessage.MSG_00049.messageString: フィールド「%1$s」は、テーブル「%2$s」に存在しないか、タイプが誤っています\n
+NCOEvent*OclMessage.MSG_00050.messageString: 問題が発生しました。 
+NCOEvent*OclMessage.MSG_00051.messageString: SelectCell() の引数の数が無効です\n
+NCOEvent*OclMessage.MSG_00058.messageString: フィルター =\"
+NCOEvent*OclMessage.MSG_00059.messageString: ビュー =\"
+NCOEvent*OclMessage.MSG_00060.messageString: \ - グローバルに凍結
+NCOEvent*OclMessage.MSG_00061.messageString: \ - 凍結
+NCOEvent*OclMessage.MSG_00062.messageString: 使用法: %1$s [options]\n\nここで、options には以下を指定できます。\n
+NCOEvent*OclMessage.MSG_00063.messageString: \011-config(-elc) <name>\011最初の構成ファイル\n
+NCOEvent*OclMessage.MSG_00066.messageString: デフォルト
+NCOEvent*OclMessage.MSG_00067.messageString: \011-username <name>\011接続するときのユーザー名\n
+NCOEvent*OclMessage.MSG_00068.messageString: \011-password <name>\011ユーザーを接続するためのパスワード\n
+NCOEvent*OclMessage.MSG_00069.messageString: \011-server <name>\011接続先の Object Server\n
+NCOEvent*OclMessage.MSG_00070.messageString: \011-help\011\011このヘルプ・テキストを表示します\n
+NCOEvent*OclMessage.MSG_00071.messageString: \011-version\011バージョン情報を表示します\n
+NCOEvent*OclMessage.MSG_00072.messageString: \011-nlw\011\011ライセンスの有効期限に関する警告を表示しません\n
+NCOEvent*OclMessage.MSG_00073.messageString: \011-diagnostic\011拡張診断メッセージを表示します\n
+NCOEvent*OclMessage.MSG_00074.messageString: \n以下の「標準」の X オプションも解釈されます。\n
+NCOEvent*OclMessage.MSG_00075.messageString: \011-background または -bg <color>\n
+NCOEvent*OclMessage.MSG_00077.messageString: \011-bordercolor または -bd <color>\n
+NCOEvent*OclMessage.MSG_00079.messageString: \011-foreground または -fg <color>\n
+NCOEvent*OclMessage.MSG_00076.messageString: \011-borderwidth または -bw <n>\n
+NCOEvent*OclMessage.MSG_00078.messageString: \011-display <dpy>\n
+NCOEvent*OclMessage.MSG_00080.messageString: \011-font または -fn <font>\n
+NCOEvent*OclMessage.MSG_00081.messageString: \011-geometry <geometry>\n
+NCOEvent*OclMessage.MSG_00082.messageString: \011-iconic\n
+NCOEvent*OclMessage.MSG_00083.messageString: \011-name <name>\n
+NCOEvent*OclMessage.MSG_00084.messageString: \011-reverse または -rv\n
+NCOEvent*OclMessage.MSG_00085.messageString: \011-selectionTimeout\n
+NCOEvent*OclMessage.MSG_00086.messageString: \011-synchronous\n
+NCOEvent*OclMessage.MSG_00087.messageString: \011-title <name>\n
+NCOEvent*OclMessage.MSG_00088.messageString: \011-xrm <resource>\n
+NCOEvent*OclMessage.MSG_00089.messageString: \n特に断りがない限り、オプションは、短い固有の省略形で指定することも\nできます。\n
+NCOEvent*OclMessage.MSG_00090.messageString: \n%1$s - バージョン %2$s
+NCOEvent*OclMessage.MSG_00102.messageString: 「%1$s」のテーブル記述を取得できませんでした
+NCOEvent*OclMessage.MSG_00103.messageString: 
+NCOEvent*OclMessage.MSG_00104.messageString: 
+NCOEvent*OclMessage.MSG_00105.messageString: 
+NCOEvent*OclMessage.MSG_00106.messageString: シリアル番号 %1$d のジャーナル項目
+NCOEvent*OclMessage.MSG_00108.messageString: バックアップ・ファイルを作成できませんでした\n
+NCOEvent*OclMessage.MSG_00109.messageString: 構成を\n%1$s に保存できませんでした\n
+NCOEvent*OclMessage.MSG_00110.messageString: 構成を\n%1$s からロードできませんでした\n
+NCOEvent*OclMessage.MSG_00112.messageString: \011-cmap\011\011専用のカラー・マップを使用します (省略形はありません)\n
+NCOEvent*OclMessage.MSG_00113.messageString: [なし]
+NCOEvent*OclMessage.MSG_00114.messageString: %1$s からの定義を\nフィルター操作できませんでした\n
+NCOEvent*OclMessage.MSG_00115.messageString: %1$s からの定義を\n表示できませんでした\n
+NCOEvent*OclMessage.MSG_00116.messageString: \ : 
+NCOEvent*OclMessage.MSG_00117.messageString: 準備できました。
+NCOEvent*OclMessage.MSG_00118.messageString: 構成が保存されました。
+NCOEvent*OclMessage.MSG_00119.messageString: すべての表示が最新表示されました。
+NCOEvent*OclMessage.MSG_00121.messageString: すべてのイベント・ウィンドウを閉じました。
+NCOEvent*OclMessage.MSG_00122.messageString: 新しいウィンドウが開きました。
+NCOEvent*OclMessage.MSG_00127.messageString: \011-noauto\011\011開始グループ内のツールは開始しないでください\n
+NCOEvent*OclMessage.MSG_00128.messageString: \011-directory <name>\011開始ディレクトリーを設定します\n
+NCOEvent*OclMessage.MSG_00135.messageString: 新しいウィンドウを開いています...
+NCOEvent*OclMessage.MSG_00137.messageString: %1$s の構文解析 - %3$d 行目の「%2$s」
+NCOEvent*OclMessage.MSG_00138.messageString: 設定
+NCOEvent*OclMessage.MSG_00139.messageString: SQL テキスト
+NCOEvent*OclMessage.MSG_00140.messageString: 変換テーブルを作成できませんでした\n
+NCOEvent*OclMessage.MSG_00141.messageString: ビジュアル・テーブルを作成できませんでした\n
+NCOEvent*OclMessage.MSG_00142.messageString: クラス・テーブルを作成できませんでした\n
+NCOEvent*OclMessage.MSG_00144.messageString: 設定をロードできませんでした\n
+NCOEvent*OclMessage.MSG_00145.messageString: ユーザー・テーブルを作成できませんでした\n
+NCOEvent*OclMessage.MSG_00147.messageString: イベント・リスト
+NCOEvent*OclMessage.MSG_00148.messageString: 設定を保存できませんでした
+NCOEvent*OclMessage.MSG_00149.messageString: ピックスマップを作成できませんでした
+NCOEvent*OclMessage.MSG_00153.messageString: ツール・ストリング
+NCOEvent*OclMessage.MSG_00154.messageString: 「%1$s」を実行しています...
+NCOEvent*OclMessage.MSG_00155.messageString: 「%1$s」が終了しました (読み取りエラー)
+NCOEvent*OclMessage.MSG_00156.messageString: 「%1$s」が終了しました (ioctl エラー)
+NCOEvent*OclMessage.MSG_00157.messageString: 「%1$s」が完了しました
+NCOEvent*OclMessage.MSG_00159.messageString: イベント・リスト構成
+NCOEvent*OclMessage.MSG_00160.messageString: ビュー・ビルダー
+NCOEvent*OclMessage.MSG_00161.messageString: ビュー・データを\n%1$s に保存できませんでした\n
+NCOEvent*OclMessage.MSG_00164.messageString: ダミー
+NCOEvent*OclMessage.MSG_00165.messageString: 個人用ライブラリー・ディレクトリーを作成できませんでした: %1$s
+NCOEvent*OclMessage.MSG_00167.messageString: <内部>
+NCOEvent*OclMessage.MSG_00169.messageString: フィルター・データを\n%1$s に保存できませんでした\n
+NCOEvent*OclMessage.MSG_00171.messageString: ストリングに終わりがありません
+NCOEvent*OclMessage.MSG_00172.messageString: 文字が無効です
+NCOEvent*OclMessage.MSG_00175.messageString: フィルター・ビルダー
+NCOEvent*OclMessage.MSG_00212.messageString: イベント・リストを起動できませんでした
+NCOEvent*OclMessage.MSG_00232.messageString: コンダクター
+NCOEvent*OclMessage.MSG_00233.messageString: インターフェース
+NCOEvent*OclMessage.MSG_00234.messageString: プロパティー
+NCOEvent*OclMessage.MSG_00235.messageString: ブラウザー
+NCOEvent*OclMessage.MSG_00240.messageString: 警告: X NLS パスへのパスを修正できませんでした。\n
+NCOEvent*OclMessage.MSG_00246.messageString: イベント・リストの開始...
+NCOEvent*OclMessage.MSG_00247.messageString: フィルター・ビルダーの開始...
+NCOEvent*OclMessage.MSG_00248.messageString: ビュー・ビルダーの開始...
+NCOEvent*OclMessage.MSG_00249.messageString: オブジェクト・ビューの開始...
+NCOEvent*OclMessage.MSG_00250.messageString: マップ・エディターの開始...
+NCOEvent*OclMessage.MSG_00256.messageString: オペレーティング・システムのエラー: %1$s
+NCOEvent*OclMessage.MSG_00257.messageString: %1$s システム呼び出しの失敗: %2$s
+NCOEvent*OclMessage.MSG_00260.messageString: ディレクトリー %1$s を開けませんでした
+NCOEvent*OclMessage.MSG_00274.messageString: ディレクトリー・ブラウザー
+NCOEvent*OclMessage.MSG_00284.messageString: インターフェース・ファイルを開けませんでした: %1$s
+NCOEvent*OclMessage.MSG_00285.messageString: ヘルプ
+NCOEvent*OclMessage.MSG_00293.messageString: \011-page <name>\011\011最初のヘルプ・ページ\n
+NCOEvent*OclMessage.MSG_00303.messageString: 閉じる
+NCOEvent*OclMessage.MSG_00304.messageString: なし
+NCOEvent*OclMessage.MSG_00310.messageString: インターフェース・ファイルに項目がありませんでした
+NCOEvent*OclMessage.MSG_00317.messageString: 内部の初期化が失敗しました\n
+NCOEvent*OclMessage.MSG_00327.messageString: 背景
+NCOEvent*OclMessage.MSG_00328.messageString: 注釈
+NCOEvent*OclMessage.MSG_00329.messageString: オブジェクト
+NCOEvent*OclMessage.MSG_00353.messageString: グリッド
+NCOEvent*OclMessage.MSG_00354.messageString: アラート情報の検索に失敗しました
+NCOEvent*OclMessage.MSG_00356.messageString: イベント情報: シリアル番号 %1$d のアラート状況
+NCOEvent*OclMessage.MSG_00357.messageString: メモリー不足
+NCOEvent*OclMessage.MSG_00371.messageString: デフォルト・フォントが見つかりません。
+NCOEvent*OclMessage.MSG_00375.messageString: 検査中: %1$s
+NCOEvent*OclMessage.MSG_00385.messageString: ___SEVERITY_%1$d___
+NCOEvent*OclMessage.MSG_00389.messageString: イベント・リストを起動しています...
+NCOEvent*OclMessage.MSG_00390.messageString: 応答を待機しています...
+NCOEvent*OclMessage.MSG_00397.messageString: エンティティー: %1$s
+NCOEvent*OclMessage.MSG_00404.messageString: 次の接続プロパティーを設定できませんでした: ホスト名\n
+NCOEvent*OclMessage.MSG_00405.messageString: サーバー通信に関する致命的なエラーが発生しました\n
+NCOEvent*OclMessage.MSG_00406.messageString: サーバーが不明なデータ・タイプを戻しました。
+NCOEvent*OclMessage.MSG_00407.messageString: サーバーが不明なデータ・タイプ: %1$s.%2$s を戻しました。
+NCOEvent*OclMessage.MSG_00412.messageString: 検索フィールドを指定する必要があります
+NCOEvent*OclMessage.MSG_00413.messageString: 指定した値は、有効な正規表現でありません
+NCOEvent*OclMessage.MSG_00414.messageString: 一致する行が見つかりませんでした
+NCOEvent*OclMessage.MSG_00415.messageString: Object Server に (再) 接続できませんでした
+NCOEvent*OclMessage.MSG_00416.messageString: 現在、シリアル番号 %1$d は存在しません。
+NCOEvent*OclMessage.MSG_00420.messageString: ジャーナル項目にテキストがありません
+NCOEvent*OclMessage.MSG_00424.messageString: ジャーナルに割り当てられたアラートがありません
+NCOEvent*OclMessage.MSG_00427.messageString: イベント・リスト内にアラートはありませんでした。\nアラートは削除されています。 指定した操作は実行できません。
+NCOEvent*OclMessage.MSG_00428.messageString: イベント・リスト内にアラートはありませんでした。\nアラートは削除されているため、アクセスできません。
+NCOEvent*OclMessage.MSG_00429.messageString: 割り当てられたアラートを取得できませんでした。
+NCOEvent*OclMessage.MSG_00435.messageString: 非同期メモリー・プールを設定できませんでした\n
+NCOEvent*OclMessage.MSG_00440.messageString: テーブル「%1$s」の列数として %2$d 列が期待されていますが、この列数になっていません。
+NCOEvent*OclMessage.MSG_00445.messageString: ___FLASH_SEV_%1$d___
+NCOEvent*OclMessage.MSG_00447.messageString: デフォルト・ビジュアルのカラー・マップに読み取り/書き込みカラー・セルを割り振れませんでした。\n\011 イベント・リストのフラッシュ機能は使用できません。  デフォルト・ビジュアルに疑似カラーを設定してください。\n
+NCOEvent*OclMessage.MSG_00457.messageString: フォーマット「%1$s」を使用して日付をストリングから UTC に変換できませんでした。
+NCOEvent*OclMessage.MSG_00458.messageString: アクション ID %1$d のアクション・レコードが見つかりませんでした。 ツールを実行できません。
+NCOEvent*OclMessage.MSG_00459.messageString: 関連するサブメニュー・ポップアップ用に XSendClient() 経由でクライアント・メッセージを生成できませんでした。
+NCOEvent*OclMessage.MSG_00460.messageString: セルが選択されていません
+NCOEvent*OclMessage.MSG_00461.messageString: クリップボードのコピー操作を処理しています...
+NCOEvent*OclMessage.MSG_00462.messageString: クリップボードのコピー操作が完了しました。
+NCOEvent*OclMessage.MSG_00463.messageString: ウィンドウの凍結が解除されましたが、「すべて凍結」オプションがグローバルに設定されているため、ウィンドウは最新表示されません
+NCOEvent*OclMessage.MSG_00464.messageString: ドラッグ・アンド・ドロップ操作の対象となる行が無効です。
+NCOEvent*OclMessage.MSG_00467.messageString: 行が無効です。
+NCOEvent*OclMessage.MSG_00468.messageString: 「すべて凍結」が設定されている間、時間指定の最新表示は無視されます。
+NCOEvent*OclMessage.MSG_00469.messageString: 時間指定の最新表示をしています...
+NCOEvent*OclMessage.MSG_00470.messageString: 凍結が解除されたウィンドウが更新されました。
+NCOEvent*OclMessage.MSG_00471.messageString: サーバーに再接続しています。お待ちください...
+NCOEvent*OclMessage.MSG_00472.messageString: サーバーが切断されました。再接続を試みてください
+NCOEvent*OclMessage.MSG_00473.messageString: ウィンドウを作成できませんでした。
+NCOEvent*OclMessage.MSG_00474.messageString: アラート・メニューが見つからなかったため、動的ツール・サブシステムは初期化に失敗しました。
+NCOEvent*OclMessage.MSG_00475.messageString: 動的ツールを作成できませんでした。
+NCOEvent*OclMessage.MSG_00476.messageString: LOCATE 要求に対するウィンドウを作成できませんでした。
+NCOEvent*OclMessage.MSG_00477.messageString: 最新表示の時間が無効です。\n設定は保存されません。
+NCOEvent*OclMessage.MSG_00478.messageString: カスケード・クライアント・データのクリア用に XSendClient() 経由でクライアント・メッセージを生成できませんでした。
+NCOEvent*OclMessage.MSG_00479.messageString: 接続用のアラート・メニュー定義が見つかりませんでした。
+NCOEvent*OclMessage.MSG_00480.messageString: 動的ツール・システム内にメニュー ID %1$d が見つかりませんでした。
+NCOEvent*OclMessage.MSG_00481.messageString: 現在選択されたクラス・リストでメニュー %1$d のメニュー項目を管理できませんでした。
+NCOEvent*OclMessage.MSG_00482.messageString: 接続用のサブイベント・リスト・ウィンドウのツール・メニュー定義が見つかりませんでした。
+NCOEvent*OclMessage.MSG_00483.messageString: メモリー割り振りに関して致命的な失敗が発生しました。
+NCOEvent*OclMessage.MSG_00484.messageString: 接続用のメインイベント・リスト・ウィンドウのツール・メニュー定義が見つかりませんでした。
+NCOEvent*OclMessage.MSG_00485.messageString: ツールの影響を受ける行はありません。
+NCOEvent*OclMessage.MSG_00486.messageString: %1$d 行がツールの影響を受けます。
+NCOEvent*OclMessage.MSG_00487.messageString: ツールを実行できませんでした。 動的ツールのエラー (%1$d/%2$d)\n[ %3$s ]。
+NCOEvent*OclMessage.MSG_00488.messageString: ユーザーがツールの実行を打ち切りました。
+NCOEvent*OclMessage.MSG_00489.messageString: コンダクター・ツール・メニューが見つからなかったため、動的ツール・サブシステムは初期化に失敗しました。
+NCOEvent*OclMessage.MSG_00490.messageString: ジャーナル・ダイアログのアラート・メニューをポップアップできませんでした。 ツールのエラー (%1$d/%2$d)\n[ %3$s ]。
+NCOEvent*OclMessage.MSG_00491.messageString: 接続している ObjectServer のリリース・バージョンを判別できませんでした。
+NCOEvent*OclMessage.MSG_00495.messageString: 最新表示の時間が無効です (最小値は 10 秒)。\n\011\011設定は適用されません。
+NCOEvent*OclMessage.MSG_00497.messageString: 動的ツールは正常に実行されました。
+NCOEvent*OclMessage.MSG_00498.messageString: 動的ツールを実行できませんでした。
+NCOEvent*OclMessage.MSG_00499.messageString: コンダクターは、接続先の ObjectServer の\nバージョンが 3.3 であることを検出しました。 3.4 デスクトップでサポートされるツールは、\nこの ObjectServer でサポートされません。\n\nアプリケーションを終了します。
+NCOEvent*OclMessage.MSG_00500.messageString: \011-masterserver <name>\011接続先のマスター Object Server\n
+NCOEvent*OclMessage.MSG_00501.messageString: \011-dualwrite <1/0>\011デュアル書き込みフラグ (1: デュアル書き込みモード、0: シングル書き込みモード)\n
+NCOEvent*OclMessage.MSG_00504.messageString: [PRI]
+NCOEvent*OclMessage.MSG_00505.messageString: [BAK]
+NCOEvent*OclMessage.MSG_00506.messageString: 1 次 ObjectServer が検出されました
+NCOEvent*OclMessage.MSG_00507.messageString: \n1 次 ObjectServer に再接続するには「OK」をクリックしてください。\n
+NCOEvent*OclMessage.MSG_00508.messageString: ObjectServer の接続をフェイルバックしています...
+NCOEvent*OclMessage.MSG_00509.messageString: 1 次 ObjectServer のフェイルバックが完了しました。
+NCOEvent*OclMessage.MSG_00510.messageString: CS_SEC_CHALLENGE を設定できませんでした
+NCOEvent*OclMessage.MSG_00511.messageString: CS_CHALLENGE_CB を設定できませんでした
+NCOEvent*OclMessage.MSG_00512.messageString: \n1 次マスター ObjectServer に再接続しています。\nObjectServer のデータが再同期されるまで待機してください。\nこの処理には、数分かかる場合があります...
+NCOEvent*OclMessage.MSG_00513.messageString: マスター ObjectServer の接続をフェイルバックしています...
+NCOEvent*OclMessage.MSG_00514.messageString: 1 次マスター ObjectServer のフェイルバックが完了しました。
+NCOEvent*OclMessage.MSG_00515.messageString: \n1 次マスター ObjectServer への再接続が完了しました。
+NCOEvent*OclMessage.MSG_00516.messageString: リモート・ホスト名を取得できませんでした
+NCOEvent*OclMessage.MSG_00517.messageString: 接続が失敗しました
+NCOEvent*OclMessage.MSG_00518.messageString: このフィルターを削除する権限がありません。
+NCOEvent*OclMessage.MSG_00519.messageString: このビューを削除する権限がありません。
+NCOEvent*OclMessage.MSG_00520.messageString: master.national テーブルまたはコマンド行で指定した\nMasterServer の名前が無効です。 終了してからやり直してください。
+NCOEvent*OclMessage.MSG_00521.messageString: マスター ObjectServer に接続できませんでした。\nサーバーが稼働していること、および指定したユーザー名とパスワードが\nデスクトップおよびマスター ObjectServer の両方で同じであることを確認してください。
+NCOEvent*OclMessage.MSG_00522.messageString: ビュー「%1$s」において、パラメーター「%2$s」が\n許容値を超えているため、%3$d に制限されます\n\n
+NCOEvent*OclMessage.MSG_00523.messageString: ウィンドウが凍結されています - 結果は最新表示するまで表示されません。
+NCOEvent*OclMessage.MSG_00524.messageString: ウィンドウが凍結解除されました - 結果が最新表示されます。
+NCOEvent*OclMessage.MSG_00525.messageString: 指定したユーザー名とパスワードの組み合わせが\n正しくありません。 再接続を試みてください。
+NCOEvent*OclMessage.MSG_00526.messageString: 接続が失われました。 この時点で\nObject Server へのアクセスが拒否された可能性があります。\nこの問題が解決しない場合は、システム管理者に連絡してください。
+NCOEvent*OclMessage.MSG_00527.messageString: 指定したユーザー名とパスワードの組み合わせが\n正しくありません。\n\n3 回の試行回数が終了しました。
+NCOEvent*OclMessage.MSG_00528.messageString: 接続が失われました。 この時点で\nObject Server へのアクセスが拒否された可能性があります。\n\n3 回の試行回数が終了しました。
+NCOEvent*OclMessage.MSG_00540.messageString: 行が空です。コピーの対象がありません。
+NCOEvent*OclMessage.MSG_00541.messageString: sybase 接続のタイムアウトを設定できませんでした\n
+NCOEvent*OclMessage.MSG_00542.messageString: \011-networktimeout <seconds>\011ユーザー・アクションの後、ハードウェアの問題が原因で失敗したネットワーク接続を検出する時間\n
+NCOEvent*OclMessage.MSG_00543.messageString: マスター Object Server に (再) 接続できませんでした
+NCOEvent*OclMessage.MSG_00544.messageString: NetworkTimeout に設定した値が無効です。 値を %1$d に戻します。
+NCOEvent*OclMessage.MSG_00545.messageString: %1$s [PRI]
+NCOEvent*OclMessage.MSG_00546.messageString: %1$s [BAK]
+NCOEvent*OclMessage.MSG_00548.messageString: char_expansion_factor は、[%1$d-%2$d] の範囲で指定する必要があります。 値を %3$d に戻します。
+NCOEvent*OclMessage.MSG_00549.messageString: \011-char_expansion_factor [%1$d-%2$d]。 ObjectServer からデータを受信するときに、クライアントが割り当てる文字当たりのバイト数をより多くできるようにします。\n
+NCOEvent*OclMessage.MSG_00550.messageString: \n1 次マスター ObjectServer に再接続するには「OK」をクリックしてください。\n
+NCOEvent*OclMessage.MSG_00551.messageString: フェイルバック・スレッド・ファイル記述子からの読み取り中にエラーが発生しました: %1$s
+NCOEvent*OclMessage.MSG_00600.messageString: 有効なライセンスを取得できませんでした。
+NCOEvent*OclMessage.MSG_00601.messageString: 情報:
+NCOEvent*OclMessage.MSG_00602.messageString: 設定をロードできませんでした
+NCOEvent*OclMessage.MSG_00603.messageString: ピックスマップ・ファイルをロードできませんでした: %1$s
+NCOEvent*OclMessage.MSG_00604.messageString: ツール・パラメーター・ダイアログ
+NCOEvent*OclMessage.MSG_00605.messageString: UTC 整数に変換します
+NCOEvent*OclMessage.MSG_00606.messageString: コマンド行パスワードを非表示にできません
+NCOEvent*OclMessage.MSG_00607.messageString: \011-failbackpolltime <seconds>\011バックアップに接続された場合に、1 次 ObjectServer のポーリングを行う時間間隔\n
+NCOEvent*OclMessage.top_range_template.messageString: 上位 [%1$d-%2$d]
+NCOEvent*OclMessage.top_off_string.messageString: 上位 [オフ]
+NCOEvent*OclMessage.top_fixed_string.messageString: 上位 [固定]
+NCOEvent*OclMessage.restricted_range_template.messageString: 行の制限 [%1$d-%2$d]
+NCOEvent*OclMessage.liboclLookupOpen.messageString: ルックアップ・ファイル (%1$s) を開けません\n
+NCOEvent*OclMessage.liboclVersionFormat.messageString: %1$s V%2$s
+NCOEvent*OclMessage.liboclReleaseId.messageString: リリース ID: %1$s\n
+NCOEvent*OclMessage.liboclLibraryRelease.messageString: Ocl ライブラリーのリリース: %1$s\n
+NCOEvent*OclMessage.liboclCompileDate.messageString: ソフトウェアをコンパイルした日付: %1$s\n
+NCOEvent*OclMessage.liboclSybaseRelease.messageString: Sybase ライブラリーのリリース: %1$s\n
+NCOEvent*OclMessage.liboclServerUsedataFailed.messageString: サーバー・メッセージ CB でユーザー・データを取得できませんでした。
+NCOEvent*OclMessage.liboclChallengeUserdataFailed.messageString: ユーザー確認のための CB でユーザー・データを取得できませんでした。
+NCOEvent*OclMessage.liboclEventList.messageString: イベント・リスト情報
+NCOEvent*OclMessage.liboclBusyFailed.messageString: エラー: ビジー・メッセージを起動できませんでした。\n
+NCOEvent*OclMessage.liboclAsyncFailed.messageString: CS_ASYNC_NOTIFS を設定できませんでした
+NCOEvent*OclMessage.liboclPacketFailed.messageString: CS_PACKET_SIZE を設定できませんでした
+NCOEvent*OclMessage.liboclAddressHandle.messageString: IP アドレス・ハンドルを作成します。 (%1$d:%2$s)
+NCOEvent*OclMessage.liboclIducConnection.messageString: IDUC チャネル接続が失敗しました。 connect(): %1$s
+NCOEvent*OclMessage.liboclBlockIduc.messageString: IDUC 上でブロック - 再同期しています
+NCOEvent*OclMessage.liboclNotSet.messageString: %1$s が設定されていません\n
+NCOEvent*OclMessage.liboclDoesntContain.messageString: %1$s に次の内容が含まれていません。\n
+NCOEvent*OclMessage.liboclStartsWith.messageString: %1$s は、次の内容で始まります。\n
+NCOEvent*OclMessage.liboclPortInvalid.messageString: %2$s では、ポート「%1$s」は無効です\n
+NCOEvent*OclMessage.liboclIducHostRedirect.messageString: SSH IDUC はホスト「%1$s」にリダイレクトされます\n
+NCOEvent*OclMessage.liboclIducPortRedirect.messageString: SSH IDUC はポート「%1$ld」にリダイレクトされます\n
+NCOEvent*OclMessage.liboclHttpError.messageString: HTTP エラー %1$3d - %2$s
+! DTOOLS_MSG001
+NCOEvent*OclMessage.DTOOLS_MSG001.messageString: メモリー割り振りが失敗しました。
+! DTOOLS_MSG002
+NCOEvent*OclMessage.DTOOLS_MSG002.messageString: テーブル %1$s を記述できませんでした。 ObjectServer 内にこのテーブルが存在することを確認してください。
+! DTOOLS_MSG003
+NCOEvent*OclMessage.DTOOLS_MSG003.messageString: テーブル %1$s の列数が正しくありません。 期待される列数は %2$d です。
+! DTOOLS_MSG004
+NCOEvent*OclMessage.DTOOLS_MSG004.messageString: システム・テーブル %1$s のいずれかの必須フィールドのデータ・タイプが正しくありません。
+! DTOOLS_MSG005
+NCOEvent*OclMessage.DTOOLS_MSG005.messageString: テーブル %1$s のテーブル・データを取り出すためのフィールド記述子を作成できませんでした。
+! DTOOLS_MSG006
+NCOEvent*OclMessage.DTOOLS_MSG006.messageString: %1$s テーブルから必要なデータを取り出す SQL ステートメントを実行できませんでした。
+! DTOOLS_MSG007
+NCOEvent*OclMessage.DTOOLS_MSG007.messageString: メニュー %1$d のポップアップ・メニューは、既に作成されています。
+! DTOOLS_MSG008
+NCOEvent*OclMessage.DTOOLS_MSG008.messageString: メニュー定義 %1$d 内で定義されているテーブルを記述できませんでした。
+! DTOOLS_MSG009
+NCOEvent*OclMessage.DTOOLS_MSG009.messageString: メニュー定義 %1$d 内でされているいずれかのフィールドが見つかりませんでした。
+! DTOOLS_MSG010
+NCOEvent*OclMessage.DTOOLS_MSG010.messageString: アクションが使用するプロンプト定義内で参照される指定のメニュー定義が見つかりませんでした。
+! DTOOLS_MSG011
+NCOEvent*OclMessage.DTOOLS_MSG011.messageString: 動的ツール・サブシステム内で不明なエラーが発生しました。
+! DTOOLS_MSG012
+NCOEvent*OclMessage.DTOOLS_MSG012.messageString: ルックアップ・タイプのプロンプト定義で指定されたルックアップ・ファイルを開けませんでした。
+! DTOOLS_MSG013
+NCOEvent*OclMessage.DTOOLS_MSG013.messageString: アクションのプロンプト参照が長さゼロに拡張されました。
+! DTOOLS_MSG014
+NCOEvent*OclMessage.DTOOLS_MSG014.messageString: メニュー項目 ID %1$d のアクションで参照されるプロンプト定義が見つかりませんでした。
+! DTOOLS_MSG015
+NCOEvent*OclMessage.DTOOLS_MSG015.messageString: 動的ツール内で参照されるアクション %1$d が見つかりませんでした。
+! DTOOLS_MSG016
+NCOEvent*OclMessage.DTOOLS_MSG016.messageString: メニュー項目でサブメニューとして参照されるメニュー %1$d が見つかりませんでした。
+! DTOOLS_MSG017
+NCOEvent*OclMessage.DTOOLS_MSG017.messageString: ツールへのアクセス権限が不十分です。
+! DTOOLS_MSG018
+NCOEvent*OclMessage.DTOOLS_MSG018.messageString: 関連するポップアップ・ウィジェット・セットが作成されていないメニューをポップアップしようとしました。
+! DTOOLS_MSG019
+NCOEvent*OclMessage.DTOOLS_MSG019.messageString: 内部/外部/ジャーナルのいずれかの行 %1$d で構文解析エラーが発生しました。
+! DTOOLS_MSG020
+NCOEvent*OclMessage.DTOOLS_MSG020.messageString: ユーザーが打ち切ったアクションを実行します。
+! DTOOLS_MSG021
+NCOEvent*OclMessage.DTOOLS_MSG021.messageString: アクションの内部影響を実行できませんでした。
+! DTOOLS_MSG022
+NCOEvent*OclMessage.DTOOLS_MSG022.messageString: 外部影響のストリーム・リダイレクト用のパイプ構造を作成できませんでした。
+! DTOOLS_MSG023
+NCOEvent*OclMessage.DTOOLS_MSG023.messageString: 外部影響を開始するためのプロセスを fork できませんでした。\n[エラー番号: %1$d = %2$s]
+! DTOOLS_MSG024
+NCOEvent*OclMessage.DTOOLS_MSG024.messageString: 外部影響を実行できませんでした。
+! DTOOLS_MSG025
+NCOEvent*OclMessage.DTOOLS_MSG025.messageString: ジャーナル・テキストを一連の 16 255 チャンクに分割できませんでした。
+! DTOOLS_MSG026
+NCOEvent*OclMessage.DTOOLS_MSG026.messageString: システム・テーブル %1$s でいずれかの必須フィールドが見つかりませんでした。
+! DTOOLS_MSG027
+NCOEvent*OclMessage.DTOOLS_MSG027.messageString: 動的ツールの一般エラーが発生しました。
+! DTOOLS_MSG028
+NCOEvent*OclMessage.DTOOLS_MSG028.messageString: ジャーナル項目を実行できませんでした。
+! DTOOLS_MSG029
+NCOEvent*OclMessage.DTOOLS_MSG029.messageString: マルチバイト文字ストリングに変換できませんでした。
+! DTOOLS_MSG999
+NCOEvent*OclMessage.DTOOLS_MSG999.messageString: <不明>
+! Generated by X-Designer
+
+
+! output_window
+NCOEvent*output_window.allowShellResize: true
+NCOEvent*output_window.title: ツールの出力
+
+! output_mb
+NCOEvent*output_mb.autoUnmanage: false
+NCOEvent*output_mb.dialogType: DIALOG_TEMPLATE
+
+! output_sep
+
+! output_close_button
+NCOEvent*output_close_button.labelString: 強制終了
+
+! output_mform
+
+! output_label
+NCOEvent*output_label.labelString: 出力
+NCOEvent*output_label.alignment: ALIGNMENT_CENTER
+
+! output_scrolltext
+
+! output_text
+NCOEvent*output_text.traversalOn: false
+NCOEvent*output_text.columns: 40
+NCOEvent*output_text.editable: false
+NCOEvent*output_text.cursorPositionVisible: false
+NCOEvent*output_text.fontList: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+NCOEvent*output_text.editMode: MULTI_LINE_EDIT
+NCOEvent*output_text.rows: 15
+
+
+! param_dialog
+NCOEvent*param_dialog.allowShellResize: true
+
+! param_mb
+NCOEvent*param_mb.dialogStyle: DIALOG_FULL_APPLICATION_MODAL
+NCOEvent*param_mb.autoUnmanage: false
+NCOEvent*param_mb.dialogType: DIALOG_TEMPLATE
+
+! param_ok_button
+NCOEvent*param_ok_button.labelString: OK
+
+! param_cancel_button
+NCOEvent*param_cancel_button.labelString: キャンセル
+
+! param_help_button
+NCOEvent*param_help_button.labelString: ヘルプ
+
+! param_form
+NCOEvent*param_form.fractionBase: 3
+
+! label1
+NCOEvent*param_label.labelString: 以下の必須パラメーターを入力してください
+
+! param_sep
+
+! ############################################################################
+! libOcl:Global.res - General library X resources.
+! ############################################################################
+
+! Msg.c: Message dialog related X resources.
+NCOEvent*info_dialog.okLabelString: OK
+NCOEvent*error_dialog.okLabelString: OK
+NCOEvent*warning_dialog.okLabelString: OK
+
+NCOEvent*question_dialog.okLabelString: OK
+NCOEvent*question_dialog.cancelLabelString: キャンセル
+
+NCOEvent*oclLocaleMsgWarning.messageString: 警告: 
+NCOEvent*oclLocaleMsgError.messageString: エラー: 
+NCOEvent*oclLocaleMsgFatal.messageString: 致命的エラー: 
+
+NCOEvent*OclMessage.accelerator.messageString: Ctrl+%1$c
+
+! Info dialog overrides
+
+NCOEvent*info_form*background: CadetBlue
+NCOEvent*info_label_form*background: CadetBlue
+
+NCOEvent*info_dialog*XmDrawingArea.background: CadetBlue
+NCOEvent*info_dialog*XmScrollBar.background: CadetBlue
+
+NCOEvent*info_matrix.width:	500
+NCOEvent*info_matrix.gridType:	XmGRID_NONE
+NCOEvent*info_matrix.rows:           10
+NCOEvent*info_matrix.columns:        2
+NCOEvent*info_matrix.columnWidths:   20,256
+NCOEvent*info_matrix.columnAlignments:   alignment_end,alignment_beginning
+NCOEvent*info_matrix.fixedColumns: 1
+!NCOEvent*info_matrix.columnLabels:   Field,Value
+
+NCOEvent*info_matrix.cellMarginWidth: 		0
+NCOEvent*info_matrix.cellMarginHeight:		0
+NCOEvent*info_matrix.highlightColor:		black
+
+NCOEvent*info_matrix.showArrows: False
+
+NCOEvent*info_matrix.foreground: White
+NCOEvent*info_matrix.rowLabelColor: White
+NCOEvent*info_matrix.columnLabelColor: White
+NCOEvent*info_matrix.selectedBackground: White
+NCOEvent*info_matrix.selectedForeground: black
+NCOEvent*info_matrix.allowColumnResize:   True
+NCOEvent*info_matrix.labelFont: -*-*-*-r-normal--*-*-75-75-*-*-iso*-*:
+
+NCOEvent*info_matrix.selectScrollVisible: True
+
+NCOEvent*info_matrix.translations:   #replace\n                Shift Ctrl<Btn1Down>: ResizeColumns()\n                ~Ctrl Shift<Btn1Down>: ResizeColumns(RangeSelect)\n                ~Shift Ctrl<Btn1Down>: SelectCell(ToggleSelect)\n                ~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n                <Btn2Down>:      ProcessDrag()\n                <Btn3Down>:      SelectCell(Menu)
+NCOEvent*info_matrix.clip.translations:   #replace\n                Shift Ctrl<Btn1Down>: ResizeColumns()\n                ~Ctrl Shift<Btn1Down>: ResizeColumns(RangeSelect)\n                ~Shift Ctrl<Btn1Down>: SelectCell(ToggleSelect)\n                ~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n                <Btn2Down>:      ProcessDrag()\n                <Btn3Down>:      SelectCell(Menu)
+
+! Main window and sub-window toolbar resources to disable keyboard traversal.
+! The toolbar replicates menu options which can be accessed via the keyboard.
+! It makes no sense to allow travesal via the tab key through the toolbar
+! buttons, especially as the toggle buttons, which are XrtLabels do not
+! support tab traversal very well.
+NCOEvent*main_toolbar*traversalOn: False
+NCOEvent*sub_toolbar*traversalOn: False
+
+! Include the dynamic tool resources.
+NCOEvent*param_dialog*XmList*background: CadetBlue
+NCOEvent*param_dialog*XmXrtDateField.background: CadetBlue
+NCOEvent*param_dialog*XmXrtDateField.xrtFldEnterFormatList:DD-MM-YYYY hh:mm:ss,D-M-YYYY h:m:s
+NCOEvent*output_window*XmText.background: Black
+
+! XRT Combo Box drop down colour re-source.
+NCOEvent*XmXrtGearCombo*XmList*background:CadetBlue
+
+! HPUX11/HPUX 10.20 work-arounds. Due to the default font set specifications
+! used by CDE, the HPUX library is unable to convert the font set due to
+! missing charsets. This should be OK, but on HPUX 11 our application will
+! crash in the widget creation as the application has no fonts. This is not
+! good. We override these resources here in order to prevent this error 
+! from occurring. :)
+
+! ****************************************************************************
+! Alerts menu additional static menu item related resources.
+! ****************************************************************************
+NCOEvent*alerts_info_btn.labelString: 情報
+NCOEvent*alerts_info_btn.mnemonic: I
+NCOEvent*alerts_info_btn.accelerator: Ctrl<Key>I
+NCOEvent*alerts_info_btn.acceleratorText: Ctrl+I
+
+NCOEvent*alerts_journal_btn.labelString: ジャーナル
+NCOEvent*alerts_journal_btn.mnemonic: J
+NCOEvent*alerts_journal_btn.accelerator: Ctrl<Key>J
+NCOEvent*alerts_journal_btn.acceleratorText: Ctrl+J
+
+NCOEvent*alerts_quickfilter_btn.labelString: 簡易フィルター(F)
+NCOEvent*alerts_quickfilter_btn.mnemonic: F
+NCOEvent*alerts_quickfilter_btn.accelerator: Ctrl<Key>F
+NCOEvent*alerts_quickfilter_btn.acceleratorText: Ctrl+F
+
+NCOEvent*qfilter_menu_eq_btn.labelString: 等しい(E)
+NCOEvent*qfilter_menu_eq_btn.mnemonic: E
+NCOEvent*qfilter_menu_eq_btn.accelerator: Ctrl<Key>E
+NCOEvent*qfilter_menu_eq_btn.acceleratorText: Ctrl+E
+
+NCOEvent*qfilter_menu_neq_btn.labelString: 等しくない(N)
+NCOEvent*qfilter_menu_neq_btn.mnemonic: N
+NCOEvent*qfilter_menu_neq_btn.accelerator: Ctrl<Key>N
+NCOEvent*qfilter_menu_neq_btn.acceleratorText: Ctrl+N
+
+NCOEvent*qfilter_menu_gt_btn.labelString: より大きい(G)
+NCOEvent*qfilter_menu_gt_btn.mnemonic: G
+NCOEvent*qfilter_menu_gt_btn.accelerator: Ctrl<Key>G
+NCOEvent*qfilter_menu_gt_btn.acceleratorText: Ctrl+G
+
+NCOEvent*qfilter_menu_gte_btn.labelString: 以上
+NCOEvent*qfilter_menu_gte_btn.mnemonic: q
+NCOEvent*qfilter_menu_gte_btn.accelerator: Ctrl<Key>q
+NCOEvent*qfilter_menu_gte_btn.acceleratorText: Ctrl+q
+
+NCOEvent*qfilter_menu_lt_btn.labelString: より小さい(L)
+NCOEvent*qfilter_menu_lt_btn.mnemonic: L
+NCOEvent*qfilter_menu_lt_btn.accelerator: Ctrl<Key>L
+NCOEvent*qfilter_menu_lt_btn.acceleratorText: Ctrl+L
+
+NCOEvent*qfilter_menu_lte_btn.labelString: 以下
+NCOEvent*qfilter_menu_lte_btn.mnemonic: h
+NCOEvent*qfilter_menu_lte_btn.accelerator: Ctrl<Key>h
+NCOEvent*qfilter_menu_lte_btn.acceleratorText: Ctrl+h
+
+NCOEvent*qfilter_menu_like_btn.labelString: 類似(K)
+NCOEvent*qfilter_menu_like_btn.mnemonic: k
+NCOEvent*qfilter_menu_like_btn.accelerator: Ctrl<Key>k
+NCOEvent*qfilter_menu_like_btn.acceleratorText: Ctrl+k
+
+NCOEvent*qfilter_menu_nlike_btn.labelString: 除外(T)
+NCOEvent*qfilter_menu_nlike_btn.mnemonic: t
+NCOEvent*qfilter_menu_nlike_btn.accelerator: Ctrl<Key>t
+NCOEvent*qfilter_menu_nlike_btn.acceleratorText: Ctrl+t
+
+NCOEvent*qfilter_menu_off_btn.labelString: オフ(O)
+NCOEvent*qfilter_menu_off_btn.mnemonic: O
+NCOEvent*qfilter_menu_off_btn.accelerator: Ctrl<Key>O
+NCOEvent*qfilter_menu_off_btn.acceleratorText: Ctrl+O
+
+
+
+! NCOEVENT_MSG0001
+NCOEvent*main_status_line.readyString.messageString: 準備できました。
+! NCOEVENT_MSG0002
+NCOEvent*sub_status_line.rowsSelected.messageString: %1$d 行が選択されました。
+! NCOEVENT_MSG0003
+NCOEvent*sub_status_line.noRowsSelected.messageString: 行は選択されませんでした。
+! NCOEVENT_MSG0004
+NCOEvent*sub_status_line.iducModifyStatus.messageString: %1$d 行が挿入され、%2$d 行が更新され、%3$d 行が削除されました。
+! NCOEVENT_MSG0005
+NCOEvent*sub_status_line.iducNoRowsModified.messageString: 行は変更されませんでした。
+! NCOEVENT_MSG0006
+NCOEvent*sub_status_line.rowsMatched.messageString: %1$d 行が一致しました。
+! NCOEVENT_MSG0007
+NCOEvent*sub_status_line.noRowsMatched.messageString: 行は一致しませんでした。
+! NCOEVENT_MSG0008
+NCOEvent*sub_status_line.windowIsFrozen.messageString: ウィンドウが凍結されています - 結果は最新表示するまで表示されません。
+! NCOEVENT_MSG0009
+NCOEvent*sub_status_line.resultsRetrieveError.messageString: 結果の取得中にエラーが発生しました
+! NCOEVENT_MSG0010
+NCOEvent*main_status_line.windowCreateFailed.messageString: ウィンドウを作成できませんでした。
+! NCOEVENT_MSG0012
+NCOEvent*sub_status_line.noServices.messageString: サービスが定義されていません
+! NCOEVENT_MSG0013
+NCOEvent*sub_status_line.allRows.messageString: すべての行が選択されました。
+NCOEvent*OclMessage.noFilterPermission.messageString: このフィルターを変更する権限がありません
+NCOEvent*OclMessage.noViewPermission.messageString: このビューを変更する権限がありません
+NCOEvent*OclMessage.readOnlyFilterExists.messageString: この名前の読み取り専用フィルターは既に存在します
+NCOEvent*OclMessage.readOnlyViewExists.messageString: この名前の読み取り専用ビューは既に存在します
+NCOEvent*OclMessage.openTmpFailed.messageString: 一時ファイルを開くことができませんでした。
+NCOEvent*OclMessage.openFailed.messageString: ファイルを開くことができませんでした。
+NCOEvent*OclMessage.printLaunchFailed.messageString: プリンター・プロセスを起動できませんでした
+NCOEvent*OclMessage.journalRetrieveFailed.messageString: ジャーナル情報を取得できませんでした
+NCOEvent*OclMessage.pipeFailed.messageString: パイプを作成できませんでした。ファイル記述子が不十分の可能性があります。
+NCOEvent*OclMessage.masterFailbackSpawnFailed.messageString: マスター・フェイルバック・スレッドを作成できませんでした。
+NCOEvent*OclMessage.failebackSpawnFailed.messageString: フェイルバック・スレッドを作成できませんでした。
+NCOEvent*OclMessage.libnetcoolFaild.messageString: netcool ライブラリーを初期化できませんでした。
+NCOEvent*OclMessage.resourceLoadFailed.messageString: ロケール X リソースをロードできませんでした。
+NCOEvent*OclMessage.services.messageString: サービス
+NCOEvent*OclMessage.masterConnectFailed.messageString: マスター ObjectServer に接続できませんでした。\nサーバーが稼働していること、および指定したユーザー名とパスワードが\nデスクトップおよびマスター ObjectServer の両方で同じであることを確認してください。
+NCOEvent*OclMessage.service.messageString: サービス
+NCOEvent*OclMessage.lastChange.messageString: 最後の変更
+NCOEvent*OclMessage.lastGood.messageString: 最後の有効
+NCOEvent*OclMessage.lastBad.messageString: 最後の不良
+NCOEvent*OclMessage.lastMarginal.messageString: 最後の限界
+NCOEvent*OclMessage.lastReported.messageString: 最後の報告
+NCOEvent*OclMessage.error.messageString: <エラー>
+NCOEvent*OclMessage.row.messageString: 行
+NCOEvent*OclMessage.printFailed.messageString: 印刷できませんでした
+NCOEvent*OclMessage.uniquePanic.messageString: 問題が発生しました。 固有のシステム ID を取得できません。\n
+NCOEvent*OclMessage.fontlistFailed.messageString: ユーザーが指定したフォントのフォント・リストを作成できませんでした。\n代わりにデフォルト・フォントが使用されます。
+NCOEvent*OclMessage.uneditableConfig.messageString: \011-uneditable\011構成の編集を許可しません\n
+NCOEvent*OclMessage.sub_toolbar_refresh_button.messageString: イベントの最新表示
+NCOEvent*OclMessage.sub_toolbar_freeze_toggle.messageString: 凍結 [解除]
+NCOEvent*OclMessage.sub_toolbar_select_all_toggle.messageString: すべてを選択 [解除]
+NCOEvent*OclMessage.sub_toolbar_print_button.messageString: 印刷
+NCOEvent*OclMessage.sub_toolbar_filter_button.messageString: フィルター・ビルダー
+NCOEvent*OclMessage.sub_toolbar_filter_option.messageString: フィルターの変更
+NCOEvent*OclMessage.sub_toolbar_view_button.messageString: View Builder
+NCOEvent*OclMessage.sub_toolbar_view_option.messageString: ビューの変更
+NCOEvent*OclMessage.sub_toolbar_service_tog.messageString: サービス・ビュー
+NCOEvent*OclMessage.sub_toolbar_service_button.messageString: 「サービスを表示」ウィンドウ
+NCOEvent*OclMessage.sub_toolbar_service_option.messageString: サービスの変更
+NCOEvent*OclMessage.sub_toolbar_service_indicator.messageString: サービス状況
+NCOEvent*OclMessage.sub_toolbar_jump_button.messageString: 先頭にジャンプ
+NCOEvent*OclMessage.sub_toolbar_top_label.messageString: 先頭の <n> 行に制限
+NCOEvent*OclMessage.fs_name_button.messageString: フィルター・ビルダーの起動
+NCOEvent*OclMessage.fs_view_button.messageString: サブイベント・リストの表示
+NCOEvent*OclMessage.fs_view_menu.messageString: 使用可能なビュー
+NCOEvent*OclMessage.toolbar_new_button.messageString: 新規
+NCOEvent*OclMessage.toolbar_open_button.messageString: 開く
+NCOEvent*OclMessage.toolbar_save_button.messageString: 保存
+NCOEvent*OclMessage.toolbar_refresh_button.messageString: ウィンドウの最新表示
+NCOEvent*OclMessage.toolbar_freeze_toggle.messageString: すべての表示を凍結
+NCOEvent*OclMessage.toolbar_rownum.messageString: 行当たりのモニター・ボックスの数を変更
+NCOEvent*OclMessage.resync_all_text.messageString: すべてのローカル・データを Object Server と\n再同期しますか?
+NCOEvent*OclMessage.resync_visuals_text.messageString: ビジュアル・データを Object Server と\n再同期しますか?
+NCOEvent*OclMessage.resync_classes_text.messageString: クラス・データを Object Server と\n再同期しますか?
+NCOEvent*OclMessage.resync_users_text.messageString: ユーザー・データを Object Server と\n再同期しますか?
+NCOEvent*OclMessage.resync_groups_text.messageString: グループ・データを Object Server と\n再同期しますか?
+NCOEvent*OclMessage.resync_menus_text.messageString: ツール・メニュー・データを Object Server と\n再同期しますか?
+NCOEvent*OclMessage.resync_services_text.messageString: サービス・データを Object Server と\n再同期しますか?
+
+
+! Generated by X-Designer
+
+
+! service_window
+NCOEvent*service_window.width: 700
+NCOEvent*service_window.height: 400
+NCOEvent*service_window.title: サービス
+
+! service_mb
+
+! service_close_button
+NCOEvent*service_close_button.labelString: 閉じる
+
+! service_help_button
+NCOEvent*service_help_button.labelString: ヘルプ
+
+! service_tree
+
+
+! print_file
+NCOEvent*print_file.title: ファイルに出力...
+
+! print_fsb
+NCOEvent*print_fsb.applyLabelString: フィルター
+NCOEvent*print_fsb.okLabelString: OK
+NCOEvent*print_fsb.cancelLabelString: キャンセル
+NCOEvent*print_fsb.helpLabelString: ヘルプ
+NCOEvent*print_fsb.selectionLabelString: 選択
+NCOEvent*print_fsb.filterLabelString: フィルター
+NCOEvent*print_fsb.fileListLabelString: ファイル
+NCOEvent*print_fsb.dirListLabelString: ディレクトリー
+
+
+! resync_dialog
+NCOEvent*resync_dialog.title: 再同期しますか?
+
+! resync_mb
+NCOEvent*resync_mb.messageString: %1$s データを Object Server と\n再同期しますか?
+NCOEvent*resync_mb.okLabelString: はい
+NCOEvent*resync_mb.cancelLabelString: いいえ
+NCOEvent*resync_mb.helpLabelString: ヘルプ
+
+
+! print_dialog
+NCOEvent*print_dialog.title: 印刷
+
+! print_mb
+
+! print_ok_button
+NCOEvent*print_ok_button.labelString: OK
+
+! print_cancel_button
+NCOEvent*print_cancel_button.labelString: キャンセル
+
+! print_help_button
+NCOEvent*print_help_button.labelString: ヘルプ
+
+! frame1
+
+! radioBox1
+
+! print_printer_toggle
+NCOEvent*print_printer_toggle.labelString: プリンター
+
+! print_file_toggle
+NCOEvent*print_file_toggle.labelString: ファイル
+
+! label7
+NCOEvent*printer_label.labelString: プリンター
+
+! print_printer_field
+NCOEvent*print_printer_field.value: lp
+
+! print_file_button
+NCOEvent*print_file_button.labelString: ファイル
+
+! print_file_field
+
+! label8
+NCOEvent*output_label.labelString: 出力
+
+! frame2
+
+! radioBox2
+
+! print_all_toggle
+NCOEvent*print_all_toggle.labelString: ビュー内のすべてのアラート
+
+! print_selection_toggle
+NCOEvent*print_selection_toggle.labelString: 選択されたアラート
+
+! label9
+NCOEvent*selection_label.labelString: 選択
+
+! frame3
+
+! rowcol1
+
+! print_row_sep_toggle
+NCOEvent*print_row_sep_toggle.labelString: 行の分離文字
+
+! print_row_num_toggle
+NCOEvent*print_row_num_toggle.labelString: 行番号
+
+! print_col_sep_toggle
+NCOEvent*print_col_sep_toggle.labelString: 列の分離文字
+
+! print_col_head_toggle
+NCOEvent*print_col_head_toggle.labelString: 列見出し
+
+! label10
+NCOEvent*options_label.labelString: オプション
+
+
+! alt_journal_dialog
+NCOEvent*alt_journal_dialog.title: ジャーナル項目
+
+! alt_journal_mb
+
+! alt_ok_button
+NCOEvent*alt_ok_button.labelString: OK
+
+! alt_cancel_button
+NCOEvent*alt_cancel_button.labelString: キャンセル
+
+! alt_help_button
+NCOEvent*alt_help_button.labelString: ヘルプ
+
+! alt_text
+
+! alt_menu
+NCOEvent*alt_menu.labelString: ID
+
+! label11
+
+
+! panic_dialog
+NCOEvent*panic_dialog.title: サーバーの障害
+
+! panic_mb
+
+! panic_connect_button
+NCOEvent*panic_connect_button.labelString: 接続
+
+! panic_exit_button
+NCOEvent*panic_exit_button.labelString: 終了
+
+! panic_help_button
+NCOEvent*panic_help_button.labelString: ヘルプ
+
+! label12
+NCOEvent*panic_little_label.labelString: 接続先の Object Server に障害が\n 発生しているようです。\n\n この Object Server に再接続すること、別の Object Server に接続すること、\n またはこのアプリケーションを終了することを試みてください。\n\n以下のフィールドを入力すれば、別のユーザーとして接続できます。\n
+
+! label13
+NCOEvent*panic_username_label.labelString: ユーザー名
+
+! panic_username_field
+
+! label14
+NCOEvent*panic_password_label.labelString: パスワード
+
+! panic_password_field
+
+! panic_server_menu
+NCOEvent*panic_server_menu.labelString: サーバー
+
+! label15
+
+
+! find_dialog
+NCOEvent*find_dialog.title: 検索...
+
+! find_mb
+
+! find_find_button
+NCOEvent*find_find_button.labelString: 検索
+
+! find_next_button
+NCOEvent*find_next_button.labelString: 次へ
+
+! find_close_button
+NCOEvent*find_close_button.labelString: 閉じる
+
+! find_help_button
+NCOEvent*find_help_button.labelString: ヘルプ
+
+! find_field_list
+
+! label16
+NCOEvent*find_value_label.labelString: 値
+
+! find_value_field
+
+! radioBox3
+
+! find_exact_toggle
+NCOEvent*find_exact_toggle.labelString: 完全一致
+
+! find_regexp_toggle
+NCOEvent*find_regexp_toggle.labelString: 正規表現
+
+! find_substring_toggle
+NCOEvent*find_substring_toggle.labelString: サブストリング
+
+! label17
+NCOEvent*label17.labelString: オプション
+
+
+! prefs_dialog
+NCOEvent*prefs_dialog.title: イベント・リストの設定
+
+! prefs_mb
+
+! prefs_apply_button
+NCOEvent*prefs_apply_button.labelString: 適用
+
+! prefs_save_button
+NCOEvent*prefs_save_button.labelString: 保存
+
+! prefs_close_button
+NCOEvent*prefs_close_button.labelString: 閉じる
+
+! prefs_undo_button
+NCOEvent*prefs_undo_button.labelString: 元に戻す
+
+! prefs_help_button
+NCOEvent*prefs_help_button.labelString: ヘルプ
+
+! tab_manager
+
+! monitors_tab
+NCOEvent*monitors_tab.labelString: モニター
+
+! refresh_tab
+NCOEvent*refresh_tab.labelString: 最新表示
+
+! notification_tab
+NCOEvent*notification_tab.labelString: 通知
+
+! flash_tab
+NCOEvent*flash_tab.labelString: フラッシュ
+
+! misc_tab
+NCOEvent*misc_tab.labelString: その他
+
+! monitors_frame
+
+! prefs_fs_number_toggle
+NCOEvent*prefs_fs_number_toggle.labelString: カウントの表示
+
+! prefs_fs_max_toggle
+NCOEvent*prefs_fs_max_toggle.labelString: 最高の重大度の表示
+
+! prefs_fs_min_toggle
+NCOEvent*prefs_fs_min_toggle.labelString: 最低の重大度の表示
+
+! prefs_fs_metric_toggle
+NCOEvent*prefs_fs_metric_toggle.labelString: メトリックの表示
+
+! prefs_fs_sev_border_toggle
+NCOEvent*prefs_fs_sev_border_toggle.labelString: 重大度の境界線の表示
+
+! rowcol9
+
+! prefs_fs_lavalamp_toggle
+NCOEvent*prefs_fs_lavalamp_toggle.labelString: ラーヴァ・ランプの表示
+
+! prefs_fs_histogram_toggle
+NCOEvent*prefs_fs_histogram_toggle.labelString: ヒストグラムの表示
+
+! refresh_frame
+
+! prefs_timed_refresh_toggle
+NCOEvent*prefs_timed_refresh_toggle.labelString: 時間指定の最新表示
+
+! prefs_refresh_time_field
+
+! notification_frame
+
+! prefs_notify_toggle
+NCOEvent*prefs_notify_toggle.labelString: アイコン化状態の通知
+
+! separator9
+
+! prefs_when_label
+NCOEvent*prefs_when_label.labelString: 条件
+
+! prefs_notify_on_insert_toggle
+NCOEvent*prefs_notify_on_insert_toggle.labelString: 新規
+
+! prefs_notify_on_update_toggle
+NCOEvent*prefs_notify_on_update_toggle.labelString: 変更
+
+! prefs_notify_on_delete_toggle
+NCOEvent*prefs_notify_on_delete_toggle.labelString: 削除
+
+! separator10
+
+! prefs_how_label
+NCOEvent*prefs_how_label.labelString: 方法
+
+! prefs_notify_bell_toggle
+NCOEvent*prefs_notify_bell_toggle.labelString: ベルを鳴らす
+
+! prefs_notify_icon_toggle
+NCOEvent*prefs_notify_icon_toggle.labelString: アラート・アイコン
+
+! prefs_notify_open_toggle
+NCOEvent*prefs_notify_open_toggle.labelString: ウィンドウのオープン
+
+! prefs_notify_external_toggle
+NCOEvent*prefs_notify_external_toggle.labelString: 外部コマンドの実行
+
+! prefs_notify_external_field
+
+! flash_frame
+
+! prefs_flash_enable_toggle
+NCOEvent*prefs_flash_enable_toggle.labelString: フラッシュを使用可能に設定する
+
+! prefs_flash_time_gauge
+
+! prefs_fast_label
+NCOEvent*prefs_fast_label.labelString: 高速
+
+! prefs_slow_label
+NCOEvent*prefs_slow_label.labelString: 低速
+
+! prefs_flash_brightness_gauge
+
+! prefs_bright_label
+NCOEvent*prefs_bright_label.labelString: 明
+
+! prefs_dark_label
+NCOEvent*prefs_dark_label.labelString: 暗
+
+! misc_frame
+
+! separator42
+
+! label20
+NCOEvent*label20.labelString: 情報ダイアログ
+
+! prefs_colours_toggle
+NCOEvent*prefs_colours_toggle.labelString: 色の表示
+
+! prefs_summary_toggle
+NCOEvent*prefs_summary_toggle.labelString: 配布要約の表示
+
+! prefs_toolbar_toggle
+NCOEvent*prefs_toolbar_toggle.labelString: ツールバーの表示
+
+! prefs_enable_jump_btn
+NCOEvent*prefs_enable_jump_btn.labelString: ジャンプ・ボタンをデフォルトでオンに設定
+
+! separator34
+
+! label18
+NCOEvent*label18.labelString: イベント・ウィンドウ
+
+! prefs_sort_info_toggle
+NCOEvent*prefs_sort_info_toggle.labelString: ソート情報の詳細
+
+
+! filter_segment
+
+! fs_form
+
+! fs_name_button
+
+! rowcol2
+
+! _fs_number_label
+NCOEvent*_fs_number_label.labelString: 数:
+
+! _fs_highest_label
+NCOEvent*_fs_highest_label.labelString: 最大:
+
+! _fs_lowest_label
+NCOEvent*_fs_lowest_label.labelString: 最小:
+
+! _fs_metric_label
+NCOEvent*_fs_metric_label.labelString: メトリック:
+
+! rowcol3
+
+! fs_number_label
+
+! fs_highest_label
+
+! fs_lowest_label
+
+! fs_metric_label
+
+! fs_lavalamp
+
+! bottom_separator
+
+! fs_view_button
+NCOEvent*fs_view_button.labelString: 表示
+
+! fs_view_menu
+
+! fs_chart
+
+
+! sub_window
+NCOEvent*sub_window.width: 680
+NCOEvent*sub_window.height: 350
+NCOEvent*sub_window.title: イベント・リスト
+
+! sub_form
+
+! sub_menu_bar
+
+! sub_file_cascade_button
+NCOEvent*sub_file_cascade_button.labelString: ファイル(F)
+NCOEvent*sub_file_cascade_button.mnemonic: F
+
+! sub_file_print_button
+NCOEvent*sub_file_print_button.labelString: 印刷(P)...
+NCOEvent*sub_file_print_button.mnemonic: P
+NCOEvent*sub_file_print_button.accelerator: Ctrl<Key>P
+NCOEvent*sub_file_print_button.acceleratorText: Ctrl+P
+
+! sub_file_keep_filter_button
+NCOEvent*sub_file_keep_filter_button.labelString: ウィンドウを保持(K)
+NCOEvent*sub_file_keep_filter_button.mnemonic: K
+
+! sub_file_separator
+
+! sub_file_close_button
+NCOEvent*sub_file_close_button.labelString: 閉じる(C)
+NCOEvent*sub_file_close_button.mnemonic: C
+
+! sub_edit_cascade_button
+NCOEvent*sub_edit_cascade_button.labelString: 編集(E)
+NCOEvent*sub_edit_cascade_button.mnemonic: E
+
+! sub_edit_select_all_button
+NCOEvent*sub_edit_select_all_button.labelString: すべてを選択
+NCOEvent*sub_edit_select_all_button.accelerator: Ctrl<Key>slash
+NCOEvent*sub_edit_select_all_button.acceleratorText: Ctrl+/
+
+! sub_edit_deselect_all_button
+NCOEvent*sub_edit_deselect_all_button.labelString: すべてを選択解除
+NCOEvent*sub_edit_deselect_all_button.accelerator: Ctrl<Key>backslash
+NCOEvent*sub_edit_deselect_all_button.acceleratorText: Ctrl+\
+
+! sub_edit_filter_button
+NCOEvent*sub_edit_filter_button.labelString: フィルターの編集(F)...
+NCOEvent*sub_edit_filter_button.mnemonic: F
+NCOEvent*sub_edit_filter_button.accelerator: Shift<Key>F
+NCOEvent*sub_edit_filter_button.acceleratorText: Shift+F
+
+! sub_edit_view_button
+NCOEvent*sub_edit_view_button.labelString: ビューの編集(V)...
+NCOEvent*sub_edit_view_button.mnemonic: V
+NCOEvent*sub_edit_view_button.accelerator: Shift<Key>V
+NCOEvent*sub_edit_view_button.acceleratorText: Shift+V
+
+! sub_edit_copy_button
+NCOEvent*sub_edit_copy_button.labelString: クリップボードにコピー(C)
+NCOEvent*sub_edit_copy_button.mnemonic: C
+NCOEvent*sub_edit_copy_button.accelerator: Ctrl<Key>C
+NCOEvent*sub_edit_copy_button.acceleratorText: Ctrl+C
+
+! sub_upd_cascade_button
+NCOEvent*sub_upd_cascade_button.labelString: 表示(V)
+NCOEvent*sub_upd_cascade_button.mnemonic: V
+
+! sub_upd_refresh_button
+NCOEvent*sub_upd_refresh_button.labelString: 最新表示(R)
+NCOEvent*sub_upd_refresh_button.mnemonic: R
+NCOEvent*sub_upd_refresh_button.accelerator: Ctrl<Key>R
+NCOEvent*sub_upd_refresh_button.acceleratorText: Ctrl+R
+
+! sub_upd_freeze_toggle
+NCOEvent*sub_upd_freeze_toggle.labelString: 凍結(Z)
+NCOEvent*sub_upd_freeze_toggle.mnemonic: z
+NCOEvent*sub_upd_freeze_toggle.accelerator: Ctrl<Key>Z
+NCOEvent*sub_upd_freeze_toggle.acceleratorText: Ctrl+Z
+
+! sub_upd_jump_toggle
+NCOEvent*sub_upd_jump_toggle.labelString: 先頭にジャンプ(U)
+NCOEvent*sub_upd_jump_toggle.mnemonic: u
+NCOEvent*sub_upd_jump_toggle.accelerator: Ctrl<Key>U
+NCOEvent*sub_upd_jump_toggle.acceleratorText: Ctrl+U
+
+! sub_upd_find_button
+NCOEvent*sub_upd_find_button.labelString: 検索(F)...
+NCOEvent*sub_upd_find_button.mnemonic: F
+NCOEvent*sub_upd_find_button.accelerator: Ctrl<Key>F
+NCOEvent*sub_upd_find_button.acceleratorText: Ctrl+F
+
+! sub_alerts_cascade_button
+NCOEvent*sub_alerts_cascade_button.labelString: アラート(A)
+NCOEvent*sub_alerts_cascade_button.mnemonic: A
+
+! sub_tools_cascade_button
+NCOEvent*sub_tools_cascade_button.labelString: ツール(T)
+NCOEvent*sub_tools_cascade_button.mnemonic: T
+
+! sub_help_cascade_button
+NCOEvent*sub_help_cascade_button.labelString: ヘルプ(H)
+NCOEvent*sub_help_cascade_button.mnemonic: H
+
+! sub_help_on_context_button
+NCOEvent*sub_help_on_context_button.labelString: コンテキスト(C)
+NCOEvent*sub_help_on_context_button.mnemonic: C
+NCOEvent*sub_help_on_context_button.accelerator: Shift<Key>osfHelp
+NCOEvent*sub_help_on_context_button.acceleratorText: Shift+Help
+
+! sub_toolbar_form
+
+! sub_toolbar
+
+! sub_toolbar_refresh_button
+
+! sub_toolbar_freeze_toggle
+
+! sub_toolbar_select_all_toggle
+
+! sub_toolbar_print_button
+
+! sub_toolbar_forms
+
+! sub_toolbar_filter_form
+
+! separator17
+
+! sub_toolbar_filter_button
+
+! sub_toolbar_filter_option
+NCOEvent*sub_toolbar_filter_option.resizable: false
+NCOEvent*sub_toolbar_filter_option.labelString:  
+
+! label19
+
+! cascade9
+
+! sub_toolbar_filter_menu
+
+! sub_toolbar_view_form
+
+! separator18
+
+! sub_toolbar_view_button
+
+! sub_toolbar_view_option
+NCOEvent*sub_toolbar_view_option.resizable: false
+
+! label21
+
+! cascade11
+
+! sub_toolbar_view_menu
+
+! sub_toolbar_services_form
+
+! separator39
+
+! sub_toolbar_service_tog
+
+! sub_toolbar_service_button
+
+! sub_toolbar_service_option
+NCOEvent*sub_toolbar_service_option.resizable: false
+
+! label48
+
+! sub_toolbar_service_menu
+
+! frame6
+
+! sub_toolbar_service_indicator
+
+! separator40
+
+! sub_toolbar_jump_button
+
+! separator48
+
+! sub_toolbar_top_form
+
+! sub_toolbar_top_label
+NCOEvent*sub_toolbar_top_label.labelString: 上位 [1-300]
+
+! sub_toolbar_top_box
+
+! sub_matrix
+
+! sub_status_line
+
+! sub_clock
+NCOEvent*sub_clock.columns: 1
+NCOEvent*sub_clock.resizeWidth: true
+
+! sub_user_field
+NCOEvent*sub_user_field.columns: 1
+NCOEvent*sub_user_field.resizeWidth: true
+
+! sub_server_field
+NCOEvent*sub_server_field.columns: 1
+NCOEvent*sub_server_field.resizeWidth: true
+
+! form21
+
+! sub_summary_bar_form
+
+! sub_clear_summary_toggle
+NCOEvent*sub_clear_summary_toggle.labelString: クリア
+
+! sub_indeterminate_summary_toggle
+NCOEvent*sub_indeterminate_summary_toggle.labelString: 不確定
+
+! sub_warning_summary_toggle
+NCOEvent*sub_warning_summary_toggle.labelString: 警告
+
+! sub_minor_summary_toggle
+NCOEvent*sub_minor_summary_toggle.labelString: 軽微
+
+! sub_major_summary_toggle
+NCOEvent*sub_major_summary_toggle.labelString: 重要
+
+! sub_critical_summary_toggle
+NCOEvent*sub_critical_summary_toggle.labelString: 重大
+
+! sub_all_events_button
+NCOEvent*sub_all_events_button.labelString: すべてのイベント
+
+
+! info_dialog
+NCOEvent*info_dialog.title: イベント情報
+
+! info_mb
+
+! info_close_button
+NCOEvent*info_close_button.labelString: 閉じる
+
+! info_prev_button
+NCOEvent*info_prev_button.labelString: 前へ
+
+! info_next_button
+NCOEvent*info_next_button.labelString: 次へ
+
+! info_help_button
+NCOEvent*info_help_button.labelString: ヘルプ
+
+! button24
+NCOEvent*button24.labelString: アラート・フィールド
+
+! button25
+NCOEvent*button25.labelString: アラートの詳細
+
+! button26
+NCOEvent*button26.labelString: ジャーナル
+
+! form23
+
+! info_matrix
+
+! info_full_text_fld
+
+! info_detail
+
+! info_journal_sw
+
+! info_journal
+
+! info_add_button
+NCOEvent*info_add_button.labelString: ジャーナルに追加...
+
+
+! view_load_dialog
+NCOEvent*view_load_dialog.title: イベント・リスト: ビューのロード
+
+! view_load_fsb
+NCOEvent*view_load_fsb.applyLabelString: フィルター
+NCOEvent*view_load_fsb.okLabelString: OK
+NCOEvent*view_load_fsb.cancelLabelString: キャンセル
+NCOEvent*view_load_fsb.helpLabelString: ヘルプ
+NCOEvent*view_load_fsb.selectionLabelString: 選択
+NCOEvent*view_load_fsb.filterLabelString: ファイル・フィルター
+NCOEvent*view_load_fsb.fileListLabelString: ファイル
+NCOEvent*view_load_fsb.dirListLabelString: ディレクトリー
+NCOEvent*view_load_fsb.pattern: *.elv
+
+! button10
+
+! label29
+NCOEvent*view_load_fsb.FilterLabel.labelString: ファイル・フィルター
+
+
+! filter_load_dialog
+NCOEvent*filter_load_dialog.title: イベント・リスト: フィルターのロード
+
+! filter_load_fsb
+NCOEvent*filter_load_fsb.applyLabelString: フィルター
+NCOEvent*filter_load_fsb.okLabelString: OK
+NCOEvent*filter_load_fsb.cancelLabelString: キャンセル
+NCOEvent*filter_load_fsb.helpLabelString: ヘルプ
+NCOEvent*filter_load_fsb.selectionLabelString: 選択
+NCOEvent*filter_load_fsb.filterLabelString: ファイル・フィルター
+NCOEvent*filter_load_fsb.fileListLabelString: ファイル
+NCOEvent*filter_load_fsb.dirListLabelString: ディレクトリー
+NCOEvent*filter_load_fsb.pattern: *.elf
+
+! button14
+
+! label33
+NCOEvent*filter_load_fsb.FilterLabel.labelString: ファイル・フィルター
+
+
+! config_window
+NCOEvent*config_window.title: イベント・リスト構成
+
+! config_mb
+
+! config_close_button
+NCOEvent*config_close_button.labelString: 閉じる
+
+! config_help_button
+NCOEvent*config_help_button.labelString: ヘルプ
+
+! label35
+NCOEvent*settings_label.labelString: 設定
+
+! label36
+NCOEvent*name_label.labelString: 名前
+
+! config_name_field
+
+! label37
+NCOEvent*columns_label.labelString: 列
+
+! config_num_cols_scale
+
+! frame13
+
+! rowcol4
+
+! config_new_button
+NCOEvent*config_new_button.labelString: 新規...
+
+! config_edit_button
+NCOEvent*config_edit_button.labelString: 編集...
+
+! config_load_button
+NCOEvent*config_load_button.labelString: ロード...
+
+! config_delete_button
+NCOEvent*config_delete_button.labelString: 削除
+
+! config_list
+
+! rowcol5
+
+! config_top_button
+NCOEvent*config_top_button.labelString: 一番上へ
+
+! config_up_button
+NCOEvent*config_up_button.labelString: 上へ
+
+! config_down_button
+NCOEvent*config_down_button.labelString: 下へ
+
+! config_bottom_button
+NCOEvent*config_bottom_button.labelString: 一番下へ
+
+! config_show_menu
+NCOEvent*config_show_menu.labelString: 編集
+
+! label38
+
+! config_show_filters_button
+NCOEvent*config_show_filters_button.labelString: フィルター
+
+! config_show_views_button
+NCOEvent*config_show_views_button.labelString: ビュー
+
+
+! main_window
+NCOEvent.width: 500
+NCOEvent.height: 340
+NCOEvent.title: イベント・リスト
+
+! main_form
+
+! main_menu_bar
+
+! file_cascade_button
+NCOEvent*main_menu_bar.file_cascade_button.labelString: ファイル(F)
+NCOEvent*main_menu_bar.file_cascade_button.mnemonic: F
+
+! file_new_button
+NCOEvent*main_menu_bar.XmMenuShell*file_new_button.labelString: 新規(N)
+NCOEvent*main_menu_bar.XmMenuShell*file_new_button.mnemonic: N
+
+! file_open_button
+NCOEvent*main_menu_bar.XmMenuShell*file_open_button.labelString: 開く(O)...
+NCOEvent*main_menu_bar.XmMenuShell*file_open_button.mnemonic: O
+
+! file_save_button
+NCOEvent*main_menu_bar.XmMenuShell*file_save_button.labelString: 保存(S)
+NCOEvent*main_menu_bar.XmMenuShell*file_save_button.mnemonic: S
+
+! file_save_as_button
+NCOEvent*main_menu_bar.XmMenuShell*file_save_as_button.labelString: 別名保存(A)...
+NCOEvent*main_menu_bar.XmMenuShell*file_save_as_button.mnemonic: A
+
+! file_resync_cascade
+NCOEvent*main_menu_bar.XmMenuShell*file_resync_cascade.labelString: 再同期(R)
+NCOEvent*main_menu_bar.XmMenuShell*file_resync_cascade.mnemonic: R
+
+! resync_all_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_all_btn.labelString: すべて...
+
+! resync_visuals_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_visuals_btn.labelString: ビジュアル...
+
+! resync_classes_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_classes_btn.labelString: クラス...
+
+! resync_users_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_users_btn.labelString: ユーザー...
+
+! resync_groups_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_groups_btn.labelString: グループ...
+
+! resync_menus_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_menus_btn.labelString: メニュー...
+
+! resync_services_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_services_btn.labelString: サービス...
+
+! file_exit_button
+NCOEvent*main_menu_bar.XmMenuShell*file_exit_button.labelString: 終了(X)
+NCOEvent*main_menu_bar.XmMenuShell*file_exit_button.mnemonic: x
+
+! update_cascade_button
+NCOEvent*main_menu_bar.update_cascade_button.labelString: 表示(V)
+NCOEvent*main_menu_bar.update_cascade_button.mnemonic: V
+
+! update_refresh_all_button
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.labelString: すべて最新表示(R)
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.mnemonic: R
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.accelerator: Ctrl<Key>R
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.acceleratorText: Ctrl+R
+
+! update_freeze_all_toggle
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.labelString: すべて凍結(Z)
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.mnemonic: z
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.accelerator: Ctrl<Key>Z
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.acceleratorText: Ctrl+Z
+
+! windows_cascade_button
+NCOEvent*main_menu_bar.windows_cascade_button.labelString: ウィンドウ(W)
+NCOEvent*main_menu_bar.windows_cascade_button.mnemonic: W
+
+! windows_menu
+
+! windows_config_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.labelString: 構成(C)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.mnemonic: C
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.accelerator: Ctrl<Key>C
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.acceleratorText: Ctrl+C
+
+! windows_services_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.labelString: サービス(S)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.mnemonic: S
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.accelerator: Ctrl<Key>S
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.acceleratorText: Ctrl+S
+
+! windows_prefs_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.labelString: 設定(P)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.mnemonic: P
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.accelerator: Ctrl<Key>P
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.acceleratorText: Ctrl+P
+
+! windows_colours_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.labelString: 色(O)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.mnemonic: o
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.accelerator: Ctrl<Key>O
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.acceleratorText: Ctrl+O
+
+! windows_close_all_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_close_all_button.labelString: イベント・ウィンドウをすべて閉じる
+
+! tools_cascade_button
+NCOEvent*main_menu_bar.tools_cascade_button.labelString: ツール(T)
+NCOEvent*main_menu_bar.tools_cascade_button.mnemonic: T
+
+! help_cascade_button
+NCOEvent*main_menu_bar.help_cascade_button.labelString: ヘルプ(H)
+NCOEvent*main_menu_bar.help_cascade_button.mnemonic: H
+
+! help_on_context_button
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.labelString: コンテキスト(C)
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.mnemonic: C
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.accelerator: Shift<Key>osfHelp
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.acceleratorText: Shift+Help
+
+! help_on_version_button
+NCOEvent*main_menu_bar.XmMenuShell*help_on_version_button.labelString: バージョン(V)
+NCOEvent*main_menu_bar.XmMenuShell*help_on_version_button.mnemonic: V
+
+! main_sw
+
+! main_rc
+
+! main_status_line
+
+! main_user_field
+NCOEvent*main_user_field.columns: 1
+NCOEvent*main_user_field.resizeWidth: true
+
+! main_server_field
+NCOEvent*main_server_field.columns: 1
+NCOEvent*main_server_field.resizeWidth: true
+
+! main_toolbar_form
+
+! main_toolbar
+
+! toolbar_new_button
+
+! toolbar_open_button
+
+! toolbar_save_button
+
+! toolbar_refresh_button
+
+! toolbar_freeze_toggle
+
+! toolbar_rownum_form
+
+! toolbar_rownum_frame
+
+! toolbar_rownum
+NCOEvent*toolbar_rownum.labelString: 20
+
+! form37
+
+! toolbar_rownum_inc
+
+! toolbar_rownum_dec
+
+
+! journal_dialog
+NCOEvent*journal_dialog.title: ジャーナル
+
+! journal_mb
+
+! journal_ok_button
+NCOEvent*journal_ok_button.labelString: OK
+
+! journal_apply_button
+NCOEvent*journal_apply_button.labelString: 適用
+
+! journal_close_button
+NCOEvent*journal_close_button.labelString: 閉じる
+
+! journal_prev_button
+NCOEvent*journal_prev_button.labelString: 前へ
+
+! journal_next_button
+NCOEvent*journal_next_button.labelString: 次へ
+
+! journal_help_button
+NCOEvent*journal_help_button.labelString: ヘルプ
+
+! journal_entry_label
+NCOEvent*journal_entry_label.labelString: ジャーナル項目
+
+! journal_text
+NCOEvent*journal_textSW.journal_text.columns: 37
+NCOEvent*journal_textSW.journal_text.rows: 10
+
+! journal_edit_text
+NCOEvent*journal_edit_textSW.journal_edit_text.columns: 37
+NCOEvent*journal_edit_textSW.journal_edit_text.rows: 4
+
+! rowcol6
+
+! journal_apply_to_all_toggle
+NCOEvent*journal_apply_to_all_toggle.labelString: すべての選択に適用
+
+
+! colours_dialog
+NCOEvent*colours_dialog.title: イベント・リストの色
+
+! colours_mb
+
+! colours_close_button
+NCOEvent*colours_close_button.labelString: 閉じる
+
+! rowcol7
+
+! colours_unassign_label
+NCOEvent*colours_unassign_label.labelString: 未割り当てのアラート
+
+! colours_unack_label
+NCOEvent*colours_unack_label.labelString: 未確認のアラート
+
+! unack_crit_label
+NCOEvent*unack_crit_label.labelString: 重大
+
+! unack_major_label
+NCOEvent*unack_major_label.labelString: 重要
+
+! unack_minor_label
+NCOEvent*unack_minor_label.labelString: 軽微
+
+! unack_warn_label
+NCOEvent*unack_warn_label.labelString: 警告
+
+! unack_indet_label
+NCOEvent*unack_indet_label.labelString: 不確定
+
+! unack_clear_label
+NCOEvent*unack_clear_label.labelString: クリア
+
+! unack_close_label
+NCOEvent*unack_close_label.labelString: 閉じました
+
+! separator30
+
+! rowcol8
+
+! colours_assigned_label
+NCOEvent*colours_assigned_label.labelString: 割り当てられたアラート
+
+! colours_ack_label
+NCOEvent*colours_ack_label.labelString: 確認されたアラート
+
+! ack_crit_label
+NCOEvent*ack_crit_label.labelString: 重大
+
+! ack_major_label
+NCOEvent*ack_major_label.labelString: 重要
+
+! ack_minor_label
+NCOEvent*ack_minor_label.labelString: 軽微
+
+! ack_warn_label
+NCOEvent*ack_warn_label.labelString: 警告
+
+! ack_indet_label
+NCOEvent*ack_indet_label.labelString: 不確定
+
+! ack_clear_label
+NCOEvent*ack_clear_label.labelString: クリア
+
+! ack_close_label
+NCOEvent*ack_close_label.labelString: 閉じました
+
+
+! save_dialog
+NCOEvent*save_dialog.title: 構成の保存...
+
+! save_file_sb
+NCOEvent*save_file_sb.applyLabelString: フィルター
+NCOEvent*save_file_sb.okLabelString: OK
+NCOEvent*save_file_sb.cancelLabelString: キャンセル
+NCOEvent*save_file_sb.helpLabelString: ヘルプ
+NCOEvent*save_file_sb.selectionLabelString: 選択
+NCOEvent*save_file_sb.filterLabelString: ファイル・フィルター
+NCOEvent*save_file_sb.fileListLabelString: ファイル
+NCOEvent*save_file_sb.dirListLabelString: ディレクトリー
+NCOEvent*save_file_sb.pattern: *.elc
+
+! button16
+NCOEvent*save_file_sb.Apply.labelString: フィルター
+
+! button17
+NCOEvent*save_file_sb.Cancel.labelString: キャンセル
+
+! button18
+NCOEvent*save_file_sb.Help.labelString: ヘルプ
+
+! label39
+NCOEvent*save_file_sb.Items.labelString: ファイル
+
+! button19
+NCOEvent*save_file_sb.OK.labelString: OK
+
+! label40
+NCOEvent*save_file_sb.Selection.labelString: 選択
+
+! label41
+NCOEvent*save_file_sb.FilterLabel.labelString: ファイル・フィルター
+
+! label42
+NCOEvent*save_file_sb.Dir.labelString: ディレクトリー
+
+! save_backup_toggle
+NCOEvent*save_backup_toggle.labelString: 既存ファイルのバックアップ
+
+
+! open_dialog
+NCOEvent*open_dialog.title: 構成を開きます...
+
+! open_file_sb
+NCOEvent*open_file_sb.applyLabelString: フィルター
+NCOEvent*open_file_sb.okLabelString: OK
+NCOEvent*open_file_sb.cancelLabelString: キャンセル
+NCOEvent*open_file_sb.helpLabelString: ヘルプ
+NCOEvent*open_file_sb.selectionLabelString: 選択
+NCOEvent*open_file_sb.filterLabelString: ファイル・フィルター
+NCOEvent*open_file_sb.fileListLabelString: ファイル
+NCOEvent*open_file_sb.dirListLabelString: ディレクトリー
+NCOEvent*open_file_sb.pattern: *.elc
+
+! button21
+NCOEvent*open_file_sb.Cancel.labelString: キャンセル
+
+! button22
+NCOEvent*open_file_sb.Help.labelString: ヘルプ
+
+! label43
+NCOEvent*open_file_sb.Items.labelString: ファイル
+
+! button23
+NCOEvent*open_file_sb.OK.labelString: OK
+
+! label44
+NCOEvent*open_file_sb.Selection.labelString: 選択
+
+! label45
+NCOEvent*open_file_sb.FilterLabel.labelString: ファイル・フィルター
+
+! label46
+NCOEvent*open_file_sb.Dir.labelString: ディレクトリー
+
+
+! info_popup
+
+! info_popup_title
+
+! info_popup_copy_button
+NCOEvent*info_popup_copy_button.labelString: クリップボードにコピー
+

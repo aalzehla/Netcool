@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="View Builder" />
+<meta name="abstract" content="Use this window to define the selection of alert columns that should appear in the event list, and to define the order and formatting of these columns. You can use the View Builder to set up and maintain these information views of your event data." />
+<meta name="Description" content="Use this window to define the selection of alert columns that should appear in the event list, and to define the order and formatting of these columns. You can use the View Builder to set up and maintain these information views of your event data." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_viewbuilderwindowUNIX" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>View Builder</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_viewbuilderwindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">View Builder</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to define the selection of alert columns
+that should appear in the event list, and to define the order and
+formatting of these columns. You can use the View Builder to set up
+and maintain these information views of your event data.</p>
+<div class="section"><div class="p" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_descriptionUNIX">The View
+Builder contains the following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupareaUNIX">View setup area</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareaUNIX">Display Columns area</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareaUNIX">Sort Columns area</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareaUNIX">Restrict Rows area</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupareaUNIX"><h2 class="title sectiontitle">View setup
+area</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_viewsetupareadescriptionUNIX">Use this
+area to define a name and to set permissions for the view.</span></p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupfieldsUNIX"><dt class="dt dlterm">View Name</dt>
+<dd class="dd">If you are creating a new view, overwrite the current name with
+a unique name for the view. This name is used in the event list. If
+you are editing an existing view, you do not need to make an entry
+in this field.</dd>
+<dt class="dt dlterm">Editable</dt>
+<dd class="dd">If you have the relevant administrator permissions, select this
+check box to allow other users to edit this view, or clear the check
+box to protect the view from being modified.<div class="note restriction"><span class="restrictiontitle">Restriction:</span> This setting applies only if the view is saved
+as part of an event list configuration (<span class="ph filepath">.elc</span> file).</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareaUNIX"><h2 class="title sectiontitle">Display
+Columns area</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_displaycolumnsareadescriptionUNIX">Use
+this area to select the alerts.status columns that you want to display
+in the event list, and to specify the order and format of the columns.</span></p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafieldsUNIX"><dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_columnmatrixUNIX"><!-- --></a><em class="ph i">Event list matrix</em></dt>
+<dd class="dd">This matrix shows all the columns that are selected to appear
+in the event list view, and the order in which they will appear. The
+actual column names are shown at the top, and the row below shows
+the data type of each column. In the row, the word <samp class="ph tt">Dummy</samp> is
+used to identify string columns, the number <samp class="ph tt">1</samp> identifies
+integer columns, and <samp class="ph tt">01/01/70 01:00:01</samp> identifies time columns.</dd>
+<dd class="dd">The event list matrix is used in conjunction with the <span class="ph uicontrol">Remove</span>, <span class="ph uicontrol">First</span>, <span class="ph uicontrol">Left</span>, <span class="ph uicontrol">Right</span>,
+and <span class="ph uicontrol">Last</span> buttons. To perform an action on any
+column in this matrix, you must first click the cell that is associated
+with that column. When you select a column in this way, the details
+that are currently defined for that column are also shown in the <span class="ph uicontrol">Column
+Details</span> area.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_availablecolumnslistUNIX"><!-- --></a><em class="ph i">Available columns list</em></dt>
+<dd class="dd">This list, which is adjacent to the <span class="ph uicontrol">Column Details</span> area,
+displays all of the columns that can still be added to the event list.
+The available columns list is used in conjunction with the <span class="ph uicontrol">Add</span> button.</dd>
+<dd class="dd">Select any column that you want to add to the event list.<div class="note tip"><span class="tiptitle">Tip:</span> Column names in this list are shown in alphabetical order.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_addbuttonUNIX"><!-- --></a>Add</dt>
+<dd class="dd">Click this button to add a column that is currently selected in
+the available columns list, to the event list. The column is added
+as the rightmost item in the event list matrix.<div class="note tip"><span class="tiptitle">Tip:</span> You
+can add a column using a drag-and-drop technique. From the available
+columns list, select the column that you want to add. Press and hold
+down the middle mouse button over this column, and then drag it into
+the event list matrix. The cursor changes to display a green tick
+when you are within the area where you can drop the column. Release
+the mouse button. The column is added as the rightmost item in the
+event list matrix.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_removebuttonUNIX"><!-- --></a>Remove</dt>
+<dd class="dd">Click this button to move the currently-selected column in the
+event list matrix back to the available columns list. This column
+will no longer appear in the event list.<div class="note tip"><span class="tiptitle">Tip:</span> You can remove
+a column using a drag-and-drop technique. From the event list matrix,
+select the cell of the column that you want to remove. Press and hold
+down the middle mouse button over this cell, and then drag the cursor
+into the available columns list. The cursor changes to display a green
+tick when you are within the area where you can drop the column. Release
+the mouse button. The column is added to the available columns list.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_firstbuttonUNIX"><!-- --></a>First</dt>
+<dd class="dd">Click this button to reposition the currently-selected column
+in the event list matrix as the first (leftmost) column in the event
+list.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_leftbuttonUNIX"><!-- --></a>Left</dt>
+<dd class="dd">Click this button to move the currently-selected column in the
+event list matrix one position to the left.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_rightbuttonUNIX"><!-- --></a>Right</dt>
+<dd class="dd">Click this button to move the currently-selected column in the
+event list matrix one position to the right.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_lastbuttonUNIX"><!-- --></a>Last</dt>
+<dd class="dd">Click this button to reposition the currently-selected column
+in the event list matrix as the last (rightmost) column in the event
+list.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_columndetailsUNIX"><!-- --></a>Column Details</dt>
+<dd class="dd">Use this area to format the column that is currently selected
+in the event list matrix:<dl class="dl"><dt class="dt dlterm">Column/Justify</dt>
+<dd class="dd">The system-defined column name appears in the <span class="ph uicontrol">Column</span> field
+as a read-only value. From the adjacent <span class="ph uicontrol">Justify</span> list,
+select <span class="keyword option">Left</span>, <span class="keyword option">Centre</span>, or <span class="keyword option">Right</span> to
+set the alignment of the column data in the event list.</dd>
+<dt class="dt dlterm">Title/Justify</dt>
+<dd class="dd">If you want the column to appear with a different title other
+than its system-defined name, type this title in the <span class="ph uicontrol">Title</span> field.
+From the adjacent <span class="ph uicontrol">Justify</span> list, select Left,
+Centre, or Right to set the alignment of the column title in the event
+list.</dd>
+<dt class="dt dlterm">Width</dt>
+<dd class="dd">Drag the slider box to the left or right to set the width of the
+column in the event list.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_fixedcolumnsUNIX"><!-- --></a>Fixed Columns</dt>
+<dd class="dd">You can have a number of fixed columns on the left-hand side of
+the event list. Fixed columns do not move off the screen if you scroll
+across the columns in the view. Use this slider to fix up to one less
+than the total number of columns in the view.</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareaUNIX"><h2 class="title sectiontitle">Sort Columns
+area</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_sortcolumnsareadescriptionUNIX">Use this
+area to configure sort orders and priorities for the rows in the event
+list. You can specify zero or more columns by which the data can be
+sorted, and define the sort priorities for the columns. </span></p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafieldsUNIX"><dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_selectedcolumnslistUNIX"><!-- --></a><em class="ph i">Available sort list</em></dt>
+<dd class="dd">This list (on the left) displays all the available columns by
+which you can sort event data. The available sort list is used in
+conjunction with the <span class="ph uicontrol">Add</span> button.</dd>
+<dd class="dd">Select any column by which the event list rows are to be sorted.<div class="note tip"><span class="tiptitle">Tip:</span> Column names in this list are shown in alphabetical order.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_addbuttonUNIX"><!-- --></a>Add</dt>
+<dd class="dd">Click this button to add the column selected in the available
+sort list to the adjacent sort order definition list. The column is
+added to the bottom of the sort list.<div class="note tip"><span class="tiptitle">Tip:</span> You can add
+a column using a drag-and-drop technique. From the available sort
+list, select the column that you want to add to the sort order definition
+list. Press and hold down the middle mouse button over this column
+name, and then drag the cursor into the sort order definition list.
+The cursor changes to display a green tick when you are within the
+area where you can drop the column. Release the mouse button. The
+column is added to the bottom of the sort order definition list.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_sortorderselectionUNIX"><!-- --></a><em class="ph i">Sort order definition list</em></dt>
+<dd class="dd">This list (on the right) shows all the columns that will be used
+to sort event data. Use this list to specify your sort definitions
+for event data as follows: <ul class="ul"><li class="li">Define a sort order for each column: An arrow is shown to the
+left of each column name in the list. By default, this arrow points
+upwards, indicating that the column will be sorted in ascending alphabetic
+order. To change to descending order, double-click the arrow. To change
+the sort direction, you can also right-click over the selected column
+name and then select <span class="ph uicontrol">Change</span> from the pop-up
+menu.</li>
+<li class="li">Define a sort priority for all columns: The field at the top of
+the sort list has the highest priority when sorting. If the first
+field contains identical values for a number of entries, the second
+field in the list is used to sort those entries.
+To raise or lower the sort priority of a column, select the column
+name and then use the <span class="ph uicontrol">Top</span>, <span class="ph uicontrol">Up</span>, <span class="ph uicontrol">Down</span>,
+and <span class="ph uicontrol">Bottom</span> buttons, as described below.</li>
+</ul>
+</dd>
+<dd class="dd">You can also use the sort order definition list in conjunction
+with the <span class="ph uicontrol">Remove</span> button.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_removebuttonUNIX"><!-- --></a>Remove</dt>
+<dd class="dd">Click this button to remove a currently-selected sort column from
+the sort order definition list, back to the available sort list. You
+can also right-click over the selected column name and then select <span class="ph uicontrol">Remove</span> from
+the pop-up menu.<div class="note tip"><span class="tiptitle">Tip:</span> You can remove a column using a drag-and-drop
+technique. From the sort order definition list, select the column
+that you want to remove. Press and hold down the middle mouse button
+over this column name, and then drag the cursor into the available
+sort list. The cursor should change to display a green tick when you
+are within the area where you can drop the column. Release the mouse
+button. The column is added to the available sort list.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_topbuttonUNIX"><!-- --></a>Top</dt>
+<dd class="dd">Click this button to move the selected column to the top of the
+list. You can also right-click over the selected column name and then
+click <span class="ph uicontrol">Top</span> from the pop-up menu.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_upbuttonUNIX"><!-- --></a>Up</dt>
+<dd class="dd">Click this button to move the selected column up one place in
+the list. You can also right-click over the selected column name and
+then click <span class="ph uicontrol">Up</span> from the pop-up menu.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_downbuttonUNIX"><!-- --></a>Down</dt>
+<dd class="dd">Click this button to move the selected column down one place in
+the list. You can also right-click over the selected column name and
+then click <span class="ph uicontrol">Down</span> from the pop-up menu.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_bottombuttonUNIX"><!-- --></a>Bottom</dt>
+<dd class="dd">Click this button to move the selected column to the bottom of
+the list. You can also right-click over the selected column name and
+then click <span class="ph uicontrol">Bottom</span> from the pop-up menu.</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareaUNIX"><h2 class="title sectiontitle">Restrict
+Rows area</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_restrictrowsareadescriptionUNIX">To enhance
+performance, you can restrict the number of rows that are read from
+the ObjectServer. Use this area to restrict the number of rows that
+are displayed in the event list.</span></p>
+<p class="p">Complete this area as
+follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareafieldsUNIX"><dt class="dt dlterm">Restrict rows [1-100]</dt>
+<dd class="dd">Select this check box if you want to restrict the number of rows
+that are shown in the event list, to between 1 and 100. The <span class="ph uicontrol">Minimum</span>, <span class="ph uicontrol">Maximum</span>,
+and <span class="ph uicontrol">Default</span> fields become available.<div class="note note"><span class="notetitle">Note:</span> If you select the <span class="ph uicontrol">Restrict rows [1-100]</span> check
+box, and save the configuration as a <span class="ph filepath">.elv</span> file,
+the <span class="ph filepath">.elv</span> file is not compatible with Netcool/OMNIbus V3.6.</div>
+</dd>
+<dt class="dt dlterm">Minimum</dt>
+<dd class="dd">Type the minimum number of rows to be displayed, or use the arrows
+to increase or decrease the value.</dd>
+<dt class="dt dlterm">Maximum</dt>
+<dd class="dd">Type the maximum number of rows to be displayed, or use the arrows
+to increase or decrease the value.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">Type the default number of rows to be displayed, or use the arrows
+to increase or decrease the value.</dd>
+<dt class="dt dlterm">Set from Event List</dt>
+<dd class="dd">Select this check box if you want event list users to be able
+to choose the number of events to display in their event list view.
+If you select this check box, the number of events that users can
+choose to view by using the event list controls is constrained by
+the <span class="ph uicontrol">Minimum</span> and <span class="ph uicontrol">Maximum</span> values
+specified in the View Builder. If this check box is clear, the number
+of events that are displayed will always be the specified <span class="ph uicontrol">Default</span> value.</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_applying_saving_closingUNIX"><h2 class="title sectiontitle">Applying
+and saving your view</h2><div class="p">After defining or modifying the view,
+you can apply, save, or cancel changes made by clicking the relevant
+button as follows:<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_applyclosebuttonsUNIX"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to apply changes to the view without saving
+it. </dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the window and discard the changes.</dd>
+</dl>
+</div>
+<p class="p">You must save views with a <span class="ph filepath">.elv</span> file
+extension.</p>
+<div class="note note"><span class="notetitle">Note:</span> When you run the UNIX View
+Builder from the Conductor, the <span class="ph uicontrol">Apply</span> button
+does not appear. In this case, you must save all views by selecting <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save</span></span> or <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save As</span></span> from
+the UNIX View Builder.</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="Use the View Builder to define which columns to display in the event list.">Creating or editing a view on UNIX</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2003, 2007. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# nco_aen
+#
+# --
+#######################################
+
+#######################################
+# MAIN
+#######################################
+
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+
+
+if [ "$NCHOME" = ""  ]
+then
+	
+	echo Cannot find your NCHOME environment
+	exit 1
+	
+fi
+
+
+
+# redefine OMNIHOME to NCHOME/omnibus
+OMNIHOME="$NCHOME/omnibus"
+
+
+#
+# Check JRE was found by nco_common
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+
+P_LNF="-Dswing.metalTheme=steel"
+
+
+#
+# Fix for JDK bug on AIX:
+# ARCH Variable is set in nco_common
+#
+if [ $ARCH = "aix4" -o $ARCH = "aix5" ]; then
+echo "Unsetting XPG_SUS_ENV" 1>&2
+unset XPG_SUS_ENV
+P_LNF=""
+fi
+
+#
+# Set classpath to only include relevant jar files
+#
+
+if [ -z "${CLASSPATH}" ]; then
+	export CLASSPATH
+fi
+
+
+#
+# NOTE oem_administrator.jar is NOT shipped with a standard install
+# it is used when re badging the application
+#
+
+CLASSPATH=${OMNIHOME}/java/jars/oem_administrator.jar
+CLASSPATH=${CLASSPATH}:${OMNIHOME}/java/jars/niduc.jar
+CLASSPATH=${CLASSPATH}:${OMNIHOME}/java/jars/ControlTower.jar
+CLASSPATH=${CLASSPATH}:${OMNIHOME}/java/jars/hsqldb.jar
+CLASSPATH=${CLASSPATH}:${OMNIHOME}/java/jars/jms.jar
+CLASSPATH=${CLASSPATH}:${OMNIHOME}/java/jars/log4j-1.2.8.jar
+CLASSPATH=${CLASSPATH}:${OMNIHOME}/java/jars/jconn3.jar
+
+#
+# Convert env vars to java commandline properties
+#
+
+P_CODEBASE="-Djava.rmi.server.codebase=file://${OMNIHOME}/java/jars/ControlTower.jar"
+P_SECURITY="-Djava.security.policy=file://${OMNIHOME}/etc/admin.policy"
+P_OMNIHOME="-Domni.home=${OMNIHOME}"
+P_NCHOME="-Dnc.home=${NCHOME}"
+P_ARCHDIR="-Domni.arch.dir=${OMNIHOME}/platform/${ARCH}"
+P_MEMORY="-Xms64m -Xmx512m"
+
+#
+# Start class with main entry
+#
+exec "${NCO_JRE_64_32}/bin/java" -classpath ${CLASSPATH} \
+	${P_CODEBASE} ${P_SECURITY} \
+	${P_NCHOME} ${P_OMNIHOME} ${P_ARCHDIR} \
+	${P_MEMORY} ${P_LNF} \
+	com.micromuse.aen.AenApplicationContext "$@"
+
+

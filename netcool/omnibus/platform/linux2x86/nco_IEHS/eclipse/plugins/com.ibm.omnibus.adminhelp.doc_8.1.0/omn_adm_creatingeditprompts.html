@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing prompts" />
+<meta name="abstract" content="You can create prompts to use with tools." />
+<meta name="Description" content="You can create prompts to use with tools." />
+<meta name="DC.subject" content="creating, prompts, editing" />
+<meta name="keywords" content="creating, prompts, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringprompts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittools.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_namingconvobjservobjs.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingeditprompts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringprompts.html" />
+<title>Creating and editing prompts</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingeditprompts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing prompts</h1>
+<div class="body taskbody"><p class="shortdesc">You can create prompts to use with tools.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To create or edit a prompt:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">Menu</span> menu button.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Prompts</span>. </span> The <span class="keyword wintitle">Prompts</span> pane
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To add a prompt, click <span class="ph uicontrol">Add Prompt</span> in
+the toolbar.</span> The <span class="keyword wintitle">Prompt Details</span> window
+opens. The fields within this window vary based on the type of prompt
+being created or edited.</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a prompt, select the tool to edit and then click <span class="ph uicontrol">Edit
+Prompt</span> in the toolbar.</span> The <span class="keyword wintitle">Prompt
+Details</span> window opens. The fields within this window vary
+based on the type of prompt being created or edited.</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a string prompt, complete the window
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">String</span> to
+create a prompt window that accepts one or more characters.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">Type a default value for the
+prompt to display. </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit an integer prompt, complete the window
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Integer</span> to
+create a prompt window that accepts an integer value.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">Type a default value for the
+prompt to display. </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a float prompt, complete the window as
+follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Float</span> to
+create a prompt window that accepts a floating point number, which
+can contain a decimal point.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">Type a default value for the
+prompt to display. </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a time prompt, complete the window as
+follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Time</span> to
+create a prompt window that accepts a time. For a time prompt, the
+default is to display the current time.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a fixed choice prompt, complete the window
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Fixed Choice</span> to
+create a pop-up menu that is populated with options that you specify.</dd>
+<dt class="dt dlterm">Options</dt>
+<dd class="dd">Use this field to specify
+menu options to include in the pop-up menu. To create a new option,
+click <span class="ph uicontrol">Add option</span> and type a name for the option
+in the box that is shown within the <span class="ph uicontrol">Options</span> list.
+Click outside the box to complete the entry. You can also edit an
+existing option by clicking the entry in the <span class="ph uicontrol">Options</span> list
+and then clicking <span class="ph uicontrol">Edit option</span>. To delete an
+option, click the entry and then click <span class="ph uicontrol">Delete option</span>.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a lookup prompt, complete the window
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Lookup</span> to
+create a pop-up menu or drop-down list that is populated by the values
+in a specified file.</dd>
+<dt class="dt dlterm">File</dt>
+<dd class="dd">Type the path and name of the
+file whose contents must be used to populate the pop-up menu or drop-down
+list associated with the prompt. Alternatively, click <span class="ph uicontrol">Browse</span> to
+open a file selection window, navigate to the appropriate location,
+and select the file. </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a password prompt, complete the window
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Password</span> to
+create a prompt window that accepts one or more characters as a password.
+For a password prompt, the password characters appear as asterisks
+when the user completes the prompt.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create or edit a dynamic choice prompt, complete the
+window as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm">Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm">Type</dt>
+<dd class="dd">Select <span class="keyword option">Dynamic
+Choice</span> to create a pop-up menu or drop-down list that is
+populated by the results of a database query.</dd>
+<dt class="dt dlterm">Database</dt>
+<dd class="dd">Select a database from
+this drop-down list.</dd>
+<dt class="dt dlterm">Table</dt>
+<dd class="dd">Select a table in the selected
+database, from the drop-down list.</dd>
+<dt class="dt dlterm">Show</dt>
+<dd class="dd">Select a column name from the
+drop-down list. This defines the column that is used to populate the
+prompt menu.</dd>
+<dt class="dt dlterm">Assign</dt>
+<dd class="dd">Select a column name from
+the drop-down list. This defines the column that is used to return
+a value to the SQL command, external command, or journal entry that
+contains the prompt. </dd>
+<dt class="dt dlterm">Where</dt>
+<dd class="dd">Type an SQL search condition.
+For example: <kbd class="ph userinput">Colname='Severity'</kbd>. </dd>
+<dt class="dt dlterm">Order By</dt>
+<dd class="dd">Select a column name from
+the drop-down list. This defines the column by which items are sorted
+in the prompt menu. Use the <span class="ph uicontrol">Ascending</span> and <span class="ph uicontrol">Descending</span> options
+to specify the sort direction.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows:</span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the prompt details and close the window.
+New prompts are added to the <span class="keyword wintitle">Prompts</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div><p class="p">The prompts shown within
+the <span class="keyword wintitle">Prompts</span> pane can be added to tools that are set up
+to help operators manage alerts in the event list. When such a tool is run,
+a prompt window or a pop-up menu is displayed for users to enter or select
+information.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringprompts.html" title="An event list tool can include a prompt window or a pop-up menu for users to enter or select information.">Configuring prompts</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_sql_namingconvobjservobjs.html" title="When you issue SQL commands, you must adhere to the predefined ObjectServer naming conventions.">ObjectServer SQL naming conventions</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingedittools.html" title="When you create a tool, it is added to the tools database. The tools that appear in the Tools pane are links to entries in this database.">Creating and editing tools</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="데스크탑 ObjectServer 아키텍처" />
+<meta name="abstract" content="데스크탑 ObjectServer 아키텍처를 사용하여 자주 과부하가 발생하는 ObjectServer의 성능을 개선할 수 있습니다." />
+<meta name="Description" content="데스크탑 ObjectServer 아키텍처를 사용하여 자주 과부하가 발생하는 ObjectServer의 성능을 개선할 수 있습니다." />
+<meta name="DC.subject" content="데스크탑 ObjectServer, 개요, ObjectServer, 데스크탑 ObjectServer 아키텍처, 아키텍처 개요" />
+<meta name="keywords" content="데스크탑 ObjectServer, 개요, ObjectServer, 데스크탑 ObjectServer 아키텍처, 아키텍처 개요" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CEGICIEA" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>데스크탑 ObjectServer 아키텍처</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="CEGICIEA">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">데스크탑 ObjectServer 아키텍처</h1>
+<div class="body conbody"><p class="shortdesc">데스크탑 ObjectServer 아키텍처를 사용하여 자주 과부하가 발생하는
+ObjectServer의 성능을 개선할 수 있습니다. </p>
+<p class="p">데스크탑 ObjectServer 아키텍처:</p>
+<ul class="ul"><li class="li">로드를 특별화된 데스크탑 ObjectServer로 이동하여 중앙 ObjectServer의 워크로드를 감축합니다.</li>
+<li class="li">데스크탑 응답을 개선합니다. 즉, 데스크탑 운영자의 조치 및 데스크탑
+GUI의 반영 간의 시간을 개선합니다.</li>
+<li class="li">데스크탑 GUI 보류 가능성을 감축합니다.</li>
+<li class="li">과부하된 표준
+ObjectServer 구성의 종단간 지연 시간을 개선합니다.</li>
+<li class="li">마스터 ObjectServer를 동시에 업데이트하여 높은 데이터 무결성과 일관성을 유지합니다.</li>
+</ul>
+<p class="p">데스크탑 ObjectServer 아키텍처는 단일 ObjectServer에서 정상적으로 수행된
+의무를 공유하는 하나 이상의 데스크탑 ObjectServer와 마스터
+ObjectServer로 구성됩니다. 데이터 작성 시 DSD(Dual server desktops)는
+단일 마스터 ObjectServer에 연결하지만 데스크탑
+ObjectServer에서 경보 데이터를 읽고 표시합니다. DSD의 기본 기능은 표준 데스크탑과 동일합니다. 조작의 경우, DSD는
+표준 데스크탑과 동일하게 동작합니다.</p>
+<p class="p">데스크탑 ObjectServer 아키텍처가 다음 그림에 표시됩니다.</p>
+<div class="fig fignone"><span class="figcap">그림 1. 듀얼 서버 데스크탑 아키텍처 예제</span><div class="image"><img class="image" src="cd_omn_adm_dualserverdesktop.gif" alt="이 그림은 두 개의 단방향 게이트웨이를 사용하여 이벤트 데이터를 두 개의 데스크탑 ObjectServer로 전달하는 마스터 ObjectServer를 표시합니다. IDUC 연결은 이벤트 데이터를 두 개의 듀얼 서버 데스크탑에 전송하는 데에 사용되며, 이는 SQL 연결을 사용하여 마스터 ObjectServer에 데이터를 작성하게 됩니다." /></div></div>
+<p class="p">DSD는 데스크탑 ObjectServer와
+마스터 ObjectServer를 동시에 연결합니다. DSD에서 수행되는 운영자 조치(예: 도구나
+저널 조치)가 단방향 SQL 연결을 통해 마스터 ObjectServer에 직접 전송됩니다.</p>
+<p class="p">마스터 ObjectServer의 경보가 데스크탑 ObjectServer를 통해 DSD에
+전송됩니다. 단방향 ObjectServer 게이트웨이를
+마스터 ObjectServer에서 데스크탑 ObjectServer로,
+IDUC 연결을 데스크탑 ObjectServer에서 DSD로 사용하여 아카이브됩니다.</p>
+<p class="p">다음 그림에서 표시된 대로 Dual-write 모드가 사용되면 업데이트는 다른 단방향 SQL 연결을 통해 데스크탑
+ObjectServer에도 전송됩니다. </p>
+<div class="fig fignone"><span class="figcap">그림 2. 예제
+듀얼 서버 데스크탑 아키텍처(이중 작성 모드 사용)</span><div class="image"><img class="image" src="cd_omn_adm_dsddualwrite.gif" alt="이 그림은 이중 작성 모드를 사용하는 듀얼 서버 데스크탑 아키텍처를 표시합니다." /></div></div>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

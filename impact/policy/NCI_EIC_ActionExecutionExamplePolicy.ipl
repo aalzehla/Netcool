@@ -1,0 +1,19 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2013, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+Log("Test EIC Action Execution Example");
+Log(CurrentContext());
+RuleName = MatchingRuleName;
+Log("PrimaryEventSerial :" +PrimaryEventSerial );
+if (RuleName == null || RuleName == NULL || RuleName == "null") {
+  RuleName = EICMATCHINGRULENAME; 
+}
+EIC_utils.getRuleResourcesAsImpactObjects(RuleName,PrimaryEventSerial ,impactObjects);
+Log("Impact Objects " + impactObjects); 

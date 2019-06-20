@@ -1,0 +1,9 @@
+
+##############################################################################
+# TABLE USED BY HOUSEKEEPING - APPEND TO THE END OF THE FILE
+##############################################################################
+
+REPLICATE ALL FROM TABLE 'master.properties'
+	USING MAP 'MasterPropertiesMap'
+	INTO 'master.properties';
+

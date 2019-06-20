@@ -1,0 +1,49 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-VC-EVENT-MIB
+#
+###############################################################################
+
+table VmwVpxdTargetObjType =
+{
+    {"1","Unknown"}, ### unknown
+    {"2","Host"}, ### host
+    {"3","VM"}, ### vm
+    {"4","Other"} ### other
+}
+default = "Unknown"
+
+table VmwVirtManEventCorrelationAlertGroup =
+{
+    {"VmCPUUsageAlarm","CPU Status"}, ### Map to a generic CPU problem.
+    {"VmMemoryUsageAlarm","Memory Allocation Status"}, ### Map to a generic Memory problem.
+    {"VmErrorAlarm","Entity Alarm State VmErrorAlarm"}, ### Likely to always be too unspecific so leave at default.
+    {"HostConnectionStateAlarm","Network Link Status"}, ### Host problem - root cause of lots of VM connection problems until VM moved.
+    {"HostConnectivityAlarm","Network Link Status"}, ### Host problem - root cause of lots of VM connection problems until VM moved.
+    {"HostCPUUsageAlarm","CPU Status"}, ### Host problem - root cause of lots of VM CPU problems until VM moved.
+    {"HostMemoryUsageAlarm","Memory Allocation Status"}, ### Host problem - root cause of lots of VM memory problems until VM move.d
+    {"DatastoreDiskUsageAlarm","Datastore Alarm"}, ### Datastore problem - effects multiple hosts.
+    {"StorageConnectivityAlarm","Datastore Alarm"}, ### Datastore problem - effects multiple hosts.
+    {"HealthStatusChangedAlarm","Datastore Health Changed Alarm"}, ### Datastore problem - effects multiple hosts.
+    {"VCHealthStateChangedAlarm","Datacenters Health Changed Alarm"} ### Datastore problem - effects multiple hosts.
+}   ### Add more clasifications here to help with correlation in the ObjectServer
+default = "Entity Alarm State"

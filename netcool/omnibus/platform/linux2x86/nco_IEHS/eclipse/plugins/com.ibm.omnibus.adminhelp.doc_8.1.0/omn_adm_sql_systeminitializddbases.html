@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="System-initialized databases" />
+<meta name="abstract" content="When you initialize an ObjectServer, a number of default databases are created." />
+<meta name="Description" content="When you initialize an ObjectServer, a number of default databases are created." />
+<meta name="DC.subject" content="databases, system-initialized, system-initialized databases" />
+<meta name="keywords" content="databases, system-initialized, system-initialized databases" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringdatabases.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_systeminitializddbases" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>System-initialized databases</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_systeminitializddbases">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">System-initialized databases</h1>
+<div class="body conbody"><p class="shortdesc">When you initialize an ObjectServer, a number of default
+databases are created.</p>
+<p class="p">The following table describes these system-initialized databases.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. System-initialized databases</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="28.57142857142857%" id="d5651e27">Database name</th>
+<th class="entry" valign="top" width="28.57142857142857%" id="d5651e29">Type of database</th>
+<th class="entry" valign="top" width="42.857142857142854%" id="d5651e31">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">security</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">System</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Contains information about the security system, including users,
+roles, groups, and permissions.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">catalog</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">System</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Contains metadata about ObjectServer objects.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">alerts</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Contains alert status information, forwarded to the ObjectServer
+by probes and gateways.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">service</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Used to support <span class="keyword">IBM Tivoli Composite Application
+Manager for Internet Service Monitoring</span>.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">custom</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Can be used for tables added by users.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">persist</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">System</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Records internal ObjectServer state information.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">transfer</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">System</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Used internally by the ObjectServer unidirectional and bidirectional
+gateways to synchronize security information between ObjectServers.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">master</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Used for compatibility with prior releases of <span class="keyword">Tivoli Netcool/OMNIbus</span>. Tables in the master database also support the desktop
+ObjectServer architecture.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">tools</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Used for compatibility with prior releases of <span class="keyword">Tivoli Netcool/OMNIbus</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">registry</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Contains information about distributed <span class="keyword">Tivoli Netcool/OMNIbus</span> configurations.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">iduc_system</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Contains all of the required IDUC application
+support tables for accelerated event notification, sending information
+messages, and invoking commands.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d5651e27 ">precision</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d5651e29 ">User</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d5651e31 ">Used by <span class="keyword">IBM Tivoli Network Manager
+IP Edition</span> to implement the service-affected events application.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note restriction"><span class="restrictiontitle">Restriction:</span> The ObjectServer maintains system databases.
+You can view, but cannot modify, the data in them.</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_configuringdatabases.html" title="Database configuration involves the creation and maintenance of database tables, and columns within the tables.">Configuring databases</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

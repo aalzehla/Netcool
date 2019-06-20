@@ -1,0 +1,93 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2006. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Run script - runs the correct binary for the current OS
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export OMNIHOME NCHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+#
+# What program are we attempting to run ?
+#
+PROGRAM=`basename $0`
+
+#
+# Check the script name - if nco_run is being run as itself it does nothing
+#
+if [ $PROGRAM = nco_run ]; then
+	exit 0
+fi
+
+#
+# Can we run this program ? Check for special version first.
+# If we cannot run it from the omnibus directory then can we 
+# run it from the common directory? Finally we check for the
+# old location to provide legacy patching support.
+#
+if [ -x $ARCH_BIN_DIR/$PROGRAM$SUFFIX ]; then
+	EXEC=$ARCH_BIN_DIR/$PROGRAM$SUFFIX
+else
+	if [ -x $ARCH_BIN_DIR/$PROGRAM ]; then
+		EXEC=$ARCH_BIN_DIR/$PROGRAM
+	else
+		if [ -x $COMMON_ARCH_BIN_DIR/$PROGRAM ]; then
+                	EXEC=$COMMON_ARCH_BIN_DIR/$PROGRAM
+        	else
+                        # We also provide legacy support for old gateways
+                        if [ ! -d "$OLD_ARCH_BIN_DIR" ]; then
+                       	        err "Not installed for $ARCH"
+                        fi
+                        
+        		if [ -x $OLD_ARCH_BIN_DIR/$PROGRAM ]; then
+                        	EXEC=$OLD_ARCH_BIN_DIR/$PROGRAM
+                	else
+                       	        err "Not installed for $ARCH"
+                	fi
+        	fi
+	fi
+fi
+
+#
+# Do we need a special environment to run this program
+#
+if [ -r "$ARCH_BIN_DIR/$PROGRAM.env" ]; then
+	. "$ARCH_BIN_DIR/$PROGRAM.env"
+else
+	if [ -r "$COMMON_ARCH_BIN_DIR/$PROGRAM.env" ]; then
+        	. "$COMMON_ARCH_BIN_DIR/$PROGRAM.env"
+	fi
+fi
+
+#
+# Execute program
+#
+exec $EXEC "$@"

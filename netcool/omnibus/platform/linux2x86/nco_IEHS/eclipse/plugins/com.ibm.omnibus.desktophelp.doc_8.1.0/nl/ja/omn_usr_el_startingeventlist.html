@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="イベント・リストの開始" />
+<meta name="abstract" content="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。" />
+<meta name="Description" content="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。" />
+<meta name="DC.subject" content="イベント・リスト, 開始" />
+<meta name="keywords" content="イベント・リスト, 開始" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopt.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingteventlist" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>イベント・リストの開始</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リストの開始</h1>
+<div class="body taskbody"><p class="shortdesc">イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。
+イベント・リストは、コンダクター、コマンド行、または Windows の<span class="ph uicontrol">「スタート」</span>メニューから開始できます。</p>
+<div class="section context">イベント・リストを開始するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">ご使用のオペレーティング・システムに該当するアクションを実行します。</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="この表の各行には選択肢が示されています。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d198266e30-option" valign="bottom" align="left">オプション</th>
+<th id="d198266e30-desc" valign="bottom" align="left">説明</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d198266e30-option" id="d198266e32" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d198266e30-desc d198266e32" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">「コンダクター」ウィンドウで、ボタン・バーの<span class="ph uicontrol">「イベント・リスト」</span>をクリックします。 </li>
+<li class="li">コマンド・プロンプトから、以下を入力します。 <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d198266e30-option" id="d198266e48" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d198266e30-desc d198266e48" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">「コンダクター」メニューから、<span class="ph uicontrol">「イベント・リスト」</span>を選択します。</li>
+<li class="li">Windows の<span class="ph uicontrol">「スタート」</span>メニューから<span class="ph menucascade"><span class="ph uicontrol">「プログラム」</span> &gt; <span class="ph uicontrol">「Netcool スイート」</span> &gt; <span class="ph uicontrol">「イベント・リスト」</span></span>を選択します。</li>
+<li class="li">コマンド・プロンプトから、以下を入力します。<p class="p"><kbd class="ph userinput">%NCHOME%¥omnibus¥desktop¥NCOEvent.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ コマンド行からイベント・リストを開始する場合は、<span class="keyword cmdname">nco_event</span> コマンドと <span class="keyword cmdname">NCOEvent.exe</span> コマンドで追加のコマンド行オプションを指定できます。</li>
+<li class="li step stepexpand"><span class="ph cmd">コマンド行または Windows の<span class="ph uicontrol">「スタート」</span>メニューからイベント・リストを開始するときに、コンダクターをまだ開始していなかった場合は、実行中の ObjectServer に接続するための認証用の詳細情報を指定するプロンプトが表示されます。
+イベント・リストの「<span class="keyword wintitle">ログイン</span>」ウィンドウで以下のように入力する必要があります。 </span> <dl class="dl"><dt class="dt dlterm">ユーザー名</dt>
+<dd class="dd">ユーザー名を入力してください。</dd>
+<dt class="dt dlterm">パスワード</dt>
+<dd class="dd">パスワードを入力してください。 入力したテキストの代わりにアスタリスク (*) 文字が表示されます。<div class="note note"><span class="notetitle">注:</span> ユーザー名とパスワードが、(ObjectServer ではなく) 外部の認証ソースと比較して検証される場合は、
+このソースがマルチバイト文字をサポートしているかどうかを確認してください。
+マルチバイト文字がサポートされていない場合は、ASCII 文字を使用してユーザー名とパスワードを指定する必要があります。</div>
+</dd>
+<dt class="dt dlterm">サーバー</dt>
+<dd class="dd">ObjectServer 名はデフォルトの NCOMS (Netcool/OMNIbus マスター・サーバー) に設定されます。 複数の ObjectServer がご使用の環境用に構成されている場合、
+すべての使用可能な ObjectServer がこのドロップダウン・リストに表示されます。
+接続先にする ObjectServer を選択してください。</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">このボタンをクリックして、ログインの詳細を認証します。<div class="note note"><span class="notetitle">注:</span> 許可されているログイン試行回数は 3 回です。 試行のたびに<span class="ph uicontrol">「パスワード」</span>フィールドがクリアされます。 3 回目の試行でも正しくログインできなかった場合は、プログラムが終了します。</div>
+</dd>
+<dt class="dt dlterm">キャンセル</dt>
+<dd class="dd">このボタンをクリックして、ログイン試行をキャンセルします。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div><p class="p">イベント・リスト (<span class="keyword cmdname">nco_event</span>) のインスタンスが実行中になっている状態で <span class="keyword cmdname">nco_event</span> コマンドを実行すると、新しいイベント・リスト・ウィンドウが開きます。
+<span class="keyword cmdname">nco_event</span> の実行中のインスタンスがない状態で <span class="keyword cmdname">nco_event</span> コマンドを実行すると、イベント・リストが開始され、モニター・ボックス・ウィンドウが表示されます。</p>
+<p class="p">イベント・リストを開始すると、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウが開きます。 そのウィンドウから、ObjectServer がイベント、アラーム、メッセージ、データ項目のいずれかを受け取ったときに生成されるすべてのアラートのモニターと管理を行うことができます。</p>
+<p class="p">イベント・リストを開始すると、通常はデフォルトのイベント・リスト構成 (<span class="ph filepath">default.elc</span>) が「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウに表示されます。
+カスタマイズしたイベント・リスト構成ファイルを開くように選択することも可能です。 カスタマイズした構成を指定する操作は、コマンド行または<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「開く」</span></span>ウィンドウで行います。 カスタマイズした構成は、ローカルのファイル・システムにある場合もあれば、HTTP または FTP によってアクセスできるリモート・サーバーに配置されている場合もあります。 </p>
+<div class="note note"><span class="notetitle">フェイルオーバー・ログイン:</span> イベント・リストから 1 次 ObjectServer への接続が失われた場合に、2 次 (フェイルオーバー) ObjectServer が存在していれば、その 2 次 ObjectServer にログインするためのプロンプト画面が表示されます。 1 次 ObjectServer が再び使用可能になると、イベント・リストから 1 次 ObjectServer に再接続するという趣旨のメッセージが表示されます。 1 次 ObjectServer に再びログインする必要はありません。</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopt.html">UNIX イベント・リストのコマンド行オプション</a></span><br />
+UNIX 上で <span class="keyword cmdname">nco_event</span> コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。
+<span class="ph filepath">$NCHOME/omnibus/bin</span> ディレクトリーからこのコマンドを実行できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopt.html">Windows イベント・リストのコマンド行オプション</a></span><br />
+Windows 上で <span class="keyword cmdname">NCOEvent.exe</span> コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。
+<span class="ph filepath">%NCHOME%¥omnibus¥desktop</span> ディレクトリーからこのコマンドを実行できます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="イベント・リストを使用して、アラートをモニターおよび管理できます。 アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。">イベント・リスト内のイベントのモニターおよび管理</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

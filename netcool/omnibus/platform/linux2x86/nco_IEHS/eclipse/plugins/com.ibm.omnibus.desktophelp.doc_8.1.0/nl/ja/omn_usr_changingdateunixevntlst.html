@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX におけるイベント・リストの日付形式の変更" />
+<meta name="abstract" content="イベント・リストの日付形式は、NCO_TIME 環境変数によって 定義されます。 デフォルトの形式は mm/dd/yy hh:mm:ss です (例えば、11/12/03 20:13:36)。 この形式は POSIX strptime 関数によって決定されます。" />
+<meta name="Description" content="イベント・リストの日付形式は、NCO_TIME 環境変数によって 定義されます。 デフォルトの形式は mm/dd/yy hh:mm:ss です (例えば、11/12/03 20:13:36)。 この形式は POSIX strptime 関数によって決定されます。" />
+<meta name="DC.subject" content="イベント・リスト, 日付形式, イベント・リストでの変更, 変更, イベント・リストの日付形式" />
+<meta name="keywords" content="イベント・リスト, 日付形式, イベント・リストでの変更, 変更, イベント・リストの日付形式" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_changingdateunixevntlst" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>UNIX におけるイベント・リストの日付形式の変更</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_changingdateunixevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX におけるイベント・リストの日付形式の変更</h1>
+<div class="body taskbody"><p class="shortdesc">イベント・リストの日付形式は、NCO_TIME 環境変数によって
+定義されます。 デフォルトの形式は mm/dd/yy hh:mm:ss です (例えば、11/12/03 20:13:36)。 この形式は POSIX strptime 関数によって決定されます。 </p>
+<div class="section context"><p class="p">csh を使用してデフォルトの形式を設定するには、以下のコマンドを入力します。 </p>
+<p class="p"><kbd class="ph userinput">setenv
+NCO_TIME %m/%d/%y %H:%M:%S</kbd></p>
+<p class="p">ksh または sh を使用してデフォルトの形式を設定するには、以下のコマンドを入力します。</p>
+<p class="p"><kbd class="ph userinput">NCO_TIME=%m/%d/%y
+%H:%M:%S;export NCO_TIME</kbd></p>
+<p class="p">使用可能な変換指定子の詳細については、strptime の <samp class="ph tt">man</samp> ページを参照してください。</p>
+<div class="note note"><span class="notetitle">注:</span> イベント・リストで日付形式を変更しても、
+アラート・タイム・スタンプには影響を与えません。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="Tivoli Netcool/OMNIbus コンポーネントのプロパティー、および UNIX コンダクターと Windows コンダクターのサーバー・コンポーネントの通信情報を構成することができます。 Windows の場合は、設定ウィンドウ内でこれら 2 つの機能を結合タスクとして実行することができます。 UNIX の場合は、イベント・リストの日付形式を変更することもできます。">プロパティー、サーバー通信、および設定の構成</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

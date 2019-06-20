@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="暫時性事件清單的 Windows 指令行選項" />
+<meta name="abstract" content="當您執行 NCOelct.exe 指令，在 Windows 上啟動暫時性事件清單時，必須指定一些指令行選項來自訂事件清單。您可以從 %NCHOME%\omnibus\desktop 目錄執行此指令。" />
+<meta name="description" content="當您執行 NCOelct.exe 指令，在 Windows 上啟動暫時性事件清單時，必須指定一些指令行選項來自訂事件清單。您可以從 %NCHOME%\omnibus\desktop 目錄執行此指令。" />
+<meta name="DC.subject" content="事件清單, 暫時性事件清單的指令行選項, 指令行選項, 暫時性事件清單" />
+<meta name="keywords" content="事件清單, 暫時性事件清單的指令行選項, 指令行選項, 暫時性事件清單" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingtransienteventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_winevntlstcmdlineopttransient" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingtransienteventlist.html" />
+<title>暫時性事件清單的 Windows 指令行選項</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_winevntlstcmdlineopttransient">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">暫時性事件清單的 Windows 指令行選項</h1>
+<div class="body refbody"><p class="shortdesc">當您執行 <span class="keyword cmdname">NCOelct.exe</span> 指令，在 Windows 上啟動暫時性事件清單時，必須指定一些指令行選項來自訂事件清單。您可以從 <span class="ph filepath">%NCHOME%\omnibus\desktop</span> 目錄執行此指令。</p>
+<div class="section"><p class="p">下表說明用於啟動 Windows 上暫時性事件清單的指令行選項。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. Windows 暫時性事件清單 (NCOelct.exe) 指令行選項</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d108460e50">指令行選項</th>
+<th class="entry" valign="bottom" width="75%" id="d108460e52">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">顯示延伸的診斷訊息。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指出在桌面 ObjectServer 架構中運作時，是啟用還是停用雙重寫入模式。 有效的選項如下所示：<ul class="ul"><li class="li"><samp class="ph codeph">0</samp>：停用雙重寫入模式</li>
+<li class="li"><samp class="ph codeph">1</samp>：啟用雙重寫入模式</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> 指令行選項會置換桌面 ObjectServer 之 master.national 表格中的 DualWrite 欄位項目。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-elf</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 "><p class="p"><em class="ph i">此為必要選項。</em></p>
+指定要用於暫時性事件清單的過濾器檔案，其中：<p class="p"><var class="keyword varname">string</var> 指定 <span class="ph filepath">.elf</span> 檔案的路徑。</p>
+<p class="p"><var class="keyword varname">URL</var> 指定位於遠端伺服器上的 <span class="ph filepath">.elf</span> 檔案，其可使用 HTTP 或 FTP 進行存取。 透過使用下列其中一種格式指定 <var class="keyword varname">URL</var>：</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+</ul>
+<p class="p">僅當伺服器未使用預設埠時，才需要指定選用埠號 <var class="keyword varname">:port</var>。</p>
+<p class="p">如果使用 FTP，路徑必須是從根目錄開始的完整路徑；例如，<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myfilter.elf</span>。</p>
+<p class="p">您可以使用 <span class="keyword option">-params</span> 指令行選項，以指定除了 <span class="ph filepath">.elf</span> 檔案中所指定參數之外的過濾器參數。
+如需用法的詳細資料，請參閱此表格中的 <span class="keyword option">-params</span> 說明。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-elv</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定要用於暫時性事件清單的事件清單視圖檔案，其中：<p class="p"><var class="keyword varname">string</var> 指定 <span class="ph filepath">.elv</span> 檔案的路徑。</p>
+<p class="p"><var class="keyword varname">URL</var> 指定位於遠端伺服器上的 <span class="ph filepath">.elv</span> 檔案，其可使用 HTTP 或 FTP 進行存取。 透過使用下列其中一種格式指定 <var class="keyword varname">URL</var>：</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+</ul>
+<p class="p">僅當伺服器未使用預設埠時，才需要指定選用埠號 <var class="keyword varname">:port</var>。</p>
+<p class="p">如果使用 FTP，路徑必須是從根目錄開始的完整路徑；例如，<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myview.elv</span>。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">顯示此指令的說明並結束。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指出要在桌面 ObjectServer 架構中使用的主要 ObjectServer。 <p class="p"><span class="keyword option">-masterserver</span> 指令行選項會置換桌面 ObjectServer 之 master.national 表格中的 MasterServer 欄位項目。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定以秒為單位的時間，如果發生網路失敗，則在這個時間之後，ObjectServer 的登入嘗試或連線會逾時。 在指定的逾時期間之後，事件清單會嘗試重新連接至 ObjectServer。 如果連線在第二個逾時期間之後仍不成功，則事件清單會嘗試連接至備份 ObjectServer (如果可用)。 預設值為 20 秒。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-params</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定要用來取代過濾器檔案之 <samp class="ph tt">filter_text</samp> 參數中單一位置保留元的字串。
+此位置保留元必須以 @ 符號開頭 (例如，@FilterText)。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定所選使用者名稱的密碼。 <span class="keyword cmdname">NCOelct</span> 公用程式僅接受在密碼中使用英數字元。 特殊字元（如 #、/、&gt;、@ 及 !）不允許在密碼中使用。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定正連接至的 ObjectServer 名稱。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定要用於登入事件清單的使用者名稱。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">顯示版本資訊並結束。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_el_startingtransienteventlist.html" title="使用 nco_elct 指令，可以從 UNIX 指令行開啟暫時性事件清單，且使用 NCOelct.exe 指令，可以從 Windows 指令行開啟暫時性事件清單。">從指令行啟動暫時性事件清單</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相關概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="您可以使用桌面 ObjectServer 架構，來改進頻繁體驗大量載入之 ObjectServer 的效能。">桌面 ObjectServer 架構</a></div>
+</div>
+<div class="relinfo relref"><strong>相關參考</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="當您使用 nco_event 指令，在 UNIX 上啟動事件清單時，可以指定一些指令行選項來修改配置。您可以從 $NCHOME/omnibus/bin 目錄執行此指令。">UNIX 事件清單指令行選項</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

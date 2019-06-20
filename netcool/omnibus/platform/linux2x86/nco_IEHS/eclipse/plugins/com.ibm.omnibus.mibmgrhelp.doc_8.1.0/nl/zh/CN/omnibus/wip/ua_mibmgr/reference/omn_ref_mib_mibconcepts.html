@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB 概念和设计" />
+<meta name="abstract" content="已定义用于特定设备的所有 SNMP MIB 模块组成了该设备的 MIB。术语 MIB 通常用于描述单个模块定义，但是这在技术上是不正确的。 事实上，MIB 是用于管理特定设备（无论该设备与硬件还是软件相关）的所有模块的组合。因此，由供应商或在 RPC 中定义的每个模块的更精确名称为 SNMP MIB 模块。" />
+<meta name="Description" content="已定义用于特定设备的所有 SNMP MIB 模块组成了该设备的 MIB。术语 MIB 通常用于描述单个模块定义，但是这在技术上是不正确的。 事实上，MIB 是用于管理特定设备（无论该设备与硬件还是软件相关）的所有模块的组合。因此，由供应商或在 RPC 中定义的每个模块的更精确名称为 SNMP MIB 模块。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibconcepts" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB 概念和设计</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibconcepts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB 概念和设计</h1>
+<div class="body refbody"><p class="shortdesc">已定义用于特定设备的所有 SNMP MIB 模块组成了该设备的 MIB。术语 MIB 通常用于描述单个模块定义，但是这在技术上是不正确的。
+事实上，MIB 是用于管理特定设备（无论该设备与硬件还是软件相关）的所有模块的组合。因此，由供应商或在 RPC 中定义的每个模块的更精确名称为 SNMP MIB 模块。</p>
+<div class="section"><p class="p">所有 MIB 模块都是根模块的最终扩展。各个供应商发布的所有 MIB 模块都是从 RFC1155-SMI 中定义的企业对象扩展而来的。因此，所有 SNMP 代理必须支持 RFC1155，并且所有 MIB 模块都是 RFC1155 的扩展。</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__smi"><h2 class="title sectiontitle">管理信息结构 (SMI)</h2><p class="p">为了使 SNMP 管理信息库 (MIB) 可扩展，系统将相关项归入不同的 MIB 模块中，而这些模块组成了一个结构化的层次结构。每个 MIB 模块都在以下构造内定义：</p>
+<p class="p"><samp class="ph codeph">ModuleName
+DEFINITIONS ::= BEGIN END</samp></p>
+<p class="p">模块中的 <samp class="ph codeph">BEGIN</samp> 和 <samp class="ph codeph">END</samp> 标记使得您能够在单个文本文件中定义多个模块。
+MIB 编译器应该能够处理单个文件中定义的任意数量的模块，但是这不是必需的。</p>
+<p class="p">对于模块内已定义的每个对象，有一些约定。例如，模块名称必须以大写字母字符开头，并且只能包含字母、数字、连字符 (-) 或下划线 (_)。对象名称必须以小写字母字符开头，并且只能包含字母、数字、连字符或下划线。MIB 模块中的注释由两个连续的连字符 (--) 表示，此符号后面的任何行上的任何文本都可以忽略。</p>
+<p class="p">MIB 模块便于扩展的设计使得 MIB 能够通过添加附加模块支持任何新功能或设备。当某个模块编写为另一个模块的扩展时，它将包含 <samp class="ph codeph">IMPORTS</samp> 段，此段位于 <samp class="ph codeph">DEFINITIONS</samp> 行下。
+<samp class="ph codeph">IMPORTS</samp> 段定义了位于 MIB 层次结构中较高层次的模块所需的对象以及随后在其中定义这些对象的模块。</p>
+<div class="p">以下定义来自 RFC1157，指示了从 RFC1155 导入的多个对象。此段与 C 或 Perl 之类的编程语言或者 Netcool 规则文件中的 <samp class="ph codeph">include</samp> 语句类似。此外，为了理解当前 MIB 模块 (RFC1157-SNMP) 中的对象，您必须了解先前 MIB 模块 (RFC1155-SMI) 中的对象。<pre class="pre codeblock"><code>RFC1157-SNMP DEFINITIONS ::= BEGIN IMPORTS ObjectName, ObjectSyntax, NetworkAddress, 
+IpAddress, TimeTicks FROM RFC1155-SMI;</code></pre>
+</div>
+<p class="p">输入错误是指定导入的 MIB 名称时最容易犯的错误。例如，可能使用 RFC1212 而非正确的名称 RFC-1212 来指代 MIB 模块。如果 <span class="keyword">MIB 管理器</span> 突出显示解析错误，必须检查 <samp class="ph codeph">IMPORTS</samp> 段以确认 MIB 模块名称是否正确。某些 MIB 模块还包含 <samp class="ph codeph">EXPORTS</samp> 段（也以分号结尾）。此段告诉读程序 MIB 作者希望其他 MIB 模块也使用这些指定的对象。此段的用途与我们无关，因此可以忽略。</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_data"><h2 class="title sectiontitle">已定义的数据类型</h2><p class="p">SNMP MIB 模块以名为 ASN.13（抽象语法表示法 1）的格式定义。但是，SNMP 只使用 ASN.14 中的一部分。在 ITU-T X.208 和 ISO 8824 中定义了 ASN.1。在 RFC1155 中定义了适用于 SNMP 的 ASN.1。RFC1155 定义了以下有效 SNMP 数据类型：</p>
+<ul class="ul"><li class="li">原语类型：INTEGER、OCTET STRING、OBJECT IDENTIFIER 和 NULL</li>
+<li class="li">构造函数类型：SEQUENCE 和 SEQUENCE OF</li>
+<li class="li">已定义的类型：NetworkAddress、IpAddress、Counter、Gauge、TimeTicks 和 Opaque</li>
+</ul>
+<p class="p">已定义的类型是一种机制，用于指定原语类型或构造函数类型的特定格式。MIB 作者可以使用 TEXTUAL-CONVENTION 构造定义更多类型。</p>
+<div class="p"><samp class="ph codeph">DisplayString</samp> 就是已定义类型的一个范例。在 SNMPv2-SMI-v1 MIB 模块中，版本为 V1 的 <samp class="ph codeph">DisplayString</samp> 的定义如下：
+<pre class="pre codeblock"><code>DisplayString ::= OCTET STRING (0..255)</code></pre>
+</div>
+<div class="p">在 SNMPv2-TC MIB 模块中，版本为 V2 的 <samp class="ph codeph">DisplayString</samp> 的定义如下：
+<pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION DISPLAY-HINT "255a" STATUS current DESCRIPTION 
+"Represents textual information taken from the NVT ASCII character set, as defined 
+in pages 4, 10-11 of RFC 854. To summarize RFC 854, the NVT ASCII repertoire 
+specifies: - the use of character codes 0-127 (decimal) - the graphics characters 
+(32-126) are interpreted as US ASCII - NUL, LF, CR, BEL, BS, HT, VT and FF have the 
+special meanings specified in RFC 854 - the other 25 codes have no standard 
+interpretation - the sequence 'CR LF' means newline - the sequence 'CR NUL' means 
+carriage-return - an 'LF' not preceded by a 'CR' means moving to the same column on 
+the next line. - the sequence 'CR x' for any x other than LF or NUL is illegal. 
+(Note that this also means that a string may end with either 'CR LF' or 'CR NUL', 
+but not with CR.) Any object defined using this syntax may not exceed 255 characters
+ in length." SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+以上示例说明了 <samp class="ph codeph">DisplayString</samp> 是一个长度为 0 到 255 个字符的 OCTET STRING。
+请注意，与因特网标准的 MIB 中的对象类型对应的每个 OBJECT DESCRIPTOR 都必须是唯一的、便于记忆，并且可打印的字符串。</div>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_objects"><h2 class="title sectiontitle">定义对象</h2><p class="p">编写 MIB 对象时常犯的错误是创建了不唯一的对象名。据称，RFC1155 语句意味着只有单个 MIB 模块中的对象才必须唯一。正如先前讨论的那样，MIB 是一组完整的模块，这些模块组合起来用于管理特定设备。因此，在任何 MIB 模块中定义的所有对象都必须唯一，不仅是在自己的模块中，在任何已导入的模块以及这些模块可能导入的任何模块中的任何其他对象名都必须唯一。
+常用于确保对象名唯一的机制是使用公司的股票代码或公司名称缩写形式来作为所有模块名称的前缀。</p>
+<p class="p">定义对象时，这些对象将映射到与生成树类似的数字层次结构中。每次定义对象时，会将该对象定义为父对象的叶子。
+SNMP MIB 树中定义了以下三个根对象：</p>
+<ul class="ul"><li class="li"><samp class="ph codeph">ccitt</samp>（根节点 0）</li>
+<li class="li"><samp class="ph codeph">iso</samp>（根节点 1）</li>
+<li class="li"><samp class="ph codeph">joint-iso-ccitt</samp>（根节点 2）</li>
+</ul>
+<div class="p">MIB 树中的所有其他节点都是这三个根节点的子代。例如，RFC1155-SMI 定义了以下对象：<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } directory OBJECT IDENTIFIER ::=
+ { internet 1 } mgmt OBJECT IDENTIFIER ::= { internet 2 } experimental OBJECT IDENTIFIER
+ ::= { internet 3 } private OBJECT IDENTIFIER ::= { internet 4 } enterprises OBJECT 
+IDENTIFIER ::= { private 1 }</code></pre>
+</div>
+<p class="p">这些定义指示了对象名、关联的对象类型、每个对象的父代名称（或父代的有序列表），以及此子代在这一个父代或多个父代（也可能有多个）中的叶子编号。从图形上看，这些项呈分层格式。</p>
+<p class="p">展开和折叠 MIB 树中的节点可在整个“<span class="keyword wintitle">MIB 树</span>”视图中移动。MIB 树的顶级分支包含 MIB 模块的名称，而包含在每个 MIB 模块分支内的是组成 MIB 的其他元素。当其他模块添加到 MIB 中时，其他对象会添加到 MIB 树中。可以通过对象名或对象标识 (OID) 对每个对象进行引用。最精确的方法是引用 OID。对象的 OID 定义为其编号及其回溯到根节点的每个祖代的编号，它们连接在一起，彼此之间以句点 (.) 分隔。企业对象（节点或叶子）的 OID 为 1.3.6.1.4.1。</p>
+<p class="p">许多供应商不能确保其对象名全球唯一，因此来自两个供应商的对象可能同名。这使得使用对象名来标识对象的方法会产生一些混淆。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="本节提供了关于简单网络管理协议 (SNMP) 体系结构、SNMP 管理信息库 (MIB) 以及其他一些 MIB 概要的附加信息。">关于 SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

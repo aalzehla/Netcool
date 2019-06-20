@@ -1,0 +1,64 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-VC-EVENT-MIB
+#
+###############################################################################
+
+log(DEBUG, "<<<<< Entering... vmware-VMWARE-VC-EVENT-MIB.adv.include.snmptrap.rules >>>>>")
+
+switch($specific-trap)
+{
+    case "201": ### vpxdAlarm
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vpxdAlarm"
+        $OS_OsiLayer = 0
+
+        
+    case "202": ### vpxdDiagnostic
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vpxdDiagnostic"
+        $OS_OsiLayer = 0
+
+        
+    case "203": ### vpxdAlarmInfo
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vpxdAlarmInfo"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "Object : " + $vmwVpxdTargetObj
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    default:
+}
+
+log(DEBUG, "<<<<< Leaving... vmware-VMWARE-VC-EVENT-MIB.adv.include.snmptrap.rules >>>>>")
+
+

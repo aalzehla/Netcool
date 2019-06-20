@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it-it" lang="it-it">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Impostazione del livello di registrazione" />
+<meta name="abstract" content="È possibile modificare il livello di registrazione per fornire file di log o di traccia più dettagliati al fine di semplificare il debug di MIB Manager. Le informazioni supplementari fornite aumentando i livelli di registrazione possono consentire il debug di problemi specifici durante l'analisi dei MIB." />
+<meta name="Description" content="È possibile modificare il livello di registrazione per fornire file di log o di traccia più dettagliati al fine di semplificare il debug di MIB Manager. Le informazioni supplementari fornite aumentando i livelli di registrazione possono consentire il debug di problemi specifici durante l'analisi dei MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="it-it" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versione 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Impostazione del livello di registrazione</h1>
+<div class="body refbody"><p class="shortdesc">È possibile modificare il livello di registrazione per fornire file di log o di traccia più dettagliati
+al fine di semplificare il debug di
+<span class="keyword">MIB Manager</span>. Le informazioni supplementari fornite aumentando i livelli di registrazione possono consentire il debug di problemi specifici durante l'analisi dei MIB.</p>
+<div class="section"><p class="p">Per modificare il livello di registrazione, fare clic su <span class="ph menucascade"><span class="ph uicontrol">Modifica</span> &gt; <span class="ph uicontrol">Debug</span></span> dalla barra dei menu della finestra principale. I file di log presentano sei livelli di messaggi in cui è possibile spostarsi per aumentare il livello di dettagli acquisito: NONE, ERROR, WARN, INFO, DEBUG e VERBOSE.</p>
+<p class="p">Nella tabella che segue viene fornita una breve descrizione di ciascun livello di registrazione:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabella 1. Un elenco di livelli di registrazione con la descrizione associata</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3945e36">Livello log</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3945e38">Descrizione</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">none</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifica un livello log in cui non viene emesso nessun messaggio di debug. </p>
+<p class="p">Le prestazioni dell'applicazione vengono migliorate ma nessun messaggio di avvertenza o di errore viene visualizzato durante l'analisi.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">error</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifica un livello log in cui non vengono registrati solo gli errori che influiscono sui risultati.</p>
+<p class="p">Sono inclusi
+tutti gli errori identificati da <span class="keyword">MIB Manager</span> che determinano la visualizzazione di dati errati nella finestra principale.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">warn</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifica un livello log in cui vengono registrati messaggi di avvertenza e di errore.</p>
+<p class="p">Un'avvertenza indica una condizione che potrebbe determinare dati errati e quindi deve essere verificata. Questa condizione, tuttavia, non determina il danneggiamento dei dati.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifica un livello log in cui vengono registrati messaggi informativi, di avvertenza e critici.</p>
+<p class="p">I messaggi informativi contengono i dettagli relativi all'avanzamento complessivo delle attività. Ad esempio, forniscono il testo completo relativo agli oggetti man mano che vengono analizzati.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">debug</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><div class="p">Specifica un livello log in cui vengono registrati tutti i messaggi. <div class="note note"><span class="notetitle">Nota:</span> Eseguire
+<span class="keyword">MIB Manager</span> solo in modalità debug per tentare di risolvere una condizione critica. Il volume dei dati prodotti durante l'analisi di un numero moderato di MIB riempirà rapidamente il file system.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">verbose</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifica un livello log in cui vengono registrati tutti i messaggi informativi.</p>
+<p class="p">Un messaggio dettagliato include lo stato di variabili, array e hash man mano che ne viene modificato il valore e lo stato.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Argomento principale:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Utilizzare le preferenze di registrazione per specificare la directory dei file di log MIB Manager e per impostare il livello dei messaggi predefinito.">Impostazione di preferenze di registrazione</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Libreria</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Supporto</a> |</span>
+<br />
+</div>
+</body>
+</html>

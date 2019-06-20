@@ -1,0 +1,68 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/***
+function getProperties(propsContext)
+
+This simple function sets properties which will be used by the rest of the 
+policies in the MWM.
+
+** clearFlag **
+boolean (TRUE or FALSE).
+
+Use clearFlag = TRUE if you want the maintenance flag on events cleared 
+when windows expire.
+Use clearFlag = FALSE if you want Impact to leave the events tagged as in 
+maintenance after the window expires.
+
+Example setting--
+clearFlag = TRUE;
+
+Default is TRUE
+
+** flagExistingEvents **
+boolean (TRUE or FALSE).
+
+Use flagExistingEvents = TRUE if you want Impact to flag as "in maintenance" 
+events which last came in (based on LastOccurrence) before the time 
+window started.
+
+UseflagExistingEvents = FALSE if you want Impact to NOT flag events as "in 
+maintenance" unless they come in during the maintenance window.
+
+Example 1 -- an event for Node ADG111 comes in at 5:30pm.  At 6:00pm, a 
+maintenance window for ADG111 starts. flagExistingEvents = TRUE, so the event 
+that came in at 5:30pm will be tagged as "in maintenance".
+
+Example 2-- an event for Node ADG222 comes in at 10:50pm.  At 11pm, a 
+maintenance window for ADG222 starts. flagExistingEvents = FALSE, so the event 
+that came in at 10:50pm will NOT be tagged as "in maintenance".
+
+Default is TRUE
+***/
+
+function getProperties(propsContext) {
+	propsContext = NewObject();
+
+	// SET YOUR VALUES HERE
+	clearFlag = TRUE;
+	flagExistingEvents = TRUE;
+
+	propsContext.clearFlag = clearFlag;
+	propsContext.flagExistingEvents = flagExistingEvents;
+}
+
+/***
+// FUNCTION TESTING:
+MWM_Properties.getProperties(mwmProps);
+log(mwmProps.clearFlag);
+log(mwmProps.flagExistingEvents);
+***/

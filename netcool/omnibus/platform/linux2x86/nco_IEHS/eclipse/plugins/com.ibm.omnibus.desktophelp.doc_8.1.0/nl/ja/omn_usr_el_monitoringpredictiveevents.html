@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="イベント・リスト内の予測イベントのモニター" />
+<meta name="abstract" content="予測イベントは、近い将来に発生する可能性があるしきい値違反の予測を表します。 予測イベントは、他のイベントと異なり、Tivoli Netcool/OMNIbus に転送されます。予測イベントは、まだ発生していないが、近い将来に発生する可能性が高い現象、障害、または状態を表すからです。" />
+<meta name="Description" content="予測イベントは、近い将来に発生する可能性があるしきい値違反の予測を表します。 予測イベントは、他のイベントと異なり、Tivoli Netcool/OMNIbus に転送されます。予測イベントは、まだ発生していないが、近い将来に発生する可能性が高い現象、障害、または状態を表すからです。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringpredictiveevents" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>イベント・リスト内の予測イベントのモニター</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringpredictiveevents">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リスト内の予測イベントのモニター</h1>
+<div class="body taskbody"><div class="abstract"><span class="shortdesc">予測イベントは、近い将来に発生する可能性があるしきい値違反の予測を表します。 予測イベントは、他のイベントと異なり、<span class="keyword">Tivoli Netcool/OMNIbus</span> に転送されます。予測イベントは、まだ発生していないが、近い将来に発生する可能性が高い現象、障害、または状態を表すからです。 </span>
+</div>
+<div class="section context"><p class="p">予測イベントは、ヒストリカル・データのリニアなトレンド分析に基づいて、<span class="keyword">IBM Tivoli Monitoring</span> 内で生成されます。 システムがこの機能をサポートするように構成されている場合は、<span class="keyword">Tivoli Netcool/OMNIbus</span> イベント・リストの予測イベントをモニターすることができます。  構成を行えば、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内で<span class="ph uicontrol">「予測」</span>モニター・ボックスを使用できるようになり、イベント・リスト内で<span class="ph uicontrol">「予測」</span>フィルターおよび<span class="ph uicontrol">「予測」</span>ビューを使用できるようになります。 <span class="ph"><span class="ph uicontrol">「予測」</span>ビューには、左から右の順に、「ノード」、「TrendDirection」、「サマリー」、「最初の発生」、「最終の発生」、「カウント」、「PredictionTime」というデフォルトの列が表示されます。</span></p>
+<div class="p">列のソート優先順位とソート順は以下のとおりです。<ol class="ol"><li class="li">「重大度」- 降順</li>
+<li class="li">「最後の発生」- 昇順</li>
+<li class="li">「PredictionTime」- 昇順</li>
+</ol>
+</div>
+<div class="p">イベント・リストに実際のイベントと予測イベントの両方が表示される場合は、<span class="ph uicontrol">「予測 (Predictions)」</span>フィルターと<span class="ph uicontrol">「予測 (Predictions)」</span>ビューを使用して、予測イベントのフィルター処理およびソートを行うことができます。 次のようにして予測イベントを識別することもできます。<ul class="ul"><li class="li"><span class="ph uicontrol">「要約」</span>列のテキストを確認します。 要約テキストは通常、以下の形式のいずれかです (重大予測イベントの重大度は常に 5、警告予測イベントの重大度は常に 3)。<ul class="ul"><li class="li">線形トレンド・イベントの場合:<p class="p"><samp class="ph systemoutput"><var class="keyword varname">Node</var> で予測されるイベント率は <var class="keyword varname">PredictionTime</var> 日以内にしきい値に達します。</samp></p>
+</li>
+<li class="li">ベースライン設定イベントの場合:<p class="p"><samp class="ph systemoutput"><var class="keyword varname">Node</var> ノードに
+対して <var class="keyword varname">EventType</var> イベント率のベースライン・シチュエーションが
+開始され、<var class="keyword varname">situation_name</var> ノードのイベント数は <var class="keyword varname">EventCount</var> です。</samp></p>
+</li>
+<li class="li">予測イベントの場合:<p class="p"><samp class="ph systemoutput"><var class="keyword varname">PredictionTime</var> 日以内に <var class="keyword varname">Node</var> の<var class="keyword varname">resource</var> の臨界しきい値を超過します。 (シチュエーション: <var class="keyword varname">situation_name</var>)。</samp></p>
+<p class="p"><samp class="ph systemoutput"><var class="keyword varname">PredictionTime</var> 日以内に <var class="keyword varname">Node</var> の <var class="keyword varname">resource</var> の警告しきい値を超過します。 (シチュエーション: <var class="keyword varname">situation_name</var>)。</samp></p>
+</li>
+</ul>
+</li>
+<li class="li">現在のビューに<span class="ph uicontrol">「クラス」</span>列がある場合は、その列のテキストを確認します。 この項目は、デフォルトでは「<samp class="ph systemoutput">予測イベント</samp>」ですが、この値はシステム管理者が変更できます。</li>
+</ul>
+</div>
+<p class="p">イベント・リストから、予測イベントに対して以下の操作を実行できます。</p>
+</div>
+<ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd">予測の信頼性レベルを判別する。 特定の予測信頼性レベルを満たす予測イベントを表示するには、次のようにします。 </span><ol class="ol substeps"><li class="li substep"><span class="ph cmd">イベント・リストでいずれかのイベントを右クリックし、ポップアップ・メニューから<span class="ph uicontrol">「予測信頼性の表示」</span>をクリックします。</span></li>
+<li class="li substep"><span class="ph cmd">「<span class="keyword wintitle">内部コマンド・パラメーター</span>」ウィンドウでは、
+<span class="ph uicontrol">「最低限の信頼性パーセント (Minimal Confidence percentage)」</span>フィールドで 0 から 100 までの値だけを使用して比率を指定します。</span> 予測信頼性は、トレンド近似値がどれだけ正確かを示します。0 は信頼性がないことを、100 は完璧な近似であることを表します。 デフォルトは 50 です。</li>
+<li class="li substep"><span class="ph cmd"><span class="ph uicontrol">「OK」</span>をクリックします。</span> 別のイベント・リストが開き、指定したレベル以上の信頼性レベルを持つ予測イベントが表示されます。 このイベント・リストには、デフォルト・ビューのすべてのフィールドが表示されます。 追加でいずれかのイベントをダブルクリックし、<span class="keyword wintitle">「イベント情報」</span>ウィンドウにイベントのすべての詳細を表示できます。</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">予測が行われたホストから発生したすべての予測イベントと実際のイベント (使用可能な場合) をリストする。 表示された結果は、警告しきい値および臨界しきい値に対する予測トレンドの考えられる原因を識別するために使用できます。 </span> <p class="p">イベントを表示するには、調査対象の予測イベントを
+右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「予測イベントしきい値の表示」</span>をクリックします。 予測が行われた時刻から、算出された予測発生時刻までの間に、選択した予測イベントと同じホスト上で発生したすべてのイベントを表示する別のイベント・リストが開きます。 (このイベント・リストには、「デフォルト」ビューが適用されます。) </p>
+
+<p class="p">各イベントをダブルクリックすることで、<span class="keyword wintitle">「イベント情報」</span>ウィンドウに、その一連の完全な詳細を表示できます。</p>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="イベント・リストを使用して、アラートをモニターおよび管理できます。 アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。">イベント・リスト内のイベントのモニターおよび管理</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

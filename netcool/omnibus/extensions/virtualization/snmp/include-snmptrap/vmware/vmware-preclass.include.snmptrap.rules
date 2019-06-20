@@ -1,0 +1,91 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+# Compatible with:
+#
+# -  Netcool/Omnibus 3.x and 7
+# -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+###############################################################################
+
+log(DEBUG, "<<<<< Entering... vmware-preclass.include.snmptrap.rules >>>>>")
+
+################
+# Currently VMware ESXi 5 hosts report SNMP cold and warm start traps without 
+# setting the OID. This results in these traps being sent to the probe as generic
+# traps. By checking for this here we can work around this problem. It should be 
+# noted that this would cause real Generic cold and warm traps to be treated as 
+# VMware host traps. However, NcKL supported devices should set the OID so this 
+# is unlikely to occur. If VMware change this then please remove this workaround.
+################
+if(match(@Agent, "Generic-Unknown"))
+{
+    switch($generic-trap)
+    {
+        case "0": ### coldStart
+
+            @AlertGroup = "Entity Alarm State Hardware Alert"
+            @AlertKey = "Host Cold Start"
+            @Class = 3360
+            @Summary = "Alarm Host Cold Start for " + @Node
+	    @Agent = "vmware-VMWARE-VC-EVENT-MIB"
+
+
+            @Severity = 2
+            @ExpireTime = 0
+
+            @Identifier = @Node + " " + @AlertGroup + " " + @Type + " " + @Agent + " " + @Manager + " " + $generic-trap
+
+        case "1": ### warmStart
+
+            @AlertGroup = "Entity Alarm State Hardware Alert"
+            @AlertKey = "Host Warn Start"
+	    @Class = 3360
+            @Summary = "Alarm Host Warm Start for " + @Node
+            @Agent = "vmware-VMWARE-VC-EVENT-MIB"
+
+            $Severity = 2
+            @ExpireTime = 0
+
+            @Identifier = @Node + " " + @AlertGroup + " " + @Type + " " + @Agent + " " + @Manager + " " + $generic-trap
+
+	default:
+	    ### Do nothing
+    }	
+}
+
+########
+# End of VMware host bug workaround
+########
+
+if(match(@Type, "2"))
+{
+    $OS_AdvCorrCauseType_vmware= 4
+}
+else
+{
+    if(exists($SEV_KEY))
+    {
+        $OS_AdvCorrCauseType_vmware = lookup($SEV_KEY, vmware_preclass)
+    }
+    else
+    {
+        $OS_AdvCorrCauseType_vmware = lookup($OS_EventId, vmware_preclass)
+    }
+}
+
+log(DEBUG, "<<<<< Leaving... vmware-preclass.include.snmptrap.rules >>>>>")
+

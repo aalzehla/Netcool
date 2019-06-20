@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Windows 事件列表命令行选项" />
+<meta name="abstract" content="在 Windows 上使用 NCOEvent.exe 命令启动事件列表时，可指定若干命令行选项来修改配置。可以从 %NCHOME%\omnibus\desktop 目录运行此命令。" />
+<meta name="description" content="在 Windows 上使用 NCOEvent.exe 命令启动事件列表时，可指定若干命令行选项来修改配置。可以从 %NCHOME%\omnibus\desktop 目录运行此命令。" />
+<meta name="DC.subject" content="事件列表, Windows 命令行选项, 命令行选项, Windows 事件列表" />
+<meta name="keywords" content="事件列表, Windows 命令行选项, 命令行选项, Windows 事件列表" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_winevntlstcmdlineopt" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingeventlist.html" />
+<title>Windows 事件列表命令行选项</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_winevntlstcmdlineopt">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Windows 事件列表命令行选项</h1>
+<div class="body refbody"><p class="shortdesc">在 Windows 上使用 <span class="keyword cmdname">NCOEvent.exe</span> 命令启动事件列表时，可指定若干命令行选项来修改配置。可以从 <span class="ph filepath">%NCHOME%\omnibus\desktop</span> 目录运行此命令。</p>
+<div class="section"><p class="p">下表描述了用于启动 Windows 事件列表的命令行选项。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. Windows 事件列表（NCOEvent）命令行选项</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d104120e45">命令行选项</th>
+<th class="entry" valign="bottom" width="75%" id="d104120e47">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-config</span> <var class="keyword varname">string | URL</var><p class="p">或</p>
+<p class="p"><span class="keyword option">-elc</span> <var class="keyword varname">string
+| URL</var></p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指定要使用的初始配置文件，其中：<p class="p"><var class="keyword varname">string</var> 指定 <span class="ph filepath">.elc</span> 文件的路径。</p>
+<p class="p"><var class="keyword varname">URL</var> 指定位于远程服务器上的 <span class="ph filepath">.elc</span> 文件，该文件可使用 HTTP 或 FTP 进行访问。 通过使用以下某种格式指定 <var class="keyword varname">URL</var>：</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+</ul>
+<p class="p">仅当服务器未使用缺省端口时才需要指定可选端口号 <var class="keyword varname">:port</var>。</p>
+<p class="p"><span class="ph">可以选择为 <var class="keyword varname">servername</var> 值指定 IPv4 或 IPv6 地址。 指定 IPv6 地址时，使用方括号 [] 括起地址；例如：</span></p>
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+<p class="p">如果使用 FTP，那么路径必须是从根目录开始的完整路径，例如，<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myconfig.elc</span>。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">显示扩展诊断消息。<p class="p">该选项仅用于查找事件列表中存在的问题。 除非 <span class="keyword">IBM 软件支持</span> 建议你这样做，否则请勿使用此命令行选项。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指示在桌面 ObjectServer 体系结构中操作时是启用还是禁用双重写方式。 有效选项如下所示：<ul class="ul"><li class="li"><samp class="ph codeph">0</samp>：禁用双写入方式</li>
+<li class="li"><samp class="ph codeph">1</samp>：启用双重写方式</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> 命令行选项将覆盖桌面 ObjectServer master.national 表中的 DualWrite 字段项。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="ph"><span class="keyword option">-failbackpolltime</span> <var class="keyword varname">integer</var></span></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 "><span class="ph">如果因发生故障转移而连接至备份 ObjectServer，事件列表会定期尝试重新连接至主控 ObjectServer。该命令行选项指定了事件列表轮询以返回主控 ObjectServer 的频率（以秒为单位）。如果检测到主控 ObjectServer 已重新启动，那么事件列表将与备份 ObjectServer 断开连接，然后重新连接至主控 ObjectServer。缺省值为 <span class="keyword option">30</span> 秒。当该值设置为 <span class="keyword option">0</span> 时，不发生轮询。</span><p class="p"><span class="ph">当事件列表连接至 ObjectServer 时，该事件列表会检查其正在连接的 ObjectServer 的 <span class="keyword parmname parmname">BackupObjectServer</span> 属性设置。仅当该属性设置为 <span class="keyword option">TRUE</span>（即指示备份 ObjectServer）时才发生轮询。</span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">显示该命令的帮助并退出</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指示桌面 ObjectServer 体系结构中要使用的主控 ObjectServer。 <p class="p"><span class="keyword option">-masterserver</span> 命令行选项将覆盖桌面 ObjectServer master.national 表中的 MasterServer 字段项。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指定发生网络故障时，多少秒后登录尝试或连接 ObjectServer 将超时。 指定的超时时段后，事件列表将尝试重新连接 ObjectServer。 如果超时时段后的连接不成功，事件列表将尝试连接到备份 ObjectServer（如果可用）。 缺省值为 20 秒。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指定用于登录到事件列表的密码。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指定要连接的 ObjectServer 的名称。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">指定用于登录事件列表的用户名。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104120e45 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d104120e47 ">显示版本信息并退出。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_startingeventlist.html" title="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。">启动事件列表</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="可以使用桌面 ObjectServer 体系结构来改善经常承担较大负载的 ObjectServer 的性能。">桌面 ObjectServer 体系结构</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="可以保存为“事件列表”监视器框窗口上的所有监视器框定义的过滤器、视图以及其他事件配置。 该信息保存在事件列表配置（.elc）文件中。">处理事件列表配置</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool/OMNIbus Settings" />
+<meta name="abstract" content="Use this window to configure properties and server communication information for Tivoli Netcool/OMNIbus on Windows. This window provides a single, manageable working environment from which these functions are instantly accessible." />
+<meta name="Description" content="Use this window to configure properties and server communication information for Tivoli Netcool/OMNIbus on Windows. This window provides a single, manageable working environment from which these functions are instantly accessible." />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_settingswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Netcool/OMNIbus Settings</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_settingswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Netcool/OMNIbus Settings</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to configure properties and server communication
+information for <span class="keyword">Tivoli Netcool/OMNIbus</span> on Windows. This window provides a single, manageable
+working environment from which these functions are instantly accessible.</p>
+<div class="section">The <span class="keyword wintitle">Netcool/OMNIbus Settings</span> window
+contains the following tabs:<ul class="ul"><li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_overviewtab">Overview tab</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_serverstab">Servers tab</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_propertiestab">Properties tab</a></li>
+</ul>
+<div class="note note"><span class="notetitle">Note:</span> If the <span class="keyword wintitle">Server Editor</span> window
+is currently open, the <span class="ph uicontrol">Servers</span> tab is not displayed.
+If the <span class="keyword wintitle">Properties Editor</span> window is currently
+open, the <span class="ph uicontrol">Properties</span> tab is not displayed.</div>
+<div class="note tip" id="netom_settingswindow__netom_settings_tip"><span class="tiptitle">Tip:</span> If you make any changes to one
+of the tabs and then try to access another tab without saving your
+changes, you are prompted to save or cancel your changes. At any point
+in time, you can also click the <span class="ph uicontrol">OK</span> button to
+save all of your changes and close the window, or click the <span class="ph uicontrol">Cancel</span> button
+to close the window without saving your changes. If you want to save
+the changes made to any tab without closing the window, click the <span class="ph uicontrol">Apply</span> button.</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_overviewtab"><h2 class="title sectiontitle">Overview tab</h2><p class="p">Use
+the <span class="ph uicontrol">Overview</span> tab to obtain a brief overview
+about the <span class="keyword">Tivoli Netcool/OMNIbus</span> server
+locations and properties files.</p>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_serverstab"><h2 class="title sectiontitle">Servers tab</h2><div class="p">Use
+this tab to create and modify communication details for the server
+components, test server activity, and add backup (or failover) servers
+and listeners. Server components include ObjectServers, gateways,
+process agents, and proxy servers. This tab provides the same function
+as the Server Editor. Complete the <span class="ph uicontrol">Servers</span> tab
+as follows:<dl class="dl" id="netom_settingswindow__netom_settingsservfields"><dt class="dt dlterm"><em class="ph i">Server list</em></dt>
+<dd class="dd">The server list shows existing server components and their settings:<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">This column displays the name of each server that is defined for
+this workstation. The default server names are:<ul class="ul"><li class="li">NCOMS: The default name for ObjectServers</li>
+<li class="li">NCO_PROXY: The default name for proxy servers</li>
+<li class="li">NCO_GATE: The default name for gateways</li>
+<li class="li">NCO_PA: The default name for process agents</li>
+</ul>
+</dd>
+<dd class="dd">The host workstation for the server must have a <dfn class="term">listener</dfn> entry,
+and the host workstation and any other workstation that connects to
+that server must have a <dfn class="term">client</dfn> entry.</dd>
+<dd class="dd">Backup ObjectServers appear below the primary ObjectServer in
+the Server Editor. To hide the list of backup ObjectServers, double-click
+the primary ObjectServer name or server icon. The backup ObjectServers
+are hidden and the letter <em class="ph i">C</em> appears in the server icon. Double-click
+again to display the backup ObjectServers. The server icon returns
+to normal. </dd>
+<dt class="dt dlterm">Host</dt>
+<dd class="dd">This column displays the host name or IP address of the workstation
+on which the server component is installed. The default is the host
+name.</dd>
+<dt class="dt dlterm">Port</dt>
+<dd class="dd">This column displays the port on which the server component listens
+for unencrypted connections.</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">This column displays the word <samp class="ph tt">yes</samp> for encrypted connections.
+The same port number is used for both encrypted and unencrypted connections.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Server entry fields</dt>
+<dd class="dd">Use the server entry fields to enter or edit the details of each
+server component. If you are editing the details of an existing server
+component, you must first select the relevant row in the server list,
+so that the details are shown within the server entry fields. <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type the name of a new server component or edit the name of an
+existing component. You can also use the drop-down list to select
+a name. Use the following suffixes when naming components: _PROXY
+for proxy servers, _GATE for gateways, and _PA for process control
+agents.<div class="note note"><span class="notetitle">Note:</span> The name of a server entry must consist of
+29 or fewer uppercase letters and cannot begin with an integer.</div>
+</dd>
+<dt class="dt dlterm">Host</dt>
+<dd class="dd">Type or edit the host name or IP address of the workstation on
+which the server component is installed. </dd>
+<dd class="dd">If you type an IP address, you can specify an IPv4 or IPv6 address.
+For example:<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">Port</dt>
+<dd class="dd">Type a valid, unused port number.</dd>
+<dt class="dt dlterm">Listener</dt>
+<dd class="dd">Select this check box if this is a listener entry on the host
+workstation for the server. Clear the <span class="ph uicontrol">Listener</span> check
+box if this is a client entry.</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">Select this check box to indicate that the port accepts encrypted
+connections from clients that use SSL. The same port number is used
+for encrypted and unencrypted connections.</dd>
+<dt class="dt dlterm">Add</dt>
+<dd class="dd">Click this button to add new (and unique) server details to the
+server list.</dd>
+<dt class="dt dlterm">Remove/Update</dt>
+<dd class="dd">This button changes based on whether you have made any changes
+to the server component that is currently selected. Click <span class="ph uicontrol">Remove</span> if
+you want to remove the server component that is currently selected
+from the server list. Click <span class="ph uicontrol">Update</span> to refresh
+the server list with updated details of an existing server component.</dd>
+<dt class="dt dlterm">Test</dt>
+<dd class="dd">Click this button to test that you can connect to the server that
+is selected in the server list. The Server Editor attempts to contact
+the server on the specified host and port. A window shows the result
+of the test command.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Priority</dt>
+<dd class="dd">The server priority fields enable you to raise or lower the priority
+of server components that are configured as failover systems. For
+example, suppose an ObjectServer called NCOMS_PRI is configured with
+a backup called NCOMS_BAK. Using the <span class="ph uicontrol">Raise</span> or <span class="ph uicontrol">Lower</span> buttons,
+you can raise the priority of NCOMS_BAK to be the primary ObjectServer
+and NCOMS_PRI to be the backup.<dl class="dl"><dt class="dt dlterm">Raise</dt>
+<dd class="dd">Click this button to raise the priority of the selected server
+component by one level.</dd>
+<dt class="dt dlterm">Lower</dt>
+<dd class="dd">Click this button to lower the priority of the selected server
+component by one level.</dd>
+<dt class="dt dlterm">Show Groups</dt>
+<dd class="dd">Select this check box to group each server by name within the
+server list, with backup servers and listeners identified following
+the client entry.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_propertiestab"><h2 class="title sectiontitle">Properties tab</h2><div class="p">Use
+this tab to edit the information that is contained in the properties
+files for ObjectServers, proxy servers, the database initialization
+utility (<span class="keyword cmdname">nco_dbinit</span>), the Confpack utility (<span class="keyword cmdname">nco_confpack</span>),
+Netcool/OMNIbus Administrator (nco_config), probes, and gateways.
+You can also create new properties files. This tab provides the same
+function as the Properties Editor. Complete the <span class="ph uicontrol">Properties</span> tab
+as follows:<dl class="dl" id="netom_settingswindow__netom_settingspropfields"><dt class="dt dlterm">Type</dt>
+<dd class="dd">Select any of the following options:<ul class="ul"><li class="li">Select <span class="ph uicontrol">ObjectServer</span> to edit the properties
+files of components such as ObjectServers and proxy servers. The <span class="ph uicontrol">Name</span> drop-down
+list becomes populated with these files. These files are typically
+stored in the <span class="ph filepath">%NCHOME%\omnibus\etc</span> directory.</li>
+<li class="li">Select <span class="ph uicontrol">Probe</span> to edit probe properties files.
+The <span class="ph uicontrol">Name</span> drop-down list becomes populated with
+these files. These files are typically stored in the <span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> directory.</li>
+<li class="li">Select <span class="ph uicontrol">Server</span> to add a new properties file.
+These files are saved to the <span class="ph filepath">%NCHOME%\omnibus\ini</span> directory.
+The <span class="ph uicontrol">Name</span> drop-down list becomes populated with
+the text <samp class="ph codeph">&lt;New File&gt;</samp>.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">Select the properties file that you want to edit from this drop-down
+list. This list is populated based on your selection from the <span class="ph uicontrol">Type</span> drop-down
+list. The default values are: <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit</span>: Properties file to be read when
+database initialization starts (You run <span class="keyword cmdname">nco_dbinit</span> to
+initialize the database.)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY</span>: Proxy server properties file (A
+proxy server can be used to reduce the number of probe connections
+to an ObjectServer.)</li>
+<li class="li"><span class="ph filepath">nco_confpack</span>: Confpack properties file (<span class="keyword cmdname">nco_confpack</span> is
+used for importing and exporting ObjectServer configurations.)</li>
+<li class="li"><span class="ph filepath">nco_config</span>: <span class="keyword">Netcool/OMNIbus
+Administrator </span> properties
+file</li>
+<li class="li"><span class="ph filepath">NCOMS</span>: ObjectServer properties file</li>
+</ul>
+</dd>
+<dd class="dd">Note that the <span class="ph filepath">.props</span> file extension is not
+shown, and the property list is automatically populated with the available
+properties when you select a file in the <span class="ph uicontrol">Name</span> list.</dd>
+<dt class="dt dlterm"><em class="ph i">Property list</em></dt>
+<dd class="dd">This matrix shows details of any properties that you have added
+to the properties file. You can select a property in this list if
+you want to change it. There is a default set of properties that are
+already defined for probe properties files and these cannot be removed.
+These properties are shown in gray in the property list.</dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">This field shows the name of the property that you have selected
+for editing from the property list. You cannot change the name of
+existing properties. You can also use the drop-down list to select
+the property to edit. </dd>
+<dd class="dd">If you want to add a new property to the selected properties file,
+type the name of the property here. </dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, type the name of a new property
+here.</dd>
+<dt class="dt dlterm">Value</dt>
+<dd class="dd">If you are working with an existing, selected properties file,
+edit the value of the selected property, or type the value for the
+new property that you are adding.</dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, type the value of a new
+property.</dd>
+<dt class="dt dlterm">Add/Update</dt>
+<dd class="dd">This button changes depending on whether you are adding or editing
+an existing property. If you enter a new property name and value,
+click <span class="ph uicontrol">Add</span> to add the value to the property
+list. If you change the value of a property that is selected in the
+property list, click <span class="ph uicontrol">Update</span> to update the value
+in the property list.</dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, click <span class="ph uicontrol">Add</span> to
+add the new property.</dd>
+<dt class="dt dlterm">Remove</dt>
+<dd class="dd">Click this button to remove the selected property from the properties
+file. The button is unavailable if you select a default property.</dd>
+<dt class="dt dlterm">Save</dt>
+<dd class="dd">Click this button to save the changes to the properties file.</dd>
+<dd class="dd">If you selected <span class="keyword option">Sever</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, click <span class="ph uicontrol">Save</span> after
+adding a new property to the property list. From the <span class="keyword wintitle">Save
+New Properties</span> window, type a name for the properties file,
+but omit the <span class="ph filepath">.props</span> extension; this will be automatically
+added for you. Click <span class="ph uicontrol">Save</span> to save the file
+to the <span class="ph filepath">%NCHOME%\omnibus\ini</span> directory. The properties
+file name is shown in the <span class="ph uicontrol">Name</span> field that is
+adjacent to the <span class="ph uicontrol">Type</span> field, and you can continue
+to add properties to this file. Note that you will be required to
+edit this file in order to add quotation marks to string values that
+you specify for the properties.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

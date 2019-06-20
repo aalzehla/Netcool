@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="內容編輯器" />
+<meta name="abstract" content="使用此視窗可以編輯 ObjectServer、Proxy 伺服器、資料庫起始設定公用程式 (nco_dbinit)、Confpack 公用程式 (nco_confpack)、Netcool/OMNIbus Administrator (nco_config)、探測器及閘道的內容檔中所含的配置資訊。您也可以在 Windows 上建立新的內容檔。此功能僅可用於超級使用者。" />
+<meta name="description" content="使用此視窗可以編輯 ObjectServer、Proxy 伺服器、資料庫起始設定公用程式 (nco_dbinit)、Confpack 公用程式 (nco_confpack)、Netcool/OMNIbus Administrator (nco_config)、探測器及閘道的內容檔中所含的配置資訊。您也可以在 Windows 上建立新的內容檔。此功能僅可用於超級使用者。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringproperties.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_propertieseditorwindow" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>內容編輯器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_propertieseditorwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">內容編輯器</h1>
+<div class="body refbody"><p class="shortdesc">使用此視窗可以編輯 ObjectServer、Proxy 伺服器、資料庫起始設定公用程式 (<span class="keyword cmdname">nco_dbinit</span>)、Confpack 公用程式 (<span class="keyword cmdname">nco_confpack</span>)、Netcool/OMNIbus Administrator (nco_config)、探測器及閘道的內容檔中所含的配置資訊。您也可以在 Windows 上建立新的內容檔。此功能僅可用於超級使用者。</p>
+<div class="section"><div class="p">如下所示完成此視窗： <dl class="dl" id="netom_propertieseditorwindow__netom_propertieseditorfields"><dt class="dt dlterm">類型</dt>
+<dd class="dd">在 UNIX 上，選取下列任一選項：<ul class="ul"><li class="li">選取<span class="ph uicontrol">一般</span>，以編輯探測器以外的元件內容檔。 <span class="ph uicontrol">檔案</span>下拉清單會移入這些檔案。</li>
+<li class="li">選取<span class="ph uicontrol">探測器</span>以編輯探測器內容檔。 <span class="ph uicontrol">檔案</span>下拉清單會移入這些檔案。</li>
+</ul>
+</dd>
+<dd class="dd">在 Windows 上，選取下列任何選項：<ul class="ul"><li class="li">選取 <span class="ph uicontrol">ObjectServer</span> 以編輯元件的內容檔，例如 ObjectServer 和 Proxy 伺服器。 <span class="ph uicontrol">名稱</span>下拉清單會移入這些檔案。 這些檔案一般會儲存在 <span class="ph filepath">%NCHOME%\omnibus\etc</span> 目錄中。</li>
+<li class="li">選取<span class="ph uicontrol">探測器</span>以編輯探測器內容檔。 <span class="ph uicontrol">名稱</span>下拉清單會移入這些檔案。 這些檔案一般會儲存在 <span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> 目錄中。</li>
+<li class="li">選取<span class="ph uicontrol">伺服器</span>以新增內容檔。 這些檔案會儲存在 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目錄中。
+<span class="ph uicontrol">名稱</span>下拉清單會移入文字 <samp class="ph codeph">&lt;New File&gt;</samp>。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">檔案 (UNIX)/名稱 (Windows)</dt>
+<dd class="dd">從此下拉清單選取您要編輯的內容檔。
+基於從<span class="ph uicontrol">類型</span>下拉清單進行的選取，資料會移入此清單。 預設值為： <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit.props</span>：資料庫起始設定開始時要讀取的內容檔 (執行 <span class="keyword cmdname">nco_dbinit</span> 以起始設定資料庫。)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY.props</span>：Proxy 伺服器內容檔 (Proxy 伺服器可用於減少與 ObjectServer 的探測器連線數目。)</li>
+<li class="li"><span class="ph filepath">nco_confpack.props</span>：Confpack 內容檔 (<span class="keyword cmdname">nco_confpack</span> 用於匯入及匯出 ObjectServer 配置。)</li>
+<li class="li"><span class="ph filepath">nco_config.props</span>：<span class="keyword">Netcool/OMNIbus Administrator</span>內容檔</li>
+<li class="li"><span class="ph filepath">NCOMS.props</span>：ObjectServer 內容檔</li>
+</ul>
+</dd>
+<dd class="dd">在 Windows 上，不會顯示 <span class="ph filepath">.props</span> 副檔名，而且當您在<span class="ph uicontrol">名稱</span>清單中選取檔案時，內容清單中會自動移入可用的內容。</dd>
+<dt class="dt dlterm">開啟 (僅限 UNIX)</dt>
+<dd class="dd">在 UNIX 上，於選取類型及檔名之後，按一下此按鈕以開啟內容檔。</dd>
+<dt class="dt dlterm"><em class="ph i">內容清單</em></dt>
+<dd class="dd">此矩陣會顯示已新增至內容檔之任意內容的詳細資料。 如果您要變更內容，則可以選取此清單中的內容。 有一組已為探測器內容檔定義的預設內容組，且其無法移除。 這些內容會在內容清單中以灰色顯示。 </dd>
+<dt class="dt dlterm">名稱</dt>
+<dd class="dd">此欄位會顯示已從內容清單中選取，要進行編輯的內容名稱。 您無法變更現有內容的名稱。
+在 Windows 上，您也可以使用下拉清單來選取要編輯的內容。</dd>
+<dd class="dd">如果您要將新內容新增至選取的內容檔，請在此處輸入內容名稱。 </dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請在此處輸入新內容名稱。</dd>
+<dt class="dt dlterm">值</dt>
+<dd class="dd">如果您正在使用現有且已選取的內容檔，請編輯所選取內容的值，或輸入您要新增之新內容的值。</dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請輸入新內容的值。</dd>
+<dt class="dt dlterm">新增/更新</dt>
+<dd class="dd">此按鈕會視您是否要新增或編輯現有的內容而改變。 如果輸入新的內容名稱及值，請按一下<span class="ph uicontrol">新增</span>，以將值新增至內容清單。 如果變更內容清單中所選取內容的值，請按一下<span class="ph uicontrol">更新</span>，以更新內容清單中的值。</dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請按一下<span class="ph uicontrol">新增</span>以新增內容。</dd>
+<dt class="dt dlterm">移除</dt>
+<dd class="dd">按一下此按鈕，以從內容檔移除所選內容。 如果選取預設內容，則無法使用此按鈕。</dd>
+<dt class="dt dlterm">儲存</dt>
+<dd class="dd">按一下此按鈕，以將變更儲存至內容檔。</dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請在將內容新增至內容清單之後，按一下<span class="ph uicontrol">儲存</span>。 在「<span class="keyword wintitle">儲存新內容</span>」視窗上，輸入內容檔的名稱，但請省略 <span class="ph filepath">.props</span> 副檔名；這會自動為您新增。 按一下<span class="ph uicontrol">儲存</span>以將檔案儲存至 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目錄中。
+內容檔名稱會顯示在<span class="ph uicontrol">名稱</span>欄位中 (這個欄位與<span class="ph uicontrol">類型</span>欄位相鄰)，然後您可以繼續將內容新增至此檔案。 請注意，您需要編輯此檔案，以將引號新增至針對內容指定的字串值。</dd>
+</dl>
+<dl class="dl" id="netom_propertieseditorwindow__netom_propertieseditorfields2"><dt class="dt dlterm">關閉 (UNIX)</dt>
+<dd class="dd">按一下此按鈕，以在儲存變更之後關閉此視窗，或關閉此視窗而不儲存變更。</dd>
+<dt class="dt dlterm">確定 (Windows)</dt>
+<dd class="dd">按一下此按鈕，以在儲存變更之後關閉此視窗。</dd>
+<dt class="dt dlterm">取消 (Windows)</dt>
+<dd class="dd">按一下此按鈕，以關閉此視窗而不儲存變更。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_configuringproperties.html" title="您可以編輯 ObjectServer、Proxy 伺服器、資料庫起始設定公用程式 (nco_dbinit)、Confpack 公用程式 (nco_confpack)、「Netcool/OMNIbus 管理者」(nco_config)、探測器及閘道之內容檔中所含的資訊。 內容檔的副檔名為 .props。">配置內容</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="MIB adatok exportálása" />
+<meta name="abstract" content="SNMP MIB adatok exportálása a MIB Manager termékből különböző formátumokban." />
+<meta name="Description" content="SNMP MIB adatok exportálása a MIB Manager termékből különböző formátumokban." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_exportdata" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB adatok exportálása</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_exportdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB adatok exportálása</h1>
+<div class="body taskbody"><p class="shortdesc">SNMP MIB adatok exportálása a <span class="keyword">MIB Manager</span> termékből különböző formátumokban.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Eljárás</h2></div><p class="li stepsection">MIB adatok exportálása:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Kattintson az <img class="image" src="../gifs/export.gif" alt="MIB exportálás ikon" /> <span class="ph uicontrol">Exportálás</span> gombra, vagy a menüben kattintson a <span class="ph menucascade"><span class="ph uicontrol">Fájl</span> &gt; <span class="ph uicontrol">Exportálás</span></span> menüpontra.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Könyvtár</span> mezőben adja meg az exportált fájlok célkönyvtárát.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Fájltípus</span> mezőben adja meg az exportált fájlok fájltípusát.</span> <p class="p">Ahol csak lehet, a Netcool Knowledge Library (NCKL) könyvtárat használja, mivel az NCKL szabályfájlok az eszköz működésére épülnek. Az
+ NCKL használatakor meg kell adnia a <span class="ph uicontrol">Netcool Knowledge Library v3.x</span> fájltípust. Ez lehetővé teszi az előállított fájlok hozzáadását a meglévő Netcool Include Library telepítésekhez.</p>
+
+<p class="p">Az alábbi beállítások állnak rendelkezésre a <span class="ph uicontrol">Fájltípus</span> legördülő listában:</p>
+
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="E tábla minden sora egy választási lehetőséget ír le." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d7698e58-option">Fájltípus</th>
+<th valign="bottom" align="left" id="d7698e58-desc">Leírás</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e65" class="stentry choption"><strong>CSV</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e65" class="stentry chdesc">Ha ezt a beállítást adja meg, akkor minden objektumadat CSV fájlokba kerül betöltésre, így megtekinthető lesz táblázatkezelő alkalmazással.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e70" class="stentry choption"><strong>CSV Trap objektumok</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e70" class="stentry chdesc">Ha ezt a beállítást adja meg, akkor minden trap adat és az ehhez tartozó különböző kötések objektumadatai egyetlen SCV fájlba kerülnek betöltésre, amely így megtekinthető lesz táblázatkezelő alkalmazással.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e75" class="stentry choption"><strong>HTML keretekkel</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e75" class="stentry chdesc">Ezzel a beállítással egy közzétételre alkalmas weboldalt hoz létre. <p class="p">A kijelölt MIB fanézet az előállított weboldal bal oldalán jelenik meg. Az MIB fa nézeten az MIB fa csomópontjainak kibontásával és összehúzásával haladhat végig. Amikor kiválaszt egy elemet az MIB fából, akkor a társított információk a weboldal jobb oldalán jelennek meg.</p>
+<p class="p">Ez a formátum gyakran hozhat létre nagyszámú exportfájlt, melyek mindegyike egy HTML fájlt tartalmaz, az MIB fa egyes objektumainak megfelelően. A célkönyvtárat be lehet csomagolni zip fájlba, és elhelyezni egy tetszőleges webkiszolgáló alatt, vagy az oldalakat közvetlenül is meg lehet tekinteni egy lemezről, az exportálási könyvtárban létrehozott <span class="ph filepath">index.html</span> fájl megnyitásával.</p>
+<p class="p">Ha egyéni HTML fájlokat akar használni webböngészővel, akkor exportáljon a <span class="ph uicontrol">HTML keretekkel</span> elembe, majd használja az exportálási könyvtár alatt található <span class="ph filepath">data</span> alkönyvtár fájljait.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e95" class="stentry choption"><strong>HTML keretek nélkül</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e95" class="stentry chdesc">Ezzel a beállítással hozhat létre egy <span class="ph filepath">oids.html</span> nevű egyedülálló fájlt.
+Ez a fájl fogja tartalmazni a kimenetre kiválasztott objektumok teljes listáját, vízszintes vonalakkal elválasztva (a <samp class="ph codeph">&lt;HR&gt;</samp> címke használatával).
+Minden egyes OID horgony címkék közé van zárva, így betöltéskor a böngésző automatikusan legörget az URL címében kettőskereszt (#) szimbólumot tartalmazó OID azonosítóhoz, mint a <span class="ph filepath">file:c:/oids.html#1.3.6.1.4.1.9</span>.<p class="p">Ez a fájl nagyszámú objektum exportálásakor nagyon nagy lehet. Ezért ezt a formátumot csak kisszámú trap exportálására szabad használni.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e111" class="stentry choption"><strong>Netcool kikeresési táblázat</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e111" class="stentry chdesc">Ezzel a beállítással minden megadott érték egy lapokból álló listába kerül, az OID azonosítók a bal oldali oszlopban az objektumnevek pedig a jobb oldali oszlopban jelennek meg. Ez megfelelő formátum a szabályfájlokba való beillesztéshez.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e116" class="stentry choption"><strong>Netcool Include Library</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e116" class="stentry chdesc">Ezzel a beállítással különálló include fájlokat hozhat létre az egyes vállalatokhoz, és önálló fájlt hozhat létre az általános trap-ekhez (vagyis azokhoz a trap-ekhez, amelyek nem a vállalati részfa alatt találhatók).
+Feltételezzük, hogy az include fájlok egy meglévő <span class="ph filepath">snmp.rules</span> fájlba kerülnek beillesztésre,
+amelyeket még korábban a <span class="keyword">MIB Manager</span> vagy a Netcool Include Library (NCIL) hozott létre.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e127" class="stentry choption"><strong>Netcool Knowledge Library 1.1 változat</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e127" class="stentry chdesc">Ezzel a beállítással a <span class="keyword">MIB Manager</span> termékből nyerheti ki a fájlokat. A fájlok egy meglévő Netcool Knowledge Library megvalósítás részei lesznek.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e135" class="stentry choption"><strong>Netcool Knowledge Library 3.x változat</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e135" class="stentry chdesc">Ezzel a beállítással a <span class="keyword">MIB Manager</span> termékből nyerheti ki a fájlokat. A fájlok egy meglévő Netcool Knowledge Library megvalósítás részei lesznek.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e143" class="stentry choption"><strong>Önálló szabályok</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e143" class="stentry chdesc">Ezzel a beállítással egy önálló szabályfájlt hozhat létre, amely az összes kijelölt trap-et tartalmazza. Ezt a
+fájlt bármelyik <span class="keyword">Tivoli Netcool/OMNIbus</span> SNMP
+trap vizsgáló tulajdonságfájljában megadhatja.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e151" class="stentry choption"><strong>Egyedi szövegfájlok</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e151" class="stentry chdesc">Az egyedi szövegfájlok formátum a Netcool eseménylista menüjénél használatos.<p class="p">Amikor egyedi szövegfájlokba exportál, akkor minden OID egy különálló szövegfájlba kerül, például <span class="ph filepath">1.3.6.1.4.1.9.1.1.txt</span>.
+Ezután felvehető egy külső eszköz a menühöz, amely a <span class="ph filepath">nco_message</span> fájlt használja a mezőben megadott OID azonosítójú esemény összes objektuminformációjának megjelenítéséhez, például: <samp class="ph codeph">cat 1.3.6.1.4.1.9.1.txt |nco_message
+stdin title "trap info"</samp>.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7698e58-option" id="d7698e168" class="stentry choption"><strong>Tivoli Universal Agent</strong></td>
+<td valign="top" headers="d7698e58-desc d7698e168" class="stentry chdesc">A Tivoli Universal Agent formátum <span class="ph filepath">.mdl</span> és <span class="ph filepath">trapcnfg</span> fájlokat exportál, a kijelölt tartalomtól függően.<div class="p">Ha ezt a formátumot választja a fájlok exportálásához, akkor több részfa is kiválasztható. Ha több részfát választ ki, akkor
+ <span class="ph filepath">.mdl</span> és <span class="ph filepath">trapcnfg</span> fájlok jönnek létre az MIB fában kijelölt elem alatt található összes objektumhoz. <div class="note note"><span class="notetitle">Megjegyzés:</span> Az  alkalmazásnév első három betűjének, melyeket az //APPL címke követ a <span class="ph filepath">.mdl</span> fájlban, egyedinek kell lennie a vállalaton belül. A <span class="keyword">MIB Manager</span> megpróbál megfelelni ennek a követelménynek, de a többi, futó ügynökre nem tud figyelni. Lehet, hogy módosítani kell a
+ <span class="ph filepath">.mdl</span> fájlt, így biztosítva, hogy az alkalmazásnév egyedi legyen a vállalaton belül.</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Hatókör</span> mezőben a legördülő lista használatával adhatja meg, hogy
+a <span class="keyword">MIB Manager</span> kimenete csak trap-ek, csak objektumok vagy az összes OID legyen.</span> <p class="p">Az elérhető lehetőségek az exportált fájltípustól függnek.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Ha korlátozni akarja az objektumok számát az előállított fájlban, akkor jelölje be a <span class="ph uicontrol">Csak a kijelölt részfák</span> jelölőnégyzetet.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A fájlok exportálásához a célkönyvtárba kattintson az <span class="ph uicontrol">Exportálás</span> gombra.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="A MIB Manager eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja.">Netcool MIB Manager használata</a></div>
+</div>
+<div class="relinfo relref"><strong>Kapcsolódó hivatkozás</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" title="Ez a rész a szabályfájl exportálási beállításainak megadását írja le.">Exportálási beállítások megadása</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

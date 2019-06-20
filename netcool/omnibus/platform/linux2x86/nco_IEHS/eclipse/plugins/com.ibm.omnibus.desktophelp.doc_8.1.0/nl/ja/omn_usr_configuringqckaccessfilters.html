@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="UNIX でのフィルター、ビュー、およびイベント・リスト構成へのクイック・アクセスの構成" />
+<meta name="abstract" content="UNIX コンダクターから、ローカルの UNIX システム・ディレクトリーの内容を表示して、フィルター・ファイル、ビュー・ファイル、およびイベント・リスト構成ファイルに簡単にアクセスし、アラートの管理に使用することができます。" />
+<meta name="Description" content="UNIX コンダクターから、ローカルの UNIX システム・ディレクトリーの内容を表示して、フィルター・ファイル、ビュー・ファイル、およびイベント・リスト構成ファイルに簡単にアクセスし、アラートの管理に使用することができます。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_abtpersonallibrary.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_workingwithlocalsysdirectories.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_maintainingapersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_automaticallyopenevntlstconfig.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringqckaccessfilters" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>UNIX でのフィルター、ビュー、およびイベント・リスト構成へのクイック・アクセスの構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringqckaccessfilters">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX でのフィルター、ビュー、およびイベント・リスト構成へのクイック・アクセスの構成</h1>
+<div class="body conbody"><p class="shortdesc">UNIX コンダクターから、ローカルの UNIX システム・ディレクトリーの内容を表示して、フィルター・ファイル、ビュー・ファイル、およびイベント・リスト構成ファイルに簡単にアクセスし、アラートの管理に使用することができます。</p>
+<p class="p">ブラウザー・ユーティリティーを使用すると、UNIX システムにあるファイルを表示し、頻繁に使用するファイルの個人用ライブラリーをセットアップすることができます。</p>
+<p class="p">また、コンダクターを始動するたびにイベント・リスト構成を自動的に開くようにシステムを構成することも可能です。</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_abtpersonallibrary.html">個人用ライブラリーについて</a></span><br />
+特定のサーバーを使用している UNIX ユーザーは、それぞれ <span class="ph filepath">.omnibus</span> ディレクトリーを所有しており、個人用ライブラリーがそのディレクトリーのグラフィカル・ブラウザーとなります。
+UNIX コンダクターから自分の個人用ライブラリーをカスタマイズして、頻繁に使用するビュー、フィルター、およびイベント・リストの構成を組み込むことができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_workingwithlocalsysdirectories.html">ローカル・システム・ディレクトリーの操作</a></span><br />
+<span class="keyword">Tivoli Netcool/OMNIbus</span> には、UNIX のファイル・システム・ブラウザーと同じように動作するディレクトリー・ブラウザー・ユーティリティーが用意されています。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_maintainingapersonallib.html">頻繁に使用するファイルの個人用ライブラリーの保守</a></span><br />
+UNIX コンダクターの個人用ライブラリーからは、頻繁に使用するフィルター・ファイル、ビュー・ファイル、イベント・リスト構成ファイルを簡単に開くことができます。 個人用ライブラリーに <span class="keyword">Tivoli Netcool/OMNIbus</span> ファイルを追加すれば、関連するアプリケーションを簡単に開けるようになります。不要になったファイルを削除することもできます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_automaticallyopenevntlstconfig.html">開始時にイベント・リスト構成を自動的に開く</a></span><br />
+イベント・リスト構成ファイル (<span class="ph filepath">.elc</span>)
+を構成すると、UNIX コンダクターを開始する際に常に自動的にファイルを開くことができます。 この方法では、同時に 1 つのイベント・リスト構成のみを
+開くことができます。</li>
+</ul>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_startingconductor.html" title="コンダクターからは、アラートの表示と管理のために使用できるすべての Tivoli Netcool/OMNIbus デスクトップ・ツールにシングル・サインオンでアクセスできます。">コンダクターの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

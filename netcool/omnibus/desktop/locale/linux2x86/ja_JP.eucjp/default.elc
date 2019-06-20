@@ -1,0 +1,145 @@
+#NCO_CONFIG3
+#
+# Default __OEM__ Event List Configuration File __VERSION__ 
+#
+
+config_name = 'デフォルト';
+config_columns = 4;
+views = {
+{
+view_name = 'デフォルト';
+view_editable = true;
+columns = {
+{ Node, 'ノード', 15, centre, left }
+{ AlertGroup, 'アラート・グループ', 18, centre, left }
+{ Summary, '要約', 60, centre, left }
+{ LastOccurrence, '最後の発生', 15, centre, centre }
+{ Tally, 'カウント', 6, centre, centre }
+{ Type, 'タイプ', 12, centre, left }
+{ ExpireTime, '失効時刻', 10, centre, centre }
+{ Agent, 'エージェント', 25, centre, left }
+{ Manager, 'マネージャー', 25, centre, left }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, desc }
+{ Node, asc }
+{ AlertGroup, asc }
+{ AlertKey, asc }
+{ Summary, asc }
+}
+}
+{
+view_name = 'X733';
+view_editable = true;
+columns = {
+{ Node, 'ノード', 15, centre, left }
+{ X733EventType, 'イベント・タイプ', 24, centre, left }
+{ X733ProbableCause, '予測される原因', 25, centre, left }
+{ Summary, '追加テキスト', 60, centre, left }
+{ X733SpecificProb, '特定の問題', 20, centre, left }
+{ AlertKey, '管理対象オブジェクト', 18, centre, left }
+{ LastOccurrence, '最後の発生', 15, centre, centre }
+{ Tally, 'カウント', 6, centre, centre }
+{ Type, 'タイプ', 12, centre, left }
+{ ExpireTime, '失効時刻', 10, centre, centre }
+{ Agent, 'エージェント', 25, centre, left }
+{ Manager, 'マネージャー', 25, centre, left }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, desc }
+{ Node, asc }
+{ AlertGroup, asc }
+{ AlertKey, asc }
+{ Summary, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = '最後の10分';
+filter_editable = true;
+filter_text = '( ( LastOccurrence >= getdate - 600 ) and ( Manager not like \'^.*Watch$\' ) ) and ( Severity > 0 )';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = '保守';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( SuppressEscl = 6 )';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = 'エスカレート';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( ( SuppressEscl < 4 ) and ( SuppressEscl > 0 ) )';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = '情報';
+filter_editable = true;
+filter_text = '( ( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 ) ) and ( Type = 13 )';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = 'タスク・リスト';
+filter_editable = true;
+filter_text = '( ( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 ) ) and ( TaskList = 1 )';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = 'Netcool状況';
+filter_editable = true;
+filter_text = 'Manager like \'^.*Watch$\'';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = 'デフォルト';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 )';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+{
+filter_name = 'すべてのイベント';
+filter_editable = true;
+filter_text = '';
+filter_metric = 'sum(Tally)';
+default = 'デフォルト';
+windows = {
+none
+}
+}
+}
+
+# End of file

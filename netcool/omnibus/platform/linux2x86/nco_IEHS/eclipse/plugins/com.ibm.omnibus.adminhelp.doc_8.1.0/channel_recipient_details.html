@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Channel Recipient Details" />
+<meta name="abstract" content="Use this window to define recipients for the fast-track event data that is linked to a channel." />
+<meta name="Description" content="Use this window to define recipients for the fast-track event data that is linked to a channel." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_aen_creatingeditchannel.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_ref_re_regexps.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_channelrecipientswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Channel Recipient Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_channelrecipientswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Channel Recipient Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to define recipients for the fast-track event data
+that is linked to a channel.</p>
+<div class="section"><div class="p">Complete this window as follows: <dl class="dl" id="netom_channelrecipientswindow__netom_channelrecipientsfields"><dt class="dt dlterm">isGroup</dt>
+<dd class="dd">Select this check box to indicate that the channel recipients are a group
+of users. Clear this check box if the channel recipient is a single user.</dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">This list works in conjunction with the <span class="ph uicontrol">isGroup</span> check
+box, and is populated either with a list of all users or a list of all groups
+in the ObjectServer. Select the name of the user or group who should receive
+the channel data.</dd>
+<dt class="dt dlterm">Hostname</dt>
+<dd class="dd">Type the name of the connected host. You can use regular expressions to
+filter on connections that match this value. Leave the field blank for a match
+on any host name. For example, enter the regular expression <kbd class="ph userinput">*test*</kbd> to
+match any host with the string <samp class="ph codeph">test</samp> in its name. </dd>
+<dt class="dt dlterm">Application Name</dt>
+<dd class="dd">Type the name of an application that is connected to the ObjectServer.
+You can use regular expressions to filter on connections that match your entry.
+For example, <kbd class="ph userinput">*event*</kbd> indicates match any host with
+the string <samp class="ph codeph">event</samp> in its name. Leave this field blank to match
+on any application name. </dd>
+<dt class="dt dlterm">Application Description</dt>
+<dd class="dd">Type an application description. You can use regular expressions to filter
+on connections that match your entry. For example, <kbd class="ph userinput">*real time*</kbd> matches
+any host with the string <samp class="ph codeph">real time</samp> in its application description.
+Leave this field blank to match on any application description.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_channelrecipientswindow__netom_channelrecipients_saving_closing"><h2 class="title sectiontitle">Saving your channel
+recipient details</h2><div class="p">After defining the channel recipients, you can
+save or cancel the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_channelrecipientswindow__netom_channelrecipients_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the column details and close the window. The <span class="keyword wintitle">Channel
+Details</span> window is updated to reflect the channel recipient details.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_ref_re_regexps.html" title="Tivoli Netcool/OMNIbus supports the use of regular expressions in search queries that you perform on ObjectServer data. Regular expressions are sequences of atoms that are made up of normal characters and metacharacters.">Regular expressions</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_aen_creatingeditchannel.html" title="You must create channels on an ObjectServer from which the accelerated events will be forwarded.">Creating and editing channels</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

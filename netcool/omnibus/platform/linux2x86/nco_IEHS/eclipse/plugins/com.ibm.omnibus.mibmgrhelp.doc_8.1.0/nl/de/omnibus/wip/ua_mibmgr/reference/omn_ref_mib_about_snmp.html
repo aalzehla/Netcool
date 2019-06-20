@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Informationen zu SNMP" />
+<meta name="abstract" content="Dieser Abschnitt enthält zusätzliche Informationen zur SNMP-Architektur, zur Management Information Base (MIB) von SNMP sowie zu weiteren MIB-Konzepten." />
+<meta name="Description" content="Dieser Abschnitt enthält zusätzliche Informationen zur SNMP-Architektur, zur Management Information Base (MIB) von SNMP sowie zu weiteren MIB-Konzepten." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Informationen zu SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Informationen zu SNMP</h1>
+<div class="body refbody"><p class="shortdesc">Dieser Abschnitt enthält zusätzliche Informationen
+zur SNMP-Architektur, zur Management Information Base (MIB) von SNMP sowie
+zu weiteren MIB-Konzepten.</p>
+<div class="section"><p class="p">In einer SNMP-Architektur wird ein Agent von einer Managerkomponente verwaltet. Der
+Agent ist eine Software, die auf einem Netzgerät oder in einer Netzanwendung läuft, auf
+Informationsanforderungen (SET- und GET-Anforderungen) reagiert und dann autonome
+Benachrichtigungen mit der Bezeichnung Traps generiert. Der Manager ist eine Software, die die Traps
+empfängt und einen Mechanismus für SET- oder GET-Anforderungen für
+SNMP-Objekte des Netzgeräts bereitstellt.</p>
+<p class="p">Um autonome Traps
+zu empfangen, führt der Manager eine Anwendung aus, die am
+TCP/IP-SNMP-Trap-Port (Port 162) empfangsbereit ist. Für SET- oder GET-Anforderungen von SNMP wird Port 161
+verwendet. Diese Anwendung wird in der Regel als
+Trapd oder Trapdämon bezeichnet. Ein Trapdämon ist ein Prozess,
+der im Hintergrund läuft und einen Service auf einem Computer
+ausführt. Die Trapd-Anwendung von Netcool wird als SNMP-Test (<span class="ph filepath">nco_p_mttrapd</span>) bezeichnet,
+wobei das <span class="ph filepath">mt</span> für Multithreaded steht. Sie befindet sich im Verzeichnis
+<span class="ph filepath">$OMNIHOME/probes/</span>.
+Die Regeldateien, die von <span class="keyword">MIB Manager</span> generiert werden, dienen zur Verwendung durch den SNMP-Test.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Sicherheit</h2><p class="p">Die grundlegende Sicherheit in SNMP V1 und V2 wird über
+Community-Zeichenfolgen bereitgestellt. Community-Zeichenfolgen sind Klartextkennwörter, die mit allen
+Anforderungen gesendet werden. Es gibt eigene Community-Zeichenfolgen für Lesezugriff und für
+Schreib-/Lesezugriff. In <span class="keyword">MIB Manager</span> muss die Community-Zeichenfolge
+bekannt sein, die auf einem Gerät definiert wurde, bevor Anforderungen
+ausgeführt werden können (Lesezugriff für GET und Schreib-/Lesezugriff
+für SET). Zudem werden SNMP-Traps und -Benachrichtigungen mit einer
+vordefinierten Community-Zeichenfolge an
+<span class="keyword">MIB Manager</span> gesendet. </p>
+<p class="p">Alle Netzgeräte mit SNMP-Unterstützung weisen
+einen Mechanismus auf, der für die Definition der Community-Zeichenfolge
+verwendet wird. Das standardmäßige Kennwort für Lesezugriff
+ist öffentlich und das standardmäßige Kennwort für Schreib-/Lesezugriff
+ist privat. Wenn für ein Gerät keine Community-Zeichenfolge
+festgelegt wurde, ist dies in der Regel eines dieser Kennwörter.
+Aus Sicherheitsgründen müssen die Standardkennwörter so schnell wie
+möglich geändert werden.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Weitere Informationen</h2><div class="p">Die
+folgenden Bücher sind nützlich, wenn Sie ein umfassendes Verständnis
+für das SNMP-Framework und MIBs entwickeln wollen:<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP (Third Edition)</cite> von
+Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite> von David Perkins und Evan
+McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">Eine Erläuterung zu ASN.1 und zu Basic Encoding Rules (BER) für die
+Verschlüsselung von SNMP-Daten in PDU-Paketen (PDU = Protocol Data Unit) für die Übertragung
+im Netz finden Sie in der folgenden Veröffentlichung:</p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management
+Standards</cite> von William Stallings (Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">Konzepte und Aufbau von MIBs</a></span><br />
+Alle SNMP-MIB-Module, die für die Verwendung durch ein bestimmtes Gerät definiert
+werden, bilden die MIB für dieses Gerät. Mit dem Begriff MIB wird häufig
+eine einzelne Moduldefinition beschrieben. Dies ist allerdings
+technisch falsch.
+Tatsächlich ist die MIB die Kombination aus allen Modulen, die für die Verwaltung
+eines bestimmten Geräts verwendet werden. Dabei spielt es keine Rolle, ob sich das Gerät auf
+Hardware oder auf Software bezieht. Daher ist der genauere Name für jedes Modul,
+das von einem Lieferanten oder in einer RFC definiert wird,
+SNMP-MIB-Modul.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">MIB-Objekttypen</a></span><br />
+In diesem Abschnitt werden die in SNMP V1
+und V2 definierten Objekttypen beschrieben.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">Gültige MIB-Objektformate</a></span><br />
+In diesem Abschnitt werden die Formate gültiger MIB-Objekte beschrieben.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Übergeordnetes Thema:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Bei Netcool MIB Manager handelt es sich um eine Eclipse-basierte IBM GUI-Anwendung, die Sie zum Parsen von SNMP-MIB-Dateien (MIB = Management Information Base) verwenden können, aus denen Sie Netcool-Regeldateien generieren können. Die Anwendung dient als Ersatz für das Dienstprogramm mib2rules.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

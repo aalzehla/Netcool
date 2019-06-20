@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="تصميم ومفاهيم MIB" />
+<meta name="abstract" content="كل وحدات برامج SNMP MIB التي تم تعريفها للاستخدام بواسطة جهاز محدد تشكل MIB لهذا الجهاز. يتم استخدام المصطلح MIB عادة لتوضيح تعريف وحدة برامج واحدة، لكن هذا لا يعد صحيح فنيا. فعليا، يعد MIB مجموعة من كل وحدات البرامج المستخدمة لادارة جهاز معين، سواء كان الجهاز يتعلق ببرامج أو أجهزة. لذلك، كلما كان الاسم أكثر دقة لكل وحدة برامج تم تعريفها بواسطة المورد أو في RFC، تكون وحدة برامج SNMP MIB أكثر دقة." />
+<meta name="Description" content="كل وحدات برامج SNMP MIB التي تم تعريفها للاستخدام بواسطة جهاز محدد تشكل MIB لهذا الجهاز. يتم استخدام المصطلح MIB عادة لتوضيح تعريف وحدة برامج واحدة، لكن هذا لا يعد صحيح فنيا. فعليا، يعد MIB مجموعة من كل وحدات البرامج المستخدمة لادارة جهاز معين، سواء كان الجهاز يتعلق ببرامج أو أجهزة. لذلك، كلما كان الاسم أكثر دقة لكل وحدة برامج تم تعريفها بواسطة المورد أو في RFC، تكون وحدة برامج SNMP MIB أكثر دقة." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibconcepts" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>تصميم ومفاهيم MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibconcepts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">تصميم ومفاهيم MIB</h1>
+<div class="body refbody"><p class="shortdesc">كل وحدات برامج SNMP MIB التي تم تعريفها للاستخدام بواسطة جهاز محدد تشكل MIB لهذا الجهاز. يتم استخدام المصطلح MIB عادة لتوضيح تعريف وحدة برامج واحدة، لكن هذا لا يعد صحيح فنيا.
+فعليا، يعد MIB مجموعة من كل وحدات البرامج المستخدمة لادارة جهاز معين، سواء كان الجهاز يتعلق ببرامج أو أجهزة. لذلك، كلما كان الاسم أكثر دقة لكل وحدة برامج تم تعريفها بواسطة المورد أو في RFC، تكون وحدة برامج SNMP MIB أكثر دقة.</p>
+<div class="section"><p class="p">تعد كل وحدات برامج MIB امتداد لوحدة البرامج الرئيسية. يتم امتداد كل وحدات برامج  MIB التي تم اصدارها، من الموردين المنفردين، من عنصر المؤسسة الذي تم تعريفه في RFC1155-SMI. لذلك، يجب أن تقوم كل البرامج الوسيطة
+SNMP بدعم RFC1155، وكل وحدات برامج MIB تعد امتدادات الى RFC1155.</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__smi"><h2 class="title sectiontitle">هيكل معلومات الادارة (SMI)</h2><p class="p">لجعل أساس معلومات ادارة (MIB)
+SNMP قابل للامتداد، فانه يتم ترتيب البنود المتعلقة الى وحدات برامج MIB التي تشكل تسلسل هرمي.
+يتم تعريف كل وحدة برامج MIB داخل البناء التالي:</p>
+<p class="p"><samp class="ph codeph">ModuleName
+DEFINITIONS ::= BEGIN END</samp></p>
+<p class="p">تسمح شارات التعليم <samp class="ph codeph">BEGIN</samp> و <samp class="ph codeph">END</samp> في وحدة البرامج بتعريف عدة وحدات برامج في ملف نصي واحد. يجب أن تكون برامج ترجمة MIB قادرة على التعامل مع أي عدد من وحدات البرامج التي تم تعريفها في ملف واحد، لكن لا يجب أن تتطلبه.</p>
+<p class="p">توجد مصطلحات لكل عنصر تم تعريفه في وحدة البرامج. على سبيل المثال، يجب أن يبدأ اسم وحدة البرامج بحرف أبجدي علوي وأن يحتوي على حروف أو أرقام أو شرط (-) أو حروف تسطير (_). يجب أن يبدأ اسم العنصر بحرف أبجدي سفلي ويجب أن يحتوي فقط على حروف أو أرقام أو شرط أو حروف تسطير. يتم تمثيل التعقيبات في وحدات برامج
+MIB بواسطة شرطتين متتاليتين (--) وأي نص يتبع هذا الرمز، بأي سطر، يمكن تجاهله.</p>
+<p class="p">وبالنسبة لوحدة البرامج، فان تصميم MIB القابل للامتداد بسهولة يجعلها قابلة لدعم أية وظائف أو جهاز جديدة باضافة وحدة برامج اضافية. عند كتابة وحدة برامج كامتداد لوحدة برامج أخرى، فانها ستتضمن قسم <samp class="ph codeph">IMPORTS</samp>، الذي يوجد أسفل السطر <samp class="ph codeph">DEFINITIONS</samp>.
+يقوم القسم <samp class="ph codeph">IMPORTS</samp> بتعريف العناصر المطلوبة بواسطة وحدة البرامج الأعلى في تسلسل MIB الهرمي ووحدات البرامج التي تم تعريفها بها.</p>
+<div class="p">يعد التعريف التالي من RFC1157 ويشير الى عناصر متعددة يتم استقبالها من RFC1155. يمكن مشاهدة هذا القسم كمناظر لعبارة <samp class="ph codeph">include</samp> في لغة البرمجة مثل C أو Perl، أو في ملف قواعد Netcool. بالاضافة الى ذلك، لتفهم العناصر التي توجد في وحدة برامج MIB الحالية (RFC1157-SNMP) يجب أن تكون أيضا على دراية بالعناصر في وحدة برامج MIB السابقة (RFC1155-SMI). <pre class="pre codeblock"><code>RFC1157-SNMP DEFINITIONS ::= BEGIN IMPORTS ObjectName, ObjectSyntax, NetworkAddress, IpAddress, TimeTicks FROM RFC1155-SMI;</code></pre>
+</div>
+<p class="p">تحدث أخطاء في الكتابة عادة عند تحديد أسماء MIB التي تم استقبالها. على سبيل المثال، قد يتم الاشارة الى RFC1212 كوحدة برامج MIB بدلا من الاسم الصحيح، RFC-1212. اذا تم اظهار أخطاء فى التحليل اللغوى بواسطة <span class="keyword">MIB Manager</span> يجب عليك فحص <samp class="ph codeph">IMPORTS</samp> لتأكيد
+أن وحدات برامج MIB قد تم تسميتها بشكل صحيح. تحتوي بعض وحدات برامج MIB أيضا على قسم <samp class="ph codeph">EXPORTS</samp> (الذي ينتهي أيضا بفاصلة منقوطة). يقوم هذا القسم باعلام القارئ أن مؤلف
+MIB يتوقع وحدات برامج MIB أخرى لاستخدام نفس العناصر المحددة. للأغراض الخاصة بنا، هذا القسم غير متعلق بالموضوع ويمكن تجاهله.</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_data"><h2 class="title sectiontitle">أنواع البيانات التي تم تعريفها</h2><p class="p">يتم تعريف وحدات برامج SNMP MIB بالنسق ASN.13 (Abstract Syntax Notation
+1). لكن، يقوم SNMP باستخدام جزء من ASN.14 فقط. يتم تعريف ASN.1
+في ITU-T X.208 وفي ISO 8824. أجزاء ASN.1 التي تنطبق على
+SNMP تم تعريفها في RFC1155. RFC1155 يعرف أنواع بيانات SNMP الصحيحة التالية:</p>
+<ul class="ul"><li class="li">الأنواع الأولية: INTEGER، OCTET STRING، OBJECT IDENTIFIER، NULL</li>
+<li class="li">أنواع أداة التكوين: SEQUENCE، SEQUENCE OF</li>
+<li class="li">الأنواع المعرفة: NetworkAddress، IpAddress، Counter، Gauge، TimeTicks،
+Opaque</li>
+</ul>
+<p class="p">النوع المعرف هو الآلية المستخدمة لتحديد نسق معين لنوع مبدئي أو نوع أداة تكوين. يستطيع مؤلفي MIB تعريف أنواع اضافية باستخدام النسق TEXTUAL-CONVENTION.</p>
+<div class="p"><samp class="ph codeph">DisplayString</samp> يعد مثالا جيدا لنوع تم تعريفه. في وحدة برامج SNMPv2-SMI-v1 MIB، النسخة v1 من  <samp class="ph codeph">DisplayString</samp> تحتوي على التعريف التالي:<pre class="pre codeblock"><code>DisplayString ::= OCTET STRING (0..255)</code></pre>
+</div>
+<div class="p">في وحدة برامج SNMPv2-TC MIB، النسخة v2 من <samp class="ph codeph">DisplayString</samp> تحتوي على التعريف التالي: <pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION DISPLAY-HINT "255a" STATUS current DESCRIPTION "تمثل معلومات نصية تم الحصول عليها من فئة حروف NVT ASCII، كما هو معرف في الصفحات 4، 10-11 of RFC 854. لتلخيص RFC 854، فان مجموعة NVT ASCII تحدد: - استخدام أكواد الحروف 0-127 (رقمية) - حروف البيانيات 
+(32-126) يتم ترجمتها على أنها US ASCII - يكون الى NUL، LF، CR، BEL، BS، HT، VT، FF 
+معاني خاصة محددة في RFC 854 - وأكواد 25 الأخرى لا يكون لها 
+تفسير قياسي - يعني التسلسل 'CR LF' سطر جديد - والتسلسل 'CR NUL' يعني 
+كود التحرك لبداية السطر - و يعني 'LF' الذي لا يسبقه 'CR' النقل الى نفس العمود في 
+السطر التالي. - التسلسل 'CR x' بالنسبة لأي x خلاف LF أو NUL يكون غير مسموح به. 
+(يجب ملاحظة أن هذا يعني أيضا أن مجموعة الحروف يمكن أن تنتهي بأي من 'CR LF' أو 'CR NUL'، 
+وليس CR.) أي عنصر تم تعريفه باستخدام هذه الصيغة قد لا يتعدى  طوله 255 حرفا." SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+يوضح المثال المعروض بأعلى أن <samp class="ph codeph">DisplayString</samp> يعد مجموعة حروف OCTET STRING
+من 0 الى 255 حرف. يجب ملاحظة أن كل OBJECT DESCRIPTOR يناظر نوع عنصر في MIB قياسي يجب أن يكون مجموعة حروف قابلة للطباعة ومتفردة ويمكن تذكرها.</div>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_objects"><h2 class="title sectiontitle">تعريف العناصر</h2><p class="p">ويعد من الأخطاء الشائعة أثناء كتابة وحدات برامج MIB تكوين اسم عنصر غير متفرد. حيث تم توضيح أن العبارة RFC1155 تعني أن العناصر التي توجد في وحدة برامج MIB واحدة فقط يجب أن تكون متفردة. وكما تم الاشارة مسبقا، يعد
+MIB مجموعة كاملة من وحدات البرامج التي عندما تتحد يتم استخدامها لادارة جهاز معين. لذلك، كل العناصر التي تم تعريفها في أي وحدة برامج MIB يجب أن تكون متفردة، ليس فقط في وحدة  البرامج الخاصة بها، لكن أيضا في أي اسم عنصر آخر في أي وحدة برامج تم استقبالها، وأي وحدات برامج يمكن أن تقوم وحدات البرامج هذه باستقبالها. تكون الآلية العامة للتأكد من أن أسماء العناصر متفردة هي اضافة بادئة لكل أسماء وحدات البرامج برمز المؤسسة أو الاسم المختصر للشركة.</p>
+<p class="p">عند تعريف العناصر يتم مناظرتهم الى تسلسل هرمي رقمي يمثل تسلسل ممتد. في كل مرة يتم فيها تعريف عنصر، يتم تعريفه كعنصر فرعي لعنصر رئيسي. تم تعريف العناصر الرئيسية الثلاثة التالية في تسلسل SNMP MIB:</p>
+<ul class="ul"><li class="li"><samp class="ph codeph">ccitt</samp> (العقدة الرئيسية 0)</li>
+<li class="li"><samp class="ph codeph">iso</samp> (العقدة الرئيسية 1)</li>
+<li class="li"><samp class="ph codeph">joint-iso-ccitt</samp> (العقدة الرئيسية 2)</li>
+</ul>
+<div class="p">تعد كل العقد الأخرى في تسلسل MIB عقد فرعية لأي من هذه العقد الرئيسية الثلاث.
+root nodes. على سبيل المثال، يقوم RFC1155-SMI بتعريف العناصر التالية: <pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } directory OBJECT IDENTIFIER ::=
+ { internet 1 } mgmt OBJECT IDENTIFIER ::= { internet 2 } experimental OBJECT IDENTIFIER
+ ::= { internet 3 } private OBJECT IDENTIFIER ::= { internet 4 } enterprises OBJECT 
+IDENTIFIER ::= { private 1 }</code></pre>
+</div>
+<p class="p">تشير هذه التعريفات الى اسم العنصر وأنواع العناصر المصاحبة واسم العنصر الرئيسي لكل عنصر(أو كشف مرقم للعناصر الرئيسية),
+ورقم العنصر الفرعي لهذا العنصر بالنسبة لهذا العنصر الرئيسي (أو العناصر الرئيسية). بيانيا، تأخذ هذه البنود شكل هرمي.</p>
+<p class="p">يمكنك الانتقال خلال مشاهدة <span class="keyword wintitle">تسلسل MIB</span> من خلال عرض وطي العقد في تسلسل MIB. تحتوي تفرعات أعلى مستوى من تسلسل MIB على أسماء وحدات برامج   MIB، وتوجد في كل تفرع وحدة برامج MIB العناصر الأخرى التي يتكون منها MIB. باضافة وحدات برامج اضافية الى MIB، يتم اضافة عناصر اضافية الى تسلسل MIB. يمكن الاشارة الى كل عنصر بواسطة اسم العنصر أو كود تعريف العنصر (OID) الخاص به. تعد الطريق الأكثر دقة هي الاشارة الى كود OID الخاص به. يتم تعريف OID الخاص به كالرقم الخاص به، ويتم تجميع كل من أرقام العناصر السابقة له حتى العقدة الرئيسية معا مع فصلهم بنقطة (.).
+كود OID لعنصر المؤسسة (عقدة أو فرع) هو 1.3.6.1.4.1.</p>
+<p class="p">لا يقوم العديد من الموردين بضمان أن أسماء العناصر الخاصة بهم متفردة، لذلك من الممكن أن يكون لاثنين من الموردين عنصر بنفس الاسم. وهذا يجعل استخدام اسم العنصر لتعريف عنصر غير واضح.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="يقدم هذا القسم معلومات اضافية عن أسلوب بناء Simple Network Management Protocol (SNMP)، و management information base (MIB) الى SNMP وبعض مفاهيم MIB الاضافية.">نبذة عن SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

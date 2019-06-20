@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Geräte erstellen und löschen" />
+<meta name="abstract" content="Ein MIB Manager-Gerät dient zum Gruppieren zugeordneter MIB-Module und zur Definition aller für den Export erforderlichen Objekte. Sie können Geräte in der MIB Manager-GUI erstellen, aktualisieren und löschen." />
+<meta name="Description" content="Ein MIB Manager-Gerät dient zum Gruppieren zugeordneter MIB-Module und zur Definition aller für den Export erforderlichen Objekte. Sie können Geräte in der MIB Manager-GUI erstellen, aktualisieren und löschen." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager-Geräte erstellen und löschen.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Geräte erstellen und löschen</h1>
+<div class="body taskbody"><p class="shortdesc">Ein <span class="keyword">MIB Manager</span>-Gerät dient zum Gruppieren zugeordneter
+MIB-Module und zur Definition aller für den Export erforderlichen Objekte. Sie können Geräte in
+der <span class="keyword">MIB Manager</span>-GUI erstellen, aktualisieren und löschen. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Informationen zu diesem Vorgang</h2></div><p class="p"><span class="keyword">MIB Manager</span>-Geräte werden in der Sicht
+<span class="keyword wintitle strongwintitle">Gerät</span> angezeigt.
+Wählen Sie aus der Baumstruktur
+<span class="keyword wintitle strongwintitle">Gerät</span> ein Gerät aus, um den Hersteller, die
+Modellnummer sowie die Betriebssystemversion des Geräts anzuzeigen.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Vorgehensweise</h2></div><p class="li stepsection"><strong class="ph b">Gerät erstellen</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">So erstellen Sie ein neues Gerät:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Wählen Sie in der Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span> mindestens
+ein MIB-Modul aus und klicken Sie dann auf <img class="image" src="../gifs/create_device.gif" alt="Symbol &#34;Gerät erstellen&#34;" /> ("Gerät erstellen").</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Hersteller</span> einen
+Gerätehersteller aus der Dropdown-Liste aus.</span> <p class="p">In die Felder <span class="ph uicontrol">Modell</span> und
+<span class="ph uicontrol">Betriebssystemversion</span>
+werden die verfügbaren Optionen eingefügt.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Modell</span> eine Option aus der
+Dropdown-Liste aus.</span> <p class="p">Wenn keine Modelle verfügbar sind, geben Sie einen beschreibenden
+Modellnamen ein.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Betriebssystemversion</span> eine Option aus der
+Dropdown-Liste aus.</span> <p class="p">Wenn keine Betriebssystemversionen verfügbar sind, geben Sie
+für die Betriebssystemversion einen beschreibenden Namen ein.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Zugeordnete MIB-Module</span>
+die MIB-Module aus, die dem neuen Gerät zugeordnet werden sollen.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Klicken Sie auf <span class="ph uicontrol">OK</span>, um das
+Gerät zu erstellen.</span> <p class="p">Das neue Gerät wird in der Sicht
+<span class="keyword wintitle strongwintitle">Gerät</span> angezeigt.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Gerät aktualisieren</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">So aktualisieren Sie ein Gerät:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Wählen Sie in der Sicht <span class="keyword wintitle strongwintitle">Gerät</span> ein Gerät
+aus und erweitern Sie dessen Unterknoten, bis die Betriebssystemversion
+zu sehen ist.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie die Betriebssystemversion aus und klicken Sie dann auf
+<img class="image" src="../gifs/Edit.gif" alt="Symbol &#34;Gerät bearbeiten&#34;" /> ("Gerät bearbeiten").</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Hersteller</span> einen
+Gerätehersteller aus der Dropdown-Liste aus.</span> <p class="p">In die Felder <span class="ph uicontrol">Modell</span> und
+<span class="ph uicontrol">Betriebssystemversion</span>
+werden die verfügbaren Optionen eingefügt.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Modell</span> eine Option aus der
+Dropdown-Liste aus.</span> <p class="p">Wenn keine Modelle verfügbar sind, geben Sie einen beschreibenden
+Modellnamen ein.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Betriebssystemversion</span> eine Option aus der
+Dropdown-Liste aus.</span> <p class="p">Wenn keine Betriebssystemversionen verfügbar sind, geben Sie
+für die Betriebssystemversion einen beschreibenden Namen ein.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Wählen Sie im Feld <span class="ph uicontrol">Zugeordnete MIB-Module</span>
+die MIB-Module aus, die dem neuen Gerät zugeordnet werden sollen.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Klicken Sie auf <span class="ph uicontrol">OK</span>, um die
+Gerätedetails zu aktualisieren.</span> <p class="p">Die aktualisierten Gerätedetails werden in der Sicht
+<span class="keyword wintitle strongwintitle">Gerät</span> angezeigt.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Gerät löschen</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">Wählen Sie in der Sicht <span class="keyword wintitle strongwintitle">Gerät</span> das
+Gerät aus und klicken Sie dann auf <img class="image" src="../gifs/Delete.gif" alt="Symbol &#34;Gerät löschen&#34;" /> ("Gerät löschen"). </span> <p class="p">Halten Sie zum Löschen mehrerer Geräte die Steuertaste und die Taste Alt
+gedrückt, wählen
+Sie mit der linken Maustaste die Elemente aus und klicken Sie dann auf <img class="image" src="../gifs/Delete.gif" alt="Symbol &#34;Gerät löschen&#34;" /> ("Gerät löschen").</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Übergeordnetes Thema:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Sie können MIB Manager für das Parsing von MIB-Modulen und die Erstellung von Netcool-Regeldateien verwenden.">Netcool MIB Manager verwenden</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

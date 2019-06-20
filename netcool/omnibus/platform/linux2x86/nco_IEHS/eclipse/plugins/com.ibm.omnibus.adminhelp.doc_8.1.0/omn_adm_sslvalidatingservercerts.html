@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Validating server certificates" />
+<meta name="abstract" content="When Tivoli Netcool/OMNIbus is set up for SSL communication, the ObjectServer and process agent present their server certificates to the Netcool/OMNIbus Administrator client, on request, to establish a connection." />
+<meta name="Description" content="When Tivoli Netcool/OMNIbus is set up for SSL communication, the ObjectServer and process agent present their server certificates to the Netcool/OMNIbus Administrator client, on request, to establish a connection." />
+<meta name="DC.subject" content="SSL connections, validating server certificates" />
+<meta name="keywords" content="SSL connections, validating server certificates" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sslconnections.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_ssl_usingssl.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sslvalidatingservercerts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_sslconnections.html" />
+<title>Validating server certificates</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sslvalidatingservercerts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Validating server certificates</h1>
+<div class="body taskbody"><p class="shortdesc">When <span class="keyword">Tivoli Netcool/OMNIbus</span> is
+set up for SSL communication, the ObjectServer and process agent present
+their server certificates to the Netcool/OMNIbus Administrator client,
+on request, to establish a connection.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">If a mismatch is detected between the common name defined
+in the server certificate and the server name that the Netcool/OMNIbus Administrator
+client uses to identify and connect to the server, a <span class="keyword wintitle">Certificate
+Validation</span> window opens so that you can choose whether
+to accept or reject the server certificate. Connections will not be
+established if the certificate is invalid.</p>
+<p class="p">The <span class="keyword wintitle">Certificate
+Validation</span> window provides a reason for the validation
+request and presents a number of options. Complete the window as follows:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand" id="omn_adm_sslvalidatingservercerts__omn_validssl_step1"><span class="ph cmd">Select one of the options to accept
+or reject the certificate:</span> <ul class="ul choices"><li class="li choice"><span class="ph uicontrol">Accept this certificate permanently</span>:
+Select this option to permanently accept this certificate as valid.
+You will no longer be prompted to accept this certificate during the
+current or subsequent Netcool/OMNIbus Administrator sessions. <div class="note important"><span class="importanttitle">Important:</span> Before you accept the certificate, click <span class="ph uicontrol">Examine
+Certificate</span> to review the contents of the certificate
+within the <span class="keyword wintitle">Certificate Details</span> window. After
+careful examination, click <span class="ph uicontrol">OK</span> to return to
+the <span class="keyword wintitle">Certificate Validation</span> window.</div>
+</li>
+<li class="li choice"><span class="ph uicontrol">Accept this certificate temporarily for this session</span>:
+Select this option to accept the certificate for the current session
+only, after examining the certificate by using the <span class="ph uicontrol">Examine
+Certificate</span> button. No more validation prompts will be
+generated for the duration of the session.</li>
+<li class="li choice"><span class="ph uicontrol">Do not accept this certificate</span>: Select
+this option to reject the certificate and cancel the connection between
+the server and client.</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">OK</span> to continue with the connection
+process. Click <span class="ph uicontrol">Cancel</span> (or the <span class="ph uicontrol">Close</span> button
+in the title bar) to reject the certificate irrespective of the option
+that you selected in step <a class="xref" href="#omn_adm_sslvalidatingservercerts__omn_validssl_step1">1</a>.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>If you chose to accept the certificate permanently, the common
+name and public key from the certificate are recorded in the following
+file:<p class="p"><span class="ph filepath"><var class="keyword varname">userdir</var>/.netcool/nco_config_settings/user_allowed_certs.properties</span></p>
+<p class="p">In
+this file path, <var class="keyword varname">userdir</var> represents your home directory. </p>
+<p class="p">The <span class="ph filepath">user_allowed_certs.properties</span> file
+is a system file and is not intended for modification by users. On
+subsequent connection attempts, this file is read and used to identify
+any common names that were previously accepted.</p>
+<p class="p">You can clear
+the contents of the properties file by specifying the following command-line
+argument:</p>
+<p class="p"><kbd class="ph userinput">mode.clear.certs "true"</kbd></p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_sslconnections.html" title="If Netcool/OMNIbus Administrator is using an encrypted SSL connection to an ObjectServer or process agent, a lock icon This figure shows the lock icon that depicts an SSL connection. appears in the bottom, left corner of the window.">Secure sockets layer connections</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_ssl_usingssl.html" title="Tivoli Netcool/OMNIbus supports the use of the Secure Sockets Layer (SSL) protocol for communication between its servers and clients.">Using SSL for client and server communications</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

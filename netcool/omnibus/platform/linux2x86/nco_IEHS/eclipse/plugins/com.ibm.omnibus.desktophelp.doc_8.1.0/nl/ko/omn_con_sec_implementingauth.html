@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="그룹과 역할을 사용하여 권한 구현" />
+<meta name="abstract" content="권한은 ObjectServer의 오브젝트와 데이터에 대한 액세스를 제어합니다. 하나 이상의 권한을 역할에 결합하여 신속하고 효율적으로 액세스를 관리할 수 있습니다." />
+<meta name="Description" content="권한은 ObjectServer의 오브젝트와 데이터에 대한 액세스를 제어합니다. 하나 이상의 권한을 역할에 결합하여 신속하고 효율적으로 액세스를 관리할 수 있습니다." />
+<meta name="DC.subject" content="권한" />
+<meta name="keywords" content="권한" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="xF1040928" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>그룹과 역할을 사용하여 권한 구현</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="xF1040928">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">그룹과 역할을 사용하여 권한 구현</h1>
+<div class="body conbody"><p class="shortdesc">권한은 ObjectServer의 오브젝트와 데이터에 대한 액세스를 제어합니다.
+하나 이상의 권한을 <dfn class="term">역할</dfn>에 결합하여 신속하고 효율적으로 액세스를 관리할 수 있습니다. </p>
+<p class="p">각 사용자는 하나 이상의 <dfn class="term">그룹</dfn>에 지정됩니다. 권한을 각 그룹에
+지정하고 하나 이상의 역할을 그룹에 부여하여 데이터베이스 오브젝트에서 조치를
+수행할 수 있습니다. 수퍼유저, 시스템 관리자와 같은 논리적 그룹이나
+London이나 New York NOC와 같은 물리적 그룹 또는 기타 그룹을 작성하여 보안 설정을 단순화할 수 있습니다.</p>
+<p class="p">예를 들어, 자동화를 작성하려면 <span class="keyword">Tivoli Netcool/OMNIbus</span> 조작과
+특정 ObjectServer를 구성하는 방법을 알아야 합니다. 일반적으로 모든 사용자가
+자동화를 작성하거나 수정하도록 하는 것을 원하지 않습니다.
+한 가지 솔루션은 트리거 그룹, 파일, SQL, 외부 프로시저, 신호를 작성하고 수정할 수 있는 권한이 있는 AutoAdmin이라는
+역할을 작성하는 것입니다. 그런 다음, 해당 역할을 자동화를 작성하고 업데이트할 관리자 그룹에 부여할 수 있습니다. </p>
+<p class="p"><span class="ph filepath">security.sql</span> 스크립트는 운영자와 관리자와 같은 다른 클래스의 사용자에 대한 기본 그룹과 역할을 포함합니다.
+이 스크립트를 템플리트로 사용하여 사용자 자신의 그룹과 역할을 작성할 수도 있습니다. </p>
+<p class="p">사용자, 그룹, 역할을 <span class="keyword">Netcool/OMNIbus
+Administrator </span>이나
+ObjectServer SQL을 사용하여 구성할 수 있습니다. </p>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

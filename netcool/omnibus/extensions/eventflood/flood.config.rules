@@ -1,0 +1,57 @@
+##########################################################################
+#
+# This rules file fragment provides the variables to configure
+# flood detection and anomalous event rate detection within flood.rules
+#
+#
+############################################################################
+
+# Uncomment the FloodEventOS line and set the backup server name
+# if you wish to divert events once an event flood has been detected.
+DefaultOS = registertarget( %Server, %ServerBackup, "alerts.status")
+#FloodEventOS = registertarget("NCOMS_BK", "", "alerts.status")
+
+array event_rate_array
+
+# Calculate the average event rate over a number of seconds or
+# max number of events received
+$average_event_rate_time_window = 10
+$average_event_rate_max_sample_size = 10000
+
+# Calculate the current event rate for event flood detection
+# over a number of seconds or max number of events received
+$flood_detection_time_window = 5
+$flood_detection_max_sample_size = 1000
+
+# Do not begin flood detection until the probe has been running
+# for a period.
+$flood_detection_startup_time = 10
+
+# Calculate the current event rate for anomalous event rate 
+# detection over a number of seconds or max number of events received
+$anomaly_detection_time_window = 60
+$anomaly_detection_max_sample_size = 10000
+
+# Event rate threshold for flood detection in events per second
+# Flood threshold takes probe from normal to flood condition
+# Normal threshold should be lower to prevent flood condition oscilating
+$flood_detection_event_rate_flood_threshold = 50
+$flood_detection_event_rate_normal_threshold = 33
+
+# Upper and lower event rate thresholds for determining anomalous
+# event rate receipt
+$lower_event_rate_threshold_multiplier = 0.10
+$upper_event_rate_threshold_multiplier = 5
+
+# Behaviour to take during an event flood
+$discard_event_during_flood = 1
+
+# If this element is set to 1, ensure that the registertarget statements 
+# at the beginning of this file are uncommented and contain a valid 
+# objectserver name.
+$divert_event_during_flood = 0
+
+# Forward events with severity of major or above to the primary
+# objectserver during an event flood or divert events with a severity
+# below major to a secondary objectserver.
+$forward_event_minimum_severity = 4

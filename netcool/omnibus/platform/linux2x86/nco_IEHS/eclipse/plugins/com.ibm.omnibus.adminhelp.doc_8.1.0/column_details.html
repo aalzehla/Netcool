@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Column Details" />
+<meta name="abstract" content="Use this window to set up a new column or edit the details of an existing column." />
+<meta name="Description" content="Use this window to set up a new column or edit the details of an existing column." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_addingedittablecols.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_columndetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Column Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_columndetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Column Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new column or edit the details of an
+existing column.</p>
+<div class="section"><div class="p">Complete this window as follows:<dl class="dl" id="netom_columndetailswindow__netom_columndetailsfields"><dt class="dt dlterm">Column Name</dt>
+<dd class="dd">Type the column name. If you are editing the column, you cannot change
+the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Data Type</dt>
+<dd class="dd">Select a data type for the column. The data type determines how the ObjectServer
+processes the data in the column. If you are editing the column, you cannot
+change the data type. You can select from the following data types:<ul class="ul"><li class="li"><span class="keyword option">Integer</span>: 32-bit signed integer</li>
+<li class="li"><span class="keyword option">UTC</span>: Time, stored as the number of seconds since midnight
+January 1, 1970</li>
+<li class="li"><span class="keyword option">VarChar</span>: Variable size character string, up to 8192 Bytes
+in length</li>
+<li class="li"><span class="keyword option">Incr</span>: 32-bit unsigned auto-incrementing integer that
+can only be updated by the system</li>
+<li class="li"><span class="keyword option">Char</span>: Fixed size character string, up to 8192 Bytes in
+length</li>
+<li class="li"><span class="keyword option">Unsigned</span>: 32-bit unsigned integer</li>
+<li class="li"><span class="keyword option">Boolean</span>: TRUE or FALSE</li>
+<li class="li"><span class="keyword option">Real</span>: 64-bit signed floating point number</li>
+<li class="li"><span class="keyword option">Integer64</span>: 64-bit signed integer</li>
+<li class="li"><span class="keyword option">Unsigned64</span>: 64-bit unsigned integer</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Length</dt>
+<dd class="dd">This field is available only when you select <span class="keyword option">VarChar</span> or <span class="keyword option">Char</span> from
+the <span class="ph uicontrol">Data Type</span> list. Specify the column length.</dd>
+<dt class="dt dlterm">Primary Key</dt>
+<dd class="dd">Select this check box to indicate that the column is a primary key. The
+primary key column or columns uniquely identify each row. A primary key column
+must have a default value.</dd>
+<dt class="dt dlterm">No Modify</dt>
+<dd class="dd">Select this check box to indicate that users cannot modify data in this
+column.</dd>
+<dt class="dt dlterm">No Default</dt>
+<dd class="dd">Select this check box to indicate that a value must be specified for this
+column in any INSERT command.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_columndetailswindow__netom_columndetails_saving_closing"><h2 class="title sectiontitle">Saving your column
+details</h2><div class="p">After creating or editing a column, you can save or cancel
+the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_columndetailswindow__netom_columndetails_okcancelbuttons"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">If you want to add multiple columns without exiting the <span class="keyword wintitle">Column
+Details</span> window, click this button to save the column details after
+adding each set of entries. </dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">After entering the values for the last column that you want to add at
+the present time, click this button to save the column details and close the
+window. New columns are added to the <span class="keyword wintitle">Databases, Tables and Columns</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_addingedittablecols.html" title="You can add new columns to ObjectServer tables or edit existing columns. The maximum number of columns in a table is 512, excluding the system-maintained columns. The maximum row size for a table, which is the sum of the length of the columns in the row, is 64 KB. You cannot add PRIMARY KEY columns to existing tables.">Adding and editing table columns</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

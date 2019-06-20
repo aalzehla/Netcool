@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Conditions" />
+<meta name="abstract" content="A condition is a combination of expressions and operators that evaluate to TRUE or FALSE." />
+<meta name="Description" content="A condition is a combination of expressions and operators that evaluate to TRUE or FALSE." />
+<meta name="DC.subject" content="conditions" />
+<meta name="keywords" content="conditions" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_conditions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Conditions</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_conditions">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Conditions</h1>
+<div class="body conbody"><p class="shortdesc">A condition is a combination of expressions and operators
+that evaluate to TRUE or FALSE.</p>
+<div class="p">You can use conditions to search, filter, and test rows in:<ul class="ul"><li class="li">Restriction filters</li>
+<li class="li">The WHERE clause of the SELECT, UPDATE, and DELETE commands</li>
+<li class="li">The HAVING clause of the SELECT GROUP BY command</li>
+<li class="li">The WHEN clause in triggers</li>
+<li class="li">The IF THEN ELSE, CASE WHEN, and FOR EACH ROW statements in procedures
+and triggers</li>
+</ul>
+</div>
+<p class="p">Conditions can contain comparison operators (<samp class="ph codeph">Severity &lt;
+3</samp>), logical operators (<samp class="ph codeph">NOT(Is_Enabled)</samp>),
+and list comparison operators (<samp class="ph codeph">Severity IN ANY(0,5)</samp>).</p>
+<p class="p">Valid conditions are shown in the following list:</p>
+<pre class="pre codeblock"><code>TRUE | FALSE
+( <var class="keyword varname">condition</var> )
+NOT <var class="keyword varname">condition</var>
+<var class="keyword varname">condition</var> AND <span class="keyword wintitle">condition</span>
+<var class="keyword varname">condition</var> OR <var class="keyword varname">condition</var>
+<var class="keyword varname">expression</var> operator <var class="keyword varname">expression</var>
+<var class="keyword varname">expression</var> operator ANY ( <var class="keyword varname">expression</var>, ... )
+<var class="keyword varname">expression</var> operator ALL ( <var class="keyword varname">expression</var>, ... )
+<var class="keyword varname">expression</var>[ NOT ] IN( <var class="keyword varname">subquery</var> )
+<var class="keyword varname">expression</var> operator ANY ( <var class="keyword varname">subquery</var> )
+<var class="keyword varname">expression</var> [ NOT ] IN ( <var class="keyword varname">expression</var>, ... )
+<var class="keyword varname">expression</var> [ NOT ] LIKE <var class="keyword varname">regexp_pattern</var>
+<var class="keyword varname">expression</var> [ NOT ] LIKE ANY ( <var class="keyword varname">regexp_pattern</var>, ... )
+<var class="keyword varname">expression</var> [ NOT ] LIKE ALL ( <var class="keyword varname">regexp_pattern</var>, ... )</code></pre>
+<div class="note note"><span class="notetitle">Note:</span> The ANY and ALL operators are not supported in subqueries.</div>
+<p class="p">You can combine conditions into increasingly complex conditions.</p>
+<div class="section"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>(Severity &gt; 4) AND (Node = 'node%')</code></pre>
+<p class="p">The
+following example shows the use of a condition in a subquery:</p>
+<pre class="pre codeblock"><code>select * from alerts.status where Serial in (select Serial from alerts.journal);</code></pre>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+#######################################################################
+# 
+#        Licensed Materials - Property of IBM
+# 
+#        5724O4800
+# 
+#        (C) Copyright IBM Corp. 2009,2013. All Rights Reserved
+# 
+#        US Government Users Restricted Rights - Use, duplication
+#        or disclosure restricted by GSA ADP Schedule Contract
+#        with IBM Corp.
+# 
+# 
+#######################################################################
+# 
+# Hostname: 'localhost'			# STRING  (Name of host the LDAP instance is running on)
+# Port: 389				# INTEGER (The port the LDAP server is listening on)
+# DistinguishedName: 'cn=%s' 		# STRING  (The distinguished name in target LDAP schema that identifies the user being authenticated. This parameter is not required if LDAPSearchBase and LDAPSearchFilter are specified.
+# LDAPBindDN: ''			# STRING  (The distinguished name to bind to the LDAP server with. An anonymous bind is used if this is not specified.) 
+# LDAPBindPassword: ''			# STRING  (The password associated with the BindDN to bind to the LDAP server with)
+# LDAPVersion: 3			# INTEGER (The version of LDAP the server is running)
+# LDAPSearchFilter: '(cn=%s)'           # STRING  (The filter to use to search for distinguished names)
+# LDAPSearchBase: ''			# STRING  (The directory to start a search on to find the distinguished name for the user. Separate the DNs by a double semicolon ';;' to specify a search across multiple DNs.)
+# LDAPTimeout: 60			# INTEGER (The maximum time the ObjectServer will wait for an LDAP request to complete)
+# SSLEnabled: FALSE			# BOOLEAN (Use SSL for the connection to the LDAP Server)
+# SSLPort: 636				# INTEGER  (The SSL port the LDAP server is listening on)
+# SSLKeyStoreLabel: ''			# STRING  (Name or label associated with the private key/certificate pair in the key database)
+# 
+########################################################################
+# Product specific examples
+########################################################################
+# These are sample values only and will require modification before use.
+# Consult your LDAP systems administrator before using.
+#
+# Microsoft Active Directory Server
+# ---------------------------------
+#
+# Filter on sAMAccountName
+# LDAPSearchFilter:       '(&(objectCategory=person)(objectClass=user)(sAMAccountName=%s))'
+#
+# Filter on sAMAccountName and restrict access to members of the 'OMNIbus Operators' group
+# which has distinguished name 'CN=OMNIbus Operators,CN=Users,DC=OMNI'
+# LDAPSearchFilter:       '(&(objectCategory=person)(objectClass=user)(sAMAccountName=%s)(memberOf=CN=OMNIbus Operators,CN=Users,DC=OMNI))'
+#
+# Posix based LDAP sytems
+# -----------------------
+# Filter on users with a specific primary group (using gidNumber)
+# 
+# LDAPSearchFilter:       '(&(uid=%s)(gidNumber=NNNN))'
+# Where NNNN is the gidNumber of their primary group

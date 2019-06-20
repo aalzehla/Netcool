@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Starting the transient event list from the command line" />
+<meta name="abstract" content="Use the nco_elct command to open the transient event list from the UNIX command line, and use the NCOelct.exe command to open the transient event list from the Windows command line." />
+<meta name="Description" content="Use the nco_elct command to open the transient event list from the UNIX command line, and use the NCOelct.exe command to open the transient event list from the Windows command line." />
+<meta name="DC.subject" content="event lists, transient, starting transient, transient event lists, starting" />
+<meta name="keywords" content="event lists, transient, starting transient, transient event lists, starting" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopttransient.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopttransient.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingtransienteventlist" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_runningtransientevntlsts.html" />
+<title>Starting the transient event list from the command line</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingtransienteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Starting the transient event list from the command line</h1>
+<div class="body taskbody"><p class="shortdesc">Use the <span class="keyword cmdname">nco_elct</span> command to open the
+transient event list from the UNIX command
+line, and use the <span class="keyword cmdname">NCOelct.exe</span> command to open the
+transient event list from the Windows command
+line.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To start the transient event list:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><div class="li step"><span class="ph cmd">Perform the appropriate action for your operating system:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d38083e44-option" valign="bottom" align="left">Option</th>
+<th id="d38083e44-desc" valign="bottom" align="left">Description</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d38083e44-option" id="d38083e46" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d38083e44-desc d38083e46" class="stentry chdesc" width="80%">From a command prompt, enter: <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_elct <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d38083e44-option" id="d38083e57" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d38083e44-desc d38083e57" class="stentry chdesc" width="80%">From a command prompt, enter:<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOelct.exe <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+</tbody></table>
+In the UNIX and Windows commands shown in the
+preceding table, <var class="keyword varname">option</var> represents one or more
+command-line options.</div>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><p class="p">If an instance of the event list (<span class="keyword cmdname">nco_event</span>)
+is running, the <span class="keyword cmdname">nco_elct</span> utility opens a new event
+list window. If there is no running instance of <span class="keyword cmdname">nco_event</span>,
+the <span class="keyword cmdname">nco_elct</span> utility starts one, and displays the <span class="keyword wintitle">Event
+List</span> monitor box window and an event list window using
+the filter specified at the command line.</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopttransient.html">UNIX command-line options for the transient event list</a></span><br />
+When you run the <span class="keyword cmdname">nco_elct</span> command to
+start the transient event list on UNIX,
+you must specify a number of command-line options to customize the
+event list. You can run this command from the <span class="ph filepath">$NCHOME/omnibus/bin</span> directory.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopttransient.html">Windows command-line options for the transient event list</a></span><br />
+When you run the <span class="keyword cmdname">NCOelct.exe</span> command
+to start the transient event list on Windows,
+you must specify a number of command-line options to customize the
+event list. You can run this command from the <span class="ph filepath">%NCHOME%\omnibus\desktop</span> directory.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_runningtransientevntlsts.html" title="You can run customized, transient event lists directly from the command line, in a script, or as part of an event list tool.">Running transient event lists from the command-line, scripts, and tools</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="필터 및 보기를 사용한 사용자 정의 이벤트 정보 표시" />
+<meta name="abstract" content="경보 데이터베이스 테이블은 ObjectServer에 전달되는 이벤트 정보를 보유합니다. 필터 및 보기를 사용하여 이 이벤트 정보 중 이벤트 목록에 표시되는 이벤트 정보를 정의할 수 있습니다." />
+<meta name="Description" content="경보 데이터베이스 테이블은 ObjectServer에 전달되는 이벤트 정보를 보유합니다. 필터 및 보기를 사용하여 이 이벤트 정보 중 이벤트 목록에 표시되는 이벤트 정보를 정의할 수 있습니다." />
+<meta name="DC.subject" content="필터, 개요, 보기" />
+<meta name="keywords" content="필터, 개요, 보기" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_usingfiltersviewstodisplay" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>필터 및 보기를 사용한 사용자 정의 이벤트 정보 표시</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_usingfiltersviewstodisplay">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">필터 및 보기를 사용한 사용자 정의 이벤트 정보 표시</h1>
+<div class="body conbody"><p class="shortdesc"><samp class="ph tt">경보</samp> 데이터베이스 테이블은 ObjectServer에 전달되는
+이벤트 정보를 보유합니다.
+필터 및 보기를 사용하여 이 이벤트 정보 중 이벤트 목록에 표시되는 이벤트 정보를 정의할
+수 있습니다. </p>
+<p class="p">필터는 볼 수 있는 경보(또는 데이터베이스 레코드)를 제어하고 보기는 해당 경보에
+대해 볼 수 있는 컬럼(또는 데이터베이스 필드)을 제어합니다.
+SQL(Structured Query Language)을 사용하여 데이터베이스 테이블에 대한 정보 요청을
+수행할 수 있습니다. </p>
+<div class="p">이벤트 목록 안에 경보를 표시하려면 alerts.status 테이블의 SELECT 문을
+수행해야 합니다.
+SQL 문은 세 개의 개념 파트로 구분할 수 있습니다.
+<ul class="ul"><li class="li">보기 빌더에서 작성된 보기를 사용하여 alerts.status 테이블에서 보려는
+컬럼을 선택하십시오.</li>
+<li class="li">필터 빌더에서 작성된 필터를 사용하여 해당 컬럼 중 하나 이상의 컬럼에 특정 데이터 값을 포함하는 이벤트를 선택하십시오.</li>
+<li class="li">보기 빌더에서 작성된 보기를 사용하여 이벤트를 표시하기 위한 순서를 선택하십시오.</li>
+</ul>
+</div>
+<p class="p">다음 예제는 alerts.status 테이블에서 수행되는 SELECT 문을 표시합니다. </p>
+<pre class="pre codeblock"><code>select Node as NODE, Summary as Detail from alerts.status
+where Node ='link1' </code></pre>
+<p class="p">SELECT 절은 보기를 작성 및 편집하기 위해 사용되는 보기 빌더 안에 구성되어 있습니다.
+WHERE 절은 필터를 작성하고 편집하기 위해 사용되는 필터 빌더 안에 구성되어 있습니다.</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_settingupfiltersevntlst.html">이벤트 목록 데이터에 대한 필터 설정</a></span><br />
+필터는 모니터 상자 및 이벤트 목록에 사용자 정의 경보 정보를 표시하기 위해
+ObjectServer <samp class="ph tt">alerts</samp> 데이터베이스 테이블에서 실행할 수 있는 SQL 조회를
+빌드하는 데 사용됩니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_vb_settingupviewsevntlsts.html">이벤트 목록에 대한 보기 설정</a></span><br />
+보기는 이벤트 목록에 표시되는 컬럼의 선택사항과 이 컬럼 안에 있는 정보의 포맷팅을 정의합니다.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

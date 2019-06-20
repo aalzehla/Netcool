@@ -1,0 +1,23 @@
+ICOMM
+ICOMM	TCR Model
+ICOMM
+
+#define PassCDebugFlags
+
+#include <Netcool/Release.tmpl>
+
+default: all
+
+SetProductReleaseDirectory($(OMNIBUS_INSTALL_DIR))
+
+ReleaseData(customdata.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(IDlog.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(Imakefile,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(log.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(model.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(Netcool_OMNIbus_MODEL.cpf,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(Preferences.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(session-log-backup.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+ReleaseData(session-log.xml,$(OMNIBUS_INSTALL_DIR)/extensions/tcr_event_reports/Model)
+
+

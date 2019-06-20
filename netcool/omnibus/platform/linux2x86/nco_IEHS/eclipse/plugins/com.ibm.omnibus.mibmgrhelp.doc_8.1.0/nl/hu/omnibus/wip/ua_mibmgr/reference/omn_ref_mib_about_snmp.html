@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="SNMP bemutatása" />
+<meta name="abstract" content="Ez a szakasz kiegészítő információkat nyújt az Egyszerű hálózatkezelési protokoll (SNMP) architektúráról, az SNMP management information base (MIB) alkalmazásról és néhány további MIB fogalomról." />
+<meta name="Description" content="Ez a szakasz kiegészítő információkat nyújt az Egyszerű hálózatkezelési protokoll (SNMP) architektúráról, az SNMP management information base (MIB) alkalmazásról és néhány további MIB fogalomról." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>SNMP bemutatása</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SNMP bemutatása</h1>
+<div class="body refbody"><p class="shortdesc">Ez a szakasz kiegészítő információkat nyújt az Egyszerű
+hálózatkezelési protokoll (SNMP) architektúráról, az SNMP management
+information base (MIB) alkalmazásról és néhány további MIB fogalomról.</p>
+<div class="section"><p class="p">Az SNMP architektúrában a kezelő összetevő kezeli az ügynököt. Az ügynök egy szoftver, amely a hálózati eszközön vagy alkalmazáson fut,
+és információs kérésekre válaszol (SET és GET), majd autonóm értesítéseket
+generál, amelyek neve trap. A kezelő egy olyan szoftver, amely a trapeket fogadja,
+és egy mechanizmust biztosít az SNMP objektumok kéréséhez (SET és GET)
+a hálózati eszközről.</p>
+<p class="p">Az autonóm trapek fogadásához a kezelő egy
+alkalmazást futtat, amely a TCP/IP SNMP trap porton figyel (port 162). Az SNMP SET és GET kérések a 161-es portot használják. Ennek az
+alkalmazásnak a neve általában Trapd vagy trap démon. A trap démon egy olyan
+folyamat, amely a háttérben fut és egy szolgáltatást kezel a számítógépen. A
+Netcool Trapd alkalmazás neve SNMP vizsgáló (<span class="ph filepath">nco_p_mttrapd</span>,
+ahol az <span class="ph filepath">mt</span> a több szálon futó rövidítése),
+és az <span class="ph filepath">$OMNIHOME/probes/</span> könyvtárban található
+A <span class="keyword">MIB Manager</span> által előállított szabályfájlok az SNMP vizsgáló általi használatra készültek.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Biztonság</h2><p class="p">Az SNMP v1 és v2 alapvető biztonságát a közösségi karaktersorozatok biztosítják. A
+közösségi karaktersorozatok sima szöveg jelszavak, amelyek minden kéréssel
+elküldésre kerülnek. Különálló közösségi karaktersorozatok vannak a csak olvasható és az olvasható-írható hozzáféréshez. A
+<span class="keyword">MIB Manager</span> alkalmazásnak ismernie kell az eszközön meghatározott közösségi karaktersorozatot ahhoz,
+hogy a kéréseket (GET esetén csak olvasható, SET esetén olvasható-írható) végrehajthassa,
+és SNMP trap-ek és értesítések kerülnek küldésre a <span class="keyword">MIB Manager</span>hez egy előre meghatározott közösségi karaktersorozattal.</p>
+<p class="p">Minden, az SNMP-t támogató
+hálózati eszköz rendelkezik egy olyan mechanizmussal, amely a közösségi
+karaktersorozat meghatározásához használatos. A szabványos, alapértelmezett csak olvasható jelszó nyilvános, a szabványos, alapértelmezett olvasható-írható jelszó pedig privát. Ha
+az eszközön nincs közösségi karaktersorozat beállítva, akkor általában az adott
+jelszavak egyike lesz.
+Biztonsági okokból, az alapértelmezett jelszavakat a lehető leghamarabb le kell cserélni.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">További információk</h2><div class="p">Az alábbi kiadványok hasznos segítséget nyújtanak
+az SNMP keretrendszer és az MIB alkalmazások megértésében:<ul class="ul"><li class="li"><cite class="cite">Internetes munkák kezelése SNMP-vel (Harmadik kiadás)</cite>
+Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">SNMP MIB-ek bemutatása</cite>, David Perkins és Evan
+McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">Az ASN.1 és az SNMP adatok hálózati
+(vagy PDU) átvitele érdekében Protokoll adategység (PDU) csomagokba való kódolásához
+használt Alapvető kódolási szabályok (BER) részletes információiért tekintse meg az alábbi kiadványt:</p>
+<p class="p"><cite class="cite">SNMP, SNMPv2 és CMIP: A Hálózat-felügyeleti szabványok gyakorlati
+kézikönyve</cite>, William Stallings (Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">MIB alapelvei és felépítése</a></span><br />
+Az adott eszköz MIB alkalmazása az összes SNMP MIB modulból áll,
+amely az eszközhöz van megadva. Az MIB kifejezés gyakran egyetlen modulmeghatározást jelöl,
+ez azonban technikailag helytelen.
+A MIB valójában az összes olyan modul kombinációja,
+amely egy adott, hardverhez vagy szoftverhez kapcsolódó eszköz kezeléséhez kerül
+felhasználásra. Ezért a kereskedő által vagy az RFC-ben meghatározott egyes modulok pontosabb neve SNMP MIB modul.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">MIB objektumtípusok</a></span><br />
+Ez a témakör az SNMP v1 és v2 változatában meghatározott
+objektumtípusokat mutatja be.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">Érvényes MIB objektum formátumok</a></span><br />
+Ez a témakör az érvényes MIB objektumok formátumát mutatja be.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="A Netcool MIB Manager egy IBM Eclipse alapú grafikus felületi alkalmazás, amely az Egyszerű hálózatkezelési protokoll (SNMP) felügyeleti információs alapfájlok (MIB) értelmezéséhez használhat, amelyekből Netcool szabályfájlokat állathat elő. A mib2rules segédprogram helyettesítőjének szánták.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

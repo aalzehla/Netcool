@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX イベント・リスト・ウィンドウのフォント・サイズの構成" />
+<meta name="abstract" content="NCOEvent リソース・ファイルには、イベント・リスト・ウィンドウのユーザー・インターフェース要素の定義が含まれています。" />
+<meta name="Description" content="NCOEvent リソース・ファイルには、イベント・リスト・ウィンドウのユーザー・インターフェース要素の定義が含まれています。" />
+<meta name="DC.subject" content="フォント・サイズの構成, イベント・リスト, フォント・サイズ" />
+<meta name="keywords" content="フォント・サイズの構成, イベント・リスト, フォント・サイズ" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_configuringfontsunixdsktop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsizesunixevntlst" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>UNIX イベント・リスト・ウィンドウのフォント・サイズの構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsizesunixevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX イベント・リスト・ウィンドウのフォント・サイズの構成</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="ph filepath">NCOEvent</span> リソース・ファイルには、イベント・リスト・ウィンドウのユーザー・インターフェース要素の定義が含まれています。</p>
+<div class="section context"><div class="p">このリソース・ファイルを使用すると、以下のイベント・リスト・ウィンドウのメニュー、ツールバー・ボタン、フィールド・ラベルと項目、プッシュボタン、ステータス・バー、列見出し、およびイベント・データのフォント・サイズを変更できます。<ul class="ul"><li class="li">イベント・リストの「<span class="keyword wintitle">ログイン</span>」ウィンドウ</li>
+<li class="li">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ</li>
+<li class="li">イベント・リスト</li>
+<li class="li">モニター・ボックス・ウィンドウおよびイベント・リストからアクセスできるその他のすべてのウィンドウ。 これらのウィンドウには、フィルター・ビルダー、ビュー・ビルダー、およびメニュー・オプションをクリックして開くその他のウィンドウが含まれます。</li>
+</ul>
+</div>
+<p class="p"><span class="ph filepath">NCOEvent</span> リソース・ファイルを使用して、イベント・リスト・ウィンドウの他の属性 (例えば、フォント・タイプ、ストリング値、および色) を変更することもできます。</p>
+<p class="p">コンダクター (<kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd>) を使用してデスクトップ・ツールへのシングル・サインオン・アクセスを提供する場合、<span class="ph filepath">NCOEvent</span> リソース・ファイルで行ったフォントの変更は、モニター・ボックス・ウィンドウ、イベント・リスト、および関連するウィンドウに反映されます。
+コマンド・プロンプト (<kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd>) からイベント・リストを開始すると、フォントの変更が「<span class="keyword wintitle">Login</span>」ウィンドウ、モニター・ボックス・ウィンドウ、イベント・リスト、および関連するウィンドウに反映されます。</p>
+<p class="p">UNIX イベント・リスト・ウィンドウのフォント・サイズを構成するには、以下のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">以下の場所に移動します。</span> <p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+
+<p class="p">この場合、<var class="keyword varname">arch</var> はオペレーティング・システム・ディレクトリーであり、<var class="keyword varname">locale_name</var> はフル・ロケール名 (例: en_GB.ISO8859-1) です。 このディレクトリー内のいくつかのロケール名は、シンボリック・リンクの場合もあることに注意してください。</p>
+
+<div class="note tip"><span class="tiptitle">ヒント:</span> 変更が可視になるようにするためには、<var class="keyword varname">locale_name</var> 値が現行のロケールに一致している必要があります。 (引数を指定しないで) <span class="keyword cmdname">locale</span> コマンドを実行すると、現行のロケールをリスト表示できます。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、<span class="ph filepath">NCOEvent</span> リソース・ファイルを編集して、イベント・リスト・リソースのフォント・サイズを変更します。</span> <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="90%" rules="all" frame="border" border="1"><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="33.33333333333333%" id="d145672e107">リソース</th>
+<th class="entry" valign="bottom" width="66.66666666666666%" id="d145672e109">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">すべてのウィンドウのほとんどのテキスト (例えば、メニュー、ツールバー・ボタン、ほとんどのフィールド・ラベル、およびプッシュボタン) に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*XmText.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">ジャーナル項目などの説明テキスト項目に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*XmTextField.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">編集可能テキスト (例えば、イベント・リストの「<span class="keyword wintitle">ログイン</span>」ウィンドウ内の<span class="ph uicontrol">「ユーザー名」</span>項目および<span class="ph uicontrol">「パスワード」</span>項目) に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*XmLabel.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">編集不可ラベル (例えば、イベント・リストの「<span class="keyword wintitle">ログイン</span>」ウィンドウ内のフィールド・ラベル<span class="ph uicontrol">「ユーザー名」</span>および<span class="ph uicontrol">「パスワード」</span>、またはモニター・ボックスのラベル<span class="ph uicontrol">「数」</span>および<span class="ph uicontrol">「メトリック」</span>) に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*main_status_line.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">ログイン後にモニター・ボックス・ウィンドウのステータス・バーに表示される状況メッセージ (例えば「<samp class="ph msgph">準備できました</samp>」) に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*main_user_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">ログイン後のモニター・ボックス・ウィンドウのステータス・バーに表示される、ログインしたユーザーの名前に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*main_server_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">ログイン後のモニター・ボックス・ウィンドウのステータス・バーに表示される ObjectServer 名に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*sub_status_line.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">イベント・リストのステータス・バーに表示される状況メッセージ (例えば「<samp class="ph msgph">行は変更されませんでした</samp>」) に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*sub_clock.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">イベント・リストのステータス・バーに表示される日時に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*sub_user_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">イベント・リストのステータス・バーに表示される、ログインしたユーザーの名前に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*sub_server_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">イベント・リストのステータス・バーに表示される ObjectServer 名に影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 ">NCOEvent*sub_matrix.labelFont</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">イベント・リスト表の列見出しに影響します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d145672e107 "><strong class="ph b">NCOEvent*sub_matrix.fontList</strong></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d145672e109 ">イベント・リスト表のイベント・データのテキストに影響します。<div class="note note"><span class="notetitle">注:</span> このリソースは <span class="ph filepath">NCOEvent</span> リソース・ファイル内にはリストされませんが、イベント・データのフォントを変更する場合は追加できます。 NCOEvent*sub_matrix.labelFont の行はコピーして貼り付けることができるため、このリソース・ファイル内ではこの行が重複します。 その場合は、<samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp> の部分を <samp class="ph codeph">NCOEvent*sub_matrix.fontList</samp> に変更して、貼り付けた行を修正してください。</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <p class="p">例えば、これらのリソースのいずれかのフォント・サイズを <strong class="ph b">12</strong> から <strong class="ph b">24</strong> へと大きくするには、<samp class="ph codeph">-adobe-helvetica-bold-r-normal--<strong class="ph b">12</strong>-*-75-75-*-*-iso*-*</samp> を <samp class="ph codeph">-adobe-helvetica-bold-r-normal--<strong class="ph b">24</strong>-*-75-75-*-*-iso*-*</samp> に変更します。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">変更を保存します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">変更内容を有効にするために、開いているすべてのモニター・ボックスとイベント・リスト・ウィンドウを閉じてから、もう一度それらを開きます。</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="イベント・リストの表示をカスタマイズすることができます。">イベント・リストの表示のカスタマイズ</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+<div><a class="link" href="omn_con_configuringfontsunixdsktop.html" title="UNIX デスクトップをご使用のロケールで表示する場合、そのロケールのエンコード方式でテキストを表示するために必要なフォントを構成しなければならないことがあります。">UNIX デスクトップ用のフォントの構成</a></div>
+<div><a class="link" href="omn_usr_startingconductor.html" title="コンダクターからは、アラートの表示と管理のために使用できるすべての Tivoli Netcool/OMNIbus デスクトップ・ツールにシングル・サインオンでアクセスできます。">コンダクターの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

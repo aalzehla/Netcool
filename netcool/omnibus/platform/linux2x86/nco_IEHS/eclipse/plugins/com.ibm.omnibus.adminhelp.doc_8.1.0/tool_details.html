@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Tool Details" />
+<meta name="abstract" content="Use this window to set up a new tool or edit the details of an existing tool." />
+<meta name="Description" content="Use this window to set up a new tool or edit the details of an existing tool." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittools.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditprompts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_ref_sqlcmdsvariableexp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_tooldetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Tool Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_tooldetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Tool Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new tool or edit the details
+of an existing tool.</p>
+<div class="section">The <span class="keyword wintitle">Tool Details</span> window contains the
+following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_toolsetuparea">Tool setup area</a></li>
+<li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_sqltab">SQL tab</a></li>
+<li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_executabletab">Executable tab</a></li>
+<li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_journaltab">Journal tab</a></li>
+<li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_accesstab">Access tab</a></li>
+<li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_platformtab">Platform tab</a></li>
+<li class="li"><a class="xref" href="#netom_tooldetailswindow__netom_tooldetails_descriptiontab">Description tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_toolsetuparea"><h2 class="title sectiontitle">Tool setup area</h2><div class="p">Complete
+this area as follows:<dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_toolsetupfields"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the tool. If you are editing a tool, you
+cannot change the name.</dd>
+<dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to activate the tool on the system and make
+it available for operators to use. Clear this check box to create
+the tool without activating it at the present time, or to make the
+tool unavailable.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_sqltab"><h2 class="title sectiontitle">SQL tab</h2><div class="p">Use
+this tab only if you want to run SQL commands on the ObjectServer
+when the tool is selected for use. Complete this tab as follows:<dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_sqltabfields"><dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to specify that the SQL commands entered
+must run when the tool is used.</dd>
+<dt class="dt dlterm">Execute for each selected row</dt>
+<dd class="dd">Select this check box to specify that the SQL commands must run
+once for each row in an event list row selection.</dd>
+<dt class="dt dlterm">SQL Commands</dt>
+<dd class="dd">Type the SQL commands that must run when the tool is used. </dd>
+<dd class="dd">You can use the SQL helper buttons shown to the right of this
+field to construct the SQL commands. <div class="note tip"><span class="tiptitle">Tip:</span> You can include
+a prompt in an SQL statement so that when the tool runs, it calls
+up a prompt window or a pop-up menu for users to enter or select information.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_executabletab"><h2 class="title sectiontitle">Executable tab</h2><div class="p">Use
+this tab only if you want to run external commands when the tool is
+selected for use. Complete this tab as follows:<dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_executabletabfields"><dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to specify that the executable commands
+entered must run when the tool is used.</dd>
+<dt class="dt dlterm">Execute for each selected row</dt>
+<dd class="dd">Select this check box to specify that the executable commands
+must run once for each row in an event list row selection.</dd>
+<dt class="dt dlterm">Redirect output</dt>
+<dd class="dd">Select this check box to specify that output must be echoed through
+a read-only window when the commands are run. Clear this check box
+to discard the output.</dd>
+<dt class="dt dlterm">Redirect errors</dt>
+<dd class="dd">Select this check box to specify that any error messages must
+be echoed through a read-only window when the commands are run. Clear
+this check box to discard the error messages.</dd>
+<dt class="dt dlterm">Executable Commands</dt>
+<dd class="dd">Type the commands that must run when this tool is used.</dd>
+<dd class="dd">You can use the SQL helper buttons shown to the right of this
+field to construct the executable commands. <div class="note tip"><span class="tiptitle">Tip:</span> You can
+include a prompt in an external command so that when the tool runs,
+it calls up a prompt window or a pop-up menu for users to enter or
+select information.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_journaltab"><h2 class="title sectiontitle">Journal tab</h2><div class="p">Use
+this tab to specify journal settings that must apply when the tool
+is selected for use. Complete this tab as follows: <dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_journaltabfields"><dt class="dt dlterm">Force Journal Entry</dt>
+<dd class="dd">Select this check box to force users to enter journal text before
+running the tool. This text is appended to the journal of the selected
+alert or alerts when the tool is used.</dd>
+<dt class="dt dlterm">Execute for each selected row</dt>
+<dd class="dd">Select this check box to enter journal information once for each
+row in an event list row selection. </dd>
+<dt class="dt dlterm">Journal Entry</dt>
+<dd class="dd">Type the text for the journal entry.</dd>
+<dd class="dd">You can use the helper buttons shown to the right of this field
+to construct the journal text. <div class="note tip"><span class="tiptitle">Tip:</span> You can include a
+prompt in a journal entry so that when the tool runs, it calls up
+a prompt window or a pop-up menu for users to enter or select information.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_accesstab"><h2 class="title sectiontitle">Access tab</h2><div class="p">Use
+this tab to specify alert classes to which the tool applies, and the
+groups of users permitted to use the tool. Complete this tab as follows:<dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_accesstabfields"><dt class="dt dlterm">Class Access</dt>
+<dd class="dd">Select the alert classes for which the tool can be used. To select
+all alert classes, click <span class="ph uicontrol">Tick All</span> to the immediate
+right of this list. To clear all your selections, click <span class="ph uicontrol">Tick
+None</span> to the immediate right of this list. You can also
+individually select each check box required. </dd>
+<dt class="dt dlterm">Group Access</dt>
+<dd class="dd">Select the user groups that can use this tool. To select all groups,
+click <span class="ph uicontrol">Tick All</span> to the immediate right of this
+list. To clear all your selections, click <span class="ph uicontrol">Tick None</span> to
+the immediate right of this list. You can also individually select
+each check box required.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_platformtab"><h2 class="title sectiontitle">Platform tab</h2><div class="p">Use
+this tab to specify the operating systems on which the tool is available.
+Complete this tab as follows:<dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_platformtabfields"><dt class="dt dlterm">Available Platforms</dt>
+<dd class="dd">Select the check boxes for the operating systems on which the
+tool will be available. To select all operating systems, click <span class="ph uicontrol">Tick
+All</span> to the right of this list. To clear all your selections,
+click <span class="ph uicontrol">Tick None</span> to the right of this list.<div class="note important"><span class="importanttitle">Important:</span> You <em class="ph i">must</em> always specify the operating systems
+on which the tool can be used. The tool is only available on platforms
+that are selected.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_descriptiontab"><h2 class="title sectiontitle">Description
+tab</h2><p class="p">Use
+this tab to enter an optional text description for this tool. This
+can be useful to anyone who is trying to understand how the tool works.</p>
+</div>
+<div class="section" id="netom_tooldetailswindow__netom_tooldetails_saving_closing"><h2 class="title sectiontitle">Saving your
+tool details</h2><div class="p">After creating or editing a tool, you can save
+or cancel the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_tooldetailswindow__netom_tooldetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the tool details and close the window.
+New tools are added to the <span class="keyword wintitle">Tools</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingedittools.html" title="When you create a tool, it is added to the tools database. The tools that appear in the Tools pane are links to entries in this database.">Creating and editing tools</a></div>
+<div><a class="link" href="omn_adm_creatingeditprompts.html" title="You can create prompts to use with tools.">Creating and editing prompts</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_ref_sqlcmdsvariableexp.html" title="You can use a number of SQL commands, variable expressions, and helper buttons to retrieve information from a running event list, the current event, or the operating system environment. You can use these expressions when creating a tool, trigger, or SQL procedure, or in parameters passed to a transient event list.">SQL commands, variable expressions, and helper buttons in tools, automations, and transient event lists</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

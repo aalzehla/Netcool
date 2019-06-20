@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Windows におけるオンライン・ヘルプへのアクセス" />
+<meta name="abstract" content="オンライン・ヘルプは、Web アプリケーションである IBM Eclipse Help System (IEHS) を使用してデプロイされています。 インストール環境と構成設定に基づいて、スタンドアロン・モードかインフォメーション・センター・モードのいずれかで、オンライン・ヘルプにアクセスできます。" />
+<meta name="Description" content="オンライン・ヘルプは、Web アプリケーションである IBM Eclipse Help System (IEHS) を使用してデプロイされています。 インストール環境と構成設定に基づいて、スタンドアロン・モードかインフォメーション・センター・モードのいずれかで、オンライン・ヘルプにアクセスできます。" />
+<meta name="DC.subject" content="オンライン・ヘルプ, アクセス, 構成, スタンドアロン・モード, インフォメーション・センター・モード, IBM Eclipse Help System (IEHS), IEHS (IBM Eclipse Help System), IEHS, サーバーのシャットダウン" />
+<meta name="keywords" content="オンライン・ヘルプ, アクセス, 構成, スタンドアロン・モード, インフォメーション・センター・モード, IBM Eclipse Help System (IEHS), IEHS (IBM Eclipse Help System), IEHS, サーバーのシャットダウン" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_winaccessingonlinehelp" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>Windows におけるオンライン・ヘルプへのアクセス</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_winaccessingonlinehelp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Windows におけるオンライン・ヘルプへのアクセス</h1>
+<div class="body taskbody"><p class="shortdesc">オンライン・ヘルプは、Web アプリケーションである IBM® Eclipse Help System (IEHS) を使用してデプロイされています。 インストール環境と構成設定に基づいて、スタンドアロン・モードかインフォメーション・センター・モードのいずれかで、オンライン・ヘルプにアクセスできます。</p>
+<div class="section context"><p class="p">オンライン・ヘルプを構成してアクセスするには、以下の表で説明する手順を実行してください。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. ヘルプの構成設定</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d7660e58">設定</th>
+<th class="entry" valign="bottom" width="75%" id="d7660e60">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d7660e58 ">スタンドアロン・モード</td>
+<td class="entry" valign="top" width="75%" headers="d7660e60 ">スタンドアロン・モードでオンライン・ヘルプを使用するには
+、<span class="keyword">Tivoli Netcool/OMNIbus</span> のインストール時に、
+<span class="ph uicontrol">「ローカル・ヘルプ・システム」</span>機能を選択していなければなりません。 <div class="p">インストール後は、IEHS のデフォルト・ポート番号 8888 が別のローカル・サービスで使用されている場合にのみ、構成が必要になります。 この場合、IEHS 構成ファイル <span class="ph filepath">%NCHOME%¥omnibus¥ini¥nco_IEHS.cfg</span> を以下のように編集します。 <ul class="ul"><li class="li">IEHSMode: 0</li>
+<li class="li">IEHSHost: <var class="keyword varname">ブランク</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">未使用のポート番号</var></li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">注:</span> 構成ファイルでポート番号を変更したら、ローカル IEHS サーバーをシャットダウンして変更内容を有効にする必要があります。 <kbd class="ph userinput">%NCHOME%¥omnibus¥bin¥help_end.bat</kbd> コマンドを実行します。</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d7660e58 ">インフォメーション・センター・モード</td>
+<td class="entry" valign="top" width="75%" headers="d7660e60 ">インフォメーション・センター・モードでは、システム管理者が、オンライン・ヘルプ・システムについてはすべてのユーザーが 1 つの IEHS Web サーバーを共用できるようにセットアップを構成します。これで、ローカル・ホストまたはワークステーションの負荷が軽減されます。<p class="p">システム管理者から、インフォメーション・センター・モードでオンライン・ヘルプにアクセスするように通知があった場合は、ローカルの IEHS 構成ファイル <span class="ph filepath">%NCHOME%¥omnibus¥ini¥nco_IEHS.cfg</span> を次のように構成する必要があります。 </p>
+<ul class="ul"><li class="li">IEHSMode: 1</li>
+<li class="li">IEHSHost: <var class="keyword varname">IEHS サーバーの IP アドレスまたはホスト名</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">IEHS サーバーが稼働しているポート番号</var></li>
+</ul>
+<p class="p">IEHSHost と IEHSPort の設定値は、システム管理者から提供されます。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">スタンドアロン・モードでオンライン・ヘルプにアクセスする場合は、デフォルトのヘルプ・ブラウザー・ウィンドウが自動的に開いてその場に応じたテキストを表示します。 ローカル IEHS サーバーは、始動すると最初のヘルプ要求を実行し、その後はシャットダウンするまで稼働し続けます。 ローカル IEHS サーバーをシャットダウンするには、以下のコマンドを実行します。</p>
+<p class="p"><kbd class="ph userinput">%NCHOME%¥omnibus¥bin¥help_end.bat</kbd></p>
+<p class="p">通常は、コンピューターをリブートする前のみ、<span class="keyword cmdname">help_end.bat</span> コマンドを実行します。</p>
+<p class="p">インフォメーション・センター・モードでオンライン・ヘルプにアクセスする場合は、その前にシステム管理者が、指定されたリモート IEHS サーバーを始動しておく必要があります。</p>
+<div class="note note"><span class="notetitle">注:</span> Windows では、最初に IEHS サーバーをシャットダウンせずにシステムをリブートしたり、(タスク・マネージャーを使用して) IEHS の javaw プロセスを停止した場合、IEHS サーバーが生成する一時ファイルの一部は除去されません。 その結果、オンライン・ヘルプにアクセスしにくくなる場合があります。 スタンドアロン・モードおよびインフォメーション・センター・モードでは、システムをリブートする<em class="ph i">前に</em>、<span class="keyword cmdname">help_end.bat</span> または <span class="keyword cmdname">IC_end.bat</span> を実行して IEHS サーバーをシャットダウンする必要があります。また、IEHS javaw プロセスは手動で停止しないでください。 スタンドアロン・モードでヘルプにアクセスできない場合、あるいはインフォメーション・センター・モードで IEHS サーバーを始動できない場合は、<span class="keyword cmdname">help_end.bat</span> または <span class="keyword cmdname">IC_end.bat</span> を実行して一時ファイルを消去してから、再試行してください。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="コンダクターを使用して、Tivoli Netcool/OMNIbus デスクトップ・ツール (またはクライアント・アプリケーション) を管理することができます。">デスクトップ・ツールへのアクセス</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

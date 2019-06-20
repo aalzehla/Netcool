@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="デスクトップ ObjectServer アーキテクチャー" />
+<meta name="abstract" content="デスクトップ ObjectServer アーキテクチャーを使用すると、負荷が重くなりがちな ObjectServer のパフォーマンスを改善できます。" />
+<meta name="Description" content="デスクトップ ObjectServer アーキテクチャーを使用すると、負荷が重くなりがちな ObjectServer のパフォーマンスを改善できます。" />
+<meta name="DC.subject" content="デスクトップ ObjectServer, 概要, ObjectServer, デスクトップ ObjectServer アーキテクチャー, アーキテクチャーの概要" />
+<meta name="keywords" content="デスクトップ ObjectServer, 概要, ObjectServer, デスクトップ ObjectServer アーキテクチャー, アーキテクチャーの概要" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CEGICIEA" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>デスクトップ ObjectServer アーキテクチャー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="CEGICIEA">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">デスクトップ ObjectServer アーキテクチャー</h1>
+<div class="body conbody"><p class="shortdesc">デスクトップ ObjectServer アーキテクチャーを使用すると、負荷が重くなりがちな ObjectServer のパフォーマンスを改善できます。 </p>
+<p class="p">デスクトップ ObjectServer アーキテクチャーの特徴は次のとおりです。</p>
+<ul class="ul"><li class="li">専用のデスクトップ ObjectServer に負荷を移すことにより、中核となる ObjectServer の作業負荷を軽減する</li>
+<li class="li">デスクトップの反応性 (デスクトップ・オペレーターのアクションがデスクトップ GUI に反映されるまでの時間) を改善する</li>
+<li class="li">デスクトップ GUI のフリーズを少なくする</li>
+<li class="li">負荷が重い、標準の ObjectServer 構成のエンドツーエンドの待ち時間を短くする</li>
+<li class="li">マスター ObjectServer を同時に更新することにより、高度なデータ保全性および整合性を維持する</li>
+</ul>
+<p class="p">デスクトップ ObjectServer アーキテクチャーは、1 つのマスター ObjectServer と、1 つ以上のデスクトップ ObjectServer (通常は 1 つの ObjectServer で実行される作業を分配して実行する) で構成されています。 デュアル・サーバー・デスクトップ (DSD) は、データの書き込み時には 1 つだけのマスター ObjectServer に接続しますが、アラート・データの読み取りおよび表示はデスクトップ ObjectServer から行います。 DSD の主要な機能は標準デスクトップと同じです。つまり、DSD はオペレーターから見て標準デスクトップと同じ振る舞いをします。</p>
+<p class="p">デスクトップ ObjectServer アーキテクチャーを次の図に示します。</p>
+<div class="fig fignone"><span class="figcap">図 1. デュアル・サーバー・デスクトップ・アーキテクチャーの例</span><div class="image"><img class="image" src="cd_omn_adm_dualserverdesktop.gif" alt="この図は、2 つの単一方向ゲートウェイを使用して 2 つのデスクトップ ObjectServer にイベント・データを転送するマスター ObjectServer を示しています。 IDUC 接続は、イベント・データを 2 つのデュアル・サーバー・デスクトップに送信するために使用されています。これらのデュアル・サーバー・デスクトップは、イベント・データを受信すると、SQL 接続を使用してマスターの ObjectServer にデータを書き込みます。" /></div></div>
+<p class="p">DSD は、デスクトップ ObjectServer とマスター ObjectServer に同時に接続します。 DSD で実行されるオペレーター・アクション (例えば、ツール・アクションやジャーナル・アクション) は、片方向の SQL 接続を介して直接マスター ObjectServer に送信されます。</p>
+<p class="p">マスター ObjectServer のアラートは、デスクトップ ObjectServer を介して DSD に送信されます。 これは、マスター ObjectServer からデスクトップ ObjectServer への単一方向の ObjectServer ゲートウェイと、デスクトップ ObjectServer から DSD への IDUC 接続によって実現されます。</p>
+<p class="p">デュアル書き込みモードが使用可能になっている場合は、次の図に示すように、別の片方向 SQL 接続を介してデスクトップ ObjectServer にも更新が送信されます。 </p>
+<div class="fig fignone"><span class="figcap">図 2. 二重書き込みモードが有効になっているデュアル・サーバー・デスクトップ・アーキテクチャーの例</span><div class="image"><img class="image" src="cd_omn_adm_dsddualwrite.gif" alt="この図は、二重書き込みモードが有効になっているデュアル・サーバー・デスクトップ・アーキテクチャーを示しています。" /></div></div>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

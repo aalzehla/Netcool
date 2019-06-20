@@ -1,0 +1,83 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-ENV-MIB , VMWARE-VMINFO-MIB
+#
+###############################################################################
+
+table VmwSubsystemTypes =
+{
+    {"1","Unknown"}, ### unknown
+    {"2","Chassis"}, ### chassis
+    {"3","Power Supply"}, ### powerSupply
+    {"4","Fan"}, ### fan
+    {"5","Cpu"}, ### cpu
+    {"6","Memory"}, ### memory
+    {"7","Battery"}, ### battery
+    {"8","Temperature Sensor"}, ### temperatureSensor
+    {"9","Raid Controller"}, ### raidController
+    {"10","Voltage"} ### voltage
+}
+default = "Unknown"
+
+table VmwSubsystemStatus =
+{
+    {"1","Unknown"}, ### unknown
+    {"2","Normal"}, ### normal
+    {"3","Marginal"}, ### marginal
+    {"4","Critical"}, ### critical
+    {"5","Failed"} ### failed
+}
+default = "Unknown"
+
+table VmwCIMSeverity =
+{
+    {"0","Unknown"}, ### unknown
+    {"1","Other"}, ### other
+    {"2","Information"}, ### information
+    {"3","Warning"}, ### warning
+    {"4","Minor"}, ### minor
+    {"5","Major"}, ### major
+    {"6","Critical"}, ### critical
+    {"7","Fatal"} ### fatal
+}
+default = "Unknown"
+
+table VmwCIMAlertTypes =
+{
+    {"1","Other"}, ### other
+    {"2","Communications"}, ### communications
+    {"3","QOS"}, ### qos
+    {"4","Processing Error"}, ### processingError
+    {"5","Device Alert"}, ### deviceAlert
+    {"6","Environmental Alert"}, ### environmentalAlert
+    {"7","Model Change"}, ### modelChange
+    {"8","Security Alert"} ### securityAlert
+}
+default = "Unknown"
+
+table VmwCIMAlertFormat =
+{
+    {"0","Unknown"}, ### unknown
+    {"1","Other"}, ### other
+    {"2","CIM Object Path"} ### cimObjectPath
+}
+default = "Unknown"

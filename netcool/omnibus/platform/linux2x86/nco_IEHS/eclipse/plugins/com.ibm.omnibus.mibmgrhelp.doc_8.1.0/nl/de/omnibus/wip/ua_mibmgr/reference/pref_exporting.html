@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Benutzervorgaben für den Export festlegen" />
+<meta name="abstract" content="In diesem Abschnitt wird beschrieben, wie Sie die Benutzervorgaben für den Export für Regeldateien festlegen." />
+<meta name="Description" content="In diesem Abschnitt wird beschrieben, wie Sie die Benutzervorgaben für den Export für Regeldateien festlegen." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Benutzervorgaben für den Export festlegen</h1>
+<div class="body refbody"><p class="shortdesc">In diesem Abschnitt wird beschrieben, wie Sie die
+Benutzervorgaben für den Export für Regeldateien festlegen.</p>
+<div class="section"><p class="p">Klicken Sie zum Festlegen der Benutzervorgaben für Verzeichnisse
+auf <img class="image" src="../gifs/global_preferences.gif" alt="Symbol &#34;Benutzervorgaben&#34;" /> <span class="ph uicontrol">Benutzervorgaben</span>
+oder klicken Sie im Hauptmenü auf <span class="ph menucascade"><span class="ph uicontrol">Datei</span> &gt; <span class="ph uicontrol">Benutzervorgaben</span></span>
+und dann im linken Bereich des Fensters <span class="keyword wintitle strongwintitle">Benutzervorgaben</span>
+auf <span class="ph uicontrol">Exportieren</span>.</p>
+</div>
+<div class="section"><ul class="ul"><li class="li">Geben Sie im Feld <span class="ph uicontrol">Include-Pfad</span>
+die Position der Regeln an, die mit den Paketen für NCiL-Regeldateien (NCiL = Netcool
+Include Library) installiert wurden (falls zutreffend).
+Diese Option ist nur dann erforderlich, wenn Sie Daten im NCiL-Dateiformat
+exportieren und wenn der Verzeichnispfad auf zu berücksichtigende
+Regeln verweisen muss. Daher müssen die neuen Regeldateien nicht
+manuell bearbeitet werden. Der Standardwert ist
+<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/probes/<var class="keyword varname">arch</var></span>. </li>
+<li class="li">Geben Sie im Feld <span class="ph uicontrol">Standardmäßiges Exportdateiformat</span>
+entweder ein Windows/DOS-Format (CRLF) oder ein Unix-Format (LF) für
+die Ausgabedatei an. Mit diesem Merkmal können Sie Regeln auf
+einer Windows-Maschine erstellen und auf eine Unix-Maschine kopieren,
+ohne ein Dienstprogramm wie <samp class="ph codeph">dos2unix</samp> auszuführen. <div class="note note"><span class="notetitle">Anmerkung:</span> Diese Auswahl gilt für alle Ausgabedateien und ist nicht auf die
+Regeldateien beschränkt. Der Standardwert ist das Unix-Format.</div>
+</li>
+<li class="li">Geben Sie im Feld <span class="ph uicontrol">Alerttypen</span> die Optionen
+aus der Dropdown-Liste an, die angezeigt werden, wenn
+das Feld <samp class="ph codeph">@Type</samp> eines Traps in der Sicht
+<span class="keyword wintitle strongwintitle">Zusatzinformation</span> bearbeitet wird.</li>
+</ul>
+<p class="p">Die folgenden Optionen sind nur dann verfügbar,
+wenn zuvor das NCKL-Exportformat ausgewählt wurde:</p>
+<ul class="ul"><li class="li">Wenn das Kontrollkästchen <span class="ph uicontrol">Beschreibungen von Variablenbindungen berücksichtigen</span>
+ausgewählt wird, werden die Beschreibungen von Variablenbindungen als
+Kommentardokumentation hinzugefügt.
+Standardmäßig ist dieses Kontrollkästchen aktiviert.</li>
+<li class="li">Wenn das Kontrollkästchen <span class="ph uicontrol">Besseren Wert für @AlertKey berechnen</span>
+ausgewählt wird, wird der Wert für <samp class="ph codeph">@AlertKey</samp>
+aus dem übergeordneten Objekt einer Variablenbindung
+generiert. Standardmäßig ist dieses Kontrollkästchen aktiviert.</li>
+<li class="li">Wenn das Kontrollkästchen <span class="ph uicontrol">@Agent ein Mal pro Unternehmen festlegen</span>
+ausgewählt wird, wird das Feld <samp class="ph codeph">@Agent</samp> für
+jedes Unternehmen festgelegt. Das Feld <samp class="ph codeph">@Agent</samp> basiert auf den Namen der
+MIB-Module, die für die Regeldatei verarbeitet werden. Standardmäßig ist dieses Kontrollkästchen aktiviert.</li>
+<li class="li">Wenn das Kontrollkästchen <span class="ph uicontrol">Schablone für @Class hinzufügen</span>
+ausgewählt wird, wird das Feld <samp class="ph codeph">@Class</samp>
+festgelegt. Wenn das Kontrollkästchen <span class="ph uicontrol">Schablone für @Class hinzufügen</span>
+ausgewählt wird, wird das Feld <samp class="ph codeph">@Class</samp>
+auf den Wert 300 festgelegt. Standardmäßig ist dieses Kontrollkästchen aktiviert.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Übergeordnetes Thema:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="Über das Fenster Benutzervorgaben können Sie mehrere globale MIB Manager-Benutzervorgaben konfigurieren.">Globale Benutzervorgaben konfigurieren</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Zugehörige Tasks</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="Vorgehensweise beim Exportieren von SNMP-MIB-Daten aus MIB Manager in verschiedene Formate.">MIB-Daten exportieren</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

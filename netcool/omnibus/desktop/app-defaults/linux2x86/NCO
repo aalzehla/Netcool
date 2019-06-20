@@ -1,0 +1,1967 @@
+
+
+!
+! Ident $Id: Global.res 1.9 1999/07/23 16:50:43 chris Development $
+!
+
+NCO*foreground: White
+NCO*background: Slate Grey
+NCO*fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*iconFontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*XmText.fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*XmTextField.fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*XmLabel.fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*status_line.fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*user_field.fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+NCO*server_field.fontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*,-adobe-helvetica-bold-r-normal--18-*-75-75-*-*-iso*-*=large
+
+NCO*XmToggleButton.selectColor: red
+NCO*XmToggleButton.fillOnSelect: True
+NCO*XmToggleButtonGadget.selectColor: red
+NCO*XmToggleButtonGadget.fillOnSelect: True
+NCO*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+NCO*main_area.background: Cadet Blue
+NCO*dir_area.background: Cadet Blue
+NCO*XmTextField.background: Cadet Blue
+NCO*XmText.background: Cadet Blue
+
+NCO*status_line.background: Slate Grey
+NCO*user_field.background: Slate Grey
+NCO*server_field.background: Slate Grey
+
+NCO*XmXrtIntField.background: Cadet Blue
+
+NCO*error_dialog_popup.title: Error
+NCO*warning_dialog_popup.title: Warning
+
+NCO*XmLabel.translations: #override\n	<Btn2Down>: DoNothing()
+
+NCO*XmPushButton.translations: #override\n	<Btn2Down>: DoNothing()
+
+
+
+
+!
+! Ident: $Id: Global.res 1.2 1997/02/20 14:36:47 adam Development $
+!
+
+
+
+
+
+*viewBuilderSortFontList: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*
+*view_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+
+
+*view_builder*vb_new_question_dialog_popup.title: Abandon Changes ?
+*view_builder*vb_new_question_dialog.messageString: Modified definitions will be lost by creating a new view\nAre you sure you want to do this ?
+*view_builder*vb_new_question_dialog.okLabelString: Yes
+*view_builder*vb_new_question_dialog.cancelLabelString: No
+*view_builder*vb_new_question_dialog.helpLabelString: Help
+
+*view_builder*vb_open_question_dialog_popup.title: Abandon Changes ?
+*view_builder*vb_open_question_dialog.messageString: Modified definitions will be lost by opening a new view\nAre you sure you want to do this ?
+*view_builder*vb_open_question_dialog.okLabelString: Yes
+*view_builder*vb_open_question_dialog.cancelLabelString: No
+*view_builder*vb_open_question_dialog.helpLabelString: Help
+
+*view_builder*vb_exit_question_dialog_popup.title: Abandon Changes ?
+*view_builder*vb_exit_question_dialog.messageString: Modified definitions will be lost by closing this window\nAre you sure you want to do this ?
+*view_builder*vb_exit_question_dialog.okLabelString: Yes
+*view_builder*vb_exit_question_dialog.cancelLabelString: No
+*view_builder*vb_exit_question_dialog.helpLabelString: Help
+
+*view_builder*display_matrix.labelFont: -dt-interface system-medium-r-normal-m*-*-*-*-*-*-*-*-*:
+
+*view_builder*display_matrix.gridType:	XmGRID_SHADOW_IN
+*view_builder*display_matrix.height:         80
+*view_builder*display_matrix.rows:           2
+*view_builder*display_matrix.columns:        1
+*view_builder*display_matrix.columnWidths:   10
+
+*view_builder*display_matrix.cellMarginWidth: 		2
+*view_builder*display_matrix.cellMarginHeight: 		2
+*view_builder*display_matrix.cellShadowThickness:	1
+*view_builder*display_matrix.cellShadowType: 		XmSHADOW_OUT
+
+*view_builder*display_matrix.showArrows: True
+*view_builder*display_matrix.allowColumnResize: True
+
+*view_builder*display_matrix.foreground: black
+*view_builder*display_matrix.rowLabelColor: White
+*view_builder*display_matrix.columnLabelColor: White
+*view_builder*display_matrix.selectedBackground: White
+*view_builder*display_matrix.selectedForeground: black
+
+*view_builder*display_matrix.translations:   #replace\n			Shift Ctrl<Btn1Down>: ResizeColumns()\n                        <Btn1Down>:      SelectCell(select)\n                        <Btn2Down>:      SelectCell(drag)\n                        <Btn3Down>:      SelectCell(menu)
+
+
+
+
+*view_builder*display_matrix.traversalOn:	False
+
+*view_builder*display_column_list.translations:	#override\n			<Btn2Down>:      VbDpyDragStart()
+
+*view_builder*sort_column_list.translations:	#override\n			<Btn2Down>:      VbSortDragStart()
+
+
+*view_builder*display_matrix.labelFont: -adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*
+
+*view_builder*vb_extension_dialog_popup.title: Use Incorrect Extension ?
+*view_builder*vb_extension_dialog.messageString: The specified filename dosen\'t have a .elv extension\nAre you sure you want to save the data with this filename ?
+*view_builder*vb_extension_dialog.okLabelString: Yes
+*view_builder*vb_extension_dialog.cancelLabelString: No
+*view_builder*vb_extension_dialog.helpLabelString: Help
+
+
+! Generated by X-Designer
+
+
+! view_builder
+*view_builder*view_builder.width: 500
+*view_builder*view_builder.title: View Builder
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*view_builder*file_cascade_button.labelString: File
+*view_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*view_builder*file_new_button.labelString: New
+*view_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*view_builder*file_open_button.labelString: Open ...
+*view_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*view_builder*file_save_button.labelString: Save
+*view_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*view_builder*file_save_as_button.labelString: Save As ...
+*view_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*view_builder*file_close_button.labelString: Close
+*view_builder*file_close_button.mnemonic: C
+
+! vb_mb
+
+! vb_apply_button
+*view_builder*vb_apply_button.labelString: Apply
+
+! vb_close_button
+*view_builder*vb_close_button.labelString: Close
+
+! vb_help_button
+*view_builder*vb_help_button.labelString: Help
+
+! form2
+
+! label1
+*view_builder*name_label.labelString: View Name
+
+! name_field
+
+! view_editable_toggle
+*view_builder*view_editable_toggle.labelString: Editable
+
+! frame2
+
+! dnd_target
+
+! disp_cols_form
+*view_builder*disp_cols_form.paneMinimum: 1
+
+! label2
+*view_builder*display_columns_label.labelString: Display Columns
+
+! frame4
+
+! display_matrix
+
+! rowcol1
+
+! disp_add_button
+*view_builder*disp_add_button.labelString: Add
+
+! disp_remove_button
+*view_builder*disp_remove_button.labelString: Remove
+
+! display_column_list
+
+! rowcol2
+
+! move_first_button
+*view_builder*move_first_button.labelString: First
+
+! move_left_button
+*view_builder*move_left_button.labelString: Left
+
+! move_right_button
+*view_builder*move_right_button.labelString: Right
+
+! move_last_button
+*view_builder*move_last_button.labelString: Last
+
+! aligner1
+
+! column_label
+*view_builder*column_label.labelString: Column
+
+! column_field
+
+! title_label
+*view_builder*title_label.labelString: Title
+
+! title_field
+
+! column_align_menu
+*view_builder*column_align_menu.labelString: Justify
+
+! label3
+
+! column_align_beginning
+*view_builder*column_align_beginning.labelString: Left
+
+! column_align_center
+*view_builder*column_align_center.labelString: Centre
+
+! column_align_end
+*view_builder*column_align_end.labelString: Right
+
+! title_align_menu
+*view_builder*title_align_menu.labelString: Justify
+
+! label4
+
+! title_align_beginning
+*view_builder*title_align_beginning.labelString: Left
+
+! title_align_center
+*view_builder*title_align_center.labelString: Centre
+
+! title_align_end
+*view_builder*title_align_end.labelString: Right
+
+! width_label
+*view_builder*width_label.labelString: Width
+
+! width_scale
+
+! label5
+*view_builder*column_details_label.labelString: Column Details
+
+! label6
+*view_builder*num_fixed_label.labelString: Fixed Columns
+
+! num_fixed_scale
+
+! sort_cols_form
+*view_builder*sort_cols_form.paneMinimum: 1
+
+! label7
+*view_builder*sort_columns_label.labelString: Sort Columns
+
+! sort_column_list
+
+! rowcol3
+
+! sort_add_button
+*view_builder*sort_add_button.labelString: Add
+
+! sort_remove_button
+*view_builder*sort_remove_button.labelString: Remove
+
+! sort_sw
+
+! sort_da
+
+! rowcol4
+
+! move_top_button
+*view_builder*move_top_button.labelString: Top
+
+! move_up_button
+*view_builder*move_up_button.labelString: Up
+
+! move_down_button
+*view_builder*move_down_button.labelString: Down
+
+! move_bottom_button
+*view_builder*move_bottom_button.labelString: Bottom
+
+! restrict_rows_rowcol
+
+! label16
+*view_builder*label16.labelString: Restrict Rows
+
+! restrict_rows_sub_rowcol
+
+! restrict_rows_toggle
+*view_builder*restrict_rows_toggle.labelString: Restrict number of rows
+
+! min_label
+*view_builder*min_label.labelString: Minimum
+
+! restrict_rows_min_spin
+
+! max_label
+*view_builder*max_label.labelString: Maximum
+
+! restrict_rows_max_spin
+
+! default_label
+*view_builder*default_label.labelString: Default
+
+! restrict_rows_default_spin
+
+! restrict_rows_from_eventlist_toggle
+*view_builder*restrict_rows_from_eventlist_toggle.labelString: Set from Event List
+
+
+! vb_sort_popup
+*view_builder*vb_sort_popup.menuPost: <Button3>
+
+! sp_change_button
+*view_builder*sp_change_button.labelString: Change
+
+! sp_top_button
+*view_builder*sp_top_button.labelString: Top
+
+! sp_up_button
+*view_builder*sp_up_button.labelString: Up
+
+! sp_down_button
+*view_builder*sp_down_button.labelString: Down
+
+! sp_bottom_button
+*view_builder*sp_bottom_button.labelString: Bottom
+
+! sp_delete_button
+*view_builder*sp_delete_button.labelString: Remove
+
+! vb_display_popup
+*view_builder*vb_display_popup.menuPost: <Button3>
+
+! dp_first_button
+*view_builder*dp_first_button.labelString: First
+
+! dp_left_button
+*view_builder*dp_left_button.labelString: Left
+
+! dp_right_button
+*view_builder*dp_right_button.labelString: Right
+
+! dp_last_button
+*view_builder*dp_last_button.labelString: Last
+
+! dp_delete_button
+*view_builder*dp_delete_button.labelString: Remove
+
+
+! vb_save_dialog
+*view_builder*vb_save_dialog.title: Save View ...
+
+! vb_save_file_sb
+*view_builder*vb_save_file_sb.applyLabelString: Filter
+*view_builder*vb_save_file_sb.okLabelString: OK
+*view_builder*vb_save_file_sb.cancelLabelString: Cancel
+*view_builder*vb_save_file_sb.helpLabelString: Help
+*view_builder*vb_save_file_sb.selectionLabelString: Selection
+*view_builder*vb_save_file_sb.filterLabelString: File Filter
+*view_builder*vb_save_file_sb.fileListLabelString: Files
+*view_builder*vb_save_file_sb.dirListLabelString: Directories
+*view_builder*vb_save_file_sb.pattern: *.elv
+
+! label10
+*view_builder*vb_save_file_sb.FilterLabel.labelString: File Filter
+
+! save_backup_toggle
+*view_builder*save_backup_toggle.labelString: Backup Existing Files
+
+
+! vb_open_dialog
+*view_builder*vb_open_dialog.title: Open View ...
+
+! vb_open_file_sb
+*view_builder*vb_open_file_sb.applyLabelString: Filter
+*view_builder*vb_open_file_sb.okLabelString: OK
+*view_builder*vb_open_file_sb.cancelLabelString: Cancel
+*view_builder*vb_open_file_sb.helpLabelString: Help
+*view_builder*vb_open_file_sb.selectionLabelString: Selection
+*view_builder*vb_open_file_sb.filterLabelString: File Filter
+*view_builder*vb_open_file_sb.fileListLabelString: Files
+*view_builder*vb_open_file_sb.dirListLabelString: Directories
+*view_builder*vb_open_file_sb.pattern: *.elv
+
+! label14
+*view_builder*vb_open_file_sb.FilterLabel.labelString: File Filter
+
+
+
+!
+! SCCS: @(#)Global.res (libfb) 3.5 01/15/97 14:08:49
+!
+
+
+
+
+
+*filter_builder*XmToggleButton.selectColor: red
+*filter_builder*XmToggleButton.fillOnSelect: True
+*filter_builder*XmToggleButtonGadget.selectColor: red
+*filter_builder*XmToggleButtonGadget.fillOnSelect: True
+*filter_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+*filter_builder*XmTextField.background: Cadet Blue
+*filter_builder*XmText.background: Cadet Blue
+
+*filter_builder*status_line.background: Slate Grey
+*filter_builder*user_field.background: Slate Grey
+*filter_builder*server_field.background: Slate Grey
+
+*filter_builder*int_conversions_combo*XmList*background: CadetBlue
+
+
+
+*filter_builder*string_editor.width: 80
+
+*filter_builder*fb_new_question_dialog_popup.title: Abandon Changes ?
+*filter_builder*fb_new_question_dialog.messageString: Modified definitions will be lost by creating a new filter\nAre you sure you want to do this ?
+*filter_builder*fb_new_question_dialog.okLabelString: Yes
+*filter_builder*fb_new_question_dialog.cancelLabelString: No
+*filter_builder*fb_new_question_dialog.helpLabelString: Help
+
+*filter_builder*fb_open_question_dialog_popup.title: Abandon Changes ?
+*filter_builder*fb_open_question_dialog.messageString: Modified definitions will be lost by opening a new filter\nAre you sure you want to do this ?
+*filter_builder*fb_open_question_dialog.okLabelString: Yes
+*filter_builder*fb_open_question_dialog.cancelLabelString: No
+*filter_builder*fb_open_question_dialog.helpLabelString: Help
+
+*filter_builder*fb_exit_question_dialog_popup.title: Abandon Changes ?
+*filter_builder*fb_exit_question_dialog.messageString: Modified definitions will be lost by closing this window\nAre you sure you want to do this ?
+*filter_builder*fb_exit_question_dialog.okLabelString: Yes
+*filter_builder*fb_exit_question_dialog.cancelLabelString: No
+*filter_builder*fb_exit_question_dialog.helpLabelString: Help
+
+*filter_builder*fb_extension_dialog_popup.title: Use Incorrect Extension ?
+*filter_builder*fb_extension_dialog.messageString: The specified filename dosen\'t have a .elf extension\nAre you sure you want to save the data with this filename ?
+*filter_builder*fb_extension_dialog.okLabelString: Yes
+*filter_builder*fb_extension_dialog.cancelLabelString: No
+*filter_builder*fb_extension_dialog.helpLabelString: Help
+
+*filter_builder*component_button.translations: #override\n		<Btn2Down>:	FbDoNothing()
+
+
+
+
+! LIBFB_MSG0001
+NCO*filter_builder.libfbPasteMismatch.messageString: Table mismatch for paste operation
+! LIBFB_MSG0002
+NCO*fb_edit_mb.libfbInvalidSQL.messageString: Invalid SQL statement. Check the content of your statement.
+! LIBFB_MSG0003
+NCO*fb_edit_mb.libfbInvalidComplex.messageString: Invalid Complex expression statement. Check the content of your statement.
+! LIBFB_MSG0004
+NCO*libfbInvalidLeftExpr.messageString: Invalid left-hand expression. Check the specified\ndatatypes of literals and column references used, plus the associated operators.
+
+
+! Generated by X-Designer
+
+
+! fb_edit_dialog
+*filter_builder*fb_edit_dialog.title: Filter SQL Edit
+
+! fb_edit_mb
+
+! fb_edit_ok_button
+*filter_builder*fb_edit_ok_button.labelString: Ok
+
+! fb_edit_cancel_button
+*filter_builder*fb_edit_cancel_button.labelString: Cancel
+
+! fb_edit_help_button
+*filter_builder*fb_edit_help_button.labelString: Help
+
+! fb_edit_text
+
+
+! filter_builder
+*filter_builder*filter_builder.width: 850
+*filter_builder*filter_builder.height: 700
+*filter_builder*filter_builder.title: Filter Builder
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*filter_builder*file_cascade_button.labelString: File
+*filter_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*filter_builder*file_new_button.labelString: New
+*filter_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*filter_builder*file_open_button.labelString: Open ...
+*filter_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*filter_builder*file_save_button.labelString: Save
+*filter_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*filter_builder*file_save_as_button.labelString: Save As ...
+*filter_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*filter_builder*file_close_button.labelString: Close
+*filter_builder*file_close_button.mnemonic: C
+
+! edit_cascade_button
+*filter_builder*edit_cascade_button.labelString: Edit
+*filter_builder*edit_cascade_button.mnemonic: E
+
+! edit_menu
+
+! edit_cut_button
+*filter_builder*edit_cut_button.labelString: Cut
+*filter_builder*edit_cut_button.mnemonic: t
+*filter_builder*edit_cut_button.accelerator: Shift<Key>osfDelete
+*filter_builder*edit_cut_button.acceleratorText: Shift+Del
+
+! edit_copy_button
+*filter_builder*edit_copy_button.labelString: Copy
+*filter_builder*edit_copy_button.mnemonic: C
+*filter_builder*edit_copy_button.accelerator: Ctrl<Key>osfInsert
+*filter_builder*edit_copy_button.acceleratorText: Ctrl+Insert
+
+! edit_paste_button
+*filter_builder*edit_paste_button.labelString: Paste
+*filter_builder*edit_paste_button.mnemonic: P
+*filter_builder*edit_paste_button.accelerator: Shift<Key>osfInsert
+*filter_builder*edit_paste_button.acceleratorText: Shift+Ins
+
+! fb_mb
+
+! form2
+
+! label1
+*filter_builder*name_label.labelString: Filter Name
+
+! name_field
+
+! filter_editable_toggle
+*filter_builder*filter_editable_toggle.labelString: Editable
+
+! frame2
+
+! dnd_target
+
+! separator3
+
+! button_rc
+
+! rowcol4
+
+! predicate_button
+*filter_builder*predicate_button.labelString: Condition
+
+! negate_button
+*filter_builder*negate_button.labelString: Negate
+
+! leading_logical_button
+*filter_builder*leading_logical_button.labelString: Leading\nLogical
+
+! trailing_logical_button
+*filter_builder*trailing_logical_button.labelString: Trailing\nLogical
+
+! subquery_button
+*filter_builder*subquery_button.labelString: Sub Query
+
+! rowcol3
+
+! edit_delcomp_button
+*filter_builder*edit_delcomp_button.labelString: Delete\nElement
+
+! edit_deltree_button
+*filter_builder*edit_deltree_button.labelString: Delete\nTree
+
+! rowcol2
+
+! fb_edit_sql_button
+*filter_builder*fb_edit_sql_button.labelString: Edit\nSQL ...
+
+! separator6
+
+! main_sw
+*filter_builder*main_sw.height: 330
+
+! tree
+
+! separator5
+
+! sql_text
+
+! separator7
+
+! form
+
+! in_form
+
+! rowcol1
+
+! fb_in_value_add_button
+*filter_builder*form*fb_in_value_add_button.labelString: Add
+
+! fb_in_value_remove_button
+*filter_builder*form*fb_in_value_remove_button.labelString: Remove
+
+! in_list
+
+! separator8
+
+! metric_form
+
+! metric_function_menu
+*filter_builder*metric_function_menu.labelString: Metric:
+
+! label2
+
+! metric_avg_button
+*filter_builder*metric_avg_button.labelString: Average
+
+! metric_count_button
+*filter_builder*metric_count_button.labelString: Count
+
+! metric_sum_button
+*filter_builder*metric_sum_button.labelString: Sum
+
+! metric_min_button
+*filter_builder*metric_min_button.labelString: Minimum
+
+! metric_max_button
+*filter_builder*metric_max_button.labelString: Maximum
+
+! metric_field_menu
+*filter_builder*metric_field_menu.labelString: Of
+
+! label3
+
+! metric_field_button
+
+! fb_apply_button
+*filter_builder*fb_apply_button.labelString: Apply
+
+! fb_close_button
+*filter_builder*fb_close_button.labelString: Close
+
+! fb_help_button
+*filter_builder*fb_help_button.labelString: Help
+
+
+! fb_save_dialog
+*filter_builder*fb_save_dialog.title: Save Filter ...
+
+! fb_save_file_sb
+*filter_builder*fb_save_file_sb.applyLabelString: Filter
+*filter_builder*fb_save_file_sb.okLabelString: OK
+*filter_builder*fb_save_file_sb.cancelLabelString: Cancel
+*filter_builder*fb_save_file_sb.helpLabelString: Help
+*filter_builder*fb_save_file_sb.selectionLabelString: Selection
+*filter_builder*fb_save_file_sb.filterLabelString: File Filter
+*filter_builder*fb_save_file_sb.fileListLabelString: Files
+*filter_builder*fb_save_file_sb.dirListLabelString: Directories
+*filter_builder*fb_save_file_sb.pattern: *.elf
+
+! label6
+*filter_builder*fb_save_file_sb.FilterLabel.labelString: File Filter
+
+! save_backup_toggle
+*filter_builder*save_backup_toggle.labelString: Save Existing Files
+
+
+! fb_open_dialog
+*filter_builder*fb_open_dialog.title: Open Filter ...
+
+! fb_open_file_sb
+*filter_builder*fb_open_file_sb.applyLabelString: Filter
+*filter_builder*fb_open_file_sb.okLabelString: OK
+*filter_builder*fb_open_file_sb.cancelLabelString: Cancel
+*filter_builder*fb_open_file_sb.helpLabelString: Help
+*filter_builder*fb_open_file_sb.selectionLabelString: Selection
+*filter_builder*fb_open_file_sb.filterLabelString: File Filter
+*filter_builder*fb_open_file_sb.fileListLabelString: Files
+*filter_builder*fb_open_file_sb.dirListLabelString: Directories
+*filter_builder*fb_open_file_sb.pattern: *.elf
+
+! label10
+*filter_builder*fb_open_file_sb.FilterLabel.labelString: File Filter
+
+
+! predicate_component
+
+! predicate_type_menu
+*filter_builder*predicate_type_menu.labelString: Expression Type
+
+! label23
+
+! predicate_type_simple
+*filter_builder*predicate_type_simple.labelString: Simple
+
+! predicate_type_complex
+*filter_builder*predicate_type_complex.labelString: Complex
+
+! predicate_type_freeform
+*filter_builder*predicate_type_freeform.labelString: FreeForm
+
+! predicate_field_menu
+*filter_builder*predicate_field_menu.labelString: Column
+
+! label12
+
+! predicate_field_menu_button
+
+! predicate_op_menu
+*filter_builder*predicate_op_menu.labelString: Operator
+
+! label13
+
+! predicate_op_menu_button
+
+! predicate_op_menu_rc
+
+! predicate_op_eq_button
+*filter_builder*predicate_op_eq_button.labelString: Equal To
+
+! predicate_op_lt_button
+*filter_builder*predicate_op_lt_button.labelString: Less Than
+
+! predicate_op_lte_button
+*filter_builder*predicate_op_lte_button.labelString: Less Than Or Equal To
+
+! predicate_op_like_button
+*filter_builder*predicate_op_like_button.labelString: Like
+
+! predicate_op_in_button
+*filter_builder*predicate_op_in_button.labelString: In
+
+! predicate_op_ne_button
+*filter_builder*predicate_op_ne_button.labelString: Not Equal To
+
+! predicate_op_gt_button
+*filter_builder*predicate_op_gt_button.labelString: Greater Than
+
+! predicate_op_gte_button
+*filter_builder*predicate_op_gte_button.labelString: Greater Than Or Equal To
+
+! predicate_op_nlike_button
+*filter_builder*predicate_op_nlike_button.labelString: Not Like
+
+! predicate_op_nin_button
+*filter_builder*predicate_op_nin_button.labelString: Not In
+
+! logical_component
+
+! logical_and_toggle
+*filter_builder*logical_and_toggle.labelString: Logical AND
+
+! logical_or_toggle
+*filter_builder*logical_or_toggle.labelString: Logical OR
+
+! subquery_component
+
+! subquery_selection_menu
+*filter_builder*subquery_selection_menu.labelString: Column
+
+! label14
+
+! subquery_selection_menu_button
+
+! subquery_op_menu
+*filter_builder*subquery_op_menu.labelString: Operator
+
+! label15
+
+! subquery_op_menu_button
+
+! subquery_op_menu_rc
+
+! subquery_op_in_button
+*filter_builder*subquery_op_in_button.labelString: In
+
+! subquery_op_nin_button
+*filter_builder*subquery_op_nin_button.labelString: Not In
+
+! subquery_field_menu
+*filter_builder*subquery_field_menu.labelString: Select
+
+! label16
+
+! subquery_field_menu_button
+
+! subquery_table_menu
+*filter_builder*subquery_table_menu.labelString: from
+
+! label17
+
+! subquery_table_menu_button
+
+! subquery_table_menu_rc
+
+! subquery_status_table_button
+
+! subquery_details_table_button
+
+! subquery_journal_table_button
+
+! time_editor
+
+! te_type_menu
+
+! te_absolute_button
+*filter_builder*te_absolute_button.labelString: Absolute
+
+! te_relative_button
+*filter_builder*te_relative_button.labelString: Relative
+
+! te_relative_field
+
+! te_absolute_form
+
+! label22
+*filter_builder*date_day_label.labelString: dd:
+
+! te_field1
+
+! te_up1
+
+! te_down1
+
+! label19
+*filter_builder*date_month_label.labelString: mm:
+
+! te_field2
+
+! te_up2
+
+! te_down2
+
+! label20
+*filter_builder*date_year_label.labelString: yyyy:
+
+! te_field3
+
+! te_up3
+
+! te_down3
+
+! label24
+*filter_builder*time_hour_label.labelString: hh:
+
+! te_field4
+
+! te_up4
+
+! te_down4
+
+! label26
+*filter_builder*time_minute_label.labelString: mm:
+
+! te_field5
+
+! te_up5
+
+! te_down5
+
+! label27
+*filter_builder*time_second_label.labelString: ss:
+
+! te_field6
+
+! te_up6
+
+! te_down6
+
+! int_editor
+
+! int_conversions_menu
+
+! int_conversions_combo
+
+! int_field
+*filter_builder*int_field.width: 80
+
+! int_inc_button
+
+! int_dec_button
+
+! exp_editor
+
+! complex_text_sb_h
+
+! complex_text_sb_v
+
+! complex_text_fld
+
+! complex_edit_btn
+*filter_builder*complex_edit_btn.labelString: Edit ...
+
+
+
+! Generated by X-Designer
+
+
+! about_dialog
+NCO*about_dialog.allowShellResize: false
+NCO*about_dialog.title: About ...
+
+! about_form
+NCO*about_form.autoUnmanage: false
+
+! about_image
+
+
+
+! Generated by X-Designer
+
+
+! sdown_dialog
+NCO*sdown_dialog.allowShellResize: true
+NCO*sdown_dialog.title: Connection Failure
+
+! sdown_mb
+NCO*sdown_mb.autoUnmanage: true
+NCO*sdown_mb.dialogType: DIALOG_ERROR
+NCO*sdown_mb.messageAlignment: ALIGNMENT_CENTER
+NCO*sdown_mb.messageString: The server you attempted to connect to\ndoes not appear to be responding.\n\nPlease try again using a different server name.
+NCO*sdown_mb.okLabelString: OK
+NCO*sdown_mb.cancelLabelString: Cancel
+NCO*sdown_mb.helpLabelString: Help
+
+! button2
+NCO*sdown_mb.Help.sensitive: false
+
+
+! fatal_dialog
+NCO*fatal_dialog.allowShellResize: true
+NCO*fatal_dialog.title: Login Failure
+
+! fatal_mb
+NCO*fatal_mb.autoUnmanage: true
+NCO*fatal_mb.dialogType: DIALOG_ERROR
+NCO*fatal_mb.messageAlignment: ALIGNMENT_CENTER
+NCO*fatal_mb.messageString: The username and/or password you supplied\nwere not recognised.\n\nSorry, your three attempts are up !
+NCO*fatal_mb.okLabelString: OK
+NCO*fatal_mb.cancelLabelString: Cancel
+NCO*fatal_mb.helpLabelString: Help
+
+! button5
+NCO*fatal_mb.Help.sensitive: false
+
+
+! attempt_dialog
+NCO*attempt_dialog.allowShellResize: true
+NCO*attempt_dialog.title: Login Failure
+
+! attempt_mb
+NCO*attempt_mb.autoUnmanage: true
+NCO*attempt_mb.dialogType: DIALOG_ERROR
+NCO*attempt_mb.messageAlignment: ALIGNMENT_CENTER
+NCO*attempt_mb.messageString: The username and/or password you supplied\nwere not recognised. Please try again.
+NCO*attempt_mb.okLabelString: OK
+NCO*attempt_mb.cancelLabelString: Cancel
+NCO*attempt_mb.helpLabelString: Help
+
+! button8
+NCO*attempt_mb.Help.sensitive: false
+
+
+! login_dialog
+NCO*login_dialog.allowShellResize: true
+NCO*login_dialog.title: Login
+
+! login_mb
+NCO*login_mb.autoUnmanage: false
+NCO*login_mb.dialogType: DIALOG_TEMPLATE
+
+! login_ok_button
+NCO*login_ok_button.labelString: Ok
+
+! login_cancel_button
+NCO*login_cancel_button.labelString: Cancel
+
+! login_help_button
+NCO*login_help_button.sensitive: false
+NCO*login_help_button.labelString: Help
+
+! login_mframe
+
+! login_mform
+
+! login_tframe
+NCO*login_tframe.shadowType: SHADOW_OUT
+NCO*login_tframe.marginHeight: 3
+NCO*login_tframe.marginWidth: 3
+
+! login_big_label
+NCO*login_big_label.labelString:  
+NCO*login_big_label.alignment: ALIGNMENT_CENTER
+
+! login_msg
+NCO*login_little_label.labelString: Please enter your Username and\nPassword to continue
+
+! login_credentials
+
+! login_username_label
+NCO*login_username_label.labelString: Username
+
+! login_username_field
+NCO*login_username_field.xrtGearResizeWidth: true
+
+! login_password_label
+NCO*login_password_label.labelString: Password
+
+! login_password_field
+NCO*login_password_field.xrtGearResizeWidth: true
+
+! login_sep
+
+! login_server_menu
+NCO*login_server_menu.navigationType: TAB_GROUP
+NCO*login_server_menu.labelString: Server
+
+! login_server_label
+
+! login_server_cascade
+
+
+
+NCO*OclMessage.MSG_00003.messageString: Warning: 
+NCO*OclMessage.MSG_00004.messageString: Error: 
+NCO*OclMessage.MSG_00005.messageString: Fatal Error: 
+NCO*OclMessage.MSG_00006.messageString: You are not a valid user\n
+NCO*OclMessage.MSG_00007.messageString: Open Client Error:
+NCO*OclMessage.MSG_00008.messageString: Open Client Message:
+NCO*OclMessage.MSG_00009.messageString: Server Message:
+NCO*OclMessage.MSG_00010.messageString: Failed to allocate server context\n
+NCO*OclMessage.MSG_00011.messageString: Failed to initialise server context\n
+NCO*OclMessage.MSG_00012.messageString: Failed to set client message callback\n
+NCO*OclMessage.MSG_00013.messageString: Failed to set server message callback\n
+NCO*OclMessage.MSG_00014.messageString: Unexpected Server Shutdown\n
+NCO*OclMessage.MSG_00015.messageString: Failed to allocate connection context\n
+NCO*OclMessage.MSG_00016.messageString: Failed to set connection property: Username\n
+NCO*OclMessage.MSG_00017.messageString: Failed to set connection property: Password\n
+NCO*OclMessage.MSG_00018.messageString: Failed to set connection property: Application Name\n
+NCO*OclMessage.MSG_00019.messageString: Failed to connect\n
+NCO*OclMessage.MSG_00020.messageString: Failed to disconnect\n
+NCO*OclMessage.MSG_00021.messageString: Failed to drop connection context\n
+NCO*OclMessage.MSG_00022.messageString: Failed to shutdown server context\n
+NCO*OclMessage.MSG_00023.messageString: Failed to drop server context\n
+NCO*OclMessage.MSG_00024.messageString: Failed to allocate command context\n
+NCO*OclMessage.MSG_00025.messageString: Failed to process command\n
+NCO*OclMessage.MSG_00026.messageString: Failed to send command\n
+NCO*OclMessage.MSG_00027.messageString: Failed to abort command\n
+NCO*OclMessage.MSG_00028.messageString: Failed to execute SQL request\n
+NCO*OclMessage.MSG_00029.messageString: %s: can't open display\n
+NCO*OclMessage.MSG_00030.messageString: Unknown option: %s\n
+NCO*OclMessage.MSG_00031.messageString: Failed to connect to object server\n
+NCO*OclMessage.MSG_00032.messageString: Warning: Couldn't fix path to XKeysymDB !\n
+NCO*OclMessage.MSG_00033.messageString: Failed to get server host name\n
+NCO*OclMessage.MSG_00034.messageString: Failed to use database alerts\n
+NCO*OclMessage.MSG_00035.messageString: Failed to set interfaces property\n
+NCO*OclMessage.MSG_00036.messageString: Message Number Decoding: Layer %ld, Origin %ld, Severity %ld, Number %ld\n
+NCO*OclMessage.MSG_00037.messageString: Message String: %s\n
+NCO*OclMessage.MSG_00038.messageString: Operating System Error: %s\n
+NCO*OclMessage.MSG_00039.messageString: Message Number Decoding: Number %ld, Severity %ld, State %ld, Line %ld\n
+NCO*OclMessage.MSG_00040.messageString: From Server '%s'\n
+NCO*OclMessage.MSG_00041.messageString: Procedure '%s'\n
+NCO*OclMessage.MSG_00042.messageString: Message String: %s\n
+NCO*OclMessage.MSG_00043.messageString: ** BEGIN EXTENDED DIAGNOSTICS TRACE **\n
+NCO*OclMessage.MSG_00044.messageString: ** END EXTENDED DIAGNOSTICS TRACE **\n
+NCO*OclMessage.MSG_00045.messageString: Results processing failed\n
+NCO*OclMessage.MSG_00046.messageString: Unexpected results return\n
+NCO*OclMessage.MSG_00047.messageString: Column bind failed\n
+NCO*OclMessage.MSG_00048.messageString: Row fetch failed\n
+NCO*OclMessage.MSG_00049.messageString: Field '%s' does not exist in table '%s' or has the wrong type\n
+NCO*OclMessage.MSG_00050.messageString: Panic : 
+NCO*OclMessage.MSG_00051.messageString: Invalid number of arguments to SelectCell()\n
+NCO*OclMessage.MSG_00058.messageString: Filter="
+NCO*OclMessage.MSG_00059.messageString: View="
+NCO*OclMessage.MSG_00060.messageString: \ - Globally Frozen
+NCO*OclMessage.MSG_00061.messageString: \ - Frozen
+NCO*OclMessage.MSG_00062.messageString: Usage: %s [options]\n\nwhere options can be:\n
+NCO*OclMessage.MSG_00063.messageString: \011-config(-elc) <name>\011Initial config file\n
+NCO*OclMessage.MSG_00066.messageString: Default
+NCO*OclMessage.MSG_00067.messageString: \011-username <name>\011Username to connect as\n
+NCO*OclMessage.MSG_00068.messageString: \011-password <name>\011Password for connecting user\n
+NCO*OclMessage.MSG_00069.messageString: \011-server <name>\011Object server to connect to\n
+NCO*OclMessage.MSG_00070.messageString: \011-help\011\011Display this help text\n
+NCO*OclMessage.MSG_00071.messageString: \011-version\011Display version information\n
+NCO*OclMessage.MSG_00072.messageString: \011-nlw\011\011Don't display license expiry warnings\n
+NCO*OclMessage.MSG_00073.messageString: \011-diagnostic\011Display extended diagnostic messages\n
+NCO*OclMessage.MSG_00074.messageString: \nThe following 'standard' X options are also understood:\n
+NCO*OclMessage.MSG_00075.messageString: \011-background or -bg <color>\n
+NCO*OclMessage.MSG_00077.messageString: \011-bordercolor or -bd <color>\n
+NCO*OclMessage.MSG_00079.messageString: \011-foreground or -fg <color>\n
+NCO*OclMessage.MSG_00076.messageString: \011-borderwidth or -bw <n>\n
+NCO*OclMessage.MSG_00078.messageString: \011-display <dpy>\n
+NCO*OclMessage.MSG_00080.messageString: \011-font or -fn <font>\n
+NCO*OclMessage.MSG_00081.messageString: \011-geometry <geometry>\n
+NCO*OclMessage.MSG_00082.messageString: \011-iconic\n
+NCO*OclMessage.MSG_00083.messageString: \011-name <name>\n
+NCO*OclMessage.MSG_00084.messageString: \011-reverse or -rv\n
+NCO*OclMessage.MSG_00085.messageString: \011-selectionTimeout\n
+NCO*OclMessage.MSG_00086.messageString: \011-synchronous\n
+NCO*OclMessage.MSG_00087.messageString: \011-title <name>\n
+NCO*OclMessage.MSG_00088.messageString: \011-xrm <resource>\n
+NCO*OclMessage.MSG_00089.messageString: \nOptions may also be specified as the shortest unique abbreviation except where\nnoted.\n
+NCO*OclMessage.MSG_00090.messageString: \n%s - Version %s
+NCO*OclMessage.MSG_00102.messageString: Failed to get table description for '%s'
+NCO*OclMessage.MSG_00103.messageString: 
+NCO*OclMessage.MSG_00104.messageString: 
+NCO*OclMessage.MSG_00105.messageString: 
+NCO*OclMessage.MSG_00106.messageString: Journal Entries for Serial Number %d
+NCO*OclMessage.MSG_00108.messageString: Failed to create backup file\n
+NCO*OclMessage.MSG_00109.messageString: Failed to save configuration to\n%s\n
+NCO*OclMessage.MSG_00110.messageString: Failed to load configuration from\n%s\n
+NCO*OclMessage.MSG_00112.messageString: \011-cmap\011\011Use a private colormap (no abbreviation)\n
+NCO*OclMessage.MSG_00113.messageString: [none]
+NCO*OclMessage.MSG_00114.messageString: Failed to filter definition from\n%s\n
+NCO*OclMessage.MSG_00115.messageString: Failed to view definition from\n%s\n
+NCO*OclMessage.MSG_00116.messageString: \ : 
+NCO*OclMessage.MSG_00117.messageString: Ready.
+NCO*OclMessage.MSG_00118.messageString: Configuration saved.
+NCO*OclMessage.MSG_00119.messageString: All displays refreshed.
+NCO*OclMessage.MSG_00121.messageString: All event windows closed.
+NCO*OclMessage.MSG_00122.messageString: New window opened.
+NCO*OclMessage.MSG_00127.messageString: \011-noauto\011\011Don't start tools in the startup group\n
+NCO*OclMessage.MSG_00128.messageString: \011-directory <name>\011Set the starting directory\n
+NCO*OclMessage.MSG_00135.messageString: Opening new window ...
+NCO*OclMessage.MSG_00137.messageString: Parsing %s - "%s" at line %d
+NCO*OclMessage.MSG_00138.messageString: preferences
+NCO*OclMessage.MSG_00139.messageString: SQL text
+NCO*OclMessage.MSG_00140.messageString: Failed to build conversion table\n
+NCO*OclMessage.MSG_00141.messageString: Failed to build visual table\n
+NCO*OclMessage.MSG_00142.messageString: Failed to build classes table\n
+NCO*OclMessage.MSG_00144.messageString: Failed to load preferences\n
+NCO*OclMessage.MSG_00145.messageString: Failed to build users table\n
+NCO*OclMessage.MSG_00147.messageString: Event List
+NCO*OclMessage.MSG_00148.messageString: Failed to save preferences
+NCO*OclMessage.MSG_00149.messageString: Failed to create pixmap
+NCO*OclMessage.MSG_00153.messageString: tool string
+NCO*OclMessage.MSG_00154.messageString: Running "%s" ...
+NCO*OclMessage.MSG_00155.messageString: "%s" terminated (read error)
+NCO*OclMessage.MSG_00156.messageString: "%s" terminated (ioctl error)
+NCO*OclMessage.MSG_00157.messageString: "%s" completed
+NCO*OclMessage.MSG_00159.messageString: Event List Configuration
+NCO*OclMessage.MSG_00160.messageString: View Builder
+NCO*OclMessage.MSG_00161.messageString: Failed to save view data to\n%s\n
+NCO*OclMessage.MSG_00164.messageString: Dummy
+NCO*OclMessage.MSG_00165.messageString: Failed to create Personal Library Directory : %s
+NCO*OclMessage.MSG_00167.messageString: <internal>
+NCO*OclMessage.MSG_00169.messageString: Failed to save filter data to\n%s\n
+NCO*OclMessage.MSG_00171.messageString: Unterminated string
+NCO*OclMessage.MSG_00172.messageString: Invalid character
+NCO*OclMessage.MSG_00175.messageString: Filter Builder
+NCO*OclMessage.MSG_00212.messageString: Failed to launch the Event List
+NCO*OclMessage.MSG_00232.messageString: Conductor
+NCO*OclMessage.MSG_00233.messageString: Interfaces
+NCO*OclMessage.MSG_00234.messageString: Properties
+NCO*OclMessage.MSG_00235.messageString: Browser
+NCO*OclMessage.MSG_00240.messageString: Warning: Couldn't fix path to X NLS path !\n
+NCO*OclMessage.MSG_00246.messageString: Start Event List ...
+NCO*OclMessage.MSG_00247.messageString: Start Filter Builder ...
+NCO*OclMessage.MSG_00248.messageString: Start View Builder ...
+NCO*OclMessage.MSG_00249.messageString: Start Objective View ...
+NCO*OclMessage.MSG_00250.messageString: Start Map Editor ...
+NCO*OclMessage.MSG_00256.messageString: Operating system error: %s
+NCO*OclMessage.MSG_00257.messageString: %s system call failure: %s
+NCO*OclMessage.MSG_00260.messageString: Couldn't open directory %s
+NCO*OclMessage.MSG_00274.messageString: Directory Browser
+NCO*OclMessage.MSG_00284.messageString: Failed to open interfaces file: %s
+NCO*OclMessage.MSG_00285.messageString: Help
+NCO*OclMessage.MSG_00293.messageString: \011-page <name>\011\011Initial help page\n
+NCO*OclMessage.MSG_00303.messageString: Close
+NCO*OclMessage.MSG_00304.messageString: None
+NCO*OclMessage.MSG_00310.messageString: No entries found in interfaces file
+NCO*OclMessage.MSG_00317.messageString: Internal initialisation failed\n
+NCO*OclMessage.MSG_00327.messageString: Background
+NCO*OclMessage.MSG_00328.messageString: Annotation
+NCO*OclMessage.MSG_00329.messageString: Object
+NCO*OclMessage.MSG_00353.messageString: Grid
+NCO*OclMessage.MSG_00354.messageString: Failed to retrieve alert information
+NCO*OclMessage.MSG_00356.messageString: Event Information: Alert Status for Serial Number %d
+NCO*OclMessage.MSG_00357.messageString: Out of memory
+NCO*OclMessage.MSG_00371.messageString: Default font not found !
+NCO*OclMessage.MSG_00375.messageString: Inspecting: %s
+NCO*OclMessage.MSG_00385.messageString: ___SEVERITY_%d___
+NCO*OclMessage.MSG_00389.messageString: Launching the Event List ...
+NCO*OclMessage.MSG_00390.messageString: Waiting for a response ...
+NCO*OclMessage.MSG_00397.messageString: Entity: %s
+NCO*OclMessage.MSG_00404.messageString: Failed to set connection property: Hostname\n
+NCO*OclMessage.MSG_00405.messageString: Fatal server communication error\n
+NCO*OclMessage.MSG_00406.messageString: Server returned unknown datatype ---!
+NCO*OclMessage.MSG_00407.messageString: Server returned unknown datatype: %s.%s !
+NCO*OclMessage.MSG_00412.messageString: You must specify a field for the search
+NCO*OclMessage.MSG_00413.messageString: The specified value is not a valid regular expression
+NCO*OclMessage.MSG_00414.messageString: Failed to find any rows that match
+NCO*OclMessage.MSG_00415.messageString: Failed to (re)connect to Object Server
+NCO*OclMessage.MSG_00416.messageString: Serial Number %d no longer exists !
+NCO*OclMessage.MSG_00420.messageString: No text in journal entry
+NCO*OclMessage.MSG_00424.messageString: No assigned alerts to journal
+NCO*OclMessage.MSG_00427.messageString: Failed to find the alert within the event list.\nThe alert has been deleted. The specified operation cannot be performed.
+NCO*OclMessage.MSG_00428.messageString: Failed to find the alert within the event list.\nThe alert has been deleted and cannot be accessed.
+NCO*OclMessage.MSG_00429.messageString: Failed to retreive any assigned alerts.
+NCO*OclMessage.MSG_00435.messageString: Failed to set asynchronous memory pool\n
+NCO*OclMessage.MSG_00440.messageString: Table '%s' does not have the expected %d columns.
+NCO*OclMessage.MSG_00445.messageString: ___FLASH_SEV_%d___
+NCO*OclMessage.MSG_00447.messageString: Failed to allocate read/write colour cells in colormap for default visual.\n\011  Event list flashing functionality not available.  Set default visual to PseudoColor.\n
+NCO*OclMessage.MSG_00457.messageString: Failed to convert date from string to UTC using format '%s'.
+NCO*OclMessage.MSG_00458.messageString: Failed to find action record for action ID %d. Cannot execute tool.
+NCO*OclMessage.MSG_00459.messageString: Failed to generate client message via XSendClient() for associated sub menu popup.
+NCO*OclMessage.MSG_00460.messageString: No cell selected
+NCO*OclMessage.MSG_00461.messageString: Clipboard copy operation pending ...
+NCO*OclMessage.MSG_00462.messageString: Clipboard copy operation complete.
+NCO*OclMessage.MSG_00463.messageString: Window unfrozen but global Freeze All option set - window not refreshed
+NCO*OclMessage.MSG_00464.messageString: Invalid row for drag and drop operation.
+NCO*OclMessage.MSG_00467.messageString: Invalid row.
+NCO*OclMessage.MSG_00468.messageString: Timed refresh during Freeze All ignored.
+NCO*OclMessage.MSG_00469.messageString: Timed refresh in progress ...
+NCO*OclMessage.MSG_00470.messageString: Unfrozen windows updated.
+NCO*OclMessage.MSG_00471.messageString: Reconnecting to server - please wait ...
+NCO*OclMessage.MSG_00472.messageString: Server has disconnected - please try reconnecting
+NCO*OclMessage.MSG_00473.messageString: Failed to create window !
+NCO*OclMessage.MSG_00474.messageString: Dynamic tools sub-system failed initialisation as it failed to find the alerts menu.
+NCO*OclMessage.MSG_00475.messageString: Failed to create dynamic tools.
+NCO*OclMessage.MSG_00476.messageString: Failed to create window for LOCATE request !
+NCO*OclMessage.MSG_00477.messageString: Refresh time invalid.\nPreferences not saved.
+NCO*OclMessage.MSG_00478.messageString: Failed to generate client message via XSendClient() for clearing cascade client data.
+NCO*OclMessage.MSG_00479.messageString: Failed to find alerts menu definition for attachment.
+NCO*OclMessage.MSG_00480.messageString: Failed to find menu ID %d in the dynamic tools system.
+NCO*OclMessage.MSG_00481.messageString: Failed to manage menu items of menu %d for current selected class list.
+NCO*OclMessage.MSG_00482.messageString: Failed to find sub-event list window tool menu definition for attachment.
+NCO*OclMessage.MSG_00483.messageString: Fatal memory allocation failure.
+NCO*OclMessage.MSG_00484.messageString: Failed to find main event list window tool menu definition for attachment.
+NCO*OclMessage.MSG_00485.messageString: No rows affected by tool.
+NCO*OclMessage.MSG_00486.messageString: %d row(s) affected by tool.
+NCO*OclMessage.MSG_00487.messageString: Failed to execute tool. Dynamic Tool Error (%d/%d)\n[ %s ].
+NCO*OclMessage.MSG_00488.messageString: Tool execution aborted by user.
+NCO*OclMessage.MSG_00489.messageString: Dynamic tools sub-system failed initialisation as it failed to find the conductor tools menu.
+NCO*OclMessage.MSG_00490.messageString: Failed to popup alerts menu for journal dialog. Tools Error (%d/%d)\n[ %s ].
+NCO*OclMessage.MSG_00491.messageString: Failed to determine the release version of the connected ObjectServer.
+NCO*OclMessage.MSG_00495.messageString: Refresh time invalid (minimum value is 10 seconds).\n\011\011Preferences not applied.
+NCO*OclMessage.MSG_00497.messageString: Dynamic tool successfully executed.
+NCO*OclMessage.MSG_00498.messageString: Dynamic tool execution failed.
+NCO*OclMessage.MSG_00499.messageString: The Conductor has detected that the ObjectServer you have\nconnected to is version 3.3. The tools supported by the 3.4 desktop\ncannot be supported on this ObjectServer.\n\nApplication will terminate.
+NCO*OclMessage.MSG_00500.messageString: \011-masterserver <name>\011Master Object server to connect to\n
+NCO*OclMessage.MSG_00501.messageString: \011-dualwrite <1/0>\011Dual-write Flag (1:dual-write mode, 0:single-write mode)\n
+NCO*OclMessage.MSG_00504.messageString: [PRI]
+NCO*OclMessage.MSG_00505.messageString: [BAK]
+NCO*OclMessage.MSG_00506.messageString: Primary ObjectServer Detected
+NCO*OclMessage.MSG_00507.messageString: \nClick OK to reconnect to the Primary ObjectServer.\n
+NCO*OclMessage.MSG_00508.messageString: ObjectServer connection failback in progress...
+NCO*OclMessage.MSG_00509.messageString: Primary ObjectServer failback complete.
+NCO*OclMessage.MSG_00510.messageString: Failed to set CS_SEC_CHALLENGE
+NCO*OclMessage.MSG_00511.messageString: Failed to set CS_CHALLENGE_CB
+NCO*OclMessage.MSG_00512.messageString: \nReconnecting to the Primary Master ObjectServer.\nPlease wait while ObjectServer data is resynchronised.\nThis may take a few minutes...
+NCO*OclMessage.MSG_00513.messageString: Master ObjectServer connection failback in progress...
+NCO*OclMessage.MSG_00514.messageString: Primary Master ObjectServer failback complete.
+NCO*OclMessage.MSG_00515.messageString: \nReconnection to Primary Master ObjectServer complete.
+NCO*OclMessage.MSG_00516.messageString: Failed to get remote hostname
+NCO*OclMessage.MSG_00517.messageString: Connection failure
+NCO*OclMessage.MSG_00518.messageString: You do not have permission to delete this Filter.
+NCO*OclMessage.MSG_00519.messageString: You do not have permission to delete this View.
+NCO*OclMessage.MSG_00520.messageString: The MasterServer name supplied in the master.national table or\non the command line is not valid. Please exit and try again.
+NCO*OclMessage.MSG_00521.messageString: Failed to connect to the Master ObjectServer.\nCheck that the server is running and that the username and password\nsupplied are the same on both the Desktop and Master ObjectServers.
+NCO*OclMessage.MSG_00522.messageString: In view "%s", parameter "%s" exceeds\nthe allowable value and will be limited to %d\n\n
+NCO*OclMessage.MSG_00523.messageString: Window is frozen - results will not be displayed until you refresh.
+NCO*OclMessage.MSG_00524.messageString: Window unfrozen - results will now be refreshed.
+NCO*OclMessage.MSG_00525.messageString: The username and password combination you\nsupplied was incorrect. Please try to reconnect.
+NCO*OclMessage.MSG_00526.messageString: The connection has been lost. You may have\n been denied access to the Object Server at this time.\nPlease contact your system administrator if this persists.
+NCO*OclMessage.MSG_00527.messageString: The username and password combination you\nsupplied was incorrect.\n\nSorry, your 3 attempts are up.
+NCO*OclMessage.MSG_00528.messageString: The connection has been lost. You may have\n been denied access to the Object Server at this time.\n\nSorry, your 3 attempts are up.
+NCO*OclMessage.MSG_00540.messageString: Empty row, nothing to copy.
+NCO*OclMessage.MSG_00541.messageString: Failed to set sybase connection timeout\n
+NCO*OclMessage.MSG_00542.messageString: \011-networktimeout <seconds>\011Time to detect failed network connection due to hardware problem after user action\n
+NCO*OclMessage.MSG_00543.messageString: Failed to (re)connect to Master Object Server
+NCO*OclMessage.MSG_00544.messageString: NetworkTimeout set to an invalid value. Reverting to %d.
+NCO*OclMessage.MSG_00545.messageString: %s [PRI]
+NCO*OclMessage.MSG_00546.messageString: %s [BAK]
+NCO*OclMessage.MSG_00548.messageString: char_expansion_factor must be in the range [%d-%d]. Reverting to %d.
+NCO*OclMessage.MSG_00549.messageString: \011-char_expansion_factor [%d-%d]. Allows the client to allocate more bytes per character when receiving data from the ObjectServer.\n
+NCO*OclMessage.MSG_00550.messageString: \nClick OK to reconnect to the Primary Master ObjectServer.\n
+NCO*OclMessage.MSG_00551.messageString: Error reading from failback thread file descriptor: %s
+NCO*OclMessage.MSG_00600.messageString: Failed to obtain a valid license.
+NCO*OclMessage.MSG_00601.messageString: Information:
+NCO*OclMessage.MSG_00602.messageString: Failed to load prefs
+NCO*OclMessage.MSG_00603.messageString: Failed to load pixmap file: %s
+NCO*OclMessage.MSG_00604.messageString: Tool Parameter Dialog
+NCO*OclMessage.MSG_00605.messageString: Convert to UTC integer
+NCO*OclMessage.MSG_00606.messageString: Unable to hide command line password
+NCO*OclMessage.MSG_00607.messageString: \011-failbackpolltime <seconds>\011Time interval between attempts to poll the primary ObjectServer when connected to the backup\n
+NCO*OclMessage.top_range_template.messageString: Top [%d-%d]
+NCO*OclMessage.top_off_string.messageString: Top [ OFF ]
+NCO*OclMessage.top_fixed_string.messageString: Top [ FIXED ]
+NCO*OclMessage.restricted_range_template.messageString: Restrict rows [%d-%d]
+NCO*OclMessage.liboclLookupOpen.messageString: Cannot open the lookup file (%s)\n
+NCO*OclMessage.liboclVersionFormat.messageString: %s V%s
+NCO*OclMessage.liboclReleaseId.messageString: Release ID: %s\n
+NCO*OclMessage.liboclLibraryRelease.messageString: Ocl library release: %s\n
+NCO*OclMessage.liboclCompileDate.messageString: Software Compile Date: %s\n
+NCO*OclMessage.liboclSybaseRelease.messageString: Sybase Library Release: %s\n
+NCO*OclMessage.liboclServerUsedataFailed.messageString: Failed to get user data in server message CB.
+NCO*OclMessage.liboclChallengeUserdataFailed.messageString: Failed to get user data in challenge CB.
+NCO*OclMessage.liboclEventList.messageString: Event List Information
+NCO*OclMessage.liboclBusyFailed.messageString: Error: Failed to launch busy message.\n
+NCO*OclMessage.liboclAsyncFailed.messageString: Failed to set CS_ASYNC_NOTIFS
+NCO*OclMessage.liboclPacketFailed.messageString: Failed to set CS_PACKET_SIZE
+NCO*OclMessage.liboclAddressHandle.messageString: IP address handle create. (%d:%s)
+NCO*OclMessage.liboclIducConnection.messageString: IDUC channel connection failure. connect(): %s
+NCO*OclMessage.liboclBlockIduc.messageString: Block on IDUC - Resynchronising
+NCO*OclMessage.liboclNotSet.messageString: %s NOT SET\n
+NCO*OclMessage.liboclDoesntContain.messageString: %s doesn't contain a :\n
+NCO*OclMessage.liboclStartsWith.messageString: %s starts with a :\n
+NCO*OclMessage.liboclPortInvalid.messageString: Port '%s' is not valid in %s\n
+NCO*OclMessage.liboclIducHostRedirect.messageString: SSH IDUC REDIRECT TO HOST '%s'\n
+NCO*OclMessage.liboclIducPortRedirect.messageString: SSH IDUC REDIRECT TO PORT '%ld'\n
+NCO*OclMessage.liboclHttpError.messageString: HTTP Error %3d - %s
+! DTOOLS_MSG001
+NCO*OclMessage.DTOOLS_MSG001.messageString: Memory allocation failure.
+! DTOOLS_MSG002
+NCO*OclMessage.DTOOLS_MSG002.messageString: Failed to describe the table %s. Ensure that the table exists within the ObjectServer.
+! DTOOLS_MSG003
+NCO*OclMessage.DTOOLS_MSG003.messageString: Incorrect column count for table %s. Expected %d columns.
+! DTOOLS_MSG004
+NCO*OclMessage.DTOOLS_MSG004.messageString: Incorrect data type for one of the mandatory fields of the system table %s.
+! DTOOLS_MSG005
+NCO*OclMessage.DTOOLS_MSG005.messageString: Failed to create a field descriptor for fetching the table data for table %s.
+! DTOOLS_MSG006
+NCO*OclMessage.DTOOLS_MSG006.messageString: Failed to execute the SQL statement to fetch the required data from the %s table.
+! DTOOLS_MSG007
+NCO*OclMessage.DTOOLS_MSG007.messageString: The popup menu for menu %d has already created.
+! DTOOLS_MSG008
+NCO*OclMessage.DTOOLS_MSG008.messageString: Failed to describe the table defined within menu definition %d.
+! DTOOLS_MSG009
+NCO*OclMessage.DTOOLS_MSG009.messageString: Failed to find one of the fields defined within menu definition %d.
+! DTOOLS_MSG010
+NCO*OclMessage.DTOOLS_MSG010.messageString: Failed to find specified menu definition referenced within a prompt definition used by an action.
+! DTOOLS_MSG011
+NCO*OclMessage.DTOOLS_MSG011.messageString: An unknown error has occurred within the dynamic tools sub-system.
+! DTOOLS_MSG012
+NCO*OclMessage.DTOOLS_MSG012.messageString: Failed to open lookup file specified in prompt definition of type lookup.
+! DTOOLS_MSG013
+NCO*OclMessage.DTOOLS_MSG013.messageString: Prompt reference in action expanded to zero length.
+! DTOOLS_MSG014
+NCO*OclMessage.DTOOLS_MSG014.messageString: Failed to find a prompt definition referenced in the actions of menu item ID %d.
+! DTOOLS_MSG015
+NCO*OclMessage.DTOOLS_MSG015.messageString: Failed to find action %d referenced within the dynamic tools.
+! DTOOLS_MSG016
+NCO*OclMessage.DTOOLS_MSG016.messageString: Failed to find menu %d referenced by a menu item as a sub menu.
+! DTOOLS_MSG017
+NCO*OclMessage.DTOOLS_MSG017.messageString: Insufficient access to tool.
+! DTOOLS_MSG018
+NCO*OclMessage.DTOOLS_MSG018.messageString: Attempt to popup menu that has no associated popup widget set created.
+! DTOOLS_MSG019
+NCO*OclMessage.DTOOLS_MSG019.messageString: Parse error on line %d of either the internal/external/journal.
+! DTOOLS_MSG020
+NCO*OclMessage.DTOOLS_MSG020.messageString: Execution of the action aborted by the user.
+! DTOOLS_MSG021
+NCO*OclMessage.DTOOLS_MSG021.messageString: Execution of the action's internal effect failed.
+! DTOOLS_MSG022
+NCO*OclMessage.DTOOLS_MSG022.messageString: Failed to create a pipe structure for stream redirection of an external effect.
+! DTOOLS_MSG023
+NCO*OclMessage.DTOOLS_MSG023.messageString: Failed to fork process in order to start an external effect.\n[errno: %d = %s]
+! DTOOLS_MSG024
+NCO*OclMessage.DTOOLS_MSG024.messageString: Failed to exec external effect.
+! DTOOLS_MSG025
+NCO*OclMessage.DTOOLS_MSG025.messageString: Failed to break journal text into a set of 16 255 chunks.
+! DTOOLS_MSG026
+NCO*OclMessage.DTOOLS_MSG026.messageString: Failed to find one of the mandatory fields in the system table %s.
+! DTOOLS_MSG027
+NCO*OclMessage.DTOOLS_MSG027.messageString: General dynamic tools error.
+! DTOOLS_MSG028
+NCO*OclMessage.DTOOLS_MSG028.messageString: Failed to execute journal entry.
+! DTOOLS_MSG029
+NCO*OclMessage.DTOOLS_MSG029.messageString: Failed to convert to multibyte character string.
+! DTOOLS_MSG999
+NCO*OclMessage.DTOOLS_MSG999.messageString: <UNKNOWN>
+
+
+! Generated by X-Designer
+
+
+! output_window
+NCO*output_window.allowShellResize: true
+NCO*output_window.title: Tool Output
+
+! output_mb
+NCO*output_mb.autoUnmanage: false
+NCO*output_mb.dialogType: DIALOG_TEMPLATE
+
+! output_sep
+
+! output_close_button
+NCO*output_close_button.labelString: Kill
+
+! output_mform
+
+! output_label
+NCO*output_label.labelString: Output
+NCO*output_label.alignment: ALIGNMENT_CENTER
+
+! output_scrolltext
+
+! output_text
+NCO*output_text.traversalOn: false
+NCO*output_text.columns: 79
+NCO*output_text.editable: false
+NCO*output_text.cursorPositionVisible: false
+NCO*output_text.fontList: -adobe-courier-medium-r-normal-*-12-120-*-*-*-*-iso8859-*
+NCO*output_text.editMode: MULTI_LINE_EDIT
+NCO*output_text.rows: 15
+
+
+! param_dialog
+NCO*param_dialog.allowShellResize: true
+
+! param_mb
+NCO*param_mb.dialogStyle: DIALOG_FULL_APPLICATION_MODAL
+NCO*param_mb.autoUnmanage: false
+NCO*param_mb.dialogType: DIALOG_TEMPLATE
+
+! param_ok_button
+NCO*param_ok_button.labelString: Ok
+
+! param_cancel_button
+NCO*param_cancel_button.labelString: Cancel
+
+! param_help_button
+NCO*param_help_button.labelString: Help
+
+! param_form
+NCO*param_form.fractionBase: 3
+
+! label1
+NCO*param_label.labelString: Enter the required parameters below
+
+! param_sep
+
+
+
+! ############################################################################
+! libOcl:Global.res - General library X resources.
+! ############################################################################
+
+! Msg.c: Message dialog related X resources.
+NCO*info_dialog.okLabelString: Ok
+NCO*error_dialog.okLabelString: Ok
+NCO*warning_dialog.okLabelString: Ok
+
+NCO*question_dialog.okLabelString: Ok
+NCO*question_dialog.cancelLabelString: Cancel
+
+NCO*oclLocaleMsgWarning.messageString: Warning: 
+NCO*oclLocaleMsgError.messageString: Error: 
+NCO*oclLocaleMsgFatal.messageString: Fatal Error: 
+
+NCO*OclMessage.accelerator.messageString: Ctrl+%c
+
+! Dynamic tools parameter dialog box resources.
+NCO*param_dialog*XmList*background: CadetBlue
+NCO*param_dialog*XmXrtDateField.background: CadetBlue
+NCO*param_dialog*XmXrtDateField.xrtFldEnterFormatList:DD-MM-YYYY hh:mm:ss,D-M-YYYY h:m:s
+NCO*output_window*XmText.background: Black
+
+! XRT Combo Box drop down colour re-source.
+NCOEvent*XmXrtGearCombo*XmList*background:CadetBlue
+
+! HPUX11/HPUX 10.20 work-arounds. Due to the default font set specifications
+! used by CDE, the HPUX library is unable to convert the font set due to
+! missing charsets. This should be OK, but on HPUX 11 our application will
+! crash in the widget creation as the application has no fonts. This is not
+! good. We override these resources here in order to prevent this error 
+! from occurring. :)
+
+
+
+! NCO_MSG0001
+NCO*status_line.readyString.messageString: Ready.
+! NCO_MSG0002
+NCO*status_line.deleteFailed.messageString: Failed to delete %s.
+! NCO_MSG0003
+NCO*status_line.linkFailed.messageString: Link operation failed
+! NCO_MSG0004
+NCO*status_line.copyLinkToSelf.messageString: Attempting to move, copy or link %s to itself !
+! NCO_MSG0005
+NCO*status_line.copyFailed.messageString: Copy operation failed
+! NCO_MSG0006
+NCO*status_line.startupGroupUpdated.messageString: Startup group updated
+! NCO_MSG0007
+NCO*status_line.dirOpenFail.messageString: Failed to open directory %s.
+! NCO_MSG0008
+NCO*status_line.dirDisplayBuilding.messageString: Building display ... 
+! NCO_MSG0009
+NCO*status_line.dirDisplayBuilt.messageString: Directory display built.
+! NCO_MSG0010
+NCO*status_line.toolsExecuteAbort.messageString: Tool execution aborted by user.
+! NCO_MSG0011
+NCO*status_line.toolsExecuteFail.messageString: Failed to launch tool.
+! NCO_MSG0012
+NCO*status_line.toolsExecuteSuccess.messageString: Tool launched successfully.
+! NCO_MSG0013
+NCO*status_line.toolsExecute.messageString: Launching tool ...
+! NCO_MSG0014
+NCO*elc_dock_label2.startElcNone.messageString: [none]
+! NCO_MSG0015
+NCO*status_line.moveFailed.messageString: Move operation failed
+! NCO_MSG0016
+NCO*passwd_mb.passwordIncorrect.messageString: Password incorrect.
+! NCO_MSG0017
+NCO*passwd_mb.passwordVerify.messageString: New password cannot be verified.
+! NCO_MSG0018
+NCO*passwd_mb.passwordSetNew.messageString: Failed to set new password !
+! NCO_MSG0019
+NCO*prefs_mb.invalidELRefreshTimeApply.messageString: Event List Refresh time invalid (minimum value is 10 seconds).\nPreferences not applied.
+! NCO_MSG0020
+NCO*prefs_mb.invalidDURefreshTimeApply.messageString: Directory update time invalid (minimum value is 10 seconds).\nPreferences not applied.
+! NCO_MSG0021
+NCO*prefs_mb.invalidELRefreshTimeSave.messageString: Event List Refresh time invalid (minimum value is 10 seconds).\nPreferences not saved.
+! NCO_MSG0022
+NCO*prefs_mb.invalidDURefreshTimeSave.messageString: Directory update time invalid (minimum value is 10 seconds).\nPreferences not saved.
+! NCO_MSG0023
+NCO*prefs_mb.prefsSave.messageString: Failed to save preferences.
+! NCO_MSG0024
+NCO*menu_sw.processSpawnFailed.messageString: Failed to spawn "%s" !
+! NCO_MSG0025
+NCO*bannerLicense.messageString: Checking license ...
+! NCO_MSG0026
+NCO*bannerLogin.messageString: Login ...
+! NCO_MSG0027
+NCO*bannerDragAndDrop.messageString: Drag and Drop ...
+! NCO_MSG0028
+NCO*bannerReferences.messageString: Preferences ...
+! NCO_MSG0029
+NCO*bannerTools.messageString: Loading dynamic tools ...
+! NCO_MSG0030
+NCO*bannerFilter.messageString: Filter builder ...
+! NCO_MSG0031
+NCO*bannerView.messageString: View builder ...
+! NCO_MSG0032
+NCO*bannerImages.messageString: Images ...
+! NCO_MSG0033
+NCO*bannerDirectories.messageString: Building directories ...
+! NCO_MSG0034
+NCO*bannerWidgets.messageString: Creating widgets ...
+! NCO_MSG0035
+NCO*bannerValues.messageString: Setting widget values ...
+! NCO_MSG0036
+NCO*bannerComplete.messageString: Complete
+
+
+! Generated by X-Designer
+
+
+! panic_dialog
+NCO*panic_dialog.title: Server Failure
+
+! panic_mb
+
+! panic_connect_button
+NCO*panic_connect_button.labelString: Connect
+
+! panic_exit_button
+NCO*panic_exit_button.labelString: Exit
+
+! panic_help_button
+NCO*panic_help_button.labelString: Help
+
+! label12
+NCO*panic_little_label.labelString: The Object Server you are connected to\nappears to have failed.\n\nYou can attempt to reconnect to it, connect to\na different Object Server or exit from this application.\n\nAny action that was being performed at the time of failure\nwill need to be performed again.\n\nYou may connect as a different user by filling in the fields below.\n
+
+! label13
+NCO*panic_username_label.labelString: Username
+
+! panic_username_field
+
+! label14
+NCO*panic_password_label.labelString: Password
+
+! panic_password_field
+
+! panic_server_menu
+NCO*panic_server_menu.labelString: Server
+
+! label15
+
+
+! passwd_dialog
+NCO*passwd_dialog.title: Change Password
+
+! passwd_mb
+
+! passwd_ok_button
+NCO*passwd_ok_button.labelString: Ok
+
+! passwd_cancel_button
+NCO*passwd_cancel_button.labelString: Cancel
+
+! passwd_help_button
+NCO*passwd_help_button.labelString: Help
+
+! label1
+NCO*current_label.labelString: Current
+
+! passwd_current_field
+
+! label2
+NCO*new_label.labelString: New
+
+! passwd_new_field
+
+! label3
+NCO*verify_label.labelString: Verify
+
+! passwd_verify_field
+
+
+! prefs_dialog
+NCO*prefs_dialog.title: Preferences
+
+! prefs_mb
+
+! prefs_apply_button
+NCO*prefs_apply_button.labelString: Apply
+
+! prefs_save_button
+NCO*prefs_save_button.labelString: Save
+
+! prefs_close_button
+NCO*prefs_close_button.labelString: Close
+
+! prefs_undo_button
+NCO*prefs_undo_button.labelString: Undo
+
+! prefs_help_button
+NCO*prefs_help_button.labelString: Help
+
+! prefs_conductor_tab
+NCO*prefs_conductor_tab.labelString: Conductor
+
+! prefs_eventlist_tab
+NCO*prefs_eventlist_tab.labelString: Event List
+
+! prefs_notification_tab
+NCO*prefs_notification_tab.labelString: Notification
+
+! conductor_frame
+
+! prefs_timed_dir_upd_toggle
+NCO*prefs_timed_dir_upd_toggle.labelString: Timed Directory Update
+
+! prefs_update_time_field
+NCO*prefs_update_time_field.xrtFldValidChars: 0123456789
+
+! eventlist_frame
+
+! prefs_fs_number_toggle
+NCO*prefs_fs_number_toggle.labelString: Show Count
+
+! prefs_fs_max_toggle
+NCO*prefs_fs_max_toggle.labelString: Show Highest Severity
+
+! prefs_fs_min_toggle
+NCO*prefs_fs_min_toggle.labelString: Show Lowest Severity
+
+! prefs_fs_metric_toggle
+NCO*prefs_fs_metric_toggle.labelString: Show Metric
+
+! prefs_colours_toggle
+NCO*prefs_colours_toggle.labelString: Show Event List Colors
+
+! prefs_sort_info_toggle
+NCO*prefs_sort_info_toggle.labelString: Sort Information Details
+
+! rowcol1
+
+! prefs_fs_lavalamp_toggle
+NCO*prefs_fs_lavalamp_toggle.labelString: Show Lavalamp
+
+! prefs_fs_histogram_toggle
+NCO*prefs_fs_histogram_toggle.labelString: Show Histogram
+
+! prefs_el_timed_refresh_tgl
+NCO*prefs_el_timed_refresh_tgl.labelString: Timed Refresh
+
+! prefs_el_refresh_time_fld
+NCO*prefs_el_refresh_time_fld.xrtFldValidChars: 0123456789
+
+! prefs_event_flash_enable_toggle
+NCO*prefs_event_flash_enable_toggle.labelString: Enable Flashing
+
+! prefs_event_flash_time_gauge
+
+! prefs_event_flash_fast_label
+NCO*prefs_event_flash_fast_label.labelString: Fast
+
+! prefs_event_flash_slow_label
+NCO*prefs_event_flash_slow_label.labelString: Slow
+
+! prefs_event_flash_brightness_gauge
+
+! prefs_event_flash_bright_label
+NCO*prefs_event_flash_bright_label.labelString: Bright
+
+! prefs_event_flash_dark_label
+NCO*prefs_event_flash_dark_label.labelString: Dark
+
+! notification_frame
+
+! prefs_notify_toggle
+NCO*prefs_notify_toggle.labelString: Notify When Iconised
+
+! separator5
+
+! prefs_when_label
+NCO*prefs_when_label.labelString: When
+
+! prefs_notify_on_insert_toggle
+NCO*prefs_notify_on_insert_toggle.labelString: New
+
+! prefs_notify_on_update_toggle
+NCO*prefs_notify_on_update_toggle.labelString: Change
+
+! prefs_notify_on_delete_toggle
+NCO*prefs_notify_on_delete_toggle.labelString: Delete
+
+! separator6
+
+! prefs_how_label
+NCO*prefs_how_label.labelString: How
+
+! prefs_notify_bell_toggle
+NCO*prefs_notify_bell_toggle.labelString: Ring Bell
+
+! prefs_notify_icon_toggle
+NCO*prefs_notify_icon_toggle.labelString: Alert Icon
+
+! prefs_notify_open_toggle
+NCO*prefs_notify_open_toggle.labelString: Open Window
+
+! prefs_notify_external_toggle
+NCO*prefs_notify_external_toggle.labelString: Run External Command
+
+! prefs_notify_external_field
+
+
+! bg_menu
+NCO*bg_menu.menuPost: <Button3>
+
+! bg_refresh_button
+NCO*bg_refresh_button.labelString: Refresh
+NCO*bg_refresh_button.mnemonic: R
+NCO*bg_refresh_button.accelerator: Ctrl<Key>R
+NCO*bg_refresh_button.acceleratorText: Ctrl+R
+
+! bg_show_hidden_toggle
+NCO*bg_show_hidden_toggle.labelString: Show Hidden Files
+NCO*bg_show_hidden_toggle.mnemonic: H
+NCO*bg_show_hidden_toggle.accelerator: Ctrl<Key>H
+NCO*bg_show_hidden_toggle.acceleratorText: Ctrl+H
+
+! bg_show_backups_toggle
+NCO*bg_show_backups_toggle.labelString: Show Backups Files
+NCO*bg_show_backups_toggle.mnemonic: B
+NCO*bg_show_backups_toggle.accelerator: Ctrl<Key>B
+NCO*bg_show_backups_toggle.acceleratorText: Ctrl+B
+
+! dir_menu
+NCO*dir_menu.menuPost: <Button3>
+
+! dir_label
+
+! dir_open_button
+NCO*dir_open_button.labelString: Open Directory
+NCO*dir_open_button.mnemonic: O
+
+! obj_menu
+NCO*obj_menu.menuPost: <Button3>
+
+! obj_label
+
+! obj_start_button
+NCO*obj_start_button.labelString: Start
+NCO*obj_start_button.mnemonic: S
+
+! obj_start2_button
+NCO*obj_start2_button.labelString: Start 2
+NCO*obj_start2_button.mnemonic: M
+
+! obj_delete_button
+NCO*obj_delete_button.labelString: Delete
+NCO*obj_delete_button.mnemonic: D
+
+! prefs_menu
+NCO*prefs_menu.menuPost: <Button3>
+
+! label7
+NCO*prefs_label.labelString: Prefs
+
+! prefs_edit_button
+NCO*prefs_edit_button.labelString: Edit ...
+NCO*prefs_edit_button.mnemonic: E
+
+
+! exit_dialog
+NCO*exit_dialog.title: Really Exit ?
+
+! exit_mb
+NCO*exit_mb.messageString: Are you sure you want to exit ?
+NCO*exit_mb.okLabelString: OK
+NCO*exit_mb.cancelLabelString: Cancel
+NCO*exit_mb.helpLabelString: Help
+
+! button1
+NCO*exit_mb.Cancel.labelString: Cancel
+
+! button3
+NCO*exit_mb.OK.labelString: OK
+
+
+! main_window
+NCO.width: 450
+NCO.height: 550
+NCO.title: Conductor
+
+! form12
+
+! menu_bar
+
+! file_cascade_button
+NCO*file_cascade_button.labelString: File
+NCO*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_passwd_button
+NCO*file_passwd_button.labelString: Change Password ...
+NCO*file_passwd_button.mnemonic: P
+NCO*file_passwd_button.accelerator: Ctrl<Key>P
+NCO*file_passwd_button.acceleratorText: Ctrl+P
+
+! file_exit_button
+NCO*file_exit_button.labelString: Exit
+NCO*file_exit_button.mnemonic: x
+
+! view_cascade_button
+NCO*view_cascade_button.labelString: View
+NCO*view_cascade_button.mnemonic: V
+
+! view_refresh_button
+NCO*view_refresh_button.labelString: Refresh
+NCO*view_refresh_button.mnemonic: R
+NCO*view_refresh_button.accelerator: Ctrl<Key>R
+NCO*view_refresh_button.acceleratorText: Ctrl+R
+
+! view_show_hidden_toggle
+NCO*view_show_hidden_toggle.labelString: Show Hidden Files
+NCO*view_show_hidden_toggle.mnemonic: H
+NCO*view_show_hidden_toggle.accelerator: Ctrl<Key>H
+NCO*view_show_hidden_toggle.acceleratorText: Ctrl+H
+
+! view_show_backups_toggle
+NCO*view_show_backups_toggle.labelString: Show Backup Files
+NCO*view_show_backups_toggle.mnemonic: B
+NCO*view_show_backups_toggle.accelerator: Ctrl<Key>B
+NCO*view_show_backups_toggle.acceleratorText: Ctrl+B
+
+! tools_cascade_button
+NCO*tools_cascade_button.labelString: Tools
+NCO*tools_cascade_button.mnemonic: T
+
+! help_cascade_button
+NCO*help_cascade_button.labelString: Help
+NCO*help_cascade_button.mnemonic: H
+
+! help_menu
+
+! help_on_context_button
+NCO*help_on_context_button.labelString: On Context
+NCO*help_on_context_button.mnemonic: C
+NCO*help_on_context_button.accelerator: Shift<Key>osfHelp
+NCO*help_on_context_button.acceleratorText: Shift+Help
+
+! help_on_version_button
+NCO*help_on_version_button.labelString: On Version
+NCO*help_on_version_button.mnemonic: V
+
+! frame5
+
+! elc_dock_label
+
+! elc_dock_label2
+
+! el_button
+
+! fb_button
+
+! vb_button
+
+! db_button
+
+! if_button
+
+! pr_button
+
+! frame7
+
+! label10
+NCO*personal_library_label.labelString: Personal Library
+
+! main_sw
+
+! main_area
+
+! status_line
+
+! user_field
+
+! server_field
+
+
+! dir_window
+NCO*dir_window.width: 550
+NCO*dir_window.height: 400
+NCO*dir_window.title: Directory Browser
+
+! dir_mb
+
+! dir_change_button
+NCO*dir_change_button.labelString: Refresh
+
+! dir_close_button
+NCO*dir_close_button.labelString: Close
+
+! dir_help_button
+NCO*dir_help_button.labelString: Help
+
+! label11
+NCO*dir_label.labelString: Directory
+
+! dir_field
+
+! dir_sw
+
+! dir_area
+

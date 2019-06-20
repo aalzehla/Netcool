@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="UNIX 事件清單指令行選項" />
+<meta name="abstract" content="當您使用 nco_event 指令，在 UNIX 上啟動事件清單時，可以指定一些指令行選項來修改配置。您可以從 $NCHOME/omnibus/bin 目錄執行此指令。" />
+<meta name="description" content="當您使用 nco_event 指令，在 UNIX 上啟動事件清單時，可以指定一些指令行選項來修改配置。您可以從 $NCHOME/omnibus/bin 目錄執行此指令。" />
+<meta name="DC.subject" content="事件清單, UNIX 指令行選項, 指令行選項, UNIX 事件清單" />
+<meta name="keywords" content="事件清單, UNIX 指令行選項, 指令行選項, UNIX 事件清單" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_unixevntlstcmdlineopt" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingeventlist.html" />
+<title>UNIX 事件清單指令行選項</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_unixevntlstcmdlineopt">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX 事件清單指令行選項</h1>
+<div class="body refbody"><p class="shortdesc">當您使用 <span class="keyword cmdname">nco_event</span> 指令，在 UNIX 上啟動事件清單時，可以指定一些指令行選項來修改配置。您可以從 <span class="ph filepath">$NCHOME/omnibus/bin</span> 目錄執行此指令。</p>
+<div class="section"><p class="p">下表說明用於啟動 UNIX 事件清單的指令行選項。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. UNIX 事件清單 (nco_event) 指令行選項</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d95454e45">指令行選項</th>
+<th class="entry" valign="bottom" width="75%" id="d95454e47">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-cmap</span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指定專用色彩對映。 您無法縮寫此指令行選項。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-config</span> <var class="keyword varname">string | URL</var><p class="p">或</p>
+<p class="p"><span class="keyword option">-elc</span> <var class="keyword varname">string
+| URL</var></p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指定要使用的起始配置檔，其中：<p class="p"><var class="keyword varname">string</var> 指定 <span class="ph filepath">.elc</span> 檔案的路徑。</p>
+<p class="p"><var class="keyword varname">URL</var> 指定位於遠端伺服器上的 <span class="ph filepath">.elc</span> 檔案，其可使用 HTTP 或 FTP 進行存取。 透過使用下列其中一種格式指定 <var class="keyword varname">URL</var>：</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+</ul>
+<p class="p">僅當伺服器未使用預設埠時，才需要指定選用埠號 <var class="keyword varname">:port</var>。</p>
+<p class="p"><span class="ph">您可以針對 <var class="keyword varname">servername</var> 值選擇性地指定 IPv4 或 IPv6 位址。 當指定 IPv6 位址時，請將位址含括在方括弧 [ ] 內；例如：</span></p>
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">顯示延伸的診斷訊息。 <p class="p">此選項僅用於偵測事件清單的問題。 除非 <span class="keyword">IBM 軟體支援中心</span> 建議，否則請勿使用此指令行選項。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指出在桌面 ObjectServer 架構中運作時，是啟用還是停用雙重寫入模式。 有效的選項如下所示： <ul class="ul"><li class="li"><samp class="ph codeph">0</samp>：停用雙重寫入模式</li>
+<li class="li"><samp class="ph codeph">1</samp>：啟用雙重寫入模式</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> 指令行選項會置換桌面 ObjectServer 之 master.national 表格中的 DualWrite 欄位項目。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="ph"><span class="keyword option">-failbackpolltime</span> <var class="keyword varname">integer</var></span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 "><span class="ph">如果因發生失效接手而連接至備份 ObjectServer，事件清單會定期嘗試重新連接至主要 ObjectServer。
+此指令行選項可指定事件清單輪詢主要 ObjectServer 傳回結果的頻率（以秒為單位）。如果偵測到主要 ObjectServer 已重新啟動，事件清單會從備份 ObjectServer 中斷連線，並重新連接至主要 ObjectServer。預設值為 <span class="keyword option">30</span> 秒。
+設定為 <span class="keyword option">0</span> 時，將不會進行輪詢。</span><p class="p"><span class="ph">事件清單在連接至 ObjectServer 時，會檢查正在連接的 ObjectServer 的 <span class="keyword parmname parmname">BackupObjectServer</span> 內容設定。僅在此內容設定為 <span class="keyword option">TRUE</span>，表示此為備份 ObjectServer 時，才會進行輪詢。</span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">顯示此指令的說明並結束。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指出要在桌面 ObjectServer 架構中使用的主要 ObjectServer。 <p class="p"><span class="keyword option">-masterserver</span> 指令行選項會置換桌面 ObjectServer 之 master.national 表格中的 MasterServer 欄位項目。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var> </td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指定以秒為單位的時間，如果發生網路失敗，則在這個時間之後，ObjectServer 的登入嘗試或連線會逾時。 在指定的逾時期間之後，事件清單會嘗試重新連接至 ObjectServer。 如果連線在第二個逾時期間之後仍不成功，則事件清單會嘗試連接至備份 ObjectServer (如果可用)。 預設值為 20 秒。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指定要用於登入事件清單的密碼。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指定正連接至的 ObjectServer 名稱。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-uneditable</span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">不容許編輯事件清單配置。 在使用此選項時，會停用<span class="ph uicontrol">過濾器建置器</span>與<span class="ph uicontrol">視圖建置器</span>按鈕，及<span class="ph uicontrol">儲存</span>與<span class="ph uicontrol">另存新檔</span>功能表項目。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">指定要用於登入事件清單的使用者名稱。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d95454e45 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d95454e47 ">顯示版本資訊並結束。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><div class="note tip"><span class="tiptitle">提示：</span> 您可以將事件清單的指令行選項縮寫為其最短的唯一縮寫。 例如，<span class="keyword option">-uneditable</span> 可縮寫為 <span class="keyword option">-un</span>。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_el_startingeventlist.html" title="若要監視及管理事件清單中的警示，您必須透過使用有效的鑑別認證，連接到執行中的 ObjectServer。 您可以從「管理者」、從指令行或從 Windows 開始功能表啟動事件清單。">啟動事件清單</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相關概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="您可以使用桌面 ObjectServer 架構，來改進頻繁體驗大量載入之 ObjectServer 的效能。">桌面 ObjectServer 架構</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="您可以儲存針對「事件清單」監視器框視窗上所有監視器框定義的過濾器、視圖及其他事件配置。 此資訊儲存在事件清單配置檔案 (.elc) 中。">使用事件清單配置</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

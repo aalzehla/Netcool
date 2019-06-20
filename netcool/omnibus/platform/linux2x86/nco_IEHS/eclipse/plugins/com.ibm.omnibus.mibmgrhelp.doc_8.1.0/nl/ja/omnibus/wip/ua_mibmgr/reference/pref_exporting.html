@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="? Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="? Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="エクスポート設定のセットアップ" />
+<meta name="abstract" content="このセクションでは、ルール・ファイルのエクスポート設定を セットアップする方法について説明します。" />
+<meta name="Description" content="このセクションでは、ルール・ファイルのエクスポート設定を セットアップする方法について説明します。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB マネージャー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">エクスポート設定のセットアップ</h1>
+<div class="body refbody"><p class="shortdesc">このセクションでは、ルール・ファイルのエクスポート設定を
+セットアップする方法について説明します。</p>
+<div class="section"><p class="p">ディレクトリー設定をセットアップするには、<img class="image" src="../gifs/global_preferences.gif" alt="設定アイコン" /> <span class="ph uicontrol">「設定」</span>をクリックするか、メインメニューから、
+<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「設定」</span></span>をクリックして、<span class="keyword wintitle">「設定」</span>ウィンドウの左側のペインから
+<span class="ph uicontrol">「エクスポート」</span>をクリックします。</p>
+</div>
+<div class="section"><ul class="ul"><li class="li"><span class="ph uicontrol">「インクルード・パス」</span>フィールドに、
+Netcool Include Library (NCiL) ルール・ファイル・パッケージ (インストールされている場合) を
+使用してインストールされたルールの場所を指定します。
+このオプションが必要なのは、データを Netcool Include Library ファイル・フォーマットで
+エクスポートし、組み込まれたルールを
+ディレクトリー・パスが指す必要がある場合のみです。結果として、新規ルール・ファイルを手動で編集する
+必要はありません。デフォルト値は <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/probes/<var class="keyword varname">arch</var></span> です。</li>
+<li class="li"><span class="ph uicontrol">「デフォルトのエクスポート・ファイル・フォーマット」</span>フィールドで、
+出力ファイル用に Windows/DOS フォーマット (CRLF) または Unix フォーマット (LF) を
+指定します。このプロパティーを使用することで、Windows マシンでルールを作成して、ユーティリティー (<samp class="ph codeph">dos2unix</samp> など) を実行することなく、
+作成したルールを UNIX マシンにコピーできます。<div class="note note"><span class="notetitle">注:</span> この選択肢は、ルール・ファイルだけでなく、
+すべての出力ファイルに適用されます。デフォルト値は
+Unix フォーマットです。</div>
+</li>
+<li class="li"><span class="ph uicontrol">「アラート・タイプ」</span>フィールドで、
+<span class="keyword wintitle">「詳細」</span>ビューの、トラップの<samp class="ph codeph">「@Type」</samp>フィールド編集時に表示される
+ドロップダウン・リスト・オプションを指定します。</li>
+</ul>
+<p class="p">以下のオプションは、NCKL エクスポート・フォーマットが
+事前に選択されている場合のみ使用できます。</p>
+<ul class="ul"><li class="li"><span class="ph uicontrol">「varbind の説明を含める」</span>チェック・ボックスが選択されている場合、
+varbind の説明はコメント資料として追加されます。
+デフォルト値は「使用可能」です。</li>
+<li class="li"><span class="ph uicontrol">「@AlertKey のより適切な値を計算」</span>チェック・ボックスが選択されている場合、
+<samp class="ph codeph">「@AlertKey」</samp>の値は、
+varbind 親オブジェクトから生成されます。デフォルト値は「使用可能」です。</li>
+<li class="li"><span class="ph uicontrol">「エンタープライズごとに @Agent を 1 回設定」</span>チェック・ボックスが選択されている場合、
+<samp class="ph codeph">「@Agent」</samp>フィールドは、エンタープライズごとに
+設定されます。<samp class="ph codeph">「@Agent」</samp>フィールドは、ルール・ファイル用
+に処理される MIB モジュールの名前に基づいています。
+デフォルト値は「使用可能」です。</li>
+<li class="li"><span class="ph uicontrol">「@Class テンプレートを追加」</span>チェック・ボックスが選択されている場合、
+<samp class="ph codeph">「@Class」</samp>フィールドが設定されます。<span class="ph uicontrol">「@Class テンプレートを追加」</span>チェック・ボックスが選択されている場合、<samp class="ph codeph">「@Class」</samp>フィールドが 300 に設定されます。デフォルト値は「使用可能」です。</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="MIB マネージャーのグローバル設定のいくつかは、 「設定」ウィンドウから構成できます。">グローバル設定の構成</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="MIB マネージャーから SNMP MIB データをさまざまなフォーマットに エクスポートする方法です。">MIB データのエクスポート</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

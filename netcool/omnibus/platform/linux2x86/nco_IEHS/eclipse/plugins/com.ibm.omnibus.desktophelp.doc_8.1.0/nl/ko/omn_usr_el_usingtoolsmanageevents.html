@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="도구를 사용한 이벤트 관리" />
+<meta name="abstract" content="시스템 관리자는 이벤트 목록의 이벤트를 조작하기 위해 사용할 도구를 정의하고 이 도구를 Tivoli Netcool/OMNIbus 데스크탑 메뉴에 추가할 수 있습니다. 이러한 도구를 사용하여 ObjectServer에 대한 SQL 명령을 실행하고 외부 명령(예: 로컬 애플리케이션 배치 파일 또는 스크립트)을 실행할 수 있습니다." />
+<meta name="Description" content="시스템 관리자는 이벤트 목록의 이벤트를 조작하기 위해 사용할 도구를 정의하고 이 도구를 Tivoli Netcool/OMNIbus 데스크탑 메뉴에 추가할 수 있습니다. 이러한 도구를 사용하여 ObjectServer에 대한 SQL 명령을 실행하고 외부 명령(예: 로컬 애플리케이션 배치 파일 또는 스크립트)을 실행할 수 있습니다." />
+<meta name="DC.subject" content="이벤트 목록, 도구" />
+<meta name="keywords" content="이벤트 목록, 도구" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_issuingpingcmds.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_issuingtelnetcmds.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtoolsbysysadmin.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_usingtoolsmanageevents" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>도구를 사용한 이벤트 관리</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_usingtoolsmanageevents">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">도구를 사용한 이벤트 관리</h1>
+<div class="body taskbody"><p class="shortdesc">시스템 관리자는 이벤트 목록의 이벤트를 조작하기 위해 사용할 도구를 정의하고
+이 도구를 <span class="keyword">Tivoli Netcool/OMNIbus</span> 데스크탑 메뉴에 추가할 수 있습니다. 이러한 도구를 사용하여 ObjectServer에 대한 SQL 명령을
+실행하고 외부 명령(예: 로컬 애플리케이션 배치 파일 또는 스크립트)을 실행할 수 있습니다.</p>
+<div class="section context"><p class="p">많은 표준 도구에는 이벤트 목록이 제공됩니다. 이 도구는 Ping 및 Telnet 도구를 포함합니다.
+이 도구는 이벤트에 관계없이 실행될 수 있습니다. </p>
+</div>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_issuingpingcmds.html">Ping 명령 실행</a></span><br />
+Ping 도구는 alerts.status 테이블의 노드 컬럼 값에 대해 Ping 명령을 실행합니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_issuingtelnetcmds.html">Telnet 명령 실행</a></span><br />
+Telnet 도구는 alerts.status 테이블의 노드 컬럼에 보유된 값에 대해
+Telnet 세션을 실행합니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_runningtoolsbysysadmin.html">시스템 관리자에 의해 구성된 도구 실행</a></span><br />
+시스템 관리자가 이벤트 관리에 사용할 도구를 작성한 경우 이벤트 목록의
+이벤트에 대해 이 도구를 실행할 수 있습니다.</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="이벤트 목록의 이벤트를 조작하려면 맨 먼저 해당 이벤트를 선택해야 합니다.">이벤트에 대한 작업</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

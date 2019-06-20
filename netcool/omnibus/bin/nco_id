@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2010. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# nco_id script - runs command line nco_id program
+#
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+if [ -f $OMNIHOME/RELEASE_ID ]; then
+        head -1 $OMNIHOME/RELEASE_ID
+fi
+
+#
+# Process arguments
+#
+
+ARGUMENTS=""
+while [ ${#} -gt 0 ]
+do
+	case "$1" in
+	-[pP][aA][sS][sS][wW][oO][rR][dD]*)
+		if [ ${#} -lt 2 ]; then
+			err "$1 option requires a value"
+		fi
+		shift
+		OMNIPASSWD="$1"
+		;;
+	*)
+		ARGUMENTS="$ARGUMENTS \"$1\""
+		;;
+	esac
+	shift
+done
+
+#
+# Check nco_common found the JRE
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+JAVA="\"${NCO_JRE_64_32}/bin/java\""
+
+#
+# Set classpath and property for the JDBC driver
+#
+CLASSPATH=$OMNIHOME/java/jars/VersionFinder.jar:$CLASSPATH
+START_CLASS=com.ibm.tivoli.omnibus.version_finder.VersionFinder
+
+export CLASSPATH
+
+
+#
+# Run version finder
+#
+eval exec $JAVA $START_CLASS $ARGUMENTS

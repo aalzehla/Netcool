@@ -1,0 +1,804 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+// THIS POLICY IS NOT FOR RUNNING AS IS.  COPY OUT THE EXAMPLE CODE YOU WISH TO USE
+
+//
+// EXAMPLE PSML_33_33_33.ipl  ////////////////////
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+psmlPageName="fromImpact_33_33_33";
+
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, psmlportlet1_metainfo1, "metainfo");
+IPLtoXML.newSubElement(psmlportlet1_metainfo1, psmlportlet1_metainfo1_title1, "title");
+IPLtoXML.setContent(psmlportlet1_metainfo1_title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, psmlportlet1_layout, "layout");
+IPLtoXML.addAttribute(psmlportlet1_layout, "position", "0");
+IPLtoXML.addAttribute(psmlportlet1_layout, "size", "-1");
+IPLtoXML.newSubElement(psmlportlet1, portletcontroller1, "controller");
+IPLtoXML.addAttribute(portletcontroller1, "name", "ThreeColumnsSymetric");
+
+
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "ncw-chart");
+IPLtoXML.newSubElement(entry1, entry1_layout, "layout");
+IPLtoXML.addAttribute(entry1_layout, "position", "-1");
+IPLtoXML.addAttribute(entry1_layout, "size", "-1");
+IPLtoXML.newSubElement(entry1_layout, entry1_layout_property1, "property");
+IPLtoXML.addAttribute(entry1_layout_property1, "name", "column");
+IPLtoXML.addAttribute(entry1_layout_property1, "value", "0");
+IPLtoXML.newSubElement(entry1_layout, entry1_layout_property2, "property");
+IPLtoXML.addAttribute(entry1_layout_property2, "name", "row");
+IPLtoXML.addAttribute(entry1_layout_property2, "value", "0");
+IPLtoXML.newSubElement(entry1, entry1_parameter1, "parameter");
+IPLtoXML.addAttribute(entry1_parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(entry1_parameter1, "value", "400");
+IPLtoXML.newSubElement(entry1, entry1_parameter2, "parameter");
+IPLtoXML.addAttribute(entry1_parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(entry1_parameter2, "value", "400");
+IPLtoXML.newSubElement(entry1, entry1_parameter3, "parameter");
+IPLtoXML.addAttribute(entry1_parameter3, "name", "description");
+IPLtoXML.addAttribute(entry1_parameter3, "value", "Chart");
+IPLtoXML.newSubElement(entry1, entry1_parameter4, "parameter");
+IPLtoXML.addAttribute(entry1_parameter4, "name", "chart_template");
+IPLtoXML.addAttribute(entry1_parameter4, "value", "PIE_eventsbyseverity");
+
+
+IPLtoXML.newSubElement(psmlportlet1, entry2, "entry");
+IPLtoXML.addAttribute(entry2, "parent", "ncw-ael");
+IPLtoXML.newSubElement(entry2, entry2_layout, "layout");
+IPLtoXML.addAttribute(entry2_layout, "position", "-1");
+IPLtoXML.addAttribute(entry2_layout, "size", "-1");
+IPLtoXML.newSubElement(entry2_layout, entry2_layout_property1, "property");
+IPLtoXML.addAttribute(entry2_layout_property1, "name", "column");
+IPLtoXML.addAttribute(entry2_layout_property1, "value", "1");
+IPLtoXML.newSubElement(entry2_layout, entry2_layout_property2, "property");
+IPLtoXML.addAttribute(entry2_layout_property2, "name", "row");
+IPLtoXML.addAttribute(entry2_layout_property2, "value", "0");
+IPLtoXML.newSubElement(entry2, entry2_parameter1, "parameter");
+IPLtoXML.addAttribute(entry2_parameter1, "name", "ael_height");
+IPLtoXML.addAttribute(entry2_parameter1, "value", "400");
+IPLtoXML.newSubElement(entry2, entry2_parameter2, "parameter");
+IPLtoXML.addAttribute(entry2_parameter2, "name", "ael_width");
+IPLtoXML.addAttribute(entry2_parameter2, "value", "90%");
+IPLtoXML.newSubElement(entry2, entry2_parameter3, "parameter");
+IPLtoXML.addAttribute(entry2_parameter3, "name", "ael_entity");
+IPLtoXML.addAttribute(entry2_parameter3, "value", "AllEvents");
+
+
+IPLtoXML.newSubElement(psmlportlet1, entry3, "entry");
+IPLtoXML.addAttribute(entry3, "parent", "ncw-ael");
+IPLtoXML.newSubElement(entry3, entry3_layout, "layout");
+IPLtoXML.addAttribute(entry3_layout, "position", "-1");
+IPLtoXML.addAttribute(entry3_layout, "size", "-1");
+IPLtoXML.newSubElement(entry3_layout, entry3_layout_property1, "property");
+IPLtoXML.addAttribute(entry3_layout_property1, "name", "column");
+IPLtoXML.addAttribute(entry3_layout_property1, "value", "2");
+IPLtoXML.newSubElement(entry3_layout, entry3_layout_property2, "property");
+IPLtoXML.addAttribute(entry3_layout_property2, "name", "row");
+IPLtoXML.addAttribute(entry3_layout_property2, "value", "0");
+IPLtoXML.newSubElement(entry3, entry3_parameter1, "parameter");
+IPLtoXML.addAttribute(entry3_parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(entry3_parameter1, "value", "400");
+IPLtoXML.newSubElement(entry3, entry3_parameter2, "parameter");
+IPLtoXML.addAttribute(entry3_parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(entry3_parameter2, "value", "400");
+IPLtoXML.newSubElement(entry3, entry3_parameter3, "parameter");
+IPLtoXML.addAttribute(entry3_parameter3, "name", "description");
+IPLtoXML.addAttribute(entry3_parameter3, "value", "Chart");
+IPLtoXML.newSubElement(entry3, entry3_parameter3, "parameter");
+IPLtoXML.addAttribute(entry3_parameter3, "name", "chart_template");
+IPLtoXML.addAttribute(entry3_parameter3, "value", "PIE_eventsbyseverity");
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_50_50.ipl  //////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+psmlPageName="fromImpact_50_50";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, psmlportlet1_layout, "layout");
+IPLtoXML.newSubElement(psmlportlet1, portletcontroller1, "controller");
+IPLtoXML.addAttribute(portletcontroller1, "name", "TwoColumns");
+
+
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");				// first column
+IPLtoXML.addAttribute(entry1, "parent", "ncw-chart");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, entry1_layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(entry1_layout1, "position", "-1");
+IPLtoXML.addAttribute(entry1_layout1, "size", "-1");
+IPLtoXML.newSubElement(entry1_layout1, entry1_layout1_property1, "property");
+IPLtoXML.addAttribute(entry1_layout1_property1, "name", "column");
+IPLtoXML.addAttribute(entry1_layout1_property1, "value", "0");
+IPLtoXML.newSubElement(entry1_layout1, entry1_layout1_property2, "property");
+IPLtoXML.addAttribute(entry1_layout1_property2, "name", "row");
+IPLtoXML.addAttribute(entry1_layout1_property2, "value", "0");
+IPLtoXML.newSubElement(entry1, entry1_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(entry1_parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(entry1_parameter1, "value", "400");
+IPLtoXML.newSubElement(entry1, entry1_parameter2, "parameter");			
+IPLtoXML.addAttribute(entry1_parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(entry1_parameter2, "value", "400");
+IPLtoXML.newSubElement(entry1, entry1_parameter3, "parameter");			
+IPLtoXML.addAttribute(entry1_parameter3, "name", "description");
+IPLtoXML.addAttribute(entry1_parameter3, "value", "Chart");
+IPLtoXML.newSubElement(entry1, entry1_parameter4, "parameter");			
+IPLtoXML.addAttribute(entry1_parameter4, "name", "chart_template");
+IPLtoXML.addAttribute(entry1_parameter4, "value", "PIE_eventsbyseverity");
+
+
+IPLtoXML.newSubElement(psmlportlet1, entry2, "entry");				//second column
+IPLtoXML.addAttribute(entry2, "parent", "ncw-ael");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry2, entry2_layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(entry2_layout1, "position", "-1");
+IPLtoXML.addAttribute(entry2_layout1, "size", "-1");
+IPLtoXML.newSubElement(entry2_layout1, entry2_layout1_property1, "property");
+IPLtoXML.addAttribute(entry2_layout1_property1, "name", "column");
+IPLtoXML.addAttribute(entry2_layout1_property1, "value", "1");
+IPLtoXML.newSubElement(entry2_layout1, entry2_layout1_property2, "property");
+IPLtoXML.addAttribute(entry2_layout1_property2, "name", "row");
+IPLtoXML.addAttribute(entry2_layout1_property2, "value", "0");
+IPLtoXML.newSubElement(entry2, entry2_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(entry2_parameter1, "name", "ael_height");
+IPLtoXML.addAttribute(entry2_parameter1, "value", "400");
+IPLtoXML.newSubElement(entry2, entry2_parameter2, "parameter");
+IPLtoXML.addAttribute(entry2_parameter2, "name", "ael_width");
+IPLtoXML.addAttribute(entry2_parameter2, "value", "90%");
+IPLtoXML.newSubElement(entry2, entry2_parameter3, "parameter");
+IPLtoXML.addAttribute(entry2_parameter3, "name", "ael_entity");
+IPLtoXML.addAttribute(entry2_parameter3, "value", "AllEvents");
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_ael.ipl  ////////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+//simple page.  One column, AEL
+
+
+psmlPageName="fromImpact_AEL_single_column";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "ncw-ael");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(layout1, "position", "-1");
+IPLtoXML.addAttribute(layout1, "size", "-1");
+IPLtoXML.newSubElement(layout1, property1, "property");
+IPLtoXML.addAttribute(property1, "name", "column");
+IPLtoXML.addAttribute(property1, "value", "0");
+IPLtoXML.newSubElement(layout1, property2, "property");
+IPLtoXML.addAttribute(property2, "name", "row");
+IPLtoXML.addAttribute(property2, "value", "0");
+IPLtoXML.newSubElement(entry1, control1, "control");
+IPLtoXML.addAttribute(control1, "name", "TitlePortletControl");
+
+IPLtoXML.newSubElement(entry1, parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(parameter1, "name", "ael_height");
+IPLtoXML.addAttribute(parameter1, "value", "400");
+IPLtoXML.newSubElement(entry1, parameter2, "parameter");
+IPLtoXML.addAttribute(parameter2, "name", "ael_width");
+IPLtoXML.addAttribute(parameter2, "value", "90%");
+IPLtoXML.newSubElement(entry1, parameter3, "parameter");
+IPLtoXML.addAttribute(parameter3, "name", "ael_entity");
+IPLtoXML.addAttribute(parameter3, "value", "AllEvents");
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_chart.ipl  ////////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+//simple page.  One column, Chart
+
+
+psmlPageName="fromImpact_Chart_single_column";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "ncw-chart");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(layout1, "position", "-1");
+IPLtoXML.addAttribute(layout1, "size", "-1");
+IPLtoXML.newSubElement(layout1, property1, "property");
+IPLtoXML.addAttribute(property1, "name", "column");
+IPLtoXML.addAttribute(property1, "value", "0");
+IPLtoXML.newSubElement(layout1, property2, "property");
+IPLtoXML.addAttribute(property2, "name", "row");
+IPLtoXML.addAttribute(property2, "value", "0");
+IPLtoXML.newSubElement(entry1, control1, "control");
+IPLtoXML.addAttribute(control1, "name", "TitlePortletControl");
+
+
+IPLtoXML.newSubElement(entry1, parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(parameter1, "value", "400");
+IPLtoXML.newSubElement(entry1, parameter2, "parameter");			
+IPLtoXML.addAttribute(parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(parameter2, "value", "400");
+IPLtoXML.newSubElement(entry1, parameter3, "parameter");			
+IPLtoXML.addAttribute(parameter3, "name", "description");
+IPLtoXML.addAttribute(parameter3, "value", "Chart");
+IPLtoXML.newSubElement(entry1, parameter4, "parameter");			
+IPLtoXML.addAttribute(parameter4, "name", "chart_template");
+IPLtoXML.addAttribute(parameter4, "value", "PIE_eventsbyseverity");
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_IFrame_picture.ipl  ///////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+
+psmlPageName="fromImpact_IFrame_single_column";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "IFrameExample");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(layout1, "position", "-1");
+IPLtoXML.addAttribute(layout1, "size", "-1");
+IPLtoXML.newSubElement(layout1, property1, "property");
+IPLtoXML.addAttribute(property1, "name", "column");
+IPLtoXML.addAttribute(property1, "value", "0");
+IPLtoXML.newSubElement(layout1, property2, "property");
+IPLtoXML.addAttribute(property2, "name", "row");
+IPLtoXML.addAttribute(property2, "value", "0");
+IPLtoXML.newSubElement(entry1, control1, "control");
+IPLtoXML.addAttribute(control1, "name", "TitlePortletControl");
+
+IPLtoXML.newSubElement(entry1, parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(parameter1, "name", "source");
+IPLtoXML.addAttribute(parameter1, "value", "/desktop/images/ngf/tivoli_netcool.gif"); //path relative to $IMPACT_HOME/guifoundtaion/webapps
+
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_lel.ipl  ////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+psmlPageName="fromImpact_LEL_single_column";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "ncw-lel");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(layout1, "position", "-1");
+IPLtoXML.addAttribute(layout1, "size", "-1");
+IPLtoXML.newSubElement(layout1, property1, "property");
+IPLtoXML.addAttribute(property1, "name", "column");
+IPLtoXML.addAttribute(property1, "value", "0");
+IPLtoXML.newSubElement(layout1, property2, "property");
+IPLtoXML.addAttribute(property2, "name", "row");
+IPLtoXML.addAttribute(property2, "value", "0");
+IPLtoXML.newSubElement(entry1, control1, "control");
+IPLtoXML.addAttribute(control1, "name", "TitlePortletControl");
+
+IPLtoXML.newSubElement(entry1, parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(parameter1, "name", "lel_height");
+IPLtoXML.addAttribute(parameter1, "value", "600");
+IPLtoXML.newSubElement(entry1, parameter2, "parameter");			
+IPLtoXML.addAttribute(parameter2, "name", "lel_width");
+IPLtoXML.addAttribute(parameter2, "value", "100%");
+IPLtoXML.newSubElement(entry1, parameter3, "parameter");			
+IPLtoXML.addAttribute(parameter3, "name", "lel_entity");
+IPLtoXML.addAttribute(parameter3, "value", "AllEvents");
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_map.ipl  /////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+psmlPageName="fromImpact_Map_single_column";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "ncw-map");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(layout1, "position", "-1");
+IPLtoXML.addAttribute(layout1, "size", "-1");
+IPLtoXML.newSubElement(layout1, property1, "property");
+IPLtoXML.addAttribute(property1, "name", "column");
+IPLtoXML.addAttribute(property1, "value", "0");
+IPLtoXML.newSubElement(layout1, property2, "property");
+IPLtoXML.addAttribute(property2, "name", "row");
+IPLtoXML.addAttribute(property2, "value", "0");
+IPLtoXML.newSubElement(entry1, control1, "control");
+IPLtoXML.addAttribute(control1, "name", "TitlePortletControl");
+
+IPLtoXML.newSubElement(entry1, parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(parameter1, "name", "map_height");
+IPLtoXML.addAttribute(parameter1, "value", "600");
+IPLtoXML.newSubElement(entry1, parameter2, "parameter");			
+IPLtoXML.addAttribute(parameter2, "name", "map_width");
+IPLtoXML.addAttribute(parameter2, "value", "100%");
+IPLtoXML.newSubElement(entry1, parameter3, "parameter");			
+IPLtoXML.addAttribute(parameter3, "name", "map_map");
+IPLtoXML.addAttribute(parameter3, "value", "Chicago");
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_menu.ipl ////////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+//simple page.  One column, Chart
+
+psmlPageName="fromImpact_Example Menu";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+
+IPLtoXML.newSubElement(psmlportlet1, portletcontrol1, "control");				// set up menu
+IPLtoXML.addAttribute(portletcontrol1, "name", "MenuControl");
+IPLtoXML.newSubElement(psmlportlet1, portletcontroller1, "controller");
+IPLtoXML.addAttribute(portletcontroller1, "name", "MenuController");
+
+
+IPLtoXML.newSubElement(psmlportlet1, subportlet1, "portlets");					// first item in menu
+IPLtoXML.newSubElement(subportlet1, subportlet1_metainfo, "metainfo");
+IPLtoXML.newSubElement(subportlet1_metainfo, subportlet1_metainfo_title, "title");
+IPLtoXML.setContent(subportlet1_metainfo_title, "chart accessed by menu");
+IPLtoXML.newSubElement(subportlet1, subportlet1_entry, "entry");
+IPLtoXML.addAttribute(subportlet1_entry, "parent", "ncw-chart");					// viewpoint type
+
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_layout, "layout");				//layout properties
+IPLtoXML.addAttribute(subportlet1_entry_layout, "position", "-1");
+IPLtoXML.addAttribute(subportlet1_entry_layout, "size", "-1");
+IPLtoXML.newSubElement(subportlet1_entry_layout, subportlet1_entry_layout_property1, "property");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property1, "name", "column");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property1, "value", "0");
+IPLtoXML.newSubElement(subportlet1_entry_layout, subportlet1_entry_layout_property2, "property");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property2, "name", "row");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property2, "value", "0");
+
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(subportlet1_entry_parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(subportlet1_entry_parameter1, "value", "400");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter2, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(subportlet1_entry_parameter2, "value", "400");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter3, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter3, "name", "description");
+IPLtoXML.addAttribute(subportlet1_entry_parameter3, "value", "Chart");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter4, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter4, "name", "chart_template");
+IPLtoXML.addAttribute(subportlet1_entry_parameter4, "value", "PIE_eventsbyseverity");
+
+
+IPLtoXML.newSubElement(psmlportlet1, subportlet2, "portlets");					// second item in menu
+IPLtoXML.newSubElement(subportlet2, subportlet2_metainfo, "metainfo");
+IPLtoXML.newSubElement(subportlet2_metainfo, subportlet2_metainfo_title, "title");
+IPLtoXML.setContent(subportlet2_metainfo_title, "picture accessed by menu");
+IPLtoXML.newSubElement(subportlet2, subportlet2_entry, "entry");
+IPLtoXML.addAttribute(subportlet2_entry, "parent", "IFrameExample");					// viewpoint type
+
+IPLtoXML.newSubElement(subportlet2_entry, subportlet2_entry_layout, "layout");				//layout properties
+IPLtoXML.addAttribute(subportlet2_entry_layout, "position", "-1");
+IPLtoXML.addAttribute(subportlet2_entry_layout, "size", "-1");
+IPLtoXML.newSubElement(subportlet2_entry_layout, subportlet2_entry_layout_property1, "property");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property1, "name", "column");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property1, "value", "0");
+IPLtoXML.newSubElement(subportlet2_entry_layout, subportlet2_entry_layout_property2, "property");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property2, "name", "row");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property2, "value", "0");
+
+IPLtoXML.newSubElement(subportlet2_entry, subportlet2_entry_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(subportlet2_entry_parameter1, "name", "source");
+IPLtoXML.addAttribute(subportlet2_entry_parameter1, "value", "/desktop/images/ngf/tivoli_netcool.gif"); //path relative to $IMPACT_HOME/guifoundtaion/webapps
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for page
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_tab.ipl  ///////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+psmlPageName="fromImpact_Tab_Example";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, portletcontrol1, "control");				// set up tabs
+IPLtoXML.addAttribute(portletcontrol1, "name", "TabControl");
+IPLtoXML.newSubElement(psmlportlet1, portletcontroller1, "controller");
+IPLtoXML.addAttribute(portletcontroller1, "name", "TabController");
+
+
+IPLtoXML.newSubElement(psmlportlet1, subportlet1, "portlets");					// first tab
+IPLtoXML.newSubElement(subportlet1, subportlet1_metainfo, "metainfo");
+IPLtoXML.newSubElement(subportlet1_metainfo, subportlet1_metainfo_title, "title");
+IPLtoXML.setContent(subportlet1_metainfo_title, "tabbed chart example");
+IPLtoXML.newSubElement(subportlet1, subportlet1_entry, "entry");
+IPLtoXML.addAttribute(subportlet1_entry, "parent", "ncw-chart");					// viewpoint type
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_layout, "layout");				//layout properties
+IPLtoXML.addAttribute(subportlet1_entry_layout, "position", "-1");
+IPLtoXML.addAttribute(subportlet1_entry_layout, "size", "-1");
+IPLtoXML.newSubElement(subportlet1_entry_layout, subportlet1_entry_layout_property1, "property");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property1, "name", "column");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property1, "value", "0");
+IPLtoXML.newSubElement(subportlet1_entry_layout, subportlet1_entry_layout_property2, "property");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property2, "name", "row");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property2, "value", "0");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(subportlet1_entry_parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(subportlet1_entry_parameter1, "value", "400");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter2, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(subportlet1_entry_parameter2, "value", "400");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter3, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter3, "name", "description");
+IPLtoXML.addAttribute(subportlet1_entry_parameter3, "value", "Chart");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter4, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter4, "name", "chart_template");
+IPLtoXML.addAttribute(subportlet1_entry_parameter4, "value", "PIE_eventsbyseverity");
+
+
+IPLtoXML.newSubElement(psmlportlet1, subportlet2, "portlets");					// second tab
+IPLtoXML.newSubElement(subportlet2, subportlet2_metainfo, "metainfo");
+IPLtoXML.newSubElement(subportlet2_metainfo, subportlet2_metainfo_title, "title");
+IPLtoXML.setContent(subportlet2_metainfo_title, "picture in tab");
+IPLtoXML.newSubElement(subportlet2, subportlet2_entry, "entry");
+IPLtoXML.addAttribute(subportlet2_entry, "parent", "IFrameExample");					// viewpoint type
+IPLtoXML.newSubElement(subportlet2_entry, subportlet2_entry_layout, "layout");				//layout properties
+IPLtoXML.addAttribute(subportlet2_entry_layout, "position", "-1");
+IPLtoXML.addAttribute(subportlet2_entry_layout, "size", "-1");
+IPLtoXML.newSubElement(subportlet2_entry_layout, subportlet2_entry_layout_property1, "property");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property1, "name", "column");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property1, "value", "0");
+IPLtoXML.newSubElement(subportlet2_entry_layout, subportlet2_entry_layout_property2, "property");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property2, "name", "row");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property2, "value", "0");
+IPLtoXML.newSubElement(subportlet2_entry, subportlet2_entry_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(subportlet2_entry_parameter1, "name", "source");
+IPLtoXML.addAttribute(subportlet2_entry_parameter1, "value", "/desktop/images/ngf/tivoli_netcool.gif"); //path relative to $IMPACT_HOME/guifoundtaion/webapps
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for p
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_table.ipl  ///////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+
+psmlPageName="fromImpact_Table_single_column";
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, entry1, "entry");
+IPLtoXML.addAttribute(entry1, "parent", "ncw-table");				// what type of viewpoint is used
+IPLtoXML.newSubElement(entry1, layout1, "layout");				//layout properties
+IPLtoXML.addAttribute(layout1, "position", "-1");
+IPLtoXML.addAttribute(layout1, "size", "-1");
+IPLtoXML.newSubElement(layout1, property1, "property");
+IPLtoXML.addAttribute(property1, "name", "column");
+IPLtoXML.addAttribute(property1, "value", "0");
+IPLtoXML.newSubElement(layout1, property2, "property");
+IPLtoXML.addAttribute(property2, "name", "row");
+IPLtoXML.addAttribute(property2, "value", "0");
+IPLtoXML.newSubElement(entry1, control1, "control");
+IPLtoXML.addAttribute(control1, "name", "TitlePortletControl");
+
+IPLtoXML.newSubElement(entry1, parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(parameter1, "name", "table_height");
+IPLtoXML.addAttribute(parameter1, "value", "400");
+IPLtoXML.newSubElement(entry1, parameter2, "parameter");			
+IPLtoXML.addAttribute(parameter2, "name", "table_width");
+IPLtoXML.addAttribute(parameter2, "value", "90%");
+IPLtoXML.newSubElement(entry1, parameter3, "parameter");			
+IPLtoXML.addAttribute(parameter3, "name", "table_entity");
+IPLtoXML.addAttribute(parameter3, "value", "AllEvents");
+IPLtoXML.newSubElement(entry1, parameter4, "parameter");			
+IPLtoXML.addAttribute(parameter4, "name", "table_map");
+IPLtoXML.addAttribute(parameter4, "value", "Chicago");
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for p
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE PSML_tab_state.ipl  /////////////////////////////
+//
+//
+//////////////////////////Generate the PSML//////////////////////////////////////
+
+psmlPageName="fromImpact_State-tab_Example";
+
+
+IPLtoXML.newDocument(PSML);
+IPLtoXML.newSubElement(PSML, psmlportlet1, "portlets");
+IPLtoXML.newSubElement(psmlportlet1, metainfo1, "metainfo");
+IPLtoXML.newSubElement(metainfo1, title1, "title");
+IPLtoXML.setContent(title1, psmlPageName);
+IPLtoXML.newSubElement(psmlportlet1, portletcontrol1, "control");				// set up tabs
+IPLtoXML.addAttribute(portletcontrol1, "name", "TabControlDHTML");
+IPLtoXML.newSubElement(psmlportlet1, portletcontroller1, "controller");
+IPLtoXML.addAttribute(portletcontroller1, "name", "TabControllerDHTML");
+
+
+IPLtoXML.newSubElement(psmlportlet1, subportlet1, "portlets");					// first tab
+IPLtoXML.newSubElement(subportlet1, subportlet1_metainfo, "metainfo");
+IPLtoXML.newSubElement(subportlet1_metainfo, subportlet1_metainfo_title, "title");
+IPLtoXML.setContent(subportlet1_metainfo_title, "state maintained tabbed chart example");
+IPLtoXML.newSubElement(subportlet1, subportlet1_entry, "entry");
+IPLtoXML.addAttribute(subportlet1_entry, "parent", "ncw-chart");					// viewpoint type
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_layout, "layout");				//layout properties
+IPLtoXML.addAttribute(subportlet1_entry_layout, "position", "-1");
+IPLtoXML.addAttribute(subportlet1_entry_layout, "size", "-1");
+IPLtoXML.newSubElement(subportlet1_entry_layout, subportlet1_entry_layout_property1, "property");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property1, "name", "column");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property1, "value", "0");
+IPLtoXML.newSubElement(subportlet1_entry_layout, subportlet1_entry_layout_property2, "property");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property2, "name", "row");
+IPLtoXML.addAttribute(subportlet1_entry_layout_property2, "value", "0");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(subportlet1_entry_parameter1, "name", "chart_height");
+IPLtoXML.addAttribute(subportlet1_entry_parameter1, "value", "400");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter2, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter2, "name", "chart_width");
+IPLtoXML.addAttribute(subportlet1_entry_parameter2, "value", "400");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter3, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter3, "name", "description");
+IPLtoXML.addAttribute(subportlet1_entry_parameter3, "value", "Chart");
+IPLtoXML.newSubElement(subportlet1_entry, subportlet1_entry_parameter4, "parameter");
+IPLtoXML.addAttribute(subportlet1_entry_parameter4, "name", "chart_template");
+IPLtoXML.addAttribute(subportlet1_entry_parameter4, "value", "PIE_eventsbyseverity");
+
+
+IPLtoXML.newSubElement(psmlportlet1, subportlet2, "portlets");					// second tab
+IPLtoXML.newSubElement(subportlet2, subportlet2_metainfo, "metainfo");
+IPLtoXML.newSubElement(subportlet2_metainfo, subportlet2_metainfo_title, "title");
+IPLtoXML.setContent(subportlet2_metainfo_title, "state-maintained picture in tab");
+IPLtoXML.newSubElement(subportlet2, subportlet2_entry, "entry");
+IPLtoXML.addAttribute(subportlet2_entry, "parent", "IFrameExample");					// viewpoint type
+IPLtoXML.newSubElement(subportlet2_entry, subportlet2_entry_layout, "layout");				//layout properties
+IPLtoXML.addAttribute(subportlet2_entry_layout, "position", "-1");
+IPLtoXML.addAttribute(subportlet2_entry_layout, "size", "-1");
+IPLtoXML.newSubElement(subportlet2_entry_layout, subportlet2_entry_layout_property1, "property");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property1, "name", "column");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property1, "value", "0");
+IPLtoXML.newSubElement(subportlet2_entry_layout, subportlet2_entry_layout_property2, "property");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property2, "name", "row");
+IPLtoXML.addAttribute(subportlet2_entry_layout_property2, "value", "0");
+IPLtoXML.newSubElement(subportlet2_entry, subportlet2_entry_parameter1, "parameter");			//entry-specific properties
+IPLtoXML.addAttribute(subportlet2_entry_parameter1, "name", "source");
+IPLtoXML.addAttribute(subportlet2_entry_parameter1, "value", "/desktop/images/ngf/tivoli_netcool.gif"); //path relative to $IMPACT_HOME/guifoundtaion/webapps
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+PSML.Provision(psmlportlet1, psmlPageName);				// requires XML object and name for p

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="עיצוב MIB ומושגים בנושא MIB" />
+<meta name="abstract" content="כל המודולים של SNMP MIB המוגדרים לשימושו של התקן ספציפי מרכיבים את ה-MIB עבור אותו התקן. המונח MIB משמש לעיתים קרובות לתיאור הגדרה של מודול יחיד, עם זאת, מצב זה שגוי מבחינה טכנית. למעשה, ה-MIB הוא השילוב של כל המודולים המשמשים לניהול של התקן ספציפי, בין אם הוא קשור לחומרה או לתוכנה. לכן, השם המדויק יותר של כל מודול המוגדר על-ידי ספק או ב-RFC הוא מודול SNMP MIB." />
+<meta name="description" content="כל המודולים של SNMP MIB המוגדרים לשימושו של התקן ספציפי מרכיבים את ה-MIB עבור אותו התקן. המונח MIB משמש לעיתים קרובות לתיאור הגדרה של מודול יחיד, עם זאת, מצב זה שגוי מבחינה טכנית. למעשה, ה-MIB הוא השילוב של כל המודולים המשמשים לניהול של התקן ספציפי, בין אם הוא קשור לחומרה או לתוכנה. לכן, השם המדויק יותר של כל מודול המוגדר על-ידי ספק או ב-RFC הוא מודול SNMP MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibconcepts" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>עיצוב MIB ומושגים בנושא MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibconcepts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">עיצוב MIB ומושגים בנושא MIB</h1>
+<div class="body refbody"><p class="shortdesc">כל המודולים של SNMP MIB המוגדרים לשימושו של התקן ספציפי מרכיבים את ה-MIB עבור אותו התקן. המונח MIB משמש לעיתים קרובות לתיאור הגדרה של מודול יחיד, עם זאת, מצב זה שגוי מבחינה טכנית.
+למעשה, ה-MIB הוא השילוב של כל המודולים המשמשים לניהול של התקן ספציפי, בין אם הוא קשור לחומרה או לתוכנה. לכן, השם המדויק יותר של כל מודול המוגדר על-ידי ספק או ב-RFC הוא מודול SNMP MIB.</p>
+<div class="section"><p class="p">כל מודולי ה-MIB הם בסופו של דבר הרחבות של מודול היסוד. כל מודולי ה-MIB המופצים מספקים נפרדים, מקורם באובייקט הארגונים המוגדר ב-RFC1155-SMI. לכן, כל הסוכנים של SNMP חייבים לתמוך ב-RFC1155, וכן המודולים של MIB הם הרחבות של RFC1155.</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__smi"><h2 class="title sectiontitle">מבנה המידע הניהולי (SMI)</h2><p class="p">כדי לאפשר את הרחבת בסיס המידע הניהולי (MIB) של SNMP, פריטים קשורים מסודרים במודולים של MIB היוצרים היררכיה מובנית.
+כל מודול MIB מוגדר במבנה שלהלן:</p>
+<p class="p"><samp class="ph codeph">ModuleName
+DEFINITIONS ::= BEGIN END</samp></p>
+<p class="p">התווית <samp class="ph codeph">BEGIN</samp> והתווית <samp class="ph codeph">END</samp> במודול מאפשרות להגדיר מספר מודולים בקובץ תמליל אחד. מהדרים של MIB אמורים להיות מסוגלים לטפל בכל מספר כלשהו של מודולים המוגדרים בקובץ יחיד, אך הם אינם אמורים לדרוש זאת.</p>
+<p class="p">קיימות מוסכמות לכל אובייקט המוגדר במודול. לדוגמה, שם המודול חייב להתחיל בתו אלפאבתי באות רישית ולהכיל אותיות, מספרים, מקפים (-), או מקפים תחתונים (_) בלבד. שם האובייקט חייב להתחיל בתו אלפאבתי באות קטנה ולהכיל אותיות, מספרים, מקפים, או מקפים תחתונים בלבד. הערות במודולים של MIB מיוצגות על-ידי שני מקפים עוקבים (--) וניתן להתעלם מכל תמליל המופיע אחרי סמל זה או שורה כלשהי.</p>
+<p class="p">העיצוב המודולרי מאפשר להרחיב בקלות רכיבי MIB, והם יכולים לתמוך בפונקציונליות או בהתקנים חדשים על-ידי הוספת מודולים. בעת כתיבת מודול בתור הרחבה של מודול אחר, הוא יכלול מקטע <samp class="ph codeph">IMPORTS</samp>, ממוקם מתחת לשורה <samp class="ph codeph">DEFINITIONS</samp>.
+המקטע <samp class="ph codeph">IMPORTS</samp> מגדיר את האובייקטים הדרושים למודולים הממוקמים גבוה יותר בהיררכיית ה-MIB ואת המודולים שבהם הם מוגדרים.</p>
+<div class="p">ההגדרה שלהלן לקוחה מ-RFC1157 והיא מציינת מספר אובייקטים המיובאים מ-RFC1155. ניתן לראות במקטע זה כמקטע המקביל להצהרת <samp class="ph codeph">הכללה</samp> בשפת תכנות כגון C או Perl, או בקובץ כללים של Netcool. בנוסף, כדי להבין את האובייקטים במודול ה-MIB הנוכחי (RFC1157-SNMP), עליכם גם להיות מודעים לאובייקטים במודול ה-MIB הקודם (RFC1155-SMI). <pre class="pre codeblock"><code>RFC1157-SNMP DEFINITIONS ::= BEGIN IMPORTS ObjectName, ObjectSyntax, NetworkAddress, 
+IpAddress, TimeTicks FROM RFC1155-SMI;</code></pre>
+</div>
+<p class="p">שגיאות טופוגרפיות נגרמות בקלות בעת ציון שמות MIB שיובאו. לדוגמה,
+RFC1212 עשוי להיות מצוין כמודול MIB במקום השם הנכון, RFC-1212. אם MIB Manager מסמן שגיאות ניתוח, יש לבדוק את המקטע <samp class="ph codeph">IMPORTS</samp> כדי לוודא ששמות המודולים של MIB נכונים. מודולים מסוימים של MIB אף מכילים מקטע של <samp class="ph codeph">EXPORTS</samp> (שגם מסתיים בנקודה ופסיק).
+מקטע זה מודיע לקורא שהמחבר דורש ממודולים אחרים של MIB להשתמש באותם האובייקטים שצוינו. מקטע זה אינו רלוונטי למטרותינו ויש להתעלם ממנו.</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_data"><h2 class="title sectiontitle">סוגי נתונים שהוגדרו</h2><p class="p">מודולים של SNMP MIB מוגדרים בתבנית שנקראת ASN.13 (Abstract
+Syntax Notation 1). אולם, SNMP משתמש רק בחלק מ-ASN.14‏. ASN.1 מוגדר ב-ITU-T X.208 וב-ISO 8824. החלקים ב-ASN.1 החלים על SNMP מוגדרים ב-RFC1155‏. RFC1155 מגדיר את סוגי הנתונים החוקיים של SNMP להלן:</p>
+<ul class="ul"><li class="li">סוגים בסיסיים: INTEGER‏, OCTET STRING‏, OBJECT IDENTIFIER‏, NULL</li>
+<li class="li">סוגי בנאים: SEQUENCE‏, SEQUENCE OF</li>
+<li class="li">סוגים מוגדרים: NetworkAddress‏, IpAddress‏, Counter‏, Gauge‏, TimeTicks‏,
+Opaque</li>
+</ul>
+<p class="p">סוג מוגדר הוא המנגנון המשמש לציון מבנה מסוים לסוגים בסיסיים או לסוגי בנאים. מחברי MIB יכולים לקבוע סוגים מוגדרים נוספים באמצעות המבנה TEXTUAL-CONVENTION‏.</p>
+<div class="p"><samp class="ph codeph">DisplayString</samp> הוא דוגמה טובה לסוג מוגדר. במודול
+SNMPv2-SMI-v1 MIB, מהדורה v1 של <samp class="ph codeph">DisplayString</samp> כוללת את ההגדרות שלהלן:<pre class="pre codeblock"><code>DisplayString ::= OCTET STRING (0..255)</code></pre>
+</div>
+<div class="p">במודול SNMPv2-TC MIB, מהדורה v2 של <samp class="ph codeph">DisplayString</samp> כוללת את ההגדרות שלהלן: <pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION DISPLAY-HINT "255a" STATUS current DESCRIPTION 
+"מייצג מידע של תמליל הנלקח מערכת התווים של NVT ASCII, כמוגדר 
+בעמודים 4‏, 10-11 של RFC 854. כדי לסכם את RFC 854, אוסף הכללים של NVT ASCII 
+מציין: - שימוש בקודי התווים 0-127 (עשרוני) - התווים הגרפיים (32-126) 
+מפורשים בתור US ASCII‏ - NUL, LF, CR, BEL, BS, HT, VT ו-FF הם בעלי משמעויות 
+מיוחדות המצוינות ב-RFC 854 - יתר 25 הקודים אינם בעלי פירוש 
+תקני - משמעות הרצף 'CR LF' היא שורה חדשה - משמעות הרצף 'CR NUL' היא 
+החזרת גררה - ערך 'LF' שלא קודם לו 'CR' פירושו מעבר לאותה עמודה 
+בשורה הבאה. - הרצף 'CR x' עבור כל ערך x אחר שאינו LF או NUL אינו חוקי. 
+(כמו כן, שימו לב, כי משמעות הדבר שמחרוזת עשויה להסתיים ב-'CR LF' או ב-'CR NUL', 
+אך לא ב-CR.) אורכו של כל אובייקט המוגדר באמצעות תחביר זה אינו יכול לחרוג מ-255 תווים."
+  SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+הדוגמה המוצגת לעיל מראה ש-<samp class="ph codeph">DisplayString</samp> הוא OCTET STRING שאורכו הוא 0 עד 255 תווים. שימו לב, כי כל ערך של
+OBJECT DESCRIPTOR התואם לסוג האובייקט ב-MIB בתקן האינטרנט חייב להיות מחרוזת ייחודית, מסייעת לזכירה, הניתנת להדפסה.</div>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_objects"><h2 class="title sectiontitle">הגדרת אובייקטים</h2><p class="p">טעות נפוצה המתבצעת בעת כתיבת מודולים היא יצירת שם אובייקט שאינו ייחודי. הטענה היא, שמשמעותה של הצהרת RFC1155 היא שרק אובייקטים בתוך מודול MIB יחיד חייבים להיות ייחודיים. כפי שצוין קודם לכן, ה-MIB הוא ערכת המודולים השלמה, וכאשר משלבים את מודולים אלה הם משמשים לניהול התקן מסוים. לכן, כל האובייקטים המוגדרים במודול ה-MIB חייבים להיות ייחודיים, לא רק במודול עצמו, אך גם בכל שם אובייקט אחר בכל המודולים שמיובאים, ובכל המודולים שאותם מודולים עשויים לייבא. מנגנון נפוץ שמטרתו להבטיח ששמות האובייקטים ייחודיים הוא להוסיף מראש את סמל המניה או השם המקוצר של החברה לכל שמות המודולים.</p>
+<p class="p">בעת הגדרת האובייקטים הם ממופים להיררכיה מספרית הדומה לעץ מורחב. בכל פעם שאובייקט מוגדר, הוא מוגדר בתור עלה של אובייקט האב. שלושת אובייקטי היסוד הבאים מוגדרים בעץ SNMP MIB:</p>
+<ul class="ul"><li class="li"><samp class="ph codeph">ccitt</samp> (צומת יסוד אפס)</li>
+<li class="li"><samp class="ph codeph">iso</samp> (צומת יסוד 1)</li>
+<li class="li"><samp class="ph codeph">joint-iso-ccitt</samp> (צומת יסוד 2)</li>
+</ul>
+<div class="p">שאר הצמתים בעץ ה-MIB הם בנים של אחד מצומתי יסוד אלה. לדוגמה, RFC1155-SMI מגדיר את האובייקטים שלהלן: <pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } directory OBJECT IDENTIFIER ::=
+ { internet 1 } mgmt OBJECT IDENTIFIER ::= { internet 2 } experimental OBJECT IDENTIFIER
+ ::= { internet 3 } private OBJECT IDENTIFIER ::= { internet 4 } enterprises OBJECT 
+IDENTIFIER ::= { private 1 }</code></pre>
+</div>
+<p class="p">הגדרות אלה מציינות את שם האובייקט, את סוג האובייקטים המשויכים, את שם האב של כל אובייקט (או רשימת אבות מסודרת) ואת מספר הצומת של בן זה לאותו אב (או אבות). פריטים אלה מסודרים בצורה היררכית מבחינה גרפית.</p>
+<p class="p">הניווט בתצוגה <span class="keyword wintitle">עץ MIB</span> מתבצע על-ידי הרחבה וצמצום של הצמתים בעץ ה-MIB. הענפים ברמה העליונה של העץ של MIB מכילים את שמות המודולים של MIB, וכל ענף של מודול MIB כולל מרכיבים אחרים שמהם בנוי ה-MIB. ככל שמוספים מודולים ל-MIB, כך נוספים אובייקטים לעץ ה-MIB. ניתן להפנות אל כל אובייקט לפי שם האובייקט שלו או לפי זיהוי האובייקט שלו (OID). השיטה המדויקת ביותר היא להפנות אל ה-OID שלו.
+ה-OID של האובייקט מוגדר בתור המספר שלו, וכל אחד ממספרי ההורים שלו ממשיכים חזרה לצומת היסוד, כאשר הם מחוברים יחדיו באמצעות נקודה (.) המפרידה ביניהם. ה-OID של אובייקט הארגון (צומת או עלה)
+הוא 1.3.6.1.4.1.</p>
+<p class="p">ספקים רבים אינו מוודאים ששמות האובייקטים שלהם ייחודים ברחבי המערכת, ולכן קיימת האפשרות שלשני ספקים יהיה אובייקט בעל אותו שם. מצב זה הופך את השימוש בשם האובייקט לזיהוי האובייקט לרב-משמעי במקצת.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="מקטע זה מספק מידע נוסף אודות הארכיטקטורה של Simple Network Management Protocol ‏(SNMP), בסיס המידע הניהולי של SNMP‏ (MIB), ומושגים נוספים בנושא MIB.">אודות SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

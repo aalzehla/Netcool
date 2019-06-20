@@ -1,0 +1,106 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2010. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# nco_icw script - runs command line nco_icw program
+#
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+NCO_JAVA_PROGRAM=1
+. $NCO_COMMON
+#
+# Need to unset the XPG_SUS_ENV var because 
+# it effects how the JDBC connection is 
+# established in AIX.
+#
+if [ "$SYSTEM" = "AIX" ]
+then
+	unset XPG_SUS_ENV
+fi
+
+#
+# Check nco_common found the JRE, find correct SWT library
+#
+case "$ARCH" in
+	hpux11hpia|solaris2)
+	# No 64 bit SWT library, so force 32 bit JRE
+	NCO_JRE_64=
+	;;
+esac
+
+if [ -n "$NCO_JRE_64" -a -x "$NCO_JRE_64/bin/java" ]
+then
+	JAVA="\"${NCO_JRE_64}/bin/java\""
+	case "$ARCH" in
+		aix5)
+		SWTJAR=org.eclipse.swt.gtk.aix.ppc64_3.7.1.v3738a.jar
+		;;
+		hpux11hpia)
+		SWTJAR=no_64bit_swt
+		;;
+		linux2s390)
+		SWTJAR=org.eclipse.swt.gtk.linux.s390x_3.7.1.v3738a.jar
+		;;
+		linux2x86)
+		SWTJAR=org.eclipse.swt.gtk.linux.x86_64_3.7.1.v3738a.jar
+		;;
+		solaris2)
+		SWTJAR=no_64bit_swt
+		;;
+	esac
+elif [ -n "$NCO_JRE" -a -x "$NCO_JRE/bin/java" ]
+then
+	JAVA="\"${NCO_JRE}/bin/java\""
+	case "$ARCH" in
+		aix5)
+		SWTJAR=org.eclipse.swt.gtk.aix.ppc_3.7.1.v3738a.jar
+		;;
+		hpux11hpia)
+		SWTJAR=org.eclipse.swt.gtk.hpux.ia64_32_3.7.1.v3738a.jar
+		;;
+		linux2s390)
+		SWTJAR=org.eclipse.swt.gtk.linux.s390_3.7.1.v3738a.jar
+		;;
+		linux2x86)
+		SWTJAR=org.eclipse.swt.gtk.linux.x86_3.7.1.v3738a.jar
+		;;
+		solaris2)
+		SWTJAR=org.eclipse.swt.gtk.solaris.sparc_3.7.1.v3738a.jar
+		;;
+	esac
+else
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+
+#
+# Set classpath
+#
+CLASSPATH=$OMNIHOME/java/jars/icw.jar:$OMNIHOME/java/jars/${SWTJAR}:$CLASSPATH
+START_CLASS=com.ibm.tivoli.omnibus.ict.ICTMain
+
+export CLASSPATH
+
+#
+# Run initial configuration
+#
+eval exec $JAVA $START_CLASS "$@"

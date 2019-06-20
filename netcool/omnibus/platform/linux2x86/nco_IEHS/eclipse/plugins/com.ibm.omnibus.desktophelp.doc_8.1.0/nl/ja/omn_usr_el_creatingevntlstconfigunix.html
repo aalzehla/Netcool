@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX 上でのイベント・リスト構成の作成および編集" />
+<meta name="abstract" content="「イベント・リスト」モニター・ボックス・ウィンドウ内に表示されるモニター・ボックスで、フィルターを保持して定義を表示するイベント・リスト構成を作成または編集することができます。" />
+<meta name="Description" content="「イベント・リスト」モニター・ボックス・ウィンドウ内に表示されるモニター・ボックスで、フィルターを保持して定義を表示するイベント・リスト構成を作成または編集することができます。" />
+<meta name="DC.subject" content="イベント・リスト構成, 作成" />
+<meta name="keywords" content="イベント・リスト構成, 作成" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_creatingevntlstconfigunix" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevntlstconfigs.html" />
+<title>UNIX 上でのイベント・リスト構成の作成および編集</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_creatingevntlstconfigunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX 上でのイベント・リスト構成の作成および編集</h1>
+<div class="body taskbody"><p class="shortdesc">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内に表示されるモニター・ボックスで、フィルターを保持して定義を表示するイベント・リスト構成を作成または編集することができます。 </p>
+<div class="section context"><p class="p">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウに表示されるモニター・ボックスの列数、関連付けられたイベント・リストに適用されるフィルターとビュー、およびフィルターとビューが表示される順序を指定することができます。 </p>
+<p class="p">UNIX 上でイベント・リスト構成を作成または編集するには、以下のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウから、以下のいずれかのアクションを実行します。</span><ul class="ul choices"><li class="li choice">新しいイベント・リスト構成を作成する場合は、現在のイベント・リスト構成をクリアして、構成をデフォルト設定にします。 これを実行するには、<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「新規」</span></span>をクリックします。</li>
+<li class="li choice">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウに表示されている既存のイベント・リスト構成を編集する場合は、ステップ <a class="xref" href="#omn_usr_el_creatingevntlstconfigunix__omn_unixelc_step">2</a> に進んでください。</li>
+</ul>
+</li>
+<li class="li step stepexpand" id="omn_usr_el_creatingevntlstconfigunix__omn_unixelc_step"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">「ウィンドウ」</span> &gt; <span class="ph uicontrol">「構成」</span></span>をクリックします。</span> 「<span class="keyword wintitle">イベント・リスト構成</span>」ウィンドウが開きます。 </li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">名前</dt>
+<dd class="dd">新規のイベント・リスト構成を作成する場合は、イベント・リスト構成の固有の名前を入力します。</dd>
+<dt class="dt dlterm">列</dt>
+<dd class="dd">スライダー・ボックスを使用して、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内で許可されるモニター・ボックスの列数を指定します。</dd>
+<dt class="dt dlterm">フィルター/ビュー</dt>
+<dd class="dd">このボタンをクリックして、このイベント・リスト構成の一部である、フィルターとビューを切り替えます。 フィルターまたはビューが、このボタンの下のリスト内に表示されます。<div class="note note"><span class="notetitle">注:</span> フィルターとビューが「<span class="keyword wintitle">イベント・リスト構成</span>」ウィンドウ内に表示される順序により、イベント・リスト・ポップアップ・メニューとドロップダウン・リストでフィルターのリストとビューのリストが表示される順序が決まります。 この順序は、<span class="ph uicontrol">「一番上へ」</span>、<span class="ph uicontrol">「上へ」</span>、<span class="ph uicontrol">「下へ」</span>、および<span class="ph uicontrol">「一番下へ」</span>の各ボタンを使用して変更することができます。 </div>
+</dd>
+<dt class="dt dlterm">新規</dt>
+<dd class="dd">新規のフィルターまたはビューを作成するには、このボタンをクリックしてフィルター・ビルダーまたはビュー・ビルダーを開きます。 <div class="note attention"><span class="attentiontitle">重要:</span> フィルター・ビルダーまたはビュー・ビルダー内でイベント・リスト構成に既に存在しているフィルター名またはビュー名を指定すると、既存のフィルターまたはビューが置き換えられます。</div>
+</dd>
+<dt class="dt dlterm">編集</dt>
+<dd class="dd">フィルターまたはビューを編集するには、隣接するリストから該当のフィルターまたはビューを選択した後、このボタンをクリックして選択したフィルターまたはビュー用のフィルター・ビルダーまたはビュー・ビルダーを開きます。 フィルターまたはビューの名前をイベント・リスト構成内に存在しない名前に変更した場合は、新規のフィルターまたはビューが作成されます。 名前を既に存在する名前に変更した場合は、新規のフィルターまたはビューがイベント・リスト構成内の既存のフィルターまたはビューを置き換えます。 </dd>
+<dt class="dt dlterm">ロード</dt>
+<dd class="dd">既存のフィルターまたはビューをイベント・リスト構成にロードするには、このボタンをクリックします。 「<span class="keyword wintitle">フィルターのロード</span>」ウィンドウでフィルターまたはビューが保管されている場所にナビゲートし、フィルターまたはビューを選択した後、<span class="ph uicontrol">「OK」</span>をクリックします。 フィルターまたはビューが、「<span class="keyword wintitle">イベント・リスト構成</span>」ウィンドウ内のリストに追加されます。 <div class="note tip"><span class="tiptitle">ヒント:</span> フィルターには、<span class="ph filepath">.elf</span> という拡張子が付きます。 ビューには、<span class="ph filepath">.elv</span> という拡張子が付きます。</div>
+</dd>
+<dt class="dt dlterm">削除</dt>
+<dd class="dd">フィルターまたはビューをイベント・リスト構成から削除するには、隣接するリストから該当のフィルターまたはビューを選択した後、このボタンをクリックして選択したフィルターまたはビューを削除します。 削除を確認するプロンプトは表示されないため、<span class="ph uicontrol">「削除」</span>をクリックする前に、適切なフィルターまたはビューを選択していることを確認してください。 </dd>
+<dt class="dt dlterm">一番上へ</dt>
+<dd class="dd">フィルターまたはビューをリストの最上部に移動するには、隣接するリストから該当のフィルターまたはビューを選択した後、このボタンをクリックします。</dd>
+<dt class="dt dlterm">上へ</dt>
+<dd class="dd">フィルターまたはビューをリスト内の 1 つ上の位置に移動するには、隣接するリストから該当のフィルターまたはビューを選択した後、このボタンをクリックします。</dd>
+<dt class="dt dlterm">下へ</dt>
+<dd class="dd">フィルターまたはビューをリスト内の 1 つ下の位置に移動するには、隣接するリストから該当のフィルターまたはビューを選択した後、このボタンをクリックします。</dd>
+<dt class="dt dlterm">一番下へ</dt>
+<dd class="dd">フィルターまたはビューをリストの最下部に移動するには、隣接するリストから該当のフィルターまたはビューを選択した後、このボタンをクリックします。</dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして「<span class="keyword wintitle">イベント・リスト構成</span>」ウィンドウを閉じ、このイベント・リスト構成を現在のイベント・リストに適用します。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">イベント・リスト構成を保存するには、モニター・ボックス・ウィンドウから<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「別名保存」</span></span>をクリックします。 「<span class="keyword wintitle">構成の保存</span>」ウィンドウが開きます。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。 </span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e901"><!-- --></a>フィルター</dt>
+<dd class="dd">このフィールドを使用して、開くファイルのタイプに関する検索照会を指定します。 このフィールドは、<span class="ph uicontrol">「フィルター」</span>ボタンおよび<span class="ph uicontrol">「ファイル」</span>リストと一緒になって動作します。
+<span class="ph uicontrol">「フィルター」</span>フィールドに現行ディレクトリー・パスとファイル・タイプを入力し、次に<span class="ph uicontrol">「フィルター」</span>をクリックします。 <span class="ph uicontrol">「ファイル」</span>リストに一致したファイルがすべて表示されます。</dd>
+<dd class="dd">例えば、<span class="ph filepath">/myfiles/filters</span> ディレクトリー内のすべてのフィルター・ファイルを表示するには、<kbd class="ph userinput">/myfiles/filters/*.elf</kbd> を入力し、<span class="ph uicontrol">「フィルター」</span>をクリックして、一致するすべてのファイルを表示します。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e932"><!-- --></a>ディレクトリー</dt>
+<dd class="dd">このリストには、現行ディレクトリー内のすべてのサブディレクトリーが表示されます。
+このディレクトリーを最新表示するには、「.」エントリーをダブルクリックします。 このディレクトリー・ツリーを 1 つのディレクトリーずつ上に移動するには、「..」エントリーをダブルクリックします。</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e937"><!-- --></a>ファイル</dt>
+<dd class="dd">このリストには、現行ディレクトリー内のファイルが表示されます。これらのファイルは、<span class="ph uicontrol">「フィルター」</span>フィールドでの選択に一致しています。 開くファイルの名前を選択します。 既存のファイルを選択して、それを上書きすることもできます。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e945"><!-- --></a>選択</dt>
+<dd class="dd">保存または開こうとしているファイルのパスと名前がここに表示されます。 パスとファイル名を編集して別のファイルを開いたり、別のロケーションにファイルを保存したり、別のファイル名を使用してファイルを保存したりできます。</dd>
+<dd class="dd">ビューを保存する場合は、ファイル名に <span class="ph filepath">.elv</span> 拡張子を使用します。 フィルターを保存する場合は、ファイル名に <span class="ph filepath">.elf</span> 拡張子を使用します。 イベント・リスト構成を保存する場合は、ファイル名に <span class="ph filepath">.elc</span> 拡張子を使用します。</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e961"><!-- --></a>既存ファイルのバックアップ (UNIX のみ) </dt>
+<dd class="dd">保存しようとしているファイルの名前がすでに存在している場合は、このチェック・ボックスを使用して既存のビュー・ファイルのバックアップを作成します。 このチェック・ボックスが表示されるのは、フィルター、ビュー、またはイベント・リスト構成を保存する場合だけです。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e969"><!-- --></a>OK</dt>
+<dd class="dd">このボタンをクリックして、ファイルを開くか、または保存します。</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e974"><!-- --></a>フィルター</dt>
+<dd class="dd">このボタンは、<span class="ph uicontrol">「フィルター」</span>フィールドおよび<span class="ph uicontrol">「ファイル」</span>フィールドと一緒になって動作します。 このボタンをクリックして、<span class="ph uicontrol">「フィルター」</span>フィールドでの選択に基づき、現行ディレクトリー内のファイルを表示します。 ファイルが<span class="ph uicontrol">「ファイル」</span>リストに表示されます。</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6449e991"><!-- --></a>キャンセル</dt>
+<dd class="dd">このボタンをクリックして、ファイルを開かずに、または保存せずにこのウィンドウを閉じます。</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="「イベント・リスト」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (.elc) ファイルになります。">イベント・リスト構成の操作</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

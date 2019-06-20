@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Indexing guidelines" />
+<meta name="abstract" content="Indexing can affect the performance of your SQL queries. Without indexing, a full database table scan is typically performed when an SQL query runs. Use indexing to limit the number of rows that are examined." />
+<meta name="Description" content="Indexing can affect the performance of your SQL queries. Without indexing, a full database table scan is typically performed when an SQL query runs. Use indexing to limit the number of rows that are examined." />
+<meta name="DC.subject" content="indexing guidelines, performance tuning" />
+<meta name="keywords" content="indexing guidelines, performance tuning" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_per_indexingguidelines" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Indexing guidelines</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_per_indexingguidelines">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Indexing guidelines</h1>
+<div class="body refbody"><p class="shortdesc">Indexing can affect the performance of your SQL queries.
+Without indexing, a full database table scan is typically performed
+when an SQL query runs. Use indexing to limit the number of rows that
+are examined.</p>
+<div class="section"><p class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> supports
+hash and tree index structures. The hash index supports equality comparisons
+in SQL queries. The tree index is an ordered index that stores column
+values in a sorted structure, and allows a wider range of comparisons,
+including equality, in SQL queries. Consequently, a tree index can
+be used in range queries and in queries with an ORDER BY clause.</p>
+<p class="p">Indexes
+are rebuilt whenever the ObjectServer is restarted, and these indexes
+use up a small amount of memory rather than physical disk space.</p>
+<p class="p">You can create indexes on all ObjectServer tables except
+the tables in the system databases, such as the catalog and security
+databases. <span class="keyword">Tivoli Netcool/OMNIbus</span> also
+supports the use of indexes by sub-select clauses in SQL queries.</p>
+<p class="p">Although there is no limit on the number of indexes that
+you can create on a table, you must use indexes sparingly. Indexes
+incur a performance overhead because they are updated when insert,
+update, or delete operations are performed on the table on which they
+are based. For tables such as alerts.status, which are updated frequently,
+creating a large number of indexes can adversely affect the overall
+performance of the ObjectServer. Evaluate the tradeoff between indexing
+for fast retrieval of data and the performance degradation during
+insert, update, and delete operations.</p>
+<p class="p">Avoid indexing tables
+that contain only small amounts of data. Also avoid indexing columns
+that contain data values which frequently change.</p>
+<div class="p">The following
+columns are considered good candidates for indexing:<ul class="ul"><li class="li">Columns that are searched or sorted against frequently; that is,
+columns typically used in ORDER BY clauses</li>
+<li class="li">Columns that are frequently used in WHERE clauses that contain
+the predicate formats supported for indexing; see <a class="xref" href="#omn_adm_per_indexingguidelines__omn_predicateformats">Table 1</a></li>
+<li class="li">Columns with data that contains few duplicate values</li>
+</ul>
+</div>
+<p class="p">Columns that are defined as primary keys are, by default,
+uniquely indexed. These special, implicit indexes are not stored in
+the catalog.indexes table. The Serial column in the alerts.status
+table is indexed by default. </p>
+<div class="p">Indexing restrictions on columns
+are as follows:<ul class="ul"><li class="li">Only one index per column is allowed.</li>
+<li class="li">A column that is defined as Boolean cannot have a tree index.</li>
+</ul>
+</div>
+<p class="p">During SQL processing, both the restriction
+filter for the table and the WHERE clause in each SELECT, UPDATE,
+DELETE, FOR EACH ROW, and EVALUATE statement is examined to determine
+whether an index scan should be performed instead of a full table
+scan. An index scan is performed when one or more predicates fulfills
+the following conditions:</p>
+<ul class="ul"><li class="li">The predicate uses the equality operator (=) in the format <var class="keyword varname">ColumnName
+= ConstantExpression</var>, where <var class="keyword varname">ColumnName</var> is
+an indexed column.</li>
+<li class="li">The predicate uses the less than (&lt;), less than or equal to
+(&lt;=), greater than (&gt;), or greater than or equal to (&gt;=) operator,
+providing <var class="keyword varname">ColumnName</var> is an indexed column of type
+tree.</li>
+<li class="li">The predicate is not connected to another predicate by an OR operator.
+For example, if the Severity or Serial field is indexed, an index
+is not used in the following SQL query:<pre class="pre codeblock"><code>select Summary from alerts.status where Severity &gt; 3 or Serial = 102;</code></pre>
+</li>
+</ul>
+<div class="p">The following table summarizes which predicate formats are
+supported for hash and tree indexes.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="omn_adm_per_indexingguidelines__omn_predicateformats" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Predicate formats for hash and tree indexes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="50%" id="d26106e83">Predicate format</th>
+<th class="entry" valign="bottom" width="25%" id="d26106e85">Hash index</th>
+<th class="entry" valign="bottom" width="25%" id="d26106e87">Tree index</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d26106e83 "><var class="keyword varname">ColumnName</var> = <var class="keyword varname">ConstantExpression</var></td>
+<td class="entry" valign="top" width="25%" headers="d26106e85 ">Yes</td>
+<td class="entry" valign="top" width="25%" headers="d26106e87 ">Yes</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d26106e83 "><var class="keyword varname">ColumnName</var> &lt; <var class="keyword varname">ConstantExpression</var></td>
+<td class="entry" valign="top" width="25%" headers="d26106e85 ">No</td>
+<td class="entry" valign="top" width="25%" headers="d26106e87 ">Yes</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d26106e83 "><var class="keyword varname">ColumnName</var> &gt; <var class="keyword varname">ConstantExpression</var></td>
+<td class="entry" valign="top" width="25%" headers="d26106e85 ">No</td>
+<td class="entry" valign="top" width="25%" headers="d26106e87 ">Yes</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d26106e83 "><var class="keyword varname">ColumnName</var> &lt;= <var class="keyword varname">ConstantExpression</var></td>
+<td class="entry" valign="top" width="25%" headers="d26106e85 ">No</td>
+<td class="entry" valign="top" width="25%" headers="d26106e87 ">Yes</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d26106e83 "><var class="keyword varname">ColumnName</var> &gt;= <var class="keyword varname">ConstantExpression</var></td>
+<td class="entry" valign="top" width="25%" headers="d26106e85 ">No</td>
+<td class="entry" valign="top" width="25%" headers="d26106e87 ">Yes</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d26106e83 "><var class="keyword varname">ColumnName</var> %= <var class="keyword varname">ConstantExpression</var><p class="p"><var class="keyword varname">ColumnName</var> %&lt; <var class="keyword varname">ConstantExpression</var></p>
+<p class="p"><var class="keyword varname">ColumnName</var> %&gt; <var class="keyword varname">ConstantExpression</var></p>
+<p class="p"><var class="keyword varname">ColumnName</var> %&lt;= <var class="keyword varname">ConstantExpression</var></p>
+<p class="p"><var class="keyword varname">ColumnName</var> %&gt;= <var class="keyword varname">ConstantExpression</var></p>
+</td>
+<td class="entry" valign="top" width="25%" headers="d26106e85 ">No</td>
+<td class="entry" valign="top" width="25%" headers="d26106e87 ">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

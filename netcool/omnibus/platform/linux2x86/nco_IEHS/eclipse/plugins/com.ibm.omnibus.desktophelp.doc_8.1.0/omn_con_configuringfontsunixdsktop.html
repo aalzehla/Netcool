@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring fonts for the UNIX desktop" />
+<meta name="abstract" content="If you want to view the UNIX desktop in your locale, you might find it necessary to configure the fonts that are needed to display the text in the encoding of your locale." />
+<meta name="Description" content="If you want to view the UNIX desktop in your locale, you might find it necessary to configure the fonts that are needed to display the text in the encoding of your locale." />
+<meta name="DC.subject" content="multicultural support, configuring fonts" />
+<meta name="keywords" content="multicultural support, configuring fonts" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsunixdsktop" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Configuring fonts for the UNIX desktop</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsunixdsktop">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring fonts for the UNIX desktop</h1>
+<div class="body taskbody"><p class="shortdesc">If you want to view the UNIX desktop
+in your locale, you might find it necessary to configure the fonts
+that are needed to display the text in the encoding of your locale. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">The Tivoli® Netcool/OMNIbus installation
+includes resource files that contain definitions for the user interface
+elements of the UNIX desktop
+applications; for example, definitions for window dimensions, font
+selections, colors, string values for window titles, menus, buttons,
+icons, field labels, and message strings.</p>
+<p class="p">Resource file translations
+are available for the following locales: English, French, German,
+Japanese, Korean, Russian, Spanish, Simplified Chinese, and Traditional
+Chinese. Additionally, locales that use the ISO-8859-1 character set
+are expected to display fonts correctly, with the English setting
+on. Other character sets might require some font configuration. </p>
+<p class="p">The
+resource files are stored in the following location:</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+<p class="p">Where <var class="keyword varname">arch</var> is
+the operating system directory and <var class="keyword varname">locale_name</var> is
+the full locale name; for example en_GB.ISO8859-1. Note that some
+locale names might be symbolic links with abbreviated names.</p>
+<div class="p">The
+resource files include:<ul class="ul"><li class="li"><span class="ph filepath">NCO</span>: Definitions for the Conductor, and its
+associated Filter Builder, and View Builder</li>
+<li class="li"><span class="ph filepath">NCOBanner</span>: Definitions for the Conductor
+splash screen</li>
+<li class="li"><span class="ph filepath">NCOELCT</span>: Definitions for the transient event
+list</li>
+<li class="li"><span class="ph filepath">NCOEvent</span>: Definitions for the <span class="keyword wintitle">Event
+List</span> monitor box window, the event list, and associated
+windows such as the <span class="keyword wintitle">Login</span> window, Filter Builder,
+and View Builder</li>
+<li class="li"><span class="ph filepath">NCOHelp</span>: Definitions related to the online
+help; this file might not have any definitions</li>
+<li class="li"><span class="ph filepath">NCOMessage</span>: Definitions for the messaging
+dialog box that can be used with tools</li>
+<li class="li"><span class="ph filepath">NCOXigen</span>: Definitions for the Server Editor</li>
+<li class="li"><span class="ph filepath">NCOXprops</span>: Definitions for the Properties
+Editor</li>
+</ul>
+</div>
+<p class="p">If your locale is not included in the Tivoli Netcool/OMNIbus installation package,
+the resource files for the en_US.ISO8859-1 locale are used by default.
+You can configure your installation to use another locale that is
+not provided in the installation package. If your locale uses a character
+set encoding other than ISO-8859-1, you must additionally ensure that
+you define a font that can accurately render the resource file characters
+into the characters for your locale.</p>
+<p class="p">To configure another locale
+and font set:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Run the following command to list all supported locales:</span> <p class="p"><kbd class="ph userinput">locale -a</kbd></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Set the LC_ALL environment variable to one of these locales.</span></li>
+<li class="li step stepexpand" id="omn_con_configuringfontsunixdsktop__omn_intnzn_step"><span class="ph cmd">Run the following command to display
+your character encoding: </span> <p class="p"><kbd class="ph userinput">locale charmap</kbd></p>
+<p class="p">Make
+a note of the encoding because it will be required later.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create a set of localized resource files in a font that
+renders correctly, go to the directory <span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></span>,
+where <var class="keyword varname">arch</var> represents your operating system directory.
+You must copy a set of resource files from a locale that contains
+suitable fonts for your encoding and then customize the copied files.
+For example, to create files for the Arabic locale (ar), create a
+directory with the locale name, and copy the resource files for the
+en_US.ISO8859-1 locale:</span> <p class="p"><kbd class="ph userinput">cd $NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></kbd></p>
+<p class="p"><kbd class="ph userinput">mkdir
+ar</kbd></p>
+<p class="p"><kbd class="ph userinput">cd ar</kbd></p>
+<p class="p"><kbd class="ph userinput">cp
+-r ../en_US.ISO8859-1/* .</kbd></p>
+<p class="p">The resources files (prefixed
+NCO), images subdirectory, and default event list configuration files
+are copied to the <span class="ph filepath">ar</span> directory. You must now
+look for a suitable set of fonts on your system, which matches the
+application font in the resource file.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the command line, enter the appropriate command for
+your operating system:</span> <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d376e161" class="stentry" width="25%">Operating System</th>
+<th valign="bottom" align="left" id="d376e163" class="stentry" width="75%">Command</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d376e161" class="stentry">AIX®</td>
+<td valign="top" headers="d376e163" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d376e161" class="stentry">HP-UX</td>
+<td valign="top" headers="d376e163" class="stentry"><kbd class="ph userinput">/usr/bin/X11/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d376e161" class="stentry">Linux (Red Hat)</td>
+<td valign="top" headers="d376e163" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d376e161" class="stentry">Solaris</td>
+<td valign="top" headers="d376e163" class="stentry"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+</table>
+<p class="p"></p>
+<p class="p">In this command, <var class="keyword varname">font_name</var> is
+the character encoding that was output in step <a class="xref" href="#omn_con_configuringfontsunixdsktop__omn_intnzn_step">3</a>.
+Specify this value as a wildcard by using asterisks (*). Note that
+you must enclose the value in quotation marks to prevent the shell
+from interpreting the asterisks in the text. For example:</p>
+<p class="p"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts
+-fn "*-iso8859-6"</kbd></p>
+ The list of matching
+fonts is shown.</li>
+<li class="li step stepexpand"><span class="ph cmd">Preview each of these fonts to determine whether they are
+suitable. For each font, enter the following command:</span> <p class="p"><kbd class="ph userinput">xfd
+-fn <var class="keyword varname">font_name</var></kbd></p>
+<p class="p">Where <var class="keyword varname">font_name</var> is
+one of the matching font names returned in the previous step.</p>
+ A window opens, showing the full name of the font and
+a grid containing one character per cell. You might need to use the <span class="ph uicontrol">Next
+Page</span> and <span class="ph uicontrol">Previous Page</span> buttons
+to view all the characters. When you have identified suitable fonts,
+you can add the font set to your resource files.</li>
+<li class="li step stepexpand"><span class="ph cmd">Open each of the resource files named <span class="ph filepath">NCO</span> in
+turn, to change the font. </span> For example, for the event list
+resources, you must set <samp class="ph codeph">NCOEvent*fontList</samp>, <samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp>, <samp class="ph codeph">*view_builder*display_matrix.labelFont</samp>,
+and <samp class="ph codeph">NCOEvent*info_matrix.labelFont</samp> to font sets that
+contain all fonts required for the locale.<p class="p">UNIX font names are of the form: </p>
+<pre class="pre codeblock"><code>-foundry-font family-weight-slant-set width-serif-pixels-points-hres-vres-spacing-average <br />width-character set-encoding</code></pre>
+You
+can specify font names with wildcards. For example, the default font
+for the event list is<pre class="pre codeblock"><code>-adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*</code></pre>
+<p class="p">For
+Arabic, you can replace this with:</p>
+<pre class="pre codeblock"><code>-dt-interface user-bold-r-normal-m serif-14-140-75-75-p-188-iso8859-6</code></pre>
+<p class="p"></p>
+When
+using EUC character sets, several fonts are required at one time;
+for example, EUCJIS (Japanese) requires iso8859-1, jisx0201.1976-0,
+jisx0208.1983-0, and jisx0212.1990-0 fonts. You can specify such a
+font set with one or more font names containing wild cards. (Fonts
+within a font set are separated with a semicolon and font sets are
+ended with a colon).</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, change other settings in the resources as
+follows: </span> <ul class="ul"><li class="li">Specify default widths (in pixels) of the windows. You might need
+to adjust these values to accommodate your font and ensure that text
+labels on the windows are displayed appropriately.</li>
+<li class="li">Replace string values for window titles (<samp class="ph codeph">*.title</samp>),
+button labels (<samp class="ph codeph">*.labelString</samp>), messages (<samp class="ph codeph">*.messageString</samp>),
+and other textual elements with your translated text. Make sure that
+the translated text uses the character encoding of your locale.</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save your changes to the files.</span> You can
+now run Tivoli Netcool/OMNIbus with
+the correct locale and fonts.</li>
+</ol>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

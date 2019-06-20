@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="コマンド行から一時的イベント・リストを開始する" />
+<meta name="abstract" content="UNIX のコマンド行から一時的イベント・リストを開く場合は nco_elct コマンドを使用し、Windows のコマンド行から 一時的イベント・リストを開く場合は NCOelct.exe コマンドを使用します。" />
+<meta name="Description" content="UNIX のコマンド行から一時的イベント・リストを開く場合は nco_elct コマンドを使用し、Windows のコマンド行から 一時的イベント・リストを開く場合は NCOelct.exe コマンドを使用します。" />
+<meta name="DC.subject" content="イベント・リスト, 一時的, 一時的イベント・リストの開始, 一時的イベント・リスト, 開始" />
+<meta name="keywords" content="イベント・リスト, 一時的, 一時的イベント・リストの開始, 一時的イベント・リスト, 開始" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopttransient.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopttransient.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingtransienteventlist" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_runningtransientevntlsts.html" />
+<title>コマンド行から一時的イベント・リストを開始する</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingtransienteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">コマンド行から一時的イベント・リストを開始する</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX のコマンド行から一時的イベント・リストを開く場合は <span class="keyword cmdname">nco_elct</span> コマンドを使用し、Windows のコマンド行から
+一時的イベント・リストを開く場合は <span class="keyword cmdname">NCOelct.exe</span> コマンドを使用します。</p>
+<div class="section context">一時的イベント・リストを開始するには、以下のようにします。</div>
+<div class="li step"><span class="ph cmd">ご使用のオペレーティング・システムに該当するアクションを実行します。</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="この表の各行には選択肢が示されています。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d200620e43-option" valign="bottom" align="left">オプション</th>
+<th id="d200620e43-desc" valign="bottom" align="left">説明</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d200620e43-option" id="d200620e45" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d200620e43-desc d200620e45" class="stentry chdesc" width="80%">コマンド・プロンプトから、以下を入力します。 <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_elct <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d200620e43-option" id="d200620e56" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d200620e43-desc d200620e56" class="stentry chdesc" width="80%">コマンド・プロンプトから、以下を入力します。<p class="p"><kbd class="ph userinput">%NCHOME%¥omnibus¥desktop¥NCOelct.exe <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+</tbody></table>
+ 前の表で示した UNIX と Windows のコマンドの <var class="keyword varname">option</var> は、1 つ以上の
+コマンド行オプションを表します。</div>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div><p class="p">イベント・リスト (<span class="keyword cmdname">nco_event</span>) のインスタンスが実行中になっている状態で <span class="keyword cmdname">nco_elct</span> ユーティリティーを実行すると、新しいイベント・リスト・ウィンドウが開きます。 <span class="keyword cmdname">nco_event</span> の実行中のインスタンスがない状態で <span class="keyword cmdname">nco_elct</span> ユーティリティーを実行すると、イベント・リストが開始され、コマンド行で指定したフィルターに基づいて、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウとイベント・リスト・ウィンドウが表示されます。</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopttransient.html">一時的イベント・リストの UNIX コマンド行オプション</a></span><br />
+UNIX 上で <span class="keyword cmdname">nco_elct</span> コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 <span class="ph filepath">$NCHOME/omnibus/bin</span> ディレクトリーからこのコマンドを実行できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopttransient.html">一時的イベント・リストの Windows コマンド行オプション</a></span><br />
+Windows 上で <span class="keyword cmdname">NCOelct.exe</span> コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 <span class="ph filepath">%NCHOME%¥omnibus¥desktop</span> ディレクトリーからこのコマンドを実行できます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_runningtransientevntlsts.html" title="カスタマイズした一時的イベント・リストは、コマンド行からや、スクリプトの中で、またはイベント・リスト・ツールの一部として直接実行することができます。">コマンド行、スクリプト、およびツールからの一時的イベント・リストの実行</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

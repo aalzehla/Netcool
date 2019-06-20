@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Online help requirements" />
+<meta name="abstract" content="The online help for Tivoli Netcool/OMNIbus is deployed using IBM Eclipse Help System (IEHS), which is a web application. Tivoli Netcool/OMNIbus supports IEHS V3.1.1." />
+<meta name="Description" content="The online help for Tivoli Netcool/OMNIbus is deployed using IBM Eclipse Help System (IEHS), which is a web application. Tivoli Netcool/OMNIbus supports IEHS V3.1.1." />
+<meta name="DC.subject" content="online help, requirements, web browsers" />
+<meta name="keywords" content="online help, requirements, web browsers" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_onlinehelprequirements" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Online help requirements</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_onlinehelprequirements">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Online help requirements</h1>
+<div class="body conbody"><p class="shortdesc">The online help for <span class="keyword">Tivoli Netcool/OMNIbus</span> is deployed using IBM® Eclipse Help System (IEHS), which is a web application. <span class="keyword">Tivoli Netcool/OMNIbus</span> supports IEHS V3.1.1.</p>
+<p class="p">Online help is displayed in a web browser, and is available in
+standalone and information center modes. Standalone mode is the default. </p>
+<p class="p">In standalone mode, the IEHS application framework and online help
+files run on a local web server, and <span class="ph uicontrol">Local Help System</span> must be selected as an installable feature in order to obtain the
+required IEHS components. After installation, you can access the online
+help, generally without the need for any additional configuration.
+When you try to access online help, a web server automatically starts
+and runs locally until you manually shut it down.</p>
+<p class="p">In information center mode, the IEHS application framework and
+online help files run on a remote web server that users must connect
+to in order to access online help. The use of a shared online help
+server relieves the load on local hosts or workstations. A system
+administrator must take responsibility for installing, configuring,
+and managing the IEHS components on this server. The <span class="ph uicontrol">Local
+Help System</span> feature must be installed on this server to
+obtain the IEHS application framework and online help files. To access
+the online help on the remote server, users must amend a local IEHS
+configuration file with the connection details for the remote server.
+The IEHS configuration file is installed, by default, as part of the
+standard <span class="keyword">Tivoli Netcool/OMNIbus</span> installation. The system administrator must then run an
+IEHS startup script to start the IEHS server and open the connection
+to users.</p>
+<p class="p">For the <span class="keyword">Tivoli Netcool/OMNIbus</span> desktop component (which is typically accessed by using
+the Conductor), the default operating system browser is used to display
+online help in either standalone mode or information center mode.
+If using Netcool/OMNIbus Administrator or the Accelerated Event Notification
+client, you must specify a browser for displaying online help.</p>
+<div class="section"><h2 class="title sectiontitle">Supported browsers for IEHS V3.1.1</h2><p class="p">You might
+experience limited functionality of your IEHS online help if your
+browser does not fully support cookies or JavaScript, or if your browser blocks
+pop-up windows. On some operating systems, certain browsers might
+be capable of displaying the help system interface in a base mode
+only. In this mode, only the basic functions of IEHS are available,
+such as content display and the search function.</p>
+<div class="p">The minimum browser versions supported for IEHS V3.1.1 are as follows:<ul class="ul"><li class="li">Internet Explorer 6.0<div class="note note"><span class="notetitle">Note:</span> If Security Settings in
+Internet Explorer are configured such that the <span class="ph uicontrol">Allow META
+REFRESH</span> option is set to <span class="keyword option">Disable</span>, the
+help index page might not display. In such a case, set the value of
+the option to <span class="keyword option">Enable</span>.</div>
+</li>
+<li class="li">Mozilla 1.7</li>
+<li class="li">Firefox 1.0</li>
+<li class="li">Safari 1.2</li>
+<li class="li">Konqueror (user interface base mode only)</li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> The supported web browsers that are
+listed here for IEHS differ from the web browsers that are supported
+for the <span class="keyword">Web GUI</span>. When you access the online help for <span class="keyword">Tivoli Netcool/OMNIbus</span> MIB Manager on Solaris operating systems, you must have
+a web browser running before you click <span class="ph uicontrol">Help</span>. Otherwise, the online help does not open. This behaviour is caused
+by an open defect (376208) in the Eclipse platform.<p class="p">.</p>
+<p class="p"></p>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

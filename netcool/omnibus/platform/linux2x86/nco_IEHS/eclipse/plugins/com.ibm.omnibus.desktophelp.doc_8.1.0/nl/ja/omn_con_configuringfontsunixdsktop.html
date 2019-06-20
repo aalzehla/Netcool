@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX デスクトップ用のフォントの構成" />
+<meta name="abstract" content="UNIX デスクトップをご使用のロケールで表示する場合、そのロケールのエンコード方式でテキストを表示するために必要なフォントを構成しなければならないことがあります。" />
+<meta name="Description" content="UNIX デスクトップをご使用のロケールで表示する場合、そのロケールのエンコード方式でテキストを表示するために必要なフォントを構成しなければならないことがあります。" />
+<meta name="DC.subject" content="多文化サポート, フォントの構成" />
+<meta name="keywords" content="多文化サポート, フォントの構成" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsunixdsktop" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>UNIX デスクトップ用のフォントの構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsunixdsktop">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX デスクトップ用のフォントの構成</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX デスクトップをご使用のロケールで表示する場合、そのロケールのエンコード方式でテキストを表示するために必要なフォントを構成しなければならないことがあります。 </p>
+<div class="section context"><p class="p">Tivoli® Netcool/OMNIbus 環境には、UNIX デスクトップ・アプリケーションのユーザー・インターフェース・エレメントの定義を含んでいるリソース・ファイルが組み込まれています。例えば、ウィンドウの寸法、フォントの選択、色、ウィンドウ・タイトルのストリング値、メニュー、ボタン、アイコン、フィールド・ラベル、メッセージ・ストリングなどの定義です。</p>
+<p class="p">リソース・ファイルの変換が可能なロケールは、英語、フランス語、ドイツ語、日本語、韓国語、ロシア語、スペイン語、中国語 (簡体字)、および中国語 (繁体字) です。 また、ISO-8859-1 文字セットを使用するロケールでは、英語の設定をオンにしたときにフォントが正しく表示されるものと予想されます。 その他の文字セットについては、多少のフォント構成が必要になる可能性があります。 </p>
+<p class="p">リソース・ファイルは、以下の場所に格納されます。</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+<p class="p">この場合、<var class="keyword varname">arch</var> はオペレーティング・システム・ディレクトリーであり、<var class="keyword varname">locale_name</var> はフル・ロケール名 (例: en_GB.ISO8859-1) です。 ロケール名によっては、省略名を使用したシンボリック・リンクもありうることに注意してください。</p>
+<div class="p">リソース・ファイルには、以下のものが含まれています。<ul class="ul"><li class="li"><span class="ph filepath">NCO</span>: コンダクターとそれに関連付けられているフィルター・ビルダー、およびビュー・ビルダーの定義</li>
+<li class="li"><span class="ph filepath">NCOBanner</span>: コンダクター・スプラッシュ画面の定義</li>
+<li class="li"><span class="ph filepath">NCOELCT</span>: 一時的イベント・リストの定義</li>
+<li class="li"><span class="ph filepath">NCOEvent</span>: 「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ、イベント・リスト、およびその関連ウィンドウ (「<span class="keyword wintitle">ログイン</span>」ウィンドウ、フィルター・ビルダー、ビュー・ビルダーなど) の定義</li>
+<li class="li"><span class="ph filepath">NCOHelp</span>: オンライン・ヘルプに関連する定義。このファイルには定義が含まれていないこともあります。</li>
+<li class="li"><span class="ph filepath">NCOMessage</span>: ツールと一緒に使用することが可能なメッセージング・ダイアログ・ボックスの定義</li>
+<li class="li"><span class="ph filepath">NCOXigen</span>: サーバー・エディターの定義</li>
+<li class="li"><span class="ph filepath">NCOXprops</span>: プロパティー・エディターの定義</li>
+</ul>
+</div>
+<p class="p">ご使用のロケールが Tivoli Netcool/OMNIbus インストール・パッケージに含まれていない場合は、デフォルトで、en_US.ISO8859-1 ロケールのリソース・ファイルが使用されます。
+インストール・パッケージで提供されていない別のロケールを使用するように環境を構成することができます。 ロケールで ISO-8859-1 以外の文字セット・エンコード方式が使用される場合は、さらに、リソース・ファイルの文字をユーザーのロケールの文字へ正確にレンダリングできるフォントを確実に定義する必要があります。</p>
+<p class="p">別のロケールおよびフォント・セットを構成するには、以下のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">次のコマンドを実行して、サポートされているすべてのロケールをリストします。</span> <p class="p"><kbd class="ph userinput">locale -a</kbd></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">それらのロケールの 1 つに LC_ALL 環境変数を設定します。</span></li>
+<li class="li step stepexpand" id="omn_con_configuringfontsunixdsktop__omn_intnzn_step"><span class="ph cmd">次のコマンドを実行して、文字エンコード方式を表示します。 </span> <p class="p"><kbd class="ph userinput">locale charmap</kbd></p>
+
+<p class="p">エンコード方式をメモします。これは、後で必要になります。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">正しくレンダリングされるフォントを使用してローカライズされるリソース・ファイルのセットを作成するために、<span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></span> ディレクトリーに移動します。<var class="keyword varname">arch</var> はご使用のオペレーティング・システム・ディレクトリーです。
+ご使用のエンコード方式に適したフォントを含んでいるロケールからリソース・ファイルのセットをコピーし、コピーしたファイルをカスタマイズする必要があります。
+例えば、アラビア語ロケール (ar) のファイルを作成するには、以下のようにして、そのロケール名のディレクトリーを作成してから、en_US.ISO8859-1 ロケールのリソース・ファイルをコピーします。</span> <p class="p"><kbd class="ph userinput">cd
+$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></kbd></p>
+
+<p class="p"><kbd class="ph userinput">mkdir
+ar</kbd></p>
+
+<p class="p"><kbd class="ph userinput">cd ar</kbd></p>
+
+<p class="p"><kbd class="ph userinput">cp -r ../en_US.ISO8859-1/*
+.</kbd></p>
+
+<p class="p">リソース・ファイル (接頭部 NCO)、イメージ・サブディレクトリー、およびデフォルトのイベント・リスト構成ファイルが <span class="ph filepath">ar</span> ディレクトリーにコピーされます。 これで、リソース・ファイル内のアプリケーション・フォントに一致する適切なフォント・セットがシステムで使用されるようになります。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">コマンド行から、ご使用のオペレーティング・システムに該当するコマンドを入力します。</span> <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d1877e163" class="stentry" width="25%">オペレーティング・システム</th>
+<th valign="bottom" align="left" id="d1877e165" class="stentry" width="75%">コマンド</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d1877e163" class="stentry">AIX®</td>
+<td valign="top" headers="d1877e165" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1877e163" class="stentry">HP-UX</td>
+<td valign="top" headers="d1877e165" class="stentry"><kbd class="ph userinput">/usr/bin/X11/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1877e163" class="stentry">Linux (Red Hat)</td>
+<td valign="top" headers="d1877e165" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1877e163" class="stentry">Solaris</td>
+<td valign="top" headers="d1877e165" class="stentry"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+</table>
+
+<p class="p"></p>
+
+<p class="p">このコマンドでは、<var class="keyword varname">font_name</var> はステップ <a class="xref" href="#omn_con_configuringfontsunixdsktop__omn_intnzn_step">3</a> で出力された文字エンコード方式です。
+アスタリスク (*) を使用して、この値をワイルドカードとして指定します。 シェルがテキスト内のアスタリスクを解釈しないようにするため、値を引用符で囲む必要があることに注意してください。 例えば、以下のようになります。</p>
+
+<p class="p"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts
+-fn "*-iso8859-6"</kbd></p>
+ 該当するフォントのリストが表示されます。</li>
+<li class="li step stepexpand"><span class="ph cmd">それらのフォントをそれぞれプレビューして、適するものであるかどうか判別します。 フォントごとに、次のコマンドを入力します。</span> <p class="p"><kbd class="ph userinput">xfd -fn <var class="keyword varname">font_name</var></kbd></p>
+
+<p class="p">この場合、<var class="keyword varname">font_name</var> は、前のステップで返された、該当するフォント名の 1 つです。</p>
+ ウィンドウが開き、フォントのフルネームと、セルごとに 1 文字が含まれているグリッドが表示されます。 すべての文字を見るには、<span class="ph uicontrol">「次のページ (Next Page)」</span>ボタンと<span class="ph uicontrol">「前のページ (Previous
+Page)」</span>ボタンを使用することが必要になる場合があります。 適切なフォントを特定したら、そのフォント・セットをリソース・ファイルに追加することができます。</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph filepath">NCO</span> という名前が付いたリソース・ファイルをそれぞれ順々に開いて、フォントを変更します。 </span> 例えば、イベント・リスト・リソースの場合、<samp class="ph codeph">NCOEvent*fontList</samp>、<samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp>、<samp class="ph codeph">*view_builder*display_matrix.labelFont</samp>、および <samp class="ph codeph">NCOEvent*info_matrix.labelFont</samp> を、ロケールに必要なすべてのフォントを含んでいるフォント・セットに設定する必要があります。
+<p class="p">UNIX フォント名の形式は、次のとおりです。 </p>
+
+<pre class="pre codeblock"><code>-foundry-font family-weight-slant-set width-serif-pixels-points-hres-vres-spacing-average <br />width-character set-encoding</code></pre>
+フォント名は、ワイルドカードを使用して指定することができます。 例えば、イベント・リストのデフォルト・フォントは次のようになります。
+<pre class="pre codeblock"><code>-adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*</code></pre>
+
+<p class="p">アラビア語の場合、これを次のように置き換えることができます。</p>
+
+<pre class="pre codeblock"><code>-dt-interface user-bold-r-normal-m serif-14-140-75-75-p-188-iso8859-6</code></pre>
+
+<p class="p"></p>
+EUC 文字セットを使用する場合は、一度に複数のフォントが必要になります。例えば、EUCJIS (日本語) には、iso8859-1、jisx0201.1976-0、jisx0208.1983-0、および jisx0212.1990-0 の各フォントが必要です。 そのようなフォント・セットは、ワイルドカードを含む 1 つ以上のフォント名を指定して設定することができます (1 つのフォント・セット内のフォントはセミコロンで区切り、複数のフォント・セットの最後にはコロンを付けます)。</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、リソース内の他の設定を以下のように変更します。 </span> <ul class="ul"><li class="li">ウィンドウのデフォルト幅 (単位: ピクセル) を指定します。 ご使用のフォントに合わせてこれらの値を調整し、ウィンドウ上のテキスト・ラベルが適切に表示されるようにすると便利です。</li>
+<li class="li">ウィンドウ・タイトル (<samp class="ph codeph">*.title</samp>)、ボタン・ラベル (<samp class="ph codeph">*.labelString</samp>)、メッセージ (<samp class="ph codeph">*.messageString</samp>)、およびその他のテキスト・エレメントのストリング値を変換後のテキストと置き換えます。 変換後のテキストでご使用のロケールの文字エンコード方式が使用されることを確認します。</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">変更をファイルに保存します。</span> これで、正しいロケールおよびフォントを使用して Tivoli Netcool/OMNIbus を実行できるようになりました。</li>
+</ol>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+#NCO_CONFIG3
+#
+# __OEM__ Event List Configuration File __VERSION__
+#
+# Ident: $Id: minimal.elc 1.1 2003/04/15 15:56:07 nick Development $
+#
+
+config_name = '기본값';
+config_columns = 4;
+views = {
+{
+view_name = '기본값';
+columns = {
+{ Node, '노드', 15, centre, left }
+{ AlertKey, '경보 키', 15, centre, left }
+{ Summary, '요약', 30, centre, left }
+{ LastOccurrence, '마지막 발생', 18, centre, centre }
+{ Tally, '개수', 6, centre, centre }
+num_fixed = 0;
+}
+sorting = {
+{ Node, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = '기본값';
+filter_text = '';
+filter_metric = 'avg(Severity)';
+default = '기본값';
+windows = {
+none
+}
+}
+}
+
+# End of file

@@ -1,0 +1,32 @@
+Log ("Policy to correlate ITM events with correlation policy correlation2");
+DataType="omni";
+Filter="AlertGroup='test_message_HUB'";
+CountOnly="false";
+ 
+DataSource = "defaultobjectserver";
+//Query = "UPDATE status SET Summary = Summary WHERE Location = ’New York’";
+
+//DirectSQL(DataSource, Query, CountOnly); 
+log("executing statment before if statement");
+alerts=GetByFilter(DataType, Filter, CountOnly);
+par_serial=alerts[0].Serial; 
+summary= EventContainer.Summary + ";" + alerts[0].Summary;
+query="UPDATE status SET Summary = \'"+ summary +"\' WHERE Node=\'ITMhost\'";
+DirectSQL(DataSource, query, CountOnly); 
+If(Length(alerts) >= 1)
+{ 
+//    Log("serial number of alert extracted is:" + alerts[0].Serial);
+    Log("executing the log statment under if statement");
+    EventContainer.ExtendedAttr="Child";
+    EventContainer.Summary=EventContainer.Summary + "suppressed with parent serial id:" + alerts[0].Serial;
+    ReturnEvent(EventContainer); 
+}
+
+//query="UPDATE status SET Summary='updated through directsql' WHERE Node='ITMhost'";
+//DirectSQL(DataSource, query, CountOnly); 
+  
+//ReturnEvent(EventContainer); 
+//Log("Summary is:" + @Summary + "for serial" + Serial); 
+Log("deinitialising variable summary"); 
+summary=""; 
+Log("Policy Exeuction ends here"); 

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="تصدير بيانات MIB" />
+<meta name="abstract" content="كيفية ارسال بيانات SNMP MIB من MIB Manager الى تنسيقات متنوعة." />
+<meta name="Description" content="كيفية ارسال بيانات SNMP MIB من MIB Manager الى تنسيقات متنوعة." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_exportdata" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>تصدير بيانات MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_exportdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">تصدير بيانات MIB</h1>
+<div class="body taskbody"><p class="shortdesc">كيفية ارسال بيانات SNMP MIB من <span class="keyword">MIB Manager</span> الى تنسيقات متنوعة.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">اجراء</h2></div><p class="li stepsection">لتصدير بيانات MIB:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">اضغط على <img class="image" src="../gifs/export.gif" alt="شارة تصدير MIB" /> <span class="ph uicontrol">تصدير</span>، أو من القائمة اضغط <span class="ph menucascade"><span class="ph uicontrol">ملف</span> &gt; <span class="ph uicontrol">تصدير</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">الدليل</span>، حدد دليل الوجهة المستهدفة للملفات التي يتم تصديرها.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">نوع الملف</span>، حدد نوع الملف للملفات التي تم تصديرها.</span> <p class="p">يجب أن تقوم باستخدام Netcool Knowledge Library (NCKL) في أي وقت يمكن ذلك، لأن ملفات قواعد NCKL تعتمد على امكانيات وظائف الجهاز. عند استخدام NCKL، يجب أن تحدد نوع ملف  <span class="ph uicontrol">Netcool Knowledge Library النسخة 3.x</span>. هذا يمكن الملفات التي تم تكوينها أن يتم اضافتها الى عمليات تركيب Netcool Include Library الحالية.</p>
+
+<p class="p">تكون الاختيارات التالية متاحة من الكشف المسقط <span class="ph uicontrol">نوع الملف</span>:</p>
+
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="يوضح كل صف في هذا الجدول اختيار واحد لجملة الاختيارات." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="right" id="d7702e58-option">نوع الملف</th>
+<th valign="bottom" align="right" id="d7702e58-desc">الوصف</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e65" class="stentry choption"><strong>CSV</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e65" class="stentry chdesc">حدد هذا الاختيار لتحديد أنه تم تحميل كل بيانات العناصر في ملفات CSV، لذلك يمكن مشاهدتها باستخدام تطبيق الجداول الحسابية.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e70" class="stentry choption"><strong>عناصر ملف تعقب المشاكل CSV</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e70" class="stentry chdesc">حدد هذا الاختيار لتحديد أن كل بيانات ملف تعقب المشاكل وبيانات عناصر عمليات ربط  المتغيرات المصاحبة تم تحميلها في ملف CSV واحد، لذلك يمكن مشاهدتها باستخدام تطبيق الجداول الحسابية.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e75" class="stentry choption"><strong>HTML مع اطارات</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e75" class="stentry chdesc">حدد هذا الاختيار لتكوين صفحة انترنت مناسبة للنشر. <p class="p">يتم عرض مشاهدة تسلسل  MIB المحدد في الجانب الأيمن من صفحة الانترنت التي تم تكوينها. يمكنك الانتقال خلال مشاهدة تسلسل MIB من خلال عرض وطي العقد في تسلسل MIB. عند تحديد عنصر من تسلسل MIB، يتم عرض المعلومات المصاحبة الخاصة به في الجانب الأيسر من صفحة الانترنت.</p>
+<p class="p">يمكن أن يقوم هذا النسق عادة بتكوين عدد كبير من ملفات التصدير، يحتوي كل منها على ملف  HTML لكل عنصر يتم عرضه في تسلسل MIB. يمكن ضغط الدليل المستهدف ووضعه أسفل وحدة خدمة للانترنت، أو يمكن مشاهدة الصفحات مباشرة من قرص من خلال فتح الملف <span class="ph filepath">index.html</span> الذي تم تكوينه في دليل التصدير.</p>
+<p class="p">اذا كنت تريد استخدام ملفات HTML منفردة ببرنامج استعراض الانترنت، قم بالتصدير الى <span class="ph uicontrol">HTML مع اطارات</span> ثم قم باستخدام الملفات التي توجد في الدليل الفرعي <span class="ph filepath">للبيانات</span> والذي يوجد أسفل دليل التصدير.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e95" class="stentry choption"><strong>HTML بدون اطارات</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e95" class="stentry chdesc">حدد هذا الاختيار لتكوين ملف واحد بالاسم <span class="ph filepath">oids.html</span>.
+سيحتوي هذا الملف على كشف بكل العناصر التي تم تحديدها للمخرجات، كلا منها مفصول بقواعد أفقية (باستخدام شارة التعليم <samp class="ph codeph">&lt;HR&gt;</samp>).
+يتم وضع كل OID
+بين شارة تثبيت بحيث أنه عند تحميلها، يقوم برنامج الاستعراض آليا بالتصفح لأسفل لأي OID يتضمن رمز (#) في عنوان URL، على سبيل المثال: <span class="ph filepath">file:c:/oids.html#1.3.6.1.4.1.9</span>.<p class="p">يمكن أن يصبح هذا الملف كبير جدا اذا كنت تقوم بتصدير عدد كبير من العناصر. لذلك، يجب استخدام هذا النسق فقط لتصدير عدد قليل من ملفات تعقب المشاكل.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e111" class="stentry choption"><strong>جدول بحث Netcool</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e111" class="stentry chdesc">حدد هذا الاختيار لاخراج كل القيم المحددة في كشف ذو علامات تبويب، مع عرض  OIDs في العمود الأيمن وعرض أسماء العناصر في العمود الأيسر. يكون هذا مناسبا للتضمين في أي ملف قواعد.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e116" class="stentry choption"><strong>مكتبة Netcool Include Library</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e116" class="stentry chdesc">حدد هذا الاختيار لتكوين ملفات تضمين منفصلة لكل مؤسسة، ولتكوين ملف واحد لملفات تعقب المشاكل العامة (ذلك بالنسبة لأي ملفات تعقب مشاكل لا توجد أسفل التسلسل الفرعي للمؤسسة).
+من المفترض أنه يتم ادراج ملفات التضمين داخل ملفات <span class="ph filepath">snmp.rules</span> القائمة،
+اما تلك التى تم تكوينها مسبقا بواسطة <span class="keyword">MIB Manager</span> أو تلك التى تم تكوينها بواسطة Netcool Include Library
+(NCIL).</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e127" class="stentry choption"><strong>مكتبة Netcool Knowledge Library النسخة 1.1</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e127" class="stentry chdesc">حدد هذا الاختيار لاخراج الملفات من <span class="keyword">MIB Manager</span>. سيتم تضمين الملفات في اعداد مكتبة Netcool Knowledge Library حالية.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e135" class="stentry choption"><strong>مكتبة Netcool Knowledge Library النسخة 3.x</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e135" class="stentry chdesc">حدد هذا الاختيار لاخراج الملفات من <span class="keyword">MIB Manager</span>. سيتم تضمين الملفات في اعداد مكتبة Netcool Knowledge Library حالية.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e143" class="stentry choption"><strong>القواعد المستقلة</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e143" class="stentry chdesc">حدد هذا الاختيار لتكوين ملف قواعد تحتوي على كل ملفات تعقب المشاكل المحددة. يمكنك تحديد هذا الملف فى ملف الخصائص
+من أى برنامج اختبار صفحة شرطية فى <span class="keyword">Tivoli Netcool/OMNIbus</span> SNMP.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e151" class="stentry choption"><strong>الملفات النصية المنفردة</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e151" class="stentry chdesc">يتم استخدام نسق الملفات النصية المنفردة لقائمة الضغط بالمفتاح الأيمن للفأرة لكشف أحداث Netcool.<p class="p">عند التصدير الى ملفات نصية منفردة، يعتبر كل  OID مخرجات لملف نص منفصل، على سبيل المثال <span class="ph filepath">1.3.6.1.4.1.9.1.1.txt</span>.
+عندئذ يمكن اضافة أداة خارجية لقائمة الضغط بمفتاح الفأرة الأيمن تقوم باستخدام <span class="ph filepath">nco_message</span> لعرض كل معلومات العناصر لحدث تم تحديد
+OID له في مجال، على سبيل المثال: <samp class="ph codeph">cat 1.3.6.1.4.1.9.1.txt |nco_message
+stdin title "trap info"</samp>.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e168" class="stentry choption"><strong>Tivoli Universal Agent</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e168" class="stentry chdesc">يقوم نسق Tivoli Universal Agent بتصدير ملفات <span class="ph filepath">.mdl</span> و<span class="ph filepath">trapcnfg</span> بناءا على المحتويات المحددة.<div class="p">يمكن تحديد تسلسلات فرعية متعددة عند تحديد هذا النسق لتصدير ملفات. اذا تم تحديد تسلسلات فرعية متعددة، سيتم تكوين الملفات <span class="ph filepath">.mdl</span> و<span class="ph filepath">trapcnfg</span> لكل العناصر التي توجد أسفل بند محدد في تسلسل MIB. <div class="note note"><span class="notetitle">ملاحظة:</span> يجب أن تكون أول ثلاث حروف من اسم التطبيق متبوعة بشارة تعليم //APPL في الملف <span class="ph filepath">.mdl</span> متفردين في المؤسسة. يقوم <span class="keyword">MIB Manager</span> بمحاولة الالتزام بهذا المطلب ولكنه لا يكون على علم بالأدوات البرمجية الأخرى
+التى قد تكون قيد التشغيل. قد تحتاج القيام بتعديل ملف <span class="ph filepath">.mdl</span> للتأكد من أن اسم التطبيق متفرد في المؤسسة.</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">فى مجال <span class="ph uicontrol">النطاق</span>، قم باستخدام كشف الاسقاط لتحديد ما اذا كان
+<span class="keyword">MIB Manager</span> يقوم باخراج صفحات شرطية فقط، أو عناصر فقط، أو كل OIDs.</span> <p class="p">تعتمد الاختيارات المتاحة على نوع الملف الذي تقوم بتصديره.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">لتحديد عدد العناصر المتضمنة في الملف الذي تم تكوينه، حدد مربع الاختيار <span class="ph uicontrol">التسلسلات الفرعية المحددة فقط</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">اضغط <span class="ph uicontrol">تصدير</span> لتصدير الملفات الى الدليل المستهدف.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="يمكنك استخدام MIB Manager لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool.">استخدام Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>المرجع المتعلق</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" title="يقوم هذا القسم بشرح كيفية تحديد القواعد الخاصة بك لتفضيلات تصدير الملفات.">تحديد تفضيلات التصدير</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

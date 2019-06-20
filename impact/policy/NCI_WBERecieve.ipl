@@ -1,0 +1,32 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+Function ParseWBEMessage(message, returnObject) {
+
+    returnObject = NewObject();
+
+    message= Rextract(message, "<connector [^>]*><connector-bundle [^>]*><[^>]*>(.*)<[^>]*>.*connector-bundle>.*connector>");
+    while(message != "") {
+        fieldName = Rextract(message, "^<([^ ]*) type=[^>]*>");
+        type = Rextract(message, "^<[^ ]* type=\"([^\"]*)\"");
+        fieldValue = Rextract(message, "<" + fieldName + "[^>]*>([^<]*)<");
+        message = Rextract(message, "<" + fieldName + "[^>]*>[^<]*</" + fieldName + ">(.*)");
+        if (type == "Integer") {
+            returnObject[fieldName] = Int(fieldValue);
+        } elseif (type == "Real") {
+            returnObject[fieldName] = Float(fieldValue);
+        } else {
+            returnObject[fieldName] = fieldValue;
+        }
+    }
+}
+Log(@JMSMessage);
+ParseWBEMessage(@JMSMessage,returnObject);
+Log("returnObject is " + returnObject);

@@ -1,0 +1,22 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+// This is a pre-installed Impact Policy. Please do not modify.
+//
+// Used by the Impact REST API to retrieve as resource: a set of OrgNodes from 
+// DataType by Filter.
+//
+// REST URI for this resource:
+// http://guiserverhost:port
+//    /nci/data/[cluster]/[datasource]/[datatype]?filter=[filter]
+//
+
+orgnodes_result_set = GetByFilter(datatype, filter, false);

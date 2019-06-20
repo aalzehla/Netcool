@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="IPv6 配置" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus 提供对 IPv4 和 IPv6 的支持。 这些组件可在仅支持 IPv4、仅支持 IPv6，或支持 IPv4 和 IPv6 双配置的网络上运行和共存。" />
+<meta name="description" content="Tivoli Netcool/OMNIbus 提供对 IPv4 和 IPv6 的支持。 这些组件可在仅支持 IPv4、仅支持 IPv6，或支持 IPv4 和 IPv6 双配置的网络上运行和共存。" />
+<meta name="DC.subject" content="IPv6, 配置" />
+<meta name="keywords" content="IPv6, 配置" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_ipv6_configurationunix" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>IPv6 配置</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_ipv6_configurationunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">IPv6 配置</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> 提供对 IPv4 和 IPv6 的支持。 这些组件可在仅支持 IPv4、仅支持 IPv6，或支持 IPv4 和 IPv6 双配置的网络上运行和共存。</p>
+<div class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> 服务器组件在 IPv6 和 IPv4 环境中运行，如下所示：<ul class="ul"><li class="li">ObjectServer 可以处理源自 IPv4 和 IPv6 网络的事件。 当 ObjectServer 运行于双堆栈主机上时，响应命令而返回给客户机的主机名是对应于客户机正在运行的 IP 版本的服务器的主机名。
+例如，运行 IPv4 的客户机接收 ObjectServer 的 IPv4 主机名，而运行 IPv6 的客户机接收 ObjectServer 的 IPv6 主机名。</li>
+<li class="li">在 IPv4 和 IPv6 双环境中，单向和双向 ObjectServer 网关可以侦听通信套接字上的这两种接口。</li>
+<li class="li">代理服务器可以支持运行于 IPv4 和 IPv6 主机上的探测器及 ObjectServer 之间的连接。</li>
+<li class="li">在 IPv4 和 IPv6 双环境中，进程代理程序可以侦听通信套接字上的这两种接口。</li>
+</ul>
+</div>
+<div class="p">支持以下 IPv6 地址格式： <ul class="ul"><li class="li">八组十六进制字符（每组四个字符），以冒号分隔；例如：ABCD:EF01:2345:6789:ABCD:EF01:2345:6789</li>
+<li class="li">若所有 16 位均为 0，该段可由冒号（:）替换。 <p class="p">例如，地址 1010:0000:0000:0000:ABCD:EF01:2345:6789 可写作 1010::ABCD:EF01:2345:6789。</p>
+</li>
+<li class="li">IPv4 地址可以表示为 IPv6 地址。 For example:<ul class="ul"><li class="li">0:0:0:0:0:0:192.101.50.5</li>
+<li class="li">0:0:0:0:0:FFFF:103.27.35.8<p class="p">这些地址也可以表示为如下形式：</p>
+</li>
+<li class="li">::192.101.50.5</li>
+<li class="li">::FFFF:103.27.35.8</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

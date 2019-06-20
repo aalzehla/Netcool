@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Monitoring predictive events in the event list" />
+<meta name="abstract" content="A predictive event represents a prediction of an impending threshold violation. These events differ from other events that are forwarded to Tivoli Netcool/OMNIbus because they represent an occurrence, fault, or situation that has not yet occurred, but which has a significant probability of occurring in the near future." />
+<meta name="Description" content="A predictive event represents a prediction of an impending threshold violation. These events differ from other events that are forwarded to Tivoli Netcool/OMNIbus because they represent an occurrence, fault, or situation that has not yet occurred, but which has a significant probability of occurring in the near future." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringpredictiveevents" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>Monitoring predictive events in the event list</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringpredictiveevents">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Monitoring predictive events in the event list</h1>
+<div class="body taskbody"><div class="abstract"><span class="shortdesc">A predictive event represents a prediction of
+an impending threshold violation. These events differ from other events
+that are forwarded to <span class="keyword">Tivoli Netcool/OMNIbus</span> because
+they represent an occurrence, fault, or situation that has not yet
+occurred, but which has a significant probability of occurring in
+the near future. </span>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">Predictive events are generated within <span class="keyword">IBM Tivoli Monitoring</span> based
+on linear trending of historical data. You can monitor predictive
+events from the <span class="keyword">Tivoli Netcool/OMNIbus</span> event
+list if your system is configured to support this feature.  If
+configured also, a <span class="ph uicontrol">Predictions</span> monitor box
+will be available in the <span class="keyword wintitle">Event List</span> monitor box
+window, and a <span class="ph uicontrol">Predictions</span> filter and <span class="ph uicontrol">Predictions</span> view
+will be available in your event lists. <span class="ph">The <span class="ph uicontrol">Predictions</span> view
+contains the following default columns, which are displayed as follows,
+from left to right: Node, TrendDirection, Summary, FirstOccurrence,
+LastOccurrence, Count, PredictionTime.</span></p>
+<div class="p">The sort priority and sort order of the columns
+is as follows:<ol class="ol"><li class="li">Severity in descending order</li>
+<li class="li">LastOccurrence in ascending order</li>
+<li class="li">PredictionTime in ascending order</li>
+</ol>
+</div>
+<div class="p">When
+your event list shows both actual and predictive events, you can use
+the <span class="ph uicontrol">Predictions</span> filter and <span class="ph uicontrol">Predictions</span> view
+to filter and sort predictive events. You can also identify predictive
+events as follows:<ul class="ul"><li class="li">Check the text in the <span class="ph uicontrol">Summary</span> column. The
+summary text is typically in one of the following formats (the severity
+of critical predictive events is always 5, the severity of warning
+predictive events is always 3):<ul class="ul"><li class="li">For linear trending events:<p class="p"><samp class="ph systemoutput">Predicted event rate
+on <var class="keyword varname">Node</var> will hit threshold within <var class="keyword varname">PredictionTime</var> days.</samp></p>
+</li>
+<li class="li">For baselining events:<p class="p"><samp class="ph systemoutput"><var class="keyword varname">EventType</var> event
+rate baseline situation has fired for node <var class="keyword varname">Node</var>,
+the event count is <var class="keyword varname">EventCount</var> for node <var class="keyword varname">situation_name</var>.</samp></p>
+</li>
+<li class="li">For predictive events:<p class="p"><samp class="ph systemoutput">Critical threshold for <var class="keyword varname">resource</var> on <var class="keyword varname">Node</var> will
+be breached in <var class="keyword varname">PredictionTime</var> day(s). (Situation: <var class="keyword varname">situation_name</var>).</samp></p>
+<p class="p"><samp class="ph systemoutput">Warning
+threshold for <var class="keyword varname">resource</var> on <var class="keyword varname">Node</var> will
+be breached in <var class="keyword varname">PredictionTime</var> day(s). (Situation: <var class="keyword varname">situation_name</var>).</samp></p>
+</li>
+</ul>
+</li>
+<li class="li">If you have a <span class="ph uicontrol">Class</span> column in your current
+view, check the text in this column. By default, the entry is <samp class="ph systemoutput">Predictive
+Events</samp>, although this value can be changed by your
+system administrator.</li>
+</ul>
+</div>
+<p class="p">From the event list, you can perform the following operations
+on predictive events:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd">Determine the confidence level of the predictions. To display
+predictive events that meet a certain prediction confidence level: </span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">Right-click any event in the event list, and then click <span class="ph uicontrol">Show
+Prediction Confidence</span> from the pop-up menu.</span></li>
+<li class="li substep"><span class="ph cmd">From the <span class="keyword wintitle">Internal Command Parameters</span> window,
+specify a percentage value between 0 and 100 only, in the <span class="ph uicontrol">Minimal
+Confidence percentage</span> field.</span> The prediction
+confidence indicates how accurate the approximated trended value is,
+where 0 is no confidence and 100 is a perfect approximation. The default
+is 50.</li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span> A
+separate event list opens displaying predictive events with the specified,
+or higher, confidence level. This event list shows all the fields
+in the Default view. You can additionally double-click any event to
+view its complete set of details in the <span class="keyword wintitle">Event Information</span> window.</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">List all predictive events and actual events (if available)
+that originated from the host for which a prediction was made. You
+can use the results displayed to help you identify a possible cause
+for the prediction trend towards a warning or critical threshold. </span> <p class="p">To display the events, right-click the predictive
+event that you want to investigate, and then click <span class="ph uicontrol">Show
+Predictive Events Threshold</span> from the pop-up menu. A separate
+event list opens showing all events that are on the same host as the
+selected predictive event, and which occurred from the time the prediction
+was made, to the time the prediction is calculated to occur. (The
+Default view is applied to this event list.) </p>
+<p class="p">You can double-click
+each event to view its complete set of details in the <span class="keyword wintitle">Event
+Information</span> window.</p>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="You can use the event list to monitor and manage alerts. An alert is created when the ObjectServer receives an event, alarm, message, or data item. Each alert is made up of columns (or fields) of information that are held in a row in the ObjectServer alerts.status table.">Monitoring and managing events in the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

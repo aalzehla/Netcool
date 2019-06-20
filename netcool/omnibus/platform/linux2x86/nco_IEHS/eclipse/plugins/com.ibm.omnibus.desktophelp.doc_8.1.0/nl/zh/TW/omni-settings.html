@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool/OMNIbus 設定" />
+<meta name="abstract" content="使用此視窗，可以配置 Windows 上 Tivoli Netcool/OMNIbus 的內容及伺服器通訊資訊。 此視窗提供單一可管理的工作環境，可以從其中立即存取這些功能。" />
+<meta name="description" content="使用此視窗，可以配置 Windows 上 Tivoli Netcool/OMNIbus 的內容及伺服器通訊資訊。 此視窗提供單一可管理的工作環境，可以從其中立即存取這些功能。" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_settingswindow" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Netcool/OMNIbus 設定</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_settingswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Netcool/OMNIbus 設定</h1>
+<div class="body refbody"><p class="shortdesc">使用此視窗，可以配置 Windows 上 <span class="keyword">Tivoli Netcool/OMNIbus</span> 的內容及伺服器通訊資訊。 此視窗提供單一可管理的工作環境，可以從其中立即存取這些功能。</p>
+<div class="section">「<span class="keyword wintitle">Netcool/OMNIbus 設定</span>」視窗包含下列標籤：<ul class="ul"><li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_overviewtab">概觀標籤</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_serverstab">伺服器標籤</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_propertiestab">內容標籤</a></li>
+</ul>
+<div class="note note"><span class="notetitle">註：</span> 若「<span class="keyword wintitle">伺服器編輯器</span>」視窗目前處於開啟狀態，則不會顯示<span class="ph uicontrol">伺服器</span>標籤。
+若「<span class="keyword wintitle">內容編輯器</span>」視窗目前處於開啟狀態，則不會顯示<span class="ph uicontrol">內容</span>標籤。</div>
+<div class="note tip" id="netom_settingswindow__netom_settings_tip"><span class="tiptitle">提示：</span> 如果您對其中一個標籤進行變更，然後嘗試存取另一個標籤而沒有儲存變更，則系統會提示您儲存或取消變更。 您也可以隨時按一下<span class="ph uicontrol">確定</span>按鈕以儲存所有變更並關閉視窗，或按一下<span class="ph uicontrol">取消</span>按鈕以關閉視窗而不儲存變更。 如果要儲存您對任何標籤所做的變更而不關閉視窗，請按一下<span class="ph uicontrol">套用</span>按鈕。</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_overviewtab"><h2 class="title sectiontitle">概觀標籤</h2><p class="p">使用<span class="ph uicontrol">概觀</span>標籤以取得 <span class="keyword">Tivoli Netcool/OMNIbus</span> 伺服器位置及內容檔的簡要概觀。</p>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_serverstab"><h2 class="title sectiontitle">伺服器標籤</h2><div class="p">使用此標籤，可以建立及修改伺服器元件的通訊明細、測試伺服器活動，以及新增備份 (或失效接手) 伺服器與接聽器。 伺服器元件包括 ObjectServer、閘道、程序代理程式及 Proxy 伺服器。 此標籤與「伺服器編輯器」提供相同的功能。 如下所示完成<span class="ph uicontrol">伺服器</span>標籤：<dl class="dl" id="netom_settingswindow__netom_settingsservfields"><dt class="dt dlterm"><em class="ph i">伺服器清單</em></dt>
+<dd class="dd">伺服器清單會顯示現有的伺服器元件及其設定：<dl class="dl"><dt class="dt dlterm">伺服器</dt>
+<dd class="dd">此直欄會顯示對此工作站定義的每個伺服器名稱。 預設伺服器名稱為：<ul class="ul"><li class="li">NCOMS：ObjectServer 的預設名稱</li>
+<li class="li">NCO_PROXY：Proxy 伺服器的預設名稱</li>
+<li class="li">NCO_GATE：閘道的預設名稱</li>
+<li class="li">NCO_PA：程序代理程式的預設名稱</li>
+</ul>
+</dd>
+<dd class="dd">伺服器的主機工作站必須擁有<dfn class="term">接聽器</dfn>項目，而連接至該伺服器的主機工作站及任何其他工作站都必須擁有<dfn class="term">用戶端</dfn>項目。</dd>
+<dd class="dd">備份 ObjectServer 顯示在「伺服器編輯器」中主要 ObjectServer 的下方。 若要隱藏備份 ObjectServer 的清單，請按兩下主要 ObjectServer 名稱或伺服器圖示。 系統會隱藏備份 ObjectServer，且字母 <em class="ph i">C</em> 會顯示在伺服器圖示中。 再按兩下，以顯示備份 ObjectServer。 伺服器圖示會回到正常狀態。 </dd>
+<dt class="dt dlterm">主機</dt>
+<dd class="dd">此直欄會顯示安裝伺服器元件之工作站的主機名稱或 IP 位址。 預設值是主機名稱。</dd>
+<dt class="dt dlterm">埠</dt>
+<dd class="dd">此直欄會顯示伺服器元件接聽未加密連線的埠。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">此直欄會對已加密連線顯示單字<samp class="ph tt">是</samp>。
+相同的埠號可同時用於已加密和未加密連線。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">伺服器登錄欄位</dt>
+<dd class="dd">使用伺服器登錄欄位，可以輸入或編輯每個伺服器元件的詳細資料。 若您是在編輯現有伺服器元件的詳細資料，則您必須首先選取伺服器清單中的相關列，以便在伺服器登錄欄位中顯示詳細資料。 <dl class="dl"><dt class="dt dlterm">名稱</dt>
+<dd class="dd">輸入新伺服器元件的名稱或編輯現有元件的名稱。 您也可以使用下拉清單來選取名稱。 在命名元件時，請使用下列字尾：_PROXY (用於 Proxy 伺服器)、_GATE (用於閘道) 及 _PA (用於程序控制代理程式)。<div class="note note"><span class="notetitle">註：</span> 伺服器項目的名稱必須由 29 個以下大寫字母組成，且不得以整數開頭。</div>
+</dd>
+<dt class="dt dlterm">主機</dt>
+<dd class="dd">輸入或編輯安裝伺服器元件之工作站的主機名稱或 IP 位址。 </dd>
+<dd class="dd">如果輸入 IP 位址，您就可以指定 IPv4 或 IPv6 位址。
+例如：<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">埠</dt>
+<dd class="dd">請輸入有效且未使用的埠號。</dd>
+<dt class="dt dlterm">接聽器</dt>
+<dd class="dd">若這是伺服器之主機工作站上的接聽器項目，請選取此勾選框。 若這是用戶端項目，請取消勾選<span class="ph uicontrol">接聽器</span>勾選框。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">選取此勾選框，指出埠接受來自使用 SSL 的用戶端已加密連線。 相同的埠號可用於已加密和未加密連線。</dd>
+<dt class="dt dlterm">新增</dt>
+<dd class="dd">按一下此按鈕，以將新 (而且唯一的) 伺服器明細新增至伺服器清單。</dd>
+<dt class="dt dlterm">移除/更新</dt>
+<dd class="dd">此按鈕會根據您是否已針對目前選取的伺服器元件進行變更而改變。 如果要從伺服器清單中移除目前選取的伺服器元件，請按一下<span class="ph uicontrol">移除</span>。 按一下<span class="ph uicontrol">更新</span>，以使用現有伺服器元件的已更新明細重新整理伺服器清單。</dd>
+<dt class="dt dlterm">測試</dt>
+<dd class="dd">按一下此按鈕，以測試是否可以連接至伺服器清單中選取的伺服器。 「伺服器編輯器」會嘗試聯絡指定之主機及埠上的伺服器。 視窗會顯示測試指令的結果。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">優先順序</dt>
+<dd class="dd">伺服器優先順序欄位可讓您提高或降低已配置為失效接手系統之伺服器元件的優先順序。 例如，假設使用名稱為 NCOMS_BAK 的備份配置名稱為 NCOMS_PRI 的 ObjectServer。 使用<span class="ph uicontrol">提高</span>或<span class="ph uicontrol">降低</span>按鈕，您可以將 NCOMS_BAK 的優先順序提高為主要 ObjectServer，而將 NCOMS_PRI 降低為備份。<dl class="dl"><dt class="dt dlterm">提高</dt>
+<dd class="dd">按一下此按鈕，以將所選伺服器元件的優先順序提高一個層次。</dd>
+<dt class="dt dlterm">降低</dt>
+<dd class="dd">按一下此按鈕，以將所選伺服器元件的優先順序降低一個層次。</dd>
+<dt class="dt dlterm">顯示群組</dt>
+<dd class="dd">選取此勾選框，以在伺服器清單中依名稱對每個伺服器進行分組，在用戶端項目之後接著已識別的備用伺服器及接聽器。</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_propertiestab"><h2 class="title sectiontitle">內容標籤</h2><div class="p">使用此標籤可以編輯 ObjectServer、Proxy 伺服器、資料庫起始設定公用程式 (<span class="keyword cmdname">nco_dbinit</span>)、Confpack 公用程式 (<span class="keyword cmdname">nco_confpack</span>)、Netcool/OMNIbus Administrator (nco_config)、探測器及閘道的內容檔中所含的資訊。您也可以建立新的內容檔。 此標籤與「內容編輯器」提供相同的功能。 如下所示完成<span class="ph uicontrol">內容</span>標籤：<dl class="dl" id="netom_settingswindow__netom_settingspropfields"><dt class="dt dlterm">類型</dt>
+<dd class="dd">選取下列任一選項：<ul class="ul"><li class="li">選取 <span class="ph uicontrol">ObjectServer</span> 以編輯元件的內容檔，例如 ObjectServer 和 Proxy 伺服器。 <span class="ph uicontrol">名稱</span>下拉清單會移入這些檔案。 這些檔案一般會儲存在 <span class="ph filepath">%NCHOME%\omnibus\etc</span> 目錄中。</li>
+<li class="li">選取<span class="ph uicontrol">探測器</span>以編輯探測器內容檔。
+<span class="ph uicontrol">名稱</span>下拉清單會移入這些檔案。 這些檔案一般會儲存在 <span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> 目錄中。</li>
+<li class="li">選取<span class="ph uicontrol">伺服器</span>以新增內容檔。
+這些檔案會儲存在 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目錄中。
+<span class="ph uicontrol">名稱</span>下拉清單會移入文字 <samp class="ph codeph">&lt;New File&gt;</samp>。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">名稱</dt>
+<dd class="dd">從此下拉清單選取您要編輯的內容檔。 基於從<span class="ph uicontrol">類型</span>下拉清單進行的選取，資料會移入此清單。 預設值為： <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit</span>：資料庫起始設定開始時 (執行 <span class="keyword cmdname">nco_dbinit</span> 以起始設定資料庫)，會讀取此內容檔。</li>
+<li class="li"><span class="ph filepath">NCO_PROXY</span>：Proxy 伺服器內容檔 (Proxy 伺服器可用來減少與 ObjectServer 的探測器連線數目。)</li>
+<li class="li"><span class="ph filepath">nco_confpack</span>：Confpack 內容檔 (<span class="keyword cmdname">nco_confpack</span> 可用來匯入及匯出 ObjectServer 配置。)</li>
+<li class="li"><span class="ph filepath">nco_config</span>：<span class="keyword">Netcool/OMNIbus Administrator</span>內容檔</li>
+<li class="li"><span class="ph filepath">NCOMS</span>：ObjectServer 內容檔</li>
+</ul>
+</dd>
+<dd class="dd">請注意，畫面上沒有顯示 <span class="ph filepath">.props</span> 副檔名，而且當您在<span class="ph uicontrol">名稱</span>清單上選取檔案時，內容清單會自動移入可用的內容。</dd>
+<dt class="dt dlterm"><em class="ph i">內容清單</em></dt>
+<dd class="dd">此矩陣會顯示已新增至內容檔之任意內容的詳細資料。 如果您要變更內容，則可以選取此清單中的內容。 有一組已為探測器內容檔定義的預設內容組，且其無法移除。
+這些內容會在內容清單中以灰色顯示。</dd>
+<dt class="dt dlterm">名稱</dt>
+<dd class="dd">此欄位會顯示已從內容清單中選取，要進行編輯的內容名稱。 您無法變更現有內容的名稱。 您也可以使用下拉清單來選取要編輯的內容。 </dd>
+<dd class="dd">如果您要將新內容新增至選取的內容檔，請在此處輸入內容名稱。 </dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請在此處輸入新內容名稱。</dd>
+<dt class="dt dlterm">值</dt>
+<dd class="dd">如果您正在使用現有且已選取的內容檔，請編輯所選取內容的值，或輸入您要新增之新內容的值。</dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請輸入新內容的值。</dd>
+<dt class="dt dlterm">新增/更新</dt>
+<dd class="dd">此按鈕會視您是否要新增或編輯現有的內容而改變。 如果輸入新的內容名稱及值，請按一下<span class="ph uicontrol">新增</span>，以將值新增至內容清單。 如果變更內容清單中所選取內容的值，請按一下<span class="ph uicontrol">更新</span>，以更新內容清單中的值。</dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請按一下<span class="ph uicontrol">新增</span>以新增內容。</dd>
+<dt class="dt dlterm">移除</dt>
+<dd class="dd">按一下此按鈕，以從內容檔移除所選內容。 如果選取預設內容，則無法使用此按鈕。</dd>
+<dt class="dt dlterm">儲存</dt>
+<dd class="dd">按一下此按鈕，以將變更儲存至內容檔。</dd>
+<dd class="dd">如果已從<span class="ph uicontrol">類型</span>清單選取<span class="keyword option">伺服器</span>，以建立新的內容檔，請在將內容新增至內容清單之後，按一下<span class="ph uicontrol">儲存</span>。 在「<span class="keyword wintitle">儲存新內容</span>」視窗上，輸入內容檔的名稱，但請省略 <span class="ph filepath">.props</span> 副檔名；這會自動為您新增。 按一下<span class="ph uicontrol">儲存</span>以將檔案儲存至 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目錄中。 內容檔名稱會顯示在<span class="ph uicontrol">名稱</span>欄位中 (這個欄位與<span class="ph uicontrol">類型</span>欄位相鄰)，然後您可以繼續將內容新增至此檔案。 請注意，您需要編輯此檔案，以將引號新增至針對內容指定的字串值。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

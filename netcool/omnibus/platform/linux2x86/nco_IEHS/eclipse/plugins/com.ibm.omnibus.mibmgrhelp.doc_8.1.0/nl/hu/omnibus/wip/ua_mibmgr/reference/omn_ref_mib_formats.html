@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Érvényes MIB objektum formátumok" />
+<meta name="abstract" content="Ez a témakör az érvényes MIB objektumok formátumát mutatja be." />
+<meta name="Description" content="Ez a témakör az érvényes MIB objektumok formátumát mutatja be." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_formats" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>Érvényes MIB objektum formátumok</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_formats">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Érvényes MIB objektum formátumok</h1>
+<div class="body refbody"><p class="shortdesc">Ez a témakör az érvényes MIB objektumok formátumát mutatja be.</p>
+<div class="section"><p class="p">A következő szakaszok az érvényes SNMP MIB objektumformátumokat
+mutatják be.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SZÖVEGES EGYEZMÉNY</h2><p class="p">A v2 TEXTUAL-CONVENTION
+(TC) az alábbi szintaxissal rendelkezik, ahol az objektum nevét a
+<samp class="ph codeph">::=</samp> bejegyzés, majd a <samp class="ph codeph">TEXTUAL-CONVENTION</samp> követi.
+Ezután számos szakasz következik, amelyek a SYNTAX meghatározáshoz vannak hozzáfűzve.</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION 
+DISPLAY-HINT "255a" 
+STATUS current 
+DESCRIPTION "Szöveges információkat képvisel az NVT SCII karakterkészletből, az RFC 854 4, 10-11 oldalán megadottak szerint. Az RFC 854 összefoglalásához az NVT ASCII rejtjelkészlet a következőt adja meg: - a 0-127 (decimális) karakterkódok használatát - a grafikai karakterek (32-126) értelmezése a következőben történik: US ASCII - NUL, LF, CR,BEL, BS, HT, VT és az FF speciális jelentéssel bír az RFC 854-ben megadva - a többi 25 kódnak nincs szabványos értelmezése - a'CR LF' sorozat új sort jelent - a 'CR NUL' sorozat kocsivisszát jelent - az 'LF'-et nem 'CR'-el megelőzve azt jelenti, hogy áthelyezés ugyanabba az oszlopba a következő sorba. - a 'CR x' minden x esetében (kivéve az LF vagy a NUL) illegális. (Ez azt is jelenti, hogy a karaktersorozat befejeződhet 'CR LF' vagy 'CR NUL' sorozatokkal, de CR-rel nem.) A fenti szintaxissal meghatározott bármilyen objektum nem lehet hosszabb, mint 255 karakter." 
+SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+</div>
+<p class="p">A v1 TC az objektumnévből és az ezt követő
+ <samp class="ph codeph">::=</samp> bejegyzésből áll, majd érvényes SYNTAX meghatározás kerül hozzáfűzésre. Például:</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= OCTET STRING</code></pre>
+</div>
+<p class="p">Mindkét objektum az MIB fán kívül létezik, ezért nem objektumok az MIB-ben. Olyan formátumot képviselnek, amelyhez szintaxist lehet meghatározni.
+Nem rendelkeznek OID azonosítóval. A
+<span class="keyword wintitle">MIB modulok</span> nézetben tekintheti meg őket egy különálló szűrőben,
+ha a <span class="ph uicontrol">Nézet</span> legördülő listára kattint, majd kiválasztja a <span class="ph uicontrol">Szöveges egyezmények</span> elemet.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TRAP-TYPE objektumok</h2><p class="p">A TRAP-TYPE objektum v1 MIB-k esetében érvényes. Ezek az objektumok eredetileg nem úgy kerültek meghatározásra, hogy gond nélkül beilleszkedjenek az MIB fába. Nincs OID azonosítójuk, de ehelyett vállalati azonosítóval és trap számmal rendelkeznek, például:</p>
+<div class="p"><pre class="pre codeblock"><code>newRoot TRAP-TYPE 
+ENTERPRISE dot1dBridge 
+DESCRIPTION "A newRoot trap azt jelzi, hogy a küldő ügynök lett a feszítőfa új rootja;
+a trap-et egy híd küldi el nem sokkal azután, hogy új root lesz,  pl. a Topológia
+módosítási időmérő lejártakor azonnal a megválasztása után."
+::= 1</code></pre>
+</div>
+<p class="p">A v1 trap egy objektumnévvel kezdődik, amelyet a <samp class="ph codeph">TRAP-TYPE</samp> kulcsszó követ. Ezt néhány szakasz követi, majd a <samp class="ph codeph">::=</samp> bejegyzés és egy szám kerül a végére. A számok előtt vagy után kapcsos zárójelek ({}) sohasem használatosak.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">MACRO objektumok</h2><p class="p">A MACRO makró az MIB objektumok formátumát határozza meg. A MACRO
+meghatározások mindig az objektum típusával kezdődnek, melyet a <samp class="ph codeph">MACRO</samp> kulcsszó, majd
+a <samp class="ph codeph">::=</samp>  bejegyzés követ. A makró meghatározás maradéka <samp class="ph codeph">BEGIN</samp>
+és <samp class="ph codeph">END</samp> címkék között szerepel, például:</p>
+<div class="p"><pre class="pre codeblock"><code>OBJECT-TYPE MACRO ::= 
+BEGIN 
+TYPE NOTATION ::= "SYNTAX" 
+type (TYPE ObjectSyntax) "ACCESS" Access "STATUS" Status VALUE NOTATION ::= value 
+(VALUE ObjectName) Access ::= "read-only" | "read-write" | "write-only" | "not-accessible" 
+Status ::= "mandatory" | "optional" | "obsolete" 
+END</code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">További objektumok</h2><div class="p">Az összes többi objektumnak a következő formátumhoz kell igazodnia:<pre class="pre codeblock"><code>snmpInPkts OBJECT-TYPE SYNTAX Counter ACCESS read-only STATUS mandatory DESCRIPTION "A szállítási szolgáltatástól az SNMP egyednek szállított összes üzenet száma." ::= { snmp 1 }</code></pre>
+</div>
+<p class="p">Ezek
+az objektumok egy olyan objektumnévvel kezdődnek, amelynek kisbetűs alfabetikus
+karakterrel kell kezdődnie.
+Ezt egy kulcsszó követi, amely az objektumtípust jelzi. Minden
+további szakasz a kulcsszót és a <samp class="ph codeph">::=</samp> bejegyzést követi, és az ősök listája,
+kapcsos zárójelben ({}), teszi teljessé a formátumot.
+Az ősök formátuma a kapcsos   zárójelben ({}) két formátum közül az egyik lehet.
+Az elsőben (fent) a formátum egyszerűen egy objektumnév, amelyet egy szám követ. Az objektumnév az adott objektum közvetlen szülőjének a neve, a szám, pedig
+az objektum levél száma a szülőhöz képest.</p>
+<div class="p">Az őslista másik érvényes formátuma az összes ős listája, vissza egy ismert objektumig, például:<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } </code></pre>
+</div>
+<p class="p">Ebben
+a példában a lista egy ismert objektumnál kezdődik (<samp class="ph codeph">iso</samp>, ami a fa rootja), majd objektumnevek és levélszámok megadásával folytatja az egyes ezt követő előállításokhoz, <samp class="ph codeph">org(3)</samp> és <samp class="ph codeph">dod(6)</samp>,
+a végső egyedülálló egész számig (<samp class="ph codeph">1</samp>), amely az objektumszám. Az objektumnevek és objektumszámok közé nem szabad szóközöket tenni.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="Ez a szakasz kiegészítő információkat nyújt az Egyszerű hálózatkezelési protokoll (SNMP) architektúráról, az SNMP management information base (MIB) alkalmazásról és néhány további MIB fogalomról.">SNMP bemutatása</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

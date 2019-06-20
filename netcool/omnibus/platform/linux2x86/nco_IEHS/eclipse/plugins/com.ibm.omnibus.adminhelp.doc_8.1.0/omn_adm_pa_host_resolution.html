@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Host name resolution at startup" />
+<meta name="abstract" content="Every external automation or process under the control of a process agent must have a specified host. The host is defined either in the process agent configuration file, as part of a process definition, or in the external automation in the ObjectServer." />
+<meta name="Description" content="Every external automation or process under the control of a process agent must have a specified host. The host is defined either in the process agent configuration file, as part of a process definition, or in the external automation in the ObjectServer." />
+<meta name="DC.subject" content="process control, host name resolution" />
+<meta name="keywords" content="process control, host name resolution" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_howpasconnectonunix.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_host_resolution" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_howpasconnectonunix.html" />
+<title>Host name resolution at startup</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_host_resolution">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Host name resolution at startup</h1>
+<div class="body conbody"><p class="shortdesc">Every external automation or process under the control
+of a process agent must have a specified host. The host is defined
+either in the process agent configuration file, as part of a process
+definition, or in the external automation in the ObjectServer.</p>
+<div class="section"><p class="p">The default process agent configuration file is <span class="ph filepath">$NCHOME/omnibus/etc/nco_pa.conf</span>.</p>
+<p class="p">The
+process agent can handle host names and addresses that are specified
+in different formats. This is necessary because the host details are
+often extracted from data elements in an event or alert. Depending
+on the source of the alert, a host might be specified as an IP address
+or a host name, or in some other format.</p>
+<p class="p">At startup, the process
+agent builds an internal list of all the local host's network interfaces,
+resolving the name of each network interface that it finds. This list
+enables the process agent to map a given host to any number of valid
+local interface host names. For example, the default host name on
+a machine might be <span class="q">"testbox"</span> but a request might be sent to the
+process agent asking for a process to be run on <span class="q">"testbox.company.com"</span>,
+or the request might specify the IPv4 or IPv6 address of the host.
+In each case, the process agent must recognize that the host referred
+to is the host that the process is running on.</p>
+<p class="p">If host name
+resolution (using DNS or Active Directory, for example) is slow or
+is not available, the process agent might be slow to start because
+it must wait for a timeout to occur on all the host names that cannot
+be resolved. Also, any later process request that uses an unknown
+host name will not be run. Where a process is configured to start
+as a Windows service, and problems with DNS resolution cause it to
+start slowly, the service can timeout on startup. All such failures
+are logged. System administrators can use this information to fix
+any network configuration issues on affected hosts.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_howpasconnectonunix.html" title="You can set up a process control network system by configuring process control on several Tivoli Netcool/OMNIbus hosts.">How process agents connect</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

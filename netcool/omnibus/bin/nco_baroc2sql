@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2003, 2007. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# baroc2sql script - runs command line baroc2sql program
+#
+# $ProjectRevision: 1.69 $
+#######################################
+
+#######################################
+# MAIN
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+#
+# Need to unset the XPG_SUS_ENV var because 
+# it effects how the JDBC connection is 
+# established in AIX.
+#
+if [ "$SYSTEM" = "AIX" ]
+then
+	unset XPG_SUS_ENV
+fi
+
+#
+# Check JRE has been located by nco_common
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+#
+# Set classpath
+#
+if [ -z "$CLASSPATH" ]; then
+        CLASSPATH=$OMNIHOME/java/jars/baroctool.jar
+else
+        CLASSPATH=$CLASSPATH:$OMNIHOME/java/jars/baroctool.jar
+fi
+CLASSPATH=$CLASSPATH:$OMNIHOME/java/jars/utility.jar
+
+#
+# Build the command and start the class at main entry point
+#
+COMMAND="exec \"${NCO_JRE_64_32}/bin/java\" -classpath \"$CLASSPATH\" "
+COMMAND="$COMMAND com.micromuse.omnibus.baroc.Baroc"
+COMMAND="$COMMAND $*"
+eval $COMMAND

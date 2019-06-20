@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX のイベント・リストの設定" />
+<meta name="abstract" content="モニター・ボックスに表示する情報のタイプを構成し、イベント・リストの最新表示頻度を指定し、イベント・リストを最小化したときのアラート通知のオプションを設定できます。 イベント・リストのフラッシュやその他の設定項目も構成できます。" />
+<meta name="Description" content="モニター・ボックスに表示する情報のタイプを構成し、イベント・リストの最新表示頻度を指定し、イベント・リストを最小化したときのアラート通知のオプションを設定できます。 イベント・リストのフラッシュやその他の設定項目も構成できます。" />
+<meta name="DC.subject" content="イベント・リスト, 設定, イベント・リストの設定, UNIX の設定" />
+<meta name="keywords" content="イベント・リスト, 設定, イベント・リストの設定, UNIX の設定" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_settingprefsunixevntist" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_managingevents.html" />
+<title>UNIX のイベント・リストの設定</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_settingprefsunixevntist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX のイベント・リストの設定</h1>
+<div class="body taskbody"><p class="shortdesc">モニター・ボックスに表示する情報のタイプを構成し、イベント・リストの最新表示頻度を指定し、イベント・リストを最小化したときのアラート通知のオプションを設定できます。 イベント・リストのフラッシュやその他の設定項目も構成できます。</p>
+<div class="section context"><div class="note tip"><span class="tiptitle">ヒント:</span> イベント・リストのグローバル設定を構成することもできます。 </div>
+<p class="p">UNIX のイベント・リストの設定を構成するには、以下のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウで、<span class="ph menucascade"><span class="ph uicontrol">「ウィンドウ」</span> &gt; <span class="ph uicontrol">「設定」</span></span>を選択します。 </span> 「<span class="keyword wintitle">イベント・リストの設定</span>」ウィンドウが開きます。</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「モニター」</span>タブでは、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウのモニター・ボックスで表示する情報のタイプを指定します。 このタブは以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">カウントの表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、フィルターに一致するアラートの数をモニター・ボックスに表示します。</dd>
+<dt class="dt dlterm">最高の重大度の表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、フィルターに一致するアラートの中での最高の重大度をモニター・ボックスに表示します。</dd>
+<dt class="dt dlterm">最低の重大度の表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、フィルターに一致するアラートの中での最低の重大度をモニター・ボックスに表示します。</dd>
+<dt class="dt dlterm">メトリックの表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、選択したフィルターのメトリック値をモニター・ボックスに表示します。 </dd>
+<dt class="dt dlterm">重大度の境界線の表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、色付きの境界線をモニター・ボックスの周囲に表示します。 境界線の色は、フィルターと一致するアラートの中で最高の重大度によって変わります。</dd>
+<dt class="dt dlterm">ラーヴァ・ランプの表示</dt>
+<dd class="dd">このオプションをクリックして、配布インディケーターを水平バーとしてモニター・ボックスに表示します。</dd>
+<dt class="dt dlterm">ヒストグラムの表示</dt>
+<dd class="dd">このオプションをクリックして、配布インディケーターを棒グラフとしてモニター・ボックスに表示します。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「最新表示」</span>タブでは、イベント・リストの更新間隔を構成します。 このタブは以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">時間指定の最新表示</dt>
+<dd class="dd">これらのフィールドを使用して、指定した時間間隔でアラート情報を更新するかどうか、または ObjectServer からの更新通知を待ち受けるかどうかを示します。 更新頻度を指定するには、<span class="ph uicontrol">「時間指定の最新表示」</span>チェック・ボックスを選択し、隣接するフィールドに時間 (秒) を入力します。</dd>
+<dd class="dd">ObjectServer からの最新データはすべて、指定した頻度でイベント・リストに送信されます。<div class="note tip"><span class="tiptitle">ヒント:</span> 「時間指定の最新表示」を使用すると、イベント・リストは指定した間隔でそのすべてのデータを再ロードします。 最新表示を小さい値 (例えば、60 秒未満) に設定しないでください。小さい値に設定すると、ObjectServer のパフォーマンスとネットワーク・トラフィックに影響を及ぼします。</div>
+<div class="note note"><span class="notetitle">注:</span> システム管理者が <span class="keyword parmname parmname">AllowTimedRefresh</span> ObjectServer プロパティーを <samp class="ph tt">FALSE</samp> に設定していた場合、最新表示タイマーは使用不可になっており、更新は ObjectServer からの通知に基づいて発生します。</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「通知」</span>タブでは、イベント・リストを最小化したときのアラート通知の設定を構成します。
+このタブは以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">アイコン化状態の通知</dt>
+<dd class="dd">このチェック・ボックスを選択して、イベント・リストの最小化時に新規アラート、変更されたアラート、削除されたアラートの通知を受信します。 通知を受信できるのは、イベント・リストの最小化時にアイコンが表示されるデスクトップ環境においてのみです。 通知方法を設定するには、<span class="ph uicontrol">「条件」</span>および<span class="ph uicontrol">「方法」</span>オプションを使用します。</dd>
+<dt class="dt dlterm">条件</dt>
+<dd class="dd">各チェック・ボックスを選択して、以下のような通知を受信します。<ul class="ul"><li class="li">新規アラートがイベント・リストに追加されたときに通知を受信するには、<span class="ph uicontrol">「新規」</span>を選択します。</li>
+<li class="li">イベント・リスト内の既存のアラートが変化したときに通知を受信するには、<span class="ph uicontrol">「変更」</span>を選択します。</li>
+<li class="li">イベント・リストから既存のアラートが削除されたときに通知を受信するには、<span class="ph uicontrol">「削除」</span>を選択します。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">方法</dt>
+<dd class="dd">以下のように、各チェック・ボックスを選択して通知の発生方法を指定します。<ul class="ul"><li class="li"><span class="ph uicontrol">「ベルを鳴らす」</span>を選択すると、ワークステーションまたは端末のベルが 1 回鳴ります。</li>
+<li class="li"><span class="ph uicontrol">「アラート・アイコン」</span>を選択すると、UNIX の場合はイベント・リスト・アイコンの上で感嘆符がフラッシュし、Windows の場合は最小化されたイベント・リストがフラッシュします。</li>
+<li class="li"><span class="ph uicontrol">「ウィンドウのオープン」</span>を選択すると、画面上にイベント・リストが開きます。 ウィンドウ・マネージャーを対話式配置で使用している場合、イベント・リストはアクティブ・ウィンドウとして開きます。</li>
+<li class="li">コマンドを実行するには、<span class="ph uicontrol">「外部コマンドの実行」</span>を選択します。
+このチェック・ボックスを選択する場合は、コマンド名を入力する必要があります。 この機能は、単純なデスクトップ通知に対してのみ使用する必要があり、ページング・アプリケーションの操作用としては設計されていません。 </li>
+</ul>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「フラッシュ」</span>タブでは、フラッシュに関するイベント・リストの設定を指定します。 このタブは以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">フラッシュを使用可能に設定</dt>
+<dd class="dd">このチェック・ボックスを選択すると、イベント・リストのフラッシュが使用可能になります。 イベント・リストのフラッシュ速度を指定するには、<span class="ph uicontrol">「高速/低速」</span>スライダーを使用します。 フラッシュの輝度を示すには、<span class="ph uicontrol">「明/暗」</span>スライダーを使用します。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「その他」</span>タブでは、イベント・リストのその他の設定を構成します。 このタブは以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">イベント・リストの色の表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、色を使用してイベント・リスト内でアラートの重大度を表現します。 すべてのイベント・リスト行にグレーの背景を使用する場合は、このチェック・ボックスをクリアします。 </dd>
+<dt class="dt dlterm">配布サマリーの表示</dt>
+<dd class="dd">このチェック・ボックスを選択すると、イベント・リストに配布サマリー・バーが表示されます。 このバーには、各重大度の色に一致するアラートの数が表示されます。 </dd>
+<dt class="dt dlterm">ツールバーの表示</dt>
+<dd class="dd">このチェック・ボックスを選択して、イベント・リストでツールバーを使用可能にします。 </dd>
+<dt class="dt dlterm">ジャンプ・ボタンをデフォルトでオンに設定</dt>
+<dd class="dd">このチェック・ボックスを選択して、すべてのイベント・リストに対して「先頭にジャンプ」機能がデフォルトで使用可能になるようにします。 「先頭にジャンプ」機能を使用すると、新規イベントが追加されると常にイベント・リストが先頭にスクロールするようになり、更新されたイベントをすぐに確認することができます。 <div class="note tip"><span class="tiptitle">ヒント:</span> 特定のイベント・リストに対する更新を自動的に表示できるよう、個々のイベント・リストに対して「先頭にジャンプ」機能を使用可能にすることもできます。あるいは、個々のイベント・リストに対してこの機能を使用不可にすることができます。 </div>
+</dd>
+<dt class="dt dlterm">ソート情報の詳細</dt>
+<dd class="dd">このチェック・ボックスを選択して、<span class="keyword wintitle">「イベント情報」</span>ウィンドウ内で詳細フィールドを、フィールド名のアルファベット順にソートします。
+このチェック・ボックスがクリアされている場合、詳細フィールドは ObjectServer によって決定されている順に表示されます。 </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">以下のように変更内容を適用するか、保存するか、キャンセルします。</span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_el_settingprefsunixevntist__d8479e834"><!-- --></a>適用</dt>
+<dd class="dd">このボタンをクリックして、変更を保存せずに適用します。 このボタンを使用すると、変更によってデスクトップがどのように影響を受けるかをテストできます。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_settingprefsunixevntist__d8479e839"><!-- --></a>保存</dt>
+<dd class="dd">このボタンをクリックして、設定に加えられた変更を保存します。 <div class="note tip"><span class="tiptitle">ヒント:</span> 設定に対して加えられた変更をイベント・リストに表示するには、開いているイベント・リストをすべて閉じ、再度イベント・リストを開きます。</div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_settingprefsunixevntist__d8479e846"><!-- --></a>閉じる</dt>
+<dd class="dd">変更内容を保存せずにウィンドウを閉じるには、このボタンをクリックします。</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_settingprefsunixevntist__d8479e851"><!-- --></a>元に戻す</dt>
+<dd class="dd">このボタンをクリックして、各タブに加えた変更を元に戻します。 </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_managingevents.html" title="イベント・リストを使用して、イベントを管理します。">イベント・リストを使用したイベントの管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+ * Licensed Materials - Property of IBM
+ * "Restricted Materials of IBM"
+ * 5724-S43
+ *
+ * (C) Copyright IBM Corporation 2013, 2014. All Rights Reserved.
+ *
+ * US Government Users Restricted Rights - Use, duplication, or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ ******************************************************* {COPYRIGHT-END-RM} **/
+
+function setEnvelopeHeader(envelopeHeader) {
+     envelopeHeader="<env:Envelope xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\" \n"+
+        "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" \n"+
+        "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n"+
+        "xmlns:enc=\"http://schemas.xmlsoap.org/soap/encoding/\" \n"+
+        "xmlns:ns0=\"http://localhost:1920///cms/soap/ITMSOAP.wsdl\">\n";
+} 
+
+/**setAndSendTheRequest sends the request to ITM server
+*@itmHost
+*@itmPort
+*@body xml format 
+*@returnEvn  return the response to the caller
+*/
+function setAndSendTheRequest(itmHost,itmPort,body,returnEnv) {
+    HTTPHost=itmHost; 
+    HTTPPort=itmPort;
+    Protocol="http";
+    Log("Connecting to ITM Server: " + itmHost + " on port: " + itmPort);
+    Path="/////cms/soap";
+    ChannelKey="";
+    Method="POST";
+    AuthHandlerActionTreeName="";
+
+    HttpProperties=newobject();
+    HttpProperties.Content=body;
+
+
+    GetHTTP(HTTPHost, HTTPPort, Protocol, Path, ChannelKey, Method,
+    AuthHandlerActionTreeName, 
+    null, null, null, HttpProperties);  
+    //Log(CurrentContext());
+    // Log("The page is " + ThePage); 
+    returnEnv = ThePage; 
+}
+
+/**ITM Library function CT_Get makes a call to ITM SOAP endpoing
+**@itmHost
+**@itmPort
+**@userName
+**@password
+**@object
+**@target
+**@attribute
+**@history
+**@results 
+**@returnEnv  //returns the full envelope into this variable 
+*/
+function CT_Get (itmHost, itmPort, userName, password,object,target,attribute,history,results,returnEnv) {
+
+    if (object == null) {
+     object = "";
+    }
+    if (target == null) {
+     target = "";
+    }
+    if (attribute == null) {
+     attribute = "";
+    }
+    if (history == null) {
+      history = "";
+    }
+    if (results == null) {
+     results = "";
+    }
+    setEnvelopeHeader(envelopeHeader); 
+    body=envelopeHeader +"\n"+
+        "   <env:Body>\n"+
+        "      <ns0:Get>\n"+
+        "         <CT_Get>\n"+
+        "            <userid>"+userName+"</userid>\n"+
+        "            <password>"+password+"</password>\n"+
+        "            <object>"+object+"</object>\n"+
+        "            <target>"+target+"</target>\n"+
+        "            <attribute>"+attribute+"</attribute>\n"+
+        "            <history>"+history+"</history>\n"+
+        "            <results>"+results+"</results>\n"+
+        "         </CT_Get>\n"+
+        "      </ns0:Get>\n"+
+        "   </env:Body>\n"+
+        "</env:Envelope>";
+
+
+    Log("Body is " + body); 
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+} 
+
+/** ITM Library Function Acknowledge
+*/
+function CT_Acknowledge (itmHost,itmPort,userName,password,name,source,data,item,expire,returnEnv) {
+    if (name == null) {
+     name = "";
+    }
+    if (source == null) {
+     source = "";
+    }
+    if (data == null) {
+     data = "";
+    }
+    if (item == null) {
+      item = "";
+    }
+    if (expire == null) {
+     expire = "";
+    }
+    body= "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+      "<soapenv:Body>\n"+
+         "<soap:Acknowledge xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+            "<CT_Acknowledge>\n"+
+               "<userid>"+userName+"</userid>\n"+
+               "<password>"+password+"</password>\n"+
+               "<name>"+name+"</name>\n"+
+               "<source>"+source+"</source>\n"+
+               "<data>"+data+"</data>\n"+
+               "<item>"+item+"</item>\n"+
+               "<expire>"+expire+"</expire>\n"+
+            "</CT_Acknowledge>\n"+
+         "</soap:Acknowledge>\n"+
+      "</soapenv:Body>\n"+
+   "</soapenv:Envelope>";
+
+    Log("Body is " + body); 
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}
+/** ITM Library function Activate
+*@itmHost
+*@itmPort
+*@usreName
+*@password
+*@name
+*@source
+*@type
+*/
+function CT_Activate(itmHost,itmPort,userName,password,name,source,type,returnEnv) {
+
+    if (name == null) {
+     name = "";
+    }
+    if (source == null) {
+     source = "";
+    }
+    if (type == null) {
+     type = "";
+    }
+
+    body="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+        "<soapenv:Body>\n"+
+        "   <soap:Activate xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+        "     <CT_Activate>\n"+
+        "        <userid>"+userName+"</userid>\n"+
+        "        <password>"+password+"</password>\n"+
+        "        <name>"+name+"</name>\n"+
+        "        <type>"+type+"</type>\n"+
+        "        <source>"+source+"</source>\n"+
+        "     </CT_Activate>\n"+
+        "  </soap:Activate>\n"+
+        " </soapenv:Body>\n"+
+        "</soapenv:Envelope>";
+
+    Log("Body is " + body); 
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}
+
+/** ITM Library function CT_Alert
+*@itmHost
+*@itmPort
+*@userName
+*@password
+*@name
+*@source
+*@data
+*@item
+*/
+function CT_Alert(itmHost,itmPort,userName,password,name,source,data,item,returnEnv) {
+
+    if (name == null) {
+     name = "";
+    }
+    if (source == null) {
+     source = "";
+    }
+    if (data == null) {
+     data = "";
+    }
+    if (item == null) {
+     item = "";
+    }
+    body="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+      "<soapenv:Body>\n"+
+         "<soap:Alert xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+            "<CT_Alert>\n"+
+               "<userid>"+userName+"</userid>\n"+
+               "<password>"+password+"</password>\n"+
+               "<name>"+name+"</name>\n"+
+               "<source>"+source+"</source>\n"+
+               "<data>"+data+"</data>\n"+
+               "<item>"+item+"</item>\n"+
+            "</CT_Alert>\n"+
+         "</soap:Alert>\n"+
+      "</soapenv:Body>\n"+
+   "</soapenv:Envelope>";
+
+    Log("Body is " + body); 
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}
+/**ITM Function WTO
+*@itmHost
+*@itmPort
+*@userName
+*@password
+*@data
+*@category
+*@severity
+*/
+function CT_WTO(itmHost,itmPort,userName,password,data,category,severity,returnEnv){
+
+    if (data == null) {
+     data = "";
+    }
+    if (category == null) {
+     category = "";
+    }
+    if (severity == null) {
+     severity = "";
+    }
+
+    body="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+      "<soapenv:Body>\n"+
+         "<soap:WTO xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+            "<CT_WTO>\n"+
+               "<userid>"+userName+"</userid>\n"+
+               "<password>"+password+"</password>\n"+
+               "<data>"+data+"</data>\n"+
+               "<category>"+category+"</category>\n"+
+               "<severity>"+severity+"</severity>\n"+
+            "</CT_WTO>\n"+
+         "</soap:WTO>\n"+
+      "</soapenv:Body>\n"+
+   "</soapenv:Envelope>";
+
+    Log("Body is " + body); 
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}
+
+/**ITM CT_Deactivate
+*@itmHost
+*@itmPort
+*@userName
+*@password
+*@name
+*@type
+*@source
+*/
+function CT_Deactivate(itmHost,itmPort,userName,password,name,type,source,returnEnv) {
+   
+    if (name == null) {
+     name = "";
+    }
+    if (type == null) {
+     type = "";
+    }
+    if (source == null) {
+     source = "";
+    }
+
+    body="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+      "<soapenv:Body>\n"+
+         "<soap:Deactivate xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+            "<CT_Deactivate>\n"+
+               "<userid>"+userName+"</userid>\n"+
+               "<password>"+password+"</password>\n"+
+               "<name>"+name+"</name>\n"+
+               "<type>"+type+"</type>\n"+
+               "<source>"+source+"</source>\n"+
+            "</CT_Deactivate>\n"+
+         "</soap:Deactivate>\n"+
+      "</soapenv:Body>\n"+
+     "</soapenv:Envelope>\n";
+
+    Log("Body is " + body);
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}
+
+/**ITM CT_Reset function
+*@itmHost
+*@itmPort
+*@userName
+*@password
+*@name
+*@source
+*@item
+*/
+function CT_Reset(itmHost,itmPort,userName,password,name,source,item,returnEnv){
+   
+    if (name == null) {
+     name = "";
+    }
+    if (source == null) {
+     source = "";
+    }
+    if (item == null) {
+     item = "";
+    }
+
+    body="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+         "<soapenv:Body>\n"+
+            "<soap:Reset xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+               "<CT_Reset>\n"+
+                  "<userid>"+userName+"</userid>\n"+
+                  "<password>"+password+"</password>\n"+
+                  "<name>"+name+"</name>\n"+
+                  "<source>"+source+"</source>\n"+
+                  "<item>"+item+"</item>\n"+
+               "</CT_Reset>\n"+
+            "</soap:Reset>\n"+
+         "</soapenv:Body>\n"+
+      "</soapenv:Envelope>";
+
+    Log("Body is " + body);
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}
+
+/*ITM CT_Resurface
+*@itmHost
+*@itmPost
+*@userName
+*@password
+*@name
+*@source
+*@item
+*/
+function CT_Resurface(itmHost,itmPort,userName,password,name,source,item,returnEnv){
+    
+    if (name == null) {
+     name = "";
+    }
+    if (source == null) {
+     source = "";
+    }
+    if (item == null) {
+     item = "";
+    }
+
+    body="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"+
+            "<soapenv:Body>\n"+
+               "<soap:Resurface xmlns:soap=\"http://soaptest1/soaptest/\">\n"+
+                  "<CT_Resurface>\n"+
+                     "<userid>"+userName+"</userid>\n"+
+                     "<password>"+password+"</password>\n"+
+                     "<name>"+name+"</name>\n"+
+                     "<source>"+source+"</source>\n"+
+                     "<item>"+item+"</item>\n"+
+                  "</CT_Resurface>\n"+
+               "</soap:Resurface>\n"+
+            "</soapenv:Body>\n"+
+         "</soapenv:Envelope>\n";
+  
+    Log("Body is " + body);
+    setAndSendTheRequest(itmHost,itmPort,body,returnEnv);
+}

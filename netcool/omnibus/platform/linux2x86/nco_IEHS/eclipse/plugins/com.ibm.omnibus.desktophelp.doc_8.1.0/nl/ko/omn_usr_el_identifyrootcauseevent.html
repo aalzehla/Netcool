@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="이벤트 목록에서 근본 원인 이벤트 식별" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus는 가상 환경에서 이벤트를 상관하여 어떤 이벤트가 다른 증상 이벤트의 근본 원인인지 판별합니다. 해당 시스템에서 이 기능을 사용하면 이벤트 목록에서 증상 이벤트 이면에 있는 근본 원인 이벤트를 식별할 수 있습니다." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus는 가상 환경에서 이벤트를 상관하여 어떤 이벤트가 다른 증상 이벤트의 근본 원인인지 판별합니다. 해당 시스템에서 이 기능을 사용하면 이벤트 목록에서 증상 이벤트 이면에 있는 근본 원인 이벤트를 식별할 수 있습니다." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_identifyrootcauseevent" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>이벤트 목록에서 근본 원인 이벤트 식별</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_identifyrootcauseevent">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">이벤트 목록에서 근본 원인 이벤트 식별</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span>는 가상 환경에서 이벤트를 상관하여 어떤 이벤트가 다른 증상 이벤트의 근본 원인인지 판별합니다. 해당 시스템에서 이 기능을 사용하면
+이벤트 목록에서 증상 이벤트 이면에 있는 근본 원인 이벤트를 식별할 수 있습니다. </p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">시작하기 전에</h2></div><span class="ph uicontrol">CauseType</span> 필드와 <span class="ph uicontrol">ParentIdentifier</span> 필드를 보기에 추가해야 합니다. 필요하면 <span class="ph uicontrol">ParentServerSerial</span> 필드를 추가할 수도 있습니다. 증상 이벤트에는
+<span class="keyword option">Symptom</span>이라고 하는 <span class="ph uicontrol">CauseType</span> 값이 있습니다. </div>
+<div class="section context">기본적으로 증상 이벤트에는 경고 심각도 레벨이 있는 반면에 근본 원인 이벤트에는 치명적 심각도 레벨이 있습니다. </div>
+<p class="li stepsection"></p><div class="li step"><span class="ph cmd">증상 이벤트의 근본 원인을 식별하려면 이벤트 목록에서 단일 증상 이벤트를 마우스 오른쪽 단추로 클릭한 다음, <span class="ph uicontrol">근본 원인 보기</span>를 클릭하십시오.</span> 둘 이상의 증상 이벤트를 선택하면 선택 선택사항에 있는 첫 번째 이벤트의 근본 원인 이벤트만 표시됩니다.  <p class="p">이벤트 목록이 새로 열리고 근본 원인 이벤트가 표시됩니다. <span class="ph uicontrol">CauseType</span> 필드의 값은 <span class="keyword option">RootCause</span>입니다.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="이벤트 목록을 사용하여 경보를 모니터 및 관리할 수 있습니다. 경보는 ObjectServer가 이벤트, 알람, 메시지 또는 데이터 항목을 수신할 때 작성됩니다. 각 경보는 ObjectServer alerts.status 테이블의 행에 보유되어 있는 정보의 컬럼(또는 필드)으로 구성되어 있습니다.">이벤트 목록의 이벤트 모니터링 및 관리</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

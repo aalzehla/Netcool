@@ -1,0 +1,162 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+function acknowledged() {
+ newserial = @Serial;
+ newuserid = @OwnerUID;
+ newlastmodified = @StateChange;
+ newseverity = @Severity;
+ newacknowledged = @Acknowledged;
+ newservername = @ServerName;
+ newserverserial = @ServerSerial;
+ Log(3, "Entering acknowledged newlastmodified is " + newlastmodified);
+ Log(3, "newserial is " + newserial);
+ Log(3, "newservername is " + newservername);
+ Log(3, "newuserid is " + newuserid);
+
+ if (newlastmodified != NULL) {
+ Filter = "ServerName = '" + newservername + "' and ServerSerial = " + newserverserial + " and state = 0";
+ newOns = GetByFilter('REPORT_AuditAck', Filter, false);
+ newOns_length = Length(newOns);
+
+ if (newOns_length > 0) {
+ newOn = newOns[0];
+ Log(3, "Acknowledged(): newlastmodified = " + classof(newlastmodified));
+ newOn["EndDate"] = LocalTime(newlastmodified);
+ newOn["State"] = 1;
+ Log(3, "Acknowledged():Updated rep_audit_ack");
+ DoNothing();
+ }// end of update
+
+ newOn = NewObject();
+ newOn["Serial"] = newserial;
+ newOn["StartDate"] = LocalTime(newlastmodified);
+ newOn["EndDate"] = LocalTime(GetDate());
+ newOn["OwnerUID"] = newuserid;
+ newOn["State"] = 0; 
+ newOn["ServerName"] = newservername;
+ newOn["ServerSerial"] = newserverserial;
+
+ Log(3, "Acknowledged(): newOn = " + newOn);
+ AddDataItem('REPORT_AuditAck', newOn); 
+ Log(3, "Acknowledged(): Inserted rep_audit_ack");
+}
+}
+
+function updateReportNames() {
+  ownerI = @OwnerUID;
+ 
+  if(ownerI==NULL) {
+     log(3, "UpdateReportNames(): detect OwnerUID field of event is null, no updating is necessary");
+     exit();
+  }
+
+  filter = "owneruid = " + ownerI;
+
+  log(3, "UpdateReportNames(): trying to check whether operator " + ownerI + " already exists.");
+
+  sqlChecking = GetByFilter("REPORT_EventNames", filter, false);
+  numFound = Length(sqlChecking);
+
+  if(numFound>0) {
+     log(3, "UpdateReportNames(): operator " + ownerI + " alerady exists in database. NO updating necessary.returning..");
+     exit();
+  }
+ 
+  log(3, "UpdateReportNames(): trying to get information about OwnerUID " + ownerI);
+  
+  query_master_names = "select Name, UID, GID, Type from master.names where UID =" + ownerI + ";";
+  DataItems = DirectSQL("defaultobjectserver", query_master_names, false);
+
+  DataItem = DataItems[0]; 
+
+  newOn = NewObject();
+  newOn["NAME"] = DataItem["NAME"];
+  newOn["OWNERGID"] = DataItem["GID"];
+  newOn["TYPE"] = DataItem["Type"];
+  newOn["OWNERUID"] = DataItem["UID"];
+
+  AddDataItem("REPORT_EventNames", newOn);
+
+  log(3, "UpdateReportNames(): Successfully finished updateReportNames()");
+}
+
+function recordEvent() {
+  log(3, "Running RecordEvent");
+  Type = "REPORT_EventStatus";
+
+  adds = false;
+  ack = false;
+  filter = "ServerSerial=" + @ServerSerial + " AND ServerName= '" + @ServerName + "'";
+
+  newOns = GetByFilter(Type, filter, false);
+  newOn = newOns[0];
+
+  log(3, "newOn = " + newOn);
+
+  if (newOn = NULL) {
+    newOn = NewObject();
+    adds = true;
+  }
+
+  if (EventContainer["Acknowledged"] != newOn["Acknowledged"]) {
+    ack = true;
+  }
+
+  keys = Keys(EventContainer);
+  keys_length = Length(keys);
+  i=0;
+
+  log(3, "RecordEvent(): keys = " + keys);
+  log(3, "RecordEvent():keys_length = " + keys_length);
+
+  while (i < keys_length) {
+  o=keys[i];
+  lower_o = ToLower(o);
+    if ((lower_o != "receivedwhileimpactdown")) {
+      value= EventContainer[o];
+      log(3, "o= " + lower_o + " value = " + value);
+
+      if((lower_o == "firstoccurrence") || (lower_o == "lastoccurrence") || (lower_o == "statechange") || (lower_o == "internallast")) {
+        if(lower_o == "statechange") {
+          o="LastModified";
+        }
+
+        date = LocalTime(value);
+        newOn[o] = date;
+      } else {
+        if(lower_o == "severity") {
+          newOn["OriginalSeverity"] = value;
+        }
+        newOn[o] = value;
+      }
+   }
+    i=i+1;
+  }
+ log(3, "about to call updateReportNames() with "+@OwnerUID);
+  //synchronized (@OwnerUID) {
+    updateReportNames();
+  //}
+
+  if(adds) {
+    AddDataItem(Type, newOn);
+acknowledged();
+    log(3, "RecordEvent(): Insert success");
+  } else {
+    DoNothing();
+if (ack) {
+ acknowledged();
+}
+    log(3, "RecordEvent(): update success");
+  }
+}
+
+recordEvent();

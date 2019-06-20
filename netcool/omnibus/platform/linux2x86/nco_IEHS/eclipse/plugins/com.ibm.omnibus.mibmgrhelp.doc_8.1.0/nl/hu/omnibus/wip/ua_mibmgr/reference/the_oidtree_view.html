@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="OID fa nézet" />
+<meta name="abstract" content="Az Objektumazonosító (OID) fa nézet az importált MIB modulokban található összes MIB objektumot ábrázolja." />
+<meta name="Description" content="Az Objektumazonosító (OID) fa nézet az importált MIB modulokban található összes MIB objektumot ábrázolja." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="oidtree" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>OID fa nézet</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="oidtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">OID fa nézet</h1>
+<div class="body refbody"><p class="shortdesc">Az Objektumazonosító (OID) fa nézet az importált MIB modulokban található összes MIB objektumot ábrázolja.</p>
+<div class="section"><div class="p">Az <span class="keyword wintitle">OID fa</span> nézet adatainak szűréséhez válassza  ki az alábbi beállítások egyikét a <span class="ph uicontrol">Nézet</span> legördülő listából:<ul class="ul"><li class="li"><span class="ph uicontrol">Összes</span></li>
+<li class="li"><span class="ph uicontrol">Trap-ek/Értesítések </span></li>
+<li class="li"><span class="ph uicontrol">Objektumok </span></li>
+<li class="li"><span class="ph uicontrol">Modulok</span></li>
+</ul>
+</div>
+<p class="p">Ha az <span class="keyword wintitle">OID fa</span> nézetben egy adott értéket akar keresni, akkor írja be a szöveget a <span class="ph uicontrol">Keresés</span> mezőbe, és nyomja meg az <span class="ph uicontrol">Entert</span>, vagy kattintson a  <img class="image" src="../gifs/find.gif" alt="Keresés ikon" /> ikonra (Keresés).</p>
+<p class="p">A <span class="keyword">MIB Manager</span> a kijelölt elemnél kezdi a keresést, vagy ha
+pillanatnyilag nincs kijelölt elem, akkor a lista első eleménél. A következő egyező elem megtalálásához a listában, folytassa a kattintgatást a <img class="image" src="../gifs/find.gif" alt="Keresés ikon" /> ikonra (Keresés).</p>
+<p class="p">Az elem megtalálásakor automatikusan kiemelésre kerül, és megjelenik az
+ <span class="keyword wintitle">OID fa</span> nézetben. </p>
+<p class="p">A <span class="ph uicontrol">Keresés</span> mezőben adjon meg érvényes reguláris kifejezést vagy írjon be sima szöveget a teljes vagy részleges objektumnév vagy OID ábrázolásához. Az egyes ágcsomópontokon megjelenő számok az adott objektumok OID azonosítóinak utolsó számjegyei.</p>
+<p class="p">Az alábbi táblázat az
+ <span class="keyword wintitle">OID fa</span> nézet ikonjait sorolja fel, és leírja, hogy ezek mit ábrázolnak.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">1. Táblázat <span class="keyword wintitle">OID fa</span> nézet ikonja és az általuk ábrázolt objektumok</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="29.145728643216078%" id="d5872e83">Ikon</th>
+<th class="entry" valign="top" width="70.85427135678391%" id="d5872e85">Ábrázolás</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "> <div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="Objektumazonosító ikon" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">OBJEKTUM AZONOSÍTÓ, OBJEKTUM AZONOSSÁG</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="Ügynök képességek" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">ÜGYNÖK KÉPESSÉGEK</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="Modul megfelelési ikon" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">MODUL MEGFELELÉS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "> <div class="image"><img class="image" src="../gifs/module_identity.gif" alt="Modulazonosság" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">MODUL, MODULAZONOSSÁG</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "> <div class="image"><img class="image" src="../gifs/obj_group.gif" alt="Objektumcsoport" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">OBJEKTUMCSOPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "> <div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="Értesítési csoport" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">ÉRTESÍTÉSI CSOPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="Trap típus" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">TRAP TÍPUS (v1 trap)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="Értesítés típus" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">ÉRTESÍTÉS TÍPUS (v2 trap)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="Általános objektumtípus" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">Általános OBJEKTUMTÍPUS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="Számláló" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="Számláló (32)" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">SZÁMLÁLÓ (32)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="Számláló (64)" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">SZÁMLÁLÓ (64)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="Műszer" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">MŰSZER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="Műszer (32)" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">MŰSZER (32)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="Egész szám" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">EGÉSZ SZÁM</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="Egész szám (32)" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">EGÉSZ SZÁM (32)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP cím" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">IpCím</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="Hálózati cím" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">HálózatiCím</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="Oktett karaktersorozat" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">OKTETT KARAKTERSOROZAT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="Sorozat tábla" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">SOROZAT (tábla)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="Sorozat tábla bejegyzés" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">SOROZAT (Bejegyzés, táblasor)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="Időmérő" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">IDŐMÉRŐ</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5872e83 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="Szöveges egyezmény" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5872e85 ">SZÖVEGES EGYEZMÉNY</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="A MIB Manager eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja.">Netcool MIB Manager használata</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

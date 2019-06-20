@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl-pl" xml:lang="pl-pl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Zaawansowane techniki wyszukiwania" />
+<meta name="abstract" content="Aby ograniczyć zestaw wyników wyszukiwania, można skorzystać z bardziej zaawansowanych metod wyszukiwania z użyciem cudzysłowów, znaków wieloznacznych lub operatorów boolowskich." />
+<meta name="description" content="Aby ograniczyć zestaw wyników wyszukiwania, można skorzystać z bardziej zaawansowanych metod wyszukiwania z użyciem cudzysłowów, znaków wieloznacznych lub operatorów boolowskich." />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="pl-pl" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Zaawansowane techniki wyszukiwania</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Zaawansowane techniki wyszukiwania</h1>
+<div class="body"><p class="shortdesc">Aby ograniczyć zestaw wyników wyszukiwania, można skorzystać z
+bardziej zaawansowanych metod wyszukiwania z użyciem cudzysłowów, znaków
+wieloznacznych lub operatorów boolowskich.</p>
+<ul class="ul"><li class="li">Podczas wyszukiwania w Centrum informacyjnym można za pomocą cudzysłowów
+zidentyfikować niektóre słowa lub frazy jako łańcuchy, które muszą wystąpić w
+szukanym tekście w identycznej formie.<p class="p">Na przykład po wpisaniu tekstu
+<kbd class="ph userinput">"plik dziennika"</kbd> w polu <span class="ph uicontrol">Szukaj</span>
+wyszukane zostaną wszystkie wystąpienia łańcucha <em class="ph i">plik dziennika</em>. Jeśli
+nie zostaną użyte znaki cudzysłowu, zostaną zwrócone tematy zawierające zarówno
+słowo <em class="ph i">plik</em>, jak i <em class="ph i">dziennika</em>.</p>
+</li>
+<li class="li">W wyszukiwaniu można używać znaków wieloznacznych, takich jak gwiazdka (*)
+i znak zapytania (?),
+aby rozszerzyć zasięg wyszukiwania.<ul class="ul"><li class="li">Gwiazdka (*) zastępuje w zapytaniu do wyszukania wiele nieznanych lub
+zmiennych znaków. Na przykład po wprowadzeniu tekstu
+<kbd class="ph userinput">par*</kbd> zostaną zwrócone tematy zawierające słowa
+<em class="ph i">parametr</em>, <em class="ph i">partner</em>, <em class="ph i">parzysty</em> oraz inne słowa, które
+zaczynają się od łańcucha <em class="ph i">par</em>.<div class="note note"><span class="notetitle">Uwaga:</span>  Istnieje jedno ograniczenie
+dotyczące łańcucha wyszukiwania. Jeśli w wyszukiwanym terminie użyto gwiazdki,
+należy poprzedzić ją co najmniej trzema znakami. Podobnie wyszukiwany termin
+bez znaku wieloznacznego musi zawierać co najmniej trzy znaki. </div>
+</li>
+<li class="li">W zapytaniu do wyszukania można użyć znaku zapytania zamiast jednego znaku.
+Na przykład po wprowadzeniu łańcucha <kbd class="ph userinput">par?</kbd> zostaną
+zwrócone tematy zawierające słowo <em class="ph i">para</em>, ale nie tematy ze słowem
+<em class="ph i">partner</em> ani <em class="ph i">parametr</em>.</li>
+</ul>
+</li>
+<li class="li">Aby bardziej sprecyzować zapytanie, można użyć operatorów boolowskich AND,
+OR i NOT. Na
+przykład:<dl class="dl"><dt class="dt dlterm">dane AND "plik dziennika"</dt>
+<dd class="dd">Zostaną wyszukane tematy zawierające zarówno słowo <em class="ph i">dane</em>, jak i frazę
+<em class="ph i">plik dziennika</em>.</dd>
+<dt class="dt dlterm">dane OR "plik dziennika"</dt>
+<dd class="dd">Zostaną wyszukane tematy zawierające słowo <em class="ph i">dane</em> lub frazę <em class="ph i">plik
+dziennika</em>.</dd>
+<dt class="dt dlterm">dane NOT "plik dziennika"</dt>
+<dd class="dd">Zostaną wyszukane tematy, które zawierają słowo <em class="ph i">dane</em>, ale nie
+zawierają frazy <em class="ph i">plik dziennika</em>.</dd>
+<dt class="dt dlterm">dane OR "baza danych" NOT "plik dziennika"</dt>
+<dd class="dd">Zostaną wyszukane tematy zawierające słowo <em class="ph i">dane</em> lub frazę <em class="ph i">baza
+danych</em>, ale nie zawierające frazy <em class="ph i">plik dziennika</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Temat nadrzędny:</strong> <a class="link" href="iehs36_searching.html" title="W Centrum informacyjnym można przeszukiwać wszystkie tematy, pojedynczy temat lub kolekcję tematów. Można także tworzyć zasięgi wyszukiwania, aby przeszukiwać tylko podzbiór dostępnych informacji. W widoku Wyniki wyszukiwania może zostać wyświetlonych maksymalnie 500 tematów posortowanych według istotności.">Wyszukiwanie w Centrum informacyjnym</a></div>
+</div>
+</div></body>
+</html>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating or editing a filter on UNIX" />
+<meta name="abstract" content="Use the UNIX Filter Builder to build filters for event list data." />
+<meta name="Description" content="Use the UNIX Filter Builder to build filters for event list data." />
+<meta name="DC.subject" content="filters, creating, editing" />
+<meta name="keywords" content="filters, creating, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_creatingeditfilterunix" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_settingupfiltersevntlst.html" />
+<title>Creating or editing a filter on UNIX</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_creatingeditfilterunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating or editing a filter on UNIX</h1>
+<div class="body taskbody"><p class="shortdesc">Use the UNIX Filter
+Builder to build filters for event list data.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To create or edit a filter:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Start the Filter Builder. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Complete the filter setup area as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">If you are creating a new filter, overwrite the current name with
+a unique name for the filter. This name is used to select the filter
+in event list menus. If you are editing an existing filter, you do
+not need to make an entry in this field.</dd>
+<dt class="dt dlterm">Editable</dt>
+<dd class="dd">If you have the relevant administrator permissions, select this
+check box to allow other users to edit this filter, or clear the check
+box to protect the filter from modification.<div class="note restriction"><span class="restrictiontitle">Restriction:</span> This setting applies only if the filter is saved
+as part of an event list configuration (<span class="ph filepath">.elc</span> file).</div>
+</dd>
+</dl>
+<p class="p">You can now build the filter by using a combination
+of condition, logical, and subquery filter elements. You can also
+define a filter metric, and copy, paste, and delete elements.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Create condition elements as follows:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">From the button bar, click <span class="ph uicontrol">Condition</span>.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">From the element definition area, complete the fields
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Expression Type</dt>
+<dd class="dd">Select one of the following options from this list:<ul class="ul"><li class="li"><span class="keyword option">Simple</span>: Select this option to use simple expressions
+in the condition element. </li>
+<li class="li"><span class="keyword option">Complex</span>: Select this option to use complex expressions
+that allow two database columns or two expressions to be compared. </li>
+<li class="li"><span class="keyword option">FreeForm</span>: Select this option to specify expressions
+that allow the use of the advanced features of the ObjectServer SQL.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Column</dt>
+<dd class="dd">From this list, select a database column that you want to use
+in the comparison.</dd>
+<dd class="dd">By default, the list contains the names of the columns in the
+alerts.status database table. The Filter Builder automatically determines
+which columns are available. There are situations where this list
+will be different. <div class="note note"><span class="notetitle">Note:</span> The <span class="ph uicontrol">Column</span> list is not displayed
+if you selected the <span class="keyword option">FreeForm</span> option from the <span class="ph uicontrol">Expression
+Type</span> list.</div>
+</dd>
+<dt class="dt dlterm">Operator</dt>
+<dd class="dd">Select a comparison operator from this list.</dd>
+<dd class="dd">The range of comparisons available is determined by your selection
+from the <span class="ph uicontrol">Column</span> drop-down list. Some comparisons
+are unavailable for certain columns. For example, it is not possible
+to have a LIKE operation on a numeric column such as Severity. <div class="note note"><span class="notetitle">Note:</span> The <span class="ph uicontrol">Operator</span> list is not displayed
+if you selected the <span class="keyword option">FreeForm</span> option from the <span class="ph uicontrol">Expression
+Type</span> list.</div>
+</dd>
+<dt class="dt dlterm"><em class="ph i">Value data type fields</em></dt>
+<dd class="dd">The fields that appear here are dependent on the option that you
+selected in the <span class="ph uicontrol">Expression Type</span> list.</dd>
+<dd class="dd">If the <span class="ph uicontrol">Expression Type</span> is <span class="keyword option">Simple</span>,
+then the value fields that appear depend on whether the database column
+selected in the <span class="ph uicontrol">Column</span> list is of type string,
+integer, or time. </dd>
+<dd class="dd">If the <span class="ph uicontrol">Expression Type</span> is <span class="keyword option">Complex</span> or <span class="keyword option">FreeForm</span>,
+then an <span class="ph uicontrol">Edit</span> button is provided to allow you
+to edit the SQL directly within the <span class="keyword wintitle">Filter SQL Edit</span> window.
+When you click <span class="ph uicontrol">OK</span> to save and return to the
+Filter Builder, the SQL expression is automatically parsed and added
+to the condition element in the graphical display area. If you enter
+invalid SQL text in the <span class="keyword wintitle">Filter SQL Edit</span> window,
+you are required to correct the syntax before exiting the window.</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, construct multiple conditions by inserting
+logical <samp class="ph codeph">AND</samp> or <samp class="ph codeph">OR</samp> elements as follows: </span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">From the graphical display area, select an existing
+element for which you want to create a logical comparison. </span> You
+can create a logical comparison to a condition element, another logical
+element, or no element.</li>
+<li class="li substep substepexpand"><span class="ph cmd">From the button bar, click either <span class="ph uicontrol">Leading
+Logical</span> or <span class="ph uicontrol">Trailing Logical</span>.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">From the element definition area, choose the relevant
+option:</span> <dl class="dl"><dt class="dt dlterm">Logical AND</dt>
+<dd class="dd">Select this option to add an AND operator to a filter definition.
+This is the default option.</dd>
+<dt class="dt dlterm">Logical OR</dt>
+<dd class="dd">Select this option to add an OR operator to a filter definition.</dd>
+</dl>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">From the button bar, click <span class="ph uicontrol">Condition</span> to
+add another condition branch. </span></li>
+</ol>
+<p class="p">The following table shows what happens if you select either
+a condition or logical element and then click one of the logical buttons.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Results obtained with the Leading Logical and Trailing Logical
+buttons</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d39617e232">Element</th>
+<th class="entry" valign="top" width="40%" id="d39617e234">Leading Logical button used</th>
+<th class="entry" valign="top" width="40%" id="d39617e236">Trailing Logical button used</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d39617e232 ">Condition element</td>
+<td class="entry" valign="top" width="40%" headers="d39617e234 ">Creates a logical element as the child of the parent of the
+condition element. The condition element becomes the child of the
+logical element.</td>
+<td class="entry" valign="top" width="40%" headers="d39617e236 ">The <span class="ph uicontrol">Trailing Logical</span> button is not available
+because condition elements cannot have children.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d39617e232 ">Logical element</td>
+<td class="entry" valign="top" width="40%" headers="d39617e234 ">Creates a logical element as the child of the parent of the
+logical element. The condition element becomes the child of the logical
+element.</td>
+<td class="entry" valign="top" width="40%" headers="d39617e236 ">The logical element is added as a child of the existing logical
+element. If the insertion point already has two children, this button
+is disabled.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d39617e232 ">No element selected</td>
+<td class="entry" valign="top" width="40%" headers="d39617e234 ">Creates a single logical element.</td>
+<td class="entry" valign="top" width="40%" headers="d39617e236 ">Creates a single logical element.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, negate a condition as follows: </span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">From the graphical display area, select the condition
+element.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">From the button bar, click <span class="ph uicontrol">Negate</span>. </span> <p class="p">The negate element is always inserted <em class="ph i">before</em> the current
+insertion point in the tree, and can only have one parent and one
+child.</p>
+<div class="note note"><span class="notetitle">Note:</span> It is not possible to insert a negate
+logical element before an existing negate logical element. However,
+when editing a filter, it is possible to delete a section of a tree
+to leave two negate elements one after another. You must delete one
+of these to create a valid filter.</div>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, create subquery elements as follows:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">From the button bar, click <span class="ph uicontrol">Sub Query</span>.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">From the element definition area, complete the fields
+as follows:</span> <dl class="dl"><dt class="dt dlterm">Column</dt>
+<dd class="dd">From this list, select the database column to be used in the search.</dd>
+<dt class="dt dlterm">Operator</dt>
+<dd class="dd">Select either of the following options from the list:<ul class="ul"><li class="li"><span class="keyword option">In</span>: Use this option to search for the contents
+of the column.</li>
+<li class="li"><span class="keyword option">Not In</span>: Use this option to search for the absence
+of the contents of the field. </li>
+</ul>
+</dd>
+<dt class="dt dlterm">Select</dt>
+<dd class="dd">Select the column to be used when building the list, against which
+the In or Not In operation is to be performed. The options in this
+list are determined by the option that is selected in the <span class="ph uicontrol">from</span> list.</dd>
+<dt class="dt dlterm">from</dt>
+<dd class="dd">Select the database table from which to derive the information.
+This can be alerts.details, alerts.journal, or alerts.status.</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, set the filter metric as follows:</span> <dl class="dl"><dt class="dt dlterm">Metric</dt>
+<dd class="dd">Use the first list to choose the measurement to be used:<ul class="ul"><li class="li">Select <strong class="ph b">Average</strong> to return the average value of the selected
+field for all alerts that match the filter.</li>
+<li class="li">Select <strong class="ph b">Count</strong> to return a count of all the alerts that match
+the filter. The selected field is not used for this calculation.</li>
+<li class="li">Select <strong class="ph b">Sum</strong> to return the sum of the selected field for
+all alerts that match the filter.</li>
+<li class="li">Select <strong class="ph b">Minimum</strong> to return the lowest value of the selected
+field in alerts that match the filter.</li>
+<li class="li">Select <strong class="ph b">Maximum</strong> to return the highest value of the selected
+field in alerts that match the filter.</li>
+</ul>
+</dd>
+<dd class="dd">Use the second list to select a field to which the measurement
+is applied. Only the integer and time fields in an alert are available
+for the metric calculation.<div class="note tip"><span class="tiptitle">Tip:</span> The metric value will
+be displayed in monitor boxes in the <span class="keyword wintitle">Event List</span> monitor
+box window.</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, copy and paste elements as follows: </span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">From the graphical display area, select the element
+to be copied, and select <span class="ph menucascade"><span class="ph uicontrol">Edit</span> &gt; <span class="ph uicontrol">Copy</span></span>.</span></li>
+<li class="li substep"><span class="ph cmd">Paste the element elsewhere into the filter by selecting <span class="ph menucascade"><span class="ph uicontrol">Edit</span> &gt; <span class="ph uicontrol">Paste</span></span>. </span> The Filter Builder attempts to insert the element relative
+to the element that is currently selected.</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If required, delete single elements, or parent elements
+and their children, as follows: </span> <ul class="ul choices"><li class="li choice">From the graphical display area, select the single element
+to be deleted, and then click <span class="ph uicontrol">Delete Element</span> in
+the button bar, or select <span class="ph menucascade"><span class="ph uicontrol">Edit</span> &gt; <span class="ph uicontrol">Cut</span></span>. <p class="p">When you delete filter
+elements, the Filter Builder attempts to link the child elements into
+the filter. This does not work if you try to remove a logical element
+with two children, or a subquery that has children.</p>
+</li>
+<li class="li choice">From the graphical display area, select the parent element
+to be deleted and click <span class="ph uicontrol">Delete Tree</span> in the
+button bar. This removes the currently-selected element and all child
+elements.</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">After defining the filter, save the filter or cancel your
+changes as follows:</span> <dl class="dl"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to apply changes to the filter without saving
+it. </dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the window and discard the changes.</dd>
+</dl>
+<div class="p">You must save filters with a <span class="ph filepath">.elf</span> file
+extension. <div class="note note"><span class="notetitle">Note:</span> On UNIX,
+when the Filter Builder is run from the Conductor, the <span class="ph uicontrol">Apply</span> button
+does not appear. In this case, you must save all filters by selecting <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save</span></span> or <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save As</span></span> from
+the UNIX Filter Builder.</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_fb_settingupfiltersevntlst.html" title="Filters are used to build SQL queries that can be run on the ObjectServer alerts database tables, in order to display custom alert information in monitor boxes and event lists.">Setting up filters for event list data</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_fb_startingfilterbuilder.html" title="The Filter Builder provides a graphical interface within which you can build and test the SQL statements that comprise a filter.">Starting the Filter Builder</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

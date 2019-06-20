@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Formatos de objetos MIB válidos" />
+<meta name="abstract" content="Este tópico descreve os formatos de objetos MIB válidos." />
+<meta name="Description" content="Este tópico descreve os formatos de objetos MIB válidos." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_formats" />
+<meta name="DC.Language" content="pt-br" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>Formatos de objetos MIB válidos</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_formats">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versão 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Formatos de objetos MIB válidos</h1>
+<div class="body refbody"><p class="shortdesc">Este tópico descreve os formatos de objetos MIB válidos.</p>
+<div class="section"><p class="p">As seções a seguir descrevem os formatos de objetos MIB SNMP válidos.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL-CONVENTION</h2><p class="p">Uma TEXTUAL-CONVENTION
+(TC) v2 possui a sintaxe a seguir, em que o nome do objeto é acompanhado pela entrada <samp class="ph codeph">::=</samp> e então <samp class="ph codeph">TEXTUAL-CONVENTION</samp>.
+Diversas seções acompanham e são anexadas à definição SYNTAX.</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION 
+DISPLAY-HINT "255a" 
+STATUS atual 
+DESCRIPTION "Represents textual information taken from the NVT SCII character set, as defined in pages 4, 10-11 of RFC 854. To summarize RFC 854, the NVT ASCII repertoire specifies: - the use of character codes 0-127 (decimal) - the graphics characters (32-126) are interpreted as US ASCII - NUL, LF, CR,BEL, BS, HT, VT and FF have the special meanings specified in RFC 854 - the other 25 codes have no standard interpretation - the sequence 'CR LF' means newline - the sequence 'CR NUL' means carriage-return - an 'LF' not preceded by a 'CR' means moving to the same column on the next line. - the sequence 'CR x' for any x other than LF or NUL is illegal. (Note that this also means that a string may end with either 'CR LF' or 'CR NUL', but notwith CR.) Any object defined using this syntax may not exceed 255 characters in length."
+SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+</div>
+<p class="p">Um v1 TC se compõe do nome do objeto
+seguido pela entrada <samp class="ph codeph">::=</samp> e é então anexado com uma definição válida de SYNTAX. Por exemplo:</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= OCTET STRING</code></pre>
+</div>
+<p class="p">Ambos estes objetos existem foram da árvore MIB e, portanto, não são objetos na MIB. Eles representam um formato para o qual uma sintaxe pode ser definida.
+Eles não possuem um OID. É possível visualizá-lo na visualização <span class="keyword wintitle">Módulos MIB</span>, em um filtro separado, ao clicar na lista suspensa <span class="ph uicontrol">Visualizar</span> e selecionar <span class="ph uicontrol">Convenções Textuais</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Objetos TRAP-TYPE</h2><p class="p">O objeto TRAP-TYPE é válido para a MIBs v1. Esses objetos não foram originalmente definidos para se ajustarem harmoniosamente na árvore MIB. Eles não possuem um OID, mas sim um ID corporativo e um número de trap, por exemplo:</p>
+<div class="p"><pre class="pre codeblock"><code>newRoot TRAP-TYPE 
+ENTERPRISE dot1dBridge 
+DESCRIPTION "The newRoot trap indicates that the sending agent has become the new root
+of the Spanning Tree; the trap is sent by a bridge soon after its election as the new 
+root, e.g., upon expiration of the Topology Change Timer immediately subsequent to its 
+election." 
+::= 1</code></pre>
+</div>
+<p class="p">Um trap v1 começa com um nome do objeto seguido pela palavra-chave <samp class="ph codeph">TRAP-TYPE</samp>. O que é seguido por uma série de seções e terminações com a entrada <samp class="ph codeph">::=</samp> e um número. Chaves ({}) nunca são usadas antes ou depois de um número.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Objetos da MACRO</h2><p class="p">Um objeto da MACRO define o formato de outros objetos MIB. Definições de MACRO sempre iniciam com o tipo de objeto, acompanhadas pela palavra-chave
+<samp class="ph codeph">MACRO</samp> e, então, pela entrada <samp class="ph codeph">::=</samp>. O restante da definição de macro é colocada entre as tags <samp class="ph codeph">BEGIN</samp> e <samp class="ph codeph">END</samp>, por exemplo:</p>
+<div class="p"><pre class="pre codeblock"><code>OBJECT-TYPE MACRO ::= 
+BEGIN 
+TYPE NOTATION ::= "SYNTAX" 
+type (TYPE ObjectSyntax) "ACCESS" Access "STATUS" Status VALUE NOTATION ::= value 
+(VALUE ObjectName) Access ::= "read-only" | "read-write" | "write-only" | "not-accessible" 
+Status ::= "mandatory" | "optional" | "obsolete" 
+END</code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Outros Objetos</h2><div class="p">Todos os outros objetos deverão respeitar o formato a seguir:<pre class="pre codeblock"><code>SINTAXE snmpInPkts OBJECT-TYPE Contador ACESSO somente leitura STATUS obrigatório DESCRIÇÃO "O número total de Mensagens entregues à entidade SNMP do serviço de transporte" ::= { snmp 1 }</code></pre>
+</div>
+<p class="p">Estes objetos iniciam com um nome do objeto, que deve iniciar com um caractere alfabético minúsculo.
+Isto é acompanhado por uma palavra-chave que indica o tipo de objeto. Quaisquer seções adicionais acompanham a palavra-chave e a entrada <samp class="ph codeph">::=</samp> e uma lista de ancestrais entre chaves ({}) completam o formato.
+Os ancestrais entre chaves ({})
+poderão ter um de dois formatos.
+No primeiro (mostrado acima), o formato é um nome do objeto acompanhado por um
+número. O nome do objeto é o nome do pai imediato deste objeto e o número é um número de folha deste objeto para o pai.</p>
+<div class="p">O segundo formato válido para uma lista ancestral é uma lista de todos os ancestrais
+voltando até um objeto conhecido, por exemplo:<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } </code></pre>
+</div>
+<p class="p">Neste exemplo, a lista inicia em um objeto conhecido (<samp class="ph codeph">iso</samp> sendo a raiz da árvore) e continua a definir nomes de objetos e  números de folha para cada geração sucessiva, <samp class="ph codeph">org(3)</samp> e <samp class="ph codeph">dod(6)</samp>,
+até o número inteiro único final (<samp class="ph codeph">1</samp>) que indica o número do objeto. Observe que espaços entre nomes de objetos não são permitidos.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tópico pai:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="Esta seção fornece informações adicionais sobre a arquitetura do Protocolo Simples de Gerenciamento de Rede (SNMP), a base de informações de gerenciamento (MIB) do SNMP e alguns conceitos adicionais da MIB.">Sobre o SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Suporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

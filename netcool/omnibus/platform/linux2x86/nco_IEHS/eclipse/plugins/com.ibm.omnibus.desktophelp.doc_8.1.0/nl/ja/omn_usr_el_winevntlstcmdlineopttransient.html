@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="一時的イベント・リストの Windows コマンド行オプション" />
+<meta name="abstract" content="Windows 上で NCOelct.exe コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 %NCHOME%¥omnibus¥desktop ディレクトリーからこのコマンドを実行できます。" />
+<meta name="Description" content="Windows 上で NCOelct.exe コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 %NCHOME%¥omnibus¥desktop ディレクトリーからこのコマンドを実行できます。" />
+<meta name="DC.subject" content="イベント・リスト, 一時的イベント・リストの コマンド行オプション, コマンド行オプション, 一時的イベント・リスト" />
+<meta name="keywords" content="イベント・リスト, 一時的イベント・リストの コマンド行オプション, コマンド行オプション, 一時的イベント・リスト" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingtransienteventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_winevntlstcmdlineopttransient" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingtransienteventlist.html" />
+<title>一時的イベント・リストの Windows コマンド行オプション</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_winevntlstcmdlineopttransient">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">一時的イベント・リストの Windows コマンド行オプション</h1>
+<div class="body refbody"><p class="shortdesc">Windows 上で <span class="keyword cmdname">NCOelct.exe</span> コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 <span class="ph filepath">%NCHOME%¥omnibus¥desktop</span> ディレクトリーからこのコマンドを実行できます。</p>
+<div class="section"><p class="p">以下の表では、Windows 上で一時的イベント・リストを開始するコマンド行オプションについて説明します。 </p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. Windows 一時的イベント・リスト (NCOelct.exe) コマンド行オプション</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d117522e49">コマンド行オプション</th>
+<th class="entry" valign="bottom" width="75%" id="d117522e51">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">拡張された診断メッセージを表示します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">デスクトップ ObjectServer アーキテクチャーで動作している場合に、デュアル書き込みモードを使用可能に設定するか、または使用不可に設定するかを指定します。 有効なオプションは以下のとおりです。<ul class="ul"><li class="li"><samp class="ph codeph">0</samp>: デュアル書き込みモードを使用不可に設定します</li>
+<li class="li"><samp class="ph codeph">1</samp>: デュアル書き込みモードを使用可能に設定します</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> コマンド行オプションにより、デスクトップ ObjectServer の master.national 表内の
+DualWrite フィールド・エントリーが無効になります。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-elf</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 "><p class="p"><em class="ph i">これは
+必須指定のオプションです。</em></p>
+一時的イベント・リストで使用するフィルター・ファイルを
+指定します。ここで、<p class="p"><var class="keyword varname">string</var> は、<span class="ph filepath">.elf</span> ファイルへのパスを指定します。</p>
+<p class="p"><var class="keyword varname">URL</var> は、HTTP または FTP を使用してアクセス可能なリモート・サーバー上の <span class="ph filepath">.elf</span> ファイルを指定します。 以下のフォーマットのいずれかを使用して、<var class="keyword varname">URL</var> を
+指定します。</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+</ul>
+<p class="p">サーバーがデフォルトのポートを使用していない場合にのみ、オプションのポート番号 <var class="keyword varname">:port</var> を
+指定する必要があります。</p>
+<p class="p">FTP を使用する場合、パスはルート・ディレクトリーからの絶対パスである必要があります。例えば、<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myfilter.elf</span> です。</p>
+<p class="p"><span class="keyword option">-params</span> コマンド行オプションを使用して、
+<span class="ph filepath">.elf</span> ファイルで指定したパラメーターに加えてフィルター・パラメーターを指定することができます。
+使用法の詳細については、この表の <span class="keyword option">-params</span> の説明を参照してください。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-elv</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">一時的イベント・リストで使用するイベント・リスト・ビュー・ファイルを
+指定します。ここで、<p class="p"><var class="keyword varname">string</var> は、<span class="ph filepath">.elv</span> ファイルへのパスを指定します。</p>
+<p class="p"><var class="keyword varname">URL</var> は、HTTP または FTP を使用してアクセス可能なリモート・サーバー上の <span class="ph filepath">.elv</span> ファイルを指定します。 以下のフォーマットのいずれかを使用して、<var class="keyword varname">URL</var> を
+指定します。</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+</ul>
+<p class="p">サーバーがデフォルトのポートを使用していない場合にのみ、オプションのポート番号 <var class="keyword varname">:port</var> を
+指定する必要があります。</p>
+<p class="p">FTP を使用する場合、パスはルート・ディレクトリーからの絶対パスである必要があります。例えば、<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myview.elv</span> です。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">このコマンドのヘルプを表示して終了します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">デスクトップ ObjectServer アーキテクチャー内で使用するマスター ObjectServer
+を指定します。 <p class="p"><span class="keyword option">-masterserver</span> コマンド行オプションにより、デスクトップ ObjectServer の master.national 表内の
+MasterServer フィールド・エントリーが無効になります。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">ネットワーク障害が発生した場合に、ログイン試行または
+ObjectServer サーバーへの接続がタイムアウトするまでの時間を秒単位で指定します。 指定されたタイムアウト期間が過ぎると、
+イベント・リストは ObjectServer への再接続を試みます。 2 回目のタイムアウト期間が過ぎても接続が成功しなかった場合、イベント・リストはバックアップ ObjectServer (使用可能な場合) への接続を試みます。 デフォルトは 20 秒です。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-params</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">フィルター・ファイルの <samp class="ph tt">filter_text</samp> パラメーター内で単一のプレースホルダーを置き換えるのに使用するストリングを指定します。
+このプレースホルダーは、
+@ シンボルで始まる必要があります (例えば、@FilterText)。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">選択したユーザー名のパスワードを指定します。 <span class="keyword cmdname">NCOelct</span> ユーティリティーは、
+パスワード内で英数字のみを受け入れます。 パスワードに #、/、&gt;、@、および ! などの特殊文字は使用できません。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">接続する ObjectServer の名前を指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">イベント・リストにログインするのに使用するユーザー名を指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d117522e49 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d117522e51 ">バージョン情報を表示して終了します。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_startingtransienteventlist.html" title="UNIX のコマンド行から一時的イベント・リストを開く場合は nco_elct コマンドを使用し、Windows のコマンド行から 一時的イベント・リストを開く場合は NCOelct.exe コマンドを使用します。">コマンド行から一時的イベント・リストを開始する</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="デスクトップ ObjectServer アーキテクチャーを使用すると、負荷が重くなりがちな ObjectServer のパフォーマンスを改善できます。">デスクトップ ObjectServer アーキテクチャー</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="UNIX 上で nco_event コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。">UNIX イベント・リストのコマンド行オプション</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

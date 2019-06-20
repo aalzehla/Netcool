@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2005. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Run script - runs the correct binary for the current OS
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export OMNIHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+#
+# What program are we attempting to run ?
+#
+PROGRAM=`basename $0`
+
+#
+# Check the script name - if nco_run is being run as itself it does nothing
+#
+if [ $PROGRAM = nco_run ]; then
+	exit 0
+fi
+
+#
+# Can we run this program ? Check for special version first
+#
+if [ -x $ARCH_BIN_DIR/$PROGRAM$SUFFIX ]; then
+	EXEC=$PROGRAM$SUFFIX
+else
+	if [ -x $ARCH_BIN_DIR/$PROGRAM ]; then
+		EXEC=$PROGRAM
+	else
+		err "Not installed for $ARCH"
+	fi
+fi
+
+#
+# Do we need a special environment to run this program
+#
+if [ -r "$ARCH_BIN_DIR/$PROGRAM.env" ]; then
+	. "$ARCH_BIN_DIR/$PROGRAM.env"
+fi
+
+#
+# Execute program
+#
+exec $ARCH_BIN_DIR/$EXEC "$@"

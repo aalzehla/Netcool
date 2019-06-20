@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="グループおよびロールを使用した許可の実装" />
+<meta name="abstract" content="ObjectServer 内のオブジェクトおよびデータへのアクセスは、アクセス権によって制御されます。 1 つ以上の権限をロールに結合することにより、迅速かつ効果的にアクセスを管理することができます。" />
+<meta name="Description" content="ObjectServer 内のオブジェクトおよびデータへのアクセスは、アクセス権によって制御されます。 1 つ以上の権限をロールに結合することにより、迅速かつ効果的にアクセスを管理することができます。" />
+<meta name="DC.subject" content="許可" />
+<meta name="keywords" content="許可" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="xF1040928" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>グループおよびロールを使用した許可の実装</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="xF1040928">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">グループおよびロールを使用した許可の実装</h1>
+<div class="body conbody"><p class="shortdesc">ObjectServer 内のオブジェクトおよびデータへのアクセスは、アクセス権によって制御されます。
+1 つ以上の権限を<dfn class="term">ロール</dfn>に結合することにより、迅速かつ効果的にアクセスを管理することができます。 </p>
+<p class="p">各ユーザーは、1 つ以上の<dfn class="term">グループ</dfn> に割り当てられます。 グループに 1 つ以上のロールを付与することによって、データベース・オブジェクトに対してアクションを実行するための権限を各グループに割り当てることができます。 作成できるのは、スーパーユーザーやシステム管理者などの論理グループ、ロンドン、ニューヨーク、NOC などの物理グループ、またはセキュリティー・セットアップを簡略化するためのその他のグループです。</p>
+<p class="p">例えば、自動化を作成するには、<span class="keyword">Tivoli Netcool/OMNIbus</span> の操作と、特定の ObjectServer を構成する方法についての知識が必要です。 通常は、すべてのユーザーに自動化の作成または変更を認める必要はありません。
+解決策の 1 つが、AutoAdmin というロールを作成して、トリガー・グループ、ファイル、SQL と外部プロシージャー、および信号を作成し、変更する許可を与えることです。 こうすれば、自動化を作成および更新する管理者のグループにそのロールを付与することができます。 </p>
+<p class="p"><span class="ph filepath">security.sql</span> スクリプトには、ユーザーのさまざまなクラス向けのデフォルトのグループとロール (オペレーター、アドミニストレーターなど) が含まれています。
+このスクリプトは、
+独自のグループおよびロールを作成するためのテンプレートとして使用することもできます。 </p>
+<p class="p">ユーザー、グループ、およびロールは、<span class="keyword">Netcool/OMNIbus Administrator</span> または ObjectServer SQL を使用して構成できます。 </p>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

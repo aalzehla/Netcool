@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="EXECUTE PROCEDURE" />
+<meta name="abstract" content="After you create a procedure, you must run it using the EXECUTE PROCEDURE command for the actions in the procedure to occur. You can do this using the SQL interactive interface (nco_sql) or in a trigger or procedure." />
+<meta name="Description" content="After you create a procedure, you must run it using the EXECUTE PROCEDURE command for the actions in the procedure to occur. You can do this using the SQL interactive interface (nco_sql) or in a trigger or procedure." />
+<meta name="DC.subject" content="running, procedures, EXECUTE PROCEDURE" />
+<meta name="keywords" content="running, procedures, EXECUTE PROCEDURE" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_runningprocedures" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Running procedures (EXECUTE PROCEDURE command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_runningprocedures">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">EXECUTE PROCEDURE</h1>
+<div class="body refbody"><p class="shortdesc">After you create a procedure, you must run it using the <samp class="ph codeph">EXECUTE
+PROCEDURE</samp> command for the actions in the procedure to occur.
+You can do this using the SQL interactive interface (<span class="keyword cmdname">nco_sql</span>)
+or in a trigger or procedure.</p>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>{ EXECUTE | CALL } [ PROCEDURE ] procedure_name
+ [ ( expression,... ) | ( <strong class="ph b">[</strong> expression, expression,... <strong class="ph b">]</strong> ,... ) ];</code></pre>
+<p class="p">Use <var class="keyword varname">procedure_name</var> to
+specify the procedure to run.</p>
+<p class="p">Each of the expressions passed
+as actual parameters must resolve to an assignable value that matches
+the type of the parameter specified when the procedure was created.</p>
+<div class="note note"><span class="notetitle">Note:</span> If you are passing an array parameter, the square brackets
+around the expression list, shown in bold type in the preceding syntax
+description, are not optional.</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">To run the procedure described in <a class="xref" href="omn_adm_sql_creatingexternalprocs.html#omn_adm_sql_creatingexternalprocs" title="Use the CREATE PROCEDURE command to create external procedures.">CREATE PROCEDURE (external procedures)</a>,
+use the following call in a trigger:</p>
+<pre class="pre codeblock"><code>execute send_email( critical.Node, critical.Severity, 'Netcool E-mail', 
+'root@localhost', critical.Summary, 'localhost');</code></pre>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2008. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# nc_gskcmd - Start GSKit command line
+#
+#######################################
+
+#######################################
+# MAIN
+#######################################
+
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+
+if [ "$NCHOME" = ""  ]
+then
+	echo "Cannot find your NCHOME environment"
+	exit 1
+fi
+
+GSK8CAPICMD=$ARCH_BIN_DIR/`basename $0`
+
+if [ -f "$NCHOME/etc/security/fips.conf" ]; then
+	exec "${GSK8CAPICMD}" "$@" -fips
+else
+	exec "${GSK8CAPICMD}" "$@"
+fi

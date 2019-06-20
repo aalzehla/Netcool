@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Assigning ownership to events" />
+<meta name="abstract" content="When an event arrives from a probe, the event is owned by the nobody user unless ownership of the event has been assigned to a specific user. Users with appropriate privileges can take ownership of events throughout the problem lifecycle, or assign events to a specific user or group." />
+<meta name="Description" content="When an event arrives from a probe, the event is owned by the nobody user unless ownership of the event has been assigned to a specific user. Users with appropriate privileges can take ownership of events throughout the problem lifecycle, or assign events to a specific user or group." />
+<meta name="DC.subject" content="event lists, assigning ownership to events, assigning ownership, events, ownership, assigning ownership" />
+<meta name="keywords" content="event lists, assigning ownership to events, assigning ownership, events, ownership, assigning ownership" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_selectingdeselecting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_assigningownrshptoevents" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>Assigning ownership to events</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_assigningownrshptoevents">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Assigning ownership to events</h1>
+<div class="body taskbody"><p class="shortdesc">When an event arrives from a probe, the event is owned
+by the <samp class="ph tt">nobody</samp> user unless ownership of the event has been
+assigned to a specific user. Users with appropriate privileges can
+take ownership of events throughout the problem lifecycle, or assign
+events to a specific user or group.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">The OwnerUID and OwnerGID columns provide this capability
+to work as an individual or as a member of a team. (The OwnerUID column
+holds the <span class="keyword">Tivoli Netcool/OMNIbus</span> user
+ID of the owner of the event, and the OwnerGID column holds the group
+ID.)</p>
+<p class="p">As soon as an event is owned by a user, only that person
+or a user with higher privileges can modify the event. If an event
+is assigned to a group, the OwnerUID is reassigned to the <samp class="ph tt">nobody</samp> user.
+After an event is assigned to a group, only a member of that group
+or a user with higher privileges can modify the event. </p>
+<div class="note note"><span class="notetitle">Note:</span> The users or groups to which you can assign events depends
+on your security permissions. If you are a normal user, you can assign
+only the events assigned to you, your group, or the <samp class="ph tt">nobody</samp> user.</div>
+<p class="p">To
+assign ownership of events:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the event list, select one or more events.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Assign the events to another user, another group, or yourself,
+as follows:</span> <ul class="ul choices"><li class="li choice">To assign selected events to another user, click <span class="ph menucascade"><span class="ph uicontrol">Alerts</span> &gt; <span class="ph uicontrol">Ownership</span> &gt; <span class="ph uicontrol">Assign
+to User</span></span>, and then select a user from the
+submenu.</li>
+<li class="li choice">To assign selected events to another group, click <span class="ph menucascade"><span class="ph uicontrol">Alerts</span> &gt; <span class="ph uicontrol">Ownership</span> &gt; <span class="ph uicontrol">Assign
+to Group</span></span>, and then select a group from the
+submenu. When you assign an event to another group, the event is owned
+by the <samp class="ph tt">nobody</samp> user in that group. </li>
+<li class="li choice">To assign selected events to yourself, click <span class="ph menucascade"><span class="ph uicontrol">Alerts</span> &gt; <span class="ph uicontrol">Ownership</span> &gt; <span class="ph uicontrol">Assign
+to User</span></span>, and then select your name from
+the submenu. Alternatively, click <span class="ph menucascade"><span class="ph uicontrol">Alerts</span> &gt; <span class="ph uicontrol">Ownership</span> &gt; <span class="ph uicontrol">Take Ownership</span></span>.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="To manipulate an event in the event list, you must first select it.">Working with events</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+<div><a class="link" href="omn_usr_el_selectingdeselecting.html" title="To work with one or more events in the event list, you must first select the events. You can then use the options in the Alerts menu to manipulate the events. You can also deselect one or more events from a list of selected events.">Selecting and deselecting events</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

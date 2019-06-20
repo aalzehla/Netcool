@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Standard Tivoli Netcool/OMNIbus automations" />
+<meta name="abstract" content="A set of standard automations is included with Tivoli Netcool/OMNIbus. These automations are created during database initialization." />
+<meta name="Description" content="A set of standard automations is included with Tivoli Netcool/OMNIbus. These automations are created during database initialization." />
+<meta name="DC.subject" content="automations, standard" />
+<meta name="keywords" content="automations, standard" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_standardnetomautomatns" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Standard Tivoli Netcool/OMNIbus automations</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_standardnetomautomatns">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Standard <span class="keyword">Tivoli
+Netcool/OMNIbus</span> automations</h1>
+<div class="body refbody"><p class="shortdesc">A set of standard automations is included with <span class="keyword">Tivoli Netcool/OMNIbus</span>.
+These automations are created during database initialization.</p>
+<div class="section"><p class="p">The standard automations are stored in the location: <span class="ph filepath">$NCHOME/omnibus/etc/automation.sql</span>.
+You can open the <span class="ph filepath">automation.sql</span> file within a
+text editor and view the syntax of each automation. Comments are included
+to describe the purpose of the automations. Some of the automations
+in the <span class="ph filepath">automation.sql</span> file are not enabled by
+default. </p>
+<p class="p">You can also use the Netcool/OMNIbus Administrator
+to browse through these automations by selecting the <span class="ph uicontrol">Automation</span> menu
+button from the <span class="keyword wintitle">Netcool/OMNIbus Administrator</span> window.
+You might notice that some trigger groups are disabled by default,
+whereas the triggers belonging to that trigger group have an enabled
+state. You must enable such trigger groups in order to run the triggers.
+One such example is the audit_config trigger group, which provides
+the ability to raise alerts whenever changes are made to the ObjectServer
+objects. This trigger group can be used as an audit mechanism in conjunction
+with the audit log files that are written to the <span class="ph filepath">$NCHOME/omnibus/log</span> directory.</p>
+<div class="p">The
+functions performed by some of the standard automations include:<ul class="ul"><li class="li">Backing up the ObjectServer</li>
+<li class="li">Adding alerts to the ObjectServer</li>
+<li class="li">Inserting journal entries</li>
+<li class="li">Removing redundant entries from various tables</li>
+</ul>
+</div>
+<p class="p">The standard automations are listed in the following table.</p>
+</div>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Standard automations</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="40%" id="d30658e67">Trigger or procedure name</th>
+<th class="entry" valign="top" width="60%" id="d30658e69">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_class</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a class has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_col_visual</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a column visual has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_conv</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a conversion has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_menu</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a menu has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_object</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that an object has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_prompt</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a prompt has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_property</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a property has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_alter_tool</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a tool has been altered. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_class</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a class has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_col_visual</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a column visual has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_conv</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a conversion has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_menu</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a menu has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_object</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that an object has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_prompt</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a prompt has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_create_tool</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a tool has been created. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_class</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a class has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_col_visual</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a column visual has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_conv</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a conversion has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_menu</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a menu has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_object</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that an object has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_prompt</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a prompt has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_drop_tool</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a tool has been dropped. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">audit_config_permission_denied</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that a permission has been denied. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">automatic_backup</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Backs up all ObjectServer memory stores to a sequence of locations
+dependent on the defined value of a <var class="keyword varname">num_backups</var> variable. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">automation_disable</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Disables the automations that should not be
+running when the ObjectServer is a backup ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">automation_enable</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Enables the automations that should be running
+when the ObjectServer is a primary ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">backup_counterpart_down</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Enables the automations that should be running
+when the primary ObjectServer goes down, and the backup ObjectServer
+is acting as the primary ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">backup_counterpart_up</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Disables the automations that should not be
+running in the backup ObjectServer when the primary ObjectServer restarts.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">backup_failed</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Specifies an action to perform on a failed backup operation. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">backup_startup</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Disables the automations that should not be
+running when an ObjectServer designated as a backup, is started.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">backup_state_integrity</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Ensures that only one record is present in the backup state
+table by cancelling any other inserts. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">backup_succeeded</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Specifies an action to perform on a successful backup operation. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">clean_details_table</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Performs housekeeping cleanup on the alerts.details table.
+Deletes any entries not found in the alerts.status table.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">clean_journal_table</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Performs housekeeping cleanup on the alerts.journal table.
+Deletes any entries not found in the alerts.status table. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">connection_watch_connect</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert when a new client connects. The process or
+application name identified by the signal is matched against the alerts.application_types
+table to identify the appropriate severity and event type for the
+connect. A gateway connection, for example, is treated as a resolution
+(clearing a disconnect), whereas an event list connect is a Type 1
+event, which will be resolved by a disconnect. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">connection_watch_disconnect</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert when a client disconnects. The process or
+application name identified by the signal is matched against the alerts.application_types
+table to identify the appropriate severity and event type for the
+disconnect. A gateway disconnection, for example, is treated as a
+problem, whereas an event list disconnection is a resolution. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">dedup_status_inserts</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Counts deduplicated status table inserts. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">deduplicate_details</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Deduplicates rows on the alerts.details table. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">deduplicate_iduc_stats</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Deduplicates rows on the iduc_system.iduc_stats
+table.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">deduplication</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Deduplication processing for the alerts.status table. Maintains
+the deduplication tally and refreshes alert details. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">delete_clears</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Every 60 seconds, deletes clear alerts that are older than
+two minutes in the alerts.status table. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">details_inserts</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Counts details table inserts. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">disable_inactive_users</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Runs once a day to disable users who have not logged on to
+the ObjectServer within a defined period. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">disable_user</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Disables users when they fail to log on after <var class="keyword varname">n</var> consecutive
+failures. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">disconnect_iduc_missed</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Disconnects real-time clients that have not
+communicated with the ObjectServer for 100 granularity periods.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">escalate_off</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Sets Flash field to 0 (not flashing) and SuppressEscl to 0
+(not escalated in this example) when an event that has previously
+had the Flash field set to 1 is Acknowledged or if the event is Cleared
+(Severity = 0). </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">expire</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Handles the expiration of alerts. Sets the Severity of an alert
+to <span class="keyword option">0</span> if the value of ExpireTime (during which the
+alert is valid) is exceeded. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">flash_not_ack</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Sets Flashing on (Flash = 1) for events that are 10 minutes
+old and Critical (Severity = 5), but which have not yet been acknowledged
+by a user (Acknowledge = 0). It sets SuppressEscl to 1 as a further
+indication of the escalation status of the event. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">generic_clear</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Clears (Severity = 0) all rows in the alerts.status table indicating
+a down device (Type = 1), where there is a subsequently inserted row
+indicating that the device has come back up (Type = 2). </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">iduc_messages_tblclean</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Performs housekeeping cleanup on the alerts.iduc_messages table.
+Runs every 60 seconds and deletes messages older than two minutes. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">iduc_stats_insert</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Inserts a client entry into the iduc_system.iduc_stats
+table when the iduc_connect signal is raised.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">iduc_stats_update</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Updates the LastIducTime field in the iduc_system.iduc_stats
+table when the iduc_data_fetch signal is raised.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">jinsert</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Inserts a record into the alerts.journal table. Automations
+that require journal entries should run this procedure. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">journal_inserts</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Counts journal table inserts. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">mail_on_critical</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Send e-mail about critical alerts that are unacknowledged after
+30 minutes.<div class="note note"><span class="notetitle">Note:</span> This tool is UNIX specific unless an equivalent NT mailer
+is available.</div>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">new_row</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Sets default values for new alerts in the alerts.status table. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">new_status_inserts</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Counts new status table inserts. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">pass_deletes</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Deletes from the destination ObjectServer, rows
+that do not exist in the source ObjectServer, after resynchronization.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">profiler_group_report</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Writes to the <span class="ph filepath">profiler_report</span> file, a
+row for the sum of the amount of time taken by each distinct application
+type during the last profiling period. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">profiler_report</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Writes into the <span class="ph filepath">profiler_report</span> file,
+a row for each connected client with the amount of time taken by that
+client during the last profiling period. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">profiler_toggle</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Reports that the profiler has been toggled. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">registry_new_probe</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">A pre-insert trigger that links a probe entry
+in the registry.probes table with the corresponding entry in the catalog.connections
+table.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">registry_probe_disconnect</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 "><p class="p">Resets the value of the ConnectionID
+field to 0 in the registry.probes table when a probe or proxy server
+disconnects from the ObjectServer.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">registry_reinsert_probe</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Updates entries in the registry.probes
+table in response to reinsert statements that come from a probe. All
+columns in an entry are updated. The LastUpdate column records the
+time stamp of the update.<div class="note note"><span class="notetitle">Note:</span> This trigger only accepts reinserts
+from probes. Other applications must use an UPDATE statement to modify
+existing entries in the registry.probes table.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">registry_update_probe</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">This trigger prevents gateways from overwriting
+a probe registry entry with outdated information. <p class="p">This can happen
+during the fail over or fail back of a probe, when a gateway IDUC
+cycle occurs after the most recent probe entry has already been written
+to the ObjectServer.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">reset_user</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Resets the failure count of a user when they log on successfully. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">resync_finished</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Identifies when resynchronization is complete
+and sets the <span class="keyword parmname parmname">ActingPrimary</span> property of the backup
+ObjectServer to FALSE to define it as the backup.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">security_watch_security_failure</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert when a client fails to authenticate. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">service_insert</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Service processing for the service.status table. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">service_reinsert</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Service processing for the service.status table. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">service_update</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Service processing for the service.status table. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">state_change</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">State change processing for the alerts.status table. Maintains
+the ObjectServer timestamp of the last insert and update of an alert
+from any source. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">statistics_cleanup</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Deletes statistics over an hour old. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">statistics_gather</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Collects metrics such as the total number of clients that are
+connected to the ObjectServer, the number of real-time clients, and
+the number of new inserts into the alerts.status table, and inserts
+the metrics into the master.stats table.<p class="p">This data can then be viewed
+using Netcool/OMNIbus Administrator or <span class="keyword cmdname">nco_sql</span>,
+or can be written to file, or processed by other automations.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">stats_reset</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Resets the statistics data. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">system_watch_shutdown</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that the ObjectServer is being
+shut down. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">system_watch_startup</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Creates an alert indicating that the ObjectServer has started. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">trigger_stats_report</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Writes to the <span class="ph filepath">trigger_stats.log</span> file,
+the amount of time each trigger has used in the last profiling period. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d30658e67 ">update_service_affecting_events</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Runs at a specified frequency to enable service-affected
+events in <span class="keyword">Network Manager
+IP Edition</span> to
+automatically clear when all their related events are cleared. A service-affected
+event is an alert that warns operators that a critical customer service
+has been affected by one or more network events. <p class="p">This automation
+works only with <span class="keyword">Tivoli Netcool/OMNIbus</span> V7
+.0, or later.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> The automation is required only
+if <span class="keyword">Network Manager
+IP Edition</span> is
+being used, and is used with the precision.entity_service, precision.service_details,
+and precision.service_affecting_event tables.</div>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="40%" headers="d30658e67 ">webtop_compatibility</td>
+<td class="entry" valign="top" width="60%" headers="d30658e69 ">Populates the master.profiles table with ObjectServer users
+for the <span class="keyword">Web GUI</span> (or <span class="keyword">Netcool/Webtop</span>)
+to read. Additionally sets the AllowISQL field for each user who has
+been granted permission to use the interactive SQL tool in the <span class="keyword">Web GUI</span> (or <span class="keyword">Netcool/Webtop</span>).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

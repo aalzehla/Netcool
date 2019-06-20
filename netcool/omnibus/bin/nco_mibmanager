@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2012. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# nco_mibmanager script - Starts the MibManager program
+#
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+
+#
+# Find the MibManager program and matching JRE
+#
+MMPATH64="${NCHOME}/omnibus/platform/${ARCH}/mibmanager64"
+MMPATH32="${NCHOME}/omnibus/platform/${ARCH}/mibmanager"
+
+if [ -x "${MMPATH64}/MibManager" -a -x "${NCO_JRE_64}/bin/java" ]
+then
+	MMPATH="${MMPATH64}"
+	JRE="${NCO_JRE_64}"
+elif [ -x "${MMPATH32}/MibManager" -a -x "${NCO_JRE}/bin/java" ]
+then
+	MMPATH="${MMPATH32}"
+	JRE="${NCO_JRE}"
+else
+	echo "Cannot find MIB Manager and matching JRE for ${ARCH}"
+	exit 1
+fi
+
+case "${ARCH}" in
+aix5)
+	;;
+hpux11hpia)
+	;;
+linuxs390)
+	;;
+linux2x86)
+	LD_LIBRARY_PATH="${MMPATH}:${LD_LIBRARY_PATH}"
+	export LD_LIBRARY_PATH
+	;;
+solaris2)
+	LD_LIBRARY_PATH="${MMPATH}:${LD_LIBRARY_PATH}"
+	export LD_LIBRARY_PATH
+	;;
+esac
+
+#
+# Check that the GUI is available
+#
+
+${OMNIHOME}/bin/nco_xcheck > /dev/null
+if [ $? -ne 0 ]
+then
+	echo 'Cannot access any X display'
+	echo 'Check that $DISPLAY is set correctly and X libraries are installed'
+	exit 1
+fi
+
+#
+# Run MibManager
+#
+eval exec "${MMPATH}/MibManager" -vm "${JRE}/bin" "$@"

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing ObjectServer files" />
+<meta name="abstract" content="An ObjectServer file provides a way to log or report information about ObjectServer events." />
+<meta name="Description" content="An ObjectServer file provides a way to log or report information about ObjectServer events." />
+<meta name="DC.subject" content="creating, ObjectServer files, editing" />
+<meta name="keywords" content="creating, ObjectServer files, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringobjservfiles.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_objservfilecreationseq.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingeditobjservfiles" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringobjservfiles.html" />
+<title>Creating and editing ObjectServer files</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingeditobjservfiles">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing ObjectServer files</h1>
+<div class="body taskbody"><p class="shortdesc">An ObjectServer file provides a way to log or report information
+about ObjectServer events.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">For example, you can create a trigger that writes an entry
+in an ObjectServer file each time a user makes a connection to an
+ObjectServer.</p>
+<p class="p">To create or edit an ObjectServer file:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">System</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Log Files</span>. </span> The <span class="keyword wintitle">Log
+Files</span> pane opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To add a file, click <span class="ph uicontrol">Add Log File</span> in
+the toolbar.</span> The <span class="keyword wintitle">File Details</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit the file details, select the file to edit and then
+click <span class="ph uicontrol">Edit Log File</span> in the toolbar.</span> The <span class="keyword wintitle">File Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the ObjectServer file; for example, a name that
+provides some meaning about its usage. Note that this is not the file name
+as it will be created on the file system; to specify this, use the <span class="ph uicontrol">Full
+File Path</span> field. If you are editing a file, you cannot change
+the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Full File Path</dt>
+<dd class="dd">Type the full path and file name of the physical file; for example, <span class="ph filepath">/opt/netcool/omnibus/log/status.log</span>.<div class="note note"><span class="notetitle">Note:</span> A
+number is automatically appended to the file name on the file system. </div>
+</dd>
+<dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to activate the ObjectServer file. If not activated,
+the file will exist on the file system, but cannot be written to. You can
+specify the ObjectServer file information and then activate the file at a
+later time.</dd>
+<dt class="dt dlterm">Unlimited File Size</dt>
+<dd class="dd">Select this check box if you want information to be written to a single
+file with an unlimited size. If you choose this setting, the <span class="ph uicontrol">Max.
+Size</span> and <span class="ph uicontrol">Max. Files</span> fields are not displayed
+in the window.</dd>
+<dd class="dd">When this check box is clear, information can be written to a single file,
+or to a pool of files that will each be written to in turn when a specified
+maximum size is reached. If you choose this setting, you must specify associated
+values in the <span class="ph uicontrol">Max. Size</span> and <span class="ph uicontrol">Max. Files</span> fields.</dd>
+<dt class="dt dlterm">Truncate</dt>
+<dd class="dd">Click this button to clear any information that has been written to the
+physical file. This does not delete the file. In situations where there is
+more than one physical file in a set, only the file that is currently being
+written to on the file system is truncated.<div class="note note"><span class="notetitle">Note:</span> This button is
+visible only when you are editing file details.</div>
+</dd>
+<dt class="dt dlterm">Max. Size</dt>
+<dd class="dd">Specify the maximum ObjectServer file size and then select a unit of measurement.
+The minimum file size is 1 KB and the maximum file size is 4 GB. <div class="note note"><span class="notetitle">Note:</span> The
+operating system may place further restrictions on the maximum size of a single
+file.</div>
+</dd>
+<dt class="dt dlterm">Max. Files</dt>
+<dd class="dd">Specify the maximum number of ObjectServer files to create.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the file details and close the window. New file
+details are added to the <span class="keyword wintitle">Log Files</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringobjservfiles.html" title="ObjectServer files are user-defined storage objects that hold log or report data.">Configuring ObjectServer files</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_objservfilecreationseq.html" title="Each file in a file set is indicated by a number appended to the file name (or file extension, if there is one).">ObjectServer file creation sequence</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

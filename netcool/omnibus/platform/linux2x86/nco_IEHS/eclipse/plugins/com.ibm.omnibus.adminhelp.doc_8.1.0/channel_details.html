@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Channel Details" />
+<meta name="abstract" content="Use this window to set up a new channel or edit the details of an existing channel." />
+<meta name="Description" content="Use this window to set up a new channel or edit the details of an existing channel." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_aen_creatingeditchannel.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_channeldetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Channel Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_channeldetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Channel Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new channel or edit the details of
+an existing channel.</p>
+<div class="section">The <span class="keyword wintitle">Channel Details</span> window contains the following
+areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_channeldetailswindow__netom_channeldetails_channelsetuparea">Channel setup area</a></li>
+<li class="li"><a class="xref" href="#netom_channeldetailswindow__netom_channeldetails_columnstab">Columns tab</a></li>
+<li class="li"><a class="xref" href="#netom_channeldetailswindow__netom_channeldetails_recipientstab">Recipients tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_channeldetailswindow__netom_channeldetails_channelsetuparea"><h2 class="title sectiontitle">Channel setup area</h2><div class="p">Complete
+this area as follows:<dl class="dl" id="netom_channeldetailswindow__netom_channeldetails_channelsetupfields"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the channel. If you are editing a channel, you
+cannot change the name. </dd>
+<dt class="dt dlterm">Description</dt>
+<dd class="dd">Type meaningful text that summarizes the function of the channel. </dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_channeldetailswindow__netom_channeldetails_columnstab"><h2 class="title sectiontitle">Columns tab</h2><div class="p">Use
+this tab to specify which columns that you want to add to the channel, from
+the alerts.status table. Complete this tab as follows: <dl class="dl" id="netom_channeldetailswindow__netom_channeldetails_columnstabfields"><dt class="dt dlterm">Add new Channel Columns</dt>
+<dd class="dd">Click this button to add columns to the channel. The <span class="keyword wintitle">Channel
+Column Details</span> window opens. Complete this window as follows, and
+then save your changes:</dd>
+<dd class="dd"><dl class="dl"><dt class="dt dlterm">Table</dt>
+<dd class="dd">From the left list, select an ObjectServer database. From the right list,
+select a table in that database.</dd>
+<dd class="dd">If you are editing channel columns, you cannot change the database or
+table name.<div class="note restriction"><span class="restrictiontitle">Restriction:</span> Currently, support is available only for
+events in the alerts.status table. </div>
+</dd>
+<dt class="dt dlterm">Columns: Available</dt>
+<dd class="dd">This list is populated with the names of columns that are defined in the
+selected database table, and which you can assign to the channel. To assign
+one or more of these columns, use the arrow keys to move the columns to the <span class="ph uicontrol">Selected</span> list.</dd>
+<dd class="dd">To move all columns to the <span class="ph uicontrol">Selected</span> list, click <span class="ph uicontrol">&gt;&gt;</span>.
+To move a single column or multiple columns to the <span class="ph uicontrol">Selected</span> list,
+select each column and then click <span class="ph uicontrol">&gt;</span>. You can use the
+SHIFT key for consecutive selections, or the CTRL key for non-consecutive
+selections.</dd>
+<dd class="dd">You can also double-click a column to move it from the <span class="ph uicontrol">Available</span> list
+to the <span class="ph uicontrol">Selected</span> list. Columns are added to the end
+of the <span class="ph uicontrol">Selected</span> list.</dd>
+<dt class="dt dlterm">Columns: Selected</dt>
+<dd class="dd">This list contains the columns that are included in the channel definition.
+To remove columns from the channel definition, use the arrow keys to move
+the columns to the <span class="ph uicontrol">Available</span> list. </dd>
+<dd class="dd">To move all columns to the <span class="ph uicontrol">Available</span> list, click <span class="ph uicontrol">&lt;&lt;</span>.
+To move a single column or multiple columns to the <span class="ph uicontrol">Available</span> list,
+select each column and then click <span class="ph uicontrol">&lt;</span>. You can use
+the SHIFT key for consecutive selections, or the CTRL key for non-consecutive
+selections.</dd>
+<dd class="dd">You can also double-click a column to move it from the <span class="ph uicontrol">Selected</span> list
+to the <span class="ph uicontrol">Available</span> list.</dd>
+<dd class="dd">Use the arrow buttons to the right of the <span class="ph uicontrol">Selected</span> list
+to specify the position of the column data within the pop-up notifier in the
+accelerated event notification client. The <span class="ph uicontrol">Selected</span> list
+displays the following default markers to indicate the position of the column
+data:<ul class="ul"><li class="li">H: Heading</li>
+<li class="li">F: First Line</li>
+<li class="li">S: Second Line</li>
+<li class="li">M: Main Message</li>
+<li class="li">N: Note</li>
+</ul>
+</dd>
+<dd class="dd">To change the position of a column, select it and then click the relevant
+arrow button. Use the arrow buttons as follows: <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Arrow buttons</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d73814e158">Button</th>
+<th class="entry" valign="bottom" id="d73814e160">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d73814e158 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="This figure shows the Top button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" headers="d73814e160 ">Moves the selected column to the top of the <span class="ph uicontrol">Selected</span> list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d73814e158 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="This figure shows the Up button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" headers="d73814e160 ">Moves the selected column one position up in the <span class="ph uicontrol">Selected</span> list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d73814e158 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="This figure shows the Down button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" headers="d73814e160 ">Moves the selected column one position down in the <span class="ph uicontrol">Selected</span> list.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d73814e158 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="This figure shows the Last button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" headers="d73814e160 ">Moves the selected column to the bottom of the <span class="ph uicontrol">Selected</span> list.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+</dl>
+ </dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Columns</span> tab in the <span class="keyword wintitle">Channel
+Details</span> window, your column selections are shown within a single
+row. (You cannot add more than one row.)</dd>
+<dt class="dt dlterm">Edit selected Channel Columns</dt>
+<dd class="dd">Click this button to edit the column definition for the channel. Select
+the row in the <span class="ph uicontrol">Columns</span> tab and then click the button.
+The <span class="keyword wintitle">Channel Column Details</span> window opens. Amend your column
+selections within this window and then save your changes to return to the <span class="ph uicontrol">Columns</span> tab. </dd>
+<dt class="dt dlterm">Delete selected Channel Columns</dt>
+<dd class="dd">Use this button to delete a column definition for the channel. Select
+the row in the <span class="ph uicontrol">Columns</span> table and then click <span class="ph uicontrol">Delete</span>.
+When prompted, confirm the deletion. Your changes are reflected in the <span class="ph uicontrol">Columns</span> tab. </dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_channeldetailswindow__netom_channeldetails_recipientstab"><h2 class="title sectiontitle">Recipients tab</h2><div class="p">Use
+this tab to specify the recipients of the column data that you define for
+the channel. Complete this tab as follows:<dl class="dl" id="netom_channeldetailswindow__netom_channeldetails_recipientstabfields"><dt class="dt dlterm">Add new Channel Recipient</dt>
+<dd class="dd">Click this button to specify recipients for the channel information. The <span class="keyword wintitle">Channel
+Recipient Details</span> window opens. Complete this window as follows,
+and then save your changes:</dd>
+<dd class="dd"><dl class="dl"><dt class="dt dlterm">isGroup</dt>
+<dd class="dd">Select this check box to indicate that the channel recipients are a group
+of users. Clear this check box if the channel recipient is a single user.</dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">This list works in conjunction with the <span class="ph uicontrol">isGroup</span> check
+box, and is populated either with a list of all users or a list of all groups
+in the ObjectServer. Select the name of the user or group who should receive
+the channel data.</dd>
+<dt class="dt dlterm">Hostname</dt>
+<dd class="dd">Type the name of the connected host. You can use regular expressions to
+filter on connections that match this value. Leave the field blank for a match
+on any host name. For example, enter the regular expression <kbd class="ph userinput">*test*</kbd> to
+match any host with the string <samp class="ph codeph">test</samp> in its name. </dd>
+<dt class="dt dlterm">Application Name</dt>
+<dd class="dd">Type the name of an application that is connected to the ObjectServer.
+You can use regular expressions to filter on connections that match your entry.
+For example, <kbd class="ph userinput">*event*</kbd> indicates match any host with
+the string <samp class="ph codeph">event</samp> in its name. Leave this field blank to match
+on any application name. </dd>
+<dt class="dt dlterm">Application Description</dt>
+<dd class="dd">Type an application description. You can use regular expressions to filter
+on connections that match your entry. For example, <kbd class="ph userinput">*real time*</kbd> matches
+any host with the string <samp class="ph codeph">real time</samp> in its application description.
+Leave this field blank to match on any application description.</dd>
+</dl>
+</dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Recipients</span> tab in the <span class="keyword wintitle">Channel
+Details</span> window, the recipient details are shown in a single row.
+(You can add further rows of recipients.)</dd>
+<dt class="dt dlterm">Edit the selected Channel Recipient</dt>
+<dd class="dd">Click this button to edit the recipient details for any selected row in
+the <span class="ph uicontrol">Recipients</span> tab. The <span class="keyword wintitle">Channel Recipient
+Details</span> window opens. Amend the recipient details and save your
+changes to return to the <span class="ph uicontrol">Recipients</span> tab.</dd>
+<dt class="dt dlterm">Delete the selected Channel Recipient</dt>
+<dd class="dd">Use this button to remove recipients from the channel definition. Select
+the row of recipients that you want to remove and then click this button.
+When prompted, confirm the deletion. Your changes are reflected in the <span class="ph uicontrol">Recipients</span> tab.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_channeldetailswindow__netom_channeldetails_saving_closing"><h2 class="title sectiontitle">Saving your channel
+details</h2><div class="p">After creating or editing a channel, you can save or cancel
+the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_channeldetailswindow__netom_channeldetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the channel details and close the window. New
+channels are added to the <span class="keyword wintitle">Channels</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_aen_creatingeditchannel.html" title="You must create channels on an ObjectServer from which the accelerated events will be forwarded.">Creating and editing channels</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

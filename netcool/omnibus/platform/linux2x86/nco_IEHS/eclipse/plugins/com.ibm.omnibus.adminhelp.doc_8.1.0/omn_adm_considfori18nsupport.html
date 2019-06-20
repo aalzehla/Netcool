@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Considerations for multicultural support" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus supports a variety of single byte and multi-byte character encodings for use in different locales." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus supports a variety of single byte and multi-byte character encodings for use in different locales." />
+<meta name="DC.subject" content="Netcool/OMNIbus Administrator, multicultural support, multicultural support, Netcool/OMNIbus Administrator" />
+<meta name="keywords" content="Netcool/OMNIbus Administrator, multicultural support, multicultural support, Netcool/OMNIbus Administrator" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_gettingstartedwithadmin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_i18nsupport.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="xF1144424260039" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_gettingstartedwithadmin.html" />
+<title>Considerations for multicultural support</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="xF1144424260039">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Considerations for multicultural support</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> supports
+a variety of single byte and multi-byte character encodings for use
+in different locales. </p>
+<div class="section"><p class="p">If user names and passwords are specified in multi-byte
+characters and these credentials are to be verified against external
+authentication sources, then these sources must also support multi-byte
+characters. If multi-byte characters are not supported, user names
+and passwords must be specified using ASCII characters. </p>
+<div class="p"><span class="ph">When using Netcool/OMNIbus Administrator,
+you must ensure that the character set encoding of each ObjectServer
+that is being managed has a corresponding entry in the <span class="ph filepath">$NCHOME/omnibus/java/jars/csemap.dat</span> file.
+This file provides a mapping between Sybase and JRE character set
+encoding naming conventions. If the character set encoding of an ObjectServer
+is missing from <span class="ph filepath">csemap.dat</span>, you must add a mapping
+to this file by using the format:</span><pre class="pre codeblock"><code><var class="keyword varname">Sybase_encoding Java_encoding</var></code></pre>
+</div>
+<div class="p">For example: <pre class="pre codeblock"><code>ascii_7 ASCII</code></pre>
+</div>
+<p class="p"></p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_gettingstartedwithadmin.html" title="Netcool/OMNIbus Administrator provides a visual interface from which you can manage your ObjectServers and configure process control.">Getting started with Netcool/OMNIbus Administrator</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_i18nsupport.html" title="Tivoli Netcool/OMNIbus uses the International Components for Unicode (ICU) library for character set conversion, and supports the character encodings that ICU supports.">Multicultural support</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

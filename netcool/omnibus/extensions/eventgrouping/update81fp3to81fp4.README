@@ -1,0 +1,19 @@
+
+TO UPDATE AN EXISTING FP3 SCOPE-BASED EVENT GROUPING CONFIGURATION TO FP4:
+
+1) APPLY update81fp3to81fp4.sql TO EXISTING AGGREGATION OBJECTSERVERS:
+
+- $OMNIHOME/bin/nco_sql -server AGG_P -user root -password netcool < update81fp3to81fp4.sql
+- $OMNIHOME/bin/nco_sql -server AGG_B -user root -password netcool < update81fp3to81fp4.sql
+
+2) ADD TO EXISTING $OMNIHOME/etc/AGG_GATE.map:
+
+- Add QuietPeriod TO StatusMap
+- Add ExpireTime TO MasterCorrelationScopeIDMap
+- Add ExpireTime TO MasterCorrelationScopeAliasMap
+
+3) INSTALL COLLECTION AND DISPLAY COMPONENTS, IF APPLICABLE. SEE INSTRUCTIONS HERE:
+
+	http://ibm.biz/eg_templates
+
+

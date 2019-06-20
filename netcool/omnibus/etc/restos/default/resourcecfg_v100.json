@@ -1,0 +1,559 @@
+{
+	"Event" : 
+	[
+		{
+			"nsprefix" : "dcterms",
+			"nsuri" : "http:\/\/purl.org\/dc\/terms\/",
+			"types" : [
+				{
+					"os"   : "Identifier",
+					"oslc" : "identifier",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os"   : "FirstOccurrence",
+					"oslc" : "created",
+					"type" : "dateTime",
+					"systemColumn" : "false"
+				},
+				{
+					"os"   : "OwnerUID",
+					"oslc" : "creator",
+					"type" : "ResourceUID",
+					"systemColumn" : "false"
+				}
+			]
+		},
+		{
+			"nsprefix" : "crtv",
+			"nsuri" : "http:\/\/open-services.net\/ns\/crtv#",
+			"types" : [
+				{
+					"os" : "Severity",
+					"oslc" : "severity",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Summary",
+					"oslc" : "summary",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Node",
+					"oslc" : "node",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Agent",
+					"oslc" : "agent",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "AlertGroup",
+					"oslc" : "alertGroup",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "LastOccurrence",
+					"oslc" : "lastOccurrence",
+					"type" : "dateTime",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Tally",
+					"oslc" : "tally",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Acknowledged",
+					"oslc" : "acknowledged",
+					"type" : "boolean",
+					"systemColumn" : "false"
+				}
+			]
+		},
+		{
+			"nsprefix" : "oslcem",
+			"nsuri" : "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types" : [
+				{
+					"os" : "Serial",
+					"oslc" : "serial",
+					"type" : "integer",
+					"systemColumn" : "true"
+				},
+				{
+					"os" : "ServerSerial",
+					"oslc" : "serverSerial",
+					"type" : "integer",
+					"systemColumn" : "true"
+				},
+				{
+					"os" : "ServerName",
+					"oslc" : "serverName",
+					"type" : "string",
+					"systemColumn" : "true"
+				},
+				{
+					"os" : "NodeAlias",
+					"oslc" : "nodeAlias",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "AlertKey",
+					"oslc" : "alertKey",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Manager",
+					"oslc" : "manager",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "StateChange",
+					"oslc" : "stateChange",
+					"type" : "dateTime",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "InternalLast",
+					"oslc" : "internalLast",
+					"type" : "dateTime",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Type",
+					"oslc" : "type",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Class",
+					"oslc" : "class",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Grade",
+					"oslc" : "grade",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "OwnerGID",
+					"oslc" : "ownerGID",
+					"type" : "ResourceGID",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "TaskList",
+					"oslc" : "taskList",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "SuppressEscl",
+					"oslc" : "suppressEscl",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Flash",
+					"oslc" : "flash",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "ExpireTime",
+					"oslc" : "expireTime",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Customer",
+					"oslc" : "customer",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Service",
+					"oslc" : "service",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "ProbeSubSecondId",
+					"oslc" : "probeSubSecondId",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "",
+					"oslc" : "journal",
+					"type" : "ResourceJournal",
+					"systemColumn" : "true"
+				},
+				{
+					"os" : "",
+					"oslc" : "detail",
+					"type" : "ResourceDetail",
+					"systemColumn" : "true"
+				}
+			]
+		},
+		{
+			"nsprefix" : "oslcemp",
+			"nsuri" : "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#",
+			"types" : [
+				{
+					"os" : "EventId",
+					"oslc" : "eventId",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "ProcessReq",
+					"oslc" : "processReq",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosSerial",
+					"oslc" : "nmosSerial",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosObjInst",
+					"oslc" : "nmosObjInst",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosCauseType",
+					"oslc" : "nmosCauseType",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosDomainName",
+					"oslc" : "nmosDomainName",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosEntityId",
+					"oslc" : "nmosEntityId",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosManagedStatus",
+					"oslc" : "nmosManagedStatus",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "NmosEventMap",
+					"oslc" : "nmosEventMap",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "LocalNodeAlias",
+					"oslc" : "localNodeAlias",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "LocalPriObj",
+					"oslc" : "localPriObj",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "LocalSecObj",
+					"oslc" : "localSecObj",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "LocalRootObj",
+					"oslc" : "localRootObj",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "RemoteNodeAlias",
+					"oslc" : "remoteNodeAlias",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "RemotePriObj",
+					"oslc" : "remotePriObj",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "RemoteSecObj",
+					"oslc" : "remoteSecObj",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "RemoteRootObj",
+					"oslc" : "remoteRootObj",
+					"type" : "string",
+					"systemColumn" : "false"
+				}
+			]
+		},
+		{
+			"nsprefix" : "oslcemb",
+			"nsuri" : "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/tbsm#",
+			"types" : [
+				{
+					"os" : "BSM_Identity",
+					"oslc" : "bsmIdentity",
+					"type" : "string",
+					"systemColumn" : "false"
+				}
+			]
+		},
+		{
+			"nsprefix" : "oslcemm",
+			"nsuri" : "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/misc#",
+			"types" : [
+				{
+					"os" : "Poll",
+					"oslc" : "poll",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Location",
+					"oslc" : "location",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "PhysicalSlot",
+					"oslc" : "physicalSlot",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "PhysicalPort",
+					"oslc" : "physicalPort",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "PhysicalCard",
+					"oslc" : "physicalCard",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "X733EventType",
+					"oslc" : "x733EventType",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "X733ProbableCause",
+					"oslc" : "x733ProbableCause",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "X733SpecificProb",
+					"oslc" : "x733SpecificProb",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "X733CorrNotif",
+					"oslc" : "x733CorrNotif",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "URL",
+					"oslc" : "url",
+					"type" : "Resource",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "ExtendedAttr",
+					"oslc" : "extendedAttr",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "OldRow",
+					"oslc" : "oldRow",
+					"type" : "integer",
+					"systemColumn" : "false"
+				}
+			]
+		}
+	],
+	"Journal" :
+	[
+		{
+			"nsprefix" : "dcterms",
+			"nsuri" : "http:\/\/purl.org\/dc\/terms\/",
+			"types" : [
+				{
+					"os" : "KeyField",
+					"oslc" : "identifier",
+					"type" : "string",
+					"systemColumn" : "true"
+				},
+				{
+					"os" : "UID",
+					"oslc" : "creator",
+					"type" : "ResourceUID",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Chrono",
+					"oslc" : "created",
+					"type" : "dateTime",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Text",
+					"oslc" : "content",
+					"type" : "journal",
+					"systemColumn" : "false"
+				}
+			]
+		},
+		{
+			"nsprefix" : "oslcem",
+			"nsuri" : "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types" : [
+				{
+					"os" : "Serial",
+					"oslc" : "event",
+					"type" : "ResourceEvent",
+					"systemColumn" : "false"
+				}
+			]
+		}
+	],
+	"Detail" :
+	[
+		{
+			"nsprefix" : "dcterms",
+			"nsuri" : "http:\/\/purl.org\/dc\/terms\/",
+			"types" : [
+				{
+					"os" : "KeyField",
+					"oslc" : "identifier",
+					"type" : "string",
+					"systemColumn" : "true"
+				}
+			]
+		},
+		{
+			"nsprefix" : "oslcem",
+			"nsuri" : "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types" : [
+				{
+					"os" : "AttrVal",
+					"oslc" : "attrValue",
+					"type" : "boolean",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Sequence",
+					"oslc" : "sequence",
+					"type" : "integer",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Name",
+					"oslc" : "name",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Detail",
+					"oslc" : "detail",
+					"type" : "string",
+					"systemColumn" : "false"
+				},
+				{
+					"os" : "Identifier",
+					"oslc" : "event",
+					"type" : "ResourceEvent",
+					"systemColumn" : "false"
+				}
+			]
+		}
+	],
+	"CollectionIdentifierPattern": [
+		{
+			"nsprefix": "dcterms",
+			"nsuri": "http:\/\/purl.org\/dc\/terms\/",
+			"types": [
+				{
+					"os": "Name",
+					"oslc": "title",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Description",
+					"oslc": "description",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslc",
+			"nsuri": "http:\/\/open-services.net\/ns\/core#",
+			"types": [
+				{
+					"os": "ResourceType",
+					"oslc": "describes",
+					"systemColumn": "true",
+					"type": "Resource"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcem",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types": [
+				{
+					"os": "QueryPattern",
+					"oslc": "clause",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "QueryPattern",
+					"oslc": "uriTemplate",
+					"systemColumn": "false",
+					"type": "Resource"
+				}
+			]
+		}
+	],
+}

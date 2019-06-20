@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="示例：从工具启动瞬时事件列表" />
+<meta name="abstract" content="这些示例显示在 UNIX 和 Windows 上如何从工具运行瞬时事件列表。" />
+<meta name="description" content="这些示例显示在 UNIX 和 Windows 上如何从工具运行瞬时事件列表。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_exmplestartingtransevntlsttool" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_runningtransientevntlsts.html" />
+<title>示例：从工具启动瞬时事件列表</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_exmplestartingtransevntlsttool">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">示例：从工具启动瞬时事件列表</h1>
+<div class="body refbody"><p class="shortdesc">这些示例显示在 UNIX 和 Windows 上如何从工具运行瞬时事件列表。</p>
+<div class="section"><div class="note tip"><span class="tiptitle">提示：</span> 在双服务器桌面（DSD）配置中，使用 %desktopserver 内部值代替以下示例命令中显示的 %server 值。 这是为了保证 ObjectServer 将消息发送给正确的客户机。</div>
+</div>
+<div class="example"><h2 class="title sectiontitle">示例：nco_elct 命令（UNIX 上）</h2><p class="p">以下例子显示了如何在随 <span class="keyword">Tivoli Netcool/OMNIbus</span> 提供的“显示相关 FE 节点”工具中使用 <span class="keyword cmdname">nco_elct</span> 实用程序。</p>
+<pre class="pre codeblock"><code>$NCHOME/omnibus/bin/nco_elct -server "%server" -username "%username" <br />-password "%password" -vfile "$NCHOME/omnibus/desktop/default.elv" <br />-ftext "( RemoteNodeAlias != '' and RemoteNodeAlias = '@LocalNodeAlias' ) <br />or ( LocalNodeAlias != '' and LocalNodeAlias = '@RemoteNodeAlias') <br />or Node = '@RemoteNodeAlias' or RemoteNodeAlias = '@Node'"</code></pre>
+</div>
+<div class="example"><h2 class="title sectiontitle">示例：NCOelct 命令（Windows 上）</h2><p class="p">以下示例显示如何在随 <span class="keyword">Tivoli Netcool/OMNIbus</span> 提供的“显示相关 FE 节点”（Windows）工具中使用 <span class="keyword cmdname">NCOelct.exe</span> 实用程序。</p>
+<pre class="pre codeblock"><code>"$(NCHOME)/omnibus/desktop/NCOelct.exe" -server "%server" -username "%username" <br />-password "%password" -vfile "$(NCHOME)/omnibus/ini/default.elv" <br />-elf "$(NCHOME)/omnibus/ini/tool.elf" -params "( RemoteNodeAlias != \\'\\' <br />and RemoteNodeAlias = \\'@LocalNodeAlias\\' ) <br />or ( LocalNodeAlias != \\'\\' and LocalNodeAlias = \\'@RemoteNodeAlias\\') <br />or Node = \\'@RemoteNodeAlias\\' or RemoteNodeAlias = \\'@Node\\'"</code></pre>
+<p class="p"><span class="ph filepath">tool.elf</span> 文件（在前述 <span class="keyword cmdname">NCOelct</span> 命令中引用）
+具有以下内容：</p>
+<pre class="pre codeblock"><code>filter_name = 'ToolFilter';
+filter_text = '@FilterText';
+filter_metric = 'avg(Severity)';
+# End of file</code></pre>
+<p class="p">工具中表述的 Windows NCHOME 环境变量的用法与常规用法（%NCHOME%）不同。造成此差异的原因在于变量是由内置工具解析器而不是由 Windows 操作系统进行解释和解析的。</p>
+<p class="p">从事件列表运行工具时，<span class="keyword option">-params</span> 选项后的整个字符串将替换 <span class="ph filepath">tool.elf</span> 文件中的 @FilterText 占位符。
+在 <span class="keyword option">-params</span> 字符串中，事件列表中当前选定事件中的值将替换 @LocalNodeAlias、@RemoteNodeAlias 和 @Node 占位符。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_runningtransientevntlsts.html" title="您可直接从命令行、脚本或部分事件列表工具运行定制的瞬时事件列表。">从命令行、脚本和工具运行瞬时事件列表</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

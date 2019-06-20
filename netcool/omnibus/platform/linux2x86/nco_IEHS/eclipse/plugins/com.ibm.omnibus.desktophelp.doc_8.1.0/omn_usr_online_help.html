@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Online help" />
+<meta name="abstract" content="The online help is deployed by IBM Eclipse Help System (IEHS), which is a web application. Based on your installation and configuration settings, you can access the online help in either standalone mode or information center mode." />
+<meta name="Description" content="The online help is deployed by IBM Eclipse Help System (IEHS), which is a web application. Based on your installation and configuration settings, you can access the online help in either standalone mode or information center mode." />
+<meta name="DC.subject" content="Desktop tools, online help, IEHS, IBM Eclipse Help System, information center" />
+<meta name="keywords" content="Desktop tools, online help, IEHS, IBM Eclipse Help System, information center" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_unixconfiguringonlinehelp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_online_help" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>Online help</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_online_help">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Online help</h1>
+<div class="body refbody"><p class="shortdesc">The online help is deployed by IBM® Eclipse Help System (IEHS), which is a web
+application. Based on your installation and configuration settings,
+you can access the online help in either standalone mode or information
+center mode.</p>
+<div class="section"><img src="ngunix.gif" alt="For UNIX operating system" /> <img src="nglinux.gif" alt="For Linux operating system" /> <p class="p">Before you can access online help
+in information center mode, your system administrator must start the
+designated remote IEHS server.</p>
+<p class="p">When you access online help in
+standalone mode, your default help browser window automatically opens
+with the relevant text. The local IEHS server starts with the first
+help request and continues to run until you shut it down.</p>
+<p class="p">To
+shut down the local IEHS server, run the following command: <kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd>.
+In general, run the <span class="keyword cmdname">help_end</span> command only before
+rebooting your computer.</p>
+<p class="p">In standalone mode, only the browser
+that is running on the local computer can display a help topic. If
+an open browser is running on another host, the help system attempts
+to use that browser to display the online help. This results in the
+following error message:</p>
+<div class="p"><pre class="pre msgblock"><code>The connection was refused when attempting to connect to localhost:<var class="keyword varname">name</var></code></pre>
+</div>
+<p class="p">Close
+the window to display the help in the correct browser.</p>
+</div>
+<div class="section"><img src="ngwin.gif" alt="For Windows operating system" /> <p class="p">When you access online help in standalone
+mode, your default help browser window automatically opens with the
+relevant text. The local IEHS server starts with the first help request
+and continues to run until you shut it down. To shut down the local
+IEHS server, run the following command:</p>
+<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\bin\help_end.bat</kbd></p>
+<p class="p">In
+general, run the <span class="keyword cmdname">help_end.bat</span> command only before
+rebooting your computer.</p>
+<p class="p">Before you can access online help in
+information center mode, your system administrator must start the
+designated remote IEHS server.</p>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> Some temporary
+files that are generated by the IEHS server are not removed if you
+reboot the system or stop the IEHS <span class="ph filepath">javaw.exe</span> process
+without first shutting down the IEHS server. This might result in
+difficulty accessing the online help.</div>
+</div>
+<p class="p">In both standalone
+mode and information center mode, you must run <span class="keyword cmdname">help_end.bat</span> or <span class="keyword cmdname">IC_end.bat</span> to
+shut down the IEHS server <em class="ph i">before</em> rebooting the system, and
+you must not stop the <span class="ph filepath">javaw.exe</span> process manually.
+If you cannot access the help in standalone mode or cannot start the
+IEHS server in information center mode, run <span class="keyword cmdname">help_end.bat</span> or <span class="keyword cmdname">IC_end.bat</span> to
+clear the temporary files, and then try again.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="You can use the Conductor to manage the Tivoli Netcool/OMNIbus desktop tools (or client applications).">Accessing the desktop tools</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_con_unixconfiguringonlinehelp.html" title="After you install Tivoli Netcool/OMNIbus, you might need to configure your system to access the online help. Online help is deployed using the IBM Eclipse Help System (IEHS) and can be accessed in standalone mode or information center mode.">Configuring and running online help</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

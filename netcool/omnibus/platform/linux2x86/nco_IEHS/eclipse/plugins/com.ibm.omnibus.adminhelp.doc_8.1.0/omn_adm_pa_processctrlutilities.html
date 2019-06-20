@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Process control utilities" />
+<meta name="abstract" content="Command-line utilities are available to help you manage the process agents, processes, and services in a process control system." />
+<meta name="Description" content="Command-line utilities are available to help you manage the process agents, processes, and services in a process control system." />
+<meta name="DC.subject" content="process control, utilities" />
+<meta name="keywords" content="process control, utilities" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_procctrlcomponents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_displayingstatusncopastatus.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_startingservprocncopastart.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_stoppingservprocncopastop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_shuttingpancopashutdn.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_addingservprocncopaaddetry.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_processctrlutilities" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_procctrlcomponents.html" />
+<title>Process control utilities</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_processctrlutilities">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Process control utilities</h1>
+<div class="body conbody"><p class="shortdesc">Command-line utilities are available to help you manage
+the process agents, processes, and services in a process control system.</p>
+<div class="section"><p class="p">The following table lists these command-line utilities.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Process control command-line utilities</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d3762e25">Utility</th>
+<th class="entry" valign="bottom" width="60%" id="d3762e27">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d3762e25 "><span class="keyword cmdname">nco_pa_status</span></td>
+<td class="entry" valign="top" width="60%" headers="d3762e27 ">This utility retrieves and displays the status
+of services and processes that are being controlled by the process
+agent.<p class="p">If a process is defined as unmanaged (<samp class="ph codeph">Managed = False</samp>)
+in the process agent configuration file (<span class="ph filepath">nco_pa.conf</span>), <span class="keyword cmdname">nco_pa_status</span> can
+return a random status when it checks the process. For example, the
+returned status might be <samp class="ph codeph">DEAD</samp> when the process is
+running correctly. This is not an error and it happens because the
+process agent starts unmanaged processes but does not monitor them.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d3762e25 "><span class="keyword cmdname">nco_pa_start</span></td>
+<td class="entry" valign="top" width="60%" headers="d3762e27 ">This utility starts a service or process that
+is located anywhere in the configuration.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d3762e25 "><span class="keyword cmdname">nco_pa_stop</span></td>
+<td class="entry" valign="top" width="60%" headers="d3762e27 ">This utility stops a service or process that
+is located anywhere in the configuration.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d3762e25 "><span class="keyword cmdname">nco_pa_shutdown</span></td>
+<td class="entry" valign="top" width="60%" headers="d3762e27 ">This utility shuts down a process agent.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d3762e25 "><span class="keyword cmdname">nco_pa_addentry</span></td>
+<td class="entry" valign="top" width="60%" headers="d3762e27 ">This utility adds a service or process entry
+while a process agent is running.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_procctrlcomponents.html" title="Process control consists of process agents and their associated configuration files, processes, services, and process control utilities. Processes are organized and run in services. Process control utilities help you to manage the process agents, processes, and services.">Process control components</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_displayingstatusncopastatus.html" title="You can run the nco_pa_status utility to retrieve the status of services in the process control system configuration. For each service, the nco_pa_status utility returns a list of defined processes, the status of each process, and the process identifier.">Displaying the status of services and processes (nco_pa_status)</a></div>
+<div><a class="link" href="omn_adm_pa_startingservprocncopastart.html" title="You can run the nco_pa_start utility to start a service or process at any location in the process control system configuration.">Starting a service or process (nco_pa_start)</a></div>
+<div><a class="link" href="omn_adm_pa_stoppingservprocncopastop.html" title="You can run the nco_pa_stop utility to stop a service or process at any location in the process control system configuration.">Stopping a service or process (nco_pa_stop)</a></div>
+<div><a class="link" href="omn_adm_pa_shuttingpancopashutdn.html" title="You can run the nco_pa_shutdown utility to shut down a process agent and optionally stop associated services and processes.">Shutting down a process agent (nco_pa_shutdown)</a></div>
+<div><a class="link" href="omn_adm_pa_addingservprocncopaaddetry.html" title="You can run the nco_pa_addentry utility to add new services or processes while the process agent is running.">Adding new services or processes (nco_pa_addentry)</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

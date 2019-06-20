@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Importing MIB data" />
+<meta name="abstract" content="How to import SNMP MIB data into MIB Manager." />
+<meta name="Description" content="How to import SNMP MIB data into MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Importing MIB data</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Importing MIB data</h1>
+<div class="body taskbody"><p class="shortdesc">How to import SNMP MIB data into MIB Manager.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">In the <span class="keyword wintitle">Preferences</span> window,
+specify locations for the MIBs that are regularly used by the vendor
+MIBs. Ensure your MIBs are located in vendor-specific directories,
+and that any associated equipment numbers are located in subdirectories.
+Also ensure that these directories do not contain any non-MIB text
+files. Most MIBs are installed into the <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> directory,
+and all the RFC MIBs  are installed in the <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> directory.</p>
+<p class="p">The
+MIBs that you are importing might be dependant on other MIBs. To ensure
+that <span class="keyword">MIB Manager</span> can search for dependant MIBs while performing the
+import, set the search path to the locations of the dependant MIB
+files.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection">To import MIB data:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Click <img class="image" src="../gifs/import.gif" alt="MIB import icon" /> <span class="ph uicontrol">Import</span> or, from the menu,
+click <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Import</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Directory</span> field, specify
+the location of the MIB modules that you want to import.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">To make <span class="keyword">MIB Manager</span> parse all the MIBs found in available subdirectories,
+select the <span class="ph uicontrol">Traverse subdirectories</span> check box.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Import</span>.</span> <p class="p">The <span class="keyword wintitle">Import
+Status</span> window is displayed as the MIB modules are parsed.
+The left side of this window displays the number of different MIB
+object types as each one is discovered during the parsing of the imported
+MIB files.</p>
+  After the MIBs are parsed, <span class="keyword">MIB Manager</span> reviews each MIB module and parses all the MIB objects
+that it locates. After all the objects are parsed, <span class="keyword">MIB Manager</span> reviews each MIB and processes the import statements
+to locate any referenced MIB modules. If any referenced MIB modules
+cannot be located in previously imported MIB modules, <span class="keyword">MIB Manager</span> searches the directories specified in the search
+path. The right side of the <span class="keyword wintitle">Import Status</span> window
+displays icons to show the status of any import statements found in
+the imported MIBs, as shown in the following table:<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="Icons displayed in the Import Status window and what they mean." class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8255e106">Icon</th>
+<th class="entry" valign="bottom" id="d8255e108">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/question_mark.gif" alt="Question mark" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">Indicates that the import statement has not
+been resolved.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/tick.gif" alt="Check mark" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">Indicates that the import statement has been
+resolved.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/cross.gif" alt="Cross" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">Indicates that the MIB Module referenced in
+the import statement could not be resolved.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">You can expand the import statement tree to display which
+MIB modules are using import statements to reference other MIB modules.</p>
+<p class="p"><span class="ph uicontrol">Import
+Complete</span> is displayed at the top of the status frame when
+all the imported MIB files have been processed. You can view the all
+the status messages generated during the import by clicking <span class="ph uicontrol">View
+Status History</span> and using the <span class="ph uicontrol">View</span> drop-down
+list to select a filter option.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Dismiss</span> to close the <span class="keyword wintitle">Import
+Status</span> window.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><p class="p">The <span class="keyword wintitle">MIB Modules</span> view refreshes automatically
+to show the newly imported MIB module names. The <span class="keyword wintitle">OID Tree</span> view
+refreshes automatically to show all the newly imported MIB objects
+To rebuild the tree, <span class="keyword">MIB Manager</span> searches the parent nodes of the tree (<span class="ph filepath">iso</span>, <span class="ph filepath">ccitt</span>,
+and <span class="ph filepath">joint-iso-ccitt</span>) recursively for child nodes
+until it finds a child node that has no associated children. If no
+errors are detected, a fully populated MIB tree is displayed in the <span class="keyword wintitle">OID
+Tree</span> view, which contains the parsed objects.</p>
+<p class="p">Clicking
+an object in the <span class="keyword wintitle">OID Tree</span> view automatically
+displays the object in the <span class="keyword wintitle">MIB Modules</span> view.
+The <span class="keyword wintitle">Details</span> view displays detailed information
+about the selected object.</p>
+<p class="p">The imported MIB modules
+are stored in an xml file which represents the structure of that MIB
+module. The xml files are located in the <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span> directory.</p>
+<p class="p">If unresolved import statements are detected, contact
+the vendor responsible for the missing MIB or MIBs, add the missing
+file or files to the search path and repeat the import.</p>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> <p class="p">Vendors
+sometimes specify duplicate object names, or specify an object name
+that is identical to an object name specified in an RFC.</p>
+<p class="p">For
+example, an object named <samp class="ph codeph">system</samp> is defined in module
+SNMPv2-MI' with OID 1.3.6.1.2.1.1 and another object named <samp class="ph codeph">system</samp> is
+defined in module WINDOWS-NT-PERFORMANCE, with OID 1.3.6.1.4.1.311.1.1.3.1.1.23.
+Also, an object named <samp class="ph codeph">sysDescr</samp> is defined as <samp class="ph codeph">system.1</samp> in
+module SNMPv2-MIB and another object named <samp class="ph codeph">sysFileReadOperationsPerSec</samp> is
+defined as <samp class="ph codeph">system.1</samp> in module WINDOWS-NT-PERFORMANCE.
+In this case, it is unclear which parent object the child objects
+are associated with.</p>
+<p class="p">When an object with a duplicate parent
+name is located, <span class="keyword">MIB Manager</span> attempts to find the parent that is defined in the
+same MIB module. In the previous example, this is WINDOWS-NT-PERFORMANCE.
+If neither of the parents are defined in the same MIB module, <span class="keyword">MIB Manager</span> then searches to see if the parent is defined in
+other MIB modules on which the object is dependant. <span class="keyword">MIB Manager</span> also identifies other MIB modules that reference
+the parent and selects the most commonly referenced parent name. However,
+this could result in an incorrectly populated MIB tree and incorrectly
+calculated OIDs. Therefore, each time <span class="keyword">MIB Manager</span> finds a duplicate object name, it logs a warning
+and records the actions taken to resolve the duplication in a debug
+file.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="You can use MIB Manager to parse MIB modules and create Netcool rules files.">Using Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="Use the directory preferences to specify the directories used for storing imported MIBs, MIB data, and exported rules files.">Setting directory preferences</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="This section describes how to define the MIB Manager preferences that are used to search for the MIB files.">Setting search preferences</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

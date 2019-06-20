@@ -1,0 +1,112 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2005. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Add a user
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export NCHOME OMNIHOME OMNISERVER 
+
+#
+# error message function
+#
+err () {
+        echo "`basename $0`: $@" 1>&2
+        exit 1
+}
+
+#
+# help function
+#
+help () {
+	echo "usage: `basename $1` username passwd uid gid realname" 1>&2
+	echo "    or `basename $1` -help" 1>&2
+	echo
+	exit 0
+}
+
+#
+# Check args
+#
+if [ $# -ne 5 ]; then
+	help $0
+fi
+
+#
+# Set defaults
+#
+OMNISERVER_USER="root"
+OMNISERVER_PASSWD=""
+OMNISERVER="${NCO_SERVER:-NCOMS}"
+
+#
+# Check for execute permission
+#
+if [ ! -x $COMMON_ARCH_BIN_DIR/isql ]; then
+        err "Command interpreter not installed for $ARCH"
+fi
+
+#
+# Run isql - This has the root password here !
+#
+if [ -f $NCHOME/etc/interfaces.$ARCH ]; then
+        INTERFACES=$NCHOME/etc/interfaces.$ARCH
+else
+        INTERFACES=$NCHOME/etc/interfaces
+fi
+SYBASE=$NCHOME/platform/$ARCH export SYBASE
+
+#
+# Retrieve the group name from the group's identifier
+#
+GROUPSTR=`$COMMON_ARCH_BIN_DIR/isql -S$OMNISERVER -U$OMNISERVER_USER -P$OMNISERVER_PASSWD -I$INTERFACES -b <<EOF
+select GroupName from security.groups where GroupID = $4;
+go
+EOF`
+GROUPNAME=`$ECHO $GROUPSTR | $AWK '{print $1;}'`
+# Check we have a row
+if [ "$GROUPNAME" = "(0" ]; then
+    err "Invalid group ID: $4"
+fi
+
+#
+# Create the user and added the user's full name to the conversions table
+#
+$COMMON_ARCH_BIN_DIR/isql -S$OMNISERVER -U$OMNISERVER_USER -P$OMNISERVER_PASSWD -I$INTERFACES <<EOF
+create user '$1' id $3 full name '$5' password '$2';
+go
+alter group '$GROUPNAME' assign members '$1';
+go
+use database alerts;
+delete from conversions where KeyField='OwnerUID$3';
+insert into conversions values ('OwnerUID$3','OwnerUID',$3,'$5');
+go
+EOF

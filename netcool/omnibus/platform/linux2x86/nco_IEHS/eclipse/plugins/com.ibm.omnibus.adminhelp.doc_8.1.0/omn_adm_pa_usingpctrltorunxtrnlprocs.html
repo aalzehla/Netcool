@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Using process control to run external procedures in automations" />
+<meta name="abstract" content="The process control system runs external procedures that are specified in automations. External procedures are run on a local or remote host." />
+<meta name="Description" content="The process control system runs external procedures that are specified in automations. External procedures are run on a local or remote host." />
+<meta name="DC.subject" content="process control, running external procedures" />
+<meta name="keywords" content="process control, running external procedures" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_usingpctrlmanageprocesses.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_howpropscmdlnopts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_host_resolution.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_usingpctrltorunxtrnlprocs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_usingpctrlmanageprocesses.html" />
+<title>Using process control to run external procedures in automations</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_usingpctrltorunxtrnlprocs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Using process control to run external procedures in automations</h1>
+<div class="body conbody"><p class="shortdesc">The process control system runs external procedures that
+are specified in automations. External procedures are run on a local
+or remote host.</p>
+<p class="p">An automation does not run programs by itself. It sends a request
+to a process agent. If necessary, the process agent forwards the request
+to the process agent that is running on the specified host. The remote
+process agent then runs the requested program. </p>
+<p class="p">External procedures can pass between different operating system
+environments, and process agents in one operating system can run automations
+sent by process agents in another operating system.</p>
+<p class="p">When you run the process agent from the command line
+on UNIX and Windows, the working directory for all child
+processes is the directory from which the process agent was started. </p>
+<p class="p">When you run the process agent as a UNIX daemon,
+the working directory for all child processes is <span class="ph filepath">$NCHOME/omnibus</span>. </p>
+<p class="p">On Windows,
+the default directory for a process agent that is running as a Windows service is <span class="ph filepath">%NCHOME%\omnibus\log</span>.
+This directory is also the default working directory of any child
+processes that are spawned by the process agent.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> When running external procedures, the <span class="keyword parmname parmname">PA.Username</span> and <span class="keyword parmname parmname">PA.Password</span> ObjectServer
+properties must be set to a valid user name and password combination
+within the ObjectServer properties file, for authentication purposes.
+The <span class="keyword parmname parmname">PA.Name</span> ObjectServer property must also be
+set to the name of the process agent that the ObjectServer uses to
+run external automations. These settings ensure that connection to
+the process agent, and the running of the external procedure, are
+successful. </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_usingpctrlmanageprocesses.html" title="The Tivoli Netcool/OMNIbus process control system performs two primary tasks. It manages local and remote processes, and runs external procedures that are specified in automations.">Using process control to manage processes and external procedures</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_pa_host_resolution.html" title="Every external automation or process under the control of a process agent must have a specified host. The host is defined either in the process agent configuration file, as part of a process definition, or in the external automation in the ObjectServer.">Host name resolution at startup</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_howpropscmdlnopts.html" title="Use the ObjectServer properties or command-line options to configure settings for the ObjectServer. To avoid errors, add as many properties as possible to the properties file rather than using the command-line options. Additional utilities are provided that you can use to encrypt the property values.">ObjectServer properties and command-line options</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

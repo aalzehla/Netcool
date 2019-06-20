@@ -1,0 +1,24 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2013, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+
+Log("Getting Events for EIC Filter");
+
+Filter = EVENTRULE;
+/*if ( typeof Filter = "undefined" ) {
+  Filter = "1=0"; 
+}*/
+Log("EIC Filter : " + Filter);
+if (Filter == null || Filter == NULL || Filter == "null" ||Filter == "") {
+  Filter = "1=0"; 
+}
+EICPrimaryEvents=GetByFilter('EIC_TopologyVisualization', Filter, false);
+Log(EICPrimaryEvents);

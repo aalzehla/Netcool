@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Netcool MIB マネージャー の使用" />
+<meta name="abstract" content="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。" />
+<meta name="Description" content="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Netcool MIB マネージャー の使用</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB マネージャー</span> の使用</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">MIB マネージャー</span>を使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。</p>
+<p class="p"><span class="keyword">MIB マネージャー</span>には、基本となる MIB および RFC MIB のセットが組み込まれており、これらは、<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs</span> ディレクトリーにあります。
+これらの MIB は、追加の MIB をインポートできるようにするために提供されています。<span class="keyword">MIB マネージャー</span>は、これらのバンドルされた MIB を自動的に使用して、新しい MIB のインポート時に
+依存関係を解決します。バンドルされている MIB モジュールは、
+<span class="keyword">MIB マネージャー</span>を最初に開始する際に<span class="keyword wintitle">「MIB モジュール」</span>ビューに
+表示されます。</p>
+<p class="p"><span class="keyword">MIB マネージャー</span>には、バンドルされている基本 MIB のインポートを表す
+XML データ・ファイルも組み込まれています。<span class="keyword">MIB マネージャー</span>は、これらの XML ファイルを使用して、
+ロー・テキスト MIB ファイルからインポートする MIB データを保管します。</p>
+<p class="p">MIB を、<span class="keyword">MIB マネージャー</span>が開始されるサーバーからアクセス可能な
+ディレクトリーに追加します。標準ベースのすべての MIB は、別々のディレクトリーにインストールする必要があり、これらのディレクトリーは、依存関係を
+容易に解決するために検索パスに配置できます。デフォルトで、基本の SNMP MIB は、<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> ディレクトリーにインストールされ、すべての RFC MIB は、<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> ディレクトリーにインストールされます。</p>
+<div class="section"><h2 class="title sectiontitle">「<span class="keyword">Netcool MIB マネージャー</span>」ウィンドウ</h2><p class="p"><span class="keyword">MIB マネージャー</span>を
+開始すると、以下のエレメントが「<span class="keyword">MIB マネージャー</span>」初期ウィンドウに表示されます。複数のエレメントが、<span class="keyword wintitle">「MIB マネージャー」</span>初期ウィンドウに表示されます。次の図は、それらのエレメントを示しています。</p>
+<div class="fig fignone"><span class="figcap">図 1. 「<span class="keyword">MIB マネージャー</span>」初期ウィンドウ</span><div class="image"><img class="image" src="../../images/cd_omn_mib_screen.gif" alt="「MIB マネージャー」初期ウィンドウを示す画像" /></div></div>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> ツールバー</dt>
+<dd class="dd">使用頻度が最も高い <span class="keyword">MIB マネージャー</span>の機能にアクセスできます。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> パースペクティブ</dt>
+<dd class="dd">MIB データは、2 つのパースペクティブ (<span class="ph uicontrol">「MIB
+マネージャー」</span>または<span class="ph uicontrol">「mib2rules」</span>) のいずれかで表示できます。<span class="ph uicontrol">「MIB
+マネージャー」</span>パースペクティブは、デフォルトのパースペクティブです。<span class="ph uicontrol">「mib2rules」</span>パースペクティブは、
+オブジェクト ID (OID) に焦点を当てており、<span class="keyword cmdname">mib2rules</span> ユーティリティーに精通した
+ユーザーのために提供されています。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> <span class="keyword wintitle">「デバイス」</span>ビュー</dt>
+<dd class="dd">このビューを使用して、
+<span class="keyword">MIB マネージャー</span>・デバイスの作成、更新、および削除を行います。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> <span class="keyword wintitle">「詳細」</span>ビューと<span class="keyword wintitle">「コンソール」</span>ビュー</dt>
+<dd class="dd"><span class="keyword wintitle">「詳細」</span>ビューには、選択された MIB エレメントの詳細が表示されます。<span class="keyword wintitle">「コンソール」</span>ビューには、現在のインスタンスの実行中に <span class="keyword">MIB マネージャー</span>により生成される、すべてのログ・メッセージが表示されます。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> <span class="keyword wintitle">「MIB モジュール」</span></dt>
+<dd class="dd">このビューを使用して、
+MIB モジュールの検索、削除、および特定の MIB 値の検索を行います。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> <span class="keyword wintitle">「OID ツリー」</span>ビュー</dt>
+<dd class="dd">このビューには、インポートされた
+MIB モジュールに存在する、すべての MIB オブジェクトが表示されます。</dd>
+</dl>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">「MIB モジュール」ビュー</a></span><br />
+<span class="keyword wintitle">「MIB モジュール」</span>ビューは、インポートされた
+すべての MIB モジュールを表示します。これを使用して、MIB モジュールの検索、
+MIB モジュールの削除、および特定の MIB 値の検索を行うことができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">「OID ツリー」ビュー</a></span><br />
+「オブジェクト ID (OID) ツリー」ビューは、インポートされた MIB モジュールに
+存在するすべての MIB オブジェクトを表示します。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">MIB データのインポート</a></span><br />
+SNMP MIB データを MIB マネージャーへインポートする方法です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">MIB データのエクスポート</a></span><br />
+<span class="keyword">MIB マネージャー</span>から SNMP MIB データをさまざまなフォーマットに
+エクスポートする方法です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">SNMP トラップの編集</a></span><br />
+SNMP トラップの編集方法です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">SNMP トラップの生成</a></span><br />
+SNMP トラップの生成方法です。この機能は、<span class="keyword">MIB マネージャー</span>で生成される
+ルール・ファイルのテストにも使用できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html">デバイスの作成および削除</a></span><br />
+<span class="keyword">MIB マネージャー</span>・デバイスは、関連する MIB モジュールのグループ化、およびエクスポートに必要なすべてのオブジェクトの定義に使用されます。デバイスの作成、更新、削除は <span class="keyword">MIB マネージャー</span> GUI で行えます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB マネージャーは、IBM Eclipse をベースにした GUI アプリケーションであり、これを使用して Simple Network Management Protocol (SNMP) 管理情報ベース (MIB) ファイルを解析できるとともに、 Netcool ルール・ファイルを生成できます。mib2rules ユーティリティーの置き換えとして使用されることが意図されています。">Netcool MIB マネージャー</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Генерирование прерываний SNMP" />
+<meta name="abstract" content="Как генерировать прерывания SNMP. Эта функциональность может использоваться также для проверки файлов правил, сгенерированных MIB Manager." />
+<meta name="Description" content="Как генерировать прерывания SNMP. Эта функциональность может использоваться также для проверки файлов правил, сгенерированных MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Генерирование прерываний SNMP</h1>
+<div class="body taskbody"><p class="shortdesc">Как генерировать прерывания SNMP. Эта функциональность может использоваться также для проверки файлов правил, сгенерированных <span class="keyword">MIB Manager</span>.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Процедура</h2></div><p class="li stepsection">Чтобы сгенерировать прерывание SNMP:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Выберите <img class="image" src="../gifs/trap.gif" alt="значок Прерывание" /> <span class="ph uicontrol">Прерывание</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Адрес назначения</span> задайте имя хоста или IP-адрес компьютера, где запущена служба SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Порт назначения</span> задайте порт UDP, на котором ведет прием служба SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Сообщество</span> задайте допустимую строку для менеджера Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">В зависимости от типа генерируемого прерывания в окне <span class="keyword wintitle">Генерировать прерывание SNMP</span> может появиться раздел <span class="ph uicontrol">Связывания переменных</span>. Доступные поля в разделе <span class="ph uicontrol">Связывания переменных</span> также зависят от типа генерируемого прерывания.</span> <p class="p">Наводите указатель мыши на имена полей в разделе <span class="ph uicontrol">Связывания переменных</span>, чтобы узнать подробности синтаксиса для переменной в каждом поле. Можно задавать несколько значений, разделенных запятыми. Эти значения будут выбираться случайным образом для построения прерывания.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Показатель повторения</span> задайте количество прерываний (от 1 до 1000), которые можно сгенерировать.</span> <p class="p">Если указать большое число, прерывания будут генерироваться в быстрой последовательности, что может вызвать наплыв оповещений менеджера Trapd. Для значений, больших единицы (&gt;1), и для значений, заданных в разделенных точками с запятой списках, <span class="keyword">MIB Manager</span> произвольным образом выбирает значения из заданных списков и генерирует прерывания со связываниями переменных, представленными произвольными значениями.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Нажмите кнопку <span class="ph uicontrol">Выполнить</span>, чтобы сгенерировать прерывание.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Результаты</h2></div>В поле <span class="ph uicontrol">Результат</span> в окне <span class="keyword wintitle">Генерировать прерывание SNMP</span> будет указано, было ли прерывание успешно сгенерировано.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB Manager можно использовать для синтаксического анализа модулей MIB и создания файлов правил Netcool.">Использование Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

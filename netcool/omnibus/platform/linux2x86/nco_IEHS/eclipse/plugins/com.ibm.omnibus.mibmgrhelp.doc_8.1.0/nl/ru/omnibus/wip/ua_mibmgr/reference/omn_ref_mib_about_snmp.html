@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Об архитектуре SNMP" />
+<meta name="abstract" content="В этом разделе изложена дополнительная информация об архитектуре Simple Network Management Protocol (SNMP), базе управляющей информации (management information base, MIB) SNMP и некоторых дополнительных понятиях MIB." />
+<meta name="Description" content="В этом разделе изложена дополнительная информация об архитектуре Simple Network Management Protocol (SNMP), базе управляющей информации (management information base, MIB) SNMP и некоторых дополнительных понятиях MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Об архитектуре SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Об архитектуре SNMP</h1>
+<div class="body refbody"><p class="shortdesc">В этом разделе изложена дополнительная информация об архитектуре
+Simple Network Management Protocol (SNMP), базе управляющей информации (management information base, MIB) SNMP и некоторых дополнительных понятиях MIB.</p>
+<div class="section"><p class="p">В архитектуре SNMP компонент менеджера управляется как агент. Агентское программное обеспечение работает на сетевом устройстве или программе, отвечает на информационные требования (SET и GET), а затем генерирует автономные уведомления, называемые прерываниями. Программное обеспечение менеджера получает эти прерывания и поддерживает механизм для задания (SET) и получения (GET) объектов SNMP от сетевого устройства.</p>
+<p class="p">Для получения автономных прерывания этот менеджер запускает программу, которая принимает информацию на порту прерываний SNMP TCP/IP (порт 162). Требования SNMP SET и GET используют порт 161. Эта программа обычно называется Trapd или демоном прерываний. Демон прерываний - это процесс, который выполняется в фоновом режиме и выполняет обслуживание на компьютере. Программа Trapd Netcool называется зондом SNMP (<span class="ph filepath">nco_p_mttrapd</span>, где <span class="ph filepath">mt</span> - сокращение от multithreaded, многопоточный) и находится в каталоге <span class="ph filepath">$OMNIHOME/probes/</span>.
+Файлы правил, генерируемые компонентом <span class="keyword">MIB Manager</span>, предназначены для использования зондом SNMP.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Защита</h2><p class="p">Базовая защита в SNMP v1 и v2 обеспечивается при помощи общих строк. Общие строки - это пароли в виде простого текста, посылаемые со всеми требованиями. Для доступа только на чтение и на чтение и запись используются отдельные общие строки. <span class="keyword">MIB Manager</span> должен узнать общую строку, определенную для устройства, прежде чем он сможет выполнить какое-либо требование (только чтение для требования GET или чтение и запись для требования SET); компоненту <span class="keyword">MIB Manager</span> посылаются прерывания SNMP и уведомления с предварительно определенной общей строкой.</p>
+<p class="p">У всех сетевых устройств, поддерживающих SNMP, есть механизм для определения общей строки. Стандартный пароль только для чтения по умолчанию - public, а стандартный пароль для чтения и записи по умолчанию - private. Если общая для устройства не задана, обычно используется один из данных паролей.
+По соображениям защиты его надо изменить при первой возможности.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Дополнительная информация</h2><div class="p">Следующие книги полезны для лучшего понимания структуры SNMP и MIB:<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP (Third Edition)</cite>, Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite>, David Perkins и Evan McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">Обсуждение ASN.1 и Basic Encoding Rules (BER), которые используются для кодировки данных SNMP в пакеты,
+передаваемые по сети (или PDU), смотрите в следующей книге:</p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management
+Standards</cite>, William Stallings (Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">Основные понятия и структура MIB</a></span><br />
+Все модули MIB SNMP, которые определяются для использования конкретным устройством, составляют MIB для этого устройства. Термин MIB часто используется для описания определения отдельного модуля, но это технически некорректно.
+На самом деле MIB - это сочетание всех модулей, используемых для управления конкретным устройством, как аппаратным, так и программным. Следовательно, более точное название для каждого определенного поставщиком или в RFC модуля - модуль MIB SNMP.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">Типы объектов MIB</a></span><br />
+В этой теме описаны типы объектов, определяемых в SNMP v1 и v2.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">Допустимые форматы объектов MIB</a></span><br />
+В этой теме описаны форматы допустимых объектов MIB.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager - это прикладная программа с графическим пользовательским интерфейсом на основе IBM Eclipse, которую можно использовать для синтаксического анализа файлов информационной базы управления (management information base, MIB) протокола SNMP; из них вы можете генерировать файлы правил Netcool. Она предназначена в качестве замены утилиты mib2rules.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

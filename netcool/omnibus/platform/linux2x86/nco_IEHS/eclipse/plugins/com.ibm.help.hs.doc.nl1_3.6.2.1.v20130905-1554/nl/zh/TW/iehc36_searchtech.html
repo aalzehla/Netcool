@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="進階搜尋技術" />
+<meta name="abstract" content="您可以使用引號、萬用字元或布林運算子執行更進階的搜尋，以傳回為數較少的一組搜尋結果範圍" />
+<meta name="description" content="您可以使用引號、萬用字元或布林運算子執行更進階的搜尋，以傳回為數較少的一組搜尋結果範圍" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>進階搜尋技術</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">進階搜尋技術</h1>
+<div class="body"><p class="shortdesc">您可以使用引號、萬用字元或布林運算子執行更進階的搜尋，以傳回為數較少的一組搜尋結果範圍</p>
+<ul class="ul"><li class="li">當您在說明系統中搜尋時，您可以用雙引號括住一些單字或片語，將其識別成確切字串。<p class="p">例如，當您在<span class="ph uicontrol">搜尋</span>欄位中輸入 <kbd class="ph userinput">"log file"</kbd> 時，您搜尋的是所有出現 <em class="ph i">log file</em> 字串的項目。如果未輸入雙引號，會傳回包含 <em class="ph i">log</em> 和 <em class="ph i">file</em> 這兩個字的實例主題。</p>
+</li>
+<li class="li">您可以在搜尋中使用星號 (*) 及問號 (?) 等萬用字元以擴大搜尋範圍。<ul class="ul"><li class="li">您可以在搜尋查詢中使用星號 (*) 代表多個不明或可變的字元。
+例如，如果您輸入 <kbd class="ph userinput">par*</kbd>，則會傳回包含 <em class="ph i">partly</em>、<em class="ph i">participate</em>、<em class="ph i">partial</em> 和其他以 <em class="ph i">par</em> 開頭之單字的主題。<div class="note note"><span class="notetitle">註：</span>  搜尋字串有一項限制：
+使用帶有星號的搜尋詞彙時，星號前必須至少有三個字元，同樣地，沒有萬用字元的搜尋詞彙必須至少包含三個字元。</div>
+</li>
+<li class="li">您可以在搜尋查詢中使用問號代表單一字元。
+例如，如果您輸入 <kbd class="ph userinput">par?</kbd>，則會傳回包含 <em class="ph i">part</em> 的主題，但不會傳回包含 <em class="ph i">partial</em> 或 <em class="ph i">partly</em> 的主題。</li>
+</ul>
+<div class="note note"><span class="notetitle">註：</span> 使用帶有星號 (*) 的搜尋詞彙時，星號前必須至少有三個字元</div>
+</li>
+<li class="li">您可以使用布林運算子 AND、OR 和 NOT 來讓查詢更為明確。例如：
+<dl class="dl"><dt class="dt dlterm">database AND "log file"</dt>
+<dd class="dd">將搜尋結果範圍縮小為同時包含 <em class="ph i">database</em> 詞彙和 <em class="ph i">log file</em> 詞組的主題。</dd>
+<dt class="dt dlterm">database OR "log file"</dt>
+<dd class="dd">將搜尋結果範圍擴充為包含 <em class="ph i">database</em> 詞彙或 <em class="ph i">log file</em> 詞組的主題。</dd>
+<dt class="dt dlterm">database NOT "log file"</dt>
+<dd class="dd">將搜尋結果範圍縮小為包含 <em class="ph i">database</em> 詞彙但不包含 <em class="ph i">log file</em> 詞組的主題。</dd>
+<dt class="dt dlterm">database OR "data base" NOT "log file"</dt>
+<dd class="dd">搜尋包含 <em class="ph i">database</em> 詞彙或 <em class="ph i">data base</em> 詞組，但不包含 <em class="ph i">log file</em> 詞組的主題。</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="iehs36_searching.html" title="您可以在說明系統中搜尋全部主題、搜尋個別主題或主題集合，或建立搜尋範圍僅搜尋部分資訊。「搜尋結果」視圖能顯示最多 500 項結果（依照相關性排序）。">搜尋說明系統</a></div>
+</div>
+</div></body>
+</html>

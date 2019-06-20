@@ -1,0 +1,118 @@
+##############################################################################
+# Netcool/OMNIbus Bi-directional ObjectServer Gateway 8.1.0
+#
+# Default ObjectServerB-to-ObjectServerA table replication definition file.
+#
+# Ident: $Id: objserv_bi.objectserverb.tblrep.def 1.3 2003/10/13 10:36:37 cappl Development $
+#
+# Revision History:
+#	1.1:	Initial revision.
+#	1.2:	User related system table maps added.
+#	1.3:	Dynamic tool tables and destop table maps added.
+#
+# Notes:
+#
+##############################################################################
+REPLICATE ALL FROM TABLE 'alerts.status'
+	USING MAP 'StatusMap';
+
+REPLICATE ALL FROM TABLE 'alerts.journal'
+	USING MAP 'JournalMap';
+
+REPLICATE ALL FROM TABLE 'alerts.details'
+	USING MAP 'DetailsMap';
+
+REPLICATE ALL FROM TABLE 'iduc_system.iduc_stats'
+	USING map 'IducMap';
+
+
+##############################################################################
+# NOTE: If replication of the user related system tables is required, uncomment
+# the replication definitions below. The associated maps will also need to be
+# uncommented.
+##############################################################################
+
+# REPLICATE ALL FROM TABLE 'security.users'
+#	USING MAP 'SecurityUsersMap'
+#	INTO 'transfer.users';
+#
+# REPLICATE ALL FROM TABLE 'security.groups'
+#	USING MAP 'SecurityGroupsMap'
+#	INTO 'transfer.groups';
+#
+# REPLICATE ALL FROM TABLE 'security.roles'
+#	USING MAP 'SecurityRolesMap'
+#	INTO 'transfer.roles';
+#
+# REPLICATE ALL FROM TABLE 'security.role_grants'
+#	USING MAP 'SecurityRoleGrantsMap'
+#	INTO 'transfer.role_grants';
+#
+# REPLICATE ALL FROM TABLE 'security.group_members'
+#	USING MAP 'SecurityGroupMembersMap'
+#	INTO 'transfer.group_members';
+#
+# REPLICATE ALL FROM TABLE 'catalog.restrictions'
+#	USING MAP 'CatalogRestrictionFiltersMap'
+#	INTO 'transfer.restrictions';
+#
+# REPLICATE ALL FROM TABLE 'security.restriction_filters'
+#	USING MAP 'SecurityRestrictionFiltersMap'
+#	INTO 'transfer.security_restrictions';
+#
+# REPLICATE ALL FROM TABLE 'security.permissions'
+#	USING MAP 'SecurityPermissionsMap'
+#	INTO 'transfer.permissions';
+
+##############################################################################
+# NOTE: If replication of desktop  related system tables is required, uncomment
+# the replication definitions below. The associated maps will also need to be
+# uncommented.
+##############################################################################
+
+# REPLICATE ALL FROM TABLE 'tools.menus'
+#	USING MAP 'ToolsMenusMap'
+#	INTO 'tools.menus';
+#
+# REPLICATE ALL FROM TABLE 'tools.menu_items'
+#	USING MAP 'ToolsMenuItemsMap'
+#	INTO 'tools.menu_items';
+#
+# REPLICATE ALL FROM TABLE 'tools.actions'
+#	USING MAP 'ToolsActionsMap'
+#	INTO 'tools.actions';
+#
+# REPLICATE ALL FROM TABLE 'tools.action_access'
+#	USING MAP 'ToolsActionAccessMap'
+#	INTO 'tools.action_access';
+#
+# REPLICATE ALL FROM TABLE 'tools.menu_defs'
+#	USING MAP 'ToolsMenuDefsMap'
+#	INTO 'tools.menu_defs';
+#
+# REPLICATE ALL FROM TABLE 'tools.prompt_defs'
+#	USING MAP 'ToolsPromptDefsMap'
+#	INTO 'tools.prompt_defs';
+#
+# REPLICATE ALL FROM TABLE 'alerts.conversions'
+#	USING MAP 'AlertsConversionsMap'
+#	INTO 'alerts.conversions';
+#
+# REPLICATE ALL FROM TABLE 'alerts.col_visuals'
+#	USING MAP 'AlertsColVisualsMap'
+#	INTO 'alerts.col_visuals';
+#
+# REPLICATE ALL FROM TABLE 'alerts.colors'
+#	USING MAP 'AlertsColorsMap'
+#	INTO 'alerts.colors';
+#
+##############################################################################
+# NOTE: If replication of master.servergroups table is required, uncomment
+# the replication definition below. The associated maps will also need to be
+# uncommented.
+##############################################################################
+#
+# REPLICATE ALL FROM TABLE 'master.servergroups'
+#       USING MAP 'MasterServergroupsMap'
+#       INTO 'master.servergroups';
+#

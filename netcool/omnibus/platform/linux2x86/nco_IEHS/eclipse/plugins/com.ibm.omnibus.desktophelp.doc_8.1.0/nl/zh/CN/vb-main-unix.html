@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="视图构建器" />
+<meta name="abstract" content="使用此窗口可定义应该显示在事件列表中的警报列选择，并可定义这些列的顺序与格式。 您可使用视图构建器来设置和维护这些事件数据信息视图。" />
+<meta name="description" content="使用此窗口可定义应该显示在事件列表中的警报列选择，并可定义这些列的顺序与格式。 您可使用视图构建器来设置和维护这些事件数据信息视图。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_viewbuilderwindowUNIX" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>视图构建器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_viewbuilderwindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">视图构建器</h1>
+<div class="body refbody"><p class="shortdesc">使用此窗口可定义应该显示在事件列表中的警报列选择，并可定义这些列的顺序与格式。 您可使用视图构建器来设置和维护这些事件数据信息视图。</p>
+<div class="section"><div class="p" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_descriptionUNIX">视图构建器包含以下区域：<ul class="ul"><li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupareaUNIX">视图设置区域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareaUNIX">列显示区域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareaUNIX">列排序区域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareaUNIX">行数限制区域</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupareaUNIX"><h2 class="title sectiontitle">视图设置区域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_viewsetupareadescriptionUNIX">使用此区域可为视图定义名称和设置许可权。</span></p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupfieldsUNIX"><dt class="dt dlterm">视图名称</dt>
+<dd class="dd">如果您要创建新视图，请使用唯一的视图名称覆盖当前名称。 该名称用于事件列表中。 如果要编辑现有视图，那么您无需在此字段中输入任何内容。</dd>
+<dt class="dt dlterm">可编辑</dt>
+<dd class="dd">如果您有相应的管理员许可权，请选择此复选框允许其他用户编辑此视图，或清除该复选框以防视图被修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 仅当视图保存为事件列表配置（<span class="ph filepath">.elc</span> 文件）的一部分时，此设置才适用。</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareaUNIX"><h2 class="title sectiontitle">列显示区域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_displaycolumnsareadescriptionUNIX">使用此区域可选择要在事件列表中显示的
+alerts.status 列，并指定列的顺序和格式。</span></p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafieldsUNIX"><dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_columnmatrixUNIX"><!-- --></a><em class="ph i">事件列表矩阵</em></dt>
+<dd class="dd">此矩阵显示选中要显示在事件列表视图中的所有列和这些列的显示顺序。 实际列名称显示在顶部，列名称下的行中显示每个列的数据类型。
+在各行中，单词 <samp class="ph tt">Dummy</samp> 用于标识字符串列，数字 <samp class="ph tt">1</samp> 标识整数列，<samp class="ph tt">01/01/70 01:00:01</samp> 标识时间列。</dd>
+<dd class="dd">事件列表矩阵和<span class="ph uicontrol">除去</span>、<span class="ph uicontrol">第一个</span>、<span class="ph uicontrol">左侧</span>、<span class="ph uicontrol">右侧</span>以及<span class="ph uicontrol">最后一个</span>按钮配合使用。
+要对矩阵中的任何列执行操作，您必须首先单击与该列相关联的单元格。 按这种方式选择了列后，当前为该列定义的详细信息也将显示在<span class="ph uicontrol">列详细信息</span>区域。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_availablecolumnslistUNIX"><!-- --></a><em class="ph i">可用列列表</em></dt>
+<dd class="dd">该列与<span class="ph uicontrol">列详细情况</span>区域相邻，显示了所有仍可向事件列表中添加的列。 可用列列表
+和<span class="ph uicontrol">添加</span>按钮配合使用。</dd>
+<dd class="dd">选择任何要向事件列表中添加的列。<div class="note tip"><span class="tiptitle">提示：</span> 该列表中的列名称按字母顺序显示。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_addbuttonUNIX"><!-- --></a>添加</dt>
+<dd class="dd">单击此按钮可向事件列表添加当前在可用列列表中选择的列。 该列将添加到事件列表矩阵的最右边。<div class="note tip"><span class="tiptitle">提示：</span> 您可使用拖放操作添加列。 从可用列列表中选择要添加的列。 在该列上按住鼠标中键，然后将其拖动到事件列表矩阵中。 到达可以放置该列的区域中时，光标将变为显示绿色标记。 松开鼠标按键。 该列将添加到事件列表矩阵的最右边。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_removebuttonUNIX"><!-- --></a>除去</dt>
+<dd class="dd">单击此按钮可将事件列表矩阵中当前选中的列移回可用列列表中。 该列将不再显示在事件列表中。<div class="note tip"><span class="tiptitle">提示：</span> 您可使用拖放操作除去列。 从事件列表矩阵中选择要除去的列的单元格。 在该单元格上按住鼠标中键，然后将光标拖动到可用列列表中。 到达可以放置该列的区域中时，光标将变为显示绿色标记。 松开鼠标按键。 该列将添加到可用列列表。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_firstbuttonUNIX"><!-- --></a>第一个</dt>
+<dd class="dd">单击此按钮可将事件列表矩阵中当前选中的列重新放置为事件列表中的第一个列（最左）。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_leftbuttonUNIX"><!-- --></a>左移</dt>
+<dd class="dd">单击此按钮可将事件列表矩阵中当前选中的列左移一个位置。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_rightbuttonUNIX"><!-- --></a>右移</dt>
+<dd class="dd">单击此按钮可将事件列表矩阵中当前选中的列右移一个位置。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_lastbuttonUNIX"><!-- --></a>最后一个</dt>
+<dd class="dd">单击此按钮可将事件列表中当前选中的列重新放置为事件列表中的最后一个列（最右）。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_columndetailsUNIX"><!-- --></a>列详细信息</dt>
+<dd class="dd">使用此区域可确定事件列表矩阵中当前选中列的格式：<dl class="dl"><dt class="dt dlterm">列/调整</dt>
+<dd class="dd">系统定义的列名称为只读值，将显示在<span class="ph uicontrol">列</span>字段中。 从相邻的<span class="ph uicontrol">调整</span>列表中
+选择<span class="keyword option">靠左</span>、<span class="keyword option">居中</span>或<span class="keyword option">靠右</span>来设置事件列表中列数据的对齐。</dd>
+<dt class="dt dlterm">标题/调整</dt>
+<dd class="dd">要让列显示系统定义名称以外的其他标题，请在<span class="ph uicontrol">标题</span>字段中输入该标题。
+从相邻的<span class="ph uicontrol">调整</span>列表中选择“靠左”、“居中”或“靠右”可设置事件列表中列标题的对齐。</dd>
+<dt class="dt dlterm">宽度</dt>
+<dd class="dd">向左或向右拖动滑块框可设置事件列表中列的宽度。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_fixedcolumnsUNIX"><!-- --></a>固定列</dt>
+<dd class="dd">可在事件列表的左手侧设置若干个固定列。 在视图的列中滚动时，固定列不会与屏幕发生相对移动。 使用此滑块可固定视图中比列总数少一个的列数。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareaUNIX"><h2 class="title sectiontitle">列排序区域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_sortcolumnsareadescriptionUNIX">使用此区域可为事件列表中的行设置排序顺序和优先级。 您可不指定或指定若干作为数据排序依据的列，并为这些列定义排序优先级。</span></p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafieldsUNIX"><dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_selectedcolumnslistUNIX"><!-- --></a><em class="ph i">可用排序列表</em></dt>
+<dd class="dd">该列表（在左侧）显示所有作为事件数据排序依据的可用列。 可用排序列表
+和<span class="ph uicontrol">添加</span>按钮配合使用。</dd>
+<dd class="dd">选择要作为事件列表行排序依据的任何列。<div class="note tip"><span class="tiptitle">提示：</span> 该列表中的列名称按字母顺序显示。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_addbuttonUNIX"><!-- --></a>添加</dt>
+<dd class="dd">单击此按钮可向相邻的排序顺序定义列表添加可用排序列表中选中的列。 该列将添加到排序列表的底部。<div class="note tip"><span class="tiptitle">提示：</span> 您可使用拖放操作添加列。 从可用排序列表中选择要添加到排序顺序定义列表中的列。 在该列名称上按住鼠标中键，然后将光标拖动到排序顺序定义列表。 到达可以放置该列的区域中时，光标将变为显示绿色标记。 松开鼠标按键。 该列将添加到排序顺序定义列表的底部。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_sortorderselectionUNIX"><!-- --></a><em class="ph i">排序顺序定义列表</em></dt>
+<dd class="dd">该列表（在右侧）显示所有将用来对事件数据排序的列。 使用此列表可为事件数据指定排序定义，如下所示： <ul class="ul"><li class="li">为每个列定义排序顺序：此列表中每个列名称左边将显示一个箭头。 在缺省情况下，箭头指向朝上，表示该列将按字母升序进行排序。 要更改为降序，双击该箭头。 要更改排序方向，也可在选中列名称上右键单击，然后从弹出菜单中选择<span class="ph uicontrol">更改</span>。</li>
+<li class="li">为所有列定义排序优先级：排序时，排序列表顶部的字段拥有最高的优先级。 如果第一个字段中包含多个条目的相同值，那么第二个字段将用于对这些条目进行排序。
+要提高或降低列的排序优先级，选择列名称并使用<span class="ph uicontrol">移至顶部</span>、<span class="ph uicontrol">上移</span>、 <span class="ph uicontrol">下移</span>
+和<span class="ph uicontrol">移至底部</span>按钮，如下所述。</li>
+</ul>
+</dd>
+<dd class="dd">您也可以将排序顺序定义列表与<span class="ph uicontrol">除去</span>按钮配合使用。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_removebuttonUNIX"><!-- --></a>除去</dt>
+<dd class="dd">单击此按钮可除去排序顺序定义列表中当前选中的排序列，将其移回可用排序列表。 您也可在选中列名称上右键单击，然后从弹出菜单中选择<span class="ph uicontrol">除去</span>。<div class="note tip"><span class="tiptitle">提示：</span> 您可使用拖放操作除去列。 从排序顺序定义列表中选择要除去的列。 在该列名称上按住鼠标中键，然后将光标拖动到可用排序列表。 到达可以放置该列的区域中时，光标将变为显示绿色标记。 松开鼠标按键。 该列将添加到可用排序列表。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_topbuttonUNIX"><!-- --></a>移至顶部</dt>
+<dd class="dd">单击此按钮可将选中列移至列表顶部。
+您也可在选中列名称上右键单击，然后从弹出菜单中单击<span class="ph uicontrol">移至顶部</span>。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_upbuttonUNIX"><!-- --></a>上移</dt>
+<dd class="dd">单击此按钮可将列表中的选中列上移一个位置。
+您也可在选中列名称上右键单击，然后从弹出菜单中单击<span class="ph uicontrol">上移</span>。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_downbuttonUNIX"><!-- --></a>下移</dt>
+<dd class="dd">单击此按钮可将列表中的选中列下移一个位置。
+您也可在选中列名称上右键单击，然后从弹出菜单中单击<span class="ph uicontrol">下移</span>。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_bottombuttonUNIX"><!-- --></a>移至底部</dt>
+<dd class="dd">单击此按钮可将选中列移至列表底部。
+您也可在选中列名称上右键单击，然后从弹出菜单中单击<span class="ph uicontrol">移至底部</span>。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareaUNIX"><h2 class="title sectiontitle">行数限制区域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_restrictrowsareadescriptionUNIX">要增强性能，您可限制从 ObjectServer 读取的行的数目。 使用此区域可限制事件列表中显示的行数。</span></p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareafieldsUNIX"><dt class="dt dlterm">限制行数 [1-100]</dt>
+<dd class="dd">选此复选框可将事件列表中显示的行数限制在 1 到 100 之间。 <span class="ph uicontrol">最小值</span>、<span class="ph uicontrol">最大值</span>和<span class="ph uicontrol">缺省值</span>字段可用。<div class="note note"><span class="notetitle">注：</span> 如果选择了<span class="ph uicontrol">限制行数 [1-100]</span> 复选框，并将该配置保存为 <span class="ph filepath">.elv</span> 文件，这个 <span class="ph filepath">.elv</span> 文件将与 Netcool/OMNIbus V3.6 不兼容。</div>
+</dd>
+<dt class="dt dlterm">最小值</dt>
+<dd class="dd">输入要显示的最小行数，或使用箭头增加或减少该值。</dd>
+<dt class="dt dlterm">最大值</dt>
+<dd class="dd">输入要显示的最大行数，或使用箭头增加或减少该值。</dd>
+<dt class="dt dlterm">缺省值</dt>
+<dd class="dd">输入要显示的缺省行数，或使用箭头增加或减少该值。</dd>
+<dt class="dt dlterm">从事件列表设置</dt>
+<dd class="dd">选此复选框可使事件列表用户能够在事件列表视图中选择要显示的事件数。 如果选择了此复选框，用户使用事件列表控件选择查看的事件数将受到视图构建器中<span class="ph uicontrol">最小值</span>和<span class="ph uicontrol">最大值</span>的限制。 如果清除此复选框，显示的事件数的值将总是指定的<span class="ph uicontrol">缺省值</span>。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_applying_saving_closingUNIX"><h2 class="title sectiontitle">应用和保存视图</h2><div class="p">定义或修改视图后，您可按以下步骤通过单击相关按钮来应用、保存或取消所作的更改：<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_applyclosebuttonsUNIX"><dt class="dt dlterm">应用</dt>
+<dd class="dd">点击此按钮可向视图应用更改，但不保存更改。 </dd>
+<dt class="dt dlterm">关闭</dt>
+<dd class="dd">单击此按钮可关闭窗口并废弃更改。</dd>
+</dl>
+</div>
+<p class="p">必须使用 <span class="ph filepath">.elf</span> 文件扩展名来保存视图。</p>
+<div class="note note"><span class="notetitle">注：</span> 从 Conductor 运行 UNIX 视图构建器时，<span class="ph uicontrol">应用</span>按钮不显示。 这种情况下，您必须通过从 UNIX 视图构建器中选择<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">保存</span></span>或<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">另存为</span></span>来保存所有视图。</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="使用视图构建器可定义事件列表内显示哪些列。">在 UNIX 上创建或编辑视图</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

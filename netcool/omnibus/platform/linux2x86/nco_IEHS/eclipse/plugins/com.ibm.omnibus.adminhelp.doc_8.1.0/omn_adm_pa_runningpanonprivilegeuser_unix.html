@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Running the process agent as a non-privileged user (UNIX)" />
+<meta name="abstract" content="Use this procedure to set up a process agent to run as a non-privileged user on UNIX operating systems." />
+<meta name="Description" content="Use this procedure to set up a process agent to run as a non-privileged user on UNIX operating systems." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_processagentsecurity.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_runningpanonprivilegeuser_unix" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_processagentsecurity.html" />
+<title>Running the process agent as a non-privileged user (UNIX)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_runningpanonprivilegeuser_unix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Running the process agent as a non-privileged user (UNIX)</h1>
+<div class="body taskbody"><p class="shortdesc">Use this procedure to set up a process agent to run as
+a non-privileged user on UNIX operating systems.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection">To set up a process agent to run as a non-privileged
+user on UNIX:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">As a root user, locate the process agent start script.
+The start script is in the <span class="ph filepath">/etc/</span> directory.</span></li>
+<li class="li step stepexpand" id="omn_adm_pa_runningpanonprivilegeuser_unix__example"><span class="ph cmd">As the root user, locate the following entry
+in the start script.</span> This entry is used to start the process
+agent as a root user.<pre class="pre codeblock"><code>if [ "$SECURE" = "Y" ]; then
+${OMNIHOME}/bin/nco_pad -name ${NCO_PA} -authenticate PAM -
+secure &gt; /dev/null 2&gt; /dev/null
+else
+${OMNIHOME}/bin/nco_pad -name ${NCO_PA} -authenticate PAM &gt; 
+/dev/null 2&gt; /dev/null
+fi</code></pre>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To start the process agent as a user called <span class="q">"netcool"</span>, replace the entry that is shown in step <a class="xref" href="#omn_adm_pa_runningpanonprivilegeuser_unix__example">2</a> with
+the following entry:</span> <pre class="pre codeblock"><code>if [ "$SECURE" = "Y" ]; then
+su - netcool -c "${OMNIHOME}/bin/nco_pad -name ${NCO_PA} -
+authenticate PAM -secure &gt; /dev/null 2&gt; /dev/null"
+else
+su - netcool -c "${OMNIHOME}/bin/nco_pad -name ${NCO_PA} -
+authenticate PAM &gt; /dev/null 2&gt; /dev/null"
+fi</code></pre>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The process agent runs as the local user netcool. The permissions
+for external actions on the ObjectServer are limited to the privileges
+of that user on the host computer.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_processagentsecurity.html" title="If the process agent is running as a privileged or super user on the host machine, it is possible for a Netcool/OMNIbus Administrator to configure external actions which are then executed on the host system as a privileged user. For example, as the root user (UNIX) or as the Local System User (Windows). This presents a potential security risk. Therefore, the process agent must be run as a non-privileged user.">Process agent security considerations</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

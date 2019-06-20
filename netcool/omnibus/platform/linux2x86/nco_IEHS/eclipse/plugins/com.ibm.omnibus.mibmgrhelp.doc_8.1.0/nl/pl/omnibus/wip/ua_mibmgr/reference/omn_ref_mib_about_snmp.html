@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl-pl" lang="pl-pl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Na temat protokołu SNMP" />
+<meta name="abstract" content="Niniejsza sekcja zawiera dodatkowe informacje na temat architektury protokołu SNMP (Simple Network Management Protocol), bazy MIB protokołu SNMP oraz niektórych dodatkowych pojęć dotyczących bazy MIB." />
+<meta name="Description" content="Niniejsza sekcja zawiera dodatkowe informacje na temat architektury protokołu SNMP (Simple Network Management Protocol), bazy MIB protokołu SNMP oraz niektórych dodatkowych pojęć dotyczących bazy MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="pl-pl" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Na temat protokołu SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus wersja 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Na temat protokołu SNMP</h1>
+<div class="body refbody"><p class="shortdesc">Niniejsza sekcja zawiera dodatkowe informacje na temat architektury protokołu SNMP (Simple Network Management Protocol), bazy MIB protokołu SNMP oraz niektórych dodatkowych pojęć dotyczących bazy MIB.</p>
+<div class="section"><p class="p">W architekturze SNMP komponent menedżera zarządza agentem. Agent to oprogramowanie uruchamiane na urządzeniu sieciowym bądź w aplikacji sieciowej, które odpowiada na żądania informacji (komendy SET i GET), a następnie generuje autonomiczne powiadomienia nazywane pułapkami. Menedżer to oprogramowanie odbierające pułapki, które zapewnia mechanizmy służące do ustawiania (SET) i pobierania (GET) obiektów SNMP z urządzenia sieciowego.</p>
+<p class="p">Aby odbierać autonomiczne pułapki, menedżer uruchamia aplikację nasłuchującą na porcie TCP/IP pułapek SNMP (porcie 162). Komendy SET i GET protokołu SNMP wykorzystują port 161. Ta aplikacja ma zwykle nazwę Trapd lub trap daemon. Trap daemon to proces, który działa w tle i zarządza usługą na komputerze. Aplikacja Netcool Trapd jest nazywana sondą SNMP (<span class="ph filepath">nco_p_mttrapd</span>, gdzie <span class="ph filepath">mt</span> to skrót oznaczający wielowątkowość) i znajduje się w katalogu <span class="ph filepath">$OMNIHOME/probes/</span>.
+Pliki reguł wygenerowane przez program <span class="keyword">MIB Manager</span> są przeznaczone do użycia przez sondę SNMP. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Bezpieczeństwo</h2><p class="p">Zabezpieczenia podstawowe w protokołach SNMP w wersji v1 i v2 udostępniają łańcuchy wspólnoty. Łańcuchy wspólnoty to hasła podawane jawnym tekstem, które są wysyłane ze wszystkimi żądaniami. Istnieją osobne łańcuchy wspólnoty dla dostępu tylko do odczytu oraz dla dostępu do odczytu i zapisu. Program <span class="keyword">MIB Manager</span> musi znać łańcuch wspólnoty zdefiniowany w urządzeniu przed wykonaniem jakiegokolwiek żądania (z prawem tylko do odczytu dla komendy GET oraz z prawem do odczytu i zapisu dla komendy SET). Pułapki i powiadomienia protokołu SNMP są wysyłane do programu <span class="keyword">MIB Manager</span> z predefiniowanym łańcuchem wspólnoty. </p>
+<p class="p">Wszystkie urządzenia sieciowe obsługujące protokół SNMP posiadają mechanizm służący do definiowania łańcucha wspólnoty. Standardowe domyślne hasło dla operacji z prawem tylko do odczytu jest publiczne, a dla operacji z prawem do odczytu i zapisu jest prywatne. Jeśli w urządzeniu nie ustawiono żadnego łańcucha wspólnoty, zwykle będzie to jedno z tych haseł.
+Ze względów bezpieczeństwa należy zmienić domyślne hasła jak najszybciej.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Więcej informacji</h2><div class="p">Następujące pozycje są przydatne w zrozumieniu środowiska SNMP i baz MIB:<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP (Third Edition)</cite>, Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite>, David Perkins i Evan McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">Aby uzyskać informacje na temat standardu ASN.1 i zasad kodowania Basic Encoding Rules (BER) używanych do kodowania danych SNMP na pakiety PDU (Protocol Data Unit) w celu transmisji przez sieć, należy się zapoznać z następującą pozycją:</p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management Standards</cite>, William Stallings (Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">Pojęcia dotyczące bazy MIB i jej budowa</a></span><br />
+Wszystkie moduły MIB SNMP, które są zdefiniowane dla konkretnego urządzenia, składają się na bazę MIB tego urządzenia. Termin MIB jest często używany do określenia definicji pojedynczego modułu, jednak jest to niepoprawne z technicznego punktu widzenia.
+W rzeczywistości baza MIB jest połączeniem wszystkich modułów używanych w celu zarządzania określonym urządzeniem, niezależnie od tego czy urządzenie oznacza sprzęt, czy oprogramowanie. Dlatego bardziej precyzyjną nazwa dla każdego modułu zdefiniowanego przez producenta lub w dokumencie RFC jest moduł MIB SNMP.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">Typy obiektów MIB</a></span><br />
+Niniejszy temat zawiera opis typów obiektów zdefiniowanych w protokole SNMP w wersji v1 i v2.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">Poprawne formaty obiektów MIB</a></span><br />
+Niniejszy temat zawiera opis formatów poprawnych obiektów MIB.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Temat nadrzędny:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Program Netcool MIB Manager jest aplikacją z interfejsem GUI firmy IBM opartą na technologii Eclipse, która może być używana do analizy plików bazy informacji zarządzania (MIB) protokołu Simple Network Management Protocol (SNMP), z których można wygenerować pliki reguł programu Netcool. Ma ona zastąpić program narzędziowy mib2rules.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteka</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Wsparcie</a> |</span>
+<br />
+</div>
+</body>
+</html>

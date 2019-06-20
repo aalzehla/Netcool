@@ -1,0 +1,66 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2013, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+//
+// This is the main policy to enrich TBSM events for EIC. It may be required to update
+//the events if the BSM_Identity field is not updated.
+//
+//
+// GLOBAL PARAMETER SO that if we change the data type name its easy to change it.
+//
+
+function init() {
+  setglobalvar('EVENT_DATATYPE','EIC_alertquery');
+  setglobalvar('EVENT_DATASOURCE','EIC_alertsdb');
+  setglobalvar('BSMIDENTITIES_DATATYPE','bsmidentities');
+}
+
+function EIC_log(lvl,message) {
+   init();
+   log(lvl,"EIC LOG : "  + message);
+}
+
+
+function getCompEventID(ID) {
+  EIC_log(1, "Entry: getCompEventID");
+  init();
+  if (ID !="") {
+    IDFilter = "RADINSTANCEID =  '" + ID +"'";
+    bsmidentitiesdatatype = getglobalvar('BSMIDENTITIES_DATATYPE');
+    GetByFilter(bsmidentitiesdatatype,IDFilter,false);
+    if ( Num > 0) {
+      setglobalvar('compEventID',DataItems[0].COMPEVENTIDS);
+    } else {
+      setglobalvar('compEventID',NULL);
+    }
+  }
+}
+
+function updateEvent(nodeName, ID){
+  EIC_log(1, "Entry: updateEvent");
+  if (ID != NULL && ID !="") {
+    @BSM_Identity = ID;
+    EIC_log(3,"Updating event for node, " + nodeName + ", with BSM Identity, " + ID);
+    ReturnEvent(EventContainer);
+  }
+}
+
+// Enrich TBSM events for EIC
+EIC_log(1, "Entry: Enriching Event for EIC");
+setglobalvar('compEventID',NULL);
+
+// Get component event ID
+getCompEventID(@Node);
+
+// Update Event
+updateEvent(@Node,getglobalvar('compEventID'));
+
+EIC_log(1, "Exit: Enriching Event for EIC");

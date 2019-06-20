@@ -1,0 +1,46 @@
+-- extracted from rfc1095.txt
+-- at Mon Nov 15 17:12:02 1999
+
+   CMOT DEFINITIONS ::= BEGIN
+
+   IMPORTS OBJECT-TYPE FROM RFC1065-SMI;
+
+   IMPORTS mib FROM RFC1066-MIB;
+
+     cmot  OBJECT IDENTIFIER ::= { mib 9 }
+
+     -- The following assignments are made for the purpose of
+     -- identification within CMOT and do not refer to MIB objects.
+
+     cmotVersion              OBJECT IDENTIFIER ::= { cmot 1 }
+
+     cmotAcseInfo             OBJECT IDENTIFIER ::= { cmot 2 }
+     cmotAcseAccessControl    OBJECT IDENTIFIER ::= { cmotAcseInfo 1 }
+
+     -- The following definition is made for use in referencing a
+     -- managed system (for the purpose of proxy management) in the
+     -- CMIP Object Instance field. It does not represent a MIB
+     -- object.
+
+     cmotSystemID OBJECT-TYPE
+             SYNTAX  CmotSystemID
+             ACCESS  not-accessible
+             STATUS  optional
+             ::= { cmot 3 }
+
+     CmotSystemID ::= CHOICE {
+             arbitrary     [0] IMPLICIT OCTET STRING,
+             proxyIndex    [1] IMPLICIT INTEGER,
+             inetAddr      [2] IMPLICIT IpAddress,
+             domainName    [3] IMPLICIT OCTET STRING,
+             mac802Addr    [4] IMPLICIT OCTET STRING,
+             x121Addr      [5] IMPLICIT OCTET STRING,
+             nsap          [6] IMPLICIT OCTET STRING,
+             netbiosName   [7] IMPLICIT OCTET STRING,
+             snaName       [8] IMPLICIT OCTET STRING,
+             adminId       [9] IMPLICIT OBJECT IDENTIFIER
+     }
+
+      -- All addresses should be conveyed in network-byte order.
+
+   END

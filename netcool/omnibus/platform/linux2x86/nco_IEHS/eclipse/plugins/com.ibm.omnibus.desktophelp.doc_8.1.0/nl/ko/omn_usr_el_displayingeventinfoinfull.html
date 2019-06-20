@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="전체 이벤트 정보 표시" />
+<meta name="abstract" content="이벤트 목록에서 선택된 모든 이벤트의 전체 세부사항을 볼 수 있습니다. alerts.status, alerts.details 및 alerts.journal 데이터베이스 테이블에 저장되는 이벤트 정보가 표시됩니다." />
+<meta name="Description" content="이벤트 목록에서 선택된 모든 이벤트의 전체 세부사항을 볼 수 있습니다. alerts.status, alerts.details 및 alerts.journal 데이터베이스 테이블에 저장되는 이벤트 정보가 표시됩니다." />
+<meta name="DC.subject" content="이벤트 목록, 이벤트 정보 표시, 표시, 이벤트 정보" />
+<meta name="keywords" content="이벤트 목록, 이벤트 정보 표시, 표시, 이벤트 정보" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_copyingdatafromevntlst.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_displayingeventinfoinfull" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>전체 이벤트 정보 표시</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_displayingeventinfoinfull">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">전체 이벤트 정보 표시</h1>
+<div class="body taskbody"><p class="shortdesc">이벤트 목록에서 선택된 모든 이벤트의 전체 세부사항을 볼 수
+있습니다. alerts.status, alerts.details 및 alerts.journal 데이터베이스
+테이블에 저장되는 이벤트 정보가 표시됩니다. </p>
+<div class="section context">하나 이상의 이벤트에 관한 전체 정보를 표시하려면 다음을 수행하십시오. </div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">이벤트 목록에서 다음 조치 중 하나를 수행하십시오. </span><ul class="ul choices"><li class="li choice">단일 이벤트의 정보를 보려면 이벤트를 두 번 클릭하거나 이벤트를 선택한 후
+<span class="ph menucascade"><span class="ph uicontrol">경보</span> &gt; <span class="ph uicontrol">정보</span></span>를 클릭하십시오. </li>
+<li class="li choice">다중 이벤트의 정보를 보려면 이벤트를 선택한 후
+<span class="ph menucascade"><span class="ph uicontrol">경보</span> &gt; <span class="ph uicontrol">정보</span></span>를 클릭하십시오. </li>
+</ul>
+ <span class="keyword wintitle">이벤트 정보</span> 창이 열립니다. </li>
+<li class="li step stepexpand"><span class="ph cmd">이 창을 다음과 같이 사용하십시오. </span> <dl class="dl"><dt class="dt dlterm">경보 필드</dt>
+<dd class="dd">선택된 이벤트에 대한 모든 컬럼 및 대응하는 값의 목록을 보려면 이 탭을 클릭하십시오. 이 정보는 ObjectServer alerts.status 테이블에 저장됩니다.
+목록에서 임의의 컬럼을 클릭해
+컬럼 목록 아래에 있는 필드의 값에 대한 전체 텍스트를 볼 수
+있습니다. <span class="ph uicontrol">요약</span> 컬럼의 전체 값은 기본적으로 표시됩니다.</dd>
+<dt class="dt dlterm">경보 세부사항</dt>
+<dd class="dd">ObjectServer alerts.details 테이블에 저장되는 경보 세부사항을 보려면 이 탭을 클릭하십시오. </dd>
+<dt class="dt dlterm">저널</dt>
+<dd class="dd">이벤트에 대한 저널 항목을 ObjectServer alerts.journal 테이블에
+저장된 상태대로 보려면 이 탭을 클릭하십시오. </dd>
+<dd class="dd"><span class="ph uicontrol">저널에 추가</span>를 클릭해 추가 저널 항목을 입력하여 현재
+선택되어 있는 이벤트에 대해 전체 <span class="keyword wintitle">저널</span> 창을 열 수 있습니다.
+완료 시 <span class="keyword wintitle">이벤트 정보</span> 창으로 돌아가려면 이 창을 닫으십시오.
+<div class="note tip"><span class="tiptitle">팁:</span> 임의의 탭 안에서 <span class="keyword wintitle">이벤트 정보</span> 창의 경보 정보를
+클립보드에 복사할 수 있습니다. 복사하려는 정보를 선택하고 선택한 텍스트를 마우스 오른쪽
+단추로 클릭한 다음 팝업 메뉴에서 <span class="ph uicontrol">클립보드에
+복사</span>(UNIX)
+또는 <span class="ph uicontrol">복사</span>(Windows)를
+클릭하십시오. 그 다음 이 정보를 다른 애플리케이션에 붙여넣을 수 있습니다. </div>
+</dd>
+<dt class="dt dlterm">이전</dt>
+<dd class="dd">이벤트 목록에서 다중 이벤트를 선택한 경우, 선택사항에 있는 이전 이벤트에 대한 상세한 정보를 표시하려면 이 단추를 클릭하십시오. 이벤트가
+시스템의 다른 위치에서 삭제된 경우 이 조치가 실패할 수 있습니다. </dd>
+<dt class="dt dlterm">다음</dt>
+<dd class="dd">이벤트 목록에서 다중 이벤트를 선택한 경우, 선택사항에 있는 다음
+이벤트에 대한 상세한 정보를 표시하려면 이 단추를 클릭하십시오. 이벤트가
+시스템의 다른 위치에서 삭제된 경우 이 조치가 실패할 수 있습니다. </dd>
+<dt class="dt dlterm">닫기</dt>
+<dd class="dd">이 창을 닫으려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="이벤트 목록의 이벤트를 조작하려면 맨 먼저 해당 이벤트를 선택해야 합니다.">이벤트에 대한 작업</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="이벤트 목록에서 경보를 모니터하고 관리하려면 올바른 인증 신임 정보를 사용하여 실행 중인 ObjectServer에 연결해야 합니다. 컨덕터, 명령행 또는 Windows 시작 메뉴에서 이벤트 목록을 시작할 수 있습니다.">이벤트 목록 시작</a></div>
+<div><a class="link" href="omn_usr_el_copyingdatafromevntlst.html" title="기타 애플리케이션에 사용하기 위해 이벤트 목록의 이벤트 데이터를 클립보드로 복사할 수 있습니다.">이벤트 목록에서 데이터 복사</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

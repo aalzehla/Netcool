@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="在 UNIX 上建立或編輯過濾器" />
+<meta name="abstract" content="使用「UNIX 過濾器建置器」，可以建置事件清單資料的過濾器。" />
+<meta name="description" content="使用「UNIX 過濾器建置器」，可以建置事件清單資料的過濾器。" />
+<meta name="DC.subject" content="過濾器, 建立, 編輯" />
+<meta name="keywords" content="過濾器, 建立, 編輯" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_creatingeditfilterunix" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_settingupfiltersevntlst.html" />
+<title>在 UNIX 上建立或編輯過濾器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_creatingeditfilterunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">在 UNIX 上建立或編輯過濾器</h1>
+<div class="body taskbody"><p class="shortdesc">使用「UNIX 過濾器建置器」，可以建置事件清單資料的過濾器。</p>
+<div class="section context">若要建立或編輯過濾器：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">啟動「過濾器建置器」。 </span></li>
+<li class="li step stepexpand"><span class="ph cmd">如下所示完成過濾器設定區域：</span> <dl class="dl"><dt class="dt dlterm">名稱</dt>
+<dd class="dd">如果您正在建立新過濾器，請以過濾器的唯一名稱改寫現行名稱。 此名稱可用於選取事件清單功能表中的過濾器。 如果您正在編輯現有的過濾器，則不需要在此欄位中進行輸入。</dd>
+<dt class="dt dlterm">可編輯</dt>
+<dd class="dd">如果您擁有相關管理者權限，則可以選取此勾選框，讓其他使用者可編輯此過濾器，或者取消勾選該勾選框，以保護過濾器，使其免於修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 只有在過濾器儲存為事件清單配置（<span class="ph filepath">.elc</span> 檔）時，
+才適用這項設定。</div>
+</dd>
+</dl>
+
+<p class="p">現在，您可以使用條件、邏輯及子查詢過濾器元素的組合來建置過濾器。 您還可以定義過濾器度量，以及複製、貼上及刪除元素。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如下所示建立條件元素：</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">從按鈕列中，按一下<span class="ph uicontrol">條件</span>。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">從元素定義區域中，如下所示完成欄位：</span> <dl class="dl"><dt class="dt dlterm">表示式類型</dt>
+<dd class="dd">從此清單中選取下列其中一個選項：<ul class="ul"><li class="li"><span class="keyword option">簡式</span>：選取此選項，可以在條件元素中使用簡式表示式。 </li>
+<li class="li"><span class="keyword option">複式</span>：選取此選項，可以使用複式表示式，其容許比較兩個資料庫直欄或兩個表示式。 </li>
+<li class="li"><span class="keyword option">開放式</span>：選取此選項，可以指定表示式，其容許使用 ObjectServer SQL 的進階功能。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">直欄</dt>
+<dd class="dd">從此清單中，選取您要在比較中使用的資料庫直欄。</dd>
+<dd class="dd">依預設，清單會包含 alerts.status 資料庫表格中直欄的名稱。 「過濾器建置器」會自動決定可用的直欄。 在不同狀況下，此清單會有所不同。 <div class="note note"><span class="notetitle">註：</span> 如果從<span class="ph uicontrol">表示式類型</span>清單中選取<span class="keyword option">開放式</span>選項，則不會顯示<span class="ph uicontrol">直欄</span>清單。</div>
+</dd>
+<dt class="dt dlterm">運算子</dt>
+<dd class="dd">從此清單中選取比較運算子。</dd>
+<dd class="dd">可用的比較範圍由<span class="ph uicontrol">直欄</span>下拉清單中的選項決定。 某些特定直欄無法使用某些比較。 例如，無法對數值直欄 (例如，「嚴重性」) 進行 LIKE 作業。 <div class="note note"><span class="notetitle">註：</span> 如果從<span class="ph uicontrol">表示式類型</span>清單中選取<span class="keyword option">開放式</span>選項，則不會顯示<span class="ph uicontrol">運算子</span>清單。</div>
+</dd>
+<dt class="dt dlterm"><em class="ph i">值資料類型欄位</em></dt>
+<dd class="dd">此處顯示的欄位取決於在<span class="ph uicontrol">表示式類型</span>清單中所選取的選項。</dd>
+<dd class="dd">如果<span class="ph uicontrol">表示式類型</span>為<span class="keyword option">簡式</span>，則顯示的值欄位取決於在<span class="ph uicontrol">直欄</span>清單中選取的資料庫直欄類型是字串、整數還是時間。 </dd>
+<dd class="dd">如果<span class="ph uicontrol">表示式類型</span>為<span class="keyword option">複式</span>或<span class="keyword option">開放式</span>，則會提供<span class="ph uicontrol">編輯</span>按鈕，可讓您在「<span class="keyword wintitle">過濾器 SQL 編輯</span>」視窗內直接編輯 SQL。 當按一下<span class="ph uicontrol">確定</span>以儲存並回到「過濾器建置器」時，會自動剖析 SQL 表示式，並將其新增至圖形顯示區域中的條件元素。 如果在「<span class="keyword wintitle">過濾器 SQL 編輯</span>」視窗中輸入無效的 SQL 文字，則需要更正語法，然後才能結束視窗。</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果必要，請透過插入邏輯 <samp class="ph codeph">AND</samp> 或 <samp class="ph codeph">OR</samp> 元素來構建多個條件，如下所示： </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">從圖形顯示區域中，選取要為其建立邏輯比較的現有元素。 </span> 您可以建立條件元素、其他邏輯元素或無元素的邏輯比較。</li>
+<li class="li substep substepexpand"><span class="ph cmd">從按鈕列中，按一下<span class="ph uicontrol">前置邏輯</span>或<span class="ph uicontrol">尾端邏輯</span>。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">從元素定義區域中，選擇相關選項：</span> <dl class="dl"><dt class="dt dlterm">邏輯 AND</dt>
+<dd class="dd">選取此選項，可以將 AND 運算子新增至過濾器定義。 此為預設選項。</dd>
+<dt class="dt dlterm">邏輯 OR</dt>
+<dd class="dd">選取此選項，可以將 OR 運算子新增至過濾器定義。</dd>
+</dl>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">從按鈕列中，按一下<span class="ph uicontrol">條件</span>以新增另一個條件分支。 </span></li>
+</ol>
+ <p class="p">下表顯示如果您選取條件或邏輯元素，然後按一下其中一個邏輯按鈕之後發生的情況。</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 使用前置邏輯及尾端邏輯按鈕取得的結果</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d193840e235">元素</th>
+<th class="entry" valign="top" width="40%" id="d193840e237">使用的前置邏輯按鈕</th>
+<th class="entry" valign="top" width="40%" id="d193840e239">使用的尾端邏輯按鈕</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d193840e235 ">條件元素</td>
+<td class="entry" valign="top" width="40%" headers="d193840e237 ">建立邏輯元素，作為條件元素母項的子項。 條件元素會變成邏輯元素的子項。</td>
+<td class="entry" valign="top" width="40%" headers="d193840e239 ">由於條件元素無法包含子項，所以<span class="ph uicontrol">尾端邏輯</span>按鈕無法使用。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d193840e235 ">邏輯元素</td>
+<td class="entry" valign="top" width="40%" headers="d193840e237 ">建立邏輯元素，作為邏輯元素母項的子項。 條件元素會變成邏輯元素的子項。</td>
+<td class="entry" valign="top" width="40%" headers="d193840e239 ">邏輯元素會新增為現有邏輯元素的子項。 如果插入點已具有兩個子項，則會停用此按鈕。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d193840e235 ">未選取元素</td>
+<td class="entry" valign="top" width="40%" headers="d193840e237 ">建立單一邏輯元素。</td>
+<td class="entry" valign="top" width="40%" headers="d193840e239 ">建立單一邏輯元素。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果必要，請讓條件無效，如下所示： </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">從圖形顯示區域中，選取條件元素。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">從按鈕列中，按一下<span class="ph uicontrol">無效</span>。 </span> <p class="p">無效元素一律會插入到樹狀結構中的現行插入點<em class="ph i">之前</em>，且僅可以具有一個母項及一個子項。</p>
+
+<div class="note note"><span class="notetitle">註：</span> 無法將無效邏輯元素插入到現有無效邏輯元素之前。 然而，在編輯過濾器時，可以刪除樹狀結構一部分，讓一個無效元素位於另一個無效元素的後面。 您必須刪除其中一個元素，以建立有效的過濾器。</div>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果必要，請建立子查詢元素，如下所示：</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">從按鈕列中，按一下<span class="ph uicontrol">子查詢</span>。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">從元素定義區域中，如下所示完成欄位：</span> <dl class="dl"><dt class="dt dlterm">直欄</dt>
+<dd class="dd">從此清單中，選取要在搜尋中使用的資料庫直欄。</dd>
+<dt class="dt dlterm">運算子</dt>
+<dd class="dd">從清單中選取下列任一個選項：<ul class="ul"><li class="li"><span class="keyword option">在</span>：使用此選項，以搜尋直欄的內容。</li>
+<li class="li"><span class="keyword option">不在</span>：使用此選項，以搜尋不存在的欄位內容。 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">選取</dt>
+<dd class="dd">選取要在建置清單時使用，並針對其執行「在」或「不在」作業的直欄。 此清單中的選項由<span class="ph uicontrol">從</span>清單中選取的選項決定。</dd>
+<dt class="dt dlterm">從</dt>
+<dd class="dd">選取資訊衍生自的資料庫表格。 這可以是 alerts.details、alerts.journal 或 alerts.status。</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果必要，請設定過濾器度量，如下所示：</span> <dl class="dl"><dt class="dt dlterm">度量</dt>
+<dd class="dd">使用第一個清單，以選擇要使用的測量：<ul class="ul"><li class="li">選取<strong class="ph b">平均值</strong>，以傳回符合過濾器之所有警示的選定欄位平均值。</li>
+<li class="li">選取<strong class="ph b">計數</strong>，以傳回符合過濾器的所有警示計數。 已選取的欄位並非用於此計算。</li>
+<li class="li">選取<strong class="ph b">總和</strong>，以傳回符合過濾器之所有警示的選定欄位總數。</li>
+<li class="li">選取<strong class="ph b">下限</strong>，以傳回符合過濾器之警示中的選定欄位最低值。</li>
+<li class="li">選取<strong class="ph b">上限</strong>，以傳回符合過濾器之警示中的選定欄位最高值。</li>
+</ul>
+</dd>
+<dd class="dd">使用第二個清單，以選取要套用測量的欄位。
+只有警示中的整數及時間欄位才可用於度量計算。<div class="note tip"><span class="tiptitle">提示：</span> 度量值會顯示在「<span class="keyword wintitle">事件清單</span>」監視器框視窗的監視器框中。</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果必要，請複製及貼上元素，如下所示： </span><ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">從圖形顯示區域中，選取要複製的元素，並選取<span class="ph menucascade"><span class="ph uicontrol">編輯</span> &gt; <span class="ph uicontrol">複製</span></span>。</span></li>
+<li class="li substep"><span class="ph cmd">透過選取<span class="ph menucascade"><span class="ph uicontrol">編輯</span> &gt; <span class="ph uicontrol">貼上</span></span>，將元素貼至過濾器的其他位置。 </span> 「過濾器建置器」會嘗試插入與目前所選元素相對的元素。</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果必要，請刪除單一元素，或母元素及其子項，如下所示： </span><ul class="ul choices"><li class="li choice">從圖形顯示區域中，選取要刪除的單一元素，然後按一下按鈕列中的<span class="ph uicontrol">刪除元素</span>，或選取<span class="ph menucascade"><span class="ph uicontrol">編輯</span> &gt; <span class="ph uicontrol">剪下</span></span>。 <p class="p">在刪除過濾器元素時，「過濾器建置器」會嘗試將子元素鏈結到過濾器。 如果您嘗試移除具有兩個子項的邏輯元素或具有子項的子查詢，則此動作沒有作用。</p>
+</li>
+<li class="li choice">從圖形顯示區域中，選取要刪除的母元素，然後按一下按鈕列中的<span class="ph uicontrol">刪除樹狀結構</span>。 此動作會移除目前選取的元素及所有子元素。</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">在定義過濾器之後，儲存過濾器或取消變更，如下所示：</span> <dl class="dl"><dt class="dt dlterm">套用</dt>
+<dd class="dd">按一下此按鈕，以將變更套用至過濾器，而不儲存它。 </dd>
+<dt class="dt dlterm">關閉</dt>
+<dd class="dd">按一下此按鈕，以關閉視窗並捨棄變更。</dd>
+</dl>
+
+<div class="p">您必須使用 <span class="ph filepath">.elf</span> 副檔名儲存過濾器。 <div class="note note"><span class="notetitle">註：</span> 在 UNIX 上，當從「管理者」執行「過濾器建置器」時，不會顯示<span class="ph uicontrol">套用</span>按鈕。 在此情況下，您必須透過從「UNIX 過濾器建置器」中，選取<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">儲存</span></span>或<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">另存新檔</span></span>，來儲存所有過濾器。</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_fb_settingupfiltersevntlst.html" title="過濾器用於建置可在 ObjectServer 警示資料庫表格上執行的 SQL 查詢，以便在監視器框及事件清單中顯示自訂警示資訊。">設定事件清單資料的過濾器</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_fb_startingfilterbuilder.html" title="「過濾器建置器」會提供圖形介面，您可在其中建置及測試比較過濾器的 SQL 陳述式。">啟動過濾器建置器</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

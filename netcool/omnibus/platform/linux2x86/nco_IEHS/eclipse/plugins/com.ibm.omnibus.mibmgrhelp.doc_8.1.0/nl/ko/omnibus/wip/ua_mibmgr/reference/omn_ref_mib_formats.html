@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="유효한 MIB 오브젝트 형식" />
+<meta name="abstract" content="유효한 MIB 오브젝트의 형식에 대해 설명합니다." />
+<meta name="Description" content="유효한 MIB 오브젝트의 형식에 대해 설명합니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_formats" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>유효한 MIB 오브젝트 형식</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_formats">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">유효한 MIB 오브젝트 형식</h1>
+<div class="body refbody"><p class="shortdesc">유효한 MIB 오브젝트의 형식에 대해 설명합니다. </p>
+<div class="section"><p class="p">다음 섹션에서는 유효한 SNMP MIB 오브젝트 형식에 대해 설명합니다.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL-CONVENTION</h2><p class="p">v2 TEXTUAL-CONVENTION(TC)은 다음과 같은 구문을 가지며
+이 구문에서 오브젝트 이름 뒤에는 <samp class="ph codeph">::=</samp> 항목과 <samp class="ph codeph">TEXTUAL-CONVENTION</samp> 항목이 옵니다.
+몇 개의 섹션이 후속하며 SYNTAX 정의가 추가됩니다. </p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION 
+DISPLAY-HINT "255a" 
+STATUS current 
+DESCRIPTION "Represents textual information taken from the NVT SCII character set, as defined in pages 4, 10-11 of RFC 854. To summarize RFC 854, the NVT ASCII repertoire specifies: - the use of character codes 0-127 (decimal) - the graphics characters (32-126) are interpreted as US ASCII - NUL, LF, CR,BEL, BS, HT, VT and FF have the special meanings specified in RFC 854 - the other 25 codes have no standard interpretation - the sequence 'CR LF' means newline - the sequence 'CR NUL' means carriage-return - 
+an 'LF' not preceded by a 'CR' means moving to the same column on the next line. - the sequence 'CR x' for any x other than LF or NUL is illegal. (Note that this also means that a string may end with either 'CR LF' or 'CR NUL', but notwith CR.) Any object defined using this syntax may not exceed 255 characters in length." 
+SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+</div>
+<p class="p">v1 TC는 오브젝트 이름과 <samp class="ph codeph">::=</samp> 항목으로 구성되며,
+뒤에 유효한 SYNTAX 정의가 추가됩니다. 예: </p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= OCTET STRING</code></pre>
+</div>
+<p class="p">두 오브젝트 모두 MIB 트리 외부에
+있으므로 MIB의 오브젝트가 아닙니다. 이들은 구문을 정의할 수 있는 하나의 형식을 표시합니다.
+OID는 없습니다. <span class="ph uicontrol">보기</span> 드롭 다운 목록을 클릭하고 <span class="ph uicontrol">텍스트 규칙</span>을 선택하여
+<span class="keyword wintitle">MIB 모듈</span> 보기에서 별도의 필터로 이들을 볼 수 있습니다.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TRAP-TYPE 오브젝트</h2><p class="p">v1 MIB에 대해서는 TRAP-TYPE 오브젝트가 유효합니다. 이 오브젝트는 MIB 트리에 완전히 맞도록
+원래 정의되지 않았습니다. OID는 없지만 대신 엔터프라이즈 ID와 트랩 번호가 있습니다.
+예를 들면 다음과 같습니다. </p>
+<div class="p"><pre class="pre codeblock"><code>newRoot TRAP-TYPE 
+ENTERPRISE dot1dBridge 
+DESCRIPTION "The newRoot trap indicates that the sending agent has become the new root
+of the Spanning Tree; the trap is sent by a bridge soon after its election as the new
+root, e.g., upon expiration of the Topology Change Timer immediately subsequent to its
+election."
+::= 1</code></pre>
+</div>
+<p class="p">v1 트랩은 뒤에 <samp class="ph codeph">TRAP-TYPE</samp> 키워드가 오는 오브젝트 이름으로 시작합니다.
+그 뒤에는 섹션 번호가 오고 <samp class="ph codeph">::=</samp> 항목과 숫자로 끝납니다.
+숫자 앞이나 뒤에는 중괄호({})가 사용되지 않습니다. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">MACRO 오브젝트</h2><p class="p">MACRO 오브젝트는 기타 MIB 오브젝트의 형식을 정의합니다. MACRO 정의는 항상
+오브젝트 유형으로 시작하며 뒤에 <samp class="ph codeph">MACRO</samp> 키워드와 <samp class="ph codeph">::=</samp> 항목이 후속합니다.
+매크로 정의의 나머지 부분은 <samp class="ph codeph">BEGIN</samp>과 <samp class="ph codeph">END</samp> 태그로 묶이며 다음과 같습니다.</p>
+<div class="p"><pre class="pre codeblock"><code>OBJECT-TYPE MACRO ::= 
+BEGIN 
+TYPE NOTATION ::= "SYNTAX" 
+type (TYPE ObjectSyntax) "ACCESS" Access "STATUS" Status VALUE NOTATION ::= value
+(VALUE ObjectName) Access ::= "read-only" | "read-write" | "write-only" | "not-accessible"
+Status ::= "mandatory" | "optional" | "obsolete"
+END</code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">기타 오브젝트</h2><div class="p">기타 모든 오브젝트는 다음 형식이어야 합니다. <pre class="pre codeblock"><code>snmpInPkts OBJECT-TYPE SYNTAX Counter ACCESS read-only STATUS mandatory DESCRIPTION "The total number of Messages delivered to the SNMP entity from the transport service." ::= { snmp 1 }</code></pre>
+</div>
+<p class="p">이 오브젝트는 오브젝트 이름으로 시작되며, 오브젝트 이름은 알파벳 소문자로 시작해야 합니다.
+그 뒤에는 오브젝트 유형을 표시하는 키워드가 옵니다. 추가 섹션이 키워드 다음에 오고, <samp class="ph codeph">::=</samp> 항목과 중괄호({})로 묶인 조상 목록으로
+형식이 완성됩니다. 중괄호({}) 안에 있는 조상 항목은 다음 두 형식 중 하나의 형식으로 되어 있습니다.
+(위에 표시된) 첫 번째 형식은 뒤에 숫자가 오는 오브젝트 이름입니다.
+오브젝트 이름은 이 오브젝트의 바로 위 항목의 이름이고, 숫자는 상위에 대한 이 오브젝트의
+리프 개수입니다. </p>
+<div class="p">조상 목록에 대한 두 번째 유효 형식은 다음과 같이 알려진 오브젝트까지의 모든 조상 목록입니다.
+<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } </code></pre>
+</div>
+<p class="p">이 예제에서는
+알려진 오브젝트(<samp class="ph codeph">iso</samp>가 트리의 루트임)로 목록이 시작되어 오브젝트 번호를 표시하는 마지막
+단일 정수(<samp class="ph codeph">1</samp>)가 표시될 때까지 각 하위 세대의 오브젝트 이름과 리프 번호(<samp class="ph codeph">org(3)</samp> 및
+<samp class="ph codeph">dod(6)</samp>)를 계속 정의합니다. 오브젝트 이름과 오브젝트 번호 사이에는 공백이 없어야 합니다. </p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="이 절에서는 SNMP(Simple Network Management Protocol) 아키텍처, SNMP MIB(Management Information Base), 일부 추가 MIB 개념에 대한 추가 정보를 제공합니다.">SNMP에 대한 정보</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

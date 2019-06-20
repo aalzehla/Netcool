@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="שימוש ב-MIB Manager" />
+<meta name="abstract" content="ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool." />
+<meta name="description" content="ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>שימוש ב-MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">שימוש ב-MIB Manager</h1>
+<div class="body conbody"><p class="shortdesc">ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool.</p>
+<p class="p">MIB Manager כולל ערכה של רכיבי MIB בסיסיים ורכיבי RFC MIB, הממוקמים במדריך <span class="ph filepath">$NCHOME/omnibus/platform/<var class="keyword varname">arch</var>/mibmanager/workspace/mibs</span>.
+רכיבים אלה ניתנים במטרה לאפשר לכם לייבא רכיבי MIB נוספים, ו-MIB Manager משתמש במודולים מצורפים אלה של MIB באופן אוטומטי כדי לפענח יחסי תלות במהלך יבוא של רכיבי MIB חדשים. ניתן לראות את מודולי ה-MIB המצורפים בתצוגה <span class="keyword wintitle">מודולים של MIB</span> בעת הפעלת MIB Manager בפעם הראשונה.</p>
+<p class="p">כמו כן, MIB Manager כולל קובצי נתונים של XML המייצגים יבוא של רכיבי ה-MIB המצורפים. MIB Manager משתמש בקובצי XML אלה לאחסון נתוני ה-MIB שהוא מייבא מקובצי תמליל גולמי של MIB.</p>
+<p class="p">הוסיפו את רכיבי ה-MIB שלכם למדריך שניתן לגשת אליו מהמחשב שבו מופעל היישום של MIB Manager. יש להתקין את כל רכיבי ה-MIB המבוססים על תקנים במדריך נפרד שניתן למקם אותו בנתיב החיפוש כדי לפתור יחסי תלות בקלות. כברירת מחדל,  הרכיבים הבסיסיים של SNMP MIB מותקנים במדריך <span class="ph filepath">$NCHOME/omnibus/platform/<var class="keyword varname">arch</var>/mibmanager/workspace/mibs/base</span>,
+וכל רכיבי ה-RFC MIB מותקנים במדריך <span class="ph filepath">$NCHOME/omnibus/platform/<var class="keyword varname">arch</var>/mibmanager/workspace/mibs/rfc</span>.</p>
+<div class="section"><h2 class="title sectiontitle">החלון של Netcool MIB Manager</h2><div class="p">בעת הפעלת MIB Manager, המרכיבים הבאים מוצגים בחלון הראשון של MIB Manager:<ul class="ul"><li class="li">תפריט</li>
+<li class="li">סרגל כלים</li>
+<li class="li">התצוג <span class="keyword wintitle">התקן</span>: השתמשו בתצוגה זו כדי ליצור, לעדכן
+ולמחוק התקנים של MIB Manager.</li>
+<li class="li"><span class="keyword wintitle">מודולים של MIB</span>: השתמשו בתצוגה זו כדי לחפש ולמחוק מודולי MIB, וכדי לחפש אחר ערכי MIB ספציפיים.</li>
+<li class="li">התצוגה <span class="keyword wintitle">עץ OID</span>: תצוגה זו מספקת ייצוג של כל אובייקטי ה-MIB הממוקמים במודולי ה-MIB שיובאו.</li>
+<li class="li">התצוגה <span class="keyword wintitle">פרטים</span>: תצוגה זו מציגה את הפרטים של מרכיבי ה-MIB שנבחרו.</li>
+<li class="li"><span class="keyword wintitle">קונסול</span>: תצוגה זו מציגה את כל הודעות היומן המופקות על-ידי MIB Manager כאשר המופע הנוכחי רץ.</li>
+</ul>
+</div>
+<p class="p">תוכלו להציג את נתוני ה-MIB באמצעות אחת משתי הפרספקטיבות, <span class="ph uicontrol">MIB
+Manager</span> או <span class="ph uicontrol">mib2rules</span>. הפרספקטיבה של <span class="ph uicontrol">MIB Manager</span> היא הפרספקטיבה המוגדרת כברירת מחדל. הפרספקטיבה <span class="ph uicontrol">mib2rules</span> מתמקדת בזיהויי אובייקטים (רכיבי OID) והיא ניתנת לנוחיותם של המשתמשים המכירים את תוכנית השירות <samp class="ph codeph">mib2rules</samp>.</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">תצוגת המודולים של MIB</a></span><br />
+התצוגה <span class="keyword wintitle">מודולים של MIB</span> מספקת ייצוג של כל המודולים של MIB שיובאו ומאפשרת לכם לחפש אחר מודולים של MIB, למחוק מודולים של MIB ולחפש אחר ערכים ספציפיים של MIB.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">התצוגה 'עץ OID'</a></span><br />
+התצוגה של עץ זיהוי האובייקט (OID) מספקת ייצוג של כל האובייקטים של MIB שגם ממוקמים במודולים של MIB שיובאו.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">יבוא נתונים של MIB</a></span><br />
+כיצד לייבא נתונים של SNMP MIB לתוך MIB Manager.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">יצוא נתונים של MIB</a></span><br />
+כיצד לייצא נתונים של SNMP MIB data מ-MIB Manager למגוון תבניות.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">עריכת לכידות SNMP</a></span><br />
+כיצד לערוך לכידות של SNMP.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">הפקת לכידות SNMP‏</a></span><br />
+כיצד ליצור לכידות של SNMP. ניתן להשתמש בתיפקודיות זו גם לבדיקת קובצי כללים שהופקו באמצעות MIB Manager.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Tivoli Netcool/OMNIbus MIB Manager הוא יישום המבוסס על IBM Eclipse שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP), שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות mib2rules.">Tivoli Netcool/OMNIbus MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

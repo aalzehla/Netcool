@@ -1,0 +1,25 @@
+
+##############################################################################
+# REPLICATION OF OOTB EVENT GROUPING TABLES - APPEND TO THE END OF THE FILE
+##############################################################################
+
+REPLICATE ALL FROM TABLE 'master.properties'
+	USING MAP 'MasterPropertiesMap'
+	INTO 'master.properties';
+
+REPLICATE ALL FROM TABLE 'master.correlation_sitename'
+	USING MAP 'MasterCorrelationSiteNameMap'
+	INTO 'master.correlation_sitename';
+
+REPLICATE ALL FROM TABLE 'master.correlation_scopeid'
+	USING MAP 'MasterCorrelationScopeIDMap'
+	INTO 'master.correlation_scopeid';
+
+REPLICATE ALL FROM TABLE 'master.correlation_scopealias'
+	USING MAP 'MasterCorrelationScopeAliasMap'
+	INTO 'master.correlation_scopealias';
+
+REPLICATE ALL FROM TABLE 'master.correlation_scopealias_members'
+	USING MAP 'MasterCorrelationScopeAliasMembersMap'
+	INTO 'master.correlation_scopealias_members';
+

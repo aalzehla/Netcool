@@ -1,0 +1,56 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+function getAlertTableFields(fields) {
+  EIC_IsolateAndCorrelate.init();
+  evntDataSource=getglobalvar('EVENT_DATASOURCE');
+  query = 'select top 1 * from alerts.status';
+  DirectSQL(evntDataSource, query, false);
+  kys  = keys(DataItems[0]);
+  arryOfKeys  = {};
+  EIC_utils.sort(kys);
+  log(3," Keys : " + kys);
+  totalLen = length(kys);
+  count = 0;
+  while( count < totalLen ) {
+     obj = NewObject();
+     obj['name'] = kys[count];
+     obj['value'] = kys[count];
+     arryOfKeys = arryOfKeys + obj;
+     count = count + 1;
+  }
+  fields = arryOfKeys;
+  
+}
+
+function getListOfEventRules(outputData){
+  EIC_IsolateAndCorrelate.init();
+  eventRuleDatatype = getglobalvar('EVENTRULES_DATATYPE');
+  filter = " 1=1 " ;
+  GetByFilter(eventRuleDatatype,filter,false);
+  fieldName = 'RULENAME';
+  arrayOfValues = {};
+  if( Num > 0 ) {
+     i = 0; 
+     while ( i < Num ) {
+       obj = NewObject();
+       item = DataItems[i];
+       obj[fieldName] = item[fieldName];
+       arrayOfValues = arrayOfValues + obj; 
+       i=i+1;
+     }
+  }
+  outputData = arrayOfValues;
+}
+
+getAlertTableFields(rtn);
+// getListOfEventRules(rtn);
+log(3,"Return Data : " + rtn);

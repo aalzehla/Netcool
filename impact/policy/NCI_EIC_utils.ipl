@@ -1,0 +1,505 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+Handle com.micromuse.common.datasource.SQLDataSourceException {
+    log(0,"sql excpetion encountered : " + ErrorMessage );
+    setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',true);
+    setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',ErrorMessage);
+}
+
+function unescapeHTMLCharacters(inString, oString ) {
+   Log(3,"Incoming String : " + inString); 
+
+   encodedStr = {"&#39;","&amp","\\\\&quot;","&quot;","&lt;","&gt;","&#40;","&#41;"};  
+   replacementStr = {"'","&",'"','"',"<",">","(",")"};                         
+
+   len = Length(encodedStr);
+   oo = 0;
+   oString = inString; 
+   while( oo < len ) {
+      Log(3,"Encoded Str : " + encodedStr[oo]  + " Replacement Str : " + replacementStr[oo] ); 
+      oString = Replace(oString, encodedStr[oo], replacementStr[oo], 99);
+      Log("oString : " + oString); 
+      oo = oo + 1; 
+   } 
+   Log(3,"Return String : " + oString); 
+}
+
+
+function convertToJSONStr(obj, inIdentifier, outString) {
+  lengthOfArray = length(obj);
+  log(3,"Length of Array : " + lengthOfArray);
+  count  = 0;
+  if ( inIdentifier != NULL) {
+    outString = '{ "identifier" : "' + inIdentifier + '" , ';
+   } else {
+    outString = "{ ";
+   }
+  outString = outString + ' "items" : [ ';
+  while( count < lengthOfArray ) {
+  objValue = obj[count];
+     rtnString = "";
+     getJSONStr(objValue,rtnString);
+     outString = outString + rtnString;
+     if ( count < ( lengthOfArray - 1 ) ) {
+         outString = outString + ",";
+     }
+     count = count + 1;
+  }
+  outString = outString + '] }';
+  // log(3,"OutString : " + outString);
+}
+
+function getJSONStr(obj, rtnString) {
+  rtn = Keys(obj);
+  lengthOfKeys  = length(rtn);
+  count  = 0;
+  rtnString = " { ";
+  while( count < lengthOfKeys ) {
+     keyValue = rtn[count];
+     if( keyValue != 'children' ) {
+        value = obj[keyValue];
+        value = Trim(value);
+        lengthOfValue = Length(value);
+        value = Replace(value,"\\\"","\\\\\"",lengthOfValue);
+        if( count != 0 ) {
+          rtnString = rtnString + "," ;
+        }
+        if (value == "false") {
+                  rtnString = rtnString  + '"' +  keyValue + '" : ' + value + '' ;
+        } else {
+          rtnString = rtnString  + '"' +  keyValue + '" : "' + value + '"' ;
+         } 
+     } else {
+       // 
+       // Special handling of C
+       //
+       value = obj[keyValue];
+       lenOfC = Length(value);
+       if( lenOfC > 0 ) {
+          cStr  = "[" ;
+          refC = 0;
+          while(refC < lenOfC ) {
+            refVal = value[refC];
+            cStr = cStr + '{ "_reference" : ' + "'" + refVal + "'}";
+            if( refC < ( lenOfC - 1 ) ) {
+               cStr  = cStr + "," ;
+            }
+
+            refC = refC + 1;
+          }// while refC < lenOfC
+         cStr = cStr + ']';
+         if( count != 0 ) {
+
+            rtnString = rtnString + "," ;
+
+         }
+          rtnString = rtnString  + '"' +  keyValue + '" : ' + cStr  ;
+       }// if lenofC > 0 
+     } // if Esle KeyValue != Children
+     count = count + 1;
+  }
+  rtnString = rtnString + "}";
+  //Log(3," Return value from getJSONSTR : " + rtnString);
+}
+
+//
+// The first parameter is the input string which contains the data in JSON format.
+// The second parameter identifies what is the initial Format, if its array pass in true
+// if its a JSON object pass in false
+// the third parameter provides with the list of keys that needs to be extracted out
+// of the JSON object inside an array. The reason for not making it generic using keyset
+// and iterator is due to a bug in Java. 
+// The fourth parameter is the output object.
+//
+/**
+*update: if isStrStartsWithArray,it will treat the string as JSON object and will parse it
+*/
+function convertJsonToIPL(jsonStr,isStrStartsWithArray,keySet,outputObj) {
+    log(1,"++++++++++++++++++++++ Start  ~~~~~~~~~~~~~~~~");
+   
+   jsonArrayClass = "com.ibm.json.java.JSONArray";
+   jsonObjectClass = "com.ibm.json.java.JSONObject";
+   setClass = "java.util.Set";
+   iteratorClass = "java.util.Iterator";
+   parseMethod = "parse";
+   getMethod = "get";
+   outputObj = {};
+   if ( isStrStartsWithArray ) {
+
+      log(3,"Starting to process Array");
+      outputObj = {};
+      returnArray = JavaCall(jsonArrayClass ,null,parseMethod,{jsonStr});
+      exceptionRaised = getGlobalVar('EXCEPTION_RAISED');
+      if( exceptionRaised = false ) { 
+         lenOfArray  = JavaCall(jsonArrayClass,returnArray,"size",{});
+         count = 0 ;
+         log(3,"Number of Entries : " + lenOfArray);
+         while( count < lenOfArray ) {
+            objInArray = JavaCall(jsonArrayClass,returnArray,getMethod,{count});
+            log(3,"Obtained the Array");
+            iplObj = NewObject();
+            lenOfKeySet=length(keySet);
+            keyCount = 0;
+            while(keyCount < lenOfKeySet ) {
+                log(3,"obtaining the value for : " + keySet[keyCount]);
+                value = JavaCall(jsonObjectClass,objInArray,getMethod,{keySet[keyCount]});
+                iplObj[keySet[keyCount]] = value;
+                keyCount = keyCount + 1;
+            } // keyCount <  lenOfKeySet
+            outputObj = outputObj+iplObj;
+            count = count + 1;
+         } // count < lenOfArray
+      } // if exceptionRaised.
+   } else {
+      //make the object 
+      jsonObject = JavaCall(jsonObjectClass ,null,parseMethod,{jsonStr}); 
+      returnArray = JavaCall(null,jsonObject ,"get",{"items"});
+        lenOfArray  = JavaCall(jsonArrayClass,returnArray,"size",{});
+         count = 0 ;
+         log(3,"Number of Entries : " + lenOfArray);
+         while( count < lenOfArray ) {
+            objInArray = JavaCall(jsonArrayClass,returnArray,getMethod,{count});
+            log(3,"Obtained the Array");
+            Log("objInArray " + objInArray); 
+            iplObj = NewObject();
+            lenOfKeySet=length(keySet);
+            keyCount = 0;
+            while(keyCount < lenOfKeySet ) {
+                log(3,"obtaining the value for : " + keySet[keyCount]);
+                value = JavaCall(jsonObjectClass,objInArray,getMethod,{keySet[keyCount]});
+                iplObj[keySet[keyCount]] = value;
+                keyCount = keyCount + 1;
+            } // keyCount <  lenOfKeySet
+            outputObj = outputObj+{iplObj};
+            count = count + 1;
+         } // count < lenOfArray 
+   }
+    log(1,"++++++++++++++++++++++ End  ~~~~~~~~~~~~~~~~");
+}
+
+//
+// Check the connection information
+//
+function checkConnection(datatypeName,errorMessage,exceptionRaised) {
+   setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',false);
+   setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',"");
+   filter = "1=0";
+   log(3,"Checking for Datatype Name : " + datatypeName );
+   GetByFilter(datatypeName, filter, true);
+   log(3," Returned Rows for Datatype Name : " + datatypeName + " Rows : " + Num);
+   isException  = getGlobalVar('CHECK_CONN_EXCEPTION_RAISED');
+   exceptionRaised = isException;
+   if( isException != false ) {
+     if( Num >=0 ) {
+        errorMessage = "";
+     }
+   }else {
+      errorMessage = getGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE');
+   }
+}
+
+//
+// Check all the datatype connections
+//
+function checkAllConnections(err,isException,isScrr) {
+  EIC_IsolateAndCorrelate.init();
+  dtypes = {'EVENTRULES_DATATYPE'};
+  dtypes = dtypes + 'PARAMETERS_DATATYPE';
+  dtypes = dtypes + 'EVENT_DATATYPE';
+  dtypes = dtypes  +  'ACTIONS_DATATYPE';
+  dtypes = dtypes + 'RESOURCES_DATATYPE' ;  
+  if( isScrr = true ) {
+     dtypes = dtypes + 'BSMIDENTITIES_DATATYPE';
+     dtypes = dtypes  + 'DEPENDENTS_DATATYPE';
+     dtypes = dtypes  + 'RESOURCEINFO_DATATYPE';
+     dtypes = dtypes  +  'ACTIONS_DATATYPE';
+     dtypes = dtypes  + 'RESOURCES_DATATYPE';
+  }
+  lenOfArr  = length(dtypes);
+  i = 0;
+  while( i < lenOfArr ) {
+    dName = getGlobalVar(dtypes[i]);
+    checkConnection(dName,err,isException);
+    if(isException = true ) {
+      log(1,"Exception Encountered");
+      i = lenOfArr;
+    } // End of If Condition.
+    i = i + 1;
+  } // End of while loop
+}
+
+//
+// Implements a bubble sort.
+//
+function sort(inputArray) {
+  lenOfOptions = Length(inputArray);
+  if( lenOfOptions > 0 ) {
+    i = 0;
+    while( i < lenOfOptions ) {
+      j = 0;
+      while( j < ( lenOfOptions-1 ) ) {
+        opt1 = inputArray[j];  
+        opt2 = inputArray[j+1];  
+        if ( opt1 > opt2 ) {
+           tempObj = inputArray[j+1];
+           inputArray[j+1]  = inputArray[j];
+           inputArray[j] = tempObj;
+         }
+         j = j + 1;
+       }
+       i = i + 1;
+     }
+   }
+}
+
+/**
+*returns the list of tasks for the given rule name, 
+*@return list of actions as an array of objects
+*/
+function getListOfTasks(ruleId,actionsList) {
+  list = {}; 
+  Rule=GetByFilter('EVENTRULES',"ID="+ruleId,null);
+  RuleName = Rule[0].RULENAME; 
+  Actions = DirectSQL('EventrulesDB',"SELECT * FROM EventRules.EIC_Actions WHERE RULENAME='" + RuleName + "'", null);
+  Log(3,"Number of Action(s) for rule : " + RuleName + " : " + Length(Actions)); 
+  if (Length(Actions) > 0 ) {
+    index = 0 ; 
+    while (index < Length(Actions) ) { 
+     obj = NewObject();
+      obj.ACTIONNAME =  Actions[index].ACTIONNAME;
+      obj.POLICYNAME= Actions[index].POLICYNAME;
+      obj.AUTOEXECUTE= ""+Actions[index].AUTOEXECUTE;
+      obj.EXECUTE =  Actions[index].POLICYNAME;
+      list = list + {obj};
+      index = index + 1; 
+    } 
+  } 
+ actionsList = list ; 
+}
+/**
+*inserts or updates the rule resources in the database with the
+* latest Resources JSON Object
+*TODO: try to find way to perform the check call and insert/update in one DirectSQL.
+*/
+function insertOrUpdateRuleResources(MatchingRuleName, serialNum ,resourcesJSON) {
+  Log("MatchingRuleName in insert: " + MatchingRuleName);
+    GetByFilter('EIC_RuleResources',"RULENAME='"+ MatchingRuleName + "' and SERIAL=" + serialNum,null);
+  if (Num == 0 ) {
+   Log("Inserting Resource Information for Rule: " + MatchingRuleName);
+   DirectSQL('EventrulesDB',"INSERT INTO EVENTRULES.EIC_RULERESOURCE VALUES('" + MatchingRuleName + "'," + serialNum +",'" + resourcesJSON + "')",null);
+  } else {
+    Log("Updating Rule : " + MatchingRuleName + " With new Resource info");
+    DirectSQL('EventrulesDB',"UPDATE EVENTRULES.EIC_RULERESOURCE SET RESOURCES = '" + resourcesJSON + "' WHERE RULENAME = '" + MatchingRuleName  + "' AND SERIAL=" + serialNum ,null);
+  }
+}
+
+/**
+*Gets the resources from the database and returns an array of objects
+*this is helpful when user executes policies for actions.
+*User can call this function to get all the resources information
+* and do an action based on this information.
+*/
+function getRuleResourcesAsImpactObjects(RuleName,serialNum,resourceObjects) {
+ if (RuleName == NULL || RuleName == null || RuleName == "") {
+   Log("You must provide a Rule Name to get objects");
+ 
+ } else {
+   Resources = GetByFilter('EIC_RuleResources',"RULENAME='"+RuleName+"' AND Serial=" +serialNum,null);
+    ResourcesJSON = Resources[0].RESOURCES;
+   // Log(" ResourcesJSON " + ResourcesJSON );
+     keySet={"UITreeNodeType" ,"EICMATCHINGRULENAME" ,"UITreeNodeId" ,"UITreeParentNodeId" ,"UITreeNodeStatus" ,"UITreeNodeParent" ,"UITreeNodeLabel" ,"Node" ,"AlertGroup" ,"AlertKey" ,"leveldown" ,"Summary" ,"Identifier" ,"reltype" ,"label" ,"Serial" ,"resourceIdentifier" ,"type" ,"Type" ,"id" ,"Severity" }; 
+     convertJsonToIPL(""+ResourcesJSON ,false,keySet,outputObj);
+    // Log("Resource Of Impact is " + outputObj); 
+     resourceObjects = outputObj; 
+   } 
+}
+
+/**
+*Function to get the List of policies that are available for the current server.
+*returns the policies in JSON object
+*/
+function getPolicyListJSON(policies) {
+  baseDir = JavaCall("com.micromuse.common.util.SystemPropertiesManager",null,"getProperty",{"base.directory"});
+  Log("baseDir " + baseDir);
+  fileSep = GetFieldValue("java.io.File", null, "separator"); 
+  Log("fileSep : " + fileSep); 
+  policyList = baseDir + fileSep + "etc" + fileSep + GetServerName() + "_policylist";
+  Log("PolicyList : " + policyList); 
+  fileStream = NewJavaObject("java.io.FileInputStream",{policyList});
+  properties = NewJavaObject("java.util.Properties",null);
+  JavaCall(null,properties,"load",{fileStream});
+  policiesNum = JavaCall(null,properties,"getProperty",{"impact.policies.numpolicies"});
+  Log("policiesNum: " + policiesNum);
+  if (policiesNum == null || policiesNum == NULL) {
+    policiesNum = 0; 
+  }
+  index = 1;
+  policiesObjects = {}; 
+  while (index < (int(policiesNum) +1)) {
+    policy = JavaCall(null,properties,"getProperty",{"impact.policies."+index+".name"});
+    if (policy != null) {
+      object = NewObject();
+      object.name = policy;
+       policiesObjects = policiesObjects  + {object};
+     }
+    index = index + 1; 
+  }
+ // Log("policiesObjects: " +  policiesObjects );
+  convertToJSONStr( policiesObjects ,"name",outString);
+  Log("outString: " + outString); 
+  policies = outString; 
+} 
+
+/**
+*Gets the policy list that are available only for EIC
+*@return list of policies for EIC in a JSON format
+*/
+function getEICPolicyListJSON(policies) {
+  baseDir = JavaCall("com.micromuse.common.util.SystemPropertiesManager",null,"getProperty",{"base.directory"});
+  Log("baseDir " + baseDir);
+  fileSep = GetFieldValue("java.io.File", null, "separator"); 
+  Log("fileSep : " + fileSep); 
+  policyDir = baseDir + fileSep + "policy";
+  Log("PolicyDir : " + policyDir); 
+  file = NewJavaObject("java.io.File",{policyDir}); 
+  fileList = JavaCall(null,file,"list",null);
+  list = JavaCall("java.util.Arrays",null,"asList",{fileList});
+  JavaCall("java.util.Collections",null,"sort",{list});
+  Log("fileList is " + list);
+
+  index = 0;
+  policiesObjects = {}; 
+  while (index < (int(Length(fileList)) )) {
+   fileString = NewJavaObject("java.lang.String",{""+fileList[index]}); 
+   // Log("fileString " + fileString);
+    isParamFile = JavaCall(null,fileString,"endsWith",{".params"});
+    //Log("isParamFile : " + isParamFile);
+    if(isParamFile == "true") { 
+       policyFile = policyDir + fileSep + fileList[index]; 
+       fileStream = NewJavaObject("java.io.FileInputStream",{policyFile}); 
+       properties = NewJavaObject("java.util.Properties",null);
+       JavaCall(null,properties,"load",{fileStream}); 
+       EICFlag= JavaCall(null,properties,"getProperty",{"impact.eicparam.enabled"});
+      // Log("EICFlag : " + EICFlag);
+       if (EICFlag == "true") {
+         policy =  Replace(fileList[index],GetServerName()+"_","");
+         policy = Replace(policy,".params",""); 
+        object = NewObject();
+        object.name = policy;
+         policiesObjects = policiesObjects  + {object};
+       }
+     } 
+    index = index + 1; 
+  }
+ // Log("policiesObjects: " +  policiesObjects );
+  convertToJSONStr( policiesObjects ,"name",outString);
+  Log("outString: " + outString); 
+  policies = outString; 
+}  
+
+ 
+/**
+*creates a Impact Objects for the resources of
+*the current rule.
+*/
+ function createImpactObjectsFromResources(MatchingRuleName , serialNum ,outDependentResourcesArray  ,arrayOfObjects) {
+  Log("Activating createImpactObjectsFromResources...");
+  Log("dependentResourcesArray : " + dependentResourcesArray );
+  Log("MatchingRuleName : " + MatchingRuleName ); 
+  dependentResourcesArray = outDependentResourcesArray  ;
+  RuleName = MatchingRuleName ;
+  
+   keys = Keys(dependentResourcesArray[0]);
+   lenKeys = Length(keys);
+   arrayOfObjects = {};
+   namedArrayToCreateParentChild = WSNewArray("java.lang.String",Length(dependentResourcesArray));
+   indexNodeId = 1;
+   i = 0;
+   While ( i < Length(dependentResourcesArray)) {
+      obj = NewObject();
+      obj.UITreeNodeType='GRAPH';
+      obj.EICMATCHINGRULENAME=  ""+ MatchingRuleName;
+      //Log("obj.EICMATCHINGRULENAME " + obj.EICMATCHINGRULENAME);
+      obj.UITreeNodeId = indexNodeId;
+      obj.UITreeParentNodeId  = 0;
+      obj.UITreeNodeStatus=0;
+      obj.UITreeNodeParent =0;
+      obj.PrimaryEventSerial =  serialNum ; 
+      id = "" + dependentResourcesArray[i].id;
+      Log("id is " + id + " " + i); 
+      namedArrayToCreateParentChild[i] = id;
+       
+      type = "" + dependentResourcesArray[i].type;
+      indexNodeId = indexNodeId + 1;
+      if( type == 'EVENT' ) {
+        obj.UITreeNodeLabel = 'Event Serial : ' + dependentResourcesArray[i].Serial;
+        sev = "" + dependentResourcesArray[i].Severity;
+        obj.UITreeNodeStatus=Int(sev);
+      } else {
+        obj.UITreeNodeLabel = 'Resource : ' + dependentResourcesArray[i].label;
+      }
+      m = 0; 
+      while(m <lenKeys) {
+        key = keys[m];
+        if( key != 'children' ) {
+           val =  dependentResourcesArray[i][key];
+           if( val != null )  {
+              obj[key] = ""+dependentResourcesArray[i][key];
+           }else {
+              obj[key] = "" ;
+           }
+            
+        }
+        m = m +1;
+      }
+      Log("before setting first object.."); 
+      arrayOfObjects =arrayOfObjects + { obj};
+      i = i + 1;
+   }
+   i = 0;
+ /* while( i < Length(dependentResourcesArray)) {
+      id = "" + dependentResourcesArray[i].id;
+      children = dependentResourcesArray[i].children;
+      paro = namedArrayToCreateParentChild[i];
+      ParObj =  arrayOfObjects[i];
+      parentId = ParObj['UITreeNodeId'];
+      Log( " Parent ID : " + parentId);
+      chLen = Length(children);
+      Log("ChLen : " + chLen);
+      if( chLen > 0 ) {
+         m = 0; 
+         While( m < chLen) {
+              chId = "" + children[m];
+              Log("Child Identification : " + chId);
+              caid = namedArrayToCreateParentChild[chId];
+              Log("CaID : " + caid);
+              ob1 = arrayOfObjects[caid];
+              ob1.UITreeNodeParent = parentId;
+              m = m + 1; 
+         }
+      }
+      i = i + 1;
+   }*/
+   
+}
+ 
+// getRuleResourcesAsImpactObjects("testRule",resourceObjects);
+Log("making a call");
+//getListOfPoliciesObject(policies);
+//policies=GetPoliciesList("EIC",true); 
+//Log("policies : " + policies); 
+//getListOfTasks(0,actionsList);
+id="ACTIONNAME"; 
+//convertToJSONStr(actionsList,id,outString);
+//Log("data " + outString); 
+
+getEICPolicyListJSON(policies); 

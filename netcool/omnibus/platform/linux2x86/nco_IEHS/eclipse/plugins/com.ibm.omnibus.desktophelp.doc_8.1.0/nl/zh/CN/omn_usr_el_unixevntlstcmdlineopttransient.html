@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="瞬时事件列表的 UNIX 命令行选项" />
+<meta name="abstract" content="在 UNIX 上运行 nco_elct 命令启动瞬时事件列表时，必须指定若干命令行选项来定制事件列表。您可从 $NCHOME/omnibus/bin 目录运行此命令。" />
+<meta name="description" content="在 UNIX 上运行 nco_elct 命令启动瞬时事件列表时，必须指定若干命令行选项来定制事件列表。您可从 $NCHOME/omnibus/bin 目录运行此命令。" />
+<meta name="DC.subject" content="事件列表, 瞬时事件列表命令行选项, 命令行选项, 瞬时事件列表" />
+<meta name="keywords" content="事件列表, 瞬时事件列表命令行选项, 命令行选项, 瞬时事件列表" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingtransienteventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_unixevntlstcmdlineopttransient" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingtransienteventlist.html" />
+<title>瞬时事件列表的 UNIX 命令行选项</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_unixevntlstcmdlineopttransient">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">瞬时事件列表的 UNIX 命令行选项</h1>
+<div class="body refbody"><p class="shortdesc">在 UNIX 上运行 <span class="keyword cmdname">nco_elct</span> 命令启动瞬时事件列表时，必须指定若干命令行选项来定制事件列表。您可从 <span class="ph filepath">$NCHOME/omnibus/bin</span> 目录运行此命令。</p>
+<div class="section"><p class="p">下表描述了用于在 UNIX 上启动瞬时事件列表的命令行选项。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. UNIX 瞬时事件列表（nco_elct）命令行选项</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d100255e50">命令行选项</th>
+<th class="entry" valign="bottom" width="75%" id="d100255e52">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-cmap</span></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定专用颜色映射图。 不能缩写此命令行选项。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">显示扩展诊断消息。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-dualwrite 1 | 0</span></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指示在桌面 ObjectServer 体系结构中操作时是启用还是禁用双重写方式。 有效选项如下所示： <ul class="ul"><li class="li"><samp class="ph codeph">0</samp>：禁用双写入方式</li>
+<li class="li"><samp class="ph codeph">1</samp>：启用双重写方式</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> 命令行选项将覆盖桌面 ObjectServer master.national 表中的 DualWrite 字段项。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-ffile</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定要对瞬时事件列表使用的过滤器文件。 事件列表过滤器具有 <span class="ph filepath">.elf</span> 扩展名。<div class="note note"><span class="notetitle">注：</span> 也可以通过使用 HTTP 和 FTP 来检索远程 <span class="ph filepath">.elf</span> 文件。 可通过在运行 <span class="keyword cmdname">nco_event</span> 命令启动 UNIX 事件列表时指定 <span class="keyword option">-config</span> 命令行选项来执行此操作。</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-fmetric</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定瞬时事件列表的过滤器度量。 如果您使用 <span class="keyword option">-ffile</span> 命令行选项指定了一个现有事件列表过滤器文件，将忽略此设置。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-fname</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定过滤器名称。 如果您使用 <span class="keyword option">-ffile</span> 命令行选项指定了一个现有事件列表过滤器文件，将忽略此设置。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-ftext</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定要用来过滤事件的 SQL 语句。 如果您使用 <span class="keyword option">-ffile</span> 命令行选项指定了一个现有事件列表过滤器文件，将忽略此设置。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">显示该命令的帮助并退出</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指示桌面 ObjectServer 体系结构中要使用的主控 ObjectServer。 <p class="p"><span class="keyword option">-masterserver</span> 命令行选项将覆盖桌面 ObjectServer master.national 表中的 MasterServer 字段项。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var> </td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定发生网络故障时，多少秒后登录尝试或连接 ObjectServer 将超时。 指定的超时时段后，事件列表将尝试重新连接 ObjectServer。 如果超时时段后的连接不成功，事件列表将尝试连接到备份 ObjectServer（如果可用）。 缺省值为 20 秒。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定所选用户名的密码。 <span class="keyword cmdname">nco_elct</span> 实用程序仅接受密码中包含字母数字字符。 密码中不允许出现 #、/、&gt;、@ 和 ! 等特殊字符。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定要连接的 ObjectServer 的名称。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">指定用于登录事件列表的用户名。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">显示版本信息并退出。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d100255e50 "><span class="keyword option">-vfile</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d100255e52 ">使用指定的事件列表视图打开瞬时事件列表。 事件列表视图具有 <span class="ph filepath">.elv</span> 文件扩展名。<div class="note note"><span class="notetitle">注：</span> 您也可以使用 HTTP 和 FTP 检索远程 <span class="ph filepath">.elv</span> 文件。 可通过在运行 <span class="keyword cmdname">nco_event</span> 命令启动 UNIX 事件列表时指定 <span class="keyword option">-config</span> 命令行选项来执行此操作。</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><div class="note tip"><span class="tiptitle">提示：</span> 您可将瞬时事件列表的命令行选项缩写为唯一的最短缩写。
+例如，<span class="keyword option">-ffile</span> 可缩写为 <span class="keyword option">-ff</span>。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_startingtransienteventlist.html" title="从 UNIX 命令行使用 nco_elct 命令可打开瞬时事件列表，从 Windows 命令行使用 NCOelct.exe 命令可打开瞬时事件列表。">从命令行启动瞬时事件列表</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="可以使用桌面 ObjectServer 体系结构来改善经常承担较大负载的 ObjectServer 的性能。">桌面 ObjectServer 体系结构</a></div>
+</div>
+<div class="relinfo relref"><strong>相关参考</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="在 UNIX 上使用 nco_eve nt 命令启动事件列表时，可指定若干命令行选项来修改配置。您可从 $NCHOME/omnibus/bin 目录运行此命令。">UNIX 事件列表命令行选项</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="ObjectServer properties and command-line options" />
+<meta name="abstract" content="Use the ObjectServer properties or command-line options to configure settings for the ObjectServer. To avoid errors, add as many properties as possible to the properties file rather than using the command-line options. Additional utilities are provided that you can use to encrypt the property values." />
+<meta name="Description" content="Use the ObjectServer properties or command-line options to configure settings for the ObjectServer. To avoid errors, add as many properties as possible to the properties file rather than using the command-line options. Additional utilities are provided that you can use to encrypt the property values." />
+<meta name="DC.subject" content="ObjectServer, properties, command-line options" />
+<meta name="keywords" content="ObjectServer, properties, command-line options" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CACJGGGI" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>ObjectServer properties and command-line options</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="CACJGGGI">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ObjectServer properties and command-line options</h1>
+<div class="body refbody"><p class="shortdesc">Use the ObjectServer properties or command-line options
+to configure settings for the ObjectServer. To avoid errors, add as
+many properties as possible to the properties file rather than using
+the command-line options. Additional utilities are provided that you
+can use to encrypt the property values.</p>
+<div class="section"><p class="p">The ObjectServer properties and command-line
+options are described in the following table. Although the <span class="keyword parmname parmname">Ipc.Timeout</span> property
+is a property for ObjectServer clients, such as gateways, it is documented
+in this table.</p>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> The <span class="keyword parmname parmname">Ipc.Timeout</span> property
+documented here is not an ObjectServer property but is used by various
+ObjectServer clients, such as gateways.</div>
+</div>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. ObjectServer properties and command-line
+options</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="28.57142857142857%" id="d9768e47">Property</th>
+<th class="entry" valign="top" width="28.57142857142857%" id="d9768e49">Command-line option</th>
+<th class="entry" valign="top" width="42.857142857142854%" id="d9768e51">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">ActingPrimary</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 ">N/A</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">This property is used in a failover configuration,
+where a primary and backup ObjectServer are connected by a bidirectional
+ObjectServer gateway, which is used to replicate the event data between
+the two ObjectServers. The property is updated by automations only,
+and must <em class="ph i">not</em> be manually updated within the properties file.<p class="p"><span class="keyword parmname parmname">ActingPrimary</span> is
+set to <span class="keyword option">TRUE</span> in the backup ObjectServer for the period
+during which the backup ObjectServer acts as the primary server. Otherwise,
+this property is set to <span class="keyword option">FALSE</span> in the backup ObjectServer.</p>
+<p class="p"><span class="keyword parmname parmname">ActingPrimary</span> is
+always set to <span class="keyword option">TRUE</span> in the primary ObjectServer,</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">AlertSecurityModel</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-alertsecuritymodel</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">This
+property determines whether group row level security is enforced in
+the event list. By default, group row level security is disabled (<span class="keyword option">0</span>).
+In this case:<ul class="ul"><li class="li">A member of the Normal group can modify a row that is assigned
+to themselves or the <samp class="ph tt">nobody</samp> user.</li>
+<li class="li">A member of the Administrator group can modify a row that is assigned
+to themselves, the <samp class="ph tt">nobody</samp> user, or a member of the Normal
+group.</li>
+</ul>
+<p class="p">If the <span class="keyword parmname parmname">AlertSecurityModel</span> property is
+enabled (<span class="keyword option">1</span>), only users in the group that owns the
+row can modify the row. In this case, a member of the Normal or Administrator
+group can modify a row that is assigned to a group of which they are
+a member.</p>
+<p class="p">A member of the System group can always modify any
+row. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">AllowConnections</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-disallowconnections</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies whether non-root users can connect to
+the ObjectServer. If <span class="keyword option">FALSE</span>, no new connections to
+the ObjectServer are allowed. The default is <span class="keyword option">TRUE</span>. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">AllowISQL</span> <span class="keyword option">TRUE | FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-disallowisql</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies whether connections to the ObjectServer
+are allowed using the SQL interactive interface. If <span class="keyword option">FALSE</span>,
+no user can connect using <span class="keyword cmdname">nco_sql</span>. The default
+is <span class="keyword option">TRUE</span>. <p class="p">If <span class="keyword option">TRUE</span>, this can be
+enabled for each user using Netcool/OMNIbus Administrator.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">AllowISQLWrite</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-disallowisqlwrite</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies whether modifications to the ObjectServer
+are allowed using the SQL interactive interface. If <span class="keyword option">FALSE</span>,
+no user can modify the ObjectServer using <span class="keyword cmdname">nco_sql</span>.
+The default is <span class="keyword option">TRUE</span>. <p class="p">If <span class="keyword option">TRUE</span>,
+this can be enabled for each user using Netcool/OMNIbus Administrator.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">AllowTimedRefresh</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-allowtimedrefresh</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">This property determines whether the user can enable
+timed refresh in the <span class="ph uicontrol">Refresh</span> tab of the <span class="keyword wintitle">Event
+List Preferences</span> window. If <span class="keyword option">TRUE</span>, the
+event list preferences can be set to allow alert information to be
+updated at a specified interval rather than waiting for notification
+of updates from the ObjectServer. The default is <span class="keyword option">FALSE</span>.<p class="p">If <span class="keyword option">FALSE</span>,
+the timed refresh check box is grayed out in the <span class="ph uicontrol">Refresh</span> tab
+of the <span class="keyword wintitle">Event List Preferences</span> window and timed
+refresh is disabled. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Auto.Debug</span> <span class="keyword option">TRUE |
+FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-autodebug</span> <span class="keyword option">TRUE | FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">If <span class="keyword option">TRUE</span>, automation debugging
+is enabled. The default is <span class="keyword option">FALSE</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Auto.Enabled</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-autoenabled</span> <span class="keyword option">TRUE | FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">If <span class="keyword option">TRUE</span>, automations are enabled.
+The default is <span class="keyword option">TRUE</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Auto.StatsInterval</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-autostatsinterval</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the interval in seconds at which the
+automation system collects statistics. The default is <span class="keyword option">60</span>.<p class="p">Statistics
+are gathered unless the <span class="keyword option">-autoenabled</span> command-line
+option is set to <span class="keyword option">FALSE</span>, which disables all automations.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">BackupObjectServer</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-backupserver</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Provides failback capability with desktop clients,
+probes, the proxy server, and the ObjectServer Gateway. The default
+is <span class="keyword option">FALSE</span>; the desktop clients, probes, the proxy
+server, and gateways are assumed to be connected to a primary ObjectServer.
+When <span class="keyword option">TRUE</span>, the desktop clients, probes, the proxy
+server, and gateways are made aware that they are connected to the
+backup ObjectServer in a failover pair. If this is the case, the desktop
+clients, probes, the proxy server, and gateways will automatically
+check for the recovery of the primary ObjectServer in the failover
+pair and switch back (fail back) when it has restarted. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">ClientHeartbeatDisable</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-clienthbdisable</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Disables the client heartbeating system if set
+to <span class="keyword option">TRUE</span>. This causes a connected client to time out
+if the ObjectServer is busy - for example, during a gateway resynchronization
+or an automation.<p class="p">The default <span class="keyword option">FALSE</span> setting enables
+heartbeating, and prevents invalid and unnecessary client timeouts.
+If the ObjectServer is active but busy, this setting causes the ObjectServer
+to send a pop-up message to a connected client, with details of the
+type of processing in progress.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">ClientHeartbeatRate</span> <var class="keyword varname">unsigned</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-clienthbrate</span> <var class="keyword varname">unsigned</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the rate in seconds of a client heartbeat.
+This rate defines how long a client should wait for a response from
+the ObjectServer before timing out. The default value is <span class="keyword option">10</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="ph"><span class="keyword parmname parmname">ConfigCryptoAlg</span> <var class="keyword varname">string</var></span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="ph">N/A</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><div class="p">Specifies the
+cryptographic algorithm to use for decrypting string values (including
+passwords) that were encrypted with the <span class="keyword cmdname">nco_aes_crypt</span> utility
+and then stored in the properties file. Set the <var class="keyword varname">string</var> value
+as follows:<ul class="ul"><li class="li">When in FIPS 140–2 mode, use <span class="keyword option">AES_FIPS</span>.</li>
+<li class="li">When in non-FIPS 140–2 mode, you can use either <span class="keyword option">AES_FIPS</span> or <span class="keyword option">AES</span>.
+Use <span class="keyword option">AES</span> only if you need to maintain compatibility
+with passwords that were encrypted by using the tools provided in
+versions earlier than <span class="keyword">Tivoli Netcool/OMNIbus</span> V7.2.1.</li>
+</ul>
+</div>
+<p class="p">The value that you specify
+must be identical to that used when you ran <span class="keyword cmdname">nco_aes_crypt</span> with
+the <span class="keyword option">-c</span> setting, to encrypt the string values. </p>
+<p class="p">Use this property in conjunction with
+the <span class="keyword parmname parmname">ConfigKeyFile</span> property.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="ph"><span class="keyword parmname parmname">ConfigKeyFile</span> <var class="keyword varname">string</var></span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="ph">N/A</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><p class="p">Specifies the
+path and name of the key file that contains the key used to decrypt
+encrypted string values (including passwords) in the properties file. </p>
+<p class="p">The key is used at run time to decrypt
+string values that were encrypted with the <span class="keyword cmdname">nco_aes_crypt</span> utility.
+The key file that you specify must be identical to the file used to
+encrypt the string values when you ran <span class="keyword cmdname">nco_aes_crypt</span> with
+the <span class="keyword option">-k</span> setting.</p>
+<p class="p">Use
+this property in conjunction with the <span class="keyword parmname parmname">ConfigCryptoAlg</span> property.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Connections</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-connections</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the maximum number of available connections
+for desktop clients, probes, and gateways. <p class="p">The maximum
+value is <span class="keyword option">1024</span>. The default value is <span class="keyword option">256</span>.
+Up to two connections can be used by the system. If the ObjectServer
+reaches the specified value, no further connections are possible until
+some of the previously made connections are dropped.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">DeleteLogFile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-DELETES</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">The path and name of the delete log file, where
+all delete commands are recorded if delete logging is enabled.<p class="p">By
+default, deletes are logged to the file <span class="ph filepath">$NCHOME/omnibus/log/<var class="keyword varname">servername</var>_deletes_file.log<var class="keyword varname">n</var></span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">DeleteLogging</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-DELETE_LOGGING</span> <span class="keyword option">TRUE |
+FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">When <span class="keyword option">TRUE</span>, delete logging is enabled.
+The default is <span class="keyword option">FALSE</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">DeleteLogLevel</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-DELETES_LEVEL</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">The log level determines how much information is
+sent to the delete log file. Possible settings are:<ul class="ul"><li class="li"><span class="keyword option">&lt;0</span>: No logging</li>
+<li class="li"><span class="keyword option">0</span>: Client type (application ID; for example, <samp class="ph codeph">ctisql</samp> for <span class="keyword cmdname">nco_sql</span>)
+and SQL run. This is the default log level.</li>
+<li class="li"><span class="keyword option">1</span>: Time, user ID, client type, and SQL run.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">DeleteLogSize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-DELETES_SIZE</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">The maximum size of the delete log file. When the
+log file <span class="ph filepath"><var class="keyword varname">servername</var>_deletes_file.log1</span> reaches
+the specified size, it is renamed <span class="ph filepath"><var class="keyword varname">servername</var>_deletes_file.log2</span> and
+a new log file, <span class="ph filepath"><var class="keyword varname">servername</var>_deletes_file.log1</span>,
+is created. When the new file reaches its maximum size, the older
+file is deleted and the process repeats. <p class="p">The output from a single
+delete command is never split between log files. Therefore, log files
+can be larger than the specified size.</p>
+<p class="p">The default log file
+size is <span class="keyword option">1024</span> KB.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">DTMaxTopRows</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-dtmaxtoprows</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">The maximum number of rows that an administrator
+can specify when using the View Builder to restrict the number of
+rows an event list user can view. The default is <span class="keyword option">100</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Granularity</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-granularity</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Controls the update interval, in seconds, of IDUC
+broadcasts to desktops and gateways. Reducing this value increases
+the update rate to the clients. The default interval is <span class="keyword option">60</span> seconds. <span class="ph">If you require more frequent
+IDUC refreshes, configure the refresh rate on the client side, for
+example, in the configuration file of gateways.</span><p class="p">If the <span class="keyword parmname parmname">Profile</span> property is
+set to <span class="keyword option">TRUE</span>, at the end of each granularity period,
+the ObjectServer writes a summary to the profiling log of the time
+spent for each client connection.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">GWDeduplication</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-gwdeduplication</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">This property controls the behavior when there
+is an attempt to reinsert an existing event in the ObjectServer. Possible
+values are: <p class="p"><span class="keyword option">0</span>: When set to this value (the default):</p>
+<ul class="ul"><li class="li">If the client is not a gateway, the number in the Tally field
+is incremented.</li>
+<li class="li">The LastOccurrence, Summary, and AlertKey fields are updated with
+the new values and the StateChange and InternalLast fields are updated
+with the current time. </li>
+<li class="li">If the new Severity is greater than <span class="keyword option">0</span> (clear)
+and the old Severity was <span class="keyword option">0</span>, the alert is also updated
+with the new Severity value. </li>
+</ul>
+<p class="p"><span class="keyword option">1</span>: If the client is a gateway, the new event
+replaces old event.</p>
+<p class="p"><span class="keyword option">2</span>: If the client is a gateway,
+the new event is ignored.</p>
+<p class="p"><span class="keyword option">3</span>: When set to this
+value:</p>
+<ul class="ul"><li class="li">For all clients, the number in the Tally field is incremented.</li>
+<li class="li">The LastOccurrence, Summary, and AlertKey fields are updated with
+the new values, and the StateChange and InternalLast fields are updated
+with the current time. </li>
+<li class="li">If the new Severity is greater than <span class="keyword option">0</span> (clear)
+and the old Severity was <span class="keyword option">0</span>, the alert is also updated
+with the new Severity value. </li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 ">N/A</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-help </span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Displays help on the command-line options and exits.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Iduc.ListeningHostname</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-listeninghostname</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets a host name for clients to use to locate the
+ObjectServer. On systems where DNS is used, the name returned by a
+host machine internally might not be the name by which it is referred
+to on the network. <p class="p">For example, a computer named sfo might actually
+be identified on the network as sfo.bigcorp.org. To allow clients
+to connect to the ObjectServer on sfo, set this property to <span class="keyword option">sfo.bigcorp.org</span>.</p>
+<p class="p">The
+default is the name of the local computer, as reported by the <span class="keyword cmdname">hostname</span> command.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Iduc.ListeningPort</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-listeningport</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the port for the IDUC communication connection.
+This is the port on which the ObjectServer sends updates to each event
+list and gateway. If not specified, the IDUC port is selected by the
+ObjectServer at random from the unused port numbers available. The
+default is <span class="keyword option">0</span>, that is, take the next available port.<p class="p">You
+can also specify the port in the <span class="ph filepath">/etc/services</span> file
+on the host machine.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Ipc.Timeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-ipctimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the time, in seconds, that a client application
+or utility waits for a response from the ObjectServer when attempting
+to send alerts. <p class="p">If this time is exceeded, or if the ObjectServer
+is down, a communication error occurs and the alert is instead sent
+to the cache file.</p>
+<p class="p">The default is <span class="keyword option">60</span> seconds.</p>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> This
+property is not an ObjectServer property but is used by various ObjectServer
+clients, such as gateways.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">LogFilePoolSize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-logfilepoolsize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the number of log files to use if the
+logging system is writing to a pool of files. This property works
+only when the <span class="keyword parmname parmname">LogFileUsePool</span> property is set
+to <span class="keyword option">TRUE</span>. The pool size can range from 2 to 99.<p class="p">The
+default is <span class="keyword option">10</span>. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">LogFileUsePool</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-logfileusepool</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies whether to use a pool of log files for
+logging messages.<p class="p">If set to <span class="keyword option">TRUE</span>, the logging system
+opens the number of files specified for the pool at startup, and keeps
+them open for the duration of its run. (You define the number of files
+in the pool using the <span class="keyword parmname parmname">LogFilePoolSize</span> property.)
+When a file in the pool reaches its maximum size (as specified by
+the <span class="keyword parmname parmname">MaxLogFileSize</span> property), the logging system
+writes to the next file. When all the files in the pool are at maximum
+size, the logging system truncates the first file in the pool and
+starts writing to it again. Files in the pool are named using the
+format <span class="ph filepath"><var class="keyword varname">servername</var>.log_<var class="keyword varname">ID</var></span>,
+where <var class="keyword varname">ID</var> is a two-digit number starting from 01,
+to the maximum number specified for the <span class="keyword parmname parmname">LogFilePoolSize</span> property.
+When the logging system starts to use a file pool, the system writes
+to the lowest-available file number, regardless of which file it was
+writing to when it last ran.</p>
+<p class="p">The default is <span class="keyword option">FALSE</span>.
+When set to <span class="keyword option">FALSE</span>, the default <span class="ph filepath"><var class="keyword varname">servername</var>.log</span> file
+is renamed <span class="ph filepath"><var class="keyword varname">servername</var>.log_OLD</span> and
+a new log file is started when the maximum size is reached. If the
+file cannot be renamed, for example, because of a read lock on the <span class="ph filepath">_OLD</span> file,
+and the <span class="keyword parmname parmname">LogFileUseStdErr</span> property is set to<span class="keyword option">FALSE</span> ,
+the logging system automatically starts using a pool of log files.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">LogFileUseStdErr</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-logfileusestderr </span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies whether to use stderr as an output stream
+for logging messages.<p class="p">The default is <span class="keyword option">TRUE</span>. If this
+setting is <span class="keyword option">TRUE</span> and the ObjectServer is run from
+the command line, messages are logged to the console if the ObjectServer
+cannot write to the default log file. If this setting is <span class="keyword option">TRUE</span> and
+the ObjectServer is running as a Windows service,
+messages are written to a file named <span class="ph filepath">%NCHOME%\omnibus\log\nco_objserv*.err</span> if
+the ObjectServer cannot write to the default log file.</p>
+<p class="p">If set
+to <span class="keyword option">FALSE</span> and the ObjectServer cannot write to the
+default log file, messages are written to a pool of log files, as
+set by the <span class="keyword parmname parmname">LogFileUsePool</span> property.</p>
+<div class="note note"><span class="notetitle">Note:</span> The <span class="keyword parmname parmname">LogFileUsePool</span> property setting
+takes precedence over the <span class="keyword parmname parmname">LogFileUseStdErr</span> setting.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">MaxLogFileSize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-maxlogfilesize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the maximum size the log file can grow
+to, in KB. The default is <span class="keyword option">1024</span> KB.<p class="p">When it reaches
+the size specified, the <span class="ph filepath"><var class="keyword varname">servername</var>.log</span> file
+is renamed <span class="ph filepath"><var class="keyword varname">servername</var>.log_OLD</span> and
+a new log file is started. When the new file reaches the maximum size,
+it is renamed and the process starts again.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">MessageLevel</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-messagelevel</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the message logging level. Possible values
+are: <span class="keyword option">debug</span>, <span class="keyword option">info</span>, <span class="keyword option">warn</span>, <span class="keyword option">error</span>,
+and <span class="keyword option">fatal</span>. The default level is <span class="keyword option">warn</span>.<div class="p">Messages
+that are logged at each level are as follows:<ul class="ul"><li class="li"><span class="keyword option">fatal</span>: <span class="keyword option">fatal</span> only</li>
+<li class="li"><span class="keyword option">error</span>: <span class="keyword option">fatal</span> and <span class="keyword option">error</span></li>
+<li class="li"><span class="keyword option">warn</span>: <span class="keyword option">fatal</span>, <span class="keyword option">error</span>,
+and <span class="keyword option">warn</span></li>
+<li class="li"><span class="keyword option">info</span>: <span class="keyword option">fatal</span>, <span class="keyword option">error</span>, <span class="keyword option">warn</span>,
+and <span class="keyword option">info</span></li>
+<li class="li"><span class="keyword option">debug</span>: <span class="keyword option">fatal</span>, <span class="keyword option">error</span>, <span class="keyword option">warn</span>, <span class="keyword option">info</span>,
+and <span class="keyword option">debug</span></li>
+</ul>
+</div>
+<div class="note tip"><span class="tiptitle">Tip:</span> The value of <var class="keyword varname">string</var> can
+be in uppercase, lowercase, or mixed case.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">MessageLog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-messagelog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the path to which messages are logged.
+The default is <span class="keyword option">$NCHOME/omnibus/log/NCOMS.log.</span><p class="p">On Windows, if the system cannot
+write to the specified log file (for example, as the result of a fatal
+error) it writes the error to a file named <span class="ph filepath">%NCHOME%\omnibus\log\nco_objserv*.err</span>.</p>
+<div class="note note"><span class="notetitle">Note:</span> The ObjectServer must be running as a service. Otherwise,
+it cannot write errors to a file.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 ">N/A</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-name</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the ObjectServer name, which must be unique.
+This is the name that is configured in the Server Editor. <p class="p">The default
+is <span class="keyword option">NCOMS</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.AccessLog" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.AccessLog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_accesslog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the name and location of the log file
+where the server logs all requests that it processes. <p class="p">The default
+is <span class="keyword option">$OMNIHOME/log/NCOMS_http_access.log</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.AuthenticationDomain" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.AuthenticationDomain</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_authdomain</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the authentication domain that is used
+when requesting authentication details over the HTTP or HTTPS connection. <p class="p">The
+default is <span class="keyword option">omnibus</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__Nhttpd.BasicAuth" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Nhttpd.BasicAuth</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_basicauth</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the user-password combination that is
+permitted for connections to the HTTP interface, where the password
+is an AES hash of the password.<p class="p">The default is <span class="keyword option">''</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.DocumentRoot" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.DocumentRoot</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_docroot</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the document root of the embedded web
+service. <p class="p">The default is <span class="keyword option">$OMNIHOME/etc/restos/docroot</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.EnableFileServing" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.EnableFileServing</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_enablefs</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Use this property to enable default file serving
+by the ObjectServer. This allows the ObjectServer to act as a simple
+HTTP server that serves files from the local filesystem. <p class="p">The default
+is <span class="keyword option">FALSE</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.EnableHTTP" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.EnableHTTP</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_enablehttp </span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Enables use of the HTTP port. <p class="p">The default is <span class="keyword option">FALSE</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.ExpireTimeout" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.ExpireTimeout</span> <var class="keyword varname">unsigned</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_exptimeout</span> <var class="keyword varname">unsigned</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the maximum time, in seconds, that an
+HTTP 1.1 connection remains idle before it is dropped.<p class="p">The default
+is <span class="keyword option">15</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.ListeningHostname" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.ListeningHostname</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_hostname</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the listening host name or IP address
+that can be used as the hostname part of a URI to the ObjectServer
+HTTP or HTTPS interface.<p class="p">The default is <span class="keyword option">localhost</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.ListeningPort" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.ListeningPort</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_port</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the port on which the ObjectServer  listens
+for HTTP requests.<p class="p">The default is <span class="keyword option">0</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.NumWorkThreads" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.NumWorkThreads</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_numworkthrs</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the number of threads in the client handling
+thread pool.<p class="p">The default is <span class="keyword option">5</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.SSLEnable" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.SSLEnable</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_sslenable</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Enables the use of SSL support.<p class="p">The default is <span class="keyword option">FALSE</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.SSLListeningPort" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.SSLListeningPort</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_sslport</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the port on which the ObjectServer  listens
+for HTTPS requests.<p class="p">The default is <span class="keyword option">0</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.SSLCertificate" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.SSLCertificate</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_sslcert</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the name of the SSL certificate of the
+server.<p class="p">The default is <span class="keyword option">''</span>.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NHttpd.SSLCertificatePwd" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NHttpd.SSLCertificatePwd</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nhttpd_sslcertpwd </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><div class="p"><div class="note note"><span class="notetitle">Note:</span> This property is deprecated with <span class="keyword">Tivoli
+Netcool/OMNIbus</span> V<span class="keyword">8.1</span>.
+Setting this property has no effect.</div>
+</div>
+</td>
+</tr>
+<tr id="CACJGGGI__NRestOS.Enable" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NRestOS.Enable</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nrestosenable</span> <span class="keyword option">TRUE |
+FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Enables the HTTP interface and the OSLC interface
+to the ObjectServer.<p class="p">The default is <span class="keyword option">FALSE</span>, which
+means that the interfaces are disabled.</p>
+</td>
+</tr>
+<tr id="CACJGGGI__NRestOS.OSLCResourceConfigFile" class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">NRestOS.OSLCResourceConfigFile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-nrestososlcrescfg</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">The path to the OSLC resource configuration file.
+This JSON file defines how columns from the ObjectServer schema are
+mapped to properties in the OSLC event domain.<p class="p">The default is <span class="keyword option">$OMNIHOME/etc/restos/resourcecfg.json</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="ph"><span class="keyword parmname parmname">OldTimeStamp</span> <span class="keyword option">TRUE
+| FALSE</span></span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="ph"><span class="keyword option">-oldtimestamp</span> <span class="keyword option">TRUE
+| FALSE</span></span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><p class="p">Specifies the
+timestamp format to use in the log file. </p>
+<p class="p">Set the value to <span class="keyword option">TRUE</span> to
+display the timestamp format that is used in <span class="keyword">Tivoli Netcool/OMNIbus</span> V7.2.1,
+or earlier. For example: dd/MM/YYYY hh:mm:ss AM or dd/MM/YYYY hh:mm:ss
+PM when the locale is set to en_GB on a Solaris 9 computer.</p>
+<p class="p">Set the value to <span class="keyword option">FALSE</span> to
+display the ISO 8601 format in the log file. For example: YYYY-MM-DDThh:mm:ss,
+where T separates the date and time, and hh is in 24-hour clock. The
+default is <span class="keyword option">FALSE</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">PA.Name</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-pa</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the process control agent name.
+This name must consist of 29 or fewer uppercase letters and cannot
+begin with an integer. When an external procedure is run from an automation,
+the ObjectServer can start an external process. To start the process,
+the ObjectServer contacts a process control agent. The default name
+for the process control agent is <span class="keyword option">NCO_PA</span>. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">PA.Password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-papassword</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the password for the user connecting
+to a process control agent to run external procedures in automations.
+The default is <span class="keyword option">''</span>.<div class="note note"><span class="notetitle">Note:</span> If running external
+procedures, the process control daemon must be able to authenticate
+the user. Therefore, a valid combination, which can be authenticated
+by the daemon, must be specified in the <var class="keyword varname">string</var> values
+for <span class="keyword parmname parmname">PA.Username</span> and <span class="keyword parmname parmname">PA.Password</span> properties.
+Otherwise, the connection to the process control agent and the running
+of the external procedure will fail.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">PA.Username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-pausername</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the user name for connecting to a process
+control agent to run external procedures in automations. A value must
+be specified when the process control agent is running in secure mode.
+The default is <samp class="ph tt">root</samp>.<p class="p">On Windows,
+specify the user name of a valid local account, domain account, or
+UPN account.</p>
+<p class="p">On UNIX,
+any user who requires access to the process control system must be
+a member of a UNIX user group
+(default ncoadmin) that you identify as an administrative group for
+this purpose. Note that if using Pluggable Authentication Modules
+(PAM) for authentication, users do not have to be a member of a UNIX user group such as ncoadmin,
+to gain access to the process control system.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">PasswordEncryption</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-pwdenc</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><span class="ph" id="CACJGGGI__PasswordEncryption_definition">This property
+defines the encryption scheme that is used to encrypt user passwords
+that are stored in the ObjectServer. Possible values are as follows:</span><ul class="ul"><li class="li"><span class="ph" id="CACJGGGI__PasswordEncryption_DES"><span class="keyword option">DES</span>: Data Encryption
+Standard encryption. Only the first eight characters of a DES-encrypted
+password are read. Additional characters are ignored.</span></li>
+<li class="li"><span class="ph" id="CACJGGGI__PasswordEncryption_AES"><span class="keyword option">AES</span>: Advanced
+Encryption Standard (AES128) encryption. Only the first 16 characters
+of an AES128-encrypted password are read. Additional characters are
+ignored. In FIPS 140–2 mode, the <span class="keyword option">AES</span> option is mandated
+by the system.</span></li>
+</ul>
+<span class="ph" id="CACJGGGI__PasswordEncryption_defaults">For non FIPS 140-2 installations,
+the default is <span class="keyword option">DES</span>. For FIPS 140-2 mode, the default
+is <span class="keyword option">AES</span>.</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">PasswordFormat</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-pwdformat</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><span class="ph" id="CACJGGGI__PasswordFormat_definition">The property
+defines the format of user passwords. It works only when the <span class="keyword parmname parmname">RestrictPasswords</span> property
+is set to <span class="keyword option">TRUE</span>.</span><p class="p"><span class="ph" id="CACJGGGI__PasswordFormat_string">Specify
+the value of the this property as a colon-separated set of integer
+values. Each value defines a password requirement. The format is:<var class="keyword varname">min_len</var>:<var class="keyword varname">alpha_num</var>:<var class="keyword varname">digit_num</var>:<var class="keyword varname">punct_num</var>twhere:</span></p>
+<ul class="ul" id="CACJGGGI__PasswordFormat_values"><li class="li"><var class="keyword varname">min_len</var> is the password length. </li>
+<li class="li"><var class="keyword varname">alpha_num</var> is the minimum number of alphabetic
+characters. </li>
+<li class="li"><var class="keyword varname">digit_num</var> is the minimum number of numeric
+characters. </li>
+<li class="li"><var class="keyword varname">punct_num</var> is the minimum number of punctuation
+characters.</li>
+</ul>
+<p class="p"><span class="ph" id="CACJGGGI__PasswordFormat_default">The default value of <span class="keyword option">8:1:1:0</span> indicates
+that a password must be at least 8 characters long, and contain at
+least 1 alphabetic character and at least one numeric character. The
+password need not contain any punctuation characters.</span></p>
+<div class="note note"><span class="notetitle">Note:</span> <span class="ph" id="CACJGGGI__PasswordFormat_minimumreqs">The minimum alphabetic,
+numeric, and punctuation character requirements must be satisfied
+within the number of characters specified by the minimum password
+length. The default value of <span class="keyword option">8:1:1:0</span> must contain
+1 alphabetic character and 1 numeric character in the first 8 characters
+of the password string.</span></div>
+<p class="p"><span class="ph" id="CACJGGGI__PasswordFormat_example">For
+example, if the property is set to <span class="keyword option">8:1:1:0</span> and a
+user specifies the password abcdefgh590675, the password is rejected
+because the first 8 characters contains no numeric characters.</span></p>
+<p class="p"><span class="ph" id="CACJGGGI__PasswordFormat_results">After this property is set, the ObjectServer
+validates all new or changed passwords against this requirement and
+passwords that do not meet the requirement are rejected. Existing
+passwords are not validated.</span></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">ProfileStatsInterval</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-profilestatsinterval</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the interval in seconds at which the
+profiler writes information to the profile log file. The default is <span class="keyword option">60</span> seconds. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Profile</span> <span class="keyword option">TRUE | FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-profile</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Controls ObjectServer profiling. If <span class="keyword option">TRUE</span>,
+the amount of time it takes for clients to run SQL is logged to the
+catalog.profiles table. The default is <span class="keyword option">TRUE</span>.<p class="p">The
+profile statistics are also logged to the file <span class="ph filepath">$NCHOME/omnibus/log/<var class="keyword varname">servername</var>_profiler_report.log<var class="keyword varname">n</var></span> every
+profile statistics interval.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Props.CheckNames</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 ">N/A</td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">When <span class="keyword option">TRUE</span>, the ObjectServer does
+not run if any specified property is invalid. The default is <span class="keyword option">TRUE</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 ">N/A</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-propsfile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the ObjectServer properties file name. The
+default name is <span class="ph filepath"><var class="keyword varname">servername</var>.props</span>,
+where the <var class="keyword varname">servername</var> is defined by the <span class="keyword option">-name</span> option. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">RegexpLibrary</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-regexplib</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Defines which regular expression library to use
+for the ObjectServer. Possible values are: <span class="keyword option">NETCOOL</span> and <span class="keyword option">TRE</span>. <p class="p">The
+default value of <span class="keyword option">NETCOOL</span> is useful for single-byte
+character processing and is provides optimal system performance.</p>
+<p class="p">To
+enable the use of the extended regular expression syntax on single-byte
+and multi-byte character languages, set the value to <span class="keyword option">TRE</span>.
+This setting results in decreased system performance.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">RestrictionFiltersAND</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-restrictfiltersand</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Controls how user restriction filters and group
+restriction filters are concatenated. This property is set for the
+system and not per user, and changes to the property setting come
+into effect only after you restart the ObjectServer. <div class="p">The values
+for this property are as follows:<ul class="ul"><li class="li"><span class="keyword option">TRUE</span>: All restriction filters are combined using
+the AND operator. The default is <span class="keyword option">TRUE</span>. Example:<p class="p">user_rf
+AND group1 AND group2</p>
+</li>
+<li class="li"><span class="keyword option">FALSE</span>: All restriction filters are combined using
+the OR operator. Example:<p class="p">user_rf OR group1 OR group2</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">RestrictionUpdateCheck</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-norestrictionupdatecheck</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">When <span class="keyword option">FALSE</span>, users with restriction
+filters applied can update alerts that will not appear in their view
+after the update. The default is <span class="keyword option">TRUE</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">RestrictPasswords</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-restrictpasswords</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><p class="p">When <span class="keyword option">TRUE</span>, the
+format specified by the <span class="keyword parmname parmname">PasswordFormat</span> property
+is enforced.</p>
+<p class="p">The default is <span class="keyword option">FALSE</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">RestrictProxySQL</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-restrictproxysql</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">When <span class="keyword option">TRUE</span>, connections from a
+proxy server are restricted in the ObjectServer SQL commands that
+can be run. The only modifications to ObjectServer data that can be
+made are inserts into the alerts.status and alerts.details tables.
+The default is <span class="keyword option">FALSE</span>.<p class="p">If <span class="keyword option">FALSE</span>,
+connections from a proxy server can run any ObjectServer SQL commands. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Sec.AuditLevel</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-secauditlevel</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the level of security auditing performed.
+Possible values are <span class="keyword option">debug</span>, <span class="keyword option">info</span>, <span class="keyword option">warn</span>,
+and <span class="keyword option">error</span>. The default is <span class="keyword option">warn</span>. <p class="p">The <samp class="ph tt">debug</samp> and <samp class="ph tt">info</samp> levels
+generate messages for authentication successes and failures, while <samp class="ph tt">warn</samp> and <samp class="ph tt">error</samp> levels
+generate messages for authentication failures only. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Sec.AuditLog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-secauditlog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Specifies the file to which audit information is
+written. The default is <span class="ph filepath">$NCHOME/omnibus/log/<var class="keyword varname">servername</var>/audit.log</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Sec.ExternalAuthentication</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-authenticate</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Controls which authentication module is used to
+authenticate users. The values are: <ul class="ul"><li class="li"><span class="keyword option">none</span>: Use this value to perform user
+authentication against the user names and passwords that are stored
+in the ObjectServer. This setting disables external authentication.</li>
+<li class="li"><span class="keyword option">LDAP</span>: Use this value to externally authenticate
+users whose credentials are stored in a Lightweight Directory Access
+Protocol (LDAP) repository.</li>
+<li class="li"><span class="keyword option">PAM</span>: Use this value to authenticate users by
+using the supplied <span class="keyword">Tivoli Netcool/OMNIbus</span> PAM,
+or to externally authenticate users by using a third-party PAM configuration
+(such as the operating system, or a PAM configuration that is set
+up to use LDAP credentials).</li>
+</ul>
+<p class="p">On UNIX and Linux, the default is <span class="keyword option">PAM</span>.
+On Windows, the default
+is <span class="keyword option">none</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">SecureMode</span> <span class="keyword option">TRUE |
+FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-secure</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Sets the security mode of the ObjectServer. If <span class="keyword option">TRUE</span>,
+the ObjectServer authenticates probe, gateway, and proxy server connection
+requests with a user name and password. Other client connection requests
+are always authenticated with a user name and password.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Store.LocalizedSort</span> <span class="keyword option">TRUE
+| FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-storelocalesort </span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Defines whether localized sorting is enabled or
+disabled. <p class="p">The default is <span class="keyword option">FALSE</span>, which disables
+localized sorting in favor of standard C library (libc) string comparisons.
+For example, <samp class="ph codeph">Å</samp> will be treated as a variant of <samp class="ph codeph">A</samp> and
+the two characters will sort near each other. Use this default setting
+for optimal system performance.</p>
+<p class="p">Set the value to <span class="keyword option">TRUE</span> to
+enable localized sorting. For example, in a Danish locale, <samp class="ph codeph">Å</samp> will
+be treated as a separate letter that sorts just after <samp class="ph codeph">Z</samp>.
+Note that specifying this setting results in decreased system performance.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">Store.LocalizedSortCaseSensitive</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-storecasesort</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Controls case sensitivity in localized sorting.
+This property is applicable only when <span class="keyword parmname parmname">Store.LocalizedSort</span> is <span class="keyword option">TRUE</span>. <p class="p">The
+values are:</p>
+<ul class="ul"><li class="li"><span class="keyword option">OFF</span>: Sorting is case-insensitive, and uppercase
+and lowercase letters are ordered in accordance with their tertiary
+sort weights.</li>
+<li class="li"><span class="keyword option">UPPERFIRST</span>: Uppercase characters are sorted before
+lowercase characters. For example, <samp class="ph codeph">Account</samp> is sorted
+before <samp class="ph codeph">account</samp>.</li>
+<li class="li"><span class="keyword option">LOWERFIRST</span>: Lowercase characters are sorted before
+uppercase characters. For example, <samp class="ph codeph">account</samp> is sorted
+before <samp class="ph codeph">Account</samp>.</li>
+</ul>
+<p class="p">The default is <span class="keyword option">OFF</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">UniqueLog</span> <span class="keyword option">TRUE | FALSE</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-uniquelog</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><p class="p">If <span class="keyword option">TRUE</span>, the log file is uniquely
+named by appending the process ID of the ObjectServer to the default
+log file name. For example, if the NCOMS ObjectServer is running as
+process 1234, the log file is named <span class="ph filepath">NCHOME/omnibus/log/
+NCOMS.1234.log</span>. The default is <span class="keyword option">FALSE</span>.</p>
+<p class="p">If
+the <span class="keyword parmname parmname">MessageLog</span> property is set to <span class="keyword option">stderr</span> or <span class="keyword option">stdout</span>,
+the <span class="keyword parmname parmname">UniqueLog</span> property is ignored.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="ph">N/A</span></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="ph"><div class="image"><img class="image" src="ngwin.gif" alt="For Windows operating system" /></div> <span class="keyword option">-utf8enabled</span> <span class="keyword option">TRUE
+| FALSE</span></span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 "><p class="p">Controls the encoding
+of data that is passed into, or generated by, this application on Windows.</p>
+<p class="p">Set the value of <span class="keyword option">-utf8enabled</span> to <span class="keyword option">TRUE</span> to
+run the application in the UTF-8 encoding. The default is <span class="keyword option">FALSE</span>,
+which causes the default system code page to be used.</p>
+<div class="note important"><span class="importanttitle">Important:</span> Although a <span class="keyword parmname parmname">UTF8Enabled</span> property
+is available, an attempt to enable UTF-8 encoding by setting this
+property to <span class="keyword option">TRUE</span> has no effect. To run in a UTF-8
+encoding on Windows, you
+must always use the <span class="keyword option">-utf8enabled</span> command-line option. </div>
+<div class="note note"><span class="notetitle">Note:</span> When running in UTF-8 encoding,
+do not set the <span class="keyword parmname parmname">OldTimeStamp</span> property to <span class="keyword option">TRUE</span>.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 "><span class="keyword parmname parmname">WTPasswordCheck</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-wtpasswordcheck</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Controls how passwords are checked by the ObjectServer
+when received from clients. <div class="p">This property is useful when ObjectServer
+users are externally authenticated. Possible values for the property
+are:<ul class="ul"><li class="li"><span class="keyword option">plain</span>: Passwords are assumed to be in plain text.
+(Applicable to <span class="keyword">Netcool/Webtop</span> 1.3
+clients only.)</li>
+<li class="li"><span class="keyword option">encrypted</span>: Passwords are assumed to be in an
+encrypted format. (Applicable to <span class="keyword">Netcool/Webtop</span> 1.3
+clients only.)</li>
+<li class="li"><span class="keyword option">default</span>: Passwords are initially assumed to be
+in plain text. If the ObjectServer check fails, passwords are assumed
+to be in an encrypted format. (Applicable to <span class="keyword">Netcool/Webtop</span> 1.3
+clients only.)</li>
+<li class="li"><span class="keyword option">allplain</span>: Passwords are assumed to be in plain
+text. If the login fails with the plain text password, no second attempt
+is made. (Applicable to clients other than <span class="keyword">Netcool/Webtop</span> 1.3.)</li>
+<li class="li"><span class="keyword option">allencrypted</span>: Passwords are assumed to be in
+an encrypted format and are decrypted before authentication. If the
+login fails with the decrypted password, no second attempt is made.
+(Applicable to clients other than <span class="keyword">Netcool/Webtop</span> 1.3.)</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d9768e47 ">N/A</td>
+<td class="entry" valign="top" width="28.57142857142857%" headers="d9768e49 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="42.857142857142854%" headers="d9768e51 ">Displays version information for the ObjectServer
+and exits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> The <span class="keyword cmdname">nco_objserv</span> command includes
+advanced properties that must only be used under direction from <span class="keyword">IBM Software Support</span>.
+These properties are not documented.</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

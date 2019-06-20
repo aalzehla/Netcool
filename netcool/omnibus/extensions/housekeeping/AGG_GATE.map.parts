@@ -1,0 +1,11 @@
+
+##############################################################################
+# TABLE USED BY HOUSEKEEPING - APPEND TO THE END OF THE FILE
+##############################################################################
+CREATE MAPPING MasterPropertiesMap
+(
+	'Name'			=	'@Name'			ON INSERT ONLY,
+	'CharValue'		=	'@CharValue',
+	'IntValue'		=	'@IntValue'
+);
+

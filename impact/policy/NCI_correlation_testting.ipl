@@ -1,0 +1,15 @@
+Log("Testing policy");
+DataType="omni";
+Filter="Manager='nco_postmsg'";
+CountOnly="false"; 
+node=GetByFilter(DataType,Filter,CountOnly);
+count=Length(node);
+i=0; 
+Log("Entering while loop"); 
+while(i<count)
+{
+    Log("entered while loop:");
+    Log("serial of" + i +"thalert is:" + node[i].Serial);
+    i=i+1;
+}
+log("exiting while loop:THE END"); 

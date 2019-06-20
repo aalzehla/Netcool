@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Temporal Trigger Details" />
+<meta name="abstract" content="Use this window to set up a new temporal trigger or edit the details of an existing temporal trigger." />
+<meta name="Description" content="Use this window to set up a new temporal trigger or edit the details of an existing temporal trigger." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittemptrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_ref_sqlcmdsvariableexp.html" />
+<meta name="DC.Relation" scheme="URI" content="trigger_group_details.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_temporaltriggerdetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Temporal Trigger Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_temporaltriggerdetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Temporal Trigger Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new temporal trigger or edit the details
+of an existing temporal trigger.</p>
+<div class="section">The <span class="keyword wintitle">Temporal Trigger Details</span> window contains
+the following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_triggersetuparea">Trigger setup area</a></li>
+<li class="li"><a class="xref" href="#netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_settingstab">Settings tab</a></li>
+<li class="li"><a class="xref" href="#netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_whentab">When tab</a></li>
+<li class="li"><a class="xref" href="#netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_evaluatetab">Evaluate tab</a></li>
+<li class="li"><a class="xref" href="#netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_actiontab">Action tab</a></li>
+<li class="li"><a class="xref" href="#netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_commenttab">Comment tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_triggersetuparea"><h2 class="title sectiontitle">Trigger
+setup area</h2><div class="p">Complete this area as follows:<dl class="dl" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_triggersetupfields"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique trigger name. If you are editing a trigger, you cannot change
+the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Group</dt>
+<dd class="dd">Select the trigger group to which you want to assign the trigger.</dd>
+<dt class="dt dlterm">Add New Trigger Group</dt>
+<dd class="dd">Click this button if you want to create a new trigger group to which the
+trigger can then be assigned. The <span class="keyword wintitle">Trigger Group Details</span> window
+opens. Complete this window and save your changes. </dd>
+<dd class="dd"> When you return to the <span class="keyword wintitle">Temporal Trigger Details</span> window,
+the new trigger group will be added to the <span class="ph uicontrol">Group</span> list.
+You can then assign the trigger to this trigger group.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_settingstab"><h2 class="title sectiontitle">Settings tab</h2><div class="p">Complete
+this tab as follows:<dl class="dl" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_settingstabfields"><dt class="dt dlterm">Every</dt>
+<dd class="dd">Define when the trigger must fire. Specify a numeric value and select <span class="ph uicontrol">hours</span>, <span class="ph uicontrol">minutes</span>,
+or <span class="ph uicontrol">seconds</span> from the drop-down list.</dd>
+<dt class="dt dlterm">Priority</dt>
+<dd class="dd">Select a priority that determines the order in which the ObjectServer
+fires triggers when more than one trigger occurs at this frequency. You can
+select numbers from 1 to 20, with 1 being the highest priority.</dd>
+<dt class="dt dlterm">Debug</dt>
+<dd class="dd">Select this check box to send debugging information to the ObjectServer
+message log each time the trigger fires.</dd>
+<dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to activate the trigger and make it available for
+use. Clear this check box to create the trigger without activating it at the
+present time, or to make the trigger unavailable. A disabled trigger does
+not fire.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_whentab"><h2 class="title sectiontitle">When tab</h2><p class="p">Use this tab to specify an optional WHEN clause that allows you to test for
+a particular condition before the action is performed. If the condition is
+not met, the action is not performed. You can use the SQL helper buttons shown
+to the right of the SQL editor panel to construct the WHEN clause.</p>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_evaluatetab"><h2 class="title sectiontitle">Evaluate tab</h2><div class="p">Use
+this tab to optionally build a temporary result set from a single SELECT statement
+to be processed during the trigger action that is defined on the <span class="ph uicontrol">Action</span> tab.
+Complete this tab as follows: <dl class="dl" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_evaluatetabfields"><dt class="dt dlterm">Bind As</dt>
+<dd class="dd">Type the name of the temporary table in which to store the result set. </dd>
+<dt class="dt dlterm"><var class="keyword varname">SQL editor panel</var></dt>
+<dd class="dd">Type the statement using the format: </dd>
+<dd class="dd"><samp class="ph tt">EVALUATE <var class="keyword varname">SELECT_cmd</var></samp></dd>
+<dd class="dd">You can use the SQL helper buttons shown to the right of the SQL editor
+panel to construct the statement. </dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_actiontab"><h2 class="title sectiontitle">Action tab</h2><p class="p">Use this tab to specify SQL commands for the trigger.</p>
+<p class="p" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_actiontab_pp1">The
+body of a trigger contains a set of SQL commands and programming constructs
+that manipulate data in the ObjectServer. The body of a trigger is enclosed
+within the keywords BEGIN and END. Each statement, except the last one, must
+be separated by a semi-colon (;).</p>
+<p class="p" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_actiontab_pp2">You
+can optionally define (declare) local variables for use within a trigger.
+A local variable is a placeholder for values used during the execution of
+the trigger. Local variable declarations within a trigger must be separated
+by semi-colons (;).</p>
+<div class="p" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_actiontab_pp3">The
+trigger body has the following syntax:<pre class="pre codeblock"><code>	[ DECLARE variable_declaration;...[;] ]
+	BEGIN
+		<var class="keyword varname">trigger_statement_list</var>
+	END;</code></pre>
+</div>
+<p class="p" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_actiontab_pp5">You
+can use the SQL helper buttons shown to the right of the SQL editor panel
+to construct the SQL commands. </p>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_commenttab"><h2 class="title sectiontitle">Comment tab</h2><p class="p">Use this tab to enter an optional text comment for this trigger. This may
+be useful to anyone who is trying to understand how the trigger works.</p>
+</div>
+<div class="section" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_saving_closing"><h2 class="title sectiontitle">Saving your
+trigger details</h2><div class="p">After creating or editing a trigger, you can save
+or cancel the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_temporaltriggerdetailswindow__netom_temporaltriggerdetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the trigger details and close the window. New
+triggers are added to the <span class="keyword wintitle">Triggers</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingedittemptrigg.html" title="Temporal triggers fire repeatedly based on a specified frequency.">Creating and editing temporal triggers</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_ref_sqlcmdsvariableexp.html" title="You can use a number of SQL commands, variable expressions, and helper buttons to retrieve information from a running event list, the current event, or the operating system environment. You can use these expressions when creating a tool, trigger, or SQL procedure, or in parameters passed to a transient event list.">SQL commands, variable expressions, and helper buttons in tools, automations, and transient event lists</a></div>
+<div><a class="link" href="trigger_group_details.html" title="Use this window to set up a new trigger group or edit the details of an existing trigger group.">Trigger Group Details</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

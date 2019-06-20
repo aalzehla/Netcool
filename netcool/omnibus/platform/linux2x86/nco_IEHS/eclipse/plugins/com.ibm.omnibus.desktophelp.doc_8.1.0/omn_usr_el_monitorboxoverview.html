@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Monitor box overview" />
+<meta name="abstract" content="A monitor box on the Event List monitor box window represents a filter and a selection of views that are created to determine which alert records and columns are displayed in an event list. A monitor box is named after its associated filter." />
+<meta name="Description" content="A monitor box on the Event List monitor box window represents a filter and a selection of views that are created to determine which alert records and columns are displayed in an event list. A monitor box is named after its associated filter." />
+<meta name="DC.subject" content="event lists, monitor box overview, monitor box, overview" />
+<meta name="keywords" content="event lists, monitor box overview, monitor box, overview" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefsunixevntist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefswinevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefswincond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitorboxoverview" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Monitor box overview</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitorboxoverview">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Monitor box overview</h1>
+<div class="body conbody"><p class="shortdesc">A monitor box on the <span class="keyword wintitle">Event List</span> monitor
+box window represents a filter and a selection of views that are created
+to determine which alert records and columns are displayed in an event
+list. A monitor box is named after its associated filter.</p>
+<p class="p">You can configure preferences to determine what type of information
+is displayed in monitor boxes.</p>
+<p class="p">A monitor box on UNIX is
+shown in the following figure. In this figure, different preferences
+have been configured for the monitor box.</p>
+<div class="fig fignone"><span class="figcap">Figure 1. Monitor
+box</span><div class="image"><img class="image" src="sc_omn_usr_monitorboxunix.gif" alt="This figure shows a monitor box in the UNIX Conductor." /></div></div>
+<p class="p">The components of a monitor box are as follows:</p>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> Filter name button</dt>
+<dd class="dd">This button displays the name of the filter that is associated
+with the event list that you can access from this monitor box. You
+can click this button to start the Filter Builder, and view or edit
+the filter details.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> Number</dt>
+<dd class="dd">This value represents the total number of alerts that match the
+filter.</dd>
+<dt class="dt dlterm">Highest</dt>
+<dd class="dd">If configured as a preference, this value is displayed between <span class="ph uicontrol">Number</span> and <span class="ph uicontrol">Metric</span>.
+This value represents the highest severity among the alerts that match
+the filter.</dd>
+<dt class="dt dlterm">Lowest</dt>
+<dd class="dd">If configured as a preference, this value is displayed between <span class="ph uicontrol">Number</span> and <span class="ph uicontrol">Metric</span>.
+This value represents the lowest severity among the alerts that match
+the filter.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> Metric</dt>
+<dd class="dd">This value represents a calculation that is applied to the alerts
+that match the filter. This derived value shows the average, sum,
+lowest, or highest value of a selected column in the <samp class="ph tt">alerts</samp> database
+table that is being queried by the filter.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> Distribution indicator</dt>
+<dd class="dd">This area uses a lavalamp or bar chart to show the severity distribution
+of the alerts that match the filter. The colors used in the lavalamp
+segments or bar chart bars are preconfigured to identify the different
+severity levels. </dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> View button (UNIX) or ... button (Windows)</dt>
+<dd class="dd">Click this button to open the event list that contains alerts
+that match the currently-selected filter and view.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> Select view drop-down list</dt>
+<dd class="dd">This drop-down list contains the names of all the views that have
+been set up, and displays the name of the view that is currently associated
+with the event list. You can select a different view from this drop-down
+list in order to change the selection of columns that are shown in
+the event list.</dd>
+<dd class="dd">You can also use this list to select the X.733 view, which displays
+X.733-compliant alert information in the event list.</dd>
+</dl>
+<div class="note tip"><span class="tiptitle">Tip:</span> You can optionally display a colored border around
+the monitor box. The border color changes according to the highest
+severity among the alerts that match the filter. </div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_settingprefsunixevntist.html" title="You can configure what type of information should be displayed on monitor boxes, specify the frequency at which the event list should be refreshed, and set options for alert notification when the event list is minimized. You can also set flashing and other preferences for the event list.">Setting preferences for the UNIX event list</a></div>
+<div><a class="link" href="omn_usr_el_settingprefswinevntlst.html" title="You can configure what type of information should be displayed on monitor boxes, specify the frequency at which the event list should be refreshed, and set options for alert notification when the event list is minimized. You can also set flashing and other preferences for the event list.">Setting preferences for the Windows event list</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="From the UNIX Conductor, you can set global preferences for the Conductor window, event list, and event notifications.">Setting global preferences for the UNIX Conductor</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefswincond.html" title="From the Windows Conductor, you can set global preferences for the event list and alert notifications.">Setting global preferences for the Windows Conductor</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterunix.html" title="Use the UNIX Filter Builder to build filters for event list data.">Creating or editing a filter on UNIX</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterwin.html" title="Use the Windows Filter Builder to build filters for event list data.">Creating or editing a filter on Windows</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="Use the View Builder to define which columns to display in the event list.">Creating or editing a view on UNIX</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="Use the View Builder to define which columns to display in the event list.">Creating or editing a view on Windows</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

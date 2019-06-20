@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Event List Preferences" />
+<meta name="abstract" content="Use this window to configure preferences for the event list." />
+<meta name="Description" content="Use this window to configure preferences for the event list." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefsunixevntist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitorboxoverview.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistpreferenceswindowUNIX" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Event List Preferences</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistpreferenceswindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Event List Preferences</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to configure preferences for the event list.</p>
+<div class="section">The <span class="keyword wintitle">Event List Preferences</span> window contains the
+following tabs:<ul class="ul"><li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_monitorstabUNIX">Monitors tab</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_refreshtabUNIX">Refresh tab</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_notificationtabUNIX">Notification tab</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_flashingtabUNIX">Flashing tab</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_misctabUNIX">Misc tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_monitorstabUNIX"><h2 class="title sectiontitle">Monitors tab</h2><div class="p">Use
+this tab to specify the type of information displayed by the monitor boxes
+on the <span class="keyword wintitle">Event List</span> monitor box window. Complete the <span class="ph uicontrol">Monitors</span> tab
+as follows:<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_monitorfields"><dt class="dt dlterm">Show Count</dt>
+<dd class="dd">Select this check box to display the number of alerts that match
+the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Highest Severity</dt>
+<dd class="dd">Select this check box to display the highest severity among the
+alerts that match the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Lowest Severity</dt>
+<dd class="dd">Select this check box to display the lowest severity among the
+alerts that match the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Metric</dt>
+<dd class="dd">Select this check box to display the selected filter metric value
+on monitor boxes. </dd>
+<dt class="dt dlterm">Show Severity Border</dt>
+<dd class="dd">Select this check box to display a colored border around monitor
+boxes. The border color changes according to the highest severity
+among the alerts that match the filter.</dd>
+<dt class="dt dlterm">Show Lavalamp</dt>
+<dd class="dd">Click this option to display the distribution indicator as a horizontal
+bar on monitor boxes.</dd>
+<dt class="dt dlterm">Show Histogram</dt>
+<dd class="dd">Click this option to display the distribution indicator as a bar
+graph on monitor boxes.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_refreshtabUNIX"><h2 class="title sectiontitle">Refresh tab</h2><div class="p">Use
+this tab to configure an update interval for the event list. Complete the <span class="ph uicontrol">Refresh</span> tab
+as follows:<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_refreshfields"><dt class="dt dlterm">Timed Refresh</dt>
+<dd class="dd">Use these fields to indicate whether alert information should
+be updated at a specified time interval, or whether you prefer to
+await notification of updates from the ObjectServer. To specify an
+update frequency, select the <span class="ph uicontrol">Timed Refresh</span> check
+box and then enter a time (in seconds) in the adjacent field.</dd>
+<dd class="dd">All the latest data from the ObjectServer will be sent to the
+event list at the specified frequency.<div class="note tip"><span class="tiptitle">Tip:</span> Timed Refresh
+forces the event list to reload all its data at a set interval. Do
+not set the refresh to a low value (for example, less than 60 seconds)
+because this has an impact on ObjectServer performance and network
+traffic.</div>
+<div class="note note"><span class="notetitle">Note:</span> If your system administrator has
+set the <span class="keyword parmname parmname">AllowTimedRefresh</span> ObjectServer property
+to <samp class="ph tt">FALSE</samp>, refresh timers are disabled and updates occur based
+on notification from the ObjectServer.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_notificationtabUNIX"><h2 class="title sectiontitle">Notification
+tab</h2><div class="p">Use this tab to configure preferences for alert notifications
+when the event list is minimized. Complete the <span class="ph uicontrol">Notification</span> tab
+as follows:<dl class="dl"><dt class="dt dlterm">Notify When Iconised</dt>
+<dd class="dd">Select this check box to receive notification of new, changed,
+or deleted alerts when the event list is minimized. Notification is
+received only on desktop environments that display an icon when the
+event list is minimized. Use the <span class="ph uicontrol">When</span> and <span class="ph uicontrol">How</span> options
+to set the notification method.</dd>
+<dt class="dt dlterm">When</dt>
+<dd class="dd">Select each check box to receive notification as follows:<ul class="ul"><li class="li">Select <span class="ph uicontrol">New</span> to receive a notification when
+a new alert is added to the event list.</li>
+<li class="li">Select <span class="ph uicontrol">Change</span> to receive a notification
+when an existing alert changes in the event list.</li>
+<li class="li">Select <span class="ph uicontrol">Delete</span> to receive a notification
+when an existing alert is deleted from the event list.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">How</dt>
+<dd class="dd">Select each check box to indicate how a notification should occur:<ul class="ul"><li class="li">Select <span class="ph uicontrol">Ring Bell</span> to sound the workstation
+or terminal bell once.</li>
+<li class="li">Select <span class="ph uicontrol">Alert Icon</span> to flash an exclamation
+mark over the event list icon (UNIX),
+or flash the minimized event list (Windows).</li>
+<li class="li">Select <span class="ph uicontrol">Open Window</span> to open the event list
+on the screen. If you use a window manager with interactive placement,
+the event list opens as the active window.</li>
+<li class="li">Select <span class="ph uicontrol">Run External Command</span> to run a command.
+If you select this check box, you must type the command name. This
+function must be used only for simple desktop notification, and is
+not designed for handling paging applications. </li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_flashingtabUNIX"><h2 class="title sectiontitle">Flashing tab</h2><div class="p">Use
+this tab to specify event list preferences for flashing on receipt of new
+alerts. Complete the <span class="ph uicontrol">Flashing</span> tab as follows:<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_flashingfields"><dt class="dt dlterm">Enable Flashing</dt>
+<dd class="dd">Select this check box to enable event list flashing. Use the <span class="ph uicontrol">Fast/Slow</span> slider
+to indicate how quickly the event list flashes. Use the <span class="ph uicontrol">Bright/Dark</span> slider
+to indicate the degree of brightness of the flashing.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_misctabUNIX"><h2 class="title sectiontitle">Misc tab</h2><div class="p">Use
+this tab to set other event list preferences. Complete the <span class="ph uicontrol">Misc</span> tab
+as follows:<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_miscfields"><dt class="dt dlterm">Show Event List Colors</dt>
+<dd class="dd">Select this check box to use color to depict the severity of alerts
+in the event list. Clear this check box to use a grey background for
+all event list rows. </dd>
+<dt class="dt dlterm">Show Distribution Summary</dt>
+<dd class="dd">Select this check box to display the distribution summary bar
+in the event list. This bar displays the number of alerts that match
+each severity color. </dd>
+<dt class="dt dlterm">Show Toolbars</dt>
+<dd class="dd">Select this check box to make the toolbars available on the event
+list. </dd>
+<dt class="dt dlterm">Jump Button On By Default</dt>
+<dd class="dd">Select this check box to enable the Jump To Top feature, by default,
+for all event lists. The Jump to Top feature causes the event list
+to scroll to the top whenever new events are added, and can help you
+to quickly review updated events. <div class="note tip"><span class="tiptitle">Tip:</span> You can also enable
+the Jump To Top feature for individual event lists so that you can
+automatically view updates to an event list, or you can disable this
+feature for individual event lists. </div>
+</dd>
+<dt class="dt dlterm">Sort Information Details</dt>
+<dd class="dd">Select this check box to sort the detail fields in the <span class="keyword wintitle">Event
+Information</span> window alphabetically by name of field. When
+this check box is clear, the detail fields are displayed in an order
+determined by the ObjectServer. </dd>
+</dl>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Applying and saving
+your preference settings</h2><dl class="dl" id="netom_eventlistpreferenceswindowUNIX__d1101e849"><dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1101e850"><!-- --></a>Apply</dt>
+<dd class="dd">Click this button to apply changes without saving them. This button
+enables you to test how your changes affect the desktop. </dd>
+<dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1101e855"><!-- --></a>Save</dt>
+<dd class="dd">Click this button to save any changes made to your preferences. <div class="note tip"><span class="tiptitle">Tip:</span> To view any changes made to preferences in the event list,
+you must close and reopen any open event lists.</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1101e862"><!-- --></a>Close</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+<dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1101e867"><!-- --></a>Undo</dt>
+<dd class="dd">Click this button to undo any changes that you have made to each
+of the tabs. </dd>
+</dl>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_usr_el_monitorboxoverview.html" title="A monitor box on the Event List monitor box window represents a filter and a selection of views that are created to determine which alert records and columns are displayed in an event list. A monitor box is named after its associated filter.">Monitor box overview</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_settingprefsunixevntist.html" title="You can configure what type of information should be displayed on monitor boxes, specify the frequency at which the event list should be refreshed, and set options for alert notification when the event list is minimized. You can also set flashing and other preferences for the event list.">Setting preferences for the UNIX event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

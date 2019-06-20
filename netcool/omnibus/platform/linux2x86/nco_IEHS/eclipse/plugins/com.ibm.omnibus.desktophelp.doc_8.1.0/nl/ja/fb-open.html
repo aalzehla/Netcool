@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="フィルターを開く" />
+<meta name="abstract" content="このウィンドウを使用して、フィルター・ビルダー内のフィルターを開きます。" />
+<meta name="Description" content="このウィンドウを使用して、フィルター・ビルダー内のフィルターを開きます。" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_openfilterwindow" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>フィルターを開く</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_openfilterwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">フィルターを開く</h1>
+<div class="body refbody"><p class="shortdesc">このウィンドウを使用して、フィルター・ビルダー内のフィルターを開きます。</p>
+<div class="section"><p class="p">これは、フィルター、ビュー、およびイベント・リスト構成の保存またはオープンに関係するウィンドウです。 したがって、すべてのフィールドが現在のアクションに該当するとは限りません。 </p>
+<div class="p">このウィンドウに以下のように入力します。 <dl class="dl"><dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e901"><!-- --></a>フィルター</dt>
+<dd class="dd">このフィールドを使用して、開くファイルのタイプに関する検索照会を指定します。 このフィールドは、<span class="ph uicontrol">「フィルター」</span>ボタンおよび<span class="ph uicontrol">「ファイル」</span>リストと一緒になって動作します。
+<span class="ph uicontrol">「フィルター」</span>フィールドに現行ディレクトリー・パスとファイル・タイプを入力し、次に<span class="ph uicontrol">「フィルター」</span>をクリックします。 <span class="ph uicontrol">「ファイル」</span>リストに一致したファイルがすべて表示されます。</dd>
+<dd class="dd">例えば、<span class="ph filepath">/myfiles/filters</span> ディレクトリー内のすべてのフィルター・ファイルを表示するには、<kbd class="ph userinput">/myfiles/filters/*.elf</kbd> を入力し、<span class="ph uicontrol">「フィルター」</span>をクリックして、一致するすべてのファイルを表示します。 </dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e932"><!-- --></a>ディレクトリー</dt>
+<dd class="dd">このリストには、現行ディレクトリー内のすべてのサブディレクトリーが表示されます。
+このディレクトリーを最新表示するには、「.」エントリーをダブルクリックします。 このディレクトリー・ツリーを 1 つのディレクトリーずつ上に移動するには、「..」エントリーをダブルクリックします。</dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e937"><!-- --></a>ファイル</dt>
+<dd class="dd">このリストには、現行ディレクトリー内のファイルが表示されます。これらのファイルは、<span class="ph uicontrol">「フィルター」</span>フィールドでの選択に一致しています。 開くファイルの名前を選択します。 既存のファイルを選択して、それを上書きすることもできます。 </dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e945"><!-- --></a>選択</dt>
+<dd class="dd">保存または開こうとしているファイルのパスと名前がここに表示されます。 パスとファイル名を編集して別のファイルを開いたり、別のロケーションにファイルを保存したり、別のファイル名を使用してファイルを保存したりできます。</dd>
+<dd class="dd">ビューを保存する場合は、ファイル名に <span class="ph filepath">.elv</span> 拡張子を使用します。 フィルターを保存する場合は、ファイル名に <span class="ph filepath">.elf</span> 拡張子を使用します。 イベント・リスト構成を保存する場合は、ファイル名に <span class="ph filepath">.elc</span> 拡張子を使用します。</dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e961"><!-- --></a>既存ファイルのバックアップ (UNIX のみ) </dt>
+<dd class="dd">保存しようとしているファイルの名前がすでに存在している場合は、このチェック・ボックスを使用して既存のビュー・ファイルのバックアップを作成します。 このチェック・ボックスが表示されるのは、フィルター、ビュー、またはイベント・リスト構成を保存する場合だけです。 </dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e969"><!-- --></a>OK</dt>
+<dd class="dd">このボタンをクリックして、ファイルを開くか、または保存します。</dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e974"><!-- --></a>フィルター</dt>
+<dd class="dd">このボタンは、<span class="ph uicontrol">「フィルター」</span>フィールドおよび<span class="ph uicontrol">「ファイル」</span>フィールドと一緒になって動作します。 このボタンをクリックして、<span class="ph uicontrol">「フィルター」</span>フィールドでの選択に基づき、現行ディレクトリー内のファイルを表示します。 ファイルが<span class="ph uicontrol">「ファイル」</span>リストに表示されます。</dd>
+<dt class="dt dlterm"><a name="netom_openfilterwindow__d2333e991"><!-- --></a>キャンセル</dt>
+<dd class="dd">このボタンをクリックして、ファイルを開かずに、または保存せずにこのウィンドウを閉じます。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

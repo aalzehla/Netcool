@@ -1,0 +1,165 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/*** This Policy retrieves Recurring nth Day of Week in Month Windows for display ***/
+/*   ============================================================================   */
+
+// Functions
+function getNthArray(nthString, nthArray) {
+	Log(2, "Function getNthArray");
+	Log(3, "nthString = " + nthString);
+	nthArray = {};
+	nthStringArray  = Split(nthString, "|");
+	Log(3, "nthStringArray = " + nthStringArray);
+	n = 0;
+	While (n < length(nthStringArray)) {
+		If (nthStringArray[n] != NULL) {
+			nthArray = nthArray + nthStringArray[n];
+		}
+		n = n + 1;
+	}
+	Log(2, "nthArray is = " + nthArray);
+}
+
+function inArray(x, theArray, boo) {
+	Log(2, "Function inArray");
+	Log(3, "Target is: " + x);
+	Log(3, "Array is: " + theArray);
+	boo = FALSE;
+	n = 0;
+    While (n < Length(theArray)) {
+		If (x == theArray[n]) {
+			boo = TRUE;
+		}
+		n = n + 1;
+	}
+	Log(3, "Return is: " + boo);
+}
+
+function transformHHMMSS(hhmmss, intArray) {
+	Log(2, "Function transformHHMMSS");
+	Log(3, "hhmmss is: " + hhmmss);
+	tempArray = Split(hhmmss, ":");
+	intArray = {};
+	n = 0;
+	While (n < length(tempArray)) {
+		intArray = intArray + Int(tempArray[n]);
+		n = n + 1;
+	}
+	Log(3, "intArray is: " + intArray);
+}
+
+function mergeNTH(nth, dow, mergedNTH) {
+	If (nth == 1) {
+		mergedNTH = "first" + dow;
+	}
+	If (nth == 2) {
+		mergedNTH = "second" + dow;
+	}
+	If (nth == 3) {
+		mergedNTH = "third" + dow;
+	}
+	If (nth == 4) {
+		mergedNTH = "fourth" + dow;
+	}
+	If (nth == 5) {
+		mergedNTH = "fifth" + dow;
+	}
+}
+
+// Deletes
+// =======
+
+// Code for handling deletes
+If (@mwid != NULL) {
+	Opview_openwins.deleteWindow(@mwid);
+}
+
+// SETUP
+// =====
+// Get UTC
+UTC = GetDate();
+Log(2, "Current epoch GMT time is: " + UTC);
+
+// Start of HTML
+htmltext1 = "<table><tr><th>Suppression Filter</th><th>Nth Day of Week in Month</th><th>Start Time</th><th>End Time</th><th>Time Zone</th><th>Status</th><th>Delete</th></tr>";
+
+// Get all the windows in the DB
+recnth = DirectSQL('ImpactDB', 'SELECT * FROM IMPACT.MM_WINDOWS WHERE WINTYPE = 4', false);
+
+// Loop through the windows and create the appropriate HTML
+// ========================================================
+If (Length(recnth) > 0) {
+	Log(3, "Found some nth windows");
+	winCount = 0;
+	While (winCount < length(recnth)) {
+		// Getting display value for time zone
+		Opview_onetwins.getTZDisplayValue(recnth[winCount].timezone, displayTZ);
+		// Getting the display value for the filterstat
+		Opview_openwins.shineFilter(recnth[winCount].filterstat, displayFilterstat);
+		// Getting display value for the DoWiM
+		Opview_openwins.shineDoWiM(recnth[winCount].nweekdayofmonth, displayDoWiM);
+		// Get the current time in that time zone
+		MWM.newCalendar(recnth[winCount].timezone, UTC, calendar, false);
+		// Get nth
+		MWM.getNTH(recnth[winCount].timezone, calendar, NTH);
+		// Get DoW
+		MWM.getDOW(recdow[winCount].timezone, calendar, DOW);
+		// Munge them together to match DB
+		mergeNTH(NTH, DOW, mergedNTH);
+		// Turn the | separated nth values from the DB into an array
+		getNthArray(recnth[winCount].nweekdayofmonth, nthArray);
+		// Determine if the current nth is in the array
+		inArray(mergedNTH, nthArray, NTHboo);
+		If (NTHboo) {
+			// TRUE...today is one of the nth days
+			Log(3, "nth day of week matches");
+			// Get clock times for comparison
+			// Get current HHMMSS
+			MWM.getHHMMSS(calendar, HHMMSSstring);
+			// Convert to integers for comparisons
+			transformHHMMSS(HHMMSSstring, currentClockTime);
+			transformHHMMSS(recnth[winCount].r_starttime, startClockTime);
+			transformHHMMSS(recnth[winCount].r_endtime, endClockTime);
+			// Convert to seconds for comparison
+			// [0] = hour, [1] = minutes, [2] = seconds
+			currentSeconds = (currentClockTime[0] * 3600) + (currentClockTime[1] * 60) + (currentClockTime[2]);
+			startSeconds = (startClockTime[0] * 3600) + (startClockTime[1] * 60) + (startClockTime[2]);
+			endSeconds = (endClockTime[0] * 3600) + (endClockTime[1] * 60) + (endClockTime[2]);
+			If ((currentSeconds >= startSeconds) and (currentSeconds < endSeconds)) {
+				Log(3, "Time matches");
+				htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoWiM + "</td>";
+				htmltext1 = htmltext1 + "<td>" + recnth[winCount].r_starttime + "</td><td>" + recnth[winCount].r_endtime + "</td>";
+				htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+				htmltext1 = htmltext1 + "<td align='center'><img src='../assets/installed/mwms/activestat.jpg' border=0 /></td>";
+			} Else {
+				Log(3, "Time doesn't match");
+				htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoWiM + "</td>";
+				htmltext1 = htmltext1 + "<td>" + recnth[winCount].r_starttime + "</td><td>" + recnth[winCount].r_endtime + "</td>";
+				htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+				htmltext1 = htmltext1 + "<td align='center'><img src='../assets/installed/mwms/inactivestat.jpg' border=0 /></td>";
+			}
+		} Else {
+			Log(3, "Day of week doesn't match");
+			htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoWiM + "</td>";
+			htmltext1 = htmltext1 + "<td>" + recnth[winCount].r_starttime + "</td><td>" + recnth[winCount].r_endtime + "</td>";
+			htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+			htmltext1 = htmltext1 + "<td align='center'><img src='../assets/installed/mwms/inactivestat.jpg' border=0 /></td>";
+		}
+		htmltext1 = htmltext1 + "<td align='center'><a href='"+getClusterName()+"-rwdomwins.html?mwid=" + recnth[winCount].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' border=0 alt='Delete Window'/></a></td></tr>";
+		winCount = winCount + 1;
+	}
+} Else {
+	// No NTH windows
+	htmltext1 = htmltext1 + "<tr><td>There are currently no recurring nth Weekday of Month windows.</td></tr>";
+}
+htmltext1 = htmltext1 + "</table>";
+Log(3, "htmltext1: " + htmltext1);

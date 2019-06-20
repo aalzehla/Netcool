@@ -1,0 +1,824 @@
+{
+	"CollectionIdentifierPattern": [
+		{
+			"nsprefix": "dcterms",
+			"nsuri": "http:\/\/purl.org\/dc\/terms\/",
+			"types": [
+				{
+					"os": "Name",
+					"oslc": "title",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Description",
+					"oslc": "description",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslc",
+			"nsuri": "http:\/\/open-services.net\/ns\/core#",
+			"types": [
+				{
+					"os": "ResourceType",
+					"oslc": "resourceType",
+					"systemColumn": "true",
+					"type": "Resource"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcem",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types": [
+				{
+					"os": "QueryPattern",
+					"oslc": "clause",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"nsprefix": "rr",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/registry#",
+			"types": [
+				{
+					"os": "QueryPattern",
+					"oslc": "uriTemplate",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/registry#URITemplate",
+					"systemColumn": "false",
+					"type": "Resource"
+				}
+			]
+		}
+	],
+	"Detail": [
+		{
+			"nsprefix": "dcterms",
+			"nsuri": "http:\/\/purl.org\/dc\/terms\/",
+			"types": [
+				{
+					"os": "KeyField",
+					"oslc": "identifier",
+					"systemColumn": "true",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcem",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types": [
+				{
+					"os": "AttrVal",
+					"oslc": "attrValue",
+					"systemColumn": "false",
+					"type": "boolean"
+				},
+				{
+					"os": "Sequence",
+					"oslc": "sequence",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "Name",
+					"oslc": "detailName",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Detail",
+					"oslc": "detailValue",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Identifier",
+					"oslc": "event",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Event",
+					"systemColumn": "false",
+					"type": "ResourceEvent"
+				}
+			]
+		}
+	],
+	"Event": [
+		{
+			"nsprefix": "dcterms",
+			"nsuri": "http:\/\/purl.org\/dc\/terms\/",
+			"types": [
+				{
+					"os": "Identifier",
+					"oslc": "identifier",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "FirstOccurrence",
+					"oslc": "created",
+					"systemColumn": "false",
+					"type": "dateTime"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcem",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types": [
+				{
+					"os": "OwnerUID",
+					"oslc": "ownerUID",
+					"systemColumn": "false",
+					"type": "ResourceUID"
+				},
+				{
+					"os": "Severity",
+					"oslc": "severity",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "Clear"
+						},
+						{
+							"key": 1,
+							"value": "Indeterminate"
+						},
+						{
+							"key": 2,
+							"value": "Warning"
+						},
+						{
+							"key": 3,
+							"value": "Minor"
+						},
+						{
+							"key": 4,
+							"value": "Major"
+						},
+						{
+							"key": 5,
+							"value": "Critical"
+						}
+					],
+					"os": "Severity",
+					"oslc": "hasSeverity",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Severity",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "Summary",
+					"oslc": "summary",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Node",
+					"oslc": "node",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Agent",
+					"oslc": "agent",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "AlertGroup",
+					"oslc": "alertGroup",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "LastOccurrence",
+					"oslc": "lastOccurrence",
+					"systemColumn": "false",
+					"type": "dateTime"
+				},
+				{
+					"os": "Tally",
+					"oslc": "tally",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "Acknowledged",
+					"oslc": "acknowledged",
+					"systemColumn": "false",
+					"type": "boolean"
+				},
+				{
+					"os": "Serial",
+					"oslc": "serial",
+					"systemColumn": "true",
+					"type": "integer"
+				},
+				{
+					"os": "ServerSerial",
+					"oslc": "serverSerial",
+					"systemColumn": "true",
+					"type": "integer"
+				},
+				{
+					"os": "ServerName",
+					"oslc": "serverName",
+					"systemColumn": "true",
+					"type": "string"
+				},
+				{
+					"os": "NodeAlias",
+					"oslc": "nodeAlias",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "AlertKey",
+					"oslc": "alertKey",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Manager",
+					"oslc": "manager",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "StateChange",
+					"oslc": "stateChange",
+					"systemColumn": "false",
+					"type": "dateTime"
+				},
+				{
+					"os": "InternalLast",
+					"oslc": "internalLast",
+					"systemColumn": "false",
+					"type": "dateTime"
+				},
+				{
+					"os": "Type",
+					"oslc": "type",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "TypeNotSet"
+						},
+						{
+							"key": 1,
+							"value": "Problem"
+						},
+						{
+							"key": 2,
+							"value": "Resolution"
+						},
+						{
+							"key": 3,
+							"value": "VisionaryProblem"
+						},
+						{
+							"key": 4,
+							"value": "VisionaryResolution"
+						},
+						{
+							"key": 7,
+							"value": "ISMNewAlarm"
+						},
+						{
+							"key": 8,
+							"value": "ISMOldAlarm"
+						},
+						{
+							"key": 11,
+							"value": "MoreSevere"
+						},
+						{
+							"key": 12,
+							"value": "LessSevere"
+						},
+						{
+							"key": 13,
+							"value": "Information"
+						}
+					],
+					"os": "Type",
+					"oslc": "hasType",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Type",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "Class",
+					"oslc": "class",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "Grade",
+					"oslc": "grade",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "NotEscalated"
+						},
+						{
+							"key": 1,
+							"value": "Escalated"
+						}
+					],
+					"os": "Grade",
+					"oslc": "hasGrade",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Grade",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "OwnerGID",
+					"oslc": "ownerGID",
+					"systemColumn": "false",
+					"type": "ResourceGID"
+				},
+				{
+					"os": "TaskList",
+					"oslc": "taskList",
+					"systemColumn": "false",
+					"type": "boolean"
+				},
+				{
+					"os": "SuppressEscl",
+					"oslc": "suppressEscl",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "Normal"
+						},
+						{
+							"key": 1,
+							"value": "Escalated"
+						},
+						{
+							"key": 2,
+							"value": "Escalated-Level2"
+						},
+						{
+							"key": 3,
+							"value": "Escalated-Level3"
+						},
+						{
+							"key": 4,
+							"value": "Suppressed"
+						},
+						{
+							"key": 5,
+							"value": "Hidden"
+						},
+						{
+							"key": 6,
+							"value": "Maintenance"
+						}
+					],
+					"os": "SuppressEscl",
+					"oslc": "hasSuppressEscl",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#SuppressEscl",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "Flash",
+					"oslc": "flash",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "ExpireTime",
+					"oslc": "expireTime",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "Customer",
+					"oslc": "customer",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "Service",
+					"oslc": "service",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "ProbeSubSecondId",
+					"oslc": "probeSubSecondId",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "",
+					"oslc": "journal",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Journal",
+					"systemColumn": "true",
+					"type": "ResourceJournal"
+				},
+				{
+					"os": "",
+					"oslc": "detail",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Detail",
+					"systemColumn": "true",
+					"type": "ResourceDetail"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcemp",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#",
+			"types": [
+				{
+					"os": "EventId",
+					"oslc": "eventId",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "ProcessReq",
+					"oslc": "processReq",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "NmosSerial",
+					"oslc": "nmosSerial",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "NmosObjInst",
+					"oslc": "nmosObjInst",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "NmosCauseType",
+					"oslc": "nmosCauseType",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "Unknown"
+						},
+						{
+							"key": 1,
+							"value": "RootCause"
+						},
+						{
+							"key": 2,
+							"value": "Symptom"
+						}
+					],
+					"os": "NmosCauseType",
+					"oslc": "hasNmosCauseType",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#NmosCauseType",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "NmosDomainName",
+					"oslc": "nmosDomainName",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "NmosEntityId",
+					"oslc": "nmosEntityId",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "NmosManagedStatus",
+					"oslc": "nmosManagedStatus",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "Managed"
+						},
+						{
+							"key": 1,
+							"value": "Operatorunmanaged"
+						},
+						{
+							"key": 2,
+							"value": "Systemunmanaged"
+						},
+						{
+							"key": 3,
+							"value": "OutOfScope"
+						},
+						{
+							"key": 4,
+							"value": "Undiscoveredinterface"
+						}
+					],
+					"os": "NmosManagedStatus",
+					"oslc": "hasNmosManagedStatus",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#NmosManagedStatus",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "NmosEventMap",
+					"oslc": "nmosEventMap",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "MOILocal",
+					"oslc": "localManagedObj",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#ManagedObjectInstance",
+					"systemColumn": "false",
+					"type": "ResourceInline"
+				},
+				{
+					"os": "MOIRemote",
+					"oslc": "remoteManagedObj",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#ManagedObjectInstance",
+					"systemColumn": "false",
+					"type": "ResourceInline"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcemb",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/tbsm#",
+			"types": [
+				{
+					"os": "BSM_Identity",
+					"oslc": "bsmIdentity",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcemm",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/misc#",
+			"types": [
+				{
+					"os": "Poll",
+					"oslc": "poll",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "Location",
+					"oslc": "location",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "PhysicalSlot",
+					"oslc": "physicalSlot",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "PhysicalPort",
+					"oslc": "physicalPort",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "PhysicalCard",
+					"oslc": "physicalCard",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "X733EventType",
+					"oslc": "x733EventType",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"conversions": [
+						{
+							"key": 0,
+							"value": "NotDefined"
+						},
+						{
+							"key": 1,
+							"value": "CommunicationsAlarm"
+						},
+						{
+							"key": 2,
+							"value": "Quality-of-ServiceAlarm"
+						},
+						{
+							"key": 3,
+							"value": "ProcessingError"
+						},
+						{
+							"key": 4,
+							"value": "EquipmentAlarm"
+						},
+						{
+							"key": 5,
+							"value": "EnvironmentalAlarm"
+						},
+						{
+							"key": 6,
+							"value": "IntegrityViolation"
+						},
+						{
+							"key": 7,
+							"value": "OperationalViolation"
+						},
+						{
+							"key": 8,
+							"value": "PhysicalViolation"
+						},
+						{
+							"key": 9,
+							"value": "SecurityServiceViolation"
+						},
+						{
+							"key": 10,
+							"value": "TimeDomainViolation"
+						}
+					],
+					"os": "X733EventType",
+					"oslc": "hasX733EventType",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/misc#X733EventType",
+					"systemColumn": "false",
+					"type": "ResourceEnum"
+				},
+				{
+					"os": "X733ProbableCause",
+					"oslc": "x733ProbableCause",
+					"systemColumn": "false",
+					"type": "integer"
+				},
+				{
+					"os": "X733SpecificProb",
+					"oslc": "x733SpecificProb",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "X733CorrNotif",
+					"oslc": "x733CorrNotif",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "URL",
+					"oslc": "url",
+					"systemColumn": "false",
+					"type": "Resource"
+				},
+				{
+					"os": "ExtendedAttr",
+					"oslc": "extendedAttr",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		}
+	],
+	"Journal": [
+		{
+			"nsprefix": "dcterms",
+			"nsuri": "http:\/\/purl.org\/dc\/terms\/",
+			"types": [
+				{
+					"os": "KeyField",
+					"oslc": "identifier",
+					"systemColumn": "true",
+					"type": "string"
+				},
+				{
+					"os": "Chrono",
+					"oslc": "created",
+					"systemColumn": "false",
+					"type": "dateTime"
+				},
+				{
+					"os": "Text",
+					"oslc": "content",
+					"systemColumn": "false",
+					"type": "journal"
+				}
+			]
+		},
+		{
+			"nsprefix": "oslcem",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#",
+			"types": [
+				{
+					"os": "UID",
+					"oslc": "ownerUID",
+					"systemColumn": "false",
+					"type": "ResourceUID"
+				},
+				{
+					"os": "Serial",
+					"oslc": "event",
+					"oslcType": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus#Event",
+					"systemColumn": "false",
+					"type": "ResourceEvent"
+				}
+			]
+		}
+	],
+	"MOILocal": [
+		{
+			"nsprefix": "oslcemp",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#",
+			"types": [
+				{
+					"os": "LocalNodeAlias",
+					"oslc": "moiNodeAlias",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "LocalPriObj",
+					"oslc": "moiPriObj",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "LocalSecObj",
+					"oslc": "moiSecObj",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "LocalRootObj",
+					"oslc": "moiRootObj",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		}
+	],
+	"MOIRemote": [
+		{
+			"nsprefix": "oslcemp",
+			"nsuri": "http:\/\/jazz.net\/ns\/ism\/event\/omnibus\/itnm#",
+			"types": [
+				{
+					"os": "RemoteNodeAlias",
+					"oslc": "moiNodeAlias",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "RemotePriObj",
+					"oslc": "moiPriObj",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "RemoteSecObj",
+					"oslc": "moiSecObj",
+					"systemColumn": "false",
+					"type": "string"
+				},
+				{
+					"os": "RemoteRootObj",
+					"oslc": "moiRootObj",
+					"systemColumn": "false",
+					"type": "string"
+				}
+			]
+		}
+	]
+}

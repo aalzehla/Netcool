@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="コンダクターの開始" />
+<meta name="abstract" content="コンダクターからは、アラートの表示と管理のために使用できるすべての Tivoli Netcool/OMNIbus デスクトップ・ツールにシングル・サインオンでアクセスできます。" />
+<meta name="Description" content="コンダクターからは、アラートの表示と管理のために使用できるすべての Tivoli Netcool/OMNIbus デスクトップ・ツールにシングル・サインオンでアクセスできます。" />
+<meta name="DC.subject" content="コンダクター, 開始" />
+<meta name="keywords" content="コンダクター, 開始" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_startingconductor" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>コンダクターの開始</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_startingconductor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">コンダクターの開始</h1>
+<div class="body taskbody"><p class="shortdesc">コンダクターからは、アラートの表示と管理のために使用できるすべての <span class="keyword">Tivoli Netcool/OMNIbus</span> デスクトップ・ツールにシングル・サインオンでアクセスできます。</p>
+<div class="section context"><p class="p">デスクトップ・ツールを使用するには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。</p>
+<div class="note tip"><span class="tiptitle">ヒント:</span> UNIX のコマンド行または Windows の<span class="ph uicontrol">「スタート」</span>メニューから、個々のデスクトップ・ツールを任意で開始することができます。
+ただし、その方法でデスクトップ・ツールを開始する場合は、認証を受けて選択した ObjectServer に接続するために、ユーザー名とパスワードを毎回入力する必要があります。</div>
+<p class="p">コンダクターを開始するには、以下のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">ご使用のオペレーティング・システムに該当するアクションを実行します。</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="この表の各行には選択肢が示されています。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d234514e40-option" valign="bottom" align="left">オプション</th>
+<th id="d234514e40-desc" valign="bottom" align="left">説明</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d234514e40-option" id="d234514e42" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d234514e40-desc d234514e42" class="stentry chdesc" width="80%">コマンド・プロンプトから、以下を入力します。<kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd> </td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d234514e40-option" id="d234514e51" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d234514e40-desc d234514e51" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">Windows の<span class="ph uicontrol">「スタート」</span>メニューから<span class="ph uicontrol">「Netcool コンダクター」</span>をクリックします。</li>
+<li class="li">コマンド・プロンプトから、以下を入力します。<p class="p"><kbd class="ph userinput">%NCHOME%¥omnibus¥desktop¥NCOConductor.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ コンダクターの「<span class="keyword wintitle">ログイン</span>」ウィンドウが表示されます。</li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">ユーザー名</dt>
+<dd class="dd">ユーザー名を入力してください。</dd>
+<dt class="dt dlterm">パスワード</dt>
+<dd class="dd">パスワードを入力してください。 入力したテキストの代わりにアスタリスク (*) 文字が表示されます。<div class="note note"><span class="notetitle">注:</span> ユーザー名とパスワードが、(ObjectServer ではなく) 外部の認証ソースと比較して検証される場合は、
+このソースがマルチバイト文字をサポートしているかどうかを確認してください。
+マルチバイト文字がサポートされていない場合は、ASCII 文字を使用してユーザー名とパスワードを指定する必要があります。</div>
+</dd>
+<dt class="dt dlterm">サーバー</dt>
+<dd class="dd">ObjectServer 名はデフォルトの NCOMS (Netcool/OMNIbus マスター・サーバー) に設定されます。 複数の ObjectServer がご使用の環境用に構成されている場合、
+すべての使用可能な ObjectServer がこのドロップダウン・リストに表示されます。
+接続先にする ObjectServer を選択してください。</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">このボタンをクリックして、ログインの詳細を認証します。<div class="note note"><span class="notetitle">注:</span> 許可されているログイン試行回数は 3 回です。 試行のたびに<span class="ph uicontrol">「パスワード」</span>フィールドがクリアされます。 3 回目の試行でも正しくログインできなかった場合は、プログラムが終了します。</div>
+</dd>
+<dt class="dt dlterm">キャンセル</dt>
+<dd class="dd">このボタンをクリックして、ログイン試行をキャンセルします。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div><div class="p">ログインに成功した場合:<ul class="ul"><li class="li">UNIX のコンダクターがウィンドウとして表示されます。</li>
+<li class="li">Windows のコンダクターが Windows のシステム・トレイにバス・アイコンとして表示されます。 そのアイコンを右クリックすると、Windows の<span class="ph uicontrol">「コンダクター」</span>メニューが表示されます。<p class="p">実行中の ObjectServer ごとにコンダクターを開始できます。 Windows では、コンダクターごとにシステム・トレイのアイコンが割り振られます。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="コンダクターを使用して、Tivoli Netcool/OMNIbus デスクトップ・ツール (またはクライアント・アプリケーション) を管理することができます。">デスクトップ・ツールへのアクセス</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

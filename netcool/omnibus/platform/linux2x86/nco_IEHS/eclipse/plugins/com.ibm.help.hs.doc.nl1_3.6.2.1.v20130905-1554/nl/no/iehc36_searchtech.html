@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no-no" xml:lang="no-no">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Avanserte søkemetoder" />
+<meta name="abstract" content="Du kan utføre mer avanserte søk ved å bruke anførselstegn, jokertegn eller boolske operatorer for å få returnert et mindre sett med søkeresultater" />
+<meta name="description" content="Du kan utføre mer avanserte søk ved å bruke anførselstegn, jokertegn eller boolske operatorer for å få returnert et mindre sett med søkeresultater" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="no-no" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Avanserte søkemetoder</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Avanserte søkemetoder</h1>
+<div class="body"><p class="shortdesc">Du kan utføre mer avanserte søk ved å bruke anførselstegn, jokertegn
+eller boolske operatorer for å få returnert et mindre sett med søkeresultater</p>
+<ul class="ul"><li class="li">Når du søker i hjelpesystemet, kan du identifisere
+enkelte ord eller uttrykk som en nøyaktig streng ved å sette dem i
+dobbeltanførselstegn.<p class="p">Hvis du for eksempel skriver <kbd class="ph userinput">"log file"</kbd> i feltet
+<span class="ph uicontrol">Søk</span>, søker du etter alle forekomster av
+strengen <em class="ph i">log file</em>. Hvis du ikke bruker
+dobbeltanførselstegn, blir emner som inneholder forekomster av både ordet <em class="ph i">log</em> og
+ordet <em class="ph i">file</em> returnert.</p>
+</li>
+<li class="li">Du kan bruke jokertegn som stjerne (*) og spørsmålstegn
+(?) i søket for å utvide søkeomfanget.<ul class="ul"><li class="li">Bruk stjerne (*) for flere ukjente eller variable tegn
+i søkeuttrykket. Hvis du for eksempel skriver <kbd class="ph userinput">par*</kbd>,
+blir emner som inneholder <em class="ph i">partly</em>, <em class="ph i">participate</em>, <em class="ph i">partial</em>
+og andre ord som begynner med <em class="ph i">par</em> returnert.<div class="note note"><span class="notetitle">Merk:</span>  Det finnes
+en begrensning for søkestrengen: Når du bruker et søkeord med en stjerne, må det være
+minst tre tegn foran stjernen,
+og tilsvarende må et søkeord uten jokertegn inneholde minst tre tegn.</div>
+</li>
+<li class="li">Bruk et spørsmålstegn for ett enkelt tegn i søket.
+Hvis du for eksempel skriver <kbd class="ph userinput">par?</kbd>, blir emner som inneholder
+<em class="ph i">part</em> returnert, men ikke emner som inneholder <em class="ph i">partial</em> eller <em class="ph i">partly</em>.</li>
+</ul>
+<div class="note note"><span class="notetitle">Merk:</span> Når du bruker et søkeord med en stjerne (*), må det være
+minst tre tegn foran stjernen</div>
+</li>
+<li class="li">Du kan bruke de boolske operatorene AND, OR og NOT for å gjøre søket mer
+spesifikt. Eksempel:<dl class="dl"><dt class="dt dlterm">database AND "log file"</dt>
+<dd class="dd">Begrenser søkeresultatet til emner som inneholder både
+ordet <em class="ph i">database</em> og tekststrengen <em class="ph i">log file</em>.</dd>
+<dt class="dt dlterm">database OR "log file"</dt>
+<dd class="dd">Utvider søkeresultatet til emner som inneholder enten
+ordet <em class="ph i">database</em> eller tekststrengen <em class="ph i">log file</em>.</dd>
+<dt class="dt dlterm">database NOT "log file"</dt>
+<dd class="dd">Begrenser søkeresultatet til emner som inneholder
+ordet <em class="ph i">database</em> men ikke tekststrengen <em class="ph i">log file</em>.</dd>
+<dt class="dt dlterm">database OR "data base" NOT "log file"</dt>
+<dd class="dd">Søker etter emner som inneholder ordet <em class="ph i">database</em> eller
+tekststrengen <em class="ph i">data base</em>, men ikke inneholder tekststrengen <em class="ph i">log
+file</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Overordnet emne:</strong> <a class="link" href="iehs36_searching.html" title="Du kan søke i alle emner i hjelpesystemet, søke i ett enkelt emne eller en enkelt emnesamling, eller opprette et søkeomfang slik at du bare søker i et delsett av informasjonen. Visningen Søkeresultater kan vise opptil 500 resultater sortert etter relevans.">Søke i hjelpesystemet</a></div>
+</div>
+</div></body>
+</html>

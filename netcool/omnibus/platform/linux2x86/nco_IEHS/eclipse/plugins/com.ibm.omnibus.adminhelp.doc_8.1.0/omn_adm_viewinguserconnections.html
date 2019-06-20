@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Viewing user connections to the ObjectServer" />
+<meta name="abstract" content="You can view the connection details of any user that is currently logged on to the ObjectServer." />
+<meta name="Description" content="You can view the connection details of any user that is currently logged on to the ObjectServer." />
+<meta name="DC.subject" content="users, viewing connections" />
+<meta name="keywords" content="users, viewing connections" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringusers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_monitoringobjservconnects.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_viewinguserconnections" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringusers.html" />
+<title>Viewing user connections to the ObjectServer</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_viewinguserconnections">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Viewing user connections to the ObjectServer</h1>
+<div class="body taskbody"><p class="shortdesc">You can view the connection details of any user that is
+currently logged on to the ObjectServer.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">You must have started
+Netcool/OMNIbus Administrator by running the <span class="keyword cmdname">nco_config</span> utility. </p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To view user connections:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">User</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Users</span>. </span> The <span class="keyword wintitle">Users</span> pane
+opens, showing a row for each user that is set up on the system. <div class="p">A
+status indicator icon <img class="image" src="icn_omn_adm_userconnected.gif" alt="This figure shows the icon that is used to depict the connection status of users." /> is shown to the left of the user name. The
+color of the icon depicts the connection status of the user as follows:<ul class="ul"><li class="li">A green color indicates that the user is connected.</li>
+<li class="li">A blue color indicates that the user is enabled, but not connected.</li>
+<li class="li">A gray color indicates that the user is not enabled.</li>
+</ul>
+</div>
+<p class="p">From the <span class="keyword wintitle">Users</span> pane,
+you can view the connection details for any selected user who is currently
+logged in to the ObjectServer. For example, if you want to see how many users
+are currently connected as <samp class="ph tt">root</samp>, and their connection details, you
+can select the row for the <samp class="ph tt">root</samp> user. Right-click over the selected
+row, and then click <span class="ph uicontrol">See connections</span> from the pop-up
+menu. The <span class="keyword wintitle">ObjectServer Connections</span> pane opens. A dynamic
+quick filter is automatically applied to the Login Name column so that only
+applications to which the selected user is connected are shown. The <span class="ph uicontrol">Quick
+Filter</span> icon <img class="image" src="icn_omn_adm_filter.gif" alt="This figure shows the filter icon." /> is shown in the Login Name column header to
+indicate that a filter has been applied to that name. You can remove this
+filter to show all connections for all users by clicking <span class="ph uicontrol">Connections</span> under
+the <span class="ph uicontrol">System</span> menu button. </p>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringusers.html" title="You can create and modify Tivoli Netcool/OMNIbus users, and organize these users into groups. You can assign roles to the user groups, to control access to ObjectServer objects.">Configuring users</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+<div><a class="link" href="omn_adm_monitoringobjservconnects.html" title="You can view all current connections to the ObjectServer and disconnect one or more of the connections. You must be assigned the ALTER SYSTEM DROP CONNECTION permission to disconnect ObjectServer connections.">Monitoring ObjectServer connections</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

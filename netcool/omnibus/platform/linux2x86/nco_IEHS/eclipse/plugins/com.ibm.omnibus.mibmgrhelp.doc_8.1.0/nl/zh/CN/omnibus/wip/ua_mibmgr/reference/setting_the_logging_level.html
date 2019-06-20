@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="设置日志记录级别" />
+<meta name="abstract" content="您可以更改日志记录级别以提供更详细的日志或跟踪文件，从而帮助对 MIB 管理器 进行调试。提高日志记录级别所带来的额外信息在您对解析 MIB 是发生的特定文件进行调试时很有用。" />
+<meta name="Description" content="您可以更改日志记录级别以提供更详细的日志或跟踪文件，从而帮助对 MIB 管理器 进行调试。提高日志记录级别所带来的额外信息在您对解析 MIB 是发生的特定文件进行调试时很有用。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB 管理器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">设置日志记录级别</h1>
+<div class="body refbody"><p class="shortdesc">您可以更改日志记录级别以提供更详细的日志或跟踪文件，从而帮助对 <span class="keyword">MIB 管理器</span> 进行调试。提高日志记录级别所带来的额外信息在您对解析 MIB 是发生的特定文件进行调试时很有用。</p>
+<div class="section"><p class="p">要更改日志记录级别，请在主窗口菜单栏中单击<span class="ph menucascade"><span class="ph uicontrol">编辑</span> &gt; <span class="ph uicontrol">调试</span></span>。日志文件有六种消息级别可供您选择以更改所捕获信息的详细程度：无、错误、警告、参考、调试和详细。</p>
+<p class="p">下表简要描述了每种日志记录级别：</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 日志记录级别及其关联描述的列表</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3897e36">日志级别</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3897e38">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">无</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">指定不输出任何调试消息的日志级别。</p>
+<p class="p">应用程序的性能将提高，但是解析期间不会显示任何警告或错误消息。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">error</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">指定仅对影响结果的错误进行记录的日志级别。</p>
+<p class="p">这包括 <span class="keyword">MIB 管理器</span> 确定的任何会导致主窗口中所显示的数据不正确的错误。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">warn</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">指定对警告和错误消息进行记录的日志级别。</p>
+<p class="p">警告表示可能导致数据错误而必须检查的状况。但是，该状况不会导致数据损坏。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">指定对参考、警告和临界消息进行记录的日志级别。</p>
+<p class="p">参考消息包含与总体任务进度相关的消息。例如，在解析对象时，它们将提供对象的完整文本。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">调试</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><div class="p">指定对所有消息进行记录的日志级别。<div class="note note"><span class="notetitle">注：</span> 请仅在您尝试解决错误状况时才以调试方式运行 <span class="keyword">MIB 管理器</span>。仅解析中等数量的 MIB 所产生的数据量就会迅速填满文件系统。</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">详细</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">指定对所有参考消息进行记录的日志级别。</p>
+<p class="p">详细消息包括变量、数组和散列更改值和状态时的状态。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="使用日志记录首选项可指定 MIB 管理器 日志文件目录以及设置缺省消息级别。">设置记录首选项</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

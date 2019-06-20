@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Sicht &#34;MIB-Module&#34;" />
+<meta name="abstract" content="Die Sicht MIB-Module bietet eine Darstellung aller importierten MIB-Module. In dieser Sicht können Sie MIB-Module suchen und löschen sowie bestimmte MIB-Werte suchen." />
+<meta name="Description" content="Die Sicht MIB-Module bietet eine Darstellung aller importierten MIB-Module. In dieser Sicht können Sie MIB-Module suchen und löschen sowie bestimmte MIB-Werte suchen." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mibtree" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="mibtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Sicht "MIB-Module"</h1>
+<div class="body refbody"><p class="shortdesc">Die Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span> bietet eine Darstellung
+aller importierten MIB-Module. In dieser Sicht können Sie
+MIB-Module suchen und löschen sowie bestimmte MIB-Werte suchen.</p>
+<div class="section"><p class="p">Sie können durch die Sicht <span class="keyword wintitle strongwintitle">MIB-Baumstruktur</span>
+navigieren, indem Sie Knoten innerhalb der MIB-Baumstruktur ein- und ausblenden. Die Verzweigungen der höchsten Stufe in der MIB-Baumstruktur
+enthalten die Namen der MIB-Module. In den einzelnen Verzweigungen für MIB-Module
+sind die anderen Elemente angeordnet, aus denen sich die jeweilige MIB zusammensetzt.</p>
+<div class="p">Sie können die Daten in der Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span>
+filtern, indem Sie aus der Dropdown-Liste <span class="ph uicontrol">Sicht</span>
+eine der folgenden Optionen auswählen:<ul class="ul"><li class="li"><span class="ph uicontrol">Alles</span></li>
+<li class="li"><span class="ph uicontrol">Module</span></li>
+<li class="li"><span class="ph uicontrol">Aufzählungen</span></li>
+<li class="li"><span class="ph uicontrol">Textkonventionen</span></li>
+<li class="li"><span class="ph uicontrol">Syntaxen</span></li>
+<li class="li"><span class="ph uicontrol">Importe</span></li>
+<li class="li"><span class="ph uicontrol">Exporte</span></li>
+<li class="li"><span class="ph uicontrol">Spalten</span></li>
+<li class="li"><span class="ph uicontrol">Beschreibungen</span></li>
+</ul>
+</div>
+<p class="p">Um in der Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span>
+einen bestimmten Wert zu suchen, müssen Sie den Text in das Feld
+<span class="ph uicontrol">Suchen</span> eingeben und entweder die
+<span class="ph uicontrol">Eingabetaste</span> drücken oder auf <img class="image" src="../gifs/find.gif" alt="Symbol &#34;Suchen&#34;" /> ("Suchen") klicken.</p>
+<p class="p"><span class="keyword">MIB Manager</span>
+beginnt beim ausgewählten Element oder, falls momentan kein Element
+ausgewählt ist, beim ersten Element in der Liste mit der Suche. Klicken Sie zum Suchen des nächsten übereinstimmenden Elements
+in der Liste nochmals auf <img class="image" src="../gifs/find.gif" alt="Symbol &#34;Suchen&#34;" /> ("Suchen").</p>
+<p class="p">Wenn
+ein Element gefunden wird, wird es automatisch hervorgehoben und
+in der Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span>
+angezeigt. </p>
+<p class="p">Geben Sie im Feld <span class="ph uicontrol">Suchen</span>
+einen gültigen regulären Ausdruck an oder geben Sie
+einfachen Text ein, der einen vollständigen Objektnamen
+oder einen Teil davon darstellt.</p>
+<p class="p">Um ein oder mehrere
+MIB-Module zu löschen, klicken Sie mit der rechten Maustaste
+auf die ausgewählten MIB-Module und wählen Sie danach im
+Popup-Menü den Eintrag <span class="ph uicontrol">Löschen</span>
+aus. Die ausgewählten MIB-Module werden aus <span class="keyword">MIB Manager</span>
+gelöscht. Die ursprünglichen MIB-Quellendateien, die für den
+MIB-Import bereitgestellt wurden, werden allerdings nicht gelöscht.</p>
+<div class="p"><div class="note note"><span class="notetitle">Anmerkung:</span> Sie dürfen ein MIB-Modul nur dann löschen, wenn es Fehler
+enthält und eine neue Ersatzversion davon vorhanden ist. Das
+Löschen von MIB-Modulen über diese Methode kann zu fehlenden
+MIB-Abhängigkeiten führen. Außerdem können während des Exportprozesses
+unvollständige Regeldateien generiert und Warnungen oder Fehlernachrichten
+in den Protokolldateien gespeichert werden.</div>
+</div>
+<p class="p">Die folgende Tabelle enthält die Symbole der Sicht
+<span class="keyword wintitle strongwintitle">MIB-Module</span> sowie Beschreibungen
+dazu, welche Objekte die einzelnen Symbole darstellen.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabelle 1. Symbole der Sicht "MIB-Module" und die Objekte, die sie darstellen</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="28.14070351758794%" id="d4491e115">Symbol</th>
+<th class="entry" valign="top" width="71.85929648241206%" id="d4491e117">Darstellung</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "> <div class="image"><img class="image" src="../gifs/exports.gif" alt="Symbol für Exporte" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">EXPORTS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "> <div class="image"><img class="image" src="../gifs/export.gif" alt="Symbol für Export" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">EXPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "> <div class="image"><img class="image" src="../gifs/imports.gif" alt="Symbol für Importe" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">IMPORTS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "> <div class="image"><img class="image" src="../gifs/import.gif" alt="Symbol für Import" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">IMPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="Symbol für Objekt-ID" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">OBJECT IDENTIFIER, OBJECT-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="Agentenfunktionen" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">AGENT-CAPABILITIES</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="Symbol für Modulkonformität" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">MODULE-COMPLIANCE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/module_identity.gif" alt="Modulidentität" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">MODULE, MODULE-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/obj_group.gif" alt="Objektgruppe" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">OBJECT-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="Benachrichtigungsgruppe" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">NOTIFICATION-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="Traptyp" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">TRAP-TYPE (Trap aus V1)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="Benachrichtigungstyp" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">NOTIFICATION-TYPE (Trap aus V2)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="Generischer Objekttyp" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">OBJECT-TYPE (Generisch)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="Zähler" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="Zähler 32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">COUNTER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="Zähler 64" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">COUNTER64</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="Messanzeige" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">GAUGE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="Messanzeige 32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">GAUGE32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="Integer" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">INTEGER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="Integer 32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">INTEGER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP-Adresse" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">IpAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="Netzadresse" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">NetworkAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="Oktettfolge" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">OCTET STRING</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="Folgentabelle" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">SEQUENCE (Tabelle)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="Folgentabelleneintrag" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">SEQUENCE (Eintrag, Tabellenzeile)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="Timeticks" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">TIMETICKS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4491e115 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="Textkonvention" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4491e117 ">TEXTUAL-CONVENTION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Übergeordnetes Thema:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Sie können MIB Manager für das Parsing von MIB-Modulen und die Erstellung von Netcool-Regeldateien verwenden.">Netcool MIB Manager verwenden</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

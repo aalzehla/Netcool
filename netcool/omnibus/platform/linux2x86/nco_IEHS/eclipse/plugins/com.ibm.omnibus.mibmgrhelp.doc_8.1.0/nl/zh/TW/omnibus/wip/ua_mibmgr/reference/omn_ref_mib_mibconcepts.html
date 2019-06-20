@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB 概念與設計" />
+<meta name="abstract" content="所有定義以供特定裝置使用的 SNMP MIB 模組包含該裝置的 MIB。術語 MIB 通常用來說明單一模組定義，但是，這在技術上是不正確的。 實際上，MIB 是用來管理特定裝置（無論該裝置與硬體還是軟體相關）之所有模組的組合。因此，由供應商或在 RFC 中定義的每個模組，更精確的名稱為 SNMP MIB 模組。" />
+<meta name="Description" content="所有定義以供特定裝置使用的 SNMP MIB 模組包含該裝置的 MIB。術語 MIB 通常用來說明單一模組定義，但是，這在技術上是不正確的。 實際上，MIB 是用來管理特定裝置（無論該裝置與硬體還是軟體相關）之所有模組的組合。因此，由供應商或在 RFC 中定義的每個模組，更精確的名稱為 SNMP MIB 模組。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibconcepts" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB 概念與設計</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibconcepts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB 概念與設計</h1>
+<div class="body refbody"><p class="shortdesc">所有定義以供特定裝置使用的 SNMP MIB 模組包含該裝置的 MIB。術語 MIB 通常用來說明單一模組定義，但是，這在技術上是不正確的。
+實際上，MIB 是用來管理特定裝置（無論該裝置與硬體還是軟體相關）之所有模組的組合。因此，由供應商或在 RFC 中定義的每個模組，更精確的名稱為 SNMP MIB 模組。</p>
+<div class="section"><p class="p">所有 MIB 模組實際上是根模組的延伸。所有從個別供應商發行的 MIB 模組會從 RFC1155-SMI 中定義的企業物件進行延伸。因此，所有 SNMP 代理程式必須支援 RFC1155，且所有 MIB 模組都是 RFC1155 的延伸。</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__smi"><h2 class="title sectiontitle">管理資訊結構 (SMI)</h2><p class="p">若要讓 SNMP 管理資訊庫 (MIB) 變成可延伸，則相關項目會安排至 MIB 模組，以形成結構階層。
+每個 MIB 模組都定義在下列結構中：</p>
+<p class="p"><samp class="ph codeph">ModuleName
+DEFINITIONS ::= BEGIN END</samp></p>
+<p class="p">模組中的 <samp class="ph codeph">BEGIN</samp> 和 <samp class="ph codeph">END</samp> 標籤容許在單一文字檔中定義數個模組。MIB 編譯器應能夠處理單一檔案中定義的任意數目的模組，但應該不需要。</p>
+<p class="p">模組中每個定義的物件都有使用慣例。例如，模組名稱必須以大寫英文字母開頭，且只包含字母、數字、連字號 (-) 或底線 (_)。物件名稱必須以小寫英文字母開頭，且只能包含字母、數字、連字號或底線。MIB 模組中的註解由兩個連續的連字號 (--) 表示，在所有行上符號後面的所有文字均可忽略。</p>
+<p class="p">由於對 MIB 進行模組化以及易於延伸的設計，MIB 可以透過新增其他模組來支援任何新功能或裝置。當某個模組撰寫為其他模組的延伸，它將包含 <samp class="ph codeph">IMPORTS</samp> 區段，該區段位於 <samp class="ph codeph">DEFINITIONS</samp> 行之下。<samp class="ph codeph">IMPORTS</samp> 區段定義 MIB 階層中較上層模組所需的物件，以及定義依次定義物件所在的模組。</p>
+<div class="p">下列定義來自於 RFC1157，指出從 RFC1155 匯入的數個物件。這個區段可以當作類似於程式設計語言（例如 C 或 Perl）或 Netcool 規則檔中的 <samp class="ph codeph">include</samp> 陳述式來檢視。此外，若要瞭解現行 MIB 模組 (RFC1157-SNMP) 中的物件，您還必須知道前一個 MIB 模組 (RFC1155-SMI) 中的物件。<pre class="pre codeblock"><code>RFC1157-SNMP DEFINITIONS ::= BEGIN IMPORTS ObjectName, ObjectSyntax, NetworkAddress, IpAddress, TimeTicks FROM RFC1155-SMI;</code></pre>
+</div>
+<p class="p">指定匯入的 MIB 名稱時，易於發生排版印刷上的訛誤。例如，RFC1212 可能參照為 MIB 模組而不是正確的名稱 RFC-1212。如果 <span class="keyword">MIB Manager</span> 強調顯示剖析錯誤，則必須檢查 <samp class="ph codeph">IMPORTS</samp> 區段以確認是否已正確命名 MIB 模組。部分 MIB 模組還包含 <samp class="ph codeph">EXPORTS</samp> 區段，該區段同樣以分號結尾。
+這個區段會通知讀者 MIB 作者預期其他 MIB 模組使用所指定的相同物件。出於本文的目的，這個區段不相關並且可被忽略。</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_data"><h2 class="title sectiontitle">定義的資料類型</h2><p class="p">SNMP MIB 模組是以稱為 ASN.13（抽象語法表示法 1）的格式定義的。但是，SNMP 只會使用 ASN.14 部分。ASN.1 是在 ITU-T X.208 和 ISO 8824 中定義的。適用於 SNMP 的 ASN.1 部分是在 RFC1155 中定義的。RFC1155 定義下列有效的 SNMP 資料類型：</p>
+<ul class="ul"><li class="li">初始類型：INTEGER、OCTET STRING、OBJECT IDENTIFIER、NULL</li>
+<li class="li">建構子類型：SEQUENCE、SEQUENCE OF</li>
+<li class="li">定義的類型：NetworkAddress、IpAddress、Counter、Gauge、TimeTicks、Opaque</li>
+</ul>
+<p class="p">定義的類型是用來為初始或建構子類型指定特定格式的機制。MIB 作者可使用 TEXTUAL-CONVENTION 結構來定義其他類型。</p>
+<div class="p"><samp class="ph codeph">DisplayString</samp> 是一個定義的類型的良好範例。在
+SNMPv2-SMI-v1 MIB 模組中，<samp class="ph codeph">DisplayString</samp> 的 v1 版本具有下列定義：<pre class="pre codeblock"><code>DisplayString ::= OCTET STRING (0..255)</code></pre>
+</div>
+<div class="p">在 SNMPv2-TC MIB 模組中，<samp class="ph codeph">DisplayString</samp> 的 v2 版本具有下列定義：<pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION DISPLAY-HINT "255a" STATUS current DESCRIPTION "Represents textual information taken from the NVT ASCII character set, as defined in pages 4, 10-11 of RFC 854. To summarize RFC 854, the NVT ASCII repertoire 
+specifies: - the use of character codes 0-127 (decimal) - the graphics characters 
+(32-126) are interpreted as US ASCII - NUL, LF, CR, BEL, BS, HT, VT and FF have the 
+special meanings specified in RFC 854 - the other 25 codes have no standard 
+interpretation - the sequence 'CR LF' means newline - the sequence 'CR NUL' means 
+carriage-return - an 'LF' not preceded by a 'CR' means moving to the same column on 
+the next line. - the sequence 'CR x' for any x other than LF or NUL is illegal. (Note that this also means that a string may end with either 'CR LF' or 'CR NUL', but not with CR.) Any object defined using this syntax may not exceed 255 characters in length." SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+上述範例顯示 <samp class="ph codeph">DisplayString</samp> 是長度為 0 到 255 個字元的 OCTET STRING。請注意，對應於網際網路標準 MIB 中物件類型的每一個
+OBJECT DESCRIPTOR，都必須是唯一、可列印的助記字串。</div>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_objects"><h2 class="title sectiontitle">定義物件</h2><p class="p">撰寫 MIB 模組時發生的一般錯誤是建立了不唯一的物件名稱。據稱，RFC1155 陳述式表示只有單一 MIB 模組中的物件才必須唯一。如之前所述，MIB 是完整的模組集，在結合時用來管理特定裝置。因此，任何 MIB 模組中定義的所有物件都必須是唯一的，這些物件包括自己模組中的物件，以及任何匯入的模組和這些模組可能匯入的所有模組中，具有任何其他物件名稱的物件。用來確保物件名稱為唯一的一般機制是：將公司的指示器符號或縮寫公司名稱附加到所有模組名稱前面。</p>
+<p class="p">定義了物件之後，會將物件對映到類似跨距樹狀結構的數值階層。每次定義物件時，它會定義為母項物件的葉節點。下列三個根物件是定義在 SNMP MIB 樹狀結構中：</p>
+<ul class="ul"><li class="li"><samp class="ph codeph">ccitt</samp>（根節點 0）</li>
+<li class="li"><samp class="ph codeph">iso</samp>（根節點 1）</li>
+<li class="li"><samp class="ph codeph">joint-iso-ccitt</samp>（根節點 2）</li>
+</ul>
+<div class="p">MIB 樹狀結構中的所有其他節點都是這三個根節點之一的子項。例如，RFC1155-SMI 定義下列物件：<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } directory OBJECT IDENTIFIER ::=
+ { internet 1 } mgmt OBJECT IDENTIFIER ::= { internet 2 } experimental OBJECT IDENTIFIER
+ ::= { internet 3 } private OBJECT IDENTIFIER ::= { internet 4 } enterprises OBJECT 
+IDENTIFIER ::= { private 1 }</code></pre>
+</div>
+<p class="p">這些定義指出物件名稱、相關聯的物件類型、每個物件的母項名稱（或排序的母項清單）以及這個子項對一個以上母項的葉節點號碼。在圖形上，這些項目採用階層式形式。</p>
+<p class="p">您可以透過展開及收合 MIB 樹狀結構中的節點，來瀏覽「<span class="keyword wintitle">MIB 樹狀結構</span>」視圖。MIB 樹狀結構的最上層分支包含 MIB 模組的名稱，且每個 MIB 模組分支中包含的是組成 MIB 的其他元素。由於其他模組會新增至 MIB，所以其他物件會新增至 MIB 樹狀結構。每個物件都可以被其物件名稱或其物件 ID (OID) 參照。最準確的方法是參照其 OID。
+其 OID 定義為其號碼，且其每個上代的號碼會繼續追溯到連結在一起的根節點（彼此之間以句點 (.) 分隔）。企業物件（節點或葉節點）的 OID 是 1.3.6.1.4.1。</p>
+<p class="p">許多供應商並不確定其物件名稱是通用唯一名稱，因此，兩個供應商可能具有共用相同名稱的物件。如此即會使利用物件名稱來識別物件變得有點不明確。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="本節提供有關「簡易網路管理通訊協定 (SNMP)」架構、SNMP 管理資訊庫 (MIB) 及一些其他 MIB 概念的其他相關資訊。">關於 SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

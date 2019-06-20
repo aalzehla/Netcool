@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="ディレクトリー・ブラウザー" />
+<meta name="abstract" content="このウィンドウを使用して、ローカル UNIX システム・ディレクトリーの内容を表示し、ビュー・ファイル、フィルター・ファイル、およびイベント・リスト構成ファイルを、「ディレクトリー・ブラウザー」ウィンドウと個人用ライブラリー (頻繁に使用するファイルを保存しておく場所) との間で移動およびコピーします。 また、ディレクトリー・ブラウザーを使用して、ビュー、フィルター、およびイベント・リスト構成を直接開くこともできます。" />
+<meta name="Description" content="このウィンドウを使用して、ローカル UNIX システム・ディレクトリーの内容を表示し、ビュー・ファイル、フィルター・ファイル、およびイベント・リスト構成ファイルを、「ディレクトリー・ブラウザー」ウィンドウと個人用ライブラリー (頻繁に使用するファイルを保存しておく場所) との間で移動およびコピーします。 また、ディレクトリー・ブラウザーを使用して、ビュー、フィルター、およびイベント・リスト構成を直接開くこともできます。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_abtpersonallibrary.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_workingwithlocalsysdirectories.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_directorybrowserwindow" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>ディレクトリー・ブラウザー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_directorybrowserwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ディレクトリー・ブラウザー</h1>
+<div class="body refbody"><p class="shortdesc">このウィンドウを使用して、ローカル UNIX システム・ディレクトリーの内容を表示し、ビュー・ファイル、フィルター・ファイル、およびイベント・リスト構成ファイルを、「<span class="keyword wintitle">ディレクトリー・ブラウザー</span>」ウィンドウと個人用ライブラリー (頻繁に使用するファイルを保存しておく場所) との間で移動およびコピーします。 また、ディレクトリー・ブラウザーを使用して、ビュー、フィルター、およびイベント・リスト構成を直接開くこともできます。</p>
+<div class="section"><div class="p">このウィンドウに以下のように入力します。<dl class="dl" id="netom_directorybrowserwindow__netom_directorybrowserfields"><dt class="dt dlterm">ディレクトリー</dt>
+<dd class="dd">このフィールドには、現行ディレクトリーの絶対パス名が表示されます。 ディレクトリーを変更するには、次のいずれかのアクションを実行します。<ul class="ul"><li class="li">フィールドにディレクトリーの絶対パスを入力して Enter を押します。</li>
+<li class="li">ディレクトリー表示域で、任意のディレクトリー・アイコンをダブルクリックします。</li>
+</ul>
+</dd>
+<dt class="dt dlterm"><em class="ph i">ディレクトリー表示域</em></dt>
+<dd class="dd">この領域には、現行ディレクトリー内に存在するサブディレクトリーが表示されます。
+親ディレクトリーは、ディレクトリー名を 2 つのピリオド (<span class="ph uicontrol">..</span>) で表現したアイコンとして示されます。 現行ディレクトリーの上のディレクトリーに移動するには、親ディレクトリーのアイコンをダブルクリックします。</dd>
+<dd class="dd">ディレクトリー・ブラウザーのこの領域にあるファイルを、コンダクター内の個人用ライブラリーにドラッグ・アンド・ドロップすることができます。<ul class="ul"><li class="li">ファイルを移動するには、中央マウス・ボタンを使用します。 (この操作は、<span class="keyword cmdname">mv</span> コマンドの実行に相当します。)</li>
+<li class="li">ファイルをコピーするには、Ctrl キーと中央マウス・ボタンを同時に押します。
+(この操作は、<span class="keyword cmdname">cp</span> コマンドの実行に相当します。)</li>
+</ul>
+<div class="note note"><span class="notetitle">注:</span> ディレクトリーを表すアイコン以外のすべてのアイコンをドラッグ・アンド・ドロップできます。</div>
+</dd>
+<dd class="dd">同様に、個人用ライブラリー内のすべてのアイコン (<span class="ph uicontrol">設定</span>アイコンは除く) を、このディレクトリー表示域にドラッグ・アンド・ドロップすることもできます。</dd>
+<dd class="dd">ビュー、フィルター、およびイベント・リスト構成は、該当するアイコンをダブルクリックして直接開くこともできます。 <span class="ph filepath">.elf</span> アイコンをダブルクリックすると、フィルター・ビルダー内の定義済みフィルターが開きます。 <span class="ph filepath">.elv</span> アイコンをダブルクリックすると、ビュー・ビルダー内の定義済みビューが開きます。 <span class="ph filepath">.elc</span> アイコンをダブルクリックすると、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内の定義済みイベント・リスト構成が開きます。 </dd>
+<dt class="dt dlterm">最新表示</dt>
+<dd class="dd">ディレクトリー・ブラウザーの内容を最新表示するには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして、ウィンドウを閉じます。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_usr_abtpersonallibrary.html" title="特定のサーバーを使用している UNIX ユーザーは、それぞれ .omnibus ディレクトリーを所有しており、個人用ライブラリーがそのディレクトリーのグラフィカル・ブラウザーとなります。 UNIX コンダクターから自分の個人用ライブラリーをカスタマイズして、頻繁に使用するビュー、フィルター、およびイベント・リストの構成を組み込むことができます。">個人用ライブラリーについて</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_workingwithlocalsysdirectories.html" title="Tivoli Netcool/OMNIbus には、UNIX のファイル・システム・ブラウザーと同じように動作するディレクトリー・ブラウザー・ユーティリティーが用意されています。">ローカル・システム・ディレクトリーの操作</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{
+	"_comment" : "This file provides additional configuration data to the embedded HTTP socket library (libnhttpd).",
+	"httpPort" : {
+		"_comment" : "This section defines additional operational settings for any HTTP port that is active.",
+		"maxConnections" : 500
+	},
+	"httpRequest" : {
+		"_comment" : "This section defines additional operational settings related to HTTP requests received from clients.",
+		"maxContentLength" : 1048576
+	},
+	"httpResponse" : {
+		"_comment" : "This section defines a set of user defined static elements that should be returned in an HTTP response, such as HTTP headers.",
+		"corsHeaders" : [
+			{
+				"name"  : "Access-Control-Allow-Headers",
+				"value" : "Location"
+			},
+			{
+				"name"  : "Access-Control-Expose-Headers",
+				"value" : "Location"
+			}
+		],
+		"httpHeaders" : [
+		]
+	},
+	"mimeTypes" : {
+		"_comment" : "This section maps MIME types to file extensions. It is used by libnhttpd to determine the MIME type for a file that is to be served from its file serving URI.",
+		"application/json" : [
+			"json"
+		],
+		"application/rdf+xml" : [
+			"rdf"
+		],
+		"application/xslt+xml" : [
+			"xsl", "xslt"
+		],
+		"image/jpeg" : [
+			"jpg", "jpeg"
+		],
+		"image/gif" : [
+			"gif"
+		],
+		"image/png" : [
+			"png"
+		],
+		"text/css" : [
+			"css"
+		],
+		"text/javascript" : [
+			"js"
+		],
+		"text/HTML" : [
+			"htm", "html"
+		],
+		"text/plain" : [
+			"txt", "log"
+		],
+		"text/xml" : [
+			"xml"
+		]
+	}
+}

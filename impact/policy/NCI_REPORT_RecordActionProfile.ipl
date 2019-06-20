@@ -1,0 +1,75 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+function lookupPolicyID(policyID) {
+ theType = "REPORT_Policy";
+ org = null;
+ filter = "name ='"+policyName+"'";
+
+log(3, "ReportManager: running GetByFilter with filter = " + filter);
+ orgs = GetByFilter(theType, filter, false);
+ orgs_num = Length(orgs);
+log(3, "ReportManager: length is " + orgs_num);
+
+ if (orgs_num > 0) {
+ org = orgs[0];
+ } else {
+log(3, "ReportManager: adding new dataitem");
+ org = NewObject();
+ org["name"] = policyName;
+ AddDataItem(theType, org);
+
+ons = GetByFilter(theType, filter, false);
+
+if (Length(ons) > 0) {
+ org= ons[0];
+}
+
+ }
+
+ policyID = Int(org["id"]);
+Log(3, "ReportManager: policyID = " + policyID);
+ 
+}
+
+function recordActionProfile() {
+ executionTime = exeTime/1000; //secs
+ theType = "REPORT_ActionProfile";
+
+policyID = null;
+
+synchronized (policyName) {
+log(3, "ReportManager: running lookupPolicyID");
+ lookupPolicyID(policyID);
+}
+ 
+ if(policyID == null) {
+ log(0, "ReportManager.recordActionProfile: couldnot find policyID for name "+policyName+" .returing recordActionProfile");
+ } else {
+ log(3,"ReportManager.recordActionProfile: find policy id "+policyID);
+ }
+
+newOn = NewObject();
+ 
+startDate = LocalTime(Int(startTime/1000));
+ log(3, "ReportManager.recordActionProfile add new dataItem to type: "+ACTION_PROFILE_TYPE+" actionName: "+actionName+" exeTime: "+executionTime+"(secs) enddate: "+startDate);
+
+ newOn["action_name"] = actionName;
+ newOn["exe_time"] = executionTime;
+ newOn["start_time"] = startDate;
+ newOn["policy_id"] = policyID;
+ newOn["input_param"] = param;
+ newOn["is_error"] = error;
+ newOn["error_msg"] = errorMsg;
+ AddDataItem(theType, newOn);
+ }
+
+recordActionProfile();

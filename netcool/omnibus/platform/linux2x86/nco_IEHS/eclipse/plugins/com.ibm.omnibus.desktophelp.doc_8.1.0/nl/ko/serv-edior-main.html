@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="서버 편집기" />
+<meta name="abstract" content="사용자의 Tivoli Netcool/OMNIbus 시스템의 호스트에서 서버 구성요소를 설치 또는 변경하는 경우, 서버 편집기를 사용하여 다른 구성요소와 통신하도록 구성요소를 구성해야 합니다. 서버 구성요소에 대한 통신 세부사항을 작성 및 수정하고 서버 활동을 테스트하며, 백업(또는 장애 조치) 서버 및 리스너를 추가하려면 이 창을 사용하십시오." />
+<meta name="Description" content="사용자의 Tivoli Netcool/OMNIbus 시스템의 호스트에서 서버 구성요소를 설치 또는 변경하는 경우, 서버 편집기를 사용하여 다른 구성요소와 통신하도록 구성요소를 구성해야 합니다. 서버 구성요소에 대한 통신 세부사항을 작성 및 수정하고 서버 활동을 테스트하며, 백업(또는 장애 조치) 서버 및 리스너를 추가하려면 이 창을 사용하십시오." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringservercomminfo.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_servereditorwindow" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>서버 편집기</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_servereditorwindow">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">서버 편집기</h1>
+<div class="body refbody"><p class="shortdesc">사용자의
+<span class="keyword">Tivoli Netcool/OMNIbus</span> 시스템의
+호스트에서 서버 구성요소를 설치 또는 변경하는 경우, 서버 편집기를 사용하여
+다른 구성요소와 통신하도록 구성요소를 구성해야
+합니다. 서버 구성요소에 대한 통신 세부사항을 작성 및 수정하고 서버 활동을 테스트하며,
+백업(또는 장애 조치) 서버 및 리스너를 추가하려면 이 창을 사용하십시오. </p>
+<div class="section"><p class="p">서버 구성요소에는 ObjectServer, 게이트웨이, 프로세스 제어 에이전트, 프록시 서버가 있습니다. 시스템 관리자 및 수퍼유저만 이 기능을 사용할 수 있습니다.</p>
+<div class="p">호스트 워크스테이션 및 서버 구성요소에 연결해야 하는 모든 워크스테이션에서 서버 통신 정보를 유지보수해야 합니다. 통신 설정을 구성하면
+서버 편집기가 연결 데이터 파일에 결과를 저장합니다. 이 파일의 이름과 위치는 다음과 같습니다. <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="strow"><td valign="top" class="stentry" width="16.666666666666668%">UNIX 시스템</td>
+<td valign="top" class="stentry" width="83.33333333333334%"><span class="ph filepath">$NCHOME/etc/omni.dat</span></td>
+</tr>
+<tr class="strow"><td valign="top" class="stentry">Windows 시스템</td>
+<td valign="top" class="stentry"><span class="ph filepath">%NCHOME%\ini\sql.ini</span></td>
+</tr>
+</table>
+</div>
+<div class="p">다음과 같이 이 창을 완료하십시오.<dl class="dl" id="netom_servereditorwindow__netom_servereditorfields"><dt class="dt dlterm"><em class="ph i">서버 목록</em></dt>
+<dd class="dd">서버 목록은 기존 서버 구성요소 및 해당 설정을 표시합니다.<dl class="dl"><dt class="dt dlterm">서버</dt>
+<dd class="dd">이 컬럼은 이 워크스테이션에 대해 정의되는 각 서버의 이름을 표시합니다.
+기본 서버 이름은 다음과 같습니다.<ul class="ul"><li class="li">NCOMS: ObjectServer의 기본 이름</li>
+<li class="li">NCO_PROXY: 프록시 서버의 기본 이름</li>
+<li class="li">NCO_GATE: 게이트웨이의 기본 이름</li>
+<li class="li">NCO_PA: 프로세스 에이전트의 기본 이름</li>
+</ul>
+</dd>
+<dd class="dd">Windows에서는
+서버의 호스트 워크스테이션에 <dfn class="term">리스너</dfn> 항목이 있어야 하며, 호스트 워크스테이션 및 해당 서버에 연결하는 기타 워크스테이션에
+<dfn class="term">클라이언트</dfn> 항목이 있어야 합니다.</dd>
+<dd class="dd">백업 ObjectServer는 서버 편집기의 기본 ObjectServer 아래에 표시됩니다.
+백업 ObjectServer의 목록을 숨기려면 기본 ObjectServer 이름 또는 서버 아이콘을
+두 번 클릭하십시오. 백업 ObjectServer가 숨겨지고 문자 <em class="ph i">C</em>가 서버 아이콘에 나타납니다. 백업 ObjectServer를 표시하려면 다시 두 번 클릭하십시오. 서버 아이콘이 정상으로 돌아옵니다.</dd>
+<dt class="dt dlterm">호스트 이름</dt>
+<dd class="dd">이 컬럼은 서버 구성요소가 설치된 워크스테이션의 호스트 이름 또는 IP 주소를 표시합니다. <div class="note note"><span class="notetitle">참고:</span> 설치 후 호스트는 모든 서버에 대해
+<samp class="ph tt">omnihost</samp>로 설정됩니다(UNIX). 이를 서버 호스트 워크스테이션의 이름으로 변경해야 합니다. Windows에서 기본값은 호스트 이름입니다.</div>
+</dd>
+<dt class="dt dlterm">포트</dt>
+<dd class="dd">이 컬럼은 서버 구성요소가 암호화되지 않은 연결을 인식하는 포트를 표시합니다. </dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">UNIX에서
+이 컬럼은 서버 구성요소가 암호화된 연결을 인식하는 포트를 표시합니다. UNIX 시스템에서는
+서버 구성요소에 표준 포트, SSL 포트 또는 두 포트가 모두 정의되어 있을 수 있습니다. </dd>
+<dd class="dd">Windows에서 이 컬럼은
+암호화된 연결에 대해 <samp class="ph tt">yes</samp>라는 단어를 표시합니다. Windows 시스템에서는 암호화된 연결과
+암호화되지 않은 연결 모두에 동일한 포트 번호가 사용됩니다. </dd>
+</dl>
+</dd>
+<dt class="dt dlterm">서버 항목 필드</dt>
+<dd class="dd">서버 항목 필드를 사용하여 각 서버 구성요소의 세부사항을 입력하거나 편집하십시오.
+기존 서버 구성요소의 세부사항을 편집할 경우
+맨 먼저 서버 목록에서 해당 행을 선택하여 세부사항이 서버 항목 필드 안에 표시되도록 해야
+합니다.
+<dl class="dl"><dt class="dt dlterm">이름</dt>
+<dd class="dd">새 서버 구성요소의 이름을 입력하거나 기존 구성요소의 이름을 편집하십시오. Windows에서는 드롭 다운 목록을 사용하여
+이름을 선택할 수도 있습니다. 구성요소 이름을 지정할 때 프록시 서버에는
+_PROXY, 게이트웨이에는 _GATE, 프로세스 에이전트에는 _PA 접미어를 사용하십시오. <div class="note note"><span class="notetitle">참고:</span> 서버 항목의 이름은 29자 이하의 대문자로 구성되어야 하며
+정수 값으로 시작할 수 없습니다. </div>
+</dd>
+<dt class="dt dlterm">호스트</dt>
+<dd class="dd">서버 구성요소가 설치된 워크스테이션의 호스트 이름 또는 IP 주소를 입력하거나 편집하십시오(UNIX에서 새 서버 구성요소의 경우,
+이름은 기본적으로 <samp class="ph tt">omnihost</samp>로 설정되며 실제 호스트 이름 또는 IP 주소로 변경해야 함). </dd>
+<dd class="dd">IP 주소를 입력하는 경우 IPv4 또는 IPv6 주소를 지정할 수 있습니다.
+예: <ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">포트</dt>
+<dd class="dd">UNIX에서는 암호화되지 않은 연결을 사용하는 클라이언트가 서버에 연결할 수 있게 하려면
+이 필드에 사용하지 않은 올바른 포트 번호를 입력하십시오. 암호화되지 않은 연결을 허용하지 않으려면 포트를 설정하지 마십시오. </dd>
+<dd class="dd">Windows에서는
+이 필드에 사용하지 않은 올바른 포트 번호를 입력하십시오. </dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">UNIX에서는 암호화된 연결을 사용하는
+클라이언트가 서버에 연결할 수 있게 하려면 이 필드에 사용하지 않은 올바른 포트 번호를 입력하십시오. 암호화된 연결을 허용하지 않으려면 포트를 설정하지 마십시오. </dd>
+<dd class="dd">Windows에서 포트가 SSL을 사용하는 클라이언트로부터 암호화된 연결을 허용하는 것을 표시하려면 이 선택란을 선택하십시오.
+<div class="note note"><span class="notetitle">참고:</span> UNIX 시스템에서는
+서버 구성요소에 표준 포트, SSL 포트 또는 두 포트가 모두 정의되어 있을 수 있습니다. Windows 시스템에서는 어느 연결 유형이든 동일한 포트 번호가 사용됩니다. </div>
+</dd>
+<dt class="dt dlterm">리스너(Windows 전용)</dt>
+<dd class="dd">서버 호스트 워크스테이션의 리스너 항목인 경우 이 선택란을 선택하십시오. 클라이언트 항목이면 <span class="ph uicontrol">리스너</span> 선택란을 선택 취소하십시오. </dd>
+<dt class="dt dlterm">추가</dt>
+<dd class="dd">서버 목록에 새 고유한 서버 세부사항을 추가하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">제거/업데이트</dt>
+<dd class="dd">이 단추는 현재 선택된 서버 구성요소를 변경했는지 여부에 따라 변경됩니다. 서버 목록에서 현재 선택된 서버 구성요소를 제거하려면
+<span class="ph uicontrol">제거</span>를 클릭하십시오. 기존 서버 구성요소의 업데이트된 세부사항으로 서버 목록을 새로 고치려면
+<span class="ph uicontrol">업데이트</span>를 클릭하십시오. </dd>
+<dt class="dt dlterm">테스트</dt>
+<dd class="dd">서버 목록에서 선택된 서버에 연결할 수 있는지 테스트하려면 이 단추를 클릭하십시오. 서버 편집기가 지정된 호스트와 포트의 서버에 연결하려고 시도합니다. 테스트 명령 결과가 창에 표시됩니다. </dd>
+</dl>
+</dd>
+<dt class="dt dlterm">우선순위 필드</dt>
+<dd class="dd">서버 우선순위 필드를 사용하면 오류 복구 시스템으로 구성되어 있는 서버
+구성요소의 우선순위를 높이거나 낮출 수 있습니다.
+예를 들어,
+NCOMS_PRI라는 ObjectServer는 NCOMS_BAK이라는 백업으로 구성된다고 가정합니다.
+<span class="ph uicontrol">높임</span> 또는 <span class="ph uicontrol">낮춤</span> 단추를 사용하여
+NCOMS_BAK의 우선순위를 기본 ObjectServer 및
+NCOMS_PRI 백업이 되도록 높일 수 있습니다. <dl class="dl"><dt class="dt dlterm">높임</dt>
+<dd class="dd">선택된 서버 구성요소의 우선순위를 한 레벨씩 올리려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">낮춤</dt>
+<dd class="dd">선택된 서버 구성요소의 우선순위를 한 레벨씩 내리려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">모두 생성(UNIX 전용)</dt>
+<dd class="dd">모든 UNIX 운영 체제에 대해
+인터페이스 파일을 생성하려면 이 단추를 클릭하십시오. <span class="ph uicontrol">적용</span> 단추를 사용하여 변경사항을 적용하면,
+<span class="ph filepath">$NCHOME/etc/interfaces.<var class="keyword varname">arch</var></span>라는 인터페이스 파일이 생성됩니다. 여기서
+<span class="ph filepath"><var class="keyword varname">arch</var></span>는 개별 UNIX 플랫폼 이름을
+나타냅니다(예: <span class="ph filepath">interfaces.hpux11</span> 및 <span class="ph filepath">interfaces.solaris2</span>).</dd>
+<dt class="dt dlterm">그룹 표시(Windows 전용)</dt>
+<dd class="dd">Windows에서,
+클라이언트 항목 다음에 백업 서버 및 리스너가 식별된 상태에서 서버 목록 내에서 이름순으로 각 서버를 그룹화하려면 이 선택란을 선택하십시오.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="dl" id="netom_servereditorwindow__netom_servereditorfields2"><dt class="dt dlterm">적용(UNIX 전용)</dt>
+<dd class="dd">인터페이스 파일에 변경사항을 저장하려면 이 단추를 클릭하십시오. 서버 목록에 추가, 서버 목록에서 제거 또는 편집된 서버 구성요소가
+이 파일에 저장됩니다. </dd>
+<dt class="dt dlterm">확인(Windows 전용)</dt>
+<dd class="dd">변경사항을 저장하고 이 창을 닫으려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">닫기(UNIX)/취소(Windows)</dt>
+<dd class="dd"><span class="ph uicontrol">적용</span> 단추를 사용하여 변경사항을 저장한 후 이 창을 닫거나
+변경사항을 저장하지 않고 이 창을 닫으려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">가져오기(UNIX 전용)</dt>
+<dd class="dd">통신 세부사항을 가져오려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_configuringservercomminfo.html" title="Tivoli Netcool/OMNIbus 서버 구성요소에 대한 서버 통신 정보를 유지보수해야 합니다. 서버 편집기를 사용하여 서버 구성요소에 대한 통신 세부사항을 작성 및 수정하고 서버 활동을 테스트하고 백업(또는 장애 조치) 서버 및 리스너를 추가할 수 있습니다.">서버 통신 정보 구성</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-ENV-MIB , VMWARE-VMINFO-MIB
+#
+###############################################################################
+#
+# Entries in a Severity lookup table have the following format:
+#
+# {<"EventId">,<"severity">,<"type">,<"expiretime">}
+#
+# <"EventId"> is defined in the Rules File.  In some cases it is necessary to
+# add a modifier to the EventId to further clarify the condition.
+#
+# Valid values for <severity> are:
+#   0 - clear
+#   1 - indeterminate
+#   2 - warning
+#   3 - minor
+#   4 - major
+#   5 - critical
+#   d - discard
+#
+# Valid values for <type> are:
+#   1 - problem
+#   2 - resolution, NOTE: resolution alarms MUST have a <severity> of 1.
+#   11 - more severe
+#   12 - less severe
+#   13 - information
+#
+# <expiretime> is the number of seconds the event will remain in the
+# ObjectServer before being automatically cleared. Alarms which should not
+# expire MUST have <expiretime> set to 0 (zero).
+#
+###############################################################################
+
+table vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB_sev =
+{
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwVmPoweredOn","1","2","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwVmPoweredOff","3","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwVmHBLost","3","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwVmHBDetected","1","2","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwVmSuspended","3","1","0"}
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwEnvHardwareEvent","1","0","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareEvent","1","0","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvHardwareAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBatteryAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvChassisAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvThermalAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvDiskAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvPowerAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvProcessorAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvMemoryAlert_unknown","2","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_unknown","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_other","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_information","2","13","1800"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_warning","2","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_minor","3","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_major","4","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_critical","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_fatal","5","1","0"}, 
+    {"SNMPTRAP-vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXEnvBIOSAlert_unknown","2","1","0"}
+}
+default = {"Unknown","Unknown","Unknown"}
+

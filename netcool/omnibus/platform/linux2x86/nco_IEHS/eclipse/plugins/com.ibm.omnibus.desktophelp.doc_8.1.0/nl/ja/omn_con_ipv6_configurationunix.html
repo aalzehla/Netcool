@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="IPv6 構成" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus は、IPv4 と IPv6 を両方ともサポートします。 IPv4 のみの構成、IPv6 のみの構成、または IPv4 と IPv6 のデュアル構成をサポートするネットワーク上にコンポーネントを共存させ、動作させることができます。" />
+<meta name="Description" content="Tivoli Netcool/OMNIbus は、IPv4 と IPv6 を両方ともサポートします。 IPv4 のみの構成、IPv6 のみの構成、または IPv4 と IPv6 のデュアル構成をサポートするネットワーク上にコンポーネントを共存させ、動作させることができます。" />
+<meta name="DC.subject" content="IPv6, 構成" />
+<meta name="keywords" content="IPv6, 構成" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_ipv6_configurationunix" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>IPv6 構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_ipv6_configurationunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">IPv6 構成</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> は、IPv4 と IPv6 を両方ともサポートします。 IPv4 のみの構成、IPv6 のみの構成、または IPv4 と IPv6 のデュアル構成をサポートするネットワーク上にコンポーネントを共存させ、動作させることができます。</p>
+<div class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> サーバー・コンポーネントは、IPv6 環境および IPv4 環境で以下のように動作します。<ul class="ul"><li class="li">ObjectServer は、IPv4 と IPv6 の両方のネットワークから発生したイベントを処理できます。 ObjectServer がデュアル・スタック・ホスト上で実行されている場合、コマンドへの応答としてクライアントに戻されるホスト名は、クライアントが実行している IP バージョンに対応するサーバーのホスト名です。
+例えば、IPv4 を実行しているクライアントは ObjectServer の IPv4 ホスト名を受け取り、IPv6 を実行しているクライアントは ObjectServer の IPv6 ホスト名を受け取ります。</li>
+<li class="li">IPv4 と IPv6 のデュアル環境では、単一方向および双方向の ObjectServer ゲートウェイが、通信ソケット上で両方のインターフェースを listen できます。</li>
+<li class="li">プロキシー・サーバーは、IPv4 と IPv6 のホスト上で実行されているプローブと ObjectServer の間の接続をサポートできます。</li>
+<li class="li">IPv4 と IPv6 のデュアル環境では、プロセス・エージェントが、通信ソケット上で両方のインターフェースを listen できます。</li>
+</ul>
+</div>
+<div class="p">以下の IPv6 アドレス・フォーマットがサポートされます。 <ul class="ul"><li class="li">4 桁の 16 進文字のグループ 8 個を、コロンで区切ります。例えば、ABCD:EF01:2345:6789:ABCD:EF01:2345:6789 です。</li>
+<li class="li">16 ビットすべてがゼロである場合は、そのセグメントをコロン (:) に置き換えることができます。 <p class="p">例えば、アドレス 1010:0000:0000:0000:ABCD:EF01:2345:6789 は 1010::ABCD:EF01:2345:6789 に書き換えることができます。</p>
+</li>
+<li class="li">IPv4 アドレスは IPv6 アドレスとして表すことができます。 例えば、以下のようになります。<ul class="ul"><li class="li">0:0:0:0:0:0:192.101.50.5</li>
+<li class="li">0:0:0:0:0:FFFF:103.27.35.8<p class="p">これらのアドレスは、以下のように表すこともできます。</p>
+</li>
+<li class="li">::192.101.50.5</li>
+<li class="li">::FFFF:103.27.35.8</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="关于个人库" />
+<meta name="abstract" content="特定服务器上的每个 UNIX 用户都有一个 .omnibus 目录，个人库充当此目录的图形浏览器。 您可从 UNIX Conductor 中定制个人库，以包含经常使用的视图、过滤器和事件列表配置。" />
+<meta name="description" content="特定服务器上的每个 UNIX 用户都有一个 .omnibus 目录，个人库充当此目录的图形浏览器。 您可从 UNIX Conductor 中定制个人库，以包含经常使用的视图、过滤器和事件列表配置。" />
+<meta name="DC.subject" content="个人库, 概述, 首选项图标, ELC 文件, ELF 文件, ELV 文件, 文件, ELC, ELF, ELV" />
+<meta name="keywords" content="个人库, 概述, 首选项图标, ELC 文件, ELF 文件, ELV 文件, 文件, ELC, ELF, ELV" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringqckaccessfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_removingfilesfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startinganappfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_viewingfullcontentsofpersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_creatingsymlinksinpersonallib.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_abtpersonallibrary" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringqckaccessfilters.html" />
+<title>关于个人库</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_abtpersonallibrary">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">关于个人库</h1>
+<div class="body conbody"><p class="shortdesc">特定服务器上的每个 UNIX 用户都有一个 <span class="ph filepath">.omnibus</span> 目录，个人库充当此目录的图形浏览器。
+您可从 UNIX Conductor 中定制个人库，以包含经常使用的视图、过滤器和事件列表配置。</p>
+<p class="p">缺省情况下，个人库还包含您可用来为 <span class="keyword">Tivoli Netcool/OMNIbus</span> 桌面设置全局首选项的<span class="ph uicontrol">首选项</span>图标。 </p>
+<p class="p">一些图标用于表示个人库中的不同文件类型。 下表中描述了这些图标。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 个人库图标</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d80512e65">图标示例</th>
+<th class="entry" valign="bottom" width="80%" id="d80512e67">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d80512e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibprefs.gif" alt="该图显示 UNIX Conductor 的个人库区域中 prefs 图标的表示法。" /></div><p class="p"><span class="ph uicontrol">首选项</span></p>
+</td>
+<td class="entry" valign="top" width="80%" headers="d80512e67 ">此图标表示 <span class="keyword">Tivoli Netcool/OMNIbus</span> 桌面首选项的存储库。 当您更改工具首选项时，更改是在此文件中作出的。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d80512e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibelc.gif" alt="该图显示 UNIX Conductor 的个人库区域中 .elc 图标的表示法。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d80512e67 ">此图标表示事件列表配置。 事件列表配置保存为 <span class="ph filepath">.elc</span> 文件。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d80512e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibelf.gif" alt="该图显示 UNIX Conductor 的个人库区域中 .elf 图标的表示法。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d80512e67 ">此图标表示事件列表过滤器。 过滤器保存为 <span class="ph filepath">.elf</span> 文件。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d80512e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibelv.gif" alt="该图显示 UNIX Conductor 的个人库区域中 .elv 图标的表示法。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d80512e67 ">此图标表示事件列表视图。 视图保存为 <span class="ph filepath">.elv</span> 文件。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d80512e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibsymlink.gif" alt="该图显示 UNIX Conductor 的个人库区域中符号链接图标的表示法。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d80512e67 ">事件列表配置、过滤器和视图图标可能被链状链接覆盖。 这表明个人库中创建了到文件的符号链接。 左侧的图标显示了一个已链接的过滤器文件的示例。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_configuringqckaccessfilters.html" title="从 UNIX Conductor 可查看本地 UNIX 系统目录的内容，还可方便地访问用于警报管理的过滤器文件、视图文件和事件列表配置文件。">在 UNIX 上配置过滤器、视图和事件列表配置的快速访问</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="从 UNIX Conductor 可以设置 Conductor 窗口、事件列表以及事件通知的全局首选项。">设置 UNIX Conductor 的全局首选项</a></div>
+<div><a class="link" href="omn_usr_removingfilesfrompersonallib.html" title="如果不再需要在个人库内保存某个文件，可以通过使用鼠标中键的拖放技巧把其从个人库移回到目录浏览器。 也可以从个人库删除文件。">从个人库中除去文件</a></div>
+<div><a class="link" href="omn_usr_startinganappfrompersonallib.html" title="可以从个人库启动过滤器构建器、视图构建器和事件列表。 也可以处理以符号链接表示的文件。">从个人库启动应用程序</a></div>
+<div><a class="link" href="omn_usr_viewingfullcontentsofpersonallib.html" title="有时候，您可能希望刷新或更新个人库以显示当前在此位置上保存的某些文件，但在缺省情况下这些文件并不显示。">查看个人库的完整内容</a></div>
+<div><a class="link" href="omn_usr_creatingsymlinksinpersonallib.html" title="可以在个人库内创建指向本地 UNIX 系统内文件的符号链接。">在个人库内创建符号链接</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

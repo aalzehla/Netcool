@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Définition des préférences d'exportation" />
+<meta name="abstract" content="Cette section décrit comment définir vos préférences d'exportation de fichier de règles." />
+<meta name="Description" content="Cette section décrit comment définir vos préférences d'exportation de fichier de règles." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="fr-fr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Définition des préférences d'exportation</h1>
+<div class="body refbody"><p class="shortdesc">Cette section décrit comment définir vos préférences d'exportation de fichier de règles.</p>
+<div class="section"><p class="p">Pour définir les préférences de répertoire, cliquez sur <img class="image" src="../gifs/global_preferences.gif" alt="Icône Préférences" /> <span class="ph uicontrol">Préférences</span> ou, dans le menu principal, cliquez sur <span class="ph menucascade"><span class="ph uicontrol">Fichier</span> &gt; <span class="ph uicontrol">Préférences</span></span>, puis, dans la sous-fenêtre de gauche de la fenêtre <span class="keyword wintitle">Préférences</span>, cliquez sur <span class="ph uicontrol">Exportation</span>.</p>
+</div>
+<div class="section"><ul class="ul"><li class="li">Dans la zone <span class="ph uicontrol">Chemin d'inclusion</span>, spécifiez l'emplacement des règles qui ont été installées avec les modules de fichiers de règles Netcool
+Include Library (NCiL) (s'ils ont été installés).
+Cette option n'est obligatoire que si vous exportez des données au format de fichier Netcool
+Include Library et lorsque le chemin d'accès au répertoire doit pointer vers les règles incluses. En conséquence, il n'est pas nécessaire d'éditer manuellement les nouveaux fichiers de règles. 
+La valeur par défaut est
+<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/probes/<var class="keyword varname">arch</var></span>.</li>
+<li class="li">Dans la zone <span class="ph uicontrol">Format de fichier d'exportation par défaut</span>, indiquez soit le format Windows/DOS (CRLF), soit le format Unix (LF) pour le fichier de sortie. Cette propriété vous permet de créer des règles sur une machine Windows et de les copier sur une machine UNIX sans exécuter d'utilitaire, par exemple, <samp class="ph codeph">dos2unix</samp>. <div class="note note"><span class="notetitle">Remarque :</span> Cette sélection s'applique à tous les fichiers de sortie et n'est pas limitée aux fichiers de règles. La valeur par défaut est au format Unix.</div>
+</li>
+<li class="li">Dans la zone <span class="ph uicontrol">Types d'alerte</span>, indiquez les options de liste déroulante affichées lorsque la zone <samp class="ph codeph">@Type</samp> d'un interception est éditée dans la vue <span class="keyword wintitle">Détails</span>.</li>
+</ul>
+<p class="p">Les options suivantes sont disponibles uniquement si le format d'exportation NCKL a été préalablement sélectionné :</p>
+<ul class="ul"><li class="li">Si la case <span class="ph uicontrol">Inclure des descriptions varbind</span> est sélectionnée, les descriptions varbind sont ajoutées en tant que commentaires.
+La valeur par défaut est Activé.</li>
+<li class="li">Si la case <span class="ph uicontrol">Calculer une meilleure valeur pour @AlertKey</span> est cochée, la valeur <samp class="ph codeph">@AlertKey</samp> est générée à partir d'un objet parent varbind. La valeur par défaut est Activé.</li>
+<li class="li">Si la case <span class="ph uicontrol">Définir @Agent une fois par entreprise</span> est cochée, la zone <samp class="ph codeph">@Agent</samp> est définie pour chaque entreprise. La zone <samp class="ph codeph">@Agent</samp> est basée sur les noms des modules MIB en cours de traitement pour le fichier de règles. La valeur par défaut est Activé.</li>
+<li class="li">Si la case <span class="ph uicontrol">Ajouter un modèle @Class</span> est sélectionnée, la zone <samp class="ph codeph">@Class</samp> est définie. Si la case <span class="ph uicontrol">Ajouter un modèle @Class</span> est sélectionnée, la zone <samp class="ph codeph">@Class</samp> est définie par 300. La valeur par défaut est Activé.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Rubrique parent :</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="Vous pouvez configurer plusieurs préférences globales de MIB Manager à partir de la fenêtre Préférences.">Configuration des préférences globales</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Tâches associées</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="Exporter les données MIB SNMP à partir de MIB Manager vers différents formats.">Exportation des données MIB</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothèque</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

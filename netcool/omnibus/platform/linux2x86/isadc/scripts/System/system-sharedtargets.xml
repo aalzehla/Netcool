@@ -1,0 +1,569 @@
+<!-- (C) COPYRIGHT International Business Machines Corp., 2004-2005. All Rights Reserved * Licensed Materials - Property of IBM -->
+
+<project name="system-sharedtargets" default="collectsystem-win">
+
+    <import>
+        <javaresource name="scripts/sharedtargets.xml"/>
+    </import>
+
+    <target name="setupsystemcollector" description="Set up the system collector environment">
+
+        <mkdir dir="${autopdtmp}"/>
+    </target>
+
+    <!-- ************************************************************ -->
+
+    <!-- COLLECT WINDOWS SYSTEM ENVIRONMENT -->
+    <target name="collectsystem-win" description="script that documents the operating environment such as OS version and disk space"
+            depends="validate_os">
+        <tstamp/>
+        <exec 
+            executable="${system.collector.base.dir}/scripts/System/collectSystem.bat"
+            os="${os.windows}"
+            output="${autopdtmp}/collectSystemOutput.txt"
+            append="false">
+        </exec>
+        <jar destfile="${pmrfilename}" update="true" 
+             basedir="${autopdtmp}" includes="collectSystemOutput.txt" />
+    </target>
+
+    <!-- ************************************************************ -->
+
+    <!-- DEPRECATED: call the SHARED collect_inventory target instead -->
+    <target name="collectinventorystopiferrors" >
+        <antcall target="collect_inventory" />
+    </target>
+
+
+    <!-- ************************************************************ -->
+
+    <!-- COLLECT WINDOWS NETWORK ENVIRONMENT -->
+    <target name="collectnetwork-win" description="script that documents the network environment"
+            depends="validate_os">
+        <tstamp/>
+        <exec 
+            executable="${system.collector.base.dir}/scripts/System/collectNetwork.bat"
+            os="${os.windows}"
+            output="${autopdtmp}/collectNetworkOutput.txt"
+            append="false">
+        </exec>
+
+        <jar destfile="${pmrfilename}" update="true" 
+             basedir="${autopdtmp}" includes="collectNetworkOutput.txt" />
+
+    </target>
+
+    <!-- ************************************************************ -->
+
+    <!-- EXPORT ENVIRONMENT SET -->
+    <target name="environmentset-win" description="gather the environment set with the set command"
+            depends="validate_os">
+        <tstamp/>
+        <!--
+             <exec 
+                 executable="cmd.exe"
+                 os="${os.windows}">
+                 <arg line='/c set > "${autopdtmp}/environment.set.txt"'/>
+             </exec> -->
+
+             <exec 
+                 executable="${system.collector.base.dir}/scripts/System/collectEnvironment.bat"
+                 os="${os.windows}"
+                 output="${autopdtmp}/environment.set.txt"
+                 append="false">
+             </exec>
+
+             <jar destfile="${pmrfilename}" update="true" 
+                  basedir="${autopdtmp}" includes="environment.set.txt" />
+         </target>
+
+         <!-- ************************************************************ -->	
+
+              <!-- EXPORT REGISTRY VALUES -->
+              <!-- TODO: synchronize export with jarring -->	
+                   <target name="registry.installed.software.export-win" description="gather the installed software present in the registry"
+                           depends="validate_os">
+                       <tstamp/>
+                       <!--
+                            <exec 
+                                executable="regedit.exe"
+                                os="${os.windows}">
+                                <arg line='/e "${autopdtmp}/registry.sware.installed.export.txt" HKEY_LOCAL_MACHINE\software\microsoft\windows\currentversion\uninstall'
+                                     />
+                             </exec> -->
+                             <exec 
+                                 executable="${system.collector.base.dir}/scripts/System/collectRegistry.bat"
+                                 os="${os.windows}"
+                                 append="false">
+                                 <arg file="${autopdtmp}/registry.sware.installed.export.txt" />		
+                                  </exec>
+
+                                  <jar destfile="${pmrfilename}" update="true" 
+                                       basedir="${autopdtmp}" includes="registry.sware.installed.export.txt" />
+
+                              </target>
+
+                              <!-- ************************************************************ -->	
+
+                                   <!-- EXPORT REGISTRY VALUES -->
+                                   <!-- TODO: synchronize export with jarring -->	
+                                        <target name="registry.HKLM.software.export-win" description="gather the installed software present in the registry"
+                                                depends="validate_os">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="reg.exe"
+                                                os="${os.windows}">
+                                                <arg line='EXPORT HKEY_LOCAL_MACHINE\software "${autopdtmp}/registry.export.HKLM.software.txt"'/>
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="registry.export.HKLM.software.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- GETCONF - AIX, HP-UX, Linux -->
+                                        <target name="unix.getconf-aix.hpux.linux" description="script that runs the getconf command for each possible system configuration variable">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/unix.getconf.sh"
+                                                os="AIX,HP-UX,Linux"
+                                                output="${autopdtmp}/unix.getconf.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="unix.getconf.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SystemInformation Collector - AIX -->
+                                        <target name="collectsystem-aix" description="script that documents the operating environment such as host name, file systems, and space">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/aix.system.sh"
+                                                os="AIX"
+                                                output="${autopdtmp}/aix.system.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="aix.system.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- User Information Collector - AIX -->
+                                        <target name="collectuser-aix" description="script that documents the user environment">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/aix.user.sh"
+                                                os="AIX"
+                                                output="${autopdtmp}/aix.user.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="aix.user.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Network Information Collector - AIX -->
+                                        <target name="collectnetwork-aix" description="script that gets the network information">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/aix.network.sh"
+                                                os="AIX"
+                                                output="${autopdtmp}/aix.network.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="aix.network.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SW Installed Information Collector - AIX -->
+                                        <target name="collectswinstalled-aix" description="script that gets a listing of the installed software on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/aix.swinstalled.sh"
+                                                os="AIX"
+                                                output="${autopdtmp}/aix.swinstalled.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="aix.swinstalled.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SW Installed Patches Collector - AIX -->
+                                        <target name="collectpatches-aix" description=" script that gets a listing of the patches on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/aix.patches.sh"
+                                                os="AIX"
+                                                output="${autopdtmp}/aix.patches.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="aix.patches.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Network Information Collector - Sun -->
+                                        <target name="collectnetwork-sun" description="script that gets the network information">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/sun.network.sh"
+                                                os="Solaris,SunOS"
+                                                output="${autopdtmp}/sun.network.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="sun.network.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SystemInformation Collector - Sun -->
+                                        <target name="collectsystem-sun" description="script that documents the operating environment such as host name, file systems, and space">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/sun.system.sh"
+                                                os="Solaris,SunOS"
+                                                output="${autopdtmp}/sun.system.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="sun.system.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- User Information Collector - Sun -->
+                                        <target name="collectuser-sun" description="script that documents the user environment">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/sun.user.sh"
+                                                os="Solaris,SunOS"
+                                                output="${autopdtmp}/sun.user.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="sun.user.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SW Installed Information Collector - Sun -->
+                                        <target name="collectswinstalled-sun" description="script that gets a listing of the installed software on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/sun.swinstalled.sh"
+                                                os="Solaris,SunOS"
+                                                output="${autopdtmp}/sun.swinstalled.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="sun.swinstalled.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SW Installed Patches Collector - Sun -->
+                                        <target name="collectpatches-sun" description=" script that gets a listing of the patches on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/sun.patches.sh"
+                                                os="Solaris,SunOS"
+                                                output="${autopdtmp}/sun.patches.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="sun.patches.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Debugging information Collector - Sun -->
+                                        <target name="collectdmesg-sun" description="script that lists recent diagnostic messages">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/sun.unix.dmesg.sh"
+                                                os="Solaris,SunOS"
+                                                output="${autopdtmp}/sun.dmesg.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="sun.dmesg.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+                                        <!--  LINUX  -->
+                                        <!-- Network Information Collector - Linux -->
+                                        <target name="collectnetwork-linux" description="script that gets the network information">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/linux.network.sh"
+                                                os="Linux"
+                                                output="${autopdtmp}/linux.network.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="linux.network.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SystemInformation Collector - Linux -->
+                                        <target name="collectsystem-linux" description="script that documents the operating environment such as host name, file systems, and space">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/linux.system.sh"
+                                                os="Linux"
+                                                output="${autopdtmp}/linux.system.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="linux.system.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- User Information Collector - Linux -->
+                                        <target name="collectuser-linux" description="script that documents the user environment">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/linux.user.sh"
+                                                os="Linux"
+                                                output="${autopdtmp}/linux.user.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="linux.user.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Processes Information Collector - Linux -->
+                                        <target name="collectprocesses-linux" description="script that displays information about the top processes on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/linux.processes.sh"
+                                                os="Linux"
+                                                output="${autopdtmp}/linux.processes.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="linux.processes.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SW Information Collector - Linux -->
+                                        <target name="collectsw-linux" description="script that displays information about the software on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/linux.swinfo.sh"
+                                                os="Linux"
+                                                output="${autopdtmp}/linux.swinfo.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="linux.swinfo.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Debugging information Collector - Linux, HPUX -->
+                                        <target name="collectdmesg-linux.hpux" description="script that lists recent diagnostic messages">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/unix.dmesg.sh"
+                                                os="Linux,HP-UX"
+                                                output="${autopdtmp}/dmesg.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="dmesg.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+                                        <!-- HP-UX -->
+                                        <!-- Network Information Collector - HP -->
+                                        <target name="collectnetwork-hpux" description="script that gets the network information">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/hp.network.sh"
+                                                os="HP-UX"
+                                                output="${autopdtmp}/hp.network.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="hp.network.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SystemInformation Collector - HP -->
+                                        <target name="collectsystem-hp" description="script that documents the operating environment such as host name, file systems, and space">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/hp.system.sh"
+                                                os="HP-UX"
+                                                output="${autopdtmp}/hp.system.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="hp.system.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- User Information Collector - HP -->
+                                        <target name="collectuser-hp" description="script that documents the user environment">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/hp.user.sh"
+                                                os="HP-UX"
+                                                output="${autopdtmp}/hp.user.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="hp.user.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- SW Installed Information Collector - HP -->
+                                        <target name="collectswinstalled-hp" description="script that documents the installed software on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/hp.swinstalled.sh"
+                                                os="HP-UX"
+                                                output="${autopdtmp}/hp.swinstalled.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="hp.swinstalled.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Top Processes Info Collector - HP -->
+                                        <target name="collectprocess-hpux" description="script that displays information about the top processes on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/hp.processes.sh"
+                                                os="HP-UX"
+                                                output="${autopdtmp}/hp.processes.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="hp.processes.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Patches Info Collector - HP -->
+                                        <target name="collectpatches-hp" description=" script that gets a listing of the patches on the system">
+                                            <tstamp/>
+
+                                            <exec 
+                                                executable="${system.collector.base.dir}/scripts/System/hp.swlist.patch.sh"
+                                                os="HP-UX"
+                                                output="${autopdtmp}/hp.patches.output.txt"
+                                                append="false">
+                                            </exec>
+
+                                            <jar destfile="${pmrfilename}" update="true" 
+                                                 basedir="${autopdtmp}" includes="hp.patches.output.txt" />
+
+                                        </target>
+
+                                        <!-- ************************************************************ -->
+
+                                        <!-- Get files - AIX, HP-UX, Linux, Solaris -->
+                                        <!-- <target name="getfiles-aix.hpux.linux.solaris" description="hosts and nsswitch.conf">
+                                             <tstamp/>
+
+                                             <jar destfile="${pmrfilename}" update="true" 
+                                                  basedir="/etc" includes="hosts, nsswitch.conf" />
+
+                                         </target>
+                                         -->
+                                        <!-- ************************************************************ -->
+                                    </project>

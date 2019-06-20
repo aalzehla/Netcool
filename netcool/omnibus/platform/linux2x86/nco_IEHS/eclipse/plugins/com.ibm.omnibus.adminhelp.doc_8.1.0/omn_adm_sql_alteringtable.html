@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="ALTER TABLE" />
+<meta name="abstract" content="Use the ALTER TABLE command to change the characteristics of an existing table and its columns. You can add, drop, and alter columns, and manually set the value of fields of type INCR." />
+<meta name="Description" content="Use the ALTER TABLE command to change the characteristics of an existing table and its columns. You can add, drop, and alter columns, and manually set the value of fields of type INCR." />
+<meta name="DC.subject" content="altering, tables, editing, ALTER TABLE, ObjectServer SQL, SET INCR, manually setting increment values, manually setting Serial values" />
+<meta name="keywords" content="altering, tables, editing, ALTER TABLE, ObjectServer SQL, SET INCR, manually setting increment values, manually setting Serial values" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_alteringtable" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Altering a table (ALTER TABLE command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_alteringtable">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ALTER TABLE</h1>
+<div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">ALTER TABLE</samp> command to change
+the characteristics of an existing table and its columns. You can
+add, drop, and alter columns, and manually set the value of fields
+of type <samp class="ph codeph">INCR</samp>.</p>
+<div class="section"><div class="note restriction"><span class="restrictiontitle">Restriction:</span> You cannot alter system tables.</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>ALTER TABLE [<var class="keyword varname">database_name</var>.]<var class="keyword varname">table_name</var>
+ SET INCR <var class="keyword varname">value</var>
+ ADD [COLUMN] <var class="keyword varname">column_name</var> <var class="keyword varname">data_type</var> [ NODEFAULT | NOMODIFY | HIDDEN ]
+ DROP [COLUMN] <var class="keyword varname">column_name</var>
+ ALTER [COLUMN] <var class="keyword varname">column_name</var> SET NOMODIFY { TRUE | FALSE }
+ ALTER [COLUMN] <var class="keyword varname">column_name</var> SET HIDDEN { TRUE | FALSE }
+ ALTER [COLUMN] <var class="keyword varname">column_name</var> SET NODEFAULT { TRUE | FALSE }
+ ALTER [COLUMN] <var class="keyword varname">column_name</var> SET WIDTH <var class="keyword varname">value</var>;</code></pre>
+<p class="p">You
+can specify more than one <samp class="ph codeph">ADD</samp>, <samp class="ph codeph">DROP</samp>,
+or <samp class="ph codeph">ALTER</samp> setting in a single <samp class="ph codeph">ALTER TABLE</samp> command.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>alter table mytab add col3 real;</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Manually setting increment values</h2><p class="p">A
+column of type <samp class="ph codeph">INCR</samp> is used to give each row in a
+table a unique number, such as the Serial column in the alerts.status
+table. On each insert, the current increment value is copied to the
+new row and is then increased for the next row. You can use the <samp class="ph codeph">SET
+INCR</samp> (set increment) clause to set the increment value for
+subsequent rows. This is useful, for example, when you want to change
+the Serial value that is assigned to new alerts in the alerts.status
+table.</p>
+<div class="p">The syntax is: <pre class="pre codeblock"><code><samp class="ph codeph">ALTER TABLE <var class="keyword varname">table_name</var> SET INCR <var class="keyword varname">value</var></samp></code></pre>
+Where <samp class="ph codeph"><var class="keyword varname">table_name</var></samp> is
+the name of a table that contains a column of type <samp class="ph codeph">INCR</samp> and <samp class="ph codeph"><var class="keyword varname">value</var></samp> is
+an integer.</div>
+<div class="p">For example, to run the procedure with the <span class="keyword">SQL
+interactive interface</span>,
+use the following commands:<pre class="pre codeblock"><code>1&gt; alter table alerts.status set incr 20100
+2&gt; go</code></pre>
+</div>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> To avoid duplicate values, you cannot
+set an increment value that is the same as the value of an existing
+row. In addition, you cannot set an <samp class="ph codeph">INCR</samp> value that
+causes future inserts to have the same values as rows that already
+exist.</div>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

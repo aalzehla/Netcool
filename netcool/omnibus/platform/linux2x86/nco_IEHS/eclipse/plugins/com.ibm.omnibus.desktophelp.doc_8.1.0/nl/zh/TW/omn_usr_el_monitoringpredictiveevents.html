@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="監視事件清單中的預測事件" />
+<meta name="abstract" content="預測事件代表對即將發生的臨界值違規的預測。這些事件不同於轉遞至 Tivoli Netcool/OMNIbus 的其他事件，因為它們代表尚未發生的事件、錯誤或狀況，但在近期很有可能會發生。" />
+<meta name="description" content="預測事件代表對即將發生的臨界值違規的預測。這些事件不同於轉遞至 Tivoli Netcool/OMNIbus 的其他事件，因為它們代表尚未發生的事件、錯誤或狀況，但在近期很有可能會發生。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringpredictiveevents" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>監視事件清單中的預測事件</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringpredictiveevents">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">監視事件清單中的預測事件</h1>
+<div class="body taskbody"><div class="abstract"><span class="shortdesc">預測事件代表對即將發生的臨界值違規的預測。這些事件不同於轉遞至 <span class="keyword">Tivoli Netcool/OMNIbus</span> 的其他事件，因為它們代表尚未發生的事件、錯誤或狀況，但在近期很有可能會發生。</span>
+</div>
+<div class="section context"><p class="p">預測事件將在 <span class="keyword">IBM Tivoli Monitoring</span> 中根據歷程資料的線性趨勢來產生。如果系統已配置為支援此功能，則您可以從 <span class="keyword">Tivoli Netcool/OMNIbus</span> 事件清單監視預測事件。如果已進行此配置，則「<span class="keyword wintitle">事件清單</span>」監視器框視窗中還會提供<span class="ph uicontrol">預測</span>監視器框，且事件清單中會提供<span class="ph uicontrol">預測</span>過濾器及<span class="ph uicontrol">預測</span>視圖。<span class="ph"><span class="ph uicontrol">預測</span>視圖包含下列預設直欄，這些直欄從左到右顯示如下：Node、TrendDirection、Summary、FirstOccurrence、LastOccurrence、Count、PredictionTime。</span></p>
+<div class="p">直欄的排序優先順序和排序順序如下所示：<ol class="ol"><li class="li">嚴重性以降冪排序</li>
+<li class="li">LastOccurrence 以升冪排序</li>
+<li class="li">PredictionTime 以升冪排序</li>
+</ol>
+</div>
+<div class="p">在事件清單同時顯示實際事件及預測事件時，您可以使用<span class="ph uicontrol">預測</span>過濾器及<span class="ph uicontrol">預測</span>視圖來過濾預測事件，並對其排序。您也可以識別預測事件，如下所述：<ul class="ul"><li class="li">檢查<span class="ph uicontrol">摘要</span>直欄中的文字。摘要文字通常為下列其中一種格式（重要預測事件的嚴重性一律為 5，警告預測事件嚴重性一律為 3）：
+<ul class="ul"><li class="li">對於線性趨勢事件：<p class="p"><samp class="ph systemoutput"><var class="keyword varname">Node</var> 上的預測事件比率將在 <var class="keyword varname">PredictionTime</var> 天內達到臨界值。</samp></p>
+</li>
+<li class="li">對於基準線事件：<p class="p"><samp class="ph systemoutput"><var class="keyword varname">EventType</var> 事件比率基準線狀況已針對節點 <var class="keyword varname">Node</var> 激發，節點 <var class="keyword varname">situation_name</var> 的事件計數為 <var class="keyword varname">EventCount</var>。</samp></p>
+</li>
+<li class="li">對於預測事件：<p class="p">將在 <var class="keyword varname">PredictionTime</var> 日後超過 <var class="keyword varname">Node</var> 上 <var class="keyword varname">resource</var> 的 <samp class="ph systemoutput">「重要」臨界值。（狀況：<var class="keyword varname">situation_name</var>）。</samp></p>
+<p class="p">將在 <var class="keyword varname">PredictionTime</var> 日後超過 <var class="keyword varname">Node</var> 上 <var class="keyword varname">resource</var> 的 <samp class="ph systemoutput">「警告」臨界值。（狀況：<var class="keyword varname">situation_name</var>）。</samp></p>
+</li>
+</ul>
+</li>
+<li class="li">如果現行視圖中具有<span class="ph uicontrol">類別</span>直欄，請檢查此直欄中的文字。依預設，此項目為<samp class="ph systemoutput">預測事件</samp>，但系統管理者可以變更此值。</li>
+</ul>
+</div>
+<p class="p">從事件清單中，您可以對預測事件執行下列作業：</p>
+</div>
+<ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd">決定預測的可信度。若要顯示符合某個預測可信度的預測事件：</span><ol class="ol substeps"><li class="li substep"><span class="ph cmd">用滑鼠右鍵按一下事件清單中的任何事件，然後從蹦現功能表中按一下<span class="ph uicontrol">顯示預測可信度</span>。</span></li>
+<li class="li substep"><span class="ph cmd">從「<span class="keyword wintitle">內部指令參數</span>」視窗的<span class="ph uicontrol">最小可信度百分比</span>欄位中，指定僅限 0 至 100 之間的百分比值。</span> 預測可信度會指出近似趨勢值的準確性，其中 0 表示不可信，100 表示幾乎完全可信。預設值為 50。</li>
+<li class="li substep"><span class="ph cmd">按一下<span class="ph uicontrol">確定</span>。</span> 畫面上會開啟個別事件清單，其中顯示可信度為指定等級及以上的預測事件。此事件清單會顯示「預設」視圖中的所有欄位。您還可以按兩下任何事件，以在「<span class="keyword wintitle">事件資訊</span>」視窗中檢視其完整詳細資料。</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">列出來自所預測的主機的所有預測事件及實際事件（如果有的話）。您可以使用顯示的結果，來協助識別預測趨勢接近警告或重要臨界值的可能原因。</span> <p class="p">若要顯示這些事件，請用滑鼠右鍵按一下您要探索的預測事件，然後從蹦現功能表中按一下<span class="ph uicontrol">顯示預測事件臨界值</span>。畫面上會開啟個別事件清單，其中顯示與所選預測事件處於相同主機上，並且在預測開始時間到計算的預測發生時間這段時間內發生的所有事件。（「預設」視圖將套用至此事件清單。）</p>
+
+<p class="p">您可以按兩下每個事件，以在「<span class="keyword wintitle">事件資訊</span>」視窗中檢視其完整詳細資料。</p>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="您可以使用事件清單來監視及管理警示。 在 ObjectServer 接收事件、警示、訊息或資料項目時，會建立警示。 每個警示都是由 ObjectServer alerts.status 表格的列中保留之資訊的直欄 (或欄位) 所組成。">監視及管理事件清單中的事件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

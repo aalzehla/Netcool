@@ -1,0 +1,141 @@
+#######################################################################
+#
+#       Licensed Materials - Property of IBM
+#
+#       5724O4800
+#
+#       (C) Copyright IBM Corp. 1994, 2007. All Rights Reserved
+#
+#       US Government Users Restricted Rights - Use, duplication
+#       or disclosure restricted by GSA ADP Schedule Contract
+#       with IBM Corp.
+#
+#
+# Ident: $Id: NCOMS.props 1.4 2003/06/17 09:38:14 stephenc Development $
+#
+#######################################################################
+#
+# ActingPrimary: TRUE					# BOOLEAN (Acting as primary ObjectServer)
+# AlertSecurityModel: 0 				# INTEGER (Desktop security model)
+# AllowConnections: TRUE 				# BOOLEAN (Specifies whether or not non-root users can connect)
+# AllowISQL: TRUE 					# BOOLEAN (Specifies whether or not isql connections are allowed)
+# AllowISQLWrite: TRUE 					# BOOLEAN (Specifies whether or not modifications by isql connections are allowed)
+# AllowTimedRefresh: FALSE 				# BOOLEAN (Allow desktops to apply timed refresh)
+# Auto.Debug: FALSE 					# BOOLEAN (Automation debug)
+# Auto.Enabled: TRUE 					# BOOLEAN (Automation enable)
+# Auto.StatsInterval: 60 				# INTEGER (Automation statistics interval)
+# BackupObjectServer: FALSE 				# BOOLEAN (Backup ObjectServer)
+# ClientHeartbeatDisable: FALSE 			# BOOLEAN (Disable client heartbeat messages during data lock waits.)
+# ClientHeartbeatRate: 10 				# UNSIGNED (Client heartbeat rate in seconds, during data lock waits.)
+# ConfigCryptoAlg: 'AES' 				# STRING (The cryptographic algorithm to use when encrypting and decrypting config values and files)
+# ConfigKeyFile: '' 					# STRING (Location of the file containing the key for encrypted config values and files)
+# Connections: 256 					# INTEGER (Number of connections permitted)
+# DeleteLogFile: '$OMNIHOME/log/NCOMS_deletes_file.log' # STRING (Log file to record all delete commands)
+# DeleteLogging: FALSE 					# BOOLEAN (Turn on the delete logging)
+# DeleteLogLevel: 0 					# INTEGER (The level of detail sent to the log file)
+# DeleteLogSize: 1048576 				# INTEGER (The maximum size of the log file)
+# DTMaxTopRows: 100 					# INTEGER (Desktop maximum top rows)
+# Granularity: 60 					# INTEGER (Iduc update granularity.)
+# GWDeduplication: 0 					# INTEGER (Gateway deduplication mode)
+# Iduc.ListeningHostname: '' 				# STRING (Hostname to listen for Iduc connections.)
+# Iduc.ListeningPort: 0 				# INTEGER (Iduc port to listen on.)
+# LogFilePoolSize: 10					# INTEGER (Number of log files to use if the logging system is writing to a pool of files.)
+# LogFileUsePool: FALSE					# BOOLEAN (Specifies whether to us a pool of log files for logging messages.)
+# LogFileUseStdErr: TRUE				# BOOLEAN (Specifies whether to use stderr as an output stream for logging messages.)
+# MaxLogFileSize: 1024 					# INTEGER (Maximum log file size in kbytes.)
+# MessageLevel: 'warn' 					# STRING (Message reporting level)
+# MessageLog: '$OMNIHOME/log/NCOMS.log' 		# STRING (Path to the message log file.)
+# Name: 'NCOMS' 					# STRING (Server name)
+# NHttpd.AccessLog:'$OMNIHOME/log/NCOMS_http_access.log'# STRING (The web service access log.)
+# NHttpd.AuthenticationDomain: 'omnibus'		# STRING (The authentication domain that should be use for connections.)
+# NHttpd.ConfigFile: '$OMNIHOME/etc/libnhttpd.json'	# STRING (The path to the HTTP ports additional configuration file.)
+# NHttpd.DocumentRoot: '$OMNIHOME/etc/restos/docroot' 	# STRING (The document root of the embedded web service.)
+# NHttpd.EnableFileServing: FALSE 			# BOOLEAN (Enable default file serving in server.)
+# NHttpd.EnableHTTP: FALSE 				# BOOLEAN (Enable the use of the HTTP port.)
+# NHttpd.ListeningHostname: 'localhost' 		# STRING (The HTTP/HTTPS listening hostname or IP address.)
+# NHttpd.ListeningPort: 0 				# INTEGER (The HTTP listening port number.)
+# NHttpd.SSLEnable: FALSE 				# BOOLEAN (Enable the use of SSL support.)
+# NHttpd.SSLListeningPort: 0				# INTEGER (The HTTPS listening port number.)
+# NHttpd.SSLCertificate: ''				# STRING (The SSL certificate name to use.)
+# NHttpd.ExpireTimeout: 15				# UNSIGNED (The default expire timeout for HTTP 1.1 connections.)
+# NHttpd.NumWorkThreads: 5				# INTEGER (The number of threads in the client handling thread pool.)
+# NRestOS.Enable: FALSE					# BOOLEAN (Enable the servers embedded REST API engine.)
+# NRestOS.OSLCRDFMsgFormat: 'STANDARD'			# STRING (Specifies which XML/RDF message format to use.)
+# NRestOS.OSLCResourceConfigFile: '$OMNIHOME/etc/restos/resourcecfg_both.json' # STRING (The path to the OSLC Resource configuration file.)
+# PA.Name: 'NCO_PA' 					# STRING (Name of process agent)
+# PA.Password: '' 					# STRING (Password to use when connecting to the process agent)
+# PA.Username: 'root' 					# STRING (Username to use when connecting to the process agent)
+# PasswordEncryption: 'DES' 				# STRING (The encryption scheme to use for users passwords.)
+# PasswordFormat: '8:1:1:0' 				# STRING (The password restriction format.[<min_len>:<alpha>:<digit>:<punct>])
+# Profile: FALSE 					# BOOLEAN (Enable profiling)
+# ProfileStatsInterval: 60 				# INTEGER (Profiler statistics report interval)
+# Props.CheckNames: TRUE 				# BOOLEAN (Cause program to abort if any property is not understood at the time it is read)
+# PropsFile: '$OMNIHOME/etc/NCOMS.props' 		# STRING (Path to the property file.)
+# RegexpLibrary: 'NETCOOL' 				# STRING (The name of the internal regexp library to use.)
+# RestrictionUpdateCheck: TRUE 				# BOOLEAN (Specifies whether or not users can update events that will not appear in their view)
+# RestrictPasswords: FALSE 				# BOOLEAN (Restrict use of characters in a password)
+# RestrictionFiltersAND: TRUE 				# BOOLEAN (Specifies whether or not restriction filters are being AND'ed or 
+# RestrictProxySQL: FALSE 				# BOOLEAN (Restrict the set of SQL commands proxies can submit)
+# Sec.AuditLevel: 'warn' 				# STRING (Security audit level)
+# Sec.AuditLog: '$OMNIHOME/log/NCOMS_audit_file.log' 						# STRING (Security audit trail)
+# SecureMode: FALSE 					# BOOLEAN (Secure authentication)
+# Store.LocalizedSort: FALSE 				# BOOLEAN (Sort based on client locale.)
+# Store.LocalizedSortCaseSensitive: 'OFF' 		# STRING (Localized sort case insensitively:OFF; lowercase first:LOWERFIRST; uppercase first:UPPERFIRST.)
+# UniqueLog: FALSE 					# BOOLEAN (Make log file name unique (adds PID))
+
+ActingPrimary: TRUE
+AlertSecurityModel: 0
+AllowConnections: TRUE
+AllowISQL: TRUE
+AllowISQLWrite: TRUE
+AllowTimedRefresh: FALSE
+Auto.Debug: FALSE
+Auto.Enabled: TRUE
+Auto.StatsInterval: 60
+BackupObjectServer: FALSE
+ClientHeartbeatDisable: FALSE
+ClientHeartbeatRate: 10
+ConfigCryptoAlg: 'AES'
+ConfigKeyFile: ''
+Connections: 256
+DeleteLogging: FALSE
+DeleteLogLevel: 0
+DeleteLogSize: 1048576
+DTMaxTopRows: 100
+Granularity: 60
+GWDeduplication: 0
+Iduc.ListeningHostname: ''
+Iduc.ListeningPort: 0
+MaxLogFileSize: 1024
+MessageLevel: 'warn'
+NHttpd.AuthenticationDomain: 'omnibus'
+NHttpd.EnableFileServing: FALSE
+NHttpd.EnableHTTP: FALSE
+NHttpd.ListeningPort: 0
+NHttpd.SSLEnable: FALSE
+NHttpd.SSLListeningPort: 0
+NHttpd.SSLCertificate: ''
+NHttpd.ExpireTimeout: 15
+NHttpd.NumWorkThreads: 5
+NRestOS.Enable: FALSE	
+NRestOS.OSLCRDFMsgFormat: 'STANDARD'
+PA.Name: 'NCO_PA'
+PA.Password: ''
+PA.Username: 'root'
+PasswordEncryption: 'DES'
+PasswordFormat: '8:1:1:0'
+Profile: TRUE
+ProfileStatsInterval: 60
+Props.CheckNames: TRUE
+RegexpLibrary: 'NETCOOL'
+RestrictionUpdateCheck: TRUE
+RestrictPasswords: FALSE
+RestrictProxySQL: FALSE
+RestrictionFiltersAND: TRUE
+Sec.AuditLevel: 'warn'
+SecureMode: FALSE
+Store.LocalizedSort: FALSE
+Store.LocalizedSortCaseSensitive: 'OFF'
+UniqueLog: FALSE
+
+# End of File

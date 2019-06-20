@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating UNIX user groups for the process control system" />
+<meta name="abstract" content="The process control daemon controls who can log in to it. On UNIX, any user who needs access to the process control system must be a member of a UNIX user group that you identify as an administrative group for this purpose." />
+<meta name="Description" content="The process control daemon controls who can log in to it. On UNIX, any user who needs access to the process control system must be a member of a UNIX user group that you identify as an administrative group for this purpose." />
+<meta name="DC.subject" content="process control, creating UNIX user groups" />
+<meta name="keywords" content="process control, creating UNIX user groups" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_connectingtoprocagent.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_services.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_pacmdlineoptions.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_creatingunixusergps" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<title>Creating UNIX user groups for the process control system</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_creatingunixusergps">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating UNIX user groups
+for the process control system</h1>
+<div class="body taskbody"><p class="shortdesc">The process control daemon controls who can log in to it.
+On UNIX, any user who needs
+access to the process control system must be a member of a UNIX user group that you identify
+as an administrative group for this purpose.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">By default, the process control system uses UNIX user names and passwords to grant access.
+When running the process agent daemon (<span class="keyword cmdname">nco_pad</span>),
+you can specify other supported authorization modes by using the <span class="keyword option">-authenticate</span> command-line
+option.</p>
+<p class="p">You can use an existing UNIX user
+group or create a new one, and add process control users to this group.
+If you run NIS, NIS+, or some other global information service, this
+configuration must be performed by the administrator of that service.
+See the documentation provided with your operating system for information
+about user groups.</p>
+<p class="p">When you run the process control daemon,
+identify the administrative group with the -admingroup command-line
+option. If you do not specify a group name, process control checks
+to see if the user is a member of the default group ncoadmin.</p>
+<div class="note attention"><span class="attentiontitle">Attention:</span> If using Pluggable Authentication Modules (PAM) for
+authentication, users do not have to be a member of a UNIX user group such as ncoadmin, to gain access
+to the process control system. With PAM clients, the process control
+system does not validate users against a UNIX user group, and, as a result, access is
+not restricted.</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_creatingstartpctrlsysunix.html" title="To manage process control, you must first determine your process control configuration requirements and then perform a number of configuration tasks.">Creating and starting a process control network system</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_pa_services.html" title="Within a process control system, processes must be grouped together in services. You can group related processes in a service to make them easier to manage.">Services</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_connectingtoprocagent.html" title="Before you can connect to a process agent, you must ensure that the process agent has started.">Connecting to a process agent</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_pacmdlineoptions.html" title="When running the process agent with the nco_pad command, you can specify a number of command-line options for additional configuration.">Process agent command-line options</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="필터 빌더" />
+<meta name="abstract" content="이 창에서 이벤트 목록의 경보를 필터링하기 위해 SQL 쿼리(또는 WHERE 절)를 정의하십시오. 필터 빌더를 사용하여 이벤트 데이터에 대해 이 필터를 설정하고 유지보수할 수 있습니다." />
+<meta name="Description" content="이 창에서 이벤트 목록의 경보를 필터링하기 위해 SQL 쿼리(또는 WHERE 절)를 정의하십시오. 필터 빌더를 사용하여 이벤트 데이터에 대해 이 필터를 설정하고 유지보수할 수 있습니다." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_specifyingopsforfiltconds.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_specifyingcompvalfiltconds.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_filterbuilderwindowUNIX" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>필터 빌더</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_filterbuilderwindowUNIX">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">필터 빌더</h1>
+<div class="body refbody"><p class="shortdesc">이 창에서 이벤트 목록의 경보를 필터링하기 위해 SQL 쿼리(또는 WHERE
+절)를 정의하십시오. 필터 빌더를 사용하여 이벤트 데이터에 대해 이 필터를 설정하고
+유지보수할 수 있습니다.</p>
+<div class="section"><div class="p" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_descriptionUNIX">필터 빌더는 다음 영역으로 구성됩니다.
+<ul class="ul"><li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_filtersetupareaUNIX">필터 설정 영역</a>(맨
+위 패널)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_buttonbarUNIX">단추 막대</a>(필터 설정 영역 아래의 패널)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_graphicaldisplayareaUNIX">그래픽 디스플레이 영역</a>(단추 막대 아래의 맨 위 왼쪽 패널)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_elementdefinitionareaUNIX">요소 정의 영역</a>(단추 막대 아래의 맨 위 오른쪽 패널)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_SQLdisplayareaUNIX">SQL 디스플레이 영역</a>(맨 아래 왼쪽 패널)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_metricareaUNIX">지표 영역</a>(맨 아래 오른쪽 패널)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_filtersetupareaUNIX"><h2 class="title sectiontitle">필터 설정 영역</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_filtersetupareadescriptionUNIX">이 영역을 사용하여 이름을 정의하고 필터에 대한 권한을 설정하십시오.</span></p>
+<p class="p">다음과 같이 이 영역을 완료하십시오. </p>
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_filtersetupfieldsUNIX"><dt class="dt dlterm">이름</dt>
+<dd class="dd">필터를 새로 작성할 경우 현재 이름을 필터의 고유 이름으로 겹쳐쓰기합니다.
+이 이름은 이벤트 목록 메뉴에서 필터를 선택하기 위해 사용됩니다.
+기존 필터를 편집할 경우 이 필드에 항목을 작성할 필요가 없습니다.</dd>
+<dt class="dt dlterm">편집 가능</dt>
+<dd class="dd">해당 관리자 권한이 있는 경우 기타 사용자가 이 필터를 편집하도록 허용하려면
+이 선택란을 체크하고 필터가 수정되지 못하게 하려면 이 선택란을 체크하지 마십시오.
+<div class="note restriction"><span class="restrictiontitle">제한사항:</span> 이 설정은 필터가
+이벤트 목록 구성(<span class="ph filepath">.elc</span> 파일)의 일부로 저장된 경우에만 적용됩니다. </div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_buttonbarUNIX"><h2 class="title sectiontitle">단추 막대</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_buttonbardescriptionUNIX">이 단추를 사용하여 필터 요소를
+정의하십시오.</span></p>
+<p class="p">다음과 같이 이 영역을 완료하십시오. </p>
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_buttonbarfieldsUNIX"><dt class="dt dlterm">조건</dt>
+<dd class="dd">조건 요소를 작성하려면 이 단추를 클릭하십시오. 조건 요소를 사용하여 필드와 값을 비교할 수
+있습니다.
+<span class="ph uicontrol">조건</span> 단추는 WHERE 절을 작성하고 값 스펙을 허용합니다(예:
+<samp class="ph codeph">where Node = 'link1'</samp>).</dd>
+<dt class="dt dlterm">부정</dt>
+<dd class="dd">현재 선택되어 있는 요소 앞에 논리 NOT 연산자를 삽입하려면 이 단추를 클릭하십시오.</dd>
+<dt class="dt dlterm">선행 논리적</dt>
+<dd class="dd">현재 선택되어 있는 요소 앞에 논리 요소를 삽입하려면 이 단추를 클릭하십시오.
+자세한 복합 비교를 위해 논리 요소를 사용하여 두 요소를 결합할 수 있습니다.</dd>
+<dt class="dt dlterm">후미 논리적</dt>
+<dd class="dd">현재 선택되어 있는 요소 다음에 논리 요소를 삽입하려면 이 단추를 클릭하십시오.</dd>
+<dt class="dt dlterm">하위 조회</dt>
+<dd class="dd">조건 범위 내에서 조회를 작성하려면 이 단추를 클릭하십시오. 하위 조회는 값을 다른
+SELECT 문의 결과와 일치시키기 위해 사용할 수 있는 추가 복합 조건입니다.</dd>
+<dt class="dt dlterm">요소 삭제</dt>
+<dd class="dd">현재 선택되어 있는 요소를 삭제하려면 이 단추를 클릭하십시오.</dd>
+<dt class="dt dlterm">트리 삭제</dt>
+<dd class="dd">현재 요소 및 해당 하위 요소를 모두 삭제하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">SQL 편집</dt>
+<dd class="dd"><span class="keyword wintitle">필터 SQL 편집</span> 창을 열어 SQL을 직접 편집하려면 이 단추를 클릭하십시오.
+<span class="ph uicontrol">확인</span>을 클릭하여
+저장하고 필터 빌더로 돌아가면 SQL 표현식이 자동으로 구문 분석되고 그래픽 디스플레이
+영역의 조건 요소에 추가됩니다.
+<span class="keyword wintitle">필터 SQL 편집</span> 창에 올바르지 않은 SQL 텍스트를 입력하는
+경우 창을 종료하기 전에 구문을 정정해야 합니다.</dd>
+</dl>
+<div class="p">이 단추 중 어느 하나를 클릭하면 다음과 같습니다. <ul class="ul"><li class="li">그래픽 표시가 단추 막대 아래에 있는 맨 위 왼쪽 패널의 그래픽 디스플레이 영역에 표시됩니다.</li>
+<li class="li">SQL 구문이 맨 아래 왼쪽 목록 상자의 SQL 디스플레이 영역에 표시됩니다.</li>
+<li class="li">요소 특정의 필드가 오른쪽 패널의 요소 정의 영역에 표시됩니다.</li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">참고:</span> 이 단추의 가용성은 현재 선택되어 있는 요소 및 해당 요소에
+대한 올바른 조작에 따라 결정됩니다.</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_graphicaldisplayareaUNIX"><h2 class="title sectiontitle">그래픽 디스플레이 영역</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_graphicaldisplayareadescriptionUNIX">이
+영역은 요소의 관련성이 표시된 그래픽 트리 구조에서 현재 필터에 대한
+요소 정의를 표시합니다.
+단추 막대에 있는 단추를 사용하여 트리에 요소를 추가할 수 있습니다.
+현재 선택되어 있는 요소는 주위에 적색 경계가 표시됩니다.
+편집은 현재 요소만 가능합니다.
+이 영역 내에서 요소를 선택하면 관련 세부사항이 표시되고 요소 정의 영역에서 편집할
+수 있습니다.</span></p>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_elementdefinitionareaUNIX"><h2 class="title sectiontitle">요소 정의 영역</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_elementdefinitionareadescriptionUNIX">이 영역은
+현재 선택되어 있는 요소의 세부사항을 표시하고 다른 값 세트를 지정할 수 있게 합니다.
+선택사항은 그래픽 디스플레이 영역 및 SQL 디스플레이 영역에 반영됩니다.</span></p>
+<div class="p"><span class="ph uicontrol">조건</span> 단추를 클릭하여 조건 요소를 작성했으면
+다음을 참조하여 필드를 완료하십시오.
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_conditionfieldsUNIX"><dt class="dt dlterm">표현식 유형</dt>
+<dd class="dd">이 목록에서 다음 옵션 중 하나를 선택하십시오. <ul class="ul"><li class="li"><span class="keyword option">단순</span>: 조건 요소의 단순 표현식을 사용하려면 이 옵션을 선택하십시오.</li>
+<li class="li"><span class="keyword option">복합</span>: 두 개의 데이터베이스 컬럼 또는 두 개의 표현식을 비교할 수 있는
+복합 표현식을 사용하려면 이 옵션을 선택하십시오.</li>
+<li class="li"><span class="keyword option">자유 형식</span>: ObjectServer SQL의 고급 기능 사용을 허용하는 표현식을 지정하려면
+이 옵션을 선택하십시오. </li>
+</ul>
+</dd>
+<dt class="dt dlterm">컬럼</dt>
+<dd class="dd">이 목록에서 비교에 사용하려는 데이터베이스 컬럼을 선택하십시오. </dd>
+<dd class="dd">목록에는 alerts.status 데이터베이스 테이블의 열 이름이 기본 값으로 포함됩니다. 필터 빌더는
+사용 가능한 컬럼을 자동으로 판별하며,
+이 목록은 상황에 따라 다릅니다. <div class="note note"><span class="notetitle">참고:</span> <span class="ph uicontrol">표현식 유형</span> 목록에서 <span class="keyword option">자유 형식</span> 옵션을 선택한 경우 <span class="ph uicontrol">컬럼</span> 목록이 표시되지 않습니다. </div>
+</dd>
+<dt class="dt dlterm">연산자</dt>
+<dd class="dd">이 목록에서 비교 연산자를 선택하십시오. </dd>
+<dd class="dd">사용 가능한 비교의 범위는 <span class="ph uicontrol">컬럼</span> 드롭
+다운 목록의 선택사항에 따라 결정됩니다. 특정 컬럼에 대해 사용
+불가능한 비교도 있습니다.
+예를 들어, 숫자 컬럼(예: 심각도)에 대한 LIKE 연산 수행은 가능하지 않습니다.
+<div class="note note"><span class="notetitle">참고:</span> <span class="ph uicontrol">표현식 유형</span> 목록에서 <span class="keyword option">자유 형식</span> 옵션을 선택한 경우
+<span class="ph uicontrol">연산자</span> 목록이 표시되지 않습니다. </div>
+</dd>
+<dt class="dt dlterm"><em class="ph i">값 데이터 유형 필드</em></dt>
+<dd class="dd">여기에 표시되는 필드는
+<span class="ph uicontrol">표현식 유형</span> 목록에서 선택한 옵션에 따라 다릅니다. </dd>
+<dd class="dd"><span class="ph uicontrol">표현식 유형</span>이 <span class="keyword option">단순</span>인 경우
+표시되는 값 필드는
+<span class="ph uicontrol">컬럼</span> 목록에서 선택된 데이터베이스 컬럼이 문자열, 정수 또는 시간 중 어느 유형인지에 따라 결정됩니다. </dd>
+<dd class="dd"><span class="ph uicontrol">표현식 유형</span>이 <span class="keyword option">복합</span> 또는 <span class="keyword option">자유 형식</span>인 경우
+<span class="ph uicontrol">편집</span> 단추가
+<span class="keyword wintitle">필터 SQL 편집</span> 창에서 SQL을 직접 편집할 수 있게 하기 위해 제공됩니다. <span class="ph uicontrol">확인</span>을 클릭하여
+저장하고 필터 빌더로 돌아가면 SQL 표현식이 자동으로 구문 분석되고 그래픽 디스플레이
+영역의 조건 요소에 추가됩니다.
+<span class="keyword wintitle">필터 SQL 편집</span> 창에 올바르지 않은 SQL 텍스트를 입력하는
+경우 창을 종료하기 전에 구문을 정정해야 합니다.</dd>
+</dl>
+</div>
+<div class="p"><span class="ph uicontrol">선행 논리적</span> 또는 <span class="ph uicontrol">후미
+논리적</span> 단추를 클릭하여 논리 요소를 작성했으면 다음을 참조하여 필드를 완료하십시오.
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_logicalfieldsUNIX"><dt class="dt dlterm">논리적 AND</dt>
+<dd class="dd">AND 연산자를 필터 정의에 추가하려면 이 옵션을 선택하십시오. 이것은 기본 옵션입니다.</dd>
+<dt class="dt dlterm">논리적 OR</dt>
+<dd class="dd">OR 연산자를 필터 정의에 추가하려면 이 옵션을 선택하십시오. </dd>
+</dl>
+</div>
+<div class="p"><span class="ph uicontrol">하위 조회</span> 단추를 클릭하여 하위 조회 요소를 작성했으면 다음을 참조하여 필드를 완료하십시오.
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_subqueryfieldsUNIX"><dt class="dt dlterm">컬럼</dt>
+<dd class="dd">이 목록에서 검색에 사용할 데이터베이스 컬럼을 선택하십시오. </dd>
+<dt class="dt dlterm">연산자</dt>
+<dd class="dd">목록에서 다음 옵션 중 하나를 선택하십시오. <ul class="ul"><li class="li"><span class="keyword option">속함</span>: 컬럼의 내용을 검색하려면 이 옵션을 사용하십시오.</li>
+<li class="li"><span class="keyword option">속하지 않음</span>: 내용이 없는 필드를 검색하려면 이 옵션을 사용하십시오.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">선택</dt>
+<dd class="dd">목록 빌드 시 속함 또는 속하지 않음 작업을 수행할 때 대조용으로 사용할 컬럼을
+선택하십시오.
+이 목록의 옵션은 <span class="ph uicontrol">원본</span> 목록에서 선택되는 옵션에 따라
+판별됩니다. </dd>
+<dt class="dt dlterm">원본</dt>
+<dd class="dd">정보를 얻을 데이터베이스 테이블을 선택하십시오. 이는
+alerts.details, alerts.journal 또는 alerts.status가 될 수 있습니다. </dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_SQLdisplayareaUNIX"><h2 class="title sectiontitle">SQL 디스플레이 영역</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_SQLdisplayareadescriptionUNIX">SQL 디스플레이 영역은
+필터를 빌드함에 따라 SQL을 표시합니다.
+단추 막대에서 <span class="ph uicontrol">SQL 편집</span>을 클릭하여 <span class="keyword wintitle">필터
+SQL 편집</span> 창에서 SQL을 직접 편집할 수 있습니다. </span></p>
+<p class="p">올바른 SQL 구문을 사용하여 필터 조회를 입력하고
+<span class="ph uicontrol">확인</span>을 눌러서 입력을 저장한 후 필터 빌더로 돌아가십시오. 필터 빌더는 SQL 텍스트를
+구문 분석하여 필터 트리를 빌드하려고 시도합니다. SQL이 올바르지 않은 경우 오류 메시지가 표시되며,
+계속하려면 우선 <span class="keyword wintitle">필터 SQL 편집</span> 창에서 오류를 정정해야 합니다. </p>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_metricareaUNIX"><h2 class="title sectiontitle">지표 영역</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_metricareadescriptionUNIX">필터에 측정법을 적용하여
+유용한 계수를 계산하게 하려면 지표 단추를 사용하십시오.
+예를 들어, <samp class="ph tt">Sum of Tally</samp> 지표는 ObjectServer의 총 비중복 경보 수를 제공합니다.</span></p>
+<div class="p">다음과 같이 이 영역을 완료하십시오. <dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_metricfieldsUNIX"><dt class="dt dlterm">지표</dt>
+<dd class="dd">첫 번째 목록을 사용하여 사용할 측정법을 선택하십시오. <ul class="ul"><li class="li">필터와 일치하는 모든 경보에 대해 선택된 필드의 평균 값을 리턴하려면
+<strong class="ph b">평균</strong>을 선택하십시오.</li>
+<li class="li">필터와 일치하는 모든 경보의 수를 리턴하려면 <strong class="ph b">수</strong>를 선택하십시오.
+선택된 필드는 이 계산에 사용되지 않습니다. </li>
+<li class="li">필터와 일치하는 모든 경보에 대해 선택된 필드의 합계를 리턴하려면
+<strong class="ph b">합계</strong>를 선택하십시오.</li>
+<li class="li">필터와 일치하는 경보에서 선택된 필드의 가장 낮은 값을 리턴하려면
+<strong class="ph b">최소</strong>를 선택하십시오.</li>
+<li class="li">필터와 일치하는 경보에서 선택된 필드의 가장 높은 값을 리턴하려면
+<strong class="ph b">최대</strong>를 선택하십시오.</li>
+</ul>
+</dd>
+<dd class="dd">두 번째 목록을 사용하여 측정법이 적용되는 필드를 선택하십시오.
+경보에서 정수 및 시간 필드만 지표 계산에 사용 가능합니다. <div class="note tip"><span class="tiptitle">팁:</span> 지표 값은
+<span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창의 모니터 상자에 표시됩니다. </div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_applying_saving_closingUNIX"><h2 class="title sectiontitle">필터 설정 적용 및
+저장</h2><div class="p">필터 설정을 정의 또는 수정한 후 다음과 같이 해당 단추를 클릭해 작성된
+변경사항을 적용, 저장 또는 취소할 수 있습니다.
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_applyclosebuttonsUNIX"><dt class="dt dlterm">적용</dt>
+<dd class="dd">변경사항을 저장하지 않고 필터에 적용하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">닫기</dt>
+<dd class="dd">창을 닫고 변경사항을 버리려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</div>
+<div class="p">필터는 <span class="ph filepath">.elf</span> 파일 확장자로 저장해야 합니다.
+<div class="note note"><span class="notetitle">참고:</span> UNIX에서
+필터 빌더가 컨덕터에서 실행 중인 경우 <span class="ph uicontrol">적용</span> 단추가 표시되지 않습니다.
+이 경우에는 UNIX
+필터 빌더에서 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">저장</span></span> 또는 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">다른 이름으로 저장</span></span>을
+선택하여 필터를 모두 저장해야 합니다. </div>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_fb_creatingeditfilterunix.html" title="UNIX 필터 빌더를 사용하면 이벤트 목록 데이터의 필터를 빌드할 수 있습니다.">UNIX에서 필터 작성 또는 편집</a></div>
+<div><a class="link" href="omn_usr_fb_specifyingopsforfiltconds.html" title="필터 빌더에서 단순 또는 복합 조건을 정의할 때 연산자를 사용하여 비교를 정의합니다.">필터 조건에 대한 연산자 지정</a></div>
+<div><a class="link" href="omn_usr_fb_specifyingcompvalfiltconds.html" title="필터 빌더에서 단순 또는 복합 조건을 정의할 때 비교에 사용할 데이터베이스 컬럼, 비교 연산자 및 하나 이상의 비교 값을 선택해야 합니다.">필터 조건에 대한 비교 값 지정</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Event list security" />
+<meta name="abstract" content="All Tivoli Netcool/OMNIbus users belong to one or more user groups. Each group is assigned one or more roles, which determine the permissions for that group. The desktop tools that a user can access and the tasks that a user can perform with the desktop tools depend on the group to which the user belongs and the roles that are assigned to the group." />
+<meta name="Description" content="All Tivoli Netcool/OMNIbus users belong to one or more user groups. Each group is assigned one or more roles, which determine the permissions for that group. The desktop tools that a user can access and the tasks that a user can perform with the desktop tools depend on the group to which the user belongs and the roles that are assigned to the group." />
+<meta name="DC.subject" content="event lists, security, AlertSecurityModel property, ObjectServer properties" />
+<meta name="keywords" content="event lists, security, AlertSecurityModel property, ObjectServer properties" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_sec_implementingauth.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_assigningownrshptoevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_acknowledgingdeack.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_eventlistsecurity" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_managingevents.html" />
+<title>Event list security</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_eventlistsecurity">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Event list security</h1>
+<div class="body conbody"><p class="shortdesc">All <span class="keyword">Tivoli Netcool/OMNIbus</span> users
+belong to one or more user <dfn class="term">groups</dfn>. Each group is assigned
+one or more <dfn class="term">roles</dfn>, which determine the permissions for
+that group. The desktop tools that a user can access and the tasks
+that a user can perform with the desktop tools depend on the group
+to which the user belongs and the roles that are assigned to the group.</p>
+<p class="p">The Normal, Administrator, and System groups provide group row
+level security in the event list. 
+The <span class="keyword parmname parmname">AlertSecurityModel</span> ObjectServer property
+determines whether group row level security is enforced in the event
+list.</p>
+<p class="p">By default, the <span class="keyword parmname parmname">AlertSecurityModel</span> property
+is disabled, and group row level security is not enforced. In this
+case:</p>
+<ul class="ul"><li class="li">A member of the Normal group can modify a row that is assigned
+to themselves or the <samp class="ph tt">nobody</samp> user. When an alert is received
+from the ObjectServer, the alert is assigned by default to the <samp class="ph tt">nobody</samp> user.</li>
+<li class="li">A member of the Administrator group can modify a row that is assigned
+to themselves, the <samp class="ph tt">nobody</samp> user, or a member of the Normal
+group.</li>
+</ul>
+<p class="p">If the <span class="keyword parmname parmname">AlertSecurityModel</span> property is enabled,
+only users in the group that owns the row can modify the row. In this
+case, a member of the Normal or Administrator group can modify a row
+that is assigned to a group of which they are a member.</p>
+<p class="p">A member of the System group can always modify any row.</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_managingevents.html" title="Use the event list to manage events.">Managing events using the event list</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_sec_implementingauth.html" title="Permissions control access to objects and data in the ObjectServer. By combining one or more permissions into roles, you can manage access quickly and efficiently.">Implementing authorization by using groups and roles</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_assigningownrshptoevents.html" title="When an event arrives from a probe, the event is owned by the nobody user unless ownership of the event has been assigned to a specific user. Users with appropriate privileges can take ownership of events throughout the problem lifecycle, or assign events to a specific user or group.">Assigning ownership to events</a></div>
+<div><a class="link" href="omn_usr_el_acknowledgingdeack.html" title="You can acknowledge and deacknowledge events in the event list only if you have permission to do so.">Acknowledging and deacknowledging events</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

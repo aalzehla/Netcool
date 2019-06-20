@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Best practices for creating triggers" />
+<meta name="abstract" content="When you create or modify triggers, ensure that the triggers are as efficient as possible, and have the shortest possible execution time." />
+<meta name="Description" content="When you create or modify triggers, ensure that the triggers are as efficient as possible, and have the shortest possible execution time." />
+<meta name="DC.subject" content="best practices, triggers" />
+<meta name="keywords" content="best practices, triggers" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_per_bestpracticestriggers" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Best practices for creating triggers</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_per_bestpracticestriggers">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Best practices for creating triggers</h1>
+<div class="body refbody"><div class="abstract"><div class="shortdesc">When you create or modify triggers, ensure that
+the triggers are as efficient as possible, and have the shortest possible
+execution time.</div>
+<p class="p">A trigger has exclusive access to the
+ObjectServer database for the duration of its execution. By minimizing
+the execution time of a trigger, you can free up time for other triggers
+or clients that require access to the database. It is important to
+reduce the execution of database triggers because they interrupt the
+execution of a database operation, and so slow down the operation.
+For example, a pre-insert trigger on the alerts.status table fires
+for every new event. So, if an event flood occurs, the trigger is
+executed multiple times.</p>
+</div>
+<div class="section"><p class="p">The ObjectServer records the amount of time that each
+trigger uses during each granularity period and saves the details
+in the <span class="ph filepath">$NCHOME/omnibus/log/<var class="keyword varname">servername</var>_trigger_stats.log<var class="keyword varname">n</var></span> file.
+Use this file to identify which triggers are using the most time,
+prioritize which triggers to review, and monitor the system. In general,
+review a trigger if it uses more than 3 seconds of time every 60 seconds
+(that is, the default granularity period).</p>
+<p class="p">Whenever you update
+your triggers, review the log file to verify that your changes do
+not cause a degradation in performance. </p>
+<p class="p">Use the following guidelines
+to improve the performance of your triggers. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Avoid table scans in database triggers</h2><p class="p">Table scans are expensive operations and can occur when
+SQL statements such as FOR EACH ROW are applied to a database table.
+In a database trigger, the cost of these scans is high if the trigger
+fires frequently and if the table has a large number of rows. For
+example, if you change the deduplication trigger on the alerts.status
+table that every time the trigger fires it scans alerts.status for
+rows matching a set of criteria. In this case, the scalability of
+the system is limited, because the database trigger takes longer and
+longer as the number of rows that need to be scanned increases. Also
+avoid nested scans.</p>
+<div class="p">You can use the following techniques to
+avoid the table scan in database triggers: <ul class="ul"><li class="li">Perform the scan in a temporal trigger that is written so that
+one scan can match many rows. See the generic_clear trigger in <span class="ph filepath">$NCHOME/omnibus/etc/automation.sql</span> for
+an example.</li>
+<li class="li">If using a lookup table to enrich events, access the lookup table
+by using its primary key, as described further on. The use of the
+primary key results in a direct lookup of the row rather than a scan
+(V7.2, or later). You can also limit the size of the lookup table.
+The number of rows that are acceptable for a lookup table is site-specific.
+It also depends on factors such as how often the lookup table is accessed,
+and hardware performance.</li>
+<li class="li">Access a lookup table by using an index.</li>
+</ul>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Avoid the EVALUATE clause</h2><p class="p">When a trigger
+contains an EVALUATE clause, a temporary table is created to hold
+the results of the SELECT statement in the EVALUATE clause. The amount
+of time and resources that this temporary table consumes depends on
+the number of columns that are selected and the number of rows matched
+by the condition in the WHERE clause.</p>
+<p class="p">In most cases, you can
+replace the EVALUATE clause with a FOR EACH ROW clause. The FOR EACH
+ROW clause reads over the data and does not incur the overhead of
+creating a temporary table.</p>
+<p class="p">A suitable use for an EVALUATE clause
+is when a GROUP BY clause is being applied to an SQL query.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Avoid excessive use of the WRITE INTO statement for
+logging out to file</h2><p class="p">When triggers is deployed in production
+environments, comment out or remove WRITE INFO statements. It is advisable
+to limit the use of WRITE INFO statements to development environments,
+for debugging triggers. The quantity of data that is logged during
+debugging might cause a bottleneck in production environments.</p>
+<p class="p">Determine what is suitable for your system. For example,
+if the logging is infrequently called, there is probably no issue.
+However, if logging is called multiple times per INSERT statement
+(for example, within a nested loop), there could be a bottleneck. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Where possible, use the primary key when modifying
+rows</h2><p class="p">If the primary key of a database table is used in the
+WHERE clause of an UPDATE statement, the row is accessed by using
+direct lookup, rather than a table scan. For example:</p>
+<pre class="pre codeblock"><code>update alerts.status where Identifier = tt.Identifier set Severity = Severity + 1;</code></pre>
+<div class="note note"><span class="notetitle">Note:</span> The VIA keyword is no longer required in V7.2, or later.
+The following command (which uses VIA) is equivalent to the preceding
+command:<pre class="pre codeblock"><code>update alerts.status VIA Identifier = tt.Identifier set Severity = Severity + 1;</code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Use indexes when using lookup tables</h2><p class="p">In
+V7.2, or later, the ObjectServer uses an index to access rows in a
+table if the primary key is used in a FOR EACH ROW statement.</p>
+<p class="p">This
+functionality is most useful where an ObjectServer table is being
+used as a lookup table, for example to enrich events. In such a case,
+design the table and triggers to access the lookup table by its primary
+keys, to prevent costly full table scans. For example:</p>
+<pre class="pre codeblock"><code>create table alerts.iplookup persistent
+(
+	IpAddr		varchar(32) primary key,
+	HostName	varchar(8),
+	Owner		varchar(40)
+);
+
+create or replace trigger set_hostname
+group madeup_triggers
+priority 10
+before insert on alerts.status
+for each row
+begin
+	-- Access the lookup table using the primary key
+	for each row tt in alerts.iplookup where tt.IpAddr = new.Node
+	begin
+		set new.Hostname = tt.HostName;
+	end;
+end;</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Review and modify triggers produced from migrating
+from V3.6</h2><div class="p">If you migrated from V3.6 to V7.2.1,
+as part of an upgrade to the current version, the V7.2.1 migration
+tool produces best-effort replications of the V3.6 triggers. When
+you then upgrade to the current version, these are functionally correct,
+but might not perform efficiently. Review and modify these triggers
+as follows:<ul class="ul"><li class="li">The V3.6 ObjectServer supported only temporal triggers, while
+V7.0 or later, includes database and signal triggers. The processing
+that is performed by a temporal trigger in V3.6 might be better suited
+to a database trigger in V7.0 or later. Because the triggers are converted
+only on a like-for-like basis, identify which triggers can be better
+implemented by using the new trigger types.</li>
+<li class="li">Where V3.6 triggers have the condition <samp class="ph codeph">select *</samp>,
+the migration tool implements the condition as an EVALUATE clause,
+where all the columns in the alerts.status table are selected. Where
+possible, replace the EVALUATE clause with a FOR EACH ROW statement. </li>
+<li class="li">When migrating from V3.6, the migration tool also creates generic
+clear triggers that work in the same manner as in V3.6. However, the
+triggers supplied in V7.0, or later, are more efficient. Therefore,
+it is advisable to use the V7.0 or later triggers, which are by default
+disabled, instead of using the triggers migrated from V3.6.</li>
+</ul>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Use the generic_clear trigger as a basis for correlation
+type triggers</h2><p class="p">The standard generic_clear trigger (see <span class="ph filepath">$NCHOME/omnibus/etc/automation.sql</span>)
+correlates resolution events with their related problem events. After
+this trigger runs, all matched rows have their severity set to 0,
+in readiness for removal by the delete_clears automation. If you need
+different types of correlation trigger, base these triggers on the
+generic_clear trigger.</p>
+<p class="p">The standard generic_clear trigger does
+not use the EVALUATE clause to select the events. Instead it uses
+the FOR EACH ROW construct to loop over the events to populate a temporary
+table with the problem events. Because this temporary table contains
+only a subset of the events in the alerts.status table, the cost of
+the update operation that is applied to relate the problems with resolutions
+is reduced. Additionally, because the identifier of the problem event
+is stored in the temporary table, the problem events can be updated
+directly in alerts.status by using the UPDATE VIA command to perform
+a direct lookup on the row; this takes advantage of the Identifier
+field being a primary key.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Use deduplication to clear events where possible</h2><div class="p">The
+deduplication trigger can be used to clear problem events with the
+incoming resolution event when there is a one-to-one mapping between
+the problem and resolution. The following modification is required
+to your existing system:<ul class="ul"><li class="li">Write the probe rules so that the problem and resolution events
+have the same identifier.</li>
+<li class="li">Modify the deduplication trigger so that when it fires
+it checks the Type field. If the type of the incoming event is set
+to 2 (resolution), set the severity of the existing event to 0.</li>
+</ul>
+</div>
+<p class="p">This approach reduces the amount of processing for the
+generic_clear trigger to perform. It leaves the trigger to resolve
+cases where a single resolution event can clear many problem events.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Notes on creating automations</h2><div class="p">Use
+the following best practice guidelines create new automations:<ul class="ul"><li class="li">Confirm whether an automation currently exists before attempting
+to create new automations with the same function.</li>
+<li class="li">In any WHERE conditions within the automation, use the guidelines
+for reordering of predicates in SQL queries. For example, compare
+integers, compare characters, and then compare regular expressions.
+For more information, see <a class="xref" href="omn_adm_per_optimizationrules.html#omn_adm_per_optimizationrules" title="When SQL query optimization occurs, all of the optimization rules are applied to the condition in the query and then the predicates are reordered.">Optimization rules for SQL queries</a>.</li>
+<li class="li">Ensure that the automation trigger does not acquire events which
+were previously processed, especially in the case of external scripts.</li>
+<li class="li">For temporal triggers, set the firing interval of different triggers
+to prevent them from being activated together.</li>
+<li class="li">Add a description to all newly created automations.</li>
+<li class="li">Automations can update the journal entry if they modify events
+in the ObjectServer database.</li>
+</ul>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Test your changes</h2><div class="p">After new triggers are
+developed and validated, test the performance of the triggers as follows:<ol class="ol"><li class="li">Ensure that the data on which you run the tests is representative
+of the production system.</li>
+<li class="li">Ensure that the number of rows in any table that the trigger accesses
+is representative of the production system. </li>
+<li class="li">Measure the effect on system performance by using profiling and
+by collecting trigger statistics.</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

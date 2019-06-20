@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="從指令行啟動暫時性事件清單" />
+<meta name="abstract" content="使用 nco_elct 指令，可以從 UNIX 指令行開啟暫時性事件清單，且使用 NCOelct.exe 指令，可以從 Windows 指令行開啟暫時性事件清單。" />
+<meta name="description" content="使用 nco_elct 指令，可以從 UNIX 指令行開啟暫時性事件清單，且使用 NCOelct.exe 指令，可以從 Windows 指令行開啟暫時性事件清單。" />
+<meta name="DC.subject" content="事件清單, 暫時性, 啟動暫時性, 暫時性事件清單, 啟動" />
+<meta name="keywords" content="事件清單, 暫時性, 啟動暫時性, 暫時性事件清單, 啟動" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopttransient.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopttransient.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingtransienteventlist" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_runningtransientevntlsts.html" />
+<title>從指令行啟動暫時性事件清單</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingtransienteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">從指令行啟動暫時性事件清單</h1>
+<div class="body taskbody"><p class="shortdesc">使用 <span class="keyword cmdname">nco_elct</span> 指令，可以從 UNIX 指令行開啟暫時性事件清單，且使用 <span class="keyword cmdname">NCOelct.exe</span> 指令，可以從 Windows 指令行開啟暫時性事件清單。</p>
+<div class="section context">若要啟動暫時性事件清單：</div>
+<div class="li step"><span class="ph cmd">針對作業系統執行適當的動作：</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="表格中的每個橫列提供一個可選取的選項。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d186800e44-option" valign="bottom" align="left">選項</th>
+<th id="d186800e44-desc" valign="bottom" align="left">敘述</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d186800e44-option" id="d186800e46" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d186800e44-desc d186800e46" class="stentry chdesc" width="80%">從命令提示字元中，輸入： <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_elct <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d186800e44-option" id="d186800e57" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d186800e44-desc d186800e57" class="stentry chdesc" width="80%">從命令提示字元中，輸入：<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOelct.exe <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+</tbody></table>
+ 在之前的表格中顯示的 UNIX 及 Windows 指令中，<var class="keyword varname">option</var> 代表一個以上指令行選項。</div>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">結果</h2></div><p class="p">如果事件清單 (<span class="keyword cmdname">nco_event</span>) 的實例正在執行中，則 <span class="keyword cmdname">nco_elct</span> 公用程式會開啟新的事件清單視窗。 如果沒有執行中的 <span class="keyword cmdname">nco_event</span> 實例，則 <span class="keyword cmdname">nco_elct</span> 公用程式會啟動一個實例，並會使用指令行中指定的過濾器顯示「<span class="keyword wintitle">事件清單</span>」監視器框視窗及事件清單視窗。</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopttransient.html">暫時性事件清單的 UNIX 指令行選項</a></span><br />
+當您執行 <span class="keyword cmdname">nco_elct</span> 指令，在 UNIX 上啟動暫時性事件清單時，必須指定一些指令行選項來自訂事件清單。您可以從 <span class="ph filepath">$NCHOME/omnibus/bin</span> 目錄執行此指令。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopttransient.html">暫時性事件清單的 Windows 指令行選項</a></span><br />
+當您執行 <span class="keyword cmdname">NCOelct.exe</span> 指令，在 Windows 上啟動暫時性事件清單時，必須指定一些指令行選項來自訂事件清單。您可以從 <span class="ph filepath">%NCHOME%\omnibus\desktop</span> 目錄執行此指令。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_el_runningtransientevntlsts.html" title="您可以直接從指令行、在 Script 中或作為事件清單工具的一部分執行自訂的暫時性事件清單。">從指令行、Script 及工具執行暫時性事件清單</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

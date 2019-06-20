@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Indexing table columns" />
+<meta name="abstract" content="Use indexes to improve the performance of the ObjectServer databases. The use of well-designed indexes can reduce or eliminate the need for full table scans during the execution of SQL queries, and result in faster data retrieval. To determine the effectiveness of an index, check the index selectivity." />
+<meta name="Description" content="Use indexes to improve the performance of the ObjectServer databases. The use of well-designed indexes can reduce or eliminate the need for full table scans during the execution of SQL queries, and result in faster data retrieval. To determine the effectiveness of an index, check the index selectivity." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringdatabases.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_indexselectivityguidelines.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingindexes.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_viewingindexselectivity.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingindexes.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_per_indexingguidelines.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_workingwithindexes" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringdatabases.html" />
+<title>Indexing table columns</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_workingwithindexes">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Indexing table columns</h1>
+<div class="body taskbody"><p class="shortdesc">Use indexes to improve the performance of the ObjectServer
+databases. The use of well-designed indexes can reduce or eliminate
+the need for full table scans during the execution of SQL queries,
+and result in faster data retrieval. To determine the effectiveness
+of an index, check the index selectivity.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Make sure that you are familiar with how indexes work by reading
+the indexing guidelines. Remember that, although there is no limit
+to the number of indexes that you can create on a table, you must
+use indexes sparingly</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><span class="ph">The index selectivity is
+a rating that determines the effectiveness of an index. The selectivity
+rating of an index is determined by the ratio of the number of distinct
+values in the table to the number of rows in the table. </span><p class="p">Possible ratings are as follows:</p>
+<ul class="ul"><li class="li">High: Values in the table are at least 90% unique. This represents
+the ideal selectivity rating.</li>
+<li class="li">Medium: Values are between 50% and 89% unique.</li>
+<li class="li">Low: Values are between 10% and 49% unique.</li>
+<li class="li">Unknown: Values are less than 9% unique.</li>
+</ul>
+<p class="p"><span class="ph">The selectivity rating of an
+index is high if few rows contain the same value, and low if multiple
+rows contain the same value. When deciding which table columns to
+index, also consider the type of SQL queries that are being run on
+the table.</span></p>
+<p class="p">In the case of large tables, adding and deleting indexes,
+and viewing the selectivity of indexes can be memory-intensive.</p>
+</div>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_indexselectivityguidelines.html">How to use selectivity as a guideline for indexing table columns</a></span><br />
+The index selectivity is not the only criterion for deciding
+whether a table column makes an effective index. Also consider the
+types of queries that you want to run against the index. Use these
+examples to help you decide which table columns to index.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingindexes.html">Creating indexes</a></span><br />
+Use Netcool/OMNIbus Administrator to
+create indexes on columns of database tables.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_viewingindexselectivity.html">Viewing the selectivity of indexes</a></span><br />
+You can check the selectivity of an index on an indexed
+table or a table that is yet to be indexed.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_deletingindexes.html">Deleting indexes</a></span><br />
+If an index is no longer required, delete it from the catalog.indexes
+table.</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringdatabases.html" title="Database configuration involves the creation and maintenance of database tables, and columns within the tables.">Configuring databases</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_per_indexingguidelines.html" title="Indexing can affect the performance of your SQL queries. Without indexing, a full database table scan is typically performed when an SQL query runs. Use indexing to limit the number of rows that are examined.">Indexing guidelines</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

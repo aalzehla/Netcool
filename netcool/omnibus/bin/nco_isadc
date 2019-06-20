@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2013. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# nco_isadc script - IBM support assistant data collector
+#
+# 5.50.20
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+#
+# Check nco_common found the JRE
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+JAVA_HOME="$NCO_JRE_64_32"
+export JAVA_HOME
+
+#
+# Run the ISA DC
+#
+USEHOME='-useHome'
+exec sh "$NCHOME/omnibus/platform/$ARCH/isadc/isadc.sh" "$USEHOME" "$@"

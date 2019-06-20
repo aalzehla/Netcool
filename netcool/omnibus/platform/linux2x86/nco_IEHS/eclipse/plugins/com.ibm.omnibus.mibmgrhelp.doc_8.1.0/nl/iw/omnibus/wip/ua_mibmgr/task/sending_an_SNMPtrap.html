@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="הפקת לכידות SNMP‏" />
+<meta name="abstract" content="כיצד ליצור לכידות של SNMP. ניתן להשתמש בתיפקודיות זו גם לבדיקת קובצי כללים שהופקו באמצעות MIB Manager." />
+<meta name="description" content="כיצד ליצור לכידות של SNMP. ניתן להשתמש בתיפקודיות זו גם לבדיקת קובצי כללים שהופקו באמצעות MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">הפקת לכידות SNMP‏</h1>
+<div class="body taskbody"><p class="shortdesc">כיצד ליצור לכידות של SNMP. ניתן להשתמש בתיפקודיות זו גם לבדיקת קובצי כללים שהופקו באמצעות MIB Manager.</p>
+<p class="li stepsection">כדי להפיק לכידה של SNMP:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">לחצו על <img class="image" src="../gifs/trap.gif" alt="איקון לכידה" /> <span class="ph uicontrol">לכידה</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">כתובת יעד</span>,
+ציינו את שם המארח או את כתובת ה-IP של המחשב המריץ שירות של SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">יציאת יעד</span>, ציינו את יציאת ה-UDP שבה מאזין השירות SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">קהילה</span>, ציינו מחרוזת חוקית עבור המנהל של Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בהתאם לסוג הלכידה שאתם מפיקים, ייתכן שיופיע מקטע מסוג <span class="ph uicontrol">איגודים של משתנים</span> בחלון <span class="keyword wintitle">הפקת לכידה של SNMP</span>. השדות הזמינים במקטע <span class="ph uicontrol">איגודים של משתנים</span> אף הם תלויים בסוג הלכידה המופקת.</span> <p class="p">הזיזו את העכבר מעל לשמות השדות של <span class="ph uicontrol">איגודים של משתנים</span> לקבלת פרטים אודות תחביר הערכים של השדה. תוכלו לציין ערכים מרובים המופרדים באמצעות פסיקים. ערכים אלה ייבחרו באופן אקראי לבניית הלכידה.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">מדידה לחזרה</span>, ציינו את מספר הלכידות (מ-1 עד 1000) שניתן להפיק.</span> <p class="p">אם תציינו מספר גדול, הלכידות יופקו בקצב מהיר ומצב זה עלול להוביל לסופת התרעות במנהל של Trapd. עבור ערכים גדולים מאחד (&gt; 1), ועבור ערכים המצוינים בתור רשימות המופרדות באמצעות תווי נקודה ופסיק, MIB Manager בוחר באופן אקראי מהרשימות שצוינו ויוצר לכידות עם ערכים שרירותיים המוצגים בתור פריטי varbind.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">לחצו על <span class="ph uicontrol">ביצוע</span> כדי להפיק את הלכידה.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">תוצאות</h2></div>השדה <span class="ph uicontrol">תוצאה</span> בחלון <span class="keyword wintitle">הפקת לכידה של SNMP</span> יציין אם הלכידה נשלחה בהצלחה.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool.">שימוש ב-MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

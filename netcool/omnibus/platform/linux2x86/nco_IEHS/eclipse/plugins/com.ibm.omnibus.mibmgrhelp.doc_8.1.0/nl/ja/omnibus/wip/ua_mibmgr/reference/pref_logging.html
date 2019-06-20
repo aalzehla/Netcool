@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="ロギング設定のセットアップ" />
+<meta name="abstract" content="ロギング設定を使用して、MIB マネージャーのログ・ファイル・ディレクトリー を指定するとともに、デフォルトのメッセージ・レベルを設定します。" />
+<meta name="Description" content="ロギング設定を使用して、MIB マネージャーのログ・ファイル・ディレクトリー を指定するとともに、デフォルトのメッセージ・レベルを設定します。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/setting_the_logging_level.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="pref_logging" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB マネージャー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="pref_logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ロギング設定のセットアップ</h1>
+<div class="body refbody"><p class="shortdesc">ロギング設定を使用して、<span class="keyword">MIB マネージャー</span>のログ・ファイル・ディレクトリー
+を指定するとともに、デフォルトのメッセージ・レベルを設定します。</p>
+<div class="section"><p class="p">ディレクトリー設定をセットアップするには、<img class="image" src="../gifs/global_preferences.gif" alt="設定アイコン" /> <span class="ph uicontrol">「設定」</span>をクリックするか、メインメニューから、
+<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「設定」</span></span>をクリックして、<span class="keyword wintitle">「設定」</span>ウィンドウの左側のペインから
+<span class="ph uicontrol">「ロギング」</span>をクリックします。</p>
+</div>
+<div class="section"><ul class="ul"><li class="li"><span class="ph uicontrol">「ログ・ディレクトリー」</span>フィールドに、アプリケーション・ログ・ファイルが
+書き込まれる場所を指定します。デフォルトの場所は <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span> です。</li>
+<li class="li"><span class="ph uicontrol">「デフォルト・メッセージ・レベル」</span>フィールドに、アプリケーションの
+デフォルトのメッセージ・レベルを指定します。<span class="ph uicontrol">「編集」</span>メニューを使用して、
+デフォルトのメッセージ・ロギング・レベルを変更することもできます。<span class="ph uicontrol">「編集」</span>メニューを使用してメッセージ・レベルを
+変更する場合を除いて、メッセージ・レベルは、アプリケーションが
+最初に始動されてからシャットダウンされるまで有効です。<div class="note note"><span class="notetitle">注:</span> <span class="ph uicontrol">「
+デフォルト・メッセージ・レベル」</span>フィールドでメッセージ・レベルを
+変更しても、アプリケーションの現在のメッセージ・レベルは変更されません。これによって影響を受けるのは、
+アプリケーションの初回起動時に最初に設定されたメッセージ・レベル (デフォルト・メッセージ・レベル) のみ
+です。大容量のログ・ファイルが生成されないようにするには、
+デフォルトのメッセージ・レベルを<kbd class="ph userinput">「警告」</kbd>に設定します。</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/setting_the_logging_level.html">ロギング・レベルの設定</a></span><br />
+ロギング・レベルを変更することで、より詳細なログやトレース・ファイルを
+提供して、<span class="keyword">MIB マネージャー</span>のデバッグに役立てることができます。ロギング・レベル
+を上げることで提供される追加情報は、MIB 解析時の特定の問題をデバッグする際に
+役立ちます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="MIB マネージャーのグローバル設定のいくつかは、 「設定」ウィンドウから構成できます。">グローバル設定の構成</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

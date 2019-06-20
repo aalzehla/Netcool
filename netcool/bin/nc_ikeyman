@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2008. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# nc_ikeyman - Start GSKit Ikeyman
+#
+#######################################
+
+#######################################
+# MAIN
+#######################################
+
+
+NCCI_JRE=jre_1.5.6/jre
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+
+if [ "$NCHOME" = ""  ]
+then
+	echo "Cannot find your NCHOME environment"
+	exit 1
+fi
+
+
+#
+# Locate JRE
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	if [ -x "$NCHOME/platform/$ARCH/$NCCI_JRE/bin/java" ]
+	then
+		NCO_JRE_64_32="$NCHOME/platform/$ARCH/$NCCI_JRE"
+	else
+		echo "Cannot find your Java environment"
+		echo "$NCHOME/platform/$ARCH/$NCCI_JRE"
+		exit 1
+	fi
+fi
+
+# GSKit uses JAVA_HOME as its JRE
+JAVA_HOME=$NCO_JRE_64_32
+export JAVA_HOME
+
+# Switch to keys directory if it's there, as Ikeyman defaults to using its
+# "current" directory to load the keystore.
+KEYS_DIR="${NCHOME}/etc/security/keys"
+if [ -d "$KEYS_DIR" ]
+then
+	cd $KEYS_DIR
+fi
+
+# Ensure the correct JVM is used.
+PATH="${JAVA_HOME}/bin:${PATH}"
+export PATH
+exec "${JAVA_HOME}/bin/ikeyman" "$@"

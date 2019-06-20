@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool MIB Manager" />
+<meta name="abstract" content="A Netcool MIB Manager egy IBM Eclipse alapú grafikus felületi alkalmazás, amely az Egyszerű hálózatkezelési protokoll (SNMP) felügyeleti információs alapfájlok (MIB) értelmezéséhez használhat, amelyekből Netcool szabályfájlokat állathat elő. A mib2rules segédprogram helyettesítőjének szánták." />
+<meta name="Description" content="A Netcool MIB Manager egy IBM Eclipse alapú grafikus felületi alkalmazás, amely az Egyszerű hálózatkezelési protokoll (SNMP) felügyeleti információs alapfájlok (MIB) értelmezéséhez használhat, amelyekből Netcool szabályfájlokat állathat elő. A mib2rules segédprogram helyettesítőjének szánták." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="the_mib_manager" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<title>A MIB Manager SNMP MIB fájlokat értelmez és szabályfájlokat állít elő. Ez váltja le a mib2rules segédprogramot.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="the_mib_manager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc">A <span class="keyword">Netcool MIB Manager</span> egy IBM® Eclipse alapú
+grafikus felületi alkalmazás, amely az Egyszerű hálózatkezelési protokoll (SNMP)
+felügyeleti információs alapfájlok (MIB) értelmezéséhez használhat, amelyekből
+Netcool szabályfájlokat állathat elő. A
+<span class="keyword cmdname">mib2rules</span> segédprogram helyettesítőjének szánták.</p>
+<div class="section"><p class="p">A <span class="keyword">Tivoli
+Netcool/OMNIbus</span>
+a <span class="keyword">Netcool MIB Manager</span> parancssori segédprogramot (<span class="keyword cmdname">nco_mibmanager_batch</span>) is tartalmazza,
+amely segítségével kiadhatja a parancsokat kézzel vagy programozással.</p>
+<div class="p">A <span class="keyword">Netcool MIB Manager</span> az alábbi
+szolgáltatásokat biztosítja: <ul class="ul"><li class="li">Az objektumazonosító (OID) fa összeállításához importálja az
+SNMP MIB fájlokat és feloldja a MIB függőségeket.</li>
+<li class="li">Az összes vagy néhány importált SNMP objektumot Netcool szabályfájlokba
+és más fájlformátumokba exportálja.</li>
+<li class="li">Tartalmazza azokat a MIB fájlokat és RFC MIB fájlokat, amelyeket a többi
+MIB fájl a leggyakrabban igényel.</li>
+<li class="li">Eszközmeghatározásokat tartalmaz az importált MIB modulok eszközcentrikus
+csoportosításának lehetővé tételéhez.</li>
+<li class="li">A MIB modulokat és az OID fát objektumnév vagy OID alapján
+képes szűrni és keresni.</li>
+<li class="li">Az SNMP vizsgálónak (<span class="ph filepath">nco_p_mttrapd</span>) vagy más SNMP
+ügynököknek küldendő SNMP trapeket állítja elő.</li>
+<li class="li">Rendelkezik egy olyan parancssori felülettel, amelyet a MIB
+adatok importálására és a szabályfájlok exportálására használhat. A parancsokat kiadhatja kézzel vagy meghívhatja
+őket programozással.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html">MIB Manager indítása</a></span><br />
+Indítsa el a <span class="keyword">MIB Manager</span> grafikus felületet a parancssorból. Nem úgy
+tervezték, hogy folyamatvezérlés alatt vagy Windows szolgáltatásként fusson.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html">Netcool MIB Manager használata</a></span><br />
+A <span class="keyword">MIB Manager</span> eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html">Globális beállítások megadása</a></span><br />
+Több <span class="keyword">MIB Manager</span> globális beállítást is megadhat a <span class="keyword wintitle">Beállítások</span> ablakban.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html">SNMP bemutatása</a></span><br />
+Ez a szakasz kiegészítő információkat nyújt az Egyszerű
+hálózatkezelési protokoll (SNMP) architektúráról, az SNMP management
+information base (MIB) alkalmazásról és néhány további MIB fogalomról.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

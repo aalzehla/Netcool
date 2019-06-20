@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="יצוא נתונים של MIB" />
+<meta name="abstract" content="כיצד לייצא נתונים של SNMP MIB data מ-MIB Manager למגוון תבניות." />
+<meta name="description" content="כיצד לייצא נתונים של SNMP MIB data מ-MIB Manager למגוון תבניות." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_exportdata" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>יצוא נתונים של MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_exportdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">יצוא נתונים של MIB</h1>
+<div class="body taskbody"><p class="shortdesc">כיצד לייצא נתונים של SNMP MIB data מ-MIB Manager למגוון תבניות.</p>
+<p class="li stepsection">כדי לייצא נתוני MIB:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">לחצו על <img class="image" src="../gifs/export.gif" alt="איקון של יצוא MIB" /> <span class="ph uicontrol">יצוא</span> ולחילופין, מהתפריט,
+לחצו על <span class="ph menucascade"><span class="ph uicontrol">קובץ</span> &gt; <span class="ph uicontrol">יצוא</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">מדריך</span>, ציינו את מדריך היעד עבור הקבצים שיוצאו.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">סוג קובץ</span>, ציינו את סוג הקובץ של הקבצים שיוצאו.</span> <p class="p">יש להשתמש בסוג Netcool Knowledge Library‏ (NCKL) מתי שניתן, מאחר שכללי ה-NCKL מבוססים על התיפקודיות של ההתקן. בעת השימוש ב-NCKL, עליכם לציין את סוג הקובץ <span class="ph uicontrol">Netcool Knowledge Library מהדורה
+3.x</span>. פעולה זו תאפשר להוסיף את הקבצים המופקים להתקנות קיימות של Netcool Include Library.</p>
+
+<p class="p">האפשרות שלהלן זמינות מהרשימה הנפתחת <span class="ph uicontrol">סוג קובץ</span>:</p>
+
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="right" id="d28575e55-option">סוג קובץ</th>
+<th valign="bottom" align="right" id="d28575e55-desc">תיאור</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e62" class="stentry choption"><strong>CSV</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e62" class="stentry chdesc">בחרו באפשרות זו כדי לציין שכל נתוני האובייקטים נטענים לקובצי CSV, כך שניתן יהיה להציג אותם באמצעות יישום של גיליון אלקטרוני.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e67" class="stentry choption"><strong>אובייקטי לכידה של CSV</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e67" class="stentry chdesc">בחרו באפשרות זו כדי לציין שכל נתוני הלכידות ונתוני האובייקטים של איגודי המשתנים המשויכים נטענים לקובץ CSV יחיד, כך שיהיה ניתן להציג אותם באמצעות יישום של גיליון אלקטרוני.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e72" class="stentry choption"><strong>HTML עם מסגרות</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e72" class="stentry chdesc">בחרו באפשרות זו כדי ליצור דף אינטרנט המתאים לפרסום. <p class="p">התצוגה של עץ ה-MIB שנבחר מוצגת בצדו השמאלי של דף האינטרנט המופק. ניתן לנווט בתצוגה של עץ ה-MIB על-ידי הרחבה וצמצום של הצמתים בעץ ה-MIB. בעת בחירת מרכיב מעץ ה-MIB, המידע המשויך אליו מוצג בצדו הימני של דף האינטרנט.</p>
+<p class="p">מבנה זה יכול ליצור לעיתים קרובות מספר גדול של קובצי יצוא, שכל אחד מהם מכיל קובץ HTML עבור כל אובייקט בעץ ה-MIB. ניתן לדחוס את מדריך היעד ולמקם אותו תחת כל שרת אינטרנט, או שניתן להציג את הדפים ישירות מהדיסק על-ידי פתיחת הקובץ <span class="ph filepath">index.html</span> שנוצר במדריך הייצוא.</p>
+<p class="p">אם ברצונכם להשתמש בקובצי
+HTML נפרדים עם דפדפן אינטרנט, ייצאו אל <span class="ph uicontrol">HTML עם מסגרות</span> ולאחר מכן השתמשו בקבצים שבתת-מדריך <span class="ph filepath">data</span> הממוקם תחת מדריך הייצוא.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e92" class="stentry choption"><strong>HTML ללא מסגרות</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e92" class="stentry chdesc">בחרו באפשרות זו כדי ליצור קובץ יחיד בשם <span class="ph filepath">oids.html</span>.
+קובץ זה יכיל רשימה של כל האובייקטים שנבחרו להפקת פלט,
+כאשר כל אחד מהם מופרד על-ידי כללים אופקיים (באמצעות התווית &lt;HR&gt;). כל OID
+תחום בתווית עוגן כך שבעת טעינתו הדפדפן יגלול כלפי מפה באופן אוטומטי לכל OID שכולל סמל של סולמית (#) ב-URL, לדוגמה: <span class="ph filepath">file:c:/oids.html#1.3.6.1.4.1.9</span>.<p class="p">הנפח של קובץ זה עשוי לגדול מאוד אם אתם מייצאים מספר רב של אובייקטים. לכן, יש להשתמש בתבנית זו כדי לייצוא מספר קטן של לכידות בלבד.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e105" class="stentry choption"><strong>טבלת בדיקת מידע של Netcool</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e105" class="stentry chdesc">בחרו באפשרות זו כדי להפיק פלט של כל הערכים שצוינו ברשימה עם לשוניות, כאשר רכיבי ה-OIDs מוצגים בעמודה השמאלית ושמות האובייקטים מוצגים בעמודה הימנית. ניתן לכלול פריט זה בכל קובץ של כללים.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e110" class="stentry choption"><strong>Netcool Include Library</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e110" class="stentry chdesc">בחרו באפשרות זו כדי ליצור קובצי הכללה נפרדים לכל ארגון, וכדי להפיק קובץ יחיד עבור הלכידות הגנריות (כלומר, לכל הלכידות שאינן ממוקמות מתחת לתת-עץ של הארגון).
+ההנחה היא שקובצי ההכללה מתווספים לקובצי <span class="ph filepath">snmp.rules</span> קיימים אשר נוצרו קודם לכן על-ידי MIB Manager או שנוצרו על-ידי Netcool Include Library‏ (NCIL).</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e118" class="stentry choption"><strong>Netcool Knowledge Library מהדורה 1.1</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e118" class="stentry chdesc">בחרו באפשרות זו כדי להפיק פלט של קבצים מ-MIB Manager. הקבצים ייכללו ביישום קיים של Netcool Knowledge Library.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e123" class="stentry choption"><strong>Netcool Knowledge Library מהדורה 3.x</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e123" class="stentry chdesc">בחרו באפשרות זו כדי להפיק פלט של קבצים מ-MIB Manager. הקבצים ייכללו ביישום קיים של Netcool Knowledge Library.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e128" class="stentry choption"><strong>כללים עצמאיים</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e128" class="stentry chdesc">בחרו באפשרות זו כדי ליצור קובץ כללים יחיד המכיל את כל הלכידות שנבחרו. ניתן לציין קובץ זה בקובץ Properties של כל בדיקת לכידה של IBM Tivoli Netcool/OMNIbus SNMP trap probe.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e133" class="stentry choption"><strong>קובצי תמליל נפרדים</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e133" class="stentry chdesc">התבנית 'קובצי תמליל נפרדים' משמשת עבור תפריט הלחיצה הימנית של רשימת האירועים של Netcool.<p class="p">כאשר אתם מייצאים לקובצי תמליל נפרדים, הפלט של כל OID נוצר כקובץ תמליל נפרד, לדוגמה <span class="ph filepath">1.3.6.1.4.1.9.1.1.txt</span>.
+לאחר מכן, ניתן להוסיף כלי חיצוני לתפריט הלחיצה הימנית המשתמש ב-<span class="ph filepath">nco_message</span> להצגת כל מידע האובייקטים עבור האירוע שצוין עבורו OID בשדה, לדוגמה: <samp class="ph codeph">cat 1.3.6.1.4.1.9.1.txt |nco_message
+stdin title "trap info"</samp>.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d28575e55-option" id="d28575e150" class="stentry choption"><strong>Tivoli Universal Agent</strong></td>
+<td valign="top" headers="d28575e55-desc d28575e150" class="stentry chdesc">התבנית של Tivoli Universal Agent מייצאת קבצים מסוג <span class="ph filepath">.mdl</span> ו-<span class="ph filepath">trapcnfg</span> בהתאם לתוכן שנבחר.<div class="p">ניתן לבחור בתת-עצים מרובים בעת בחירה בתבנית זו לייצוא קבצים. אם בוחרים בתת-עצים מרובים, קבצים מסוג <span class="ph filepath">.mdl</span> ו-<span class="ph filepath">trapcnfg</span> נוצרים עבור כל האובייקטים הממוקמים מתחת לפריט שנבחר בעץ ה-MIB. <div class="note note"><span class="notetitle">הערה:</span> שלוש האותיות הראשונות בשם היישום, המופיעות אחרי התווית ‎//APPL בקובץ <span class="ph filepath">.mdl</span> חייבות להיות ייחודיות בתוך הארגון. MIB Manager מנסה לעמוד בדרישה, זו אך הוא אינו יכול לדעת אודות סוכנים אחרים פעילים אחרים. ייתכן שיהיו עליכם לשנות את קובץ  ה-<span class="ph filepath">.mdl</span> כדי להבטיח ששם היישום ייחודי בארגון.</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">היקף</span>, השתמשו ברשימה הנפתחת כדי לציין אם על MIB Manager להפיק פלט עבור לכידות בלבד, אובייקטים בלבד, או עבור כל רכיבי ה-OID.</span> <p class="p">האפשרויות הזמינות תלויות בסוג הקובץ שאותו אתם מייצאים.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">כדי להגביל את מספר האובייקטים הכלולים בקובץ המופק, בחרו בתיבת הסימון <span class="ph uicontrol">תת-עצים נבחרים בלבד</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">לחצו על <span class="ph uicontrol">יצוא</span> כדי לייצא את הקבצים למדריך היעד.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool.">שימוש ב-MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>תיעוד קשור</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" title="מקטע זה מתאר כיצד להגדיר את העדפות הייצוא של קובצי כללים.">הגדרת העדפות יצוא</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

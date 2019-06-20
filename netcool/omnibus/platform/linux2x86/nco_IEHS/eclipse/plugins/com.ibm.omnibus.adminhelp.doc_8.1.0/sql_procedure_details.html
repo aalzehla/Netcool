@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="SQL Procedure Details" />
+<meta name="abstract" content="Use this window to set up a new SQL procedure or edit an existing SQL procedure." />
+<meta name="Description" content="Use this window to set up a new SQL procedure or edit an existing SQL procedure." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditsqlproc.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_examplesqlproc.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_ref_sqlcmdsvariableexp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_sqlproceduredetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>SQL Procedure Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_sqlproceduredetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SQL Procedure Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new SQL procedure or edit an existing
+SQL procedure.</p>
+<div class="section"><div class="p">Complete this window as follows:<dl class="dl" id="netom_sqlproceduredetailswindow__netom_sqlproceduredetailsfields"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the procedure. If you are editing a procedure,
+you cannot change the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Parameters</dt>
+<dd class="dd">This area displays the parameters that have been created for passing into
+and out of the procedure.</dd>
+<dd class="dd">You can use the up and down arrows to the right of the list box to change
+the order of any selected parameter. You can also click <span class="ph uicontrol">Remove
+parameter</span> to the right of the list box to remove any selected
+parameter from the list. </dd>
+<dd class="dd">To create a parameter, use the <span class="ph uicontrol">In/Out</span>, <span class="ph uicontrol">Name</span>,
+and <span class="ph uicontrol">Data Type</span> fields, the <span class="ph uicontrol">Array</span> check
+box (if necessary), and the <span class="ph uicontrol">Add parameter to the list </span> button.<dl class="dl"><dt class="dt dlterm">In/Out </dt>
+<dd class="dd">Select a mode for the parameter being created. Each procedure parameter
+has a mode, which can be <span class="ph uicontrol">in</span>, <span class="ph uicontrol">out</span>,
+or <span class="ph uicontrol">in out</span>. Depending on the mode you choose for your
+parameters, you can use them in different ways. </dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a name for the parameter being created. Parameter names must be unique
+within the procedure. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Data Type</dt>
+<dd class="dd">Select the type of data that the parameter can pass into or out of the
+procedure. The data type can be any valid ObjectServer data type except VARCHAR
+or INCR. </dd>
+<dt class="dt dlterm">Array</dt>
+<dd class="dd">If you selected the <span class="ph uicontrol">in</span> mode from the <span class="ph uicontrol">In/Out</span> drop-down
+list, you can select this check box to pass an array of the selected data
+type into the procedure.</dd>
+<dt class="dt dlterm">Add parameter to the list</dt>
+<dd class="dd">After completing the <span class="ph uicontrol">In/Out</span>, <span class="ph uicontrol">Name</span>,
+and <span class="ph uicontrol">Data Type</span> fields, and the optional <span class="ph uicontrol">Array</span> check
+box, click this button to add the parameter to the parameter list.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Actions</dt>
+<dd class="dd">Type the SQL commands for this procedure. The body of a procedure contains
+a set of SQL commands and programming constructs that manipulate data in the
+ObjectServer. The body of a procedure is enclosed within the keywords BEGIN
+and END. Each statement, except the last one, must be separated by a semi-colon
+(;).</dd>
+<dd class="dd">You can optionally define (declare) local variables for use within a procedure.
+A local variable is a placeholder for values used during the execution of
+the procedure. Local variable declarations within a procedure must be separated
+by semi-colons (;).</dd>
+<dd class="dd">You can use the SQL helper buttons shown to the right of the SQL editor
+panel to construct the SQL commands.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_sqlproceduredetailswindow__netom_sqlproceduredetails_saving_closing"><h2 class="title sectiontitle">Saving your
+SQL procedure</h2><div class="p">After creating or editing an SQL procedure, you can
+save or cancel the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_sqlproceduredetailswindow__netom_sqlproceduredetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the SQL procedure and close the window. New
+SQL procedures are added to the <span class="keyword wintitle">Procedures</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingeditsqlproc.html" title="SQL procedures have the following major components: parameters, local variable declarations, and the procedure body.">Creating and editing SQL procedures</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_examplesqlproc.html" title="This example SQL procedure generates a report on the total number of alerts received (and deduplicated) for a given node.">Example: SQL procedure</a></div>
+<div><a class="link" href="omn_ref_sqlcmdsvariableexp.html" title="You can use a number of SQL commands, variable expressions, and helper buttons to retrieve information from a running event list, the current event, or the operating system environment. You can use these expressions when creating a tool, trigger, or SQL procedure, or in parameters passed to a transient event list.">SQL commands, variable expressions, and helper buttons in tools, automations, and transient event lists</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

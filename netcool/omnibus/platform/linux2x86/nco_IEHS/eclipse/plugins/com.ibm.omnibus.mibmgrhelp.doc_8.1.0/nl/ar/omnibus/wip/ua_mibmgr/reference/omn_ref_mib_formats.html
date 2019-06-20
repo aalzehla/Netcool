@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="نسق عناصر MIB الصحيحة" />
+<meta name="abstract" content="يوضح هذا الموضوع نسق عناصر MIB الصحيحة." />
+<meta name="Description" content="يوضح هذا الموضوع نسق عناصر MIB الصحيحة." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_formats" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>نسق عناصر MIB الصحيحة</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_formats">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">نسق عناصر MIB الصحيحة</h1>
+<div class="body refbody"><p class="shortdesc">يوضح هذا الموضوع نسق عناصر MIB الصحيحة.</p>
+<div class="section"><p class="p">توضح الأقسام التالية نسق عنصر SNMP MIB الصحيحة.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL-CONVENTION</h2><p class="p">v2 TEXTUAL-CONVENTION
+(TC) يكون بالصيغة التالية، حيث يكون اسم العنصر متبوعا بواسطة الادخال <samp class="ph codeph">::=</samp> ثم <samp class="ph codeph">TEXTUAL-CONVENTION</samp>.
+يتبع ذلك عدة أقسام يتم الحاقها مع تعريف SYNTAX.</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION 
+DISPLAY-HINT "255a" 
+STATUS current 
+DESCRIPTION "يمثل المعلومات النصية المأخوذة عن مجموعة حروف NVT SCII، كما هو معرف فى الصفحات 4، 10-11 من RFC 854. لتلخيص RFC 854، مجموعة تعليمات NVT ASCII تحدد: - استخدام أكواد الحروف 0-127 (عشرية) - حروف البيانيات (32-126) تترجم كما US ASCII - NUL و LF و CR و BEL و BS و HT و VT و FF لديها المعانى الخاصة المحددة فى RFC 854 - الأكواد 25 الأخرى ليس لديها ترجمة قياسية - يعني التسلسل 'CR LF' سطر جديد - والتسلسل 'CR NUL' يعني علامة ادخال - ويعني 'LF' الذي لا يسبقه 'CR' النقل الى نفس العمود في السطر التالي. - التسلسل 'CR x' لأي x خلاف LF أو NUL غير مسموح به. (يجب ملاحظة أن هذا يعني أيضا أن مجموعة الحروف يمكن أن تنتهي بأي من 'CR LF' أو 'CR NUL'، ولكن بدون CR.) أي عنصر تم تعريفه باستخدام هذه الصيغة قد لا يتعدى  طوله 255 حرفا." 
+SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+</div>
+<p class="p">يتكون v1 TC من اسم عنصر متبوع بواسطة الادخال  <samp class="ph codeph">::=</samp>، ثم يتم الحاقه مع تعريف SYNTAX صحيح. على سبيل المثال:</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= OCTET STRING</code></pre>
+</div>
+<p class="p">كلا من العنصرين يوجد خارج تسلسل MIB ولذلك لا تعد عناصر في MIB. حيث تمثل نسق لما يمكن أن يتم تعريف الصيغة اليه.
+لا تحتوي على أي OID. يمكنك مشاهدتهم في مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span>، في مرشح بيانات منفصل، بالضغط على الكشف المسقط <span class="ph uicontrol">مشاهدة</span> وتحديد <span class="ph uicontrol">مفاهيم-نصية</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">عناصر TRAP-TYPE</h2><p class="p">يكون العنصر TRAP-TYPE صحيحا بالنسبة الى v1 MIBs. لم يتم تعريف هذه العناصر في الأصل لكي تناسب تسلسل MIB. لا تحتوي على OID لكن تحتوي على كود المشروع ورقم ملف تعقب المشاكل، على سبيل المثال:</p>
+<div class="p"><pre class="pre codeblock"><code>newRoot TRAP-TYPE 
+ENTERPRISE dot1dBridge 
+DESCRIPTION "تشير الصفحة الشرطية الجديدة newRoot الى أن الأداة البرمجية القائمة بالارسال قد أصبحت هى الدليل الرئيسي الجديد
+من التسلسل الممتد؛ يتم ارسال الصفحة الشرطية بواسطة bridge بمجرد اختيارها كالدليل الرئيسى الجديد، على سبيل المثال، عند انتهاء محدد وقت تغيير توصيف الشكل العام تماما بعد اختيارها."
+::= 1</code></pre>
+</div>
+<p class="p">يبدأ ملف تعقب المشاكل v1 ذو اسم عنصر متبوع بالكلمة المرشدة <samp class="ph codeph">TRAP-TYPE</samp>. متبوعا بعدد من الأقسام وينتهي بالادخال <samp class="ph codeph">::=</samp> ورقم. لم يتم استخدام الأقواس المموجة ({}) مطلقا قبل أو بعد الرقم.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">عناصر MACRO</h2><p class="p">يقوم عنصر MACRO بتعريف النسق الخاص بعناصر MIB الأخرى. تبدأ تعريفات MACRO دائما بنوع العنصر، متبوعا بالكلمة المرشدة <samp class="ph codeph">MACRO</samp>، ثم الادخال <samp class="ph codeph">::=</samp>. يتم تضمين باقي تعريف الأمر المركب بين شارات التعليم <samp class="ph codeph">BEGIN</samp> و <samp class="ph codeph">END</samp>، على سبيل المثال:</p>
+<div class="p"><pre class="pre codeblock"><code>OBJECT-TYPE MACRO ::= 
+BEGIN 
+TYPE NOTATION ::= "SYNTAX" 
+type (TYPE ObjectSyntax) "ACCESS" Access "STATUS" Status VALUE NOTATION ::= value 
+(VALUE ObjectName) Access ::= "read-only" | "read-write" | "write-only" | "not-accessible" 
+Status ::= "mandatory" | "optional" | "obsolete" 
+END</code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">العناصر الأخرى</h2><div class="p">يجب أن تتبع كل العناصر الأخرى النسق التالي:<pre class="pre codeblock"><code>snmpInPkts OBJECT-TYPE SYNTAX Counter ACCESS read-only STATUS mandatory DESCRIPTION "اجمالي عدد الرسائل التي يتم توزيعها الى SNMP من خدمة النقل." ::= { snmp 1 }</code></pre>
+</div>
+<p class="p">تبدأ هذه العناصر باسم العنصر، والذي يجب أن يبدأ بحرف أبجدي سفلي.
+يتبع ذلك بواسطة كلمة مرشدة تشير الى نوع العنصر. أية أقسام اضافية تتبع الكلمة المرشدة، و الادخال <samp class="ph codeph">::=</samp>، وكشف العناصر الفرعية بين أقواس مموجة ({}) تكمل النسق.
+يمكن أن يكون للعناصر السابقة التي توجد داخل الأقواس المموجة ({})
+أي من النسقين.
+في الأول (الموضح بأعلى)، يكون النسق عبارة عن اسم عنصر متبوع برقم. يكون اسم العنصر هو اسم العنصر الرئيسي المباشر لهذه العناصر والرقم هو عدد التفرعات لهذا العنصر بالنسبة للعنصر الرئيسي.</p>
+<div class="p">النسق الصحيح الثاني لكشف العناصر السابقة هو كشف بكل العناصر السابقة حتى عنصر معروف، على سبيل المثال:<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } </code></pre>
+</div>
+<p class="p">في هذا المثال، يبدأ الكشف بعنصر معروف (<samp class="ph codeph">iso</samp> يعد الدليل الرئيسي للتسلسل) ويستمر لتعريف أسماء العناصر وأرقام العناصر الفرعية لكل عملية تكوين متتالية، <samp class="ph codeph">org(3)</samp> و <samp class="ph codeph">dod(6)</samp>، حتى الرقم الصحيح المنفرد النهائي (<samp class="ph codeph">1</samp>) الي يشير الى رقم العنصر. يجب ملاحظة أن لا يجب اضافة مسافات بين أسماء العناصر وأرقام العناصر.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="يقدم هذا القسم معلومات اضافية عن أسلوب بناء Simple Network Management Protocol (SNMP)، و management information base (MIB) الى SNMP وبعض مفاهيم MIB الاضافية.">نبذة عن SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

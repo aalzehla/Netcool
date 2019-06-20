@@ -1,0 +1,360 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+enableJsonLog = true;
+Handle com.micromuse.common.datasource.SQLDataSourceException {
+   log(0,"sql excpetion encountered : " + ErrorMessage );
+   setGlobalVar('EXCEPTION_RAISED',true);
+   setGlobalVar('EXCEPTION_ERROR_MESSAGE',ErrorMessage);
+}
+
+//
+// syntax error in regular expressions.
+//
+Handle java.io.IOException {
+   log(0,"IO Exception encountered : Syntax issue with the regular expression");
+   setGlobalVar('EXCEPTION_RAISED',true);
+}
+
+//
+// Syntax Error in the regular expression.
+//
+
+Handle org.apache.oro.text.regex.MalformedPatternException {
+   log(0,"IO Exception encountered : Syntax issue with the regular expression");
+   setGlobalVar('EXCEPTION_RAISED',true);
+}
+
+
+function showEvents(resp, query,results,errMsg) {
+   log(1,'Method Entry  : ' + showEvents);
+   eventdatatype=getglobalvar('EVENT_DATATYPE');
+   log(3,'Event Datatype : ' + eventdatatype);
+   filter = query;
+   EIC_utils.unescapeHTMLCharacters(filter,escapedfilter);
+   //filter = Replace(filter,"&#39;","'");
+   log("filter is " + filter);
+ 
+   GetByFilter(eventdatatype,filter,false);
+   exceptionRaised = getGlobalVar('EXCEPTION_RAISED');
+   log(3,"Exception Raised" + exceptionRaised);
+   if( exceptionRaised = false ) {
+      if ( Num > 0 ) {
+         identifier="Identifier";
+         EIC_utils.convertToJSONStr(DataItems,identifier,outString);
+         resp = outString;
+         results=DataItems;
+      }else {
+         // Create an empty response String
+         newArray = {};
+         identifier="Identifier";
+         EIC_utils.convertToJSONStr(newArray,identifier,outString);
+         resp = outString;
+         results={};
+      }   
+   } else {
+      log(1,"Setting Error Message");
+      errMsg = getGlobalVar('EXCEPTION_ERROR_MESSAGE') ;
+   }
+}
+
+
+function getValues(resp,param,exp,query,errMsg) {
+   log(1,"Inside getValues function");
+   keySet={};
+   keySet = keySet + "PrimaryTableColumn";
+   keySet=keySet+"regExpId";
+   keySet = keySet+"Condition";
+   keySet = keySet+"id";
+   keySet = keySet+"Substring";
+   keySet = keySet+"parmName";
+   EIC_utils.convertJsonToIPL(param,true,keySet,outputObj);
+   exceptionRaised = getGlobalVar('EXCEPTION_RAISED');
+   if(exceptionRaised = true ) {
+       em = 'Regular expression syntax is not correct. Please check the syntax';
+       em = em + ' Regular expression uses the REXTRACT function of IPL';
+       setGlobalVar('EXCEPTION_ERROR_MESSAGE',em);
+   }
+   if( query != null && exceptionRaised == false ) {
+      // query is available.
+      showEvents(resp,query, results,errMsg);
+      exceptionRaised = getGlobalVar('EXCEPTION_RAISED');
+      if( exceptionRaised = false ) {
+          // query succeded
+          // work on getting the values from regular Expression;
+          lenOfParam = length(outputObj);
+          count = 0;
+          while ( count < lenOfParam ) {
+              obj = outputObj[count];
+              fieldName = obj['PrimaryTableColumn'];
+              regularExp = obj['regExpId'];
+              inputStr = obj['regExpId'];
+              inStr = Replace(inputStr, "\\\\", "\\\\\\\\", 99);
+              obj['regExpId'] = inStr;
+              // fieldName = Replace(fieldName, '\[', '', 1);
+              // fieldName = Replace(fieldName, '\]', '', 1);
+              // regularExp = Replace(regularExp, '\[', '', 1);
+              // regularExp = Replace(regularExp, '\]', '', 1);
+              lenOfResults = length(results);
+              if( lenOfResults > 0 ) {
+                 if( lenOfResults > 1 ) {
+                   log(0,"More than one event matched picking the value from the first event");
+                 }
+                 res=results[0];
+                 dataFromQuery = res[fieldName];
+                 if( dataFromQuery != null ) {
+                     log(3,"Found the data from the query : " + dataFromQuery + "Reg Exp : " + regularExp );
+                     extractValue= Rextract(dataFromQuery, regularExp );
+                     exceptionRaised = getGlobalVar('EXCEPTION_RAISED');
+                     if( exceptionRaised == true ) {
+                       errMsg = "Regular Expression specified is not valid";
+                     }
+                     log(3,"Returned value : " + extractValue);
+                     obj['valueFromExpr'] = extractValue;
+                 } else { 
+                    log(3,"Data is not found for fieldName  : " + fieldName);
+                    errMsg = errMsg + " Data cannot be retreieved for the field : " + fieldName;
+                 }
+                 count = count + 1;
+              }
+          }
+         identifier="parmName";
+         EIC_utils.convertToJSONStr(outputObj,identifier,outString);
+         resp = outString;
+      } else {
+         log(3,"Setting Error Message");
+         errMsg = "Error in processing the request : " + errMsg ;
+      }
+   } else {
+      errMsg = "Error encountered during the process of request";
+      if(exceptionRaised = true ) {
+         errMsg = getGlobalVar('EXCEPTION_ERROR_MESSAGE');
+      } 
+      if ( query == null ) {
+         errMsg = "Primary Event query is not Set";
+      }
+   }
+}
+
+
+function deleteEventRule(rName) {
+  log(1,"Method entry : deleteEventRule " + rName);
+  filter = "RULENAME in '"+rName+"'";
+  eventRuleDTName = getGlobalVar('EVENTRULES_DATATYPE');
+  GetByFilter(eventRuleDTName, filter,false);
+  numOfERule = Num;
+  evtRulesDB = getGlobalVar('EVENTRULES_DB');
+  deleteParm=null;
+  deleteRule=null;
+  if( numOfERule >  0 ) {
+      id = DataItems[0].ID;
+      deleteParm = 'delete from EVENTRULES.PARAMETERS where EVENTIDENTIFIER = ' + id;
+      deleteRule = "delete from EVENTRULES.EVENTRULES where RULENAME in  '" + rName + "'";
+      deleteAction = "DELETE FROM EVENTRULES.EIC_ACTIONS WHERE RULENAME in ('" + rName + "')";
+      deleteResource = "DELETE FROM EVENTRULES.EIC_RULERESOURCE WHERE RULENAME = '" + rName + "'"; 
+  }
+
+  if( deleteParm != null ) {
+    log(0,"Deleting the Rules and Parameters");
+    DirectSQL(evtRulesDB,deleteParm,false);
+    DirectSQL(evtRulesDB,deleteRule,false);
+    DirectSQL(evtRulesDB,deleteAction,false); 
+    DirectSQL(evtRulesDB,deleteResource,false); 
+  }
+}
+
+
+function getEventRuleInformation(rName,oData,pList,actionsList) {
+   filter = "RULENAME in '"+rName+"'";
+   eventRuleDTName = getGlobalVar('EVENTRULES_DATATYPE');
+   paramDTName = getGlobalVar('PARAMETERS_DATATYPE');
+
+   // Since the Array structure is the interaction between the 
+   // UI and the policy creating a temporary array to hold one set of 
+   // data
+
+   rtnArray={};
+   // Get the Event Rules
+   GetByFilter(eventRuleDTName, filter,false);
+   numOfERule = Num;
+   if( numOfERule >  0 ) {
+      //
+      // If the number of Event Rules is greater than zero then create a temp
+      // obj
+      //
+      tempObj = NewObject();
+      log(3,"Found an Entry Obtain the parameters from the parameter table : " + DataItem);
+      log(3,"Context : " + CurrentContext());
+      id = DataItems[0].ID;
+     ruleName = DataItems[0].RULENAME;
+      tempObj["ruleName"] = DataItems[0].RULENAME;
+      tempObj["isPrimRootCause"] = false ;
+      if( DataItems[0].ISPRIMARYROOTCAUSE = 1 ) {
+         tempObj["isPrimRootCause"] = true;
+      }
+      tempObj["eventIdentifierField"] = DataItems[0].IDENTIFIER;
+      tempObj["relEventQuery"] = DataItems[0].RELATEDEVENTQUERY;
+      tempObj["inclDepResources"] = false;
+      if( DataItems[0].INCLUDEDEPRESOURCES = 1 ) {
+         tempObj["inclDepResources"] = true;
+      }
+      tempObj["evtRule"] = DataItems[0].EVENTRULE;
+      if( DataItems[0].TIMEWINDOWINSECONDS != null ) {
+        tempObj["timeInWindowSecs"] = DataItems[0].TIMEWINDOWINSECONDS;
+
+      } else {
+        //
+        // this should never happen
+        //
+        tempObj["timeInWindowSecs"] = 600;
+      }
+      paramFilter =  "EVENTIDENTIFIER = " + id;
+      log(3,"Parameter datatype name : " + paramDTName + " Filter : " + paramFilter);
+      GetByFilter(paramDTName,paramFilter,false);
+      arrayOfParameters = {};
+      if( Num > 0 ) {
+        log(3,"Parameters are identified adding parameter to the array");
+        i = 0;
+        while ( i < Num ) {
+           obj = NewObject();
+           obj['id'] = DataItems[i].ID;
+           obj['parmName'] = DataItems[i].PARAMETERNAME;
+           obj['Condition'] = DataItems[i].CONDITION;
+           obj['regExpId']  = DataItems[i].FIELDREGEXPRESSION;
+           //
+           // Replace a backslash which escapes a character with double backslash
+           // so that dojo can handle it.
+           //
+           inputStr = obj['regExpId'];
+           inStr = Replace(inputStr, "\\\\", "\\\\\\\\", 99);
+           log(3,"####################### inputStr : " + inStr);
+           obj['regExpId'] = inStr;
+           obj['PrimaryTableColumn'] = DataItems[i].OSFIELDNAME;
+           obj['Substring'] = true;
+           obj['valueFromExpr'] = '';
+           log(3,"Adding the Object : " + obj);
+           arrayOfParameters = arrayOfParameters + obj;
+           i=i+1;
+        }
+      }
+      identifier = 'parmName';
+      EIC_utils.convertToJSONStr(arrayOfParameters,identifier,outString);
+      pList = outString;
+ 
+      //Actions
+      Actions=DirectSQL('EventrulesDB',"SELECT * FROM EVENTRULES.EIC_ACTIONS WHERE RULENAME='" + rName + "'", null);
+      size = Length (Actions);
+      actionsList = {};
+     
+      if (size > 0 ) {
+        index = 0;
+        while (index < size) {
+          obj = NewObject();
+          obj['ActionName'] = Actions[index].ACTIONNAME;
+          obj['PolicyName'] = Actions[index].POLICYNAME;
+          obj['AutoExecute'] = Actions[index].AUTOEXECUTE;
+          actionsList = actionsList + {obj};
+          index = index + 1;
+        } 
+      }
+      //convert to json
+      identifier = NULL;
+      EIC_utils.convertToJSONStr(actionsList,identifier,outString);
+      actionsParameterList = outString;
+      actionsList = actionsParameterList;
+      Log("actionsParameterList " + actionsParameterList );
+      rtnArray = rtnArray + tempObj;
+   }
+   identifier="ruleName";
+   EIC_utils.convertToJSONStr(rtnArray,identifier,outString);
+   oData = outString;
+   log(3,"Return value [outString] : " + outString);
+}
+
+function activateActionPolicy(PrimaryEventSerial,label,Node,AlertGroup,AlertKey,Summary,Identifier,Serial,Severity,MatchingRuleName,errorMesssage) {
+  Log("Activating Action Policy : " + @ActionPolicyName);
+  Activate(null,@ActionPolicyName);
+  if( exceptionRaised == true ) {
+      errMsg = "Error while executing action policy : " +@ActionPolicyName;
+      errorMessage = errMsg; 
+   }
+}
+EIC_IsolateAndCorrelate.init();
+EIC_IsolateAndCorrelate.EIC_log(0,"Incoming method name : " + @methodName);
+ 
+EIC_IsolateAndCorrelate.EIC_log(0,"Incoming query : " + @query);
+EIC_IsolateAndCorrelate.EIC_log(0,"Event Container : " + EventContainer);
+EIC_IsolateAndCorrelate.EIC_log(0,"Parameter Values : " + @paramValues);
+EIC_IsolateAndCorrelate.EIC_log(0,"Reqular Expression: " + @regExp);
+EIC_IsolateAndCorrelate.EIC_log(0,"Event rule name : " + @eventRuleNameInSEForm);
+setGlobalVar('EXCEPTION_RAISED',false);
+setGlobalVar('EXCEPTION_ERROR_MESSAGE',"");
+enableJsonLog=getglobalvar('ENABLE_JSON_LOG');
+response = "{}" ;
+request="{}";
+ErrorMsg = "";
+
+
+if( @methodName = "showEvents" ) {
+   showEvents(resp,@query,results, errMsg);
+   response=resp;
+   ErrorMsg = errMsg;
+   log("Error Message : " + errMsg);
+   request  = ' { "query" : "' + @query + ' " } '; 
+}
+
+if(@methodName = 'showValuesFrom') {
+  getValues(resp,@paramValues,@regExp,@query,errMsg);
+  response=resp;   
+  ErrorMsg = errMsg;
+  // not sending the request back in this query.
+}
+
+
+if(@methodName = 'deleteEventRule' ) {
+   evtRuleName = @eventRuleNameInSEForm;
+   deleteEventRule(evtRuleName);
+   ErrorMsg = "";
+   exceptonRaised = getGlobalVar('EXCEPTION_RAISED');
+   if( exceptionRaised == true ) {
+     ErrorMsg = getGlobalVar('EXCEPTION_ERROR_MESSAGE');
+   } else {
+     ErrorMsg = 'Successfully Deleted';
+   }
+}
+
+if(@methodName = 'queryRuleInfo') {
+  evtRuleName = @eventRuleNameInSEForm;
+  getEventRuleInformation(evtRuleName,outputData,parList,actionsList);
+  response = outputData;
+  parameterList = parList;
+  actionsNamesList = actionsList;
+  Log("actionsNamesList " + actionsNamesList);
+ // if( enableJsonLog = true ) {
+     log("Response Value : " + outputData + " Parameter list " + parameterList);
+  //}
+}
+
+
+if(@methodName = 'getListOfEventRules') {
+  EIC_eventrule_config.getListOfEventRules(listOfRules);
+  id="RULENAME";
+  EIC_utils.convertToJSONStr(listOfRules,id,outString);
+  response = outString;
+  ErrorMsg='';
+}
+
+if(@methodName == 'executeActionPolicy') {
+ //Log(CurrentContext()); 
+  activateActionPolicy(@PrimaryEventSerial,@label,@Node,@AlertGroup,@AlertKey,@Summary,@Identifier,@Serial,@Severity,@MatchingRuleName,errorMesssage);
+}
+opview_servlet_prefix="";
+opview_stylesheet="opview.css";

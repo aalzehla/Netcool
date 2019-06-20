@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Starting the Conductor" />
+<meta name="abstract" content="The Conductor provides single sign-on access to all the Tivoli Netcool/OMNIbus desktop tools that you can use to view and manage alerts." />
+<meta name="Description" content="The Conductor provides single sign-on access to all the Tivoli Netcool/OMNIbus desktop tools that you can use to view and manage alerts." />
+<meta name="DC.subject" content="Conductor, starting" />
+<meta name="keywords" content="Conductor, starting" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_startingconductor" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>Starting the Conductor</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_startingconductor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Starting the Conductor</h1>
+<div class="body taskbody"><p class="shortdesc">The Conductor provides single sign-on access to all the <span class="keyword">Tivoli Netcool/OMNIbus</span> desktop
+tools that you can use to view and manage alerts.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To use the desktop tools, you must connect to a running
+ObjectServer by using valid authentication credentials.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> You can optionally start desktop tools individually from
+the command line in UNIX or
+from the Windows <span class="ph uicontrol">Start</span> menu.
+However, every time you start a desktop tool in this way, you need
+to enter your user name and password for authentication and connection
+to a selected ObjectServer.</div>
+<p class="p">To start the Conductor:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Perform the appropriate action for your operating system:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d44383e41-option" valign="bottom" align="left">Option</th>
+<th id="d44383e41-desc" valign="bottom" align="left">Description</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d44383e41-option" id="d44383e43" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d44383e41-desc d44383e43" class="stentry chdesc" width="80%">From a command prompt, type: <kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd> </td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d44383e41-option" id="d44383e52" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d44383e41-desc d44383e52" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">From the Windows <span class="ph uicontrol">Start</span> menu,
+click <span class="ph uicontrol">Netcool Conductor</span>.</li>
+<li class="li">From a command prompt, enter:<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOConductor.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+The <span class="keyword wintitle">Login</span> window for the Conductor
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm">Username</dt>
+<dd class="dd">Type your user name.</dd>
+<dt class="dt dlterm">Password</dt>
+<dd class="dd">Type your password. Asterisk (*) characters are shown in place
+of the text that you type.<div class="note note"><span class="notetitle">Note:</span> If your user name and password are
+being verified against an external authentication source (rather than
+an ObjectServer), check whether this source supports multi-byte characters.
+If multi-byte characters are not supported, you must specify the user
+name and password with ASCII characters. </div>
+</dd>
+<dt class="dt dlterm">Server</dt>
+<dd class="dd">The ObjectServer name defaults to NCOMS (Netcool/OMNIbus Master
+Server). If multiple ObjectServers are configured for your environment,
+all available ObjectServers are shown in this drop-down list. Select
+the ObjectServer to which you want to connect.</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to authenticate your login details.<div class="note note"><span class="notetitle">Note:</span> You
+are allowed three attempts to log in. On each attempt, the <span class="ph uicontrol">Password</span> field
+is cleared. If you fail to log in correctly at the third attempt,
+the program terminates.</div>
+</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to cancel your login attempt.</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><div class="p">On successful login:<ul class="ul"><li class="li">The UNIX Conductor opens
+as a window.</li>
+<li class="li">The Windows Conductor
+is represented as a bus icon in the Windows system
+tray. Right-click this icon to view the Windows <span class="ph uicontrol">Conductor</span> menu.<p class="p">You
+can start a Conductor for each running ObjectServer. On Windows, each Conductor is allocated an icon
+in the system tray.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="You can use the Conductor to manage the Tivoli Netcool/OMNIbus desktop tools (or client applications).">Accessing the desktop tools</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

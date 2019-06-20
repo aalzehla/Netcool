@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="在 UNIX 上使用文本颜色来描绘严重性" />
+<meta name="abstract" content="缺省情况下，通过所在行的背景色来指示事件列表内的事件严重性。 仅在 UNIX 操作系统上才可以将事件列表配置为使用单一背景色，而使用警报文本颜色来描绘严重性。" />
+<meta name="description" content="缺省情况下，通过所在行的背景色来指示事件列表内的事件严重性。 仅在 UNIX 操作系统上才可以将事件列表配置为使用单一背景色，而使用警报文本颜色来描绘严重性。" />
+<meta name="DC.subject" content="事件列表, 描绘严重性, 按照文本颜色的严重性" />
+<meta name="keywords" content="事件列表, 描绘严重性, 按照文本颜色的严重性" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_depictingsevbytextcolor" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>在 UNIX 上使用文本颜色来描绘严重性</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_depictingsevbytextcolor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">在 UNIX 上使用文本颜色来描绘严重性</h1>
+<div class="body taskbody"><p class="shortdesc">缺省情况下，通过所在行的背景色来指示事件列表内的事件严重性。 仅在 UNIX 操作系统上才可以将事件列表配置为使用单一背景色，而使用警报文本颜色来描绘严重性。</p>
+<div class="section context">要使用文本颜色描绘严重性：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">备份事件列表资源定义文件 <span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</span>， 其中 <var class="keyword varname">arch</var> 是您的操作系统。 </span> 如果需要复原至原始文件，建议使用此步骤。</li>
+<li class="li step stepexpand"><span class="ph cmd">通过添加以下 X 资源行对 <span class="ph filepath">NCOEvent</span> 文件进行编辑，以定义事件列表的背景和文本颜色：</span> <pre class="pre codeblock"><code>NCOEvent*inverseVideo:True
+
+NCOEvent*clearColour: Black
+NCOEvent*indetColour: Black
+NCOEvent*warnColour: Black
+NCOEvent*minorColour: Black
+NCOEvent*majorColour: Black
+NCOEvent*critColour: Black
+
+NCOEvent*ackClearColour: Black
+NCOEvent*ackIndetColour: Black
+NCOEvent*ackWarnColour: Black
+NCOEvent*ackMinorColour: Black
+NCOEvent*ackMajorColour: Black
+NCOEvent*ackCritColour: Black
+
+NCOEvent*clearTextColour: green3
+NCOEvent*indetTextColour: DarkOrchid2
+NCOEvent*warnTextColour: SteelBlue1
+NCOEvent*minorTextColour: yellow1
+NCOEvent*majorTextColour: #ffffb432294a
+NCOEvent*critTextColour: red1
+
+NCOEvent*ackClearTextColour: #008000
+NCOEvent*ackIndetTextColour: DarkOrchid4
+NCOEvent*ackWarnTextColour: SteelBlue3
+NCOEvent*ackMinorTextColour: yellow3
+NCOEvent*ackMajorTextColour: #b5ab63bd0000
+NCOEvent*ackCritTextColour: red3</code></pre>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 在此示例文本内，背景色被设置为 <samp class="ph codeph">Black</samp>，但您可以指定另一种能与指定文本颜色形成鲜明对比的颜色。 如果希望使用一组其他颜色来描绘严重性，您可能会发现此方法对验证选择的颜色是否可用很有帮助。 文件 <span class="ph filepath">/usr/openwin/lib/rgb.txt</span> 中列出了这些颜色。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">将更改保存到该文件。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">要确保将定义的颜色装入环境，请将 XAPPLRESDIR 环境变量设置为存储已更新的资源定义文件 <span class="ph filepath">NCOEvent</span> 的位置。 </span> <p class="p">该位置是：</p>
+
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/</span></p>
+
+<p class="p">其中 <var class="keyword varname">arch</var> 是您的操作系统目录。</p>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 设置 <span class="ph filepath">.login</span> 或 <span class="ph filepath">.profile</span> 初始化文件内的 XAPPLRESDIR 环境变量，这样 shell 就会永久保存颜色设置。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">通过输入以下命令，将该颜色与系统颜色合并：</span> <p class="p"><kbd class="ph userinput">/usr/openwin/bin/xrdb -merge $NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</kbd></p>
+
+<p class="p">其中 <var class="keyword varname">arch</var> 是您的操作系统目录。</p>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">结果</h2></div>当打开事件列表时，新颜色将变为可用。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="可以定制事件列表的外观。">定制事件列表的外观</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

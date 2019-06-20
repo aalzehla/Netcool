@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Managing authorization with users, groups, roles, and restriction filters" />
+<meta name="abstract" content="Authorization is the verification of the rights to view and modify information." />
+<meta name="Description" content="Authorization is the verification of the rights to view and modify information." />
+<meta name="DC.subject" content="authorization, description, permissions" />
+<meta name="keywords" content="authorization, description, permissions" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingnetomadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringroles.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringgroups.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringusers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringresfilters.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_managingauthorizatn" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_usingnetomadministrator.html" />
+<title>Managing authorization with users, groups, roles, and restriction filters</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_managingauthorizatn">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Managing authorization with users, groups, roles, and restriction
+filters</h1>
+<div class="body taskbody"><p class="shortdesc"><dfn class="term">Authorization</dfn> is the verification of the rights
+to view and modify information.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">Access to ObjectServer objects is controlled through <dfn class="term">groups</dfn> (collections
+of users), and <dfn class="term">roles</dfn> (collections of system and object
+permissions) granted to groups. <dfn class="term">Permissions</dfn> control access
+to objects and data in the ObjectServer. By combining one or more
+permissions into roles, you can manage access quickly and efficiently.</p>
+<p class="p">Administrators
+can allow and deny actions on the system and for individual objects
+by assigning permissions to roles, and granting or revoking roles
+for appropriate groups of users. You can use Netcool/OMNIbus Administrator
+to grant and revoke permissions for the users of a <span class="keyword">Tivoli Netcool/OMNIbus</span> system.</p>
+<p class="p">For
+example, creating automations requires knowledge of <span class="keyword">Tivoli Netcool/OMNIbus</span> operations
+and the way a particular ObjectServer is configured. You do not typically
+want all of your users to be allowed to create or modify automations.
+One solution is to create a role named AutoAdmin, with permissions
+to create and alter triggers, trigger groups, files, SQL procedures,
+external procedures, and signals. You can then grant that role to
+a group of administrators who will be creating and updating triggers.</p>
+<p class="p">To
+set up <span class="keyword">Tivoli Netcool/OMNIbus</span> authorization,
+configure security objects in the following order:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">Roles: Assign permissions to roles.</span></li>
+<li class="li step"><span class="ph cmd">Groups: Assign one or more roles to each group. The assigned
+roles determine the actions that the group members can perform on
+database objects.</span></li>
+<li class="li step"><span class="ph cmd">Users: Add users to groups. You must assign each user to
+one or more groups.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>You can create logical groupings such as super users or system
+administrators, physical groupings such as London or New York NOCs,
+or any other groupings to simplify your security setup.</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringroles.html">Configuring roles</a></span><br />
+Roles are collections of permissions that you can assign
+to users and groups.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringgroups.html">Configuring groups</a></span><br />
+Use groups to organize <span class="keyword">Tivoli Netcool/OMNIbus</span> users into units with common functional goals. All members
+of a group have the permissions assigned to the group roles.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringusers.html">Configuring users</a></span><br />
+You can create and modify <span class="keyword">Tivoli Netcool/OMNIbus</span> users,
+and organize these users into groups. You can assign roles to the
+user groups, to control access to ObjectServer objects.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringresfilters.html">Configuring restriction filters</a></span><br />
+You can use restriction filters to control the
+rows in ObjectServer tables that users are allowed to view and modify.
+Restriction filters apply to <span class="keyword">Tivoli Netcool/OMNIbus</span> client applications and INSERT, UPDATE, and DELETE statements.
+You can assign restrictions filters to individual users or to a collection
+of users in a group.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_usingnetomadministrator.html" title="The ObjectServer stores, manages, and processes alert and status data that is collected by external applications such as probes and gateways. You can use Netcool/OMNIbus Administrator to configure your ObjectServer objects and to configure process control.">Using Netcool/OMNIbus Administrator to configure ObjectServers</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

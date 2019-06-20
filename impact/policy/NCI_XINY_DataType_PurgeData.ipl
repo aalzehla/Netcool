@@ -1,0 +1,32 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+/*An array of internal Datatypes.*/
+InternalDataTypeList = {"wizard_XinY_EventStatusTallyType"};
+
+/* Number of days. Remove everything older than this number of days.*/
+NumDays = 4;
+
+SecondsInDay = 86400;
+TotalSeconds = NumDays * SecondsInDay;
+
+ItemAge = getdate() - TotalSeconds;
+
+Filter = "LastOccurrence < "+ ItemAge;
+
+function processIntDataTypeList(InternalDataTypeList){
+   i=0;
+   while(i<length(InternalDataTypeList)){
+      BatchDelete(InternalDataTypeList[i],Filter,NULL);
+      i=i+1;
+   }
+}
+
+processIntDataTypeList(InternalDataTypeList);

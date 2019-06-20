@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="UNIX 이벤트 목록 명령행 옵션" />
+<meta name="abstract" content="UNIX에서 nco_event 명령을 사용하여 이벤트 목록을 시작하는 경우, 다수의 명령행 옵션을 지정하여 구성을 수정할 수 있습니다. $NCHOME/omnibus/bin 디렉토리에서 이 명령을 실행할 수 있습니다." />
+<meta name="Description" content="UNIX에서 nco_event 명령을 사용하여 이벤트 목록을 시작하는 경우, 다수의 명령행 옵션을 지정하여 구성을 수정할 수 있습니다. $NCHOME/omnibus/bin 디렉토리에서 이 명령을 실행할 수 있습니다." />
+<meta name="DC.subject" content="이벤트 목록, UNIX 명령행 옵션, 명령행 옵션, UNIX 이벤트 목록" />
+<meta name="keywords" content="이벤트 목록, UNIX 명령행 옵션, 명령행 옵션, UNIX 이벤트 목록" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_unixevntlstcmdlineopt" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingeventlist.html" />
+<title>UNIX 이벤트 목록 명령행 옵션</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_unixevntlstcmdlineopt">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX 이벤트 목록 명령행 옵션</h1>
+<div class="body refbody"><p class="shortdesc">UNIX에서 <span class="keyword cmdname">nco_event</span> 명령을 사용하여 이벤트 목록을 시작하는 경우,
+다수의 명령행 옵션을 지정하여 구성을 수정할 수 있습니다. <span class="ph filepath">$NCHOME/omnibus/bin</span> 디렉토리에서 이 명령을 실행할 수 있습니다.</p>
+<div class="section"><p class="p">다음 표에서는 UNIX 이벤트 목록을 시작하기 위한 명령행 옵션을 설명합니다. </p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">표 1. UNIX 이벤트 목록(nco_event) 명령행 옵션</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d104515e44">명령행 옵션</th>
+<th class="entry" valign="bottom" width="75%" id="d104515e46">설명</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-cmap</span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">개인용 색상 맵을 지정합니다. 이 명령행 옵션은 줄일 수 없습니다.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-config</span> <var class="keyword varname">string | URL</var><p class="p">또는</p>
+<p class="p"><span class="keyword option">-elc</span> <var class="keyword varname">string
+| URL</var></p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">사용할 초기 구성 파일을 지정합니다. 여기서, <p class="p"><var class="keyword varname">string</var>은 <span class="ph filepath">.elc</span> 파일의 경로를 지정합니다. </p>
+<p class="p"><var class="keyword varname">URL</var>은
+HTTP 또는 FTP를 사용하여 액세스할 수 있는 원격 서버에 있는 <span class="ph filepath">.elc</span> 파일을 지정합니다. 다음 형식 중 하나를 사용하여
+<var class="keyword varname">URL</var>을 지정하십시오. </p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+</ul>
+<p class="p">서버가 기본 포트를
+사용하고 있지 않은 경우에만 선택적 포트 번호(<var class="keyword varname">:port</var>)를 지정해야 합니다. </p>
+<p class="p"><span class="ph"><var class="keyword varname">servername</var> 값에 대해 IPv4 또는 IPv6 주소를 선택하여 지정할 수 있습니다. IPv6
+주소를 지정하면 주소가 대괄호([]) 안에 묶입니다. 예제는 다음과 같습니다.</span></p>
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">확장된 진단 메시지를 표시합니다. <p class="p">이 옵션은 이벤트 목록 문제점을 발견하는 데에만 유용합니다. <span class="keyword">IBM Software Support</span>에서 권고하지 않으면 이 명령행 옵션을 사용하지 마십시오.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">데스크탑 ObjectServer 아키텍처에서 작동할 때 이중 쓰기 모드를 사용할지 또는 사용하지 않을지 여부를 표시합니다. 올바른 옵션은 다음과 같습니다.
+<ul class="ul"><li class="li"><samp class="ph codeph">0</samp>: 이중 쓰기 모드 사용 안함</li>
+<li class="li"><samp class="ph codeph">1</samp>: 이중 쓰기 모드 사용</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> 명령행 옵션은 데스크탑 ObjectServer의
+master.national 테이블에 있는 DualWrite 필드 항목을 겹쳐씁니다. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="ph"><span class="keyword option">-failbackpolltime</span> <var class="keyword varname">integer</var></span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 "><span class="ph">장애 조치로 인하여
+백업 ObjectServer에 연결된 경우,
+이벤트 목록은 주기적으로 기본 ObjectServer에 재연결을 시도합니다.
+이 명령행 옵션은 이벤트 목록이 기본 ObjectServer의 리턴에 대해 폴링할 때의 빈도(초)를 지정합니다. 기본
+ObjectServer가 다시 시작된 것이 발견된 경우, 이벤트
+목록은 백업 ObjectServer로부터 연결을 끊고 기본 ObjectServer에
+다시 연결합니다. 기본값은 <span class="keyword option">30</span>초입니다.
+<span class="keyword option">0</span>으로 설정된 경우, 폴링이 발생하지 않습니다.</span><p class="p"><span class="ph">이벤트 목록이 ObjectServer에
+연결된 경우, 이벤트 목록은 연결 중인 ObjectServer의 <span class="keyword parmname parmname">BackupObjectServer</span>
+특정 설정을 확인합니다. 폴링은
+특성이 백업 ObjectServer를 나타내는 <span class="keyword option">TRUE</span>로 설정된 경우에만
+발생합니다.</span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">이 명령에 대한 도움말을 표시하고 종료합니다. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">데스크탑 ObjectServer 아키텍처에서 사용할 마스터 ObjectServer를 표시합니다. <p class="p"><span class="keyword option">-masterserver</span> 명령행 옵션은 데스크탑 ObjectServer의
+master.national 테이블에서 MasterServer 필드 항목을 겹쳐씁니다. </p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var> </td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">네트워크 장애가 발생할 경우 ObjectServer와의 연결 또는 로그인 시도가 제한시간 초과되는
+시간(초)을 지정합니다. 지정된 제한시간 기간이 지난 후 이벤트 목록은 ObjectServer에 다시 연결하려고 시도합니다. 두 번째 제한시간 기간 동안
+연결에 실패하면, 이벤트 목록이 백업 ObjectServer(사용 가능한 경우)에 연결하려고 시도합니다. 기본값은 20초입니다. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">이벤트 목록에 로그인하는 데 사용할 비밀번호를 지정합니다.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">연결 중인 ObjectServer 이름을 지정합니다. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-uneditable</span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">이벤트 목록 구성 편집을 허용하지 않습니다. 이 옵션을 사용하는 경우, <span class="ph uicontrol">필터 빌더</span> 및
+<span class="ph uicontrol">보기 빌더</span> 단추와 <span class="ph uicontrol">저장</span> 및 <span class="ph uicontrol">다른 이름으로 저장</span> 메뉴 항목이 표시됩니다. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">이벤트 목록에 로그인하기 위해 사용할 사용자 이름을 지정합니다. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104515e44 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d104515e46 ">버전 정보를 표시하고 종료됩니다. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><div class="note tip"><span class="tiptitle">팁:</span> 이벤트 목록에 대한 명령행 옵션을 가장 짧은 고유 약어로 줄일 수 있습니다. 예를 들어,
+<span class="keyword option">-uneditable</span>을 <span class="keyword option">-un</span>으로 줄일 수 있습니다.</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_startingeventlist.html" title="이벤트 목록에서 경보를 모니터하고 관리하려면 올바른 인증 신임 정보를 사용하여 실행 중인 ObjectServer에 연결해야 합니다. 컨덕터, 명령행 또는 Windows 시작 메뉴에서 이벤트 목록을 시작할 수 있습니다.">이벤트 목록 시작</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>관련 개념</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="데스크탑 ObjectServer 아키텍처를 사용하여 자주 과부하가 발생하는 ObjectServer의 성능을 개선할 수 있습니다.">데스크탑 ObjectServer 아키텍처</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="이벤트 목록 모니터 상자 창에서 모든 모니터 상자에 대해 정의되는 필터, 보기 및 기타 이벤트 구성을 저장할 수 있습니다. 이 정보는 이벤트 목록 구성(.elc) 파일 안에 저장됩니다.">이벤트 목록 구성에 대한 작업</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

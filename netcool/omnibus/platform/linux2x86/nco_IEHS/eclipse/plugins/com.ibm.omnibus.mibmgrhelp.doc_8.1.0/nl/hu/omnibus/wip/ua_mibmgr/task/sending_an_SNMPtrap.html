@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="SNMP trapek előállítása" />
+<meta name="abstract" content="SNMP trapek előállításának módja. Ez a funkcionalitás a MIB Manager által előállított szabályfájlok tesztelésére is használható." />
+<meta name="Description" content="SNMP trapek előállításának módja. Ez a funkcionalitás a MIB Manager által előállított szabályfájlok tesztelésére is használható." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SNMP trapek előállítása</h1>
+<div class="body taskbody"><p class="shortdesc">SNMP trapek előállításának módja. Ez a funkcionalitás a <span class="keyword">MIB Manager</span> által előállított szabályfájlok tesztelésére is használható.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Eljárás</h2></div><p class="li stepsection">SNMP trap előállítása:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Kattintson a <img class="image" src="../gifs/trap.gif" alt="Trap ikon" /> <span class="ph uicontrol">Trap</span> ikonra.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Célcím</span> mezőben adja meg egy SNMP Trapd szolgáltatást futtató számítógép hosztnevét vagy IP címét.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Célport</span> mezőben adja meg az UDP portot, amelyen az SNMP Trapd szolgáltatás figyel.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Közösség</span> mezőben adjon meg egy érvényes karaktersorozatot a Trapd kezelőhöz.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Az előállított trap típusától függően látható lehet egy <span class="ph uicontrol">Változó kötések</span> szakasz az <span class="keyword wintitle">SNMP Trap előállítása</span> ablakban. Az elérhető mezők a <span class="ph uicontrol">Változó kötések</span> szakaszban szintén az előállított trap típusától függnek.</span> <p class="p">Vigye az egeret a <span class="ph uicontrol">Változó kötések</span> mezőnevek felé a mezőérték szintaxisának részleteiért. Vesszőkel elválasztva több érték is megadható. Ezeket az értékeket véletlenszerűen választja ki a rendszer a trap felépítéséhez.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Az <span class="ph uicontrol">Ismétlés mérőszám</span> mezőben adja meg az előállítható trapek számát (1 és 1000 között).</span> <p class="p">Ha nagy számot ad meg, akkor a trapek gyors egymásutánban kerülnek előállításra, és riasztási vihart okozhatnak a Trapd kezelőnél. Az egynél nagyobb
+(&gt; 1) értékek esetén, és a pontosvesszővel elválasztott listaként megadott értékeknél a
+<span class="keyword">MIB Manager</span> véletlenszerűen választ a megadott listák közül, és a tetszőleges
+értékekkel állít elő trapeket, varbind elemekként ábrázolva.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">A trap előállításához kattintson a <span class="ph uicontrol">Végrehajtás</span> gombra.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Eredmények</h2></div>Az <span class="keyword wintitle">SNMP Trap előállítása</span> ablak <span class="ph uicontrol">Eredmény</span> mezője jelzi, hogy a trap küldése sikeres volt-e.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="A MIB Manager eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja.">Netcool MIB Manager használata</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

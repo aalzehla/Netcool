@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl-pl" lang="pl-pl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Typy obiektów MIB" />
+<meta name="abstract" content="Niniejszy temat zawiera opis typów obiektów zdefiniowanych w protokole SNMP w wersji v1 i v2." />
+<meta name="Description" content="Niniejszy temat zawiera opis typów obiektów zdefiniowanych w protokole SNMP w wersji v1 i v2." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="pl-pl" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>Typy obiektów MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus wersja 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Typy obiektów MIB</h1>
+<div class="body refbody"><p class="shortdesc">Niniejszy temat zawiera opis typów obiektów zdefiniowanych w protokole SNMP w wersji v1 i v2.</p>
+<div class="section"><p class="p">Informacje o obiektach zawarte w poniższych sekcjach można odnaleźć, wybierając moduł w widoku <span class="keyword wintitle">Moduły MIB</span>, a następnie wyszukując hasło <kbd class="ph userinput">ifIndex</kbd> w polu <span class="ph uicontrol">Szukaj</span> widoku <span class="keyword wintitle">Drzewo OID</span>. Aby wyświetlić informacje o obiekcie oraz informacje o konwencji tekstowej w widoku <span class="keyword wintitle">Szczegóły</span>, należy kliknąć obiekt <samp class="ph codeph">ifIndex</samp> w hierarchii <span class="keyword wintitle">Drzewo OID</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Identyfikator obiektu OBJECT IDENTIFIER</h2><p class="p">Protokół SNMP w wersji v1 definiuje identyfikator obiektu (<samp class="ph codeph">OBJECT IDENTIFIER</samp>), który jest podstawowym elementem budującym drzewo bazy MIB.
+Identyfikatory obiektów są analogiczne do nagłówków rozdziałów w książce - nie zawierają one rzeczywistych danych, lecz pozwalają zrozumieć, jakiego rodzaju dane są przekazywane przez ich elementy potomne.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Typ obiektu OBJECT TYPE</h2><p class="p">Protokół SNMP w wersji v1 definiuje typ obiektu (<samp class="ph codeph">OBJECT-TYPE</samp>), który jest używany jako kontener przechowujący informacje na temat zarządzanego urządzenia lub wartości mierzonej na urządzeniu.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Konwencja tekstowa TEXTUAL CONVENTION</h2><p class="p">Konwencja tekstowa (<samp class="ph codeph">TEXTUAL-CONVENTION</samp>, TC) jest definicją typu obiektu, a nie rzeczywistym obiektem. W widoku <span class="keyword wintitle">Moduły MIB</span> można wybrać opcję <span class="ph uicontrol">Konwencje tekstowe</span> z listy <span class="ph uicontrol">Widok</span>, aby wyświetlić przeanalizowane konwencje tekstowe w drzewie MIB. Należy wybrać nazwę konwencji tekstowej w drzewie MIB, aby wyświetlić jej definicję w widoku <span class="keyword wintitle">Szczegóły</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Typ pułapki TRAP TYPE protokołu SNMP w wersji v1 oraz typ powiadomień NOTIFICATION TYPE protokołu SNMP w wersji v2</h2><div class="p">Typ pułapki (TRAP-TYPE) protokołu SNMP w wersji v1 i typ powiadomienia (NOTIFICATION-TYPE) w wersji v2 są mechanizmami protokołu SNMP umożliwiającymi generowanie autonomicznych zdarzeń do menedżera SNMP. Pułapki SNMP wersji v1 nie są zdefiniowane jako obiekty w drzewie MIB. Obiekt TRAP-TYPE nie ma zdefiniowanego elementu nadrzędnego w formacie identyfikatora obiektu OBJECT IDENTIFIER. Zamiast tego definicja pułapki określa typ zarządzanego urządzenia, dla którego została zdefiniowana pułapka.
+Poniżej znajduje się przykład obiektu TRAP-TYPE:<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM 
+enters the ESTABLISHED state." ::= 1 </code></pre>
+</div>
+<p class="p">Sekcja <samp class="ph codeph">ENTERPRISE</samp> definiuje obiekt, który jest elementem nadrzędnym pułapki. Jednak możliwe jest zdefiniowane obiektu drzewa MIB jako elementu potomnego numer 1 dla elementu nadrzędnego <samp class="ph codeph">bgp</samp>. W rzeczywistości element <samp class="ph codeph">bgpVersion</samp> jest zdefiniowany jako <samp class="ph codeph">{ bgp 1}</samp> w module RFC1269-MIB. Dlatego nie można dodać pułapki wersji v1 do drzewa MIB jako liścia, używając elementu <samp class="ph codeph">ENTERPRISE</samp> jako elementu nadrzędnego.</p>
+<p class="p">Protokół SNMP w wersji v2 zmienia definicję TRAP-TYPE na NOTIFICATION-TYPE i określa, że ta nowa pułapka wersji v2 ma być definiowana tak jak inne obiekty MIB, z numerem elementu nadrzędnego i potomnego, co stanowi problem tylko dla pułapek wersji v1. Sekcja 4.1 dokumentu RFC1155 stanowi, że używanie liczby zero (0) jako numeru elementu potomnego jest niepoprawne i zarezerwowane do użytku w przyszłości. Protokół SNMP wersji v2 korzysta z liczby zero, pozwalając dostawcom na dodawanie pułapek wersji v1 do bazy MIB v2 przez dodanie zera do nazwy typu zarządzanego urządzenia, a następnie przez dodanie numeru pułapki po zerze. Dlatego w wersji v2 można definiować identyfikator obiektu z liczbą zero jako element potomny zarządzanego urządzenia, a następnie dodawać pułapki v1 jako elementy potomne tego zera. </p>
+<p class="p">Ta konwencja przyczyniła się do kolejnego błędu popełnianego przez autorów baz MIB. Sekcja 4 dokumentu RFC1155 stanowi, co następuje:</p>
+<p class="p"><span class="q">"Definicja typu obiektu składa się z pięciu pól: OBJECT (obiekt): ------- Nazwa tekstowa, określana jako OBJECT DESCRIPTOR (deskryptor obiektu), dla typu obiektu oraz odpowiadający mu OBJECT IDENTIFIER (identyfikator obiektu).  Syntax (składnia): składnia abstrakcyjna dla typu obiektu. Musi to być zgodne ze składnią ASN.1 (zdefiniowaną poniżej). Definition (definicja): Opis tekstowy znaczenia typu obiektu. Przy implementacji powinno się upewnić, że obiekt jest zgodny z definicją, ponieważ baza MIB jest przeznaczona do użycia w środowisku wielu dostawców. Istotne jest to, aby obiekty miały spójne definicje we wszystkich komputerach.
+Access (dostęp): Jedna z opcji do wyboru: read-only (tylko do odczytu), read-write (do odczytu i zapisu), write-only (tylko do zapisu) lub not-accessible (niedostępny).
+Status: Jedna z opcji: mandatory (obowiązkowy), optional (opcjonalny) lub obsolete (przestarzały).  Przyszłe notatki mogą również określić inne pola dla obiektów, które definiują."</span></p>
+<div class="p">Zgodnie z tą regułą, wszystkie obiekty muszą mieć nazwę oraz numer obiektu. Moduły MIB niektórych dostawców, a nawet niektóre dokumenty RFC, definiują typ NOTIFICATION-TYPE z elementem nadrzędnym zero, ale bez nazwy obiektu dla tego zera. W poniższym przykładzie definicja obiektu nie jest poprawna, ponieważ nie ma zdefiniowanej nazwy obiektu dla elementu potomnego numer zero obiektu <samp class="ph codeph">adslAtucTraps</samp>. Program <span class="keyword">MIB Manager</span> rozpoznaje preferencję niektórych autorów baz MIB do używania takich metod jako skrótu i pozwala dodawać obiekty bez nazwy. Dodatkowo, aby ułatwić dodawanie do drzewa MIB pułapek wersji v1, program <span class="keyword">MIB Manager</span> automatycznie dodaje obiekt zero jako element potomny obiektu v1 zarządzanego urządzania (bazy MIB v1 nie mogą używać zera w swoich identyfikatorach OID), przypisuje ten obiekt jako pułapki w miejscu nazwy zarządzanego urządzenia i dodaje pułapkę pod ten nowy obiekt w drzewie MIB. Na przykład rezultatem użycia elementu <samp class="ph codeph">bgp</samp> będą przodkowie pułapek: <samp class="ph codeph">{ bgp bgpTraps(0) 1 }).</samp> <pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Powiązania zmienne</h2><p class="p">Obiekty przesyłane z pułapkami w wersji v1 lub powiadomieniami w wersji v2 są nazywane powiązaniami zmiennymi. Powiązania zmienne zawierają dodatkowe informacje na temat raportowanego zdarzenia. W pułapkach w wersji v1 powiązania zmienne są wyszczególnione w sekcji VARIABLES, a w powiadomieniach w wersji v2 w sekcji OBJECTS. Pełnią tę samą funkcję we wszystkich wersjach protokołu SNMP. Kolejność powiązań zmiennych na liście ma znaczenie, ponieważ pakiety PDU (pakiety SNMP) kodują powiązane wartości w kolejności ich występowania na liście bazy MIB.</p>
+<p class="p">Na przykład sekcja OBJECTS zawiera następujące trzy powiązania zmienne: <samp class="ph codeph">ifIndex</samp>, <samp class="ph codeph">ifAdminStatus</samp> oraz <samp class="ph codeph">ifOperStatus</samp>. Zatem powiązanie zmienne <samp class="ph codeph">ifIndex</samp> będzie kodowane jako pierwsze, <samp class="ph codeph">ifAdminStatus</samp> jako drugie, a <samp class="ph codeph">ifOperStatus</samp> jako trzecie. Po sprawdzeniu modułu IF-MIB okazuje się, że typ obiektu <samp class="ph codeph">ifIndex</samp> jest zdefiniowany jako <samp class="ph codeph">InterfaceIndex</samp>. Ponieważ nie jest to poprawny typ podstawowy ASN.1 dla protokołu SNMP, musi być konwencją tekstową. Po przeszukaniu konwencji tekstowych okazuje się, że <samp class="ph codeph">InterfaceIndex</samp> w rzeczywistości odnosi się do typu Integer32 (32-bitowa liczba całkowita). Zatem po przesłaniu pakietu PDU do programu <span class="keyword">MIB Manager</span> pierwsze powiązanie zmienne będzie liczbą całkowitą.
+Aby określić znaczenie liczby całkowitej, program <span class="keyword">MIB Manager</span> musi się odnieść do modułu IF-MIB, wyszukać obiekt <samp class="ph codeph">ifIndex</samp> i odczytać powiązane informacje o obiekcie. Drugie powiązanie zmienne to wyliczeniowy typ całkowitoliczbowy: </p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">Po odkodowaniu powiązania zmiennego z pakietu SNMP jego wartość będzie liczbą całkowitą, której wartość należy zinterpretować w oparciu o pozycje na liście. Jeśli program <span class="keyword">MIB Manager</span> zostanie użyty do utworzenia pliku reguł, to utworzy tabelę wyszukiwania automatycznie łączącą wymienioną liczbę całkowitą z jej tekstowym odpowiednikiem. Trzecie powiązanie zmienne to również typ wyliczeniowy z identycznymi wartościami. Zatem jeśli powiązanie zmienne <samp class="ph codeph">ifAdminStatus</samp> ma wartość 1 (up), a powiązanie zmienne <samp class="ph codeph">ifOperStatus</samp> ma wartość 2 (down), to wiadomo dlaczego zdarzenie zostało wygenerowane i można podjąć próbę określenia przyczyny tego wyłączenia.</p>
+<p class="p">Powiązania zmienne w plikach reguł mają postać <samp class="ph codeph">$1</samp>, <samp class="ph codeph">$2</samp>, <samp class="ph codeph">$3</samp> itd.; każdy numer oznacza numer powiązania zmiennego. Program
+<span class="keyword">MIB Manager</span> tworzy elementy w oparciu o elementy powiązań zmiennych i używa ich
+do ustawiania zmiennych w tabeli szczegółów. Na przykład elementy
+w tabeli szczegółów mogą mieć postać $ifIndex = $1, co będzie liczbą całkowitą,
+$ifAdminStatus = $2, co będzie wartością taką jak up (1), oraz $ifOperStatus
+= $3, co będzie wartością taką jak down (3).
+Wszelkie zmiany w ustawieniach obiektów są automatycznie odzwierciedlane w plikach reguł z użyciem konwencji określonych w bibliotece Netcool Knowledge Library (NCKL).</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Tabele</h2><p class="p">Tabele są odpowiednikiem wielowymiarowej macierzy z wierszami oraz kolumnami danych. Obiekt tabeli jest zdefiniowany jako typ SEQUENCE OF (lista) obiektu wpisu. Obiekt wpisu jest następnie definiowany jako SEQUENCE (struktura) obiektów typu OBJECT-TYPE. Czasami dostawca tworzy nietypowy system, na przykład router Cisco 10k.
+To urządzenie zawiera wewnętrzną tabelę warunków alarmowych i generuje pułapkę lub powiadomienie, gdy zachodzą zmiany w tabeli. Następnie należy wykonać żądanie SNMP GET (odczytu) na zawartości tabeli, aby określić bieżący status aktywnych alarmów dla urządzenia. To sprawia, że uzyskanie alarmów przez menedżera SNMP jest trudniejsze, ale nie niemożliwe, jeśli administrator ma odpowiednie narzędzia.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OCTET STRING (łańcuch oktetów)</h2><p class="p">Oktet to jednostka danych składająca się z ośmiu bitów (powszechnie znanych jako bajt). OCTET STRING (łańcuch oktetów) to tablica bajtów lub ciąg bajtów. Termin OCTET STRING nie zakłada, że wszystkie bajty w ciągu są alfanumeryczne.
+Mogą one również być znakami binarnymi i mogą być używane jako maski bitowe.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Temat nadrzędny:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="Niniejsza sekcja zawiera dodatkowe informacje na temat architektury protokołu SNMP (Simple Network Management Protocol), bazy MIB protokołu SNMP oraz niektórych dodatkowych pojęć dotyczących bazy MIB.">Na temat protokołu SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteka</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Wsparcie</a> |</span>
+<br />
+</div>
+</body>
+</html>

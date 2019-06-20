@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="过滤器构建器" />
+<meta name="abstract" content="使用此窗口可定义事件列表中用于过滤警报的 SQL 查询（或 WHERE 子句）。 您可使用过滤器构建器来设置和维护事件数据的这些过滤器。" />
+<meta name="description" content="使用此窗口可定义事件列表中用于过滤警报的 SQL 查询（或 WHERE 子句）。 您可使用过滤器构建器来设置和维护事件数据的这些过滤器。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_specifyingopsforfiltconds.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_specifyingcompvalfiltconds.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_filterbuilderwindowWIN" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>过滤器构建器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_filterbuilderwindowWIN">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">过滤器构建器</h1>
+<div class="body refbody"><p class="shortdesc">使用此窗口可定义事件列表中用于过滤警报的 SQL 查询（或 WHERE 子句）。 您可使用过滤器构建器来设置和维护事件数据的这些过滤器。</p>
+<div class="section"><div class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_descriptionWIN">过滤器构建器包含以下区域：<ul class="ul"><li class="li"><a class="xref" href="#netom_filterbuilderwindowWIN__netom_filterbuilder_filtersetupareaWIN">过滤器设置区域</a>（顶部面板）</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowWIN__netom_filterbuilder_buttonbarWIN">按钮栏</a>（过滤器设置区域下方面板）</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowWIN__netom_filterbuilder_graphicaldisplayareaWIN">图形显示区域</a>(按钮栏下左上方面板）</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowWIN__netom_filterbuilder_elementdefinitionareaWIN">元素定义区域</a>（按钮栏下右上方面板）</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowWIN__netom_filterbuilder_SQLdisplayareaWIN">SQL 显示区域</a>（左下方面板）</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowWIN__netom_filterbuilder_metricareaWIN">度量区域</a>（右下方面板）</li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_filtersetupareaWIN"><h2 class="title sectiontitle">过滤器设置区域</h2><p class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_filtersetupareadescriptionWIN">使用此区域可为过滤器定义名称和设置许可权。</p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_filterbuilderwindowWIN__netom_filterbuilder_filtersetupfieldsWIN"><dt class="dt dlterm">名称</dt>
+<dd class="dd">如果要创建新过滤器，请使用唯一的过滤器名称覆盖当前名称。 该名称用于在事件列表菜单中选择过滤器。 如果要编辑现有过滤器，那么您无需在此字段中输入任何内容。</dd>
+<dt class="dt dlterm">可编辑</dt>
+<dd class="dd">如果您有相应的管理员许可权，请选择此复选框以允许其他用户编辑此过滤器，或清除该复选框以防过滤器被修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 仅当过滤器保存为事件列表配置（<span class="ph filepath">.elc</span> 文件）的一部分时，此设置才适用。</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_buttonbarWIN"><h2 class="title sectiontitle">按钮栏</h2><p class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_buttonbardescriptionWIN">使用这些按钮可定义过滤器元素。</p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_filterbuilderwindowWIN__netom_filterbuilder_buttonbarfieldsWIN"><dt class="dt dlterm">条件</dt>
+<dd class="dd">单击此按钮可创建条件元素。 条件元素可允许您在字段和值间进行比较。 <span class="ph uicontrol">条件</span>按钮创建 WHERE 子句并可用于指定值；如：<samp class="ph codeph">where
+Node = 'link1'</samp></dd>
+<dt class="dt dlterm">子查询</dt>
+<dd class="dd">单击此按钮可在条件内创建查询。 子查询是更为复杂的条件，您可使用它们将值与另一个 SELECT 语句的结果相匹配。</dd>
+<dt class="dt dlterm">添加 AND 分支</dt>
+<dd class="dd">单击此按钮可在当前选中的元素前插入 AND 元素分支。 您可使用 AND 元素合并两个元素以进行更多复杂比较。</dd>
+<dt class="dt dlterm">添加 OR 分支</dt>
+<dd class="dd">单击此按钮可在当前选中的元素前插入 OR 元素分支。 您可使用 OR 元素合并两个元素以进行更多复杂比较。</dd>
+<dt class="dt dlterm">将 AND 更改为 OR</dt>
+<dd class="dd">单击此按钮可将当前选中的 AND 元素替换为 OR 元素。</dd>
+<dt class="dt dlterm">将 OR 更改为 AND</dt>
+<dd class="dd">单击此按钮可将当前选中的 OR 元素替换为 AND 元素。</dd>
+<dt class="dt dlterm">否定</dt>
+<dd class="dd">单击此按钮可在当前选中元素前插入逻辑非（NOT）运算符。 </dd>
+<dt class="dt dlterm">删除树中的项</dt>
+<dd class="dd">单击此按钮可删除当前元素和它的所有子元素。</dd>
+<dt class="dt dlterm">编辑 SQL 文本</dt>
+<dd class="dd">点击此按钮可打开“<span class="keyword wintitle">过滤器 SQL 编辑</span>”窗口直接编辑 SQL。 单击<span class="ph uicontrol">确定</span>以保存并
+返回到过滤器构建器时，将自动对 SQL 表达式进行语法分析并将其添加到图形显示区域的条件元素中。 如果您在<span class="keyword wintitle">过滤器 SQL 编辑</span>窗口中输入了无效的 SQL 文本，退出窗口前将需要您更正语法。</dd>
+</dl>
+<div class="p">如果您单击了这些按钮中的任何按钮：<ul class="ul"><li class="li">按钮栏下左上方面板中的图形显示区域将显示图形表示法。</li>
+<li class="li">左下方列表框中的 SQL 显示区域将显示 SQL 语法。</li>
+<li class="li">右边面板中的元素定义区域将显示特定于元素的字段。</li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">注：</span> 这些按钮的可用性取决于当前选中的元素以及对这些元素有效的操作。</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_graphicaldisplayareaWIN"><h2 class="title sectiontitle">图形显示区域</h2><p class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_graphicaldisplayareadescriptionWIN">此区域在表示元素间联系的树结构中显示当前过滤器的元素定义。 您可使用按钮栏中的按钮向树添加元素。 当前选中的元素将突出显示，而编辑相对于该元素。 当选择此区域内的元素时，将在元素定义区域中显示详细信息并进行编辑。</p>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_elementdefinitionareaWIN"><h2 class="title sectiontitle">元素定义区域</h2><p class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_elementdefinitionareadescriptionWIN">此区域显示当前选中元素的详细情况，并允许您对其指定一组不同的值。 您的选择将反映在图形显示区域和 SQL 显示区域中。</p>
+<div class="p">如果单击了<span class="ph uicontrol">条件</span>按钮来创建条件元素，请按以下步骤完成该字段：<dl class="dl" id="netom_filterbuilderwindowWIN__netom_filterbuilder_conditionfieldsWIN"><dt class="dt dlterm">类型</dt>
+<dd class="dd">从此列表的以下选项中任选一项：<ul class="ul"><li class="li"><span class="keyword option">简单</span>：选此选项可在条件元素中使用简单表达式。 </li>
+<li class="li"><span class="keyword option">复杂</span>：选此选项可使用能够对两个数据库列或两个表达式进行比较的复杂表达式。 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">列</dt>
+<dd class="dd">从此列表中选择要在比较中使用的数据库列。</dd>
+<dd class="dd">缺省情况下，列表包含 alerts.status 数据库表中的列名称。 过滤器构建器自动确定哪些列可用。 某些情况下此列表会有所不同。 </dd>
+<dt class="dt dlterm">运算符</dt>
+<dd class="dd">从列表中选择一个比较运算符。</dd>
+<dd class="dd">比较的可用范围取决于您在<span class="ph uicontrol">列</span>下拉列表中所作的选择。 某些比较对特定列不可用。 例如，无法对如“严重性”这样的数字列执行 LIKE 操作。 </dd>
+<dt class="dt dlterm">值</dt>
+<dd class="dd">显示在这里的字段取决于在<span class="ph uicontrol">类型</span>、<span class="ph uicontrol">列</span>和<span class="ph uicontrol">运算符</span>列表中选择的选项。</dd>
+<dd class="dd">当<span class="ph uicontrol">表达式类型</span>为<span class="ph uicontrol">简单</span>时，显示的值字段取决于<span class="ph uicontrol">列</span>列表中选择的数据库列的类型是字符串、整数还是时间。 </dd>
+<dd class="dd">当<span class="ph uicontrol">类型</span>为<span class="ph uicontrol">复杂</span>时，将提供<span class="ph uicontrol">编辑</span>按钮让您能够在“<span class="keyword wintitle">过滤器 SQL 编辑</span>”窗口中直接编辑 SQL。 单击<span class="ph uicontrol">确定</span>以保存并
+返回到过滤器构建器时，将自动对 SQL 表达式进行语法分析并将其添加到图形显示区域的条件元素中。 如果您在<span class="keyword wintitle">过滤器 SQL 编辑</span>窗口中输入了无效的 SQL 文本，退出窗口前将需要您更正语法。 </dd>
+</dl>
+</div>
+<div class="p">如果单击了<span class="ph uicontrol">子查询</span>按钮来创建子查询元素，请按以下步骤完成该字段：<dl class="dl" id="netom_filterbuilderwindowWIN__netom_filterbuilder_subqueryfieldsWIN"><dt class="dt dlterm">列</dt>
+<dd class="dd">从此列表中选择要在搜索中使用的数据库列。</dd>
+<dt class="dt dlterm">运算符</dt>
+<dd class="dd">从此列表的以下选项中任选一项：<ul class="ul"><li class="li"><span class="keyword option">In</span>：使用此选项可搜索列中内容。</li>
+<li class="li"><span class="keyword option">Not In</span>：选择此选项可搜索不在列中的字段内容。 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">选择</dt>
+<dd class="dd">选择构建列表时要用的列，将对其执行 In 或 Not In 操作。 此列表中的选项取决于在 <span class="ph uicontrol">From</span> 列表中选择的选项。</dd>
+<dt class="dt dlterm">从</dt>
+<dd class="dd">选择要从中产生信息的数据库表。 可以是 alerts.details、alerts.journal 或 alerts.status。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_SQLdisplayareaWIN"><h2 class="title sectiontitle">SQL 显示区域</h2><p class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_SQLdisplayareadescriptionWIN">SQL 显示区域在构建过滤器时显示 SQL。 您可在按钮栏中单击<span class="ph uicontrol">编辑 SQL</span>在“<span class="keyword wintitle">过滤器 SQL 编辑</span>”窗口中直接编辑 SQL。</p>
+<p class="p">使用有效的 SQL 语法输入过滤器查询，单击
+<span class="ph uicontrol">确定</span>保存输入并返回到过滤器构建器。 过滤器构建器将尝试对 SQL 文本进行语法分析并构建过滤器树。 如果 SQL 无效，将显示一个错误消息，您必须在<span class="keyword wintitle">过滤器 SQL 编辑</span>窗口中更正该错误之后才能继续操作。</p>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_metricareaWIN"><h2 class="title sectiontitle">度量区域</h2><p class="p" id="netom_filterbuilderwindowWIN__netom_filterbuilderwindow_metricareadescriptionWIN">使用度量按钮可向过滤器应用度量，以便其计算有用数据。
+例如，<samp class="ph tt">记录总和</samp>度量可计算 ObjectServer 中重复警报的总数。</p>
+<div class="p">请按以下步骤完成此区域：<dl class="dl" id="netom_filterbuilderwindowWIN__netom_filterbuilder_metricfieldsWIN"><dt class="dt dlterm">度量</dt>
+<dd class="dd">使用第一个列表选择要使用的度量：<ul class="ul"><li class="li">选择<span class="ph uicontrol">平均</span>可返回所有与过滤器匹配的警报的选定字段平均值。</li>
+<li class="li">选择<span class="ph uicontrol">计数</span>可返回所有与过滤器匹配的警报的计数。 选定字段不用于此计算。</li>
+<li class="li">选择<span class="ph uicontrol">总数</span>可返回所有与过滤器匹配的警报的所选字段总和。</li>
+<li class="li">选择<span class="ph uicontrol">最小值</span>可返回与过滤器匹配的警报中所选字段的最低值。</li>
+<li class="li">选择<span class="ph uicontrol">最大值</span>可返回与过滤器匹配的警报中所选字段的最高值。</li>
+</ul>
+</dd>
+<dd class="dd">使用第二个列表选择要应用度量的字段。
+警报中只有整数和时间字段可用于度量计算。<div class="note tip"><span class="tiptitle">提示：</span> 将在“<span class="keyword wintitle">事件列表</span>”监视器框窗口的监视器框中显示度量值。</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowWIN__netom_filterbuilder_applying_saving_closingWIN"><h2 class="title sectiontitle">应用和保存过滤器设置</h2><div class="p">定义或修改过滤器设置后，您可按以下步骤通过单击相关按钮来应用、保存或取消所作的更改： <dl class="dl" id="netom_filterbuilderwindowWIN__netom_filterbuilder_applyclosebuttonsWIN"><dt class="dt dlterm">应用</dt>
+<dd class="dd">点击此按钮可向过滤器应用更改，但不保存更改。</dd>
+<dt class="dt dlterm">关闭</dt>
+<dd class="dd">单击此按钮可关闭窗口并废弃更改。</dd>
+</dl>
+</div>
+<p class="p">必须使用 <span class="ph filepath">.elf</span> 文件扩展名保存过滤器。 单击<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">保存</span></span>或<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">另存为</span></span>。</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_fb_creatingeditfilterwin.html" title="使用 Windows 过滤器构建器可构建事件列表数据的过滤器。">在 Windows 上创建或编辑过滤器</a></div>
+<div><a class="link" href="omn_usr_fb_specifyingopsforfiltconds.html" title="在过滤器构建器内定义简单或复杂条件时，请使用运算符来定义比较。">指定过滤器条件的运算符</a></div>
+<div><a class="link" href="omn_usr_fb_specifyingcompvalfiltconds.html" title="在过滤器构建器内定义简单或复杂条件时，需要选择用于比较的数据库列、比较运算符以及一个或多个比较值。">指定过滤器条件的比较值</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

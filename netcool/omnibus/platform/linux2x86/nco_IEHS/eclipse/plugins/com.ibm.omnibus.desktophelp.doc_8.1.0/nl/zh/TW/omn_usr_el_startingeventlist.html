@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="啟動事件清單" />
+<meta name="abstract" content="若要監視及管理事件清單中的警示，您必須透過使用有效的鑑別認證，連接到執行中的 ObjectServer。 您可以從「管理者」、從指令行或從 Windows 開始功能表啟動事件清單。" />
+<meta name="description" content="若要監視及管理事件清單中的警示，您必須透過使用有效的鑑別認證，連接到執行中的 ObjectServer。 您可以從「管理者」、從指令行或從 Windows 開始功能表啟動事件清單。" />
+<meta name="DC.subject" content="事件清單, 啟動" />
+<meta name="keywords" content="事件清單, 啟動" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopt.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingteventlist" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>啟動事件清單</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">啟動事件清單</h1>
+<div class="body taskbody"><p class="shortdesc">若要監視及管理事件清單中的警示，您必須透過使用有效的鑑別認證，連接到執行中的 ObjectServer。
+您可以從「管理者」、從指令行或從 Windows <span class="ph uicontrol">開始</span>功能表啟動事件清單。</p>
+<div class="section context">若要啟動事件清單：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">針對作業系統執行適當的動作：</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="表格中的每個橫列提供一個可選取的選項。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d184546e30-option" valign="bottom" align="left">選項</th>
+<th id="d184546e30-desc" valign="bottom" align="left">敘述</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d184546e30-option" id="d184546e32" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d184546e30-desc d184546e32" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">從「管理者」視窗中，按一下按鈕列中的<span class="ph uicontrol">事件清單</span>。 </li>
+<li class="li">從命令提示字元中，輸入： <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d184546e30-option" id="d184546e48" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d184546e30-desc d184546e48" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">從「管理者」功能表中，選取<span class="ph uicontrol">事件清單</span>。</li>
+<li class="li">從 Windows <span class="ph uicontrol">開始</span>功能表中，選取<span class="ph menucascade"><span class="ph uicontrol">程式集</span> &gt; <span class="ph uicontrol">Netcool 套組</span> &gt; <span class="ph uicontrol">事件清單</span></span>。</li>
+<li class="li">從命令提示字元中，輸入：<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOEvent.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ 從指令行啟動事件清單時，您可以使用 <span class="keyword cmdname">nco_event</span> 及 <span class="keyword cmdname">NCOEvent.exe</span> 指令，指定其他指令行選項。</li>
+<li class="li step stepexpand"><span class="ph cmd">如果您從指令行或 Windows <span class="ph uicontrol">開始</span>功能表啟動事件清單，且先前未啟動「管理者」，則會提示您提供鑑別詳細資料，以連接到執行中的 ObjectServer。您必須完成事件清單的「<span class="keyword wintitle">登入</span>」視窗，如下所示： </span> <dl class="dl"><dt class="dt dlterm">使用者名稱</dt>
+<dd class="dd">輸入您的使用者名稱。</dd>
+<dt class="dt dlterm">密碼</dt>
+<dd class="dd">輸入您的密碼。 會在您輸入文字的位置顯示星號 (*) 字元。<div class="note note"><span class="notetitle">註：</span> 如果是針對外部鑑別來源（而不是 ObjectServer）驗證您的使用者名稱及密碼，請檢查此來源是否支援多位元組字元。如果不支援多位元組字元，您必須使用 ASCII 字元指定使用者名稱及密碼。</div>
+</dd>
+<dt class="dt dlterm">伺服器</dt>
+<dd class="dd">ObjectServer 名稱預設為 NCOMS（Netcool/OMNIbus 主要伺服器）。 如果已針對您的環境配置多個 ObjectServer，則所有可用的 ObjectServer 都會顯示在此下拉清單中。選取您要連接至的 ObjectServer。</dd>
+<dt class="dt dlterm">確定</dt>
+<dd class="dd">按一下此按鈕，以鑑別您的登入詳細資料。<div class="note note"><span class="notetitle">註：</span> 允許您嘗試登入三次。 每次嘗試時，都會清除<span class="ph uicontrol">密碼</span>欄位。 如果您在第三次嘗試中仍無法正確登入，程式即會終止。</div>
+</dd>
+<dt class="dt dlterm">取消</dt>
+<dd class="dd">按一下此按鈕，以取消登入嘗試。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">結果</h2></div><p class="p">如果事件清單 (<span class="keyword cmdname">nco_event</span>) 的實例正在執行中，則 <span class="keyword cmdname">nco_event</span> 指令會開啟新的事件清單視窗。
+如果沒有執行中的 <span class="keyword cmdname">nco_event</span> 實例，則 <span class="keyword cmdname">nco_event</span> 指令會啟動一個實例，並顯示監視器框視窗。</p>
+<p class="p">當您啟動事件清單時，會開啟「<span class="keyword wintitle">事件清單</span>」監視器框視窗。 從此視窗中，您可以在 ObjectServer 接收事件、警示、訊息或資料項目時，監視及管理所有警示。</p>
+<p class="p">一般而言，在您啟動事件清單時，預設事件清單配置 (<span class="ph filepath">default.elc</span>) 會顯示在「<span class="keyword wintitle">事件清單</span>」監視器框視窗中。
+您還可以選擇開啟自訂的事件清單配置檔案。 可以在指令行中或使用<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">開啟</span></span>視窗指定自訂的配置。 這些自訂的配置可位於檔案系統上，或位於可使用 HTTP 或 FTP 存取的遠端伺服器上。 </p>
+<div class="note note"><span class="notetitle">失效接手登入：</span> 如果事件清單遺失與主要 ObjectServer 的連線，且存在次要或失效接手 ObjectServer，則會提示您登入次要 ObjectServer。 在主要 ObjectServer 重新可用之後，會顯示一則訊息，指出事件清單正在重新連接到主要 ObjectServer。 您無需重新登入主要 ObjectServer。</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopt.html">UNIX 事件清單指令行選項</a></span><br />
+當您使用 <span class="keyword cmdname">nco_event</span> 指令，在 UNIX 上啟動事件清單時，可以指定一些指令行選項來修改配置。您可以從 <span class="ph filepath">$NCHOME/omnibus/bin</span> 目錄執行此指令。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopt.html">Windows 事件清單指令行選項</a></span><br />
+當您使用 <span class="keyword cmdname">NCOEvent.exe</span> 指令，在 Windows 上啟動事件清單時，可以指定一些指令行選項來修改配置。您可以從 <span class="ph filepath">%NCHOME%\omnibus\desktop</span> 目錄執行此指令。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="您可以使用事件清單來監視及管理警示。 在 ObjectServer 接收事件、警示、訊息或資料項目時，會建立警示。 每個警示都是由 ObjectServer alerts.status 表格的列中保留之資訊的直欄 (或欄位) 所組成。">監視及管理事件清單中的事件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

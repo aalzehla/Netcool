@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Small Event Preview</title>
+<style>
+.oneui {
+	font-family: Helvetica, Arial, Tahoma, Verdana, sans-serif;
+	font-size: 75%;
+	color: #222222;
+}
+#summary_tbl, #severity_tbl, #clause_tbl {
+	font-size: 100%;
+	width:95%;
+	border-collapse:collapse;
+}
+#summary_tbl td, #summary_tbl th, #severity_tbl td, #severity_tbl th,
+#clause_tbl td, #severity_tbl th {
+	border:1px solid black;
+	padding:3px 7px 2px 7px;
+	text-align:center;
+	background-color:fafafa;
+}
+#summary_tbl th, #severity_tbl th, #clause_tbl th {
+	font-weight:bold;
+	text-align:center;
+	width:50%;
+	padding-top:4px;
+	padding-bottom:4px;
+	background-color:#444444;
+	color:white;
+}
+#summary_tbl tr.alt td, #severity_tbl tr.alt td {
+	background-color:#fafafafa;
+	text-align:center;
+}
+#summary_tbl tr td.metric, #severity_tbl tr td.metric {
+	text-align:left;
+}
+#webguibtn {
+	font-weight: bold;
+	width:18em;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+</style>
+
+<script src="/OMNIbusWSREST/js/utils.js">
+</script>
+<script type="text/javascript" language="javascript">
+/***************************************************************************
+ * UI Preview expanded data details.
+ ***************************************************************************/
+__EVENTDATA__
+
+var webguiuri="__WEBGUIURI__";
+
+/***************************************************************************
+ * The main UI Preview JavaScript callbacks.
+ **************************************************************************/
+function btnWebGUIOnClickCB(evt)
+{
+	/*
+	 * Launch a WEBGUI window.
+	 */
+	window.open(	webguiuri, "_blank",
+			"toolbar=no,menubar=no,location=no,height=500,width=800", false );
+}
+
+/***************************************************************************
+ * The main UI Preview JavaScript functions.
+ **************************************************************************/
+function setupUIPreview()
+{
+	var	node;
+	var	tbl;
+	var	html;
+	var	idx;
+	var	cells;
+
+	/* Set the summary values. */
+	node = document.getElementById("count");
+	node.innerHTML = evals.count;
+	node = document.getElementById("sum");
+	node.innerHTML = evals.sum;
+	node = document.getElementById("min");
+	node.innerHTML = uipGetSeverityName(evals, evals.min);
+	node = document.getElementById("max");
+	node.innerHTML = uipGetSeverityName(evals, evals.max);
+
+	/* Set the severity break-down. */
+	tbl = document.getElementById("severity_tbl_body");
+
+	for( idx = (evals.severities.length - 1); idx >= 0; --idx )
+	{
+		cells = new Array();
+		cells.push( {
+				value : evals.severities[idx].name,
+				align : "left"
+			    } );
+		cells.push( {
+				value : evals.severities[idx].count,
+				align : "center"
+			    } );
+		addRowToTable(tbl, cells);
+	}
+
+	/* Set the event filter clause */
+	node = document.getElementById("oslcwhere");
+	node.innerHTML += encodeHTML(oslcwhere);
+
+	/* Setup the WebGUI launch incontext button. */
+	setupWebGUIBtn();
+}
+
+function setupWebGUIBtn()
+{
+	/*
+	 * Do we have a WebGUI URI?
+	 */
+	if( webguiuri.length > 0 )
+	{
+		var	btn;
+
+		/*
+		 * Get a handle to the button and change its display.
+		 */
+		btn = document.getElementById("webguibtn");
+		btn.style.display = "";
+	}
+}
+</script>
+</head>
+<body id="main" class="oneui" onLoad="javascript:setupUIPreview()">
+<br>
+<center>
+<table id="summary_tbl">
+	<tbody>
+		<tr>
+			<th>Metric</th>
+			<th>Value</th>
+		</tr>
+		<tr>
+			<td class="metric">Event Count (Unique)</td>
+			<td id="count"></td>
+		</tr>
+		<tr class="alt">
+			<td class="metric">Event Count (Deduplicated)</td>
+			<td id="sum"></td>
+		</tr>
+		<tr>
+			<td class="metric">Minimum Severity</td>
+			<td id="min"></td>
+		</tr>
+		<tr class="alt">
+			<td class="metric">Maximum Severity</td>
+			<td id="max"></td>
+		</tr>
+	</tbody>
+</table>
+<br>
+<table id="severity_tbl">
+	<tbody id="severity_tbl_body">
+		<tr>
+			<th>Severity</th>
+			<th>Count</th>
+		</tr>
+	</tbody>
+</table>
+<br>
+<button class="oneui" id="webguibtn" type="button" style="display:none" onclick="javascript:btnWebGUIOnClickCB();">Show Events In OMNIbus ...</button>
+<br>
+<br>
+<table id="clause_tbl">
+	<tbody>
+		<tr>
+			<th>Event Filter Clause</th>
+		</tr>
+		<tr>
+			<td id="oslcwhere"></td>
+		</tr>
+	</tbody>
+</table>
+</center>
+</body>
+</html>

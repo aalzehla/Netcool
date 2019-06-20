@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Protokollierungsstufe festlegen" />
+<meta name="abstract" content="Sie können die Protokollierungsstufe ändern, um ein detaillierteres Protokoll oder Tracedateien als Unterstützung beim Debugging von MIB Manager bereitzustellen. Die zusätzlichen Informationen, die durch Erhöhen der Protokollierungsstufen bereitgestellt werden, können das Debugging bestimmter Probleme während des Parsing von MIBs erleichtern." />
+<meta name="Description" content="Sie können die Protokollierungsstufe ändern, um ein detaillierteres Protokoll oder Tracedateien als Unterstützung beim Debugging von MIB Manager bereitzustellen. Die zusätzlichen Informationen, die durch Erhöhen der Protokollierungsstufen bereitgestellt werden, können das Debugging bestimmter Probleme während des Parsing von MIBs erleichtern." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Protokollierungsstufe festlegen</h1>
+<div class="body refbody"><p class="shortdesc">Sie können die Protokollierungsstufe ändern, um
+ein detaillierteres Protokoll oder Tracedateien als Unterstützung
+beim Debugging von <span class="keyword">MIB Manager</span> bereitzustellen. Die zusätzlichen
+Informationen, die durch Erhöhen der Protokollierungsstufen
+bereitgestellt werden, können das Debugging bestimmter
+Probleme während des Parsing von MIBs erleichtern.</p>
+<div class="section"><p class="p">Klicken
+Sie zum Ändern der Protokollierungsstufe in der Menüleiste des Hauptmenüs auf
+<span class="ph menucascade"><span class="ph uicontrol">Bearbeiten</span> &gt; <span class="ph uicontrol">Debug</span></span>. Protokolldateien weisen sechs Nachrichtenstufen auf, die Sie
+durchlaufen können, um den erfassten Detaillierungsgrad zu erhöhen:
+"Keine", "Fehler", "Warnung", "Info", "Debug" und "Ausführlich".</p>
+<p class="p">Die folgende Tabelle enthält Kurzbeschreibungen der einzelnen
+Protokollierungsstufen:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabelle 1. Liste der Protokollierungsstufen mit zugehörigen Beschreibungen</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3944e36">Protokollierungsstufe</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3944e38">Beschreibung</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">Keine</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Gibt eine Protokollierungsstufe an,
+bei der keine Debugnachrichten ausgegeben werden. </p>
+<p class="p">Die Leistung der Anwendung wird verbessert, beim Parsing
+werden aber keine Warnungen oder Fehlernachrichten angezeigt.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">Fehler</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Gibt eine Protokollierungsstufe an,
+bei der nur Fehler ausgegeben werden, die sich auf die Ergebnisse auswirken.</p>
+<p class="p">Dazu
+gehören alle Fehler, die von <span class="keyword">MIB Manager</span> festgestellt
+werden und die zur Anzeige falscher Daten im Hauptfenster führen. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">Warnung</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Gibt eine Protokollierungsstufe an,
+bei der Warnungen und Fehlernachrichten protokolliert werden.</p>
+<p class="p">Eine Warnung gibt eine Bedingung an, die zu fehlerhaften
+Daten führen kann und daher geprüft werden muss. Die Bedingung führt aber nicht zur Beschädigung von Daten.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">Info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Gibt eine Protokollierungsstufe an,
+bei der Informationsnachrichten, Warnungen und kritische Nachrichten
+protokolliert werden.</p>
+<p class="p">Informationsnachrichten enthalten Details bezüglich des
+Gesamtfortschritts einer Task. Sie bieten beispielsweise den
+vollständigen Text für Objekte während des Parsing.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">Debug</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><div class="p">Gibt eine Protokollierungsstufe an,
+bei der alle Nachrichten protokolliert werden. <div class="note note"><span class="notetitle">Anmerkung:</span> Führen Sie <span class="keyword">MIB Manager</span> nur dann im Debugmodus aus, wenn
+Sie eine Fehlerbedingung beheben wollen. Auch wenn das Parsing
+nur für wenige MIBs ausgeführt wird, wird durch das produzierte
+Datenvolumen rasch Ihr Dateisystem mit Daten gefüllt.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">Ausführlich</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Gibt eine Protokollierungsstufe an,
+bei der alle Informationsnachrichten protokolliert werden.</p>
+<p class="p">Eine Nachricht mit ausführlichen Informationen enthält
+den Status von Variablen, Feldgruppen und Hashes bei Änderungen an
+deren Werten und Statuszuständen.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Übergeordnetes Thema:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Mithilfe der Benutzervorgaben für die Protokollierung können Sie das Verzeichnis für die Protokolldatei von MIB Manager angeben und die Standardnachrichtenstufe festlegen.">Benutzervorgaben für die Protokollierung festlegen</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

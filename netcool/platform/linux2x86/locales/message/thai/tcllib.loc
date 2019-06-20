@@ -1,0 +1,584 @@
+; comment character is a semicolon.
+;
+;
+[file format]
+	; left and right brackets will delimit section titles. 
+	; Any special character, including the comment character 
+	; and the section-title delimiters, may be interpreted 
+	; literally by preceding them with the escape character. 
+	; In addition, any line that ends with the escape character 
+	; will be continued onto the next line. 
+	version=10.0.1
+	list_separator=,	; commas will separate the members of a list. 
+	escape=\		; backslash is the escape symbol.
+
+[language] 
+	language=english
+
+[copyright]
+copyright = "Copyright © 1994 - 2006 Sybase, Inc. All rights reserved.\
+	Unpublished rights reserved under U. S. copyright laws.\
+	This product is the confidential and trade secret information\
+	of Sybase, Inc. Use, duplication or disclosure of the software\
+	and documentation by the Government and Sybase, Inc. or other\
+	written agreement specifying the Government's rights to use\
+	the software and any applicable FAR provisions, for example,\
+	FAR 52.227-19\
+	Sybase Inc, One Sybase Drive, Dublin, CA 94568, USA"
+
+[tcllib]
+
+1 = NETE_DRVINITSIZE, "ไม่สามารถหาจำนวนหน่วยความจำที่โปรโตคอลไดรฟ์เวอร์จำเป็นต้องใช้"
+
+2 = NETE_NULLOPT, "การผ่านตัวเลือก NULL ptr ไปยังรูทีน Net-Library ไม่ถูกต้อง"
+
+3 = NETE_UNKWOPT, "ไม่รู้จักตัวเลือก Net-Library ที่รีเควสต์"
+
+4 = NETE_UNKWINFCDE, "ไม่รู้จักรหัสข้อมูลแอดเดรสที่รีเควสต์"
+
+5 = NETE_BOOLREP, "ค่าของตัวเลือกต้องเป็น NET_TRUE หรือ NET_FALSE"
+
+6 = NETE_NULLNETBUF, "การผ่านพอยน์เตอร์ของบัฟเฟอร์NULL ไปยัง net_init() ไม่ถูกต้อง"
+
+7 = NETE_NOTSUPPORTED, "ไม่สนับสนุนคุณสมบัตินี้"
+
+8 = NETE_NULLHDLR, "การผ่านอาเรย์พอยน์เตอร์ NULL NET_POLL ไม่ถูกต้อง"
+
+9 = NETE_BADENGINE, "หมายเลขเอ็นจินไม่ถูกต้อง"
+
+10 = NETE_ALREADYINIT, "โปรเซสปัจจุบันได้เรียก net_init() แล้ว"
+
+11 = NETE_DICTNOTFOUND, "ไม่พบพจนานุกรมแอดเดรส"
+
+12 = NETE_SRVNAMENOTFND, "ไม่พบแอตทริบิวต์ชื่อเซิร์ฟเวอร์ที่ระบุ"
+
+13 = NETE_NODICTS, "ไม่พบโครงสร้างพจนานุกรมแอดเดรสที่ใช้ได้"
+
+14 = NETE_DRVINIT, "เกิดข้อผิดพลาดระหว่างการตั้งค่าเริ่มต้นโปรโตคอลไดรฟ์เวอร์"
+
+15 = NETE_NODRIVERS, "ไม่พบโครงสร้างโปรโตคอลไดรฟ์เวอร์ที่ใช้ได้"
+
+16 = NETE_LFNOSECTION , "ไม่พบ Net-Library ส่วนที่ผิดพลาดในไฟล์ภาษาท้องถิ่น"
+
+17 = NETE_DICTSYNTAX, "ซินแท็กซ์ผิดพลาดในพจนานุกรมแอดเดรส"
+
+18 = NETE_ADRTYPNOTFND, "ไม่พบแอตทริบิวต์ประเภทแอดเดรสที่ระบุ"
+
+19 = NETE_DICTCLOSE, "เกิดข้อผิดพลาดเมื่อปิดพจนานุกรมแอดเดรส"
+
+20 = NETE_NOEPS, "ไม่พบโครงสร้างจุดสิ้นสุดที่ใช้ได้"
+
+21 = NETE_EPINUSE, "พยายามใช้จุดสิ้นสุดที่กำลังทำงานอยู่"
+
+22 = NETE_DRVPROPERTY, "การเรียกโปรโตคอลไดรฟ์เวอร์เพื่อค้นหาพร็อปเพอร์ตีล้มเหลว"
+
+23 = NETE_DRVLISTEN, "การเรียกโปรโตคอลไดรฟ์เวอร์ Net-Lib เพื่อลงทะเบียนผู้ฟังล้มเหลว"
+
+24 = NETE_DRVCONNECT, "การเรียกโปรโตคอลไดรฟ์เวอร์ Net-Lib เพื่อเชื่อมต่อจุดสิ้นสุดสองจุดล้มเหลว"
+
+25 = NETE_DRVACCEPT, "การเรียกโปรโตคอลไดรฟ์เวอร์เพื่อยอมรับรีเควสต์การเชื่อมต่อที่เข้ามาล้มเหลว"
+
+26 = NETE_BADIOSTATE, "จุดสิ้นสุดมีสถานะ I/O ที่ไม่ถูกต้อง"
+
+27 = NETE_DRVNOTAVAIL, "ไม่มีโปรโตคอลไดรฟ์เวอร์ Net-Lib ที่ระบุไว้"
+
+28 = NETE_BADPROPERTY, "อาร์กิวเมนต์ประเภทพร็อปเพอร์ตีไม่ถูกต้อง"
+
+29 = NETE_DISCONNECT, "Net-Library สิ้นสุดการทำงาน เนื่องจากตัดการเชื่อมต่อ"
+
+30 = NETE_DRVEXIT, "รูทีนการออกจากโปรโตคอลไดรฟ์เวอร์ Net-Lib ล้มเหลว"
+
+31 = NETE_SUBACCEPT, "ความพยายามยอมรับผู้ฟังรายการหนึ่งล้มเหลว"
+
+32 = NETE_DRVREAD, "การเรียกโปรโตคอลไดรฟ์เวอร์ Net-Lib เพื่ออ่านข้อมูลล้มเหลว"
+
+33 = NETE_RDDATLEN, "ขนาดของข้อมูลที่ขอให้อ่านมีขนาดใหญ่กว่าบัฟเฟอร์สำหรับอ่าน"
+
+34 = NETE_DRVREADOOB, "เรียกโปรโตคอลไดรฟ์เวอร์ Net-Lib เพื่ออ่านข้อมูลด่วน"
+
+35 = NETE_EXPNOTSUPPORT, "โปรโตคอลไดรฟ์เวอร์ Net-Lib ไม่สนับสนุนข้อมูลที่ถูกเร่ง"
+
+36 = NETE_DRVWRITE, "การเรียกโปรโตคอลไดรฟ์เวอร์ Net-Lib เพื่อเขียนข้อมูลล้มเหลว"
+
+37 = NETE_NULLADDR, "การผ่านพอยน์เตอร์ net_addr NULL ไม่ถูกต้อง"
+
+38 = NETE_NULLDICT, "การผ่านพอยน์เตอร์พจนานุกรม NULL ไม่ถูกต้อง"
+
+39 = NETE_NULLSTATE, "การผ่านพอยน์เตอร์ net_state NULL ไม่ถูกต้อง"
+
+40 = NETE_NULLRETRES, "การผ่านพอยน์เตอร์ return_reason NULL ไม่ถูกต้อง"
+
+41 = NETE_NULLEP, "การผ่านพอยน์เตอร์จุดสิ้นสุด NULL ไม่ถูกต้อง"
+
+42 = NETE_NULLCBACK, "การผ่านพอยน์เตอร์รูทีนเรียกกลับ NULL ไม่ถูกต้อง"
+
+43 = NETE_NULLDICTNAME, "การผ่านพอยน์เตอร์หมายเลขพจนานุกรม NULL ไม่ถูกต้อง"
+
+44 = NETE_NULLEXPFLAG, "การผ่านพอยน์เตอร์แฟล็กข้อมูลที่ถูกเร่ง NULL ไม่ถูกต้อง"
+
+45 = NETE_NULLDICTPTR, "การผ่านพอยน์เตอร์ของแฮนเดิลพจนานุกรม NULL ไม่ถูกต้อง"
+
+46 = NETE_NULLNEWEP, "การผ่านพอยน์เตอร์ของแฮนเดิลจุดสิ้นสุด NULL ไม่ถูกต้อง"
+
+47 = NETE_NULLATTRLST, "การผ่านพอยน์เตอร์ข้อมูลแอดเดรส NULL ไม่ถูกต้อง"
+
+48 = NETE_NULLADDRPTR, "การผ่านพอยน์เตอร์ของแฮนเดิล net_addr NULL ไม่ถูกต้อง"
+
+49 = NETE_NULLLASTENTRY, "การผ่านพอยน์เตอร์รายการสุดท้าย NULL ไม่ถูกต้อง"
+
+50 = NETE_NULLRDDATA, "การผ่านบัฟเฟอร์อ่าน NULL ไม่ถูกต้อง"
+
+51 = NETE_NOADDRS, "ไม่พบโครงสร้างแอดเดรสที่ใช้ได้"
+
+52 = NETE_NULLBYTSRD, "การผ่านพอยน์เตอร์ bytes_read NULL ไม่ถูกต้อง"
+
+53 = NETE_EPCLOSING, "กำลังปิดจุดสิ้นสุดที่ระบุ"
+
+54 = NETE_NULLWRDATA, "การผ่านบัฟเฟอร์การเขียน NULL ไม่ถูกต้อง"
+
+55 = NETE_CANCELLED, "ยกเลิกการทำงานที่รีเควสต์ให้ทำ เนื่องจากอีเวนต์อื่น"
+
+56 = NETE_NULLINTL, "การผ่านโครงสร้าง NULL NET_INTL ไม่ถูกต้อง"
+
+57 = NETE_NULLUSERPTR, "การผ่านบัฟเฟอร์ของพอยน์เตอร์ผู้ใช้ NULL ไม่ถูกต้อง"
+
+58 = NETE_BADDICT, "มีการพยายามใช้แฮนเดิลพจนานุกรมที่ไม่ถูกต้อง"
+
+59 = NETE_BADADDR, "มีการพยายามใช้แฮนเดิลแอดเดรสที่ไม่ถูกต้อง"
+
+60 = NETE_BADEP, "มีการพยายามใช้แฮนเดิลจุดสิ้นสุดที่ไม่ถูกต้อง"
+
+61 = NETE_DRVCLOSE, "การเรียกโปรโตคอลไดรฟ์เวอร์ Net-Lib เพื่อปิดจุดสิ้นสุดล้มเหลว"
+
+62 = NETE_VERSION, "โปรโตคอลไดรฟ์เวอร์ใช้ไม่ได้กับ Net-Lib ปัจจุบัน - อาจเป็นเพราะเวอร์ชันของ Net-Library เป็นรุ่นเก่า"
+
+63 = NETE_NULLSUPPORT, "การผ่านพอยน์เตอร์ NULL สำหรับพารามิเตอร์ 'ที่สนับสนุน' ไปยัง net_capability() ไม่ถูกต้อง"
+
+64 = NETE_BADPROCMODE, "โหมดการทำงานไม่ถูกต้อง"
+
+65 = NETE_FUNCCODE, "รหัสฟังก์ชันที่ส่งไปยัง net_report()ไม่ถูกต้อง"
+
+66 = NETE_DRVINUSE, "ไม่สามารถอันโหลดไดรฟ์เวอร์ -- ไดรฟ์เวอร์ยังคงทำงานอยู่"
+
+67 = NETE_NCONNECTED, "พยายามทำ I/O บนจุดสิ้นสุดที่ไม่ได้เชื่อมต่ออยู่"
+
+68 = NETE_NOMULTIRW, "ไม่สามารถอ่านมากกว่าหนึ่งครั้ง"
+
+69 = NETE_NULLPREVMODE, "พอยน์เตอร์โหมด NULL ก่อนหน้านี้ไม่ถูกต้อง"
+
+70 = NETE_NULLREPORT, "ไม่สามารถเรียก net_report() ถ้า net_opt_report() ไม่รีเควสต์ขอรายงาน"
+
+71 = NETE_LFILENAME, "ไม่ได้ระบุชื่อไฟล์ภาษาท้องถิ่นในการเรียกไปยัง net_intl_errstr()"
+
+72 = NETE_INTLOPEN, "ความพยายามเปิดไฟล์ภาษาท้องถิ่นโดยใช้ intl_open ล้มเหลว"
+
+73 = NETE_UP1ENIGNE, " Net-Lib  เวอร์ชันยูนิโปรเซสเซอร์อนุญาตแค่เพียง 1 เอ็นจินเท่านั้น"
+
+74 = NETE_NULLCBPARM, "พารามิเตอร์เรียกกลับ NULL ไปยังรูทีน Net-Library ไม่ถูกต้อง"
+
+75 = NETE_NULLINFOLEN, "พอยน์เตอร์ความยาวข้อมูล NULL ไปยัง net_address_info() ไม่ถูกต้อง"
+
+76 = NETE_UNKWNMODE, "ไม่รู้จักโหมดเรียกกลับที่รีเควสต์"
+
+77 = NETE_BADEPNUM, "หมายเลขจุดสิ้นสุดที่รีเควสต์ไม่ถูกต้อง"
+
+78 = NETE_NULLENGPTR, "การผ่านเอ็นจินพอยน์เตอร์ NULL ไปยัง net_engine_init() ไม่ถูกต้อง"
+
+79 = NETE_NULLENGINE, "การผ่านเอ็นจินพอยน์เตอร์ NULL ไปยังรูทีน Net-Library ใดๆ ไม่ถูกต้อง"
+
+80 = NETE_NOENGS, "ไม่พบโครงสร้างเอ็นจินที่ใช้ได้"
+
+81 = NETE_NOREQUESTS, "ไม่พบโครงสร้างรูทีนที่ใช้ได้"
+
+82 = NETE_BADMONFLAG, "มาสก์ของมอนิเตอร์แฟล็กที่รีเควสต์ไม่ถูกต้อง"
+
+83 = NETE_EPINCLOSE, "กำลังปิดจุดสิ้นสุดที่ต้องการ"
+
+84 = NETE_BADMODE, "ไม่สนับสนุนโหมดที่รีเควสต์"
+
+85 = NETE_DRVLOAD, "ความพยายามโหลดโปรโตคอลไดรฟ์เวอร์ล้มเหลว"
+
+86 = NETE_DRVUNLOAD, "ความพยายามอันโหลดโปรโตคอลไดรฟ์เวอร์ล้มเหลว"
+
+87 = NETE_MEMPOLICY, "นโยบายหน่วยความจำที่รีเควสต์ไม่ถูกต้อง"
+
+88 = NETE_MEMREALLOC, "ความพยายามในการจัดสรรหน่วยความจำใหม่ล้มเหลว"
+
+89 = NETE_MEMALLOC, "ความพยายามในการจัดสรรหน่วยความจำล้มเหลว"
+
+90 = NETE_NULLSIZE, "การผ่านพอยน์เตอร์ขนาด NULL ไปยัง net_initsize() ไม่ถูกต้อง"
+
+91 = NETE_NULLSTATEPTR, "การผ่านพอยน์เตอร์ NET_STATE NULL ไปยัง net_init() ไม่ถูกต้อง"
+
+92 = NETE_NULLSPNLCKCNTPTR, "การผ่านพอยน์เตอร์ชุดค่า spinlock NULL ไปยัง net_spinlocks() ไม่ถูกต้อง"
+
+93 = NETE_ENGACTIVE, "ไม่สามารถดำเนินกระบวนการที่รีเควสต์ได้ในขณะที่ยังมีเอ็นจินแอ็กทีฟอยู่"
+
+94 = NETE_UNKWIDTYPE, "ประเภทหมายเลขพจนานุกรมแอดเดรสที่ระบุไม่ถูกต้อง"
+
+95 = NETE_SECNOTFOUND, "ไม่พบส่วนของคอนฟิกไฟล์ที่รีเควสต์"
+
+96 = NETE_DRVNOTLOADED, "ไม่ได้โหลดเน็ตเวิร์กไดรฟ์เวอร์ของเน็ตเวิร์กโปรโตคอลที่ระบุ"
+
+97 = NETE_NODRVERRSTR, "ไม่มีสตริงข้อความผิดพลาดของโปรโตคอลไดรฟ์เวอร์สำหรับข้อผิดพลาดปัจจุบัน"
+
+98 = NETE_SHRTINFOBUF, "บัฟเฟอร์ข้อมูลแอดเดรสเล็กเกินไป"
+
+99 = NETE_NULLNFDS, "การผ่านพอยน์เตอร์ nfds NULL ไปยัง net_poll_external() ไม่ถูกต้อง"
+
+100 = NETE_BADNFDS, "จำนวนเดสคริปเตอร์ของไฟล์ที่รีเควสต์ไม่ถูกต้อง"
+
+101 = NETE_NULLRDBUF, "การผ่านบัฟเฟอร์การอ่าน NULL ไปยัง Net-Library ไม่ถูกต้อง"
+
+102 = NETE_NULLWRTBUF, "การผ่านบัฟเฟอร์การเขียน NULL ไปยัง Net-Library ไม่ถูกต้อง"
+
+103 = NETE_INTLNXTSEC, "การเรียกไปยัง intl_nextsection ล้มเหลว"
+
+104 = NETE_INTLNXTVAL, "การเรียกไปยัง intl_nextvalue ล้มเหลว"
+
+105 = NETE_LFNOVALUE, "พบรายการไฟล์ภาษาท้องถิ่น  แต่ไม่มีข้อความผิดพลาด"
+
+106 = NETE_BADERRID, "พบรายการไฟล์ภาษาท้องถิ่น ซึ่งมีหมายเลขข้อผิดพลาดไม่ถูกต้อง"
+
+107 = NETE_INTLNXTENT, "การเรียกไปยัง intl_nextentry ล้มเหลว"
+
+108 = NETE_NULLINTLSIZE, "การผ่านพอยน์เตอร์ขนาด NULL ไปยัง net_intl_size ไม่ถูกต้อง"
+
+109 = NETE_NULLINTLBUF, "การผ่านบัฟเฟอร์พอยน์เตอร์ NULL ไปยัง net_intl_errstr ไม่ถูกต้อง"
+
+110 = NETE_BADMSECS, "ค่าของพารามิเตอร์มิลลิวินาทีไม่ถูกต้อง"
+
+111 = NETE_NOLISTENERS, "การเรียก net_accept ไม่ถูกต้องถ้าไม่มีจุดสิ้นสุด listning"
+
+112 = NETE_POLLNOTSUP, "ไม่สนับสนุนฟังก์ชัน net_poll_external()"
+
+113 = NETE_NONEQUEUED, "ไม่สามารถรอให้งานที่รีเควสต์เสร็จสมบูรณ์ เพราะว่าไม่มีอะไรเข้าคิวรออยู่"
+
+114 = NETE_BADSIGNAL, "Net-Library ไม่ใช้สัญญาณที่รีเควสต์" 
+
+115 = NETE_DICTINUSE, "พยายามเข้าถึงพจนานุกรมแอดเดรสพร้อมทั้งงานมากกว่าหนึ่งงาน" 
+
+116 = NETE_NULLEXPFLG, "การผ่านพอยน์เตอร์ของแฟล็กที่ถูกเร่ง NULL ไปยัง net_read ไม่ถูกต้อง"
+
+117 = NETE_NODRVCLASS, "ไม่มีไดรฟ์เวอร์ของโปรโตคอลคลาสที่รีเควสต์ใช้งานได้ "
+
+118 = NETE_BADSRCHATTR, "รายการค้นหาแอตทริบิวต์มีรายการที่ไม่ถูกต้อง"
+	
+119 = NETE_BADDICTID, "หมายเลขพจนานุกรมที่ส่งผ่านไปยัง net_dict_open ไม่ถูกต้อง"
+
+120 = NETE_INVALIDVERSION, "เวอร์ชัน Net-Library ไม่ถูกต้อง"
+
+121 = NETE_NULLVALUE, "อาร์กิวเมนต์ค่าของตัวเลือกนี้เป็น NULL ไม่ได้"
+
+122 = NETE_NULLARG, "อาร์กิวเมนต์ NULL ไปยังรูทีนไม่ถูกต้อง"
+
+123 = NETE_BUFTOOSMALL, "บัฟเฟอร์ขนาดเล็กเกินไป"
+
+124 = NETE_BADCMD, "อาร์กิวเมนต์คำสั่งไม่ถูกต้อง"
+
+125 = NETE_NULLBUF, "อาร์กิวเมนต์ของบัฟเฟอร์ Null"
+
+126 = NETE_NULLPROPINFO, "อาร์กิวเมนต์ propinfo Null"
+
+127 = NETE_SETNOTSUPPORTED, "ไม่สนับสนุนการตั้งค่าพร็อปเพอร์ตี Net-Lib"
+
+128 = NETE_INTLHOME, "การเรียกไปยัง intl_home ล้มเหลว"
+
+129 = NETE_INVOSERR, "หมายเลขข้อผิดพลาด OS ไม่ถูกต้อง"
+
+130 = NETE_RLIMITERR, "ไม่สามารถดึง/ตั้งค่าจำนวนสูงสุดของไฟล์ที่เปิด "
+
+131 = NETE_GETEF, "ไม่สามารถสร้างอีเวนต์แฟล็ก"
+
+132 = NETE_FREEEF, "ไม่สามารถปลดปล่อยอีเวนต์แฟล็ก"
+
+133 = NETE_INSQTI, "ไม่สามารถใส่องค์ประกอบลงในอินเทอร์ล็อคคิว"
+
+134 = NETE_REMQHI, "ไม่สามารถลบองค์ประกอบออกจากอินเทอร์ล็อคคิว"
+
+135 = NETE_SETIMR, "ความพยายามตั้งค่าไทม์เมอร์ล้มเหลว"
+
+136 = NETE_CANTIM, "ความพยายามยกเลิกไทม์เมอร์ล้มเหลว"
+
+137 = NETE_WAITFR, "ความพยายามในการรออีเวนต์ล้มเหลว"
+
+138 = NETE_CLREF, "ไม่สามารถลบอีเวนต์แฟล็ก"
+
+139 = NETE_SETEF, "ไม่สามารถตั้งค่าอีเวนต์แฟล็ก"
+
+140 = NETE_DRVATTNHDLR, "ความพยายามติดตั้งแอ็ทเท็นชันแฮนด์เลอร์ของโปรโตคอลไดรฟเวอร์ ล้มเหลว"
+
+141 = NETE_QUEOPEN, "ความพยายามเปิดคิวการสื่อสารเธรดล้มเหลว"
+
+142 = NETE_QUEREAD, "ความพยายามอ่านจากคิวการสื่อสารเธรดล้มเหลว"
+
+143 = NETE_QUEWRITE, "ความพยายามเขียนไปยังคิวการสื่อสารเธรดล้มเหลว"
+
+144 = NETE_QUECLOSE, "ความพยายามปิดคิวการสื่อสารเธรดล้มเหลว"
+
+145 = NETE_CREATETHREAD, "ความพยายามสร้างเธรดล้มเหลว"
+
+146 = NETE_EVENTCREATE, "ความพยายามสร้างอีเวนต์ออบเจ็กต์ล้มเหลว"
+
+147 = NETE_EVENTPOST, "ความพยายามส่งไปยังอีเวนต์ออบเจ็กต์ล้มเหลว"
+
+148 = NETE_EVENTCLEAR, "ความพยายามลบอีเวนต์ออบเจ็กต์ล้มเหลว"
+
+149 = NETE_EVENTWAIT, "ความพยายามรออีเวนต์ออบเจ็กต์ล้มเหลว"
+
+150 = NETE_CREATEMTX, "ความพยายามสร้างสัญญาณ mutex ล้มเหลว"
+
+151 = NETE_REQUESTMTX, "ความพยายามขอเป็นเจ้าของเซมาฟอร์ mutex ล้มเหลว"
+
+152 = NETE_RELEASEMTX, "ความพยายามปล่อยสัญญาณ mutex ล้มเหลว"
+
+153 = NETE_DESTROYMTX, "ความพยายามทำลายสัญญาณ mutex ล้มเหลว"
+
+154 = NETE_THRDSPND, "ความพยายามซัสเพนด์เธรดล้มเหลว"
+
+155 = NETE_THRDRESUME, "ความพยายามใช้งานเธรดต่อไปล้มเหลว"
+
+156 = NETE_THRDKILL, "ความพยายามฆ่าเธรดล้มเหลว"
+
+157 = NETE_SETSIGHDLR, "ไม่สามารถตั้งค่าแฮนด์เลอร์สัญญาณที่เหมาะสมได้"
+
+158 = NETE_SELECTFAIL, "การเรียกไปยัง select() ล้มเหลว"
+
+159 = NETE_FDOFLOW, "ไม่มีตัวอธิบายไฟล์เพิ่มเติม "
+
+160 = NETE_NOPOLLSTRATS, "ไม่มีโครงสร้างวิธีการตรวจสอบที่ใช้ได้"
+
+161 = NETE_NOSIGNALS, "Net-Library ไม่สนับสนุนโปรโตคอลไดรฟ์เวอร์ที่สร้างสัญญาณ"
+
+162 = NETE_UNKNOWN, "ไม่รู้จักข้อผิดพลาด Net-Library"
+
+164 = NETE_OODDRIVER, "ไดรฟ์เวอร์มีเวอร์ชันที่เก่าเกินไปที่จะสนับสนุน"
+
+165 = NETE_OSGENERIC, "ข้อผิดพลาดของระบบปฏิบัติการ - %1!"
+
+166 = NETE_DRVLOCFAIL, "ไม่สามารถเปิดไฟล์ภาษาท้องถิ่นของไดรฟ์เวอร์ได้"
+
+167 = NETE_OSOBJECT, "ไม่สามารถสร้างออบเจ็กต์ OS"
+
+168 = NET_QPRFSTR, "เกิดข้อผิดพลาดในการอ่านจากแอดเดรสไฟล์"
+
+170 = NETE_BADHANDLER, "แฮนด์เลอร์สัญญาญไม่ดี"
+
+171 = NETE_FLTCONNECT, "ฟิลเตอร์ไดรฟ์เวอร์ Net-Lib ไม่สามารถเชื่อมต่อจุดปลายสองจุด"
+
+172 = NETE_CONABORTED, "การเชื่อมต่อถูกยกเลิก"
+
+173 = NETE_TIMEOUT, "โอเปอเรชัน Net-lib ไทม์เอาต์"
+
+174 = NETE_URGENT, "ข้อมูล OOB ที่ได้รับ"
+
+175 = NETE_ACCEPTFAIL, "เกิดข้อผิดพลาดร้ายแรงขณะรับการเชื่อมต่อใหม่"
+
+176 = NETE_INSTFLT, "ติดตั้งตัวกรองเครือข่ายล้มเหลว"
+
+177 = NETE_FLTDRVINIT, "เริ่มต้นตัวกรองเครือข่ายล้มเหลว"
+
+178 = NETE_DRVPARSE, "การเรียกไดรเวอร์โปรโตคอลเพื่อพาร์ซข้อมูลการเชื่อมต่อล้มเหลว "
+
+[filter]
+
+1 = FLTE_CALLFAIL, "การเรียกเว็นเดอร์ล้มเหลว"
+2 = FLTE_BUFOF, "ข้อผิดพลาดเกี่ยวกับบัฟเฟอร์โอเวอร์โฟลว์"
+3 = FLTE_MALLOC, "ข้อผิดพลาดเกี่ยวกับการจัดสรรหน่วยความจำ"
+4 = FLTE_SRVNOTSUPP, "ไม่สนับสนุนบริการนี้"
+5 = FLTE_INVPRM, "พารามิเตอร์ไม่ถูกต้อง"
+6 = FLTE_BADPOINTER, "พอยน์เตอร์ไม่ถูกต้อง"
+
+; TLS/SSL specific errors:
+60 = FLTE_TLS_MSTRINIT, "ไม่สามารถตั้งค่าเริ่มต้นมาสเตอร์คอนเท็กซ์ SSL/TLS"
+61 = FLTE_TLS_IO_SEMANTICS, "ไม่สามารถตั้งค่าเซแมนติค I/O ให้กับ I/O บางส่วน"
+62 = FLTE_TLS_PROTOCOLVER, "ไม่สามารถตั้งค่าเวอร์ชันของโปรโตคอล SSL/TLS"
+63 = FLTE_TLS_RANDOMOBJ, "ไม่สามารถสร้างออบเจ็กต์ PRNG"
+64 = FLTE_TLS_RANDOMINIT, "ไม่สามารถตั้งค่าเริ่มต้นออบเจ็กต์ PRNG"
+65 = FLTE_TLS_RANDOMSEED, "ไม่สามารถ seed  PRNG"
+66 = FLTE_TLS_RANDOMREF, "ไม่สามารถตั้งค่าการอ้างอิงออบเจ็กต์ PRNG"
+67 = FLTE_TLS_RANDOMFUNC, "ไม่สามารถตั้งค่าฟังก์ชัน PRNG"
+68 = FLTE_TLS_CERTFUNC, "ไม่สามารถตั้งค่าฟังก์ชันการตรวจสอบเซอร์ติฟิเคต"
+69 = FLTE_TLS_DUPCONTEXT, "สามารถทำสำเนาข้อมูลคอนเท็กซ์ SSL/TLS"
+70 = FLTE_TLS_DUPCHILD, "ไม่สามารถสร้างคอนเท็กซ์  child SSL/TLS"
+71 = FLTE_TLS_GETVER, "ไม่สามารถดึงเวอร์ชันของโปรโตคอล SSL/TLS"
+72 = FLTE_TLS_INVALIDVER, "ไม่รู้จักเวอร์ชันของโปรโตคอล  SSL/TLS"
+73 = FLTE_TLS_NOVALIDCIPHERS, "การตั้งค่าไซเฟอร์ไม่พบ cipher suites ที่รู้จัก"
+74 = FLTE_TLS_SETCIPHER, "ข้อผิดพลาดเกี่ยวกับการตั้งค่า cipher suites"
+75 = FLTE_TLS_LOADCERT, "ความพยายามในการโหลดโลคอลไอเด็นติตีล้มเหลว"
+76 = FLTE_TLS_LOADCA, "ความพยายามในการโหลดข้อมูล CA ล้มเหลว"
+77 = FLTE_TLS_GETCERTLEN, "ไม่สามารถดึงความยาวของเซอร์ติฟิเคตของเพียร์"
+78 = FLTE_TLS_GETCERT, "ไม่สามารถดึงเซอร์ติฟิเคตของเพียร์"
+79 = FLTE_TLS_GETNAME, "ไม่สามารถดึงชื่อสามัญของเพียร์"
+80 = FLTE_TLS_SETIOREF, "ไม่สามารถตั้งค่าการอ้างอิง TLS/SSL I/O"
+81 = FLTE_TLS_SETCERTREF, "ไม่สามารถตั้งค่าการอ้างอิงเซอร์ติฟิเคต TLS/SSL"
+82 = FLTE_TLS_SETREADFUNC, "ไม่สามารถตั้งค่าฟังก์ชันการเรียกกลับการอ่าน TLS/SSL"
+83 = FLTE_TLS_SETWRITEFUNC, "ไม่สามารถตั้งค่าฟังก์ชันการเรียกกลับการเขียน TLS/SSL"
+84 = FLTE_TLS_HANDSHAKEFAIL, "แฮนด์เชค TLS/SSL ล้มเหลว"
+85 = FLTE_TLS_SERVERSIDE, "ไม่สามารถตั้งค่า TLS/SSL ให้กับเซิร์ฟเวอร์"
+86 = FLTE_TLS_CLIENTSIDE, "ไม่สามารถตั้งค่า TLS/SSL ให้กับไคลเอ็นต์"
+87 = FLTE_TLS_NOEP, "I/O พยายามก่อนที่จะตั้งค่า TLS/SSL"
+88 = FLTE_TLS_NOCONTEXT, "I/O พยายามก่อนการแฮนด์เชค SSL"
+89 = FLTE_TLS_READERROR, "เกิดข้อผิดพลาดระหว่างการอ่าน"
+90 = FLTE_TLS_WRITEERROR, "เกิดข้อผิดพลาดระหว่างการเขียน"
+91 = FLTE_TLS_DNFCOUNT, "ไม่สามารถดึงจำนวนฟิลด์ DN ของเซอร์ติฟิเคตระยะไกล"
+92 = FLTE_TLS_DNFEXTRACT, "ไม่สามารถดึงข้อมูล Distinguished Name จากเซอร์ติฟิเคตระยะไกล"
+93 = FLTE_TLS_EXTCOUNT, "ไม่สามารถนับจำนวนเอ็กซ์เทนชันของเซอร์ติฟิเคตระยะไกล"
+94 = FLTE_TLS_EXTEXTRACT, "ไม่สามารถดึงข้อมูลเอ็กซ์เทนชันจากเซอร์ติฟิเคตระยะไกล"
+95 = FLTE_TLS_REQCLNT, "การเรียกไคลเอ็นต์เซอร์ติฟิเคตที่ต้องการล้มเหลว"
+
+; GSKit specific error messages
+100 = FLTE_GSK_INVALID_HANDLE, "SSL: Internal error: invalid handle passed to GSKit."
+101 = FLTE_GSK_API_NOT_AVAILABLE, "SSL: GSKit dynamic link libraries not available."
+102 = FLTE_GSK_INTERNAL_ERROR, "SSL: Internal error."
+103 = FLTE_GSK_INSUFFICIENT_STORAGE, "SSL: Unable to allocate memory."
+104 = FLTE_GSK_INVALID_STATE, "SSL: Internal error: handle state invalid"
+105 = FLTE_GSK_KEY_LABEL_NOT_FOUND, "SSL: Label not found in key file."
+106 = FLTE_GSK_CERTIFICATE_NOT_AVAILABLE, "SSL: Certificate not received from peer."
+107 = FLTE_GSK_ERROR_CERT_VALIDATION, "SSL: Certificate validation error."
+108 = FLTE_GSK_ERROR_CRYPTO, "SSL: Error processing cryptography."
+109 = FLTE_GSK_ERROR_ASN, "SSL: Error validating ASN fields in certificate."
+110 = FLTE_GSK_ERROR_LDAP, "SSL: Error connecting to LDAP server."
+111 = FLTE_GSK_ERROR_UNKNOWN_ERROR, "SSL: Internal unknown error: unknown error."
+112 = FLTE_GSK_OPEN_CIPHER_ERROR, "SSL: Internal unknown error: cipher failed to open."
+113 = FLTE_GSK_KEYFILE_IO_ERROR, "SSL: I/O error reading keyfile."
+114 = FLTE_GSK_KEYFILE_INVALID_FORMAT, "SSL: Keyfile has an invalid internal format."
+115 = FLTE_GSK_KEYFILE_DUPLICATE_KEY, "SSL: Keyfile has two entries with the same key. Remove the duplicate key."
+116 = FLTE_GSK_KEYFILE_DUPLICATE_LABEL, "SSL: Keyfile has two entries with the same label. Remove the duplicate key."
+117 = FLTE_GSK_BAD_FORMAT_OR_INVALID_PASSWORD, "SSL: Invalid password to keyfile or corrupt keyfile."
+118 = FLTE_GSK_KEYFILE_CERT_EXPIRED, "SSL: The default key in the keyfile has an expired certificate. Remove certificates that are expired."
+119 = FLTE_GSK_ERROR_LOAD_GSKLIB, "SSL: Error loading GSK dynamic link libraries or ICC selftest failed."
+120 = FLTE_GSK_PENDING_CLOSE_ERROR, "SSL: Internal error: usage after close error."
+121 = FLTE_GSK_NO_KEYFILE_PASSWORD, "SSL: Neither the password nor the stash-file specified."
+122 = FLTE_GSK_KEYRING_OPEN_ERROR, "SSL: Unable to open keyfile. Either the file is missing, or the file permissions do not grant access, or the file format is incorrect."
+123 = FLTE_GSK_RSA_TEMP_KEY_PAIR, "SSL: Unable to generate a temporary key pair."
+124 = FLTE_GSK_ERROR_LDAP_NO_SUCH_OBJECT, "SSL: A User Name object was specified that is not found."
+125 = FLTE_GSK_ERROR_LDAP_INVALID_CREDENTIALS, "SSL: A Password used fro an LDAP query is not correct."
+126 = FLTE_GSK_ERROR_BAD_INDEX, "SSL: An index into the Fail Over list of LDAP servers was not correct."
+127 = FLTE_GSK_SSL_DLLOAD_ERROR, "SSL: Internal error: failed to load SSL library."
+128 = FLTE_GSK_CLOSE_FAILED, "SSL: Close request not handled properly."
+129 = FLTE_GSK_ERROR_BAD_DATE, "SSL: Bad system date."
+130 = FLTE_GSK_ERROR_NO_CIPHERS, "SSL: Neither SSLv2 nor SSLv3 is enabled."
+131 = FLTE_GSK_ERROR_NO_CERTIFICATE, "SSL: The required certificate was not received from peer."
+132 = FLTE_GSK_ERROR_BAD_CERTIFICATE, "SSL: The received certificate was formatted incorrectly."
+133 = FLTE_GSK_ERROR_UNSUPPORTED_CERTIFICATE_TYPE, "SSL: The received certificate was not supported."
+134 = FLTE_GSK_ERROR_IO, "SSL: I/O error on read or write of socket"
+135 = FLTE_GSK_ERROR_BAD_KEYFILE_LABEL, "SSL: The label for this server cannot be found in the key file."
+136 = FLTE_GSK_ERROR_BAD_KEYFILE_PASSWORD, "SSL: Password incorrect. Possibly the stash-file is missing or the password does not meet security requirements."
+137 = FLTE_GSK_ERROR_BAD_KEY_LEN_FOR_EXPORT, "SSL: In a restricted cryptography environment, the key size is too long to be supported."
+138 = FLTE_GSK_ERROR_BAD_MESSAGE, "SSL: An incorrectly formatted SSL message was received from peer."
+139 = FLTE_GSK_ERROR_BAD_MAC, "SSL: The message authentication code (MAC) failed verification."
+140 = FLTE_GSK_ERROR_UNSUPPORTED, "SSL: Unsupported SSL protocol or unsupported certificate type."
+141 = FLTE_GSK_ERROR_BAD_CERT_SIG, "SSL: The received certificate contained an incorrect signature."
+142 = FLTE_GSK_ERROR_BAD_CERT, "SSL: Incorrectly formatted certificate received from peer."
+143 = FLTE_GSK_ERROR_BAD_PEER, "SSL: Invalid SSL protocol received from peer."
+144 = FLTE_GSK_ERROR_PERMISSION_DENIED, "SSL: Internal error: permission denied."
+145 = FLTE_GSK_ERROR_SELF_SIGNED, "SSL: The self-signed certificate is not valid."
+146 = FLTE_GSK_ERROR_NO_READ_FUNCTION, "SSL: Internal error: the read failed."
+147 = FLTE_GSK_ERROR_NO_WRITE_FUNCTION, "SSL: Internal error: the write failed."
+148 = FLTE_GSK_ERROR_SOCKET_CLOSED, "SSL: Peer closed socket before protocol completion."
+149 = FLTE_GSK_ERROR_BAD_V2_CIPHER, "SSL: The specified SSLv2 cipher is invalid."
+150 = FLTE_GSK_ERROR_BAD_V3_CIPHER, "SSL: The specified SSLv3 cipher is invalid."
+151 = FLTE_GSK_ERROR_BAD_SEC_TYPE, "SSL: Internal error: GSK_ERROR_BAD_SEC_TYPE"
+152 = FLTE_GSK_ERROR_BAD_SEC_TYPE_COMBINATION, "SSL: Internal error: GSK_ERROR_BAD_SEC_TYPE_COMBINATION"
+153 = FLTE_GSK_ERROR_HANDLE_CREATION_FAILED, "SSL: Internal error: GSK_ERROR_HANDLE_CREATION_FAILED"
+154 = FLTE_GSK_ERROR_INITIALIZATION_FAILED, "SSL: Initialization failed."
+155 = FLTE_GSK_ERROR_LDAP_NOT_AVAILABLE, "SSL: Unable to access LDAP directory while validating certificate."
+156 = FLTE_GSK_ERROR_NO_PRIVATE_KEY, "SSL: The specified key does not contain a private key."
+157 = FLTE_GSK_ERROR_PKCS11_LIBRARY_NOTLOADED, "SSL: Failed to load PKCS#11 shared library."
+158 = FLTE_GSK_ERROR_PKCS11_TOKEN_LABELMISMATH, "SSL: The PKCS#11 driver failed to find the token."
+159 = FLTE_GSK_ERROR_PKCS11_TOKEN_NOTPRESENT, "SSL: The PKCS#11 token is not present in the slot."
+160 = FLTE_GSK_ERROR_PKCS11_TOKEN_BADPASSWORD, "SSL: The password/pin to access the PKCS#11 token is invalid."
+161 = FLTE_GSK_ERROR_INVALID_V2_HEADER, "SSL: The received SSL header is not a properly formatted SSLv2 header."
+162 = FLTE_GSK_CSP_OPEN_ERROR, "SSL: Unable to access the hardware-based cryptographic service provider (CSP)."
+163 = FLTE_GSK_CONFLICTING_ATTRIBUTE_SETTING, "SSL: Attribute setting conflict on PKCS#11, CMS Key database and Microsoft Crypto API. "
+164 = FLTE_GSK_UNSUPPORTED_PLATFORM, "SSL: The requested function is not supported on this platform."
+165 = FLTE_GSK_PEERID_NOT_SET_ERROR, "SSL: Unable to determine Peer ID in IPV6 mode"
+166 = FLTE_GSK_ERROR_INCORRECT_SESSION_TYPE, "SSL: Internal error: invalid value returned from reset session type callback."
+167 = FLTE_GSK_INVALID_BUFFER_SIZE, "SSL: Negative or zero buffer size"
+168 = FLTE_GSK_WOULD_BLOCK, "SSL: Internal error: blocking operation occurred when non-blocking is required."
+169 = FLTE_GSK_ERROR_NOT_SSLV3, "SSL: Reset cipher is not supported with SSLv2."
+170 = FLTE_GSK_MISC_INVALID_ID, "SSL: Invalid argument to gsk_secure_soc_misc()."
+171 = FLTE_GSK_ATTRIBUTE_INVALID_ID, "SSL: Invalid attribute identifier."
+172 = FLTE_GSK_ATTRIBUTE_INVALID_LENGTH, "SSL: Length negative or too long."
+173 = FLTE_GSK_ATTRIBUTE_INVALID_ENUMERATION, "SSL: Invalid enumeration for specified ID."
+174 = FLTE_GSK_ATTRIBUTE_INVALID_SID_CACHE, "SSL: Invalid parameter list for replacing SID cache routines."
+175 = FLTE_GSK_ATTRIBUTE_INVALID_NUMERIC_VALUE, "SSL: When setting a numeric attribute, the specified value is invalid for the attribute."
+176 = FLTE_GSK_CONFLICTING_VALIDATION_SETTING, "SSL: Conflicting parameters have been set for additional certificate validation."
+177 = FLTE_GSK_AES_UNSUPPORTED, "SSL: The cipher spec includes an AES cipher spec which is not supported on this system."
+178 = FLTE_GSK_PEERID_LENGTH_ERROR, "SSL: The length of the peer ID is incorrect."
+179 = FLTE_GSK_FIPS_CIPHER_INVALID_WHEN_FIPS_MODE_OFF, "SSL: Given cipher is not allowed when FIPS mode is off."
+180 = FLTE_GSK_CIPHER_INVALID_WHEN_FIPS_MODE_ON, "SSL: No FIPS approved cipher have been selected in FIPS mode."
+181 = FLTE_GSK_VALIDATION_SUCCESSFUL, "SSL: Validation successful."
+182 = FLTE_GSK_UNKNOWN_CRIT_EXTNS, "SSL: Unknown critical extension."
+183 = FLTE_GSK_NO_CRLS_FOUND, "SSL: Cannot find CRL which matches issuer's DN."
+184 = FLTE_GSKVAL_ERROR_UNKNOWN_ERROR, "SSL: An unexpected exception occurred during validation"
+185 = FLTE_GSKVAL_ERROR_ASN_ERROR, "SSL: ASN.1 error occurred during validation"
+186 = FLTE_GSKVAL_ERROR_KRY_ERROR, "SSL: Cryptographic Error during validation"
+187 = FLTE_GSKVAL_ERROR_DB_ERROR, "SSL: Data Store Error during validation"
+188 = FLTE_GSKVAL_ERROR_DIR_ERROR, "SSL: Unexpected LDAP Error"
+189 = FLTE_GSKVAL_ERROR_INVALID_IMPL_LIBRARY, "SSL: Unable to load Validator module"
+190 = FLTE_GSKVAL_ERROR_FAILED, "SSL: Internal Error: GSKVAL_ERROR_FAILED"
+191 = FLTE_GSKVAL_ERROR_NO_APPROPRIATE_VALIDATOR, "SSL: No Validator module found in list"
+192 = FLTE_GSKVAL_ERROR_ROOT_NOT_TRUSTED, "SSL: Certificate Chain has no Trust Anchor"
+193 = FLTE_GSKVAL_ERROR_NO_CHAIN_BUILT, "SSL: Could not establish certificate trust chain"
+194 = FLTE_GSKVAL_ERROR_SIGALG_MISMATCH, "SSL: Signature algorithm mismatch"
+195 = FLTE_GSKVAL_ERROR_SIGNATURE_MISMATCH, "SSL: Certificate Signature mismatch"
+196 = FLTE_GSKVAL_ERROR_VER_EXCLUDES_UNIQUE_IDS, "SSL: Certificate version does not allow Unique ID's"
+197 = FLTE_GSKVAL_ERROR_VER_EXCLUDES_EXTNS, "SSL: Certificate version does not allow extensions"
+198 = FLTE_GSKVAL_ERROR_UNKNOWN_VERSION, "SSL: Certificate unknown version."
+199 = FLTE_GSKVAL_ERROR_BAD_VALIDITY_RANGE, "SSL: Certificate validity incorrect."
+200 = FLTE_GSKVAL_ERROR_CERT_NOT_YET_VALID, "SSL: Certificate not valid yet."
+201 = FLTE_GSKVAL_ERROR_CERT_EXPIRED, "SSL: Certificate has expired."
+202 = FLTE_GSKVAL_ERROR_UNKNOWN_CRIT_XTNS, "SSL: Certificate has unknown critical extensions"
+203 = FLTE_GSKVAL_ERROR_DUP_XTNS, "SSL: Certificate has duplicate extensions."
+204 = FLTE_GSKVAL_ERROR_DIRNAMES_DONT_MATCH, "SSL: Certificate directory names do not match."
+205 = FLTE_GSKVAL_ERROR_SERIAL_NUMBERS_DONT_MATCH, "SSL: Certificate serial numbers mismatch."
+206 = FLTE_GSKVAL_ERROR_KEY_IDS_DONT_MATCH, "SSL: Certificate key IDs do not match."
+207 = FLTE_GSKVAL_ERROR_UNRECOGNIZED_ISSUERALTNAME, "SSL: Unrecognized Certificate issuer alternative name."
+208 = FLTE_GSKVAL_ERROR_BASIC_CONTRAINTS_NOT_CA, "SSL: Certificate basic constraints not CA."
+209 = FLTE_GSKVAL_ERROR_PATHLENGTH_WITH_NONCA, "SSL: Certificate chain path with non-CA."
+210 = FLTE_GSKVAL_ERROR_BASIC_CONSTRAINTS_PATHLENGTH_EXCEEEDED, "SSL: Certificate chain path length exceeded."
+211 = FLTE_GSKVAL_ERROR_NO_SIGN_AUTH, "SSL: Certificate has no signature"
+212 = FLTE_GSKVAL_ERROR_NONCA_SIGNED, "SSL: Certificate non-CA signed."
+213 = FLTE_GSKVAL_ERROR_UNRECOGNIZED_SUBJECTALTNAME, "SSL: Certificate unrecognised subject alternative name."
+214 = FLTE_GSKVAL_ERROR_INVALID_CHAIN, "SSL: Certificate has an invalid chain."
+215 = FLTE_GSKVAL_ERROR_REVOKED_CERT, "SSL: Certificate has been revoked."
+216 = FLTE_GSKVAL_ERROR_UNRECOGNIZED_DISTRIBUTION_POINT, "SSL: Certificate has unrecognised distribution point."
+217 = FLTE_GSKVAL_ERROR_NAME_CHAINING_FAILED, "SSL: Certificate name chaining failed."
+218 = FLTE_GSKVAL_ERROR_CERT_NOT_IN_CHAIN, "SSL: Certificate not in chain."
+219 = FLTE_GSKVAL_ERROR_CRL_NOT_YET_VALID, "SSL: Certificate Revocation List not yet valid."
+220 = FLTE_GSKVAL_ERROR_CRL_EXPIRED, "SSL: Certificate Revocation List has expired."
+221 = FLTE_GSKVAL_ERROR_VER_EXCLUDES_CRIT_EXTNS, "SSL: Certificate version does not allow critical extensions"
+222 = FLTE_GSKVAL_ERROR_UNKNOWN_CRL_DIST_PTS, "SSL: CRL Distribution Points are critical but unusable"
+223 = FLTE_GSKVAL_ERROR_NO_CRLS_FOR_CRL_DIST_PTS, "SSL: CRL Distribution Points are critical but No CRL source"
+224 = FLTE_GSKVAL_ERROR_INDIRECT_CRL_NOT_SUPPORTED, "SSL: CRL IDP indicates it is indirect which is unsupported"
+225 = FLTE_GSKVAL_ERROR_MISSING_ISSUING_DIST_POINT_NAME, "SSL: CRL IDP indicated but no IDP name present"
+226 = FLTE_GSKVAL_ERROR_DIST_PTS_DONT_MATCH, "SSL: CRL IDP name does not match Certificate CDP name"
+227 = FLTE_GSKVAL_ERROR_NO_AVAILABLE_CRL_DATASOURCE, "SSL: Unable to query LDAP Server for CRL"
+228 = FLTE_GSKVAL_ERROR_NULL_CA_SUBJECT, "SSL: IssuerName is empty"
+229 = FLTE_GSKVAL_ERROR_NAMES_DONT_CHAIN, "SSL: Issuer subject name not the same as Certificate Issuer name"
+230 = FLTE_GSKVAL_ERROR_MISSING_SUBJECTALTNAME, "SSL: No subjectName and no critical subjectAltName"
+231 = FLTE_GSKVAL_ERROR_UNIQUEID_MISMATCH, "SSL: The issuerUniqueID does not match subjectUniqueID"
+232 = FLTE_GSKVAL_ERROR_NAME_NOT_PERMITTED, "SSL: The subject or subject alternative name is not permitted within a name constraint space"
+233 = FLTE_GSKVAL_ERROR_NAME_EXCLUDED, "SSL: The subject or subject alternative name is excluded by a name constraint."
+234 = FLTE_GSKVAL_ERROR_CA_MISSING_CRITICAL_BASIC_CONSTRAINT, "SSL: CA certificate missing basic constraints"
+235 = FLTE_GSKVAL_ERROR_NAME_CONSTRAINTS_NOT_CRITICAL, "SSL: Name Constraints must be critical"
+236 = FLTE_GSKVAL_ERROR_NAME_CONSTRAINTS_MIN_NOT_ZERO, "SSL: Name constraints sub-tree minimum field is not zero"
+237 = FLTE_GSKVAL_ERROR_NAME_CONSTRAINTS_MAX_PRESENT, "SSL: Name constraints sub-tree maximum field must not be present"
+238 = FLTE_GSKVAL_ERROR_UNSUPPORTED_NAME_CONSTRAINT, "SSL: The X400 name form is not support as a name constraint"
+239 = FLTE_GSKVAL_ERROR_EMPTY_POLICY_CONSTRAINTS, "SSL: The Policy Constraints are can not be empty"
+240 = FLTE_GSKVAL_ERROR_BAD_CERT_POLICIES, "SSL: The policy information is not consistent with the initial policy set"
+241 = FLTE_GSKVAL_ERROR_CERT_POLICIES_NOT_ACCEPTABLE, "SSL: The policy information is not consistent with the acceptable policy set"
+242 = FLTE_GSKVAL_ERROR_BAD_ACCEPTABLE_POLICIES, "SSL: The intersection of the acceptable policy set and the initial policy set is null"
+243 = FLTE_GSKVAL_ERROR_POLICY_MAPPINGS_CRITICAL, "SSL: Policy mappings must not be Critical"
+244 = FLTE_GSKVAL_ERROR_REVOCATIONSTATUS_UNDETERMINED, "SSL: Unable to determine revocation status"
+245 = FLTE_GSKVAL_ERROR_EXTKEYUSG_BADAUTH, "SSL: Certificate Extended Key Usage not mapped to authority requested"
+246 = FLTE_GSKVAL_ERROR_OCSP_UNKNOWNVERSION, "SSL: Unknown OCSP response version"
+247 = FLTE_GSKVAL_ERROR_OCSP_UNKNOWNRESPONSE, "SSL: Unknown OCSP Response"
+248 = FLTE_GSKVAL_ERROR_OCSP_BAD_KEYUSAGE_XTN, "SSL: OCSP Signer Key Usage not allowed "
+249 = FLTE_GSKVAL_ERROR_OCSP_BAD_NONCE, "SSL: OCSP Nonce incorrect"
+250 = FLTE_GSKVAL_ERROR_OCSP_MISSING_NONCE, "SSL: OCSP Response does not contain Nonce"
+251 = FLTE_GSKVAL_ERROR_OCSP_NO_CLIENT, "SSL: No Client to obtain OCSP Response"
+; end of tcllib error strings
+;

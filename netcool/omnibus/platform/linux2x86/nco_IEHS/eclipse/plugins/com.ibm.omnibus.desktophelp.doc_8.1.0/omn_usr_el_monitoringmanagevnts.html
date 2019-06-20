@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Monitoring and managing events in the event list" />
+<meta name="abstract" content="You can use the event list to monitor and manage alerts. An alert is created when the ObjectServer receives an event, alarm, message, or data item. Each alert is made up of columns (or fields) of information that are held in a row in the ObjectServer alerts.status table." />
+<meta name="Description" content="You can use the event list to monitor and manage alerts. An alert is created when the ObjectServer receives an event, alarm, message, or data item. Each alert is made up of columns (or fields) of information that are held in a row in the ObjectServer alerts.status table." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_performingcollectiveacts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_netcoolismineventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringsaeinevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringpredictiveevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringtaddmevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_identifyrootcauseevent.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringmanagevnts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Monitoring and managing events in the event list</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringmanagevnts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Monitoring and managing events in the event list</h1>
+<div class="body conbody"><p class="shortdesc">You can use the event list to monitor and manage alerts.
+An alert is created when the ObjectServer receives an event, alarm,
+message, or data item. Each alert is made up of columns (or fields)
+of information that are held in a row in the ObjectServer alerts.status
+table.</p>
+<p class="p">The alert information that is displayed in the event list is determined
+with the use of filters and views. <dfn class="term">Filters</dfn> enable you
+to display a subset of alerts based on specific criteria. <dfn class="term">Views</dfn> enable
+you to choose which alert fields to display. </p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_startingeventlist.html">Starting the event list</a></span><br />
+To monitor and manage alerts in the event list, you must
+connect to a running ObjectServer by using valid authentication credentials.
+You can start the event list from the Conductor, from the command
+line, or from the Windows <span class="ph uicontrol">Start</span> menu.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_managingevents.html">Managing events using the event list</a></span><br />
+Use the event list to manage events.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_performingcollectiveacts.html">Performing collective actions on event lists</a></span><br />
+On the <span class="keyword wintitle">Event List</span> monitor box window,
+each monitor box represents an event list containing events that match
+a specific configuration of filters and views. You can access each
+event list separately and manage the events. You can also perform
+a number of collective actions on all of the event lists.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_workingwithevntlstconfigs.html">Working with event list configurations</a></span><br />
+You can save the filter, view, and other event configurations that
+are defined for all the monitor boxes on the <span class="keyword wintitle">Event List</span> monitor
+box window. This information is saved within an event list configuration (<span class="ph filepath">.elc</span>)
+file. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_netcoolismineventlist.html">Internet service monitors in the event list</a></span><br />
+<span class="keyword">IBM Tivoli Composite Application
+Manager for Internet Service Monitoring</span> works
+in conjunction with the rest of the <span class="keyword">Tivoli Netcool/OMNIbus</span> product
+suite. Events generated by both monitors and probes can be forwarded to the
+same ObjectServer and you can manipulate these events using the same desktop. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringsaeinevntlst.html">Monitoring service-affected events in the event list</a></span><br />
+<span class="ph">A service-affected event (SAE) is an
+alert that warns operators that a critical customer service has been
+affected by one or more network events. Service-affected events are
+generated within <span class="keyword">IBM Tivoli Network Manager
+IP Edition</span>.</span></li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringpredictiveevents.html">Monitoring predictive events in the event list</a></span><br />
+A predictive event represents a prediction of
+an impending threshold violation. These events differ from other events
+that are forwarded to <span class="keyword">Tivoli Netcool/OMNIbus</span> because
+they represent an occurrence, fault, or situation that has not yet
+occurred, but which has a significant probability of occurring in
+the near future. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringtaddmevents.html">Monitoring TADDM events in the event list</a></span><br />
+<span class="keyword">TADDM</span> events
+are generated within <span class="keyword">IBM
+Tivoli Application Dependency Discovery Manager</span> when
+a configuration change is detected in your IT environment. You can
+monitor <span class="keyword">TADDM</span> events
+from the <span class="keyword">Tivoli Netcool/OMNIbus</span> event
+list if your system is configured to support this feature.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_identifyrootcauseevent.html">Identifying root cause events in the event list</a></span><br />
+In a virtualized environment, <span class="keyword">Tivoli Netcool/OMNIbus</span> can correlate events to determine which events are the
+root cause of other, symptom events. In the event list, you can identify
+the root cause event behind symptom events if this feature is enabled
+on your system.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_runningtransientevntlsts.html">Running transient event lists from the command-line, scripts, and tools</a></span><br />
+You can run customized, transient event lists directly from the
+command line, in a script, or as part of an event list tool.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

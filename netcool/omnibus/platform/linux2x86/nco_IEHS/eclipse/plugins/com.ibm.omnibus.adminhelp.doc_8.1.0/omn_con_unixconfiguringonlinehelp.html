@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring and running online help" />
+<meta name="abstract" content="After you install Tivoli Netcool/OMNIbus, you might need to configure your system to access the online help. Online help is deployed using the IBM Eclipse Help System (IEHS) and can be accessed in standalone mode or information center mode." />
+<meta name="Description" content="After you install Tivoli Netcool/OMNIbus, you might need to configure your system to access the online help. Online help is deployed using the IBM Eclipse Help System (IEHS) and can be accessed in standalone mode or information center mode." />
+<meta name="DC.subject" content="Configuration, online help, IEHS, information center mode, standalone mode" />
+<meta name="keywords" content="Configuration, online help, IEHS, information center mode, standalone mode" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_unixconfiguringonlinehelp" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Configuring and running IEHS for online help access</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_unixconfiguringonlinehelp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring and running online help</h1>
+<div class="body taskbody"><p class="shortdesc">After you install <span class="keyword">Tivoli Netcool/OMNIbus</span>,
+you might need to configure your system to access the online help.
+Online help is deployed using the IBM® Eclipse
+Help System (IEHS) and can be accessed in standalone mode or information
+center mode.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol><li class="li step stepexpand"><img src="ngunix.gif" alt="For UNIX operating system" /> <img src="nglinux.gif" alt="For Linux operating system" /> <span class="ph cmd">Use the information in the following
+table to configure IEHS on your system.</span> <div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d72295e52">Setting</th>
+<th class="entry" valign="bottom" width="75%" id="d72295e54">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d72295e52 ">Browser environment variables</td>
+<td class="entry" valign="top" width="75%" headers="d72295e54 ">Add the directory location of your web browser
+to the following environment variables (if not already added):<ul class="ul"><li class="li"><span class="ph filepath">PATH</span></li>
+<li class="li"><img src="nglinux.gif" alt="For Linux operating system" /> <img src="ngsolaris.gif" alt="" /> <span class="ph filepath">LD_LIBRARY_PATH</span></li>
+<li class="li"><img src="ngaix.gif" alt="For AIX operating system" /> <span class="ph filepath">LIBPATH</span></li>
+<li class="li"><img src="nghpux.gif" alt="" /> <span class="ph filepath">SHLIB_PATH</span></li>
+<li class="li">Browser-specific environment variables, for example: <span class="ph filepath">MOZILLA_FIVE_HOME</span></li>
+</ul>
+<p class="p">The operating system default browser is used.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d72295e52 ">Standalone mode<p class="p"><span class="ph uicontrol">Local Help System</span> feature
+installed on a client workstation</p>
+<p class="p">(Online help files installed
+on a local IEHS Web server)</p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d72295e54 ">Configuration is only necessary if the default
+IEHS port number of 8888 is being used by another local service. <div class="p">If
+this is the case, edit the IEHS configuration file <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span> as
+follows: <ul class="ul"><li class="li">IEHSMode: 0</li>
+<li class="li">IEHSHost: <var class="keyword varname">leave blank</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">an unused port number</var></li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> After changing the port number in the configuration
+file, you must shut down the local IEHS server for your changes to
+take effect. Run the <kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd> command
+to shut down the server. The server automatically restarts when you
+access online help. (If you change your environment variable settings
+for the browser, you must also shut down the IEHS server for your
+changes to take effect.) </div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d72295e52 ">Information center mode<p class="p"><span class="ph uicontrol">Local Help
+System</span> feature installed on a remote server</p>
+<p class="p">(Online
+help files installed on a remote IEHS Web server, which is configured
+for client access; typically managed by a system administrator)</p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d72295e54 ">On the computer designated as the IEHS server,
+edit the IEHS configuration file <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span> as
+follows: <ul class="ul"><li class="li">IEHSMode: 1</li>
+<li class="li">IEHSHost: <var class="keyword varname">leave blank, or specify the IP address or host
+name of the IEHS server</var><div class="note note"><span class="notetitle">Note:</span> IEHS V3.1.1 does not support
+IPv6 addresses.</div>
+</li>
+<li class="li">IEHSPort: <var class="keyword varname">an unused port number for the IEHS server</var><p class="p">The
+default port number is 8888. If necessary, update your firewall settings
+to open the port.</p>
+</li>
+</ul>
+<p class="p">The host name on which the IEHS server is running can be obtained
+from the <span class="ph filepath">$NCHOME/omnibus/platform/<var class="keyword varname">arch</var>/nco_IEHS/eclipse/workspace/.metadata/.connection</span> file.
+Note that this file is available only when the IEHS server is running.
+The file is deleted when you shut down the IEHS server.</p>
+<div class="p">On each
+client workstation, edit the IEHS configuration file <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span> as
+follows: <ul class="ul"><li class="li">IEHSMode: 1</li>
+<li class="li">IEHSHost: <var class="keyword varname">IP address or host name of the IEHS server</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">port number on which the IEHS server is running</var></li>
+</ul>
+<div class="note important"><span class="importanttitle">Important:</span> You must instruct users to perform this
+task.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class="li step stepexpand"><img src="ngwin.gif" alt="For Windows operating system" /> <span class="ph cmd">Use the information in the following
+table to configure IEHS on your system.</span> <div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d72295e209">Setting</th>
+<th class="entry" valign="bottom" width="75%" id="d72295e211">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d72295e209 ">Standalone mode<p class="p"><span class="ph uicontrol">Local Help System</span> feature
+installed on a client workstation</p>
+<p class="p">(Online help files installed
+on a local IEHS Web server)</p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d72295e211 ">Configuration is only necessary if the default
+IEHS port number of 8888 is being used by another local service. <div class="p">If
+this is the case, edit the IEHS configuration file <span class="ph filepath">%NCHOME%\omnibus\ini\nco_IEHS.cfg</span> as
+follows: <ul class="ul"><li class="li">IEHSMode: 0</li>
+<li class="li">IEHSHost: <var class="keyword varname">leave blank</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">an unused port number</var></li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> After changing the port number in the configuration
+file, you must shut down the local IEHS server for your changes to
+take effect. Run the <kbd class="ph userinput">%NCHOME%\omnibus\bin\help_end.bat</kbd> command
+or double-click the file in Windows Explorer.
+(The server automatically restarts when you access online help.)</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d72295e209 ">Information center mode<p class="p"><span class="ph uicontrol">Local Help
+System</span> feature installed on a remote server</p>
+<p class="p">(Online
+help files installed on a remote IEHS Web server, which is configured
+for client access; typically managed by a system administrator)</p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d72295e211 ">On the computer designated as the IEHS server,
+edit the IEHS configuration file <span class="ph filepath">%NCHOME%\omnibus\ini\nco_IEHS.cfg</span> as
+follows: <ul class="ul"><li class="li">IEHSMode: 1</li>
+<li class="li">IEHSHost: <var class="keyword varname">leave blank, or specify the IP address or host
+name of the IEHS server</var><div class="note note"><span class="notetitle">Note:</span> IEHS V3.1.1 does not support
+IPv6 addresses.</div>
+</li>
+<li class="li">IEHSPort: <var class="keyword varname">an unused port number for the IEHS server</var><p class="p">The
+default port number is 8888. If necessary, update your firewall settings
+to open the port.</p>
+</li>
+</ul>
+<p class="p">The host name on which the IEHS server is running can be obtained
+from the <span class="ph filepath">%NCHOME%\omnibus\platform\win32\nco_IEHS\eclipse\workspace\.metadata\.connection</span> file.
+Note that this file is available only when the IEHS server is running.
+The file is deleted when you shut down the IEHS server.</p>
+<div class="p">On each
+client workstation, edit the IEHS configuration file <span class="ph filepath">%NCHOME%\omnibus\ini\nco_IEHS.cfg</span> as
+follows: <ul class="ul"><li class="li">IEHSMode: 1</li>
+<li class="li">IEHSHost: <var class="keyword varname">IP address or host name of the IEHS server</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">port number on which the IEHS server is running</var></li>
+</ul>
+<div class="note important"><span class="importanttitle">Important:</span> You must instruct users to perform this
+task.</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Information center mode</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">Use the following commands to start and stop IEHS.</span> <div class="p"><ul class="ul"><li class="li">Start IEHS: <kbd class="ph userinput"><var class="keyword varname">NCHOME</var>/omnibus/bin/IC_start</kbd></li>
+<li class="li">Stop IEHS: <kbd class="ph userinput"><var class="keyword varname">NCHOME</var>/omnibus/bin/IC_end</kbd></li>
+</ul>
+</div>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Standalone mode</strong></p><ol start="4"><li class="li step stepexpand"><span class="ph cmd">In standalone mode, the local IEHS server automatically
+starts the first time that you make a help request. Use the following
+command to stop it.</span> <p class="p"><kbd class="ph userinput"><var class="keyword varname">NCHOME</var>/omnibus/bin/help_end</kbd></p>
+</li>
+</ol></div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

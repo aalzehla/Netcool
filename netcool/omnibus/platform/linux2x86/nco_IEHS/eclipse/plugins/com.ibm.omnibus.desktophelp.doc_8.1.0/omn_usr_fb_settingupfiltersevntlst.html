@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Setting up filters for event list data" />
+<meta name="abstract" content="Filters are used to build SQL queries that can be run on the ObjectServer alerts database tables, in order to display custom alert information in monitor boxes and event lists." />
+<meta name="Description" content="Filters are used to build SQL queries that can be run on the ObjectServer alerts database tables, in order to display custom alert information in monitor boxes and event lists." />
+<meta name="DC.subject" content="filters, description" />
+<meta name="keywords" content="filters, description" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_filtermetrics.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_bestpracticesfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingfiltersunixdragdrop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_openingprevsavedfilter.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_settingupfiltersevntlst" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<title>Setting up filters for event list data</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_settingupfiltersevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Setting up filters for event list data</h1>
+<div class="body conbody"><p class="shortdesc">Filters are used to build SQL queries that can be run on the ObjectServer <samp class="ph tt">alerts</samp> database
+tables, in order to display custom alert information in monitor boxes and
+event lists.</p>
+<div class="p">Filters define which alerts are displayed in the event list:<ul class="ul"><li class="li">Where a certain field has a certain value</li>
+<li class="li">Where a certain field has a value similar to something</li>
+<li class="li">Where the events occurred within two fixed points in time</li>
+<li class="li">Where the events occurred up to a certain number of minutes ago</li>
+</ul>
+</div>
+<div class="p">A number of default filters are provided with <span class="keyword">Tivoli Netcool/OMNIbus</span>.
+These filters are as follows:<dl class="dl"><dt class="dt dlterm">Last 10 Min.</dt>
+<dd class="dd">This filter displays all alerts except ProbeWatch, TSMWatch, and ConnectionWatch
+alerts. The results are identical to those for the <span class="ph uicontrol">Default</span> filter,
+except that the <span class="ph uicontrol">Last 10 Min.</span> filter only displays alerts
+that occurred in the last 10 minutes.</dd>
+<dt class="dt dlterm">In Maintenance</dt>
+<dd class="dd">This filter displays alerts that have been indicated as being "in maintenance"
+by the operator. </dd>
+<dt class="dt dlterm">Escalated</dt>
+<dd class="dd">This filter displays alerts that have been escalated by the operator. </dd>
+<dt class="dt dlterm">Information</dt>
+<dd class="dd">This filter displays alerts that have been identified as Information alerts.
+Information alerts are:<ul class="ul"><li class="li">Alerts that have been designated as Information alerts by probes</li>
+<li class="li">Alerts that are not ProbeWatch, TSMWatch, or ConnectionWatch alerts</li>
+<li class="li">Alerts for which an escalation level has been set </li>
+</ul>
+</dd>
+<dt class="dt dlterm">Task List</dt>
+<dd class="dd">This filter displays alerts that have been added to the operator's task
+list. </dd>
+<dt class="dt dlterm">Netcool® Status</dt>
+<dd class="dd">This filter displays only ProbeWatch, TSMWatch, and ConnectionWatch alerts.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">This filter displays all alerts except ProbeWatch, TSMWatch, and ConnectionWatch
+alerts.</dd>
+<dt class="dt dlterm">All Events</dt>
+<dd class="dd">This filter displays all alerts.</dd>
+</dl>
+</div>
+<p class="p">In addition, you can build custom filters. Filters are saved as <span class="ph filepath">.elf</span> files.
+You use the Filter Builder to create and edit filters.</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_componentsoffilter.html">Components of a filter</a></span><br />
+A filter is made up of a collection of <dfn class="term">elements</dfn>. The
+available element types include condition, logical, and subquery elements.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_filtermetrics.html">Filter metrics</a></span><br />
+All filters can have a metric associated with them. A metric is
+a measurement that you can apply to a filter so that it calculates a useful
+figure.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_bestpracticesfilters.html">Best practices for filters</a></span><br />
+When building a filter, perform the least-intensive tests
+first.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_startingfilterbuilder.html">Starting the Filter Builder</a></span><br />
+The Filter Builder provides a graphical interface within
+which you can build and test the SQL statements that comprise a filter.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterunix.html">Creating or editing a filter on UNIX</a></span><br />
+Use the UNIX Filter
+Builder to build filters for event list data.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterwin.html">Creating or editing a filter on Windows</a></span><br />
+Use the Windows Filter
+Builder to build filters for event list data.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingfiltersunixdragdrop.html">Creating filters on UNIX by dragging and dropping</a></span><br />
+On UNIX, you can
+create filters by using the drag-and-drop feature.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_openingprevsavedfilter.html">Opening a filter</a></span><br />
+You can open a saved filter in order to view or edit its
+definition.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_fb_usingfiltersviewstodisplay.html" title="The alerts database tables hold event information that is forwarded to the ObjectServer. You can use filters and views to define which of this event information is displayed in your event lists.">Using filters and views to display custom event information</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

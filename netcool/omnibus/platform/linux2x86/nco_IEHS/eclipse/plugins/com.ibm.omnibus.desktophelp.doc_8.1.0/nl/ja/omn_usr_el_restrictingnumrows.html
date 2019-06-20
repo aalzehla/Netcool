@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="表示する行数の制限" />
+<meta name="abstract" content="システム管理者は、ユーザーがイベント・リストに表示できる行数を制限できます。さらに、定義済みの範囲内で、表示する行数を変更する権限をユーザーに与えることもできます。 これらの許可は、ビュー・ビルダーで構成します。" />
+<meta name="Description" content="システム管理者は、ユーザーがイベント・リストに表示できる行数を制限できます。さらに、定義済みの範囲内で、表示する行数を変更する権限をユーザーに与えることもできます。 これらの許可は、ビュー・ビルダーで構成します。" />
+<meta name="DC.subject" content="イベント・リスト, 表示する行数の制限" />
+<meta name="keywords" content="イベント・リスト, 表示する行数の制限" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_restrictingnumrows" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>表示する行数の制限</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_restrictingnumrows">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">表示する行数の制限</h1>
+<div class="body taskbody"><p class="shortdesc">システム管理者は、ユーザーがイベント・リストに表示できる行数を制限できます。さらに、定義済みの範囲内で、表示する行数を変更する権限をユーザーに与えることもできます。 これらの許可は、ビュー・ビルダーで構成します。</p>
+<div class="section context"><p class="p">ユーザーが表示できるイベントの数をシステム管理者が 10 件から 30 件に制限したイベント・リストを以下の図に示します。その設定は、<span class="ph uicontrol">「上位 [10-30]」</span>というフィールド・ラベルで確認できます。 それに隣接するフィールドでは、ユーザーが 20 件のイベントを表示するように選択しています。</p>
+<div class="fig fignone"><span class="figcap">図 1. イベント・リスト行を制限するための「上位 [最小-最大]」フィールド</span><div class="image"><img class="image" src="sc_omn_usr_eventlisttopminmax.gif" alt="この図は、イベント・リスト内の「上位 [最小-最大]」フィールドを示しています。" /></div></div>
+<p class="p">表示する行数を変更するには、<span class="ph uicontrol">「上位 [<var class="keyword varname">Min</var> - <var class="keyword varname">Max</var>]」</span>フィールドに必要な数を入力します。
+その数は、最小/最大の範囲で指定されている限度内でなければなりません。</p>
+<p class="p">フィールド・ラベルが<span class="ph uicontrol">「上位 [固定]」</span>になっている場合は、表示するイベントの数を変更できません。</p>
+<p class="p">フィールド・ラベルが<span class="ph uicontrol">「上位 [オフ]」</span>になっている場合は、表示するイベントの数に関する制限がありません。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="イベント・リストに含まれているイベントを操作するには、まずイベントを選択する必要があります。">イベントの操作</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

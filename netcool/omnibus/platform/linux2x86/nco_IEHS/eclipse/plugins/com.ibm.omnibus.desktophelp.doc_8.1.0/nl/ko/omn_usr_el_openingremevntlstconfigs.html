@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="원격 이벤트 목록 구성 열기" />
+<meta name="abstract" content="원격 서버에 있는 하나 이상의 이벤트 목록을 열기 위해 원격 이벤트 목록 구성 파일을 열 수 있습니다. HTTP 또는 FTP를 사용하여 서버에 액세스할 수 있어야 합니다." />
+<meta name="Description" content="원격 서버에 있는 하나 이상의 이벤트 목록을 열기 위해 원격 이벤트 목록 구성 파일을 열 수 있습니다. HTTP 또는 FTP를 사용하여 서버에 액세스할 수 있어야 합니다." />
+<meta name="DC.subject" content="이벤트 목록 구성, 열기, 원격" />
+<meta name="keywords" content="이벤트 목록 구성, 열기, 원격" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_openingremevntlstconfigs" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevntlstconfigs.html" />
+<title>원격 이벤트 목록 구성 열기</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_openingremevntlstconfigs">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">원격 이벤트 목록 구성 열기</h1>
+<div class="body taskbody"><p class="shortdesc">원격 서버에 있는 하나 이상의 이벤트 목록을 열기 위해
+원격 이벤트 목록 구성 파일을 열 수 있습니다. HTTP 또는 FTP를 사용하여 서버에 액세스할 수 있어야 합니다.</p>
+<div class="section context">원격 이벤트 목록 구성 파일을 열려면 다음을 수행하십시오. </div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창에서 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">열기</span></span>를 클릭하십시오. </span> <span class="keyword wintitle">구성 열기</span> 창이 열립니다. </li>
+<li class="li step stepexpand"><span class="ph cmd">다음과 같이 이 창을 완료하십시오. <span class="ph uicontrol">파일 이름</span> 필드에 원격 파일의 웹 주소를 입력하고
+<span class="ph uicontrol">확인</span>을 클릭하십시오. 웹 주소에 다음 형식 중 하나를 사용해야 합니다. </span> <p class="p"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd></p>
+
+<p class="p">서버가 기본 포트를
+사용하고 있지 않은 경우에만 선택적 포트 번호(<var class="keyword varname">:port</var>)를 지정해야 합니다. HTTP의 경우, 웹 서버가 원격 호스트에서 실행 중이어야 합니다. </p>
+
+<p class="p"><span class="ph"><var class="keyword varname">servername</var> 값에 대해 IPv4 또는 IPv6 주소를 선택하여 지정할 수 있습니다. IPv6
+주소를 지정하면 주소가 대괄호([]) 안에 묶입니다. 예제는 다음과 같습니다.</span></p>
+
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+
+<p class="p">FTP의 경우, 경로는 홈 디렉토리의 상대 경로입니다(예: <span class="ph filepath">/<var class="keyword varname">mydir</var>/<var class="keyword varname">myconfig</var>.elc</span>).</p>
+
+<p class="p">원격 파일 사본이 로컬 캐시에 기록됩니다. Windows 시스템에서는 이전에 열었던
+원격 파일을 지정하면 캐시된 사본이 사용됩니다. 원격 파일을 검색할 수 없으면 오류 메시지가 표시됩니다. </p>
+
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">결과</h2></div>검색에 성공하면 <span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창이 새로 고쳐져 해당 구성 내의 모니터 상자를 표시하며,
+선택된 구성 파일 이름이 이벤트 목록 제목 표시줄에 표시됩니다. </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="이벤트 목록 모니터 상자 창에서 모든 모니터 상자에 대해 정의되는 필터, 보기 및 기타 이벤트 구성을 저장할 수 있습니다. 이 정보는 이벤트 목록 구성(.elc) 파일 안에 저장됩니다.">이벤트 목록 구성에 대한 작업</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="이벤트 목록에서 경보를 모니터하고 관리하려면 올바른 인증 신임 정보를 사용하여 실행 중인 ObjectServer에 연결해야 합니다. 컨덕터, 명령행 또는 Windows 시작 메뉴에서 이벤트 목록을 시작할 수 있습니다.">이벤트 목록 시작</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

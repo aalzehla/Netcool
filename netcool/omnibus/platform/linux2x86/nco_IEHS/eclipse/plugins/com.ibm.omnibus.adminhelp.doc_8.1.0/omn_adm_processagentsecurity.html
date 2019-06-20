@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Process agent security considerations" />
+<meta name="abstract" content="If the process agent is running as a privileged or super user on the host machine, it is possible for a Netcool/OMNIbus Administrator to configure external actions which are then executed on the host system as a privileged user. For example, as the root user (UNIX) or as the Local System User (Windows). This presents a potential security risk. Therefore, the process agent must be run as a non-privileged user." />
+<meta name="Description" content="If the process agent is running as a privileged or super user on the host machine, it is possible for a Netcool/OMNIbus Administrator to configure external actions which are then executed on the host system as a privileged user. For example, as the root user (UNIX) or as the Local System User (Windows). This presents a potential security risk. Therefore, the process agent must be run as a non-privileged user." />
+<meta name="DC.subject" content="process agent, running" />
+<meta name="keywords" content="process agent, running" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningpanonprivilegeuser_unix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningpanonprivilegeuser_win.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningpaprivilegeduser.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningpanonprivilegeuser_unix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningpanonprivilegeuser_win.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningpaprivilegeduser.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="processagentsecurity" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<title>Process agent security considerations</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="processagentsecurity">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Process agent security considerations</h1>
+<div class="body conbody"><p class="shortdesc">If the process agent is running as a privileged or super
+user on the host machine, it is possible for a Netcool/OMNIbus Administrator
+to configure external actions which are then executed on the host
+system as a privileged user. For example, as the <samp class="ph tt">root</samp> user
+(UNIX) or as the Local System
+User (Windows). This presents
+a potential security risk. Therefore, the process agent must be run
+as a non-privileged user.</p>
+<div class="note note"><span class="notetitle">Note:</span> There are instances when the process agent must be run as a
+privileged user. For example, when running the SNMP Probe which needs
+to open port 162, and when local file authentication is in use and
+the process agent must be able to read the <span class="ph filepath">/etc/shadow</span> file to authenticate users (UNIX only).</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_runningpanonprivilegeuser_unix.html">Running the process agent as a non-privileged user (UNIX)</a></span><br />
+Use this procedure to set up a process agent to run as
+a non-privileged user on UNIX operating systems.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_runningpanonprivilegeuser_win.html">Running the process agent as a non-privileged user (Windows)</a></span><br />
+Use this procedure to set up a process agent to run as
+a non-privileged user on Windows.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_runningpaprivilegeduser.html">Running the process agent as a privileged user</a></span><br />
+Use this procedure to set up a process agent to run as
+a privileged user.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_creatingstartpctrlsysunix.html" title="To manage process control, you must first determine your process control configuration requirements and then perform a number of configuration tasks.">Creating and starting a process control network system</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_pa_runningpanonprivilegeuser_unix.html" title="Use this procedure to set up a process agent to run as a non-privileged user on UNIX operating systems.">Running the process agent as a non-privileged user (UNIX)</a></div>
+<div><a class="link" href="omn_adm_pa_runningpanonprivilegeuser_win.html" title="Use this procedure to set up a process agent to run as a non-privileged user on Windows.">Running the process agent as a non-privileged user (Windows)</a></div>
+<div><a class="link" href="omn_adm_pa_runningpaprivilegeduser.html" title="Use this procedure to set up a process agent to run as a privileged user.">Running the process agent as a privileged user</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

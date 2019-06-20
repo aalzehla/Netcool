@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="How to use selectivity as a guideline for indexing table columns" />
+<meta name="abstract" content="The index selectivity is not the only criterion for deciding whether a table column makes an effective index. Also consider the types of queries that you want to run against the index. Use these examples to help you decide which table columns to index." />
+<meta name="Description" content="The index selectivity is not the only criterion for deciding whether a table column makes an effective index. Also consider the types of queries that you want to run against the index. Use these examples to help you decide which table columns to index." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_workingwithindexes.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_indexselectivityguidelines" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_workingwithindexes.html" />
+<title>How to use selectivity as a guideline for indexing table columns</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_indexselectivityguidelines">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">How to use selectivity as a guideline for indexing table columns</h1>
+<div class="body refbody"><p class="shortdesc">The index selectivity is not the only criterion for deciding
+whether a table column makes an effective index. Also consider the
+types of queries that you want to run against the index. Use these
+examples to help you decide which table columns to index.</p>
+<div class="section">The following examples show where an index can have an initial
+high or low selectivity rating, but also show how the choice of whether
+to create an index is affected by the type of query being used to
+access the table.</div>
+<div class="example"><h2 class="title sectiontitle">Example 1</h2><p class="p">The following example would return
+a high selectivity rating: A table with 30000 rows, with column (A)
+containing values of between 1 and 15000, where none of the values
+occur more than twice.</p>
+<p class="p">Note how the usage of queries against
+the index can determine the effectiveness of the index.</p>
+<p class="p">For
+example, if the following WHERE clause is used in a query to access
+the rows of the table, the result is a high selectivity rating and
+the query makes good use of the index:</p>
+<pre class="pre codeblock"><code>where A = 5 or A = 10</code></pre>
+<p class="p">However,
+if the following WHERE clause is used to access the rows in the table,
+only two rows from the 30000 rows would be ignored by the index. This
+would therefore be a poor candidate for an index.</p>
+<pre class="pre codeblock"><code>where A &gt; 1</code></pre>
+</div>
+<div class="example"><h2 class="title sectiontitle">Example 2</h2><p class="p">The following example would return
+a low selectivity rating: A table with 20000 rows, with column (B)
+containing values of either 1 or 2.</p>
+<p class="p">Note how the usage of queries
+against the index can determine the effectiveness of the index.</p>
+<p class="p">For
+example, if the following WHERE clause is used to access the rows
+in the table, all values are matched, and so there is no benefit from
+creating an index.</p>
+<pre class="pre codeblock"><code>where B = 1 or B = 2</code></pre>
+<p class="p">However,
+if the following WHERE clause is used to access the rows in the table,
+the effectiveness of the index depends on the distribution of the
+value 1:</p>
+<pre class="pre codeblock"><code>where B = 1</code></pre>
+<p class="p">The factors for determining
+the effectiveness of an index are as follows:</p>
+<ul class="ul"><li class="li">If there are few instances of the value 1, an index would reduce
+the number of rows being processed, and would therefore be a good
+candidate for an index.</li>
+<li class="li">If the majority of rows contain the value 1, an indexed column
+would not provide any benefit.</li>
+<li class="li">If there is an equal distribution of the two values, an index
+would reduce the number of rows being processed by 50%. The table
+would therefore be a good candidate for an index.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_workingwithindexes.html" title="Use indexes to improve the performance of the ObjectServer databases. The use of well-designed indexes can reduce or eliminate the need for full table scans during the execution of SQL queries, and result in faster data retrieval. To determine the effectiveness of an index, check the index selectivity.">Indexing table columns</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

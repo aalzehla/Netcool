@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="특성 구성" />
+<meta name="abstract" content="ObjectServers, 프록시 서버, 데이터베이스 초기화 유틸리티(nco_dbinit), Confpack 유틸리티(nco_confpack), Netcool/OMNIbus Administrator(nco_config), 프로브 및 게이트웨이에 대한 특성 파일에 포함된 정보를 편집할 수 있습니다. 특성 파일은 .props 확장자를 가지고 있습니다." />
+<meta name="Description" content="ObjectServers, 프록시 서버, 데이터베이스 초기화 유틸리티(nco_dbinit), Confpack 유틸리티(nco_confpack), Netcool/OMNIbus Administrator(nco_config), 프로브 및 게이트웨이에 대한 특성 파일에 포함된 정보를 편집할 수 있습니다. 특성 파일은 .props 확장자를 가지고 있습니다." />
+<meta name="DC.subject" content="특성, 구성, 특성 파일, 편집" />
+<meta name="keywords" content="특성, 구성, 특성 파일, 편집" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringproperties" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>특성 구성</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringproperties">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">특성 구성</h1>
+<div class="body taskbody"><p class="shortdesc">ObjectServers, 프록시 서버, 데이터베이스 초기화
+유틸리티(<span class="keyword cmdname">nco_dbinit</span>), Confpack 유틸리티(<span class="keyword cmdname">nco_confpack</span>),
+Netcool/OMNIbus
+Administrator(nco_config), 프로브 및 게이트웨이에 대한 특성 파일에
+포함된 정보를 편집할 수 있습니다. 특성 파일은
+<span class="ph filepath">.props</span> 확장자를 가지고 있습니다. </p>
+<div class="section context">특성을 편집하려면 다음을 수행하십시오. </div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">다음 조치 중 하나를 수행하십시오.</span><ul class="ul choices"><li class="li choice">UNIX의
+<span class="keyword wintitle">컨덕터</span> 창에서 단추 막대에 있는
+<span class="ph uicontrol">특성</span>을 클릭하십시오. </li>
+<li class="li choice">Windows의
+<span class="ph uicontrol">컨덕터</span> 메뉴에서 <span class="ph uicontrol">특성</span>을 클릭하십시오. <p class="p"><span class="keyword wintitle">특성
+편집기</span> 창이 열립니다. </p>
+</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">다음과 같이 이 창을 완료하십시오. </span> <dl class="dl"><dt class="dt dlterm">유형</dt>
+<dd class="dd">UNIX에서 다음 옵션 중 하나를 선택하십시오. <ul class="ul"><li class="li">프로브 외에 다른 구성요소의 특성 파일을 편집하려면 <span class="ph uicontrol">일반</span>을 선택하십시오.
+<span class="ph uicontrol">파일</span> 드롭 다운 목록은 이 파일로 채워집니다.</li>
+<li class="li">프로브 특성 파일을 편집하려면 <span class="ph uicontrol">프로브</span>를 선택하십시오. <span class="ph uicontrol">파일</span> 드롭 다운 목록은 이 파일로 채워집니다.</li>
+</ul>
+</dd>
+<dd class="dd">Windows에서 다음 옵션 중 하나를 선택하십시오. <ul class="ul"><li class="li">ObjectServer 및 프록시 서버 등의 구성요소의 특성 파일을 편집하려면 <span class="ph uicontrol">ObjectServer</span>를
+선택하십시오. <span class="ph uicontrol">이름</span> 드롭 다운 목록은
+이 파일로 채워집니다. 해당 파일은 일반적으로
+<span class="ph filepath">%NCHOME%\omnibus\etc</span> 디렉토리에 저장됩니다. </li>
+<li class="li">프로브 특성 파일을 편집하려면 <span class="ph uicontrol">프로브</span>를 선택하십시오. <span class="ph uicontrol">이름</span> 드롭 다운 목록은
+이 파일로 채워집니다. 해당 파일은 일반적으로
+<span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> 디렉토리에 저장됩니다. </li>
+<li class="li">새 특성 파일을 추가하려면 <span class="ph uicontrol">서버</span>를 선택하십시오. 해당 파일은
+<span class="ph filepath">%NCHOME%\omnibus\ini</span> 디렉토리에 저장됩니다.
+<span class="ph uicontrol">이름</span> 드롭 다운 목록은
+<samp class="ph codeph">&lt;New File&gt;</samp> 텍스트로 채워집니다. </li>
+</ul>
+</dd>
+<dt class="dt dlterm">파일(UNIX)/이름(Windows)</dt>
+<dd class="dd">이 드롭 다운 목록에서 편집하려는 특성 파일을 선택하십시오.
+이 목록은 <span class="ph uicontrol">유형</span> 드롭 다운 목록에서 선택사항에 따라 채워집니다.
+기본값은 다음과 같습니다. <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit.props</span>: 데이터베이스 초기화 시작 시 읽을 특성
+파일(데이터베이스를 초기화하기 위해 <span class="keyword cmdname">nco_dbinit</span>를 실행합니다.)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY.props</span>: 프록시 서버 특성 파일(프록시 서버는 ObjectServer에 대한 프로브 연결 수를 감축하기 위해 사용될 수 있습니다.)</li>
+<li class="li"><span class="ph filepath">nco_confpack.props</span>: Confpack 특성 파일(<span class="keyword cmdname">nco_confpack</span>은 ObjectServer 구성 가져오기 및 내보내기에 사용됩니다.)</li>
+<li class="li"><span class="ph filepath">nco_config.props</span>: <span class="keyword">Netcool/OMNIbus
+Administrator </span> 특성 파일</li>
+<li class="li"><span class="ph filepath">NCOMS.props</span>: ObjectServer 특성 파일</li>
+</ul>
+</dd>
+<dd class="dd">Windows에서는
+<span class="ph filepath">.props</span> 파일 확장자가 표시되지 않으며
+<span class="ph uicontrol">이름</span> 목록에서 파일을 선택할 때 사용 가능한 특성으로
+특성 목록이 자동으로 채워집니다. </dd>
+<dt class="dt dlterm">열기(UNIX만)</dt>
+<dd class="dd">UNIX에서 유형 및 파일 이름을 선택한 후 이 단추를 클릭하여 특성 파일을
+여십시오. </dd>
+<dt class="dt dlterm"><em class="ph i">특성 목록</em></dt>
+<dd class="dd">이 행렬은 특성 파일에 추가한 모든 특성의 세부사항을 표시합니다.
+특성을 변경하려는 경우 이 목록에서 해당 특성을 선택할 수 있습니다.
+프로브 특성 파일에 대해 이미 정의된 특성의 기본 세트가 있으며,
+이러한 특성을 제거할 수 없습니다. 해당 특성은 특성 목록에서 회색으로 표시됩니다.</dd>
+<dt class="dt dlterm">이름</dt>
+<dd class="dd">이 필드는 특성 목록에서 편집용으로 선택한 특성의 이름을 표시합니다.
+기존 특성의 이름을 변경할 수 없습니다.
+Windows에서 드롭 다운 목록을 사용하여 편집할 특성을 선택할 수 있습니다. </dd>
+<dd class="dd">선택된 특성 파일에 새 특성을 추가하려면 여기에 특성의 이름을 입력하십시오.</dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+여기에 새 특성의 이름을 입력하십시오.</dd>
+<dt class="dt dlterm">값</dt>
+<dd class="dd">기존의 선택된 특성 파일을 사용하여 작업하는 경우 선택된 특성의 값을 편집하거나
+추가하려는 새 특성의 값을 입력하십시오.</dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+새 특성의 값을 입력하십시오. </dd>
+<dt class="dt dlterm">추가/업데이트</dt>
+<dd class="dd">이 단추는 기존 특성을 추가하거나 편집하는지 여부에 따라 변경됩니다.
+새 특성 이름 및 값을 입력하는 경우 <span class="ph uicontrol">추가</span>를 클릭하여 해당 값을 특성 목록에 추가하십시오.
+특성 목록에서 선택되는 특성의 값을 변경하는 경우
+<span class="ph uicontrol">업데이트</span>를 클릭해 특성 목록의 값을 업데이트하십시오.</dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+<span class="ph uicontrol">추가</span>를 클릭하여 새 특성을 추가할 수 있습니다.</dd>
+<dt class="dt dlterm">제거</dt>
+<dd class="dd">특성 파일에서 선택한 특성을 제거하려면 이 단추를 클릭하십시오.
+기본 특성을 선택하면 해당 단추를 사용할 수 없습니다. </dd>
+<dt class="dt dlterm">저장</dt>
+<dd class="dd">특성 파일의 변경사항을 저장하려면 이 단추를 클릭하십시오. </dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+특성 목록에 새 특성을 추가한 다음 <span class="ph uicontrol">저장</span>을 클릭하십시오.
+<span class="keyword wintitle">새 특성 저장</span> 창에서 특성 파일의 이름을 입력하고
+<span class="ph filepath">.props</span> 확장자를 생략하십시오.
+이는 사용자에 대해 자동으로 추가됩니다. <span class="ph uicontrol">저장</span>을 클릭해
+파일을 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 디렉토리에 저장하십시오.
+특성 파일 이름이 <span class="ph uicontrol">유형</span> 필드 옆에 있는 <span class="ph uicontrol">이름</span> 필드에 표시되고
+사용자는 이 파일에 특성을 계속 추가할 수 있습니다.
+특성에 지정하는 문자열 값에 인용 표시를 추가하기 위해
+이 파일을 편집해야 합니다.</dd>
+</dl>
+
+<dl class="dl"><dt class="dt dlterm">닫기(UNIX)</dt>
+<dd class="dd">이 단추를 클릭하여 변경사항을 저장한 후 이 창을 닫거나
+변경사항을 저장하지 않고 이 창을 닫으십시오. </dd>
+<dt class="dt dlterm">확인(Windows)</dt>
+<dd class="dd">변경사항을 저장한 후 이 창을 닫으려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">취소(Windows)</dt>
+<dd class="dd">변경사항을 저장하지 않고 이 창을 닫으려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="You can configure properties for Tivoli Netcool/OMNIbus 구성요소에 대한 특성 및 UNIX와 Windows 컨덕터에서 서버 구성요소에 대한 통신 정보를 구성할 수 있습니다. Windows의 경우, 설정 창에 있는 결합된 태스크의 두 가지 기능을 수행할 수 있습니다. UNIX의 경우, 이벤트 목록의 데이터 형식을 변경할 수도 있습니다.">특성, 서버 통신 및 설정 구성</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_startingconductor.html" title="컨덕터는 경보의 열람 및 관리가 가능한 모든 Tivoli Netcool/OMNIbus 데스크탑 도구에 대해 싱글 사인온 액세스를 제공합니다.">컨덕터 시작</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

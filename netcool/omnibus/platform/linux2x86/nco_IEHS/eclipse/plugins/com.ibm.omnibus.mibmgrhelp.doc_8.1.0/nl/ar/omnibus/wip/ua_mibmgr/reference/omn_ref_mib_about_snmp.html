@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="نبذة عن SNMP" />
+<meta name="abstract" content="يقدم هذا القسم معلومات اضافية عن أسلوب بناء Simple Network Management Protocol (SNMP)، و management information base (MIB) الى SNMP وبعض مفاهيم MIB الاضافية." />
+<meta name="Description" content="يقدم هذا القسم معلومات اضافية عن أسلوب بناء Simple Network Management Protocol (SNMP)، و management information base (MIB) الى SNMP وبعض مفاهيم MIB الاضافية." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>نبذة عن SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">نبذة عن SNMP</h1>
+<div class="body refbody"><p class="shortdesc">يقدم هذا القسم معلومات اضافية عن أسلوب بناء Simple Network Management Protocol (SNMP)، و management
+information base (MIB) الى SNMP وبعض مفاهيم MIB الاضافية.</p>
+<div class="section"><p class="p">في أسلوب بناء SNMP، يقوم مكون Manager بادارة الأداة البرمجية. الأداة البرمجية هي برنامج يتم تشغيله على جهاز أو تطبيق شبكة الاتصال، ويقوم بالاستجابة الى طلبات المعلومات (SETs و GETs)، ثم يقوم بتكوين اعلامات مستقلة تسمى ملفات تعقب المشاكل. ويعد Manager برنامج يقوم باستلام ملفات تعقب المشاكل التي تقدم آلية لعناصر SET أو GET SNM من جهاز شبكة الاتصال.</p>
+<p class="p">لاستلام ملفات تعقب المشاكل المستقلة، يقوم Manager بتشغيل تطبيق يقوم بالانصات بمنفذ ملف تعقب المشاكل TCP/IP SNMP (المنفذ 162). تقوم عمليات SNMP SETs و GETs باستخدام المنفذ 161. يسمى هذا التطبيق Trapd أو trap daemon. يعد trap daemon عملية يتم تشغيلها في الخلفية وتقوم بالتعامل مع خدمة على الحاسب. يقوم تطبيق
+Netcool Trapd باستدعاء SNMP Probe (<span class="ph filepath">nco_p_mttrapd</span>، حيث <span class="ph filepath">mt</span> هو اختصار للتطبيق متعدد العمليات)
+ويوجد في الدليل <span class="ph filepath">$OMNIHOME/probes/</span>.
+ملفات القواعد التى يتم تكوينها بواسطة <span class="keyword">MIB Manager</span> يتم تصميمها لكى تستخدم بواسطة برنامج اختبار SNMP.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">السرية</h2><p class="p">السرية الأساسية في SNMP v1 و v2 يتم اتاحتها باستخدام مجموعات الحروف الخاصة بالمجموعة. تعد مجموعات الحروف الخاصة بالمجموعة كلمات سرية نصية عادية يتم ارسالها مع كل الطلبات. توجد مجموعات حروف منفصلة خاصة بالمجموعة لتوصل القراءة-فقط ولتوصل القراءة-الكتابة. <span class="keyword">MIB Manager</span> يجب أن يكون على علم بمجموعة حروف المجموعة المعرفة على جهاز
+قبل أن يمكنه تنفيذ أى طلبات (للقراءة فقط بالنسبة الى GET وللقراءة-الكتابة
+بالنسبة الى SET)، يتم ارسال صفحات SNMP الشرطية والاعلامات الى <span class="keyword">MIB Manager</span> بمجموعة حروف مجموعة معرفة مسبقا.</p>
+<p class="p">يكون لكل أجهزة شبكة الاتصال التي تدعم SNMP آلية يتم استخدامها لتعريف مجموعة حروف المجموعة. تكون كلمة سرية القراءة-فقط المفترضة القياسية عامة وكلمة سرية القراءة-الكتابة المفترضة القياسية تكون خاصة. اذا لم يتم تحديد مجموعة حروف خاصة بمجموعة على جهاز، ستكون عادة أي من كلمات السرية هذه.
+لأسباب السرية، يجب تغيير كلمات السرية المفترضة سريعا بقدر الامكان.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">مزيد من المعلومات</h2><div class="p">تكون الكتب التالية مفيدة للحصول على تفهم جيد لاطار عمل SNMP و MIBs:<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP (Third Edition)</cite> by
+Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite> by David Perkins and Evan
+McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">للاطلاع على مناقشة حول ASN.1‎ و Basic Encoding Rules
+(BER) التى يتم استخدامها لتشفير بيانات SNMP فى حزم Protocol Data Unit
+(PDU) للبث عبر شبكة الاتصال، ارجع الى الكتاب التالي:</p>
+<p class="p"><cite class="cite">SNMP و SNMPv2‎ و CMIP: The Practical Guide to Network-Management
+Standards</cite> كتبه William Stallings (Addison-Wesley، 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">تصميم ومفاهيم MIB</a></span><br />
+كل وحدات برامج SNMP MIB التي تم تعريفها للاستخدام بواسطة جهاز محدد تشكل MIB لهذا الجهاز. يتم استخدام المصطلح MIB عادة لتوضيح تعريف وحدة برامج واحدة، لكن هذا لا يعد صحيح فنيا.
+فعليا، يعد MIB مجموعة من كل وحدات البرامج المستخدمة لادارة جهاز معين، سواء كان الجهاز يتعلق ببرامج أو أجهزة. لذلك، كلما كان الاسم أكثر دقة لكل وحدة برامج تم تعريفها بواسطة المورد أو في RFC، تكون وحدة برامج SNMP MIB أكثر دقة.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">أنواع عناصر MIB</a></span><br />
+يوضح هذا الموضوع أنواع العناصر التي تم تعريفها في SNMP v1
+and v2.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">نسق عناصر MIB الصحيحة</a></span><br />
+يوضح هذا الموضوع نسق عناصر MIB الصحيحة.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager هو تطبيق IBM Eclipse-based GUI يمكنك استخدامه لاجراء تحليل لغوى على ملفات قاعدة معلومات الادارة (MIB) والتى تخص Simple Network Management Protocol (SNMP)، والتى يمكنك من خلالها تكوين ملفات قواعد Netcool. فهو مقصود كاستبدال لوظيفة mib2rules.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

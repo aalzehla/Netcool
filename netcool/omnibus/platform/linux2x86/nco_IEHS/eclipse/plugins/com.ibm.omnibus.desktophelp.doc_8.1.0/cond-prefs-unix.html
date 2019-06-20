@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Preferences" />
+<meta name="abstract" content="Use this window to set global preferences for the Conductor, event list, and alert notifications on UNIX." />
+<meta name="Description" content="Use this window to set global preferences for the Conductor, event list, and alert notifications on UNIX." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_filtermetrics.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_preferenceswindowUNIX" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Preferences</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_preferenceswindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Preferences</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set global preferences for the Conductor, event
+list, and alert notifications on UNIX.</p>
+<div class="section">The <span class="keyword wintitle">Preferences</span> window contains the following
+tabs:<ul class="ul"><li class="li"><a class="xref" href="#netom_preferenceswindowUNIX__netom_preferences_conductortabUNIX">Conductor tab</a></li>
+<li class="li"><a class="xref" href="#netom_preferenceswindowUNIX__netom_preferences_eventlisttabUNIX">Event List tab</a></li>
+<li class="li"><a class="xref" href="#netom_preferenceswindowUNIX__netom_preferences_notificationtabUNIX">Notification tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_preferenceswindowUNIX__netom_preferences_conductortabUNIX"><h2 class="title sectiontitle">Conductor tab</h2><p class="p">Use
+this tab to configure preferences for the Conductor on UNIX. Complete
+this tab as follows:</p>
+<dl class="dl" id="netom_preferenceswindowUNIX__netom_preferences_conductortabfieldsUNIX"><dt class="dt dlterm">Timed Directory Update</dt>
+<dd class="dd">Select this check box to indicate that the Conductor directory information
+should be updated at regular intervals. In the adjacent field, enter a value
+(in seconds) for the update interval. Clear this check box if you prefer to
+await notification of updates from the ObjectServer.</dd>
+</dl>
+</div>
+<div class="section" id="netom_preferenceswindowUNIX__netom_preferences_eventlisttabUNIX"><h2 class="title sectiontitle">Event List tab</h2><p class="p">Use
+this tab to configure preferences for the event list. Complete this tab as
+follows:</p>
+<dl class="dl" id="netom_preferenceswindowUNIX__netom_preferences_eventlisttabfieldsUNIX"><dt class="dt dlterm">Show Count</dt>
+<dd class="dd">Select this check box to display the number of alerts that match
+the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Highest Severity</dt>
+<dd class="dd">Select this check box to display the highest severity among the
+alerts that match the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Lowest Severity</dt>
+<dd class="dd">Select this check box to display the lowest severity among the
+alerts that match the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Metric</dt>
+<dd class="dd">Select this check box to display the selected filter metric value
+on monitor boxes. </dd>
+<dt class="dt dlterm">Show Lavalamp</dt>
+<dd class="dd">Click this option to display the distribution indicator as a horizontal
+bar on monitor boxes.</dd>
+<dt class="dt dlterm">Show Histogram</dt>
+<dd class="dd">Click this option to display the distribution indicator as a bar
+graph on monitor boxes.</dd>
+<dt class="dt dlterm">Show Event List Colors</dt>
+<dd class="dd">Select this check box to use color to depict the severity of alerts
+in the event list. Clear this check box to use a grey background for
+all event list rows. </dd>
+<dt class="dt dlterm">Sort Information Details</dt>
+<dd class="dd">Select this check box to sort the detail fields in the <span class="keyword wintitle">Event
+Information</span> window alphabetically by name of field. When
+this check box is clear, the detail fields are displayed in an order
+determined by the ObjectServer. </dd>
+<dt class="dt dlterm">Timed Refresh</dt>
+<dd class="dd">Use these fields to indicate whether alert information should
+be updated at a specified time interval, or whether you prefer to
+await notification of updates from the ObjectServer. To specify an
+update frequency, select the <span class="ph uicontrol">Timed Refresh</span> check
+box and then enter a time (in seconds) in the adjacent field.</dd>
+<dd class="dd">All the latest data from the ObjectServer will be sent to the
+event list at the specified frequency.<div class="note tip"><span class="tiptitle">Tip:</span> Timed Refresh
+forces the event list to reload all its data at a set interval. Do
+not set the refresh to a low value (for example, less than 60 seconds)
+because this has an impact on ObjectServer performance and network
+traffic.</div>
+<div class="note note"><span class="notetitle">Note:</span> If your system administrator has
+set the <span class="keyword parmname parmname">AllowTimedRefresh</span> ObjectServer property
+to <samp class="ph tt">FALSE</samp>, refresh timers are disabled and updates occur based
+on notification from the ObjectServer.</div>
+</dd>
+<dt class="dt dlterm">Enable Flashing</dt>
+<dd class="dd">Select this check box to enable event list flashing. Use the <span class="ph uicontrol">Fast/Slow</span> slider
+to indicate how quickly the event list flashes. Use the <span class="ph uicontrol">Bright/Dark</span> slider
+to indicate the degree of brightness of the flashing.</dd>
+</dl>
+</div>
+<div class="section" id="netom_preferenceswindowUNIX__netom_preferences_notificationtabUNIX"><h2 class="title sectiontitle">Notification tab</h2><p class="p">Use
+this tab to configure preferences for alert notifications when the event list
+is minimized. Complete this tab as follows:</p>
+<dl class="dl"><dt class="dt dlterm">Notify When Iconised</dt>
+<dd class="dd">Select this check box to receive notification of new, changed,
+or deleted alerts when the event list is minimized. Notification is
+received only on desktop environments that display an icon when the
+event list is minimized. Use the <span class="ph uicontrol">When</span> and <span class="ph uicontrol">How</span> options
+to set the notification method.</dd>
+<dt class="dt dlterm">When</dt>
+<dd class="dd">Select each check box to receive notification as follows:<ul class="ul"><li class="li">Select <span class="ph uicontrol">New</span> to receive a notification when
+a new alert is added to the event list.</li>
+<li class="li">Select <span class="ph uicontrol">Change</span> to receive a notification
+when an existing alert changes in the event list.</li>
+<li class="li">Select <span class="ph uicontrol">Delete</span> to receive a notification
+when an existing alert is deleted from the event list.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">How</dt>
+<dd class="dd">Select each check box to indicate how a notification should occur:<ul class="ul"><li class="li">Select <span class="ph uicontrol">Ring Bell</span> to sound the workstation
+or terminal bell once.</li>
+<li class="li">Select <span class="ph uicontrol">Alert Icon</span> to flash an exclamation
+mark over the event list icon (UNIX),
+or flash the minimized event list (Windows).</li>
+<li class="li">Select <span class="ph uicontrol">Open Window</span> to open the event list
+on the screen. If you use a window manager with interactive placement,
+the event list opens as the active window.</li>
+<li class="li">Select <span class="ph uicontrol">Run External Command</span> to run a command.
+If you select this check box, you must type the command name. This
+function must be used only for simple desktop notification, and is
+not designed for handling paging applications. </li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_preferenceswindowUNIX__netom_preferences_applying_saving_closingUNIX"><h2 class="title sectiontitle">Applying
+and saving your preference settings</h2><p class="p">After modifying your preference
+settings, you can apply, save, or cancel changes made by clicking the relevant
+button as follows:</p>
+<dl class="dl" id="netom_preferenceswindowUNIX__netom_preferences_applysaveclosebuttonsUNIX"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to apply changes without saving them. This button
+enables you to test how your changes affect the desktop. </dd>
+<dt class="dt dlterm">Save</dt>
+<dd class="dd">Click this button to save any changes made to your preferences. <div class="note tip"><span class="tiptitle">Tip:</span> To view any changes made to preferences in the event list,
+you must close and reopen any open event lists.</div>
+</dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+<dt class="dt dlterm">Undo</dt>
+<dd class="dd">Click this button to undo any changes that you have made to each
+of the tabs. </dd>
+</dl>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_usr_fb_filtermetrics.html" title="All filters can have a metric associated with them. A metric is a measurement that you can apply to a filter so that it calculates a useful figure.">Filter metrics</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="From the UNIX Conductor, you can set global preferences for the Conductor window, event list, and event notifications.">Setting global preferences for the UNIX Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

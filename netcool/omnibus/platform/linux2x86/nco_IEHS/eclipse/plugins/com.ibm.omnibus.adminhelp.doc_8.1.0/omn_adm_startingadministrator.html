@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Starting Netcool/OMNIbus Administrator" />
+<meta name="abstract" content="You must run the nco_config utility to start Netcool/OMNIbus Administrator." />
+<meta name="Description" content="You must run the nco_config utility to start Netcool/OMNIbus Administrator." />
+<meta name="DC.subject" content="Netcool/OMNIbus Administrator, starting, nco_config" />
+<meta name="keywords" content="Netcool/OMNIbus Administrator, starting, nco_config" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_gettingstartedwithadmin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_adminpropscmdlnopts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_propertycmdlnprocess.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_connectingtoprocagent.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_customizingservdefns.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="xF1525882304" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_gettingstartedwithadmin.html" />
+<title>Starting Netcool/OMNIbus Administrator</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="xF1525882304">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Starting Netcool/OMNIbus Administrator</h1>
+<div class="body taskbody"><p class="shortdesc">You must run the <span class="keyword cmdname">nco_config</span> utility
+to start Netcool/OMNIbus Administrator.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To start Netcool/OMNIbus Administrator from
+the command line:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Enter the appropriate command for your operating system:</span> <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Starting Netcool/OMNIbus Administrator </span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="24.242424242424242%" id="d68488e54">Option</th>
+<th class="entry" valign="top" width="75.75757575757575%" id="d68488e56">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="24.242424242424242%" headers="d68488e54 ">UNIX</td>
+<td class="entry" valign="top" width="75.75757575757575%" headers="d68488e56 "><samp class="ph codeph">$NCHOME/omnibus/bin/nco_config [ -<var class="keyword varname">option</var> <var class="keyword varname">value</var> ...
+]</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="24.242424242424242%" headers="d68488e54 ">Windows</td>
+<td class="entry" valign="top" width="75.75757575757575%" headers="d68488e56 "><samp class="ph codeph">%NCHOME%\omnibus\bin\nco_config.vbs [ -<var class="keyword varname">option</var> <var class="keyword varname">value</var> ...
+]</samp></td>
+</tr>
+</tbody>
+</table>
+</div>
+ <p class="p">In this command, <samp class="ph codeph"><var class="keyword varname">-option</var></samp> is
+a valid command-line option and <samp class="ph codeph"><var class="keyword varname">value</var></samp> is
+the value you are setting the option to. </p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If this is the first time you are starting Netcool/OMNIbus Administrator,
+or your communications settings file (<samp class="ph codeph">$NCHOME/etc/omni.dat</samp> on UNIX and <span class="ph filepath">%NCHOME%\ini\sql.ini</span> on Windows) has changed since you
+last started Netcool/OMNIbus Administrator, the
+Import Connections Wizard is run. The wizard enables you to choose
+which ObjectServers and process agents you want to configure using Netcool/OMNIbus Administrator.</span> <div class="note tip"><span class="tiptitle">Tip:</span> After you have started Netcool/OMNIbus Administrator,
+you can select <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Import</span></span> at any time to import new communications information
+from the <span class="ph filepath">omni.dat</span> file (<span class="ph filepath">sql.ini</span> on Windows).  </div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_adminpropscmdlnopts.html">Netcool/OMNIbus Administrator properties and command-line options</a></span><br />
+Netcool/OMNIbus Administrator contains a set of properties and
+command-line options for configuring the component.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_propertycmdlnprocess.html">Property and command-line processing</a></span><br />
+Each property in the Netcool/OMNIbus Administrator properties
+file has a default value. In an unedited properties file, properties
+are listed with their default values, commented out with a number
+sign (#) at the beginning of the line. A property and its corresponding
+value are separated by a colon (:). </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_gettingstartedwithadmin.html" title="Netcool/OMNIbus Administrator provides a visual interface from which you can manage your ObjectServers and configure process control.">Getting started with Netcool/OMNIbus Administrator</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_customizingservdefns.html" title="When you install or change a server component on any host in your Tivoli Netcool/OMNIbus system, you must configure the component to communicate with other components by using the Server Editor.">Configuring server communication details in the Server Editor</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_connectingtoprocagent.html" title="Before you can connect to a process agent, you must ensure that the process agent has started.">Connecting to a process agent</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

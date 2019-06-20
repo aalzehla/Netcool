@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="MIB-Daten importieren" />
+<meta name="abstract" content="Vorgehensweise beim Importieren von SNMP-MIB-Daten in MIB Manager." />
+<meta name="Description" content="Vorgehensweise beim Importieren von SNMP-MIB-Daten in MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB-Daten importieren</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB-Daten importieren</h1>
+<div class="body taskbody"><p class="shortdesc">Vorgehensweise beim Importieren von SNMP-MIB-Daten in MIB Manager.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Vorbereitende Schritte</h2></div><p class="p">Geben Sie im Fenster <span class="keyword wintitle strongwintitle">Benutzervorgaben</span>
+Positionen für die MIBs an, die regelmäßig von den Lieferanten-MIBs
+verwendet werden. Stellen Sie sicher, dass sich Ihre
+MIBs in lieferantenspezifischen Verzeichnissen befinden und dass
+alle zugeordneten Ausrüstungsnummern in Unterverzeichnissen
+enthalten sind.
+Stellen Sie außerdem sicher, dass in diesen Verzeichnissen
+keine Nicht-MIB-Textdateien gespeichert sind. Die meisten MIBs
+werden im Verzeichnis <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> installiert, alle
+RFC-MIBs im Verzeichnis <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span>. </p>
+<p class="p">Es kann sein, dass die von Ihnen importierten MIBs
+von anderen MIBs abhängen. Um sicherzustellen, dass <span class="keyword">MIB Manager</span>
+während des Imports abhängige MIBs suchen kann, müssen Sie den
+Suchpfad auf die Positionen der abhängigen MIB-Dateien setzen. </p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Vorgehensweise</h2></div><p class="li stepsection">So importieren Sie MIB-Daten:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Klicken Sie auf <img class="image" src="../gifs/import.gif" alt="MIB-Importsymbol" /> <span class="ph uicontrol">Importieren</span> oder
+im Menü auf <span class="ph menucascade"><span class="ph uicontrol">Datei</span> &gt; <span class="ph uicontrol">Importieren</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Geben Sie im Feld <span class="ph uicontrol">Verzeichnis</span>
+die Position der MIB-Module an, die Sie importieren wollen.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Damit <span class="keyword">MIB Manager</span> alle MIBs in verfügbaren Unterverzeichnissen
+parst, müssen Sie das Kontrollkästchen
+<span class="ph uicontrol">Unterverzeichnisse durchsuchen</span> auswählen.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Klicken Sie auf <span class="ph uicontrol">Importieren</span>.</span> <p class="p">Das Fenster <span class="keyword wintitle strongwintitle">Importstatus</span> wird angezeigt,
+während die MIB-Module geparst werden.
+Im linken Bereich dieses Fensters wird die Anzahl unterschiedlicher
+MIB-Objekttypen angezeigt, wenn diese während des Parsing der importierten
+MIB-Dateien erkannt werden.</p>
+  Nach dem Parsing der MIBs werden von <span class="keyword">MIB Manager</span> alle MIB-Module geprüft und alle ermittelten MIB-Objekte geparst.
+Nach dem Parsing sämtlicher Objekte werden von
+<span class="keyword">MIB Manager</span> alle MIBs geprüft und die Importanweisungen verarbeitet,
+um alle referenzierten MIB-Module zu ermitteln.
+Falls referenzierte MIB-Module nicht in zuvor importierten MIB-Modulen
+ermittelt werden können, durchsucht <span class="keyword">MIB Manager</span> die Verzeichnisse
+im Suchpfad. Im rechten Bereich des Fensters <span class="keyword wintitle strongwintitle">Importstatus</span>
+werden Symbole angezeigt, über die der Status aller in den importierten
+MIBs ermittelten Importanweisungen angegeben wird (s. folgende Tabelle):
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="Im Fenster Importstatus angezeigte Symbole und deren Bedeutung" class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8254e106">Symbol</th>
+<th class="entry" valign="bottom" id="d8254e108">Beschreibung</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8254e106 "><img class="image" src="../gifs/question_mark.gif" alt="Fragezeichen" /></td>
+<td class="entry" valign="top" headers="d8254e108 ">Gibt an, dass die Importanweisung nicht
+aufgelöst wurde.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8254e106 "><img class="image" src="../gifs/tick.gif" alt="Häkchen" /></td>
+<td class="entry" valign="top" headers="d8254e108 ">Gibt an, dass die Importanweisung
+aufgelöst wurde.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8254e106 "><img class="image" src="../gifs/cross.gif" alt="Kreuz" /></td>
+<td class="entry" valign="top" headers="d8254e108 ">Gibt an, dass das MIB-Modul, das in der
+Importanweisung referenziert ist, nicht aufgelöst werden konnte.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">Sie können die Baumstruktur der Importanweisungen einblenden, um
+anzuzeigen, welche MIB-Module Importanweisungen zum Referenzieren
+anderer MIB-Module verwenden.</p>
+
+<p class="p">Die Information <span class="ph uicontrol">Import abgeschlossen</span>
+wird oben im Statusframe angezeigt, wenn alle importierten MIB-Dateien
+verarbeitet wurden. Sie können alle im Verlauf des Imports
+generierten Statusnachrichten anzeigen, indem Sie auf
+<span class="ph uicontrol">Statusprotokoll anzeigen</span> klicken und die
+Dropdown-Liste <span class="ph uicontrol">Sicht</span> für die Auswahl
+einer Filteroption verwenden.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Klicken Sie auf <span class="ph uicontrol">Schließen</span>, um das
+Fenster <span class="keyword wintitle strongwintitle">Importstatus</span> zu schließen.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Ergebnisse</h2></div><p class="p">Die Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span> wird automatisch
+aktualisiert, sodass nun die Namen der neu importierten MIB-Module angezeigt
+werden. Die Sicht <span class="keyword wintitle strongwintitle">OID-Baumstruktur</span> wird automatisch
+aktualisiert, sodass nun alle neu importierten MIB-Objekte angezeigt
+werden. Für die erneute Erstellung der Baumstruktur durchsucht <span class="keyword">MIB Manager</span>
+die übergeordneten Knoten der Baumstruktur
+(<span class="ph filepath">iso</span>, <span class="ph filepath">ccitt</span> und
+<span class="ph filepath">joint-iso-ccitt</span>) rekursiv nach untergeordneten
+Knoten, bis ein untergeordneter Knoten ohne zugeordnete untergeordnete
+Elemente gefunden wird. Wenn keine Fehler festgestellt werden, wird
+in der Sicht <span class="keyword wintitle strongwintitle">OID-Baumstruktur</span>
+eine vollständig gefüllte MIB-Baumstruktur angezeigt, die die geparsten
+Objekte enthält.</p>
+<p class="p">Wenn Sie in der Sicht <span class="keyword wintitle strongwintitle">OID-Baumstruktur</span>
+auf ein Objekt klicken, wird dieses dadurch automatisch
+in der Sicht <span class="keyword wintitle strongwintitle">MIB-Module</span> angezeigt.
+In der Sicht <span class="keyword wintitle strongwintitle">Details</span> werden detaillierte Informationen
+zu dem ausgewählten Objekt angegeben.</p>
+<p class="p">Die importierten
+MIB-Module werden in einer XML-Datei gespeichert, die die Struktur
+des betreffenden MIB-Moduls darstellt. Die XML-Dateien sind im Verzeichnis
+<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span> enthalten.</p>
+<p class="p">Wenn nicht
+aufgelöste Importanweisungen ermittelt werden, müssen Sie den
+Lieferanten kontaktieren, der für die fehlenden MIBs verantwortlich ist,
+die fehlenden Dateien dem Suchpfad hinzufügen und den Import wiederholen.</p>
+<div class="p"><div class="note note"><span class="notetitle">Anmerkung:</span> <p class="p">Lieferanten geben in manchen Fällen doppelte Objektnamen oder
+einen Objektnamen an, der mit einem in einer RFC angegebenen Objektnamen
+identisch ist.</p>
+
+<p class="p">Beispielsweise ist im Modul SNMPv2-MI' ein Objekt mit dem Namen
+<samp class="ph codeph">system</samp> und mit OID 1.3.6.1.2.1.1
+definiert und im Modul WINDOWS-NT-PERFORMANCE ist
+ein anderes Objekt mit dem Namen <samp class="ph codeph">system</samp>
+und mit OID 1.3.6.1.4.1.311.1.1.3.1.1.23
+definiert.
+Ebenso ist ein Objekt mit dem Namen <samp class="ph codeph">sysDescr</samp> im
+Modul SNMPv2-MIB als <samp class="ph codeph">system.1</samp> definiert und ein anderes
+Objekt mit dem Namen <samp class="ph codeph">sysFileReadOperationsPerSec</samp> ist
+im Modul WINDOWS-NT-PERFORMANCE als <samp class="ph codeph">system.1</samp> definiert.
+In diesem Fall ist unklar, welchem übergeordneten Objekt die untergeordneten
+Objekte zugeordnet sind.</p>
+
+<p class="p">Wenn ein Objekt mit einem doppelten übergeordneten Namen
+ermittelt wird, versucht <span class="keyword">MIB Manager</span>, das übergeordnete Objekt
+zu finden, das in demselben MIB-Modul definiert wird. Im Beispiel oben ist dies WINDOWS-NT-PERFORMANCE.
+Wenn keines der übergeordneten Objekte in demselben
+MIB-Modul definiert wird, versucht <span class="keyword">MIB Manager</span> dann
+festzustellen, ob das übergeordnete Objekt in anderen
+MIB-Modulen definiert wird, von denen das Objekt abhängt.
+<span class="keyword">MIB Manager</span> ermittelt außerdem andere MIB-Module, die
+das übergeordnete Objekt referenzieren, und wählt den Namen des am
+häufigsten referenzierten übergeordneten Objekts aus. Dies kann jedoch zu einer nicht ordnungsgemäß mit Daten gefüllten
+MIB-Baumstruktur sowie zu nicht ordnungsgemäß berechneten
+OIDs führen. Daher wird bei jedem doppelten Objektnamen, der von <span class="keyword">MIB Manager</span>
+festgestellt wird, eine Warnung protokolliert. Außerdem werden
+in einer Debugdatei die Aktionen aufgezeichnet, die zum Auflösen der
+Duplizierung ausgeführt wurden.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Übergeordnetes Thema:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Sie können MIB Manager für das Parsing von MIB-Modulen und die Erstellung von Netcool-Regeldateien verwenden.">Netcool MIB Manager verwenden</a></div>
+</div>
+<div class="relinfo relref"><strong>Zugehörige Verweise</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="Mithilfe der Benutzervorgaben für Verzeichnisse können Sie die Verzeichnisse zum Speichern importierter MIBs, von MIB-Daten und exportierter Regeldateien angeben.">Benutzervorgaben für Verzeichnisse festlegen</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="In diesem Abschnitt wird beschrieben, wie die Benutzervorgaben von MIB Manager für die Suche nach den MIB-Dateien definiert werden.">Benutzervorgaben für die Suche festlegen</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing conversions" />
+<meta name="abstract" content="Conversions are associated with the columns in the ObjectServer alerts.status table, and they map integer values for the columns to strings. The conversions that are configured in the Netcool/OMNIbus Administrator are used in the event list, to translate integer values into strings, for readability." />
+<meta name="Description" content="Conversions are associated with the columns in the ObjectServer alerts.status table, and they map integer values for the columns to strings. The conversions that are configured in the Netcool/OMNIbus Administrator are used in the event list, to translate integer values into strings, for readability." />
+<meta name="DC.subject" content="creating, conversions, editing" />
+<meta name="keywords" content="creating, conversions, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringvisualappevntlst.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingeditconversions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringvisualappevntlst.html" />
+<title>Creating and editing conversions</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingeditconversions">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing conversions</h1>
+<div class="body taskbody"><p class="shortdesc">Conversions are associated with the columns in the ObjectServer
+alerts.status table, and they map integer values for the columns to
+strings. The conversions that are configured in the Netcool/OMNIbus Administrator
+are used in the event list, to translate integer values into strings,
+for readability.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">For example, default conversions exist for event severities.
+If an event has a severity of <samp class="ph codeph">4</samp>, the text <samp class="ph codeph">Major</samp> is
+displayed for the event severity in the event list.</p>
+<p class="p">To create
+or edit a conversion:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">Visual</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Conversions</span>. </span> The <span class="keyword wintitle">Conversions</span> pane
+opens.<p class="p">To see the existing conversions for a column, double-click
+the column name. You can also click the round symbol (on UNIX) or the plus (+) symbol (on Windows) that is shown to the left of the
+column name.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To add a conversion, click <span class="ph uicontrol">Add Conversion</span> in
+the toolbar.</span> The <span class="keyword wintitle">Conversion Details</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a conversion, select the conversion to edit and
+then click <span class="ph uicontrol">Edit Conversion</span> in the toolbar.</span> The <span class="keyword wintitle">Conversion Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm">Column</dt>
+<dd class="dd">Select the name of the column containing the data to be converted.</dd>
+<dt class="dt dlterm">Value</dt>
+<dd class="dd">Specify the integer value to be converted.</dd>
+<dt class="dt dlterm">Conversion</dt>
+<dd class="dd">Type the string to display instead of the value.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows:</span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the conversion and close the window. New conversions
+are added to the <span class="keyword wintitle">Conversions</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringvisualappevntlst.html" title="Conversions, colors, column visuals, and classes determine how alert information is displayed in the event list.">Configuring the visual appearance of the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

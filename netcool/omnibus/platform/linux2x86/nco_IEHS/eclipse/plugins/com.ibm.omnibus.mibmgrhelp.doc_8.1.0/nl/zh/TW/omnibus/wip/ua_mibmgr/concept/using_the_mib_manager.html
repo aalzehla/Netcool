@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="使用 Netcool MIB Manager" />
+<meta name="abstract" content="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。" />
+<meta name="Description" content="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>使用 Netcool MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">使用 <span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body conbody"><p class="shortdesc">您可以使用 <span class="keyword">MIB Manager</span> 來剖析 MIB 模組及建立 Netcool 規則檔案。</p>
+<p class="p"><span class="keyword">MIB Manager</span> 在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs</span> 目錄中包含一組基本 MIB 和 RFC MIB。
+提供這些 MIB 是讓您能夠匯入其他 MIB。<span class="keyword">MIB Manager</span> 會自動使用這些組合的 MIB，來在匯入新 MIB 期間解析相依關係。當您第一次啟動 <span class="keyword">MIB Manager</span> 時，可以在「<span class="keyword wintitle">MIB 模組</span>」視圖中看到組合的 MIB 模組。</p>
+<p class="p"><span class="keyword">MIB Manager</span> 還包含 XML 資料檔案，它們代表已匯入組合基本 MIB。<span class="keyword">MIB Manager</span> 使用這些 XML 檔來儲存它從原始文字 MIB 檔案中匯入的 MIB 資料。</p>
+<p class="p">將 MIB 新增至可從啟動 <span class="keyword">MIB Manager</span> 之伺服器存取的目錄中。所有標準型 MIB 都必須安裝在可放置於搜尋路徑的個別目錄中，以便於解析相依關係。依預設，基本 SNMP MIB 安裝在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> 目錄中，而所有 RFC MIB 安裝在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> 目錄中。</p>
+<div class="section"><h2 class="title sectiontitle"><span class="keyword">Netcool MIB Manager</span> 視窗</h2><p class="p">當您啟動 <span class="keyword">MIB Manager</span> 時，下列元素會顯示在起始 <span class="keyword">MIB Manager</span> 視窗中：數個元素顯示在起始 <span class="keyword wintitle">MIB
+Manager</span> 視窗中。下圖顯示這些元素。</p>
+<div class="fig fignone"><span class="figcap">圖 1. <span class="keyword">MIB Manager</span> 起始視窗</span><div class="image"><img class="image" src="../../images/cd_omn_mib_screen.gif" alt="顯示起始 MIB Manager 視窗的影像" /></div></div>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> 工具列</dt>
+<dd class="dd">可讓您存取最常用的 <span class="keyword">MIB Manager</span> 功能。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> 視景</dt>
+<dd class="dd">您可以在下列兩個視景之一中檢視 MIB 資料：<span class="ph uicontrol">MIB
+Manager</span> 或 <span class="ph uicontrol">mib2rules</span>。<span class="ph uicontrol">MIB
+Manager</span> 視景是預設視景。<span class="ph uicontrol">mib2rules</span> 視景著重於物件 ID (OID)，且是為熟悉 <span class="keyword cmdname">mib2rules</span> 公用程式的使用者而提供。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> <span class="keyword wintitle">裝置</span>視圖</dt>
+<dd class="dd">使用此視圖來建立、更新及刪除 <span class="keyword">MIB Manager</span> 裝置。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> <span class="keyword wintitle">詳細資料</span>視圖及<span class="keyword wintitle">主控台</span>視圖</dt>
+<dd class="dd">「<span class="keyword wintitle">詳細資料</span>」視圖顯示所選取 MIB 元素的詳細資料。「<span class="keyword wintitle">主控台</span>」視圖顯示 <span class="keyword">MIB Manager</span> 在現行實例執行時產生的所有日誌訊息。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> <span class="keyword wintitle">MIB 模組</span></dt>
+<dd class="dd">使用此視圖來搜尋及刪除 MIB 模組，以及搜尋特定的 MIB 值。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> <span class="keyword wintitle">OID 樹狀結構</span>視圖</dt>
+<dd class="dd">此視圖呈現所匯入 MIB 模組中的所有 MIB 物件。</dd>
+</dl>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">MIB 模組視圖</a></span><br />
+「<span class="keyword wintitle">MIB 模組</span>」視圖可呈現所有匯入的 MIB 模組，並可讓您搜尋 MIB 模組、刪除 MIB 模組以及搜尋特定的 MIB 值。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">OID 樹狀結構視圖</a></span><br />
+「物件 ID (OID) 樹狀結構」視圖會呈現所有位於匯入 MIB 模組中的 MIB 物件。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">匯入 MIB 資料</a></span><br />
+如何將 SNMP MIB 資料匯入 MIB Manager。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">匯出 MIB 資料</a></span><br />
+如何將 <span class="keyword">MIB Manager</span> 中的 SNMP MIB 資料匯出為各種格式。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">編輯 SNMP 設陷</a></span><br />
+如何編輯 SNMP 設陷。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">產生 SNMP 設陷</a></span><br />
+如何產生 SNMP 設陷。此功能還可用於測試 <span class="keyword">MIB Manager</span> 產生的規則檔案。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html">建立及刪除裝置</a></span><br />
+<span class="keyword">MIB Manager</span> 裝置用來分組關聯的 MIB 模組及定義需要匯出的所有物件。您可以在 <span class="keyword">MIB Manager</span> GUI 中建立、更新及刪除裝置。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager 是基於 IBM Eclipse 的 GUI 應用程式，您可以使用它來剖析可從中產生 Netcool 規則檔案的「簡易網路管理通訊協定 (SNMP)」管理資訊庫 (MIB) 檔案。它預期作為 mib2rules 公用程式的取代項目。">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

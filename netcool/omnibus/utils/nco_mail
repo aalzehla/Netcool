@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# Generic script for forwarding Mail from Netcool/OMNIbus
+#
+# Parameters to be passed from Netcool/OMNIbus are;
+# $1 - @Node
+# $2 - @Severity
+# $3 - "Message" - mail message header text
+# $4 - "user" - user to receive mail
+# $5 - @Summary
+#
+cat <<EOF > /tmp/tmp.$$
+To: $4
+Subject: $3
+
+This message refers to node $1 which has the following problem;
+
+$5
+
+The Severity is $2
+
+Sent by the Netcool/OMNIbus Automation system
+EOF
+
+# Find the send mail program: it is in different places on different platforms
+for senddir in /usr/sbin /sbin /usr/lib /bin /usr/bin
+do
+	if [ -x "$senddir/sendmail" ]
+	then
+		break
+	fi
+done
+
+# Run send mail
+"$senddir/sendmail" $4 < /tmp/tmp.$$
+
+rm /tmp/tmp.$$

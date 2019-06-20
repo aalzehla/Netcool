@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB 오브젝트 유형" />
+<meta name="abstract" content="SNMP v1과 v2에 정의된 오브젝트 유형에 대해 설명합니다." />
+<meta name="Description" content="SNMP v1과 v2에 정의된 오브젝트 유형에 대해 설명합니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB 오브젝트 유형</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB 오브젝트 유형</h1>
+<div class="body refbody"><p class="shortdesc">SNMP v1과 v2에 정의된 오브젝트 유형에 대해 설명합니다. </p>
+<div class="section"><p class="p"><span class="keyword wintitle">MIB 모듈</span> 보기에서 모듈을 선택한 후
+<span class="keyword wintitle">OID 트리</span> 보기의 <span class="ph uicontrol">검색</span> 필드에서
+<kbd class="ph userinput">ifIndex</kbd>를 검색하여 다음 섹션에 설명된 오브젝트 정보를
+찾을 수있습니다. <span class="keyword wintitle">OID 트리</span> 계층 구조에서
+<samp class="ph codeph">ifIndex</samp> 오브젝트를 클릭하면 <span class="keyword wintitle">세부사항</span> 보기에서
+오브젝트 정보와 텍스트 규칙 정보를 볼 수 있습니다.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p"><samp class="ph codeph">OBJECT IDENTIFIER</samp>(OID)는
+SNMP v1에서 정의하며 MIB 트리의 기본 구성 요소입니다.
+OID(Object Identifier)는 책의 장 표제와 유사하며, 실제 데이터가 포함되지는 않지만
+하위로 연결되는 내용의 종류에 대한 정보를 제공합니다.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p"><samp class="ph codeph">OBJECT-TYPE</samp>은
+SNMP v1에서 정의하며 관리 대상 디바이스에 대한 정보 또는 디바이스에서 측정한 일부 값을
+저장하기 위한 컨테이너로 사용됩니다. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p"><samp class="ph codeph">TEXTUAL-CONVENTION</samp>(TC)은
+오브젝트 유형에 대한 정의이며 실제 오브젝트가 아닙니다.
+<span class="keyword wintitle">MIB 모듈</span> 보기의 <span class="ph uicontrol">보기</span> 목록에서
+<span class="ph uicontrol">텍스트 규칙</span>을 선택하면 MIB 트리에 표시되는
+구문 분석된 텍스트 규칙을 볼 수 있습니다.
+MIB 트리에서 TC 이름을 선택하여 <span class="keyword wintitle">세부사항</span> 보기에 TC 정의를 표시하십시오. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE과 SNMP v2 NOTIFICATION TYPE</h2><div class="p">SNMP v1 TRAP-TYPE과 v2 NOTIFICATION-TYPE은 SNMP 관리자에 대한 자율 이벤트를 생성하는
+SNMP 메커니즘입니다. v1의 SNMP 트랩은 MIB 트리에서 오브젝트로 정의되지 않습니다.
+TRAP-TYPE 오브젝트에는 OBJECT IDENTIFIER 형식의 정의된 상위가 없습니다.
+대신 트랩 정의에서는 트랩을 정의하는 엔터프라이즈를 지정합니다.
+다음은 일반적인 TRAP-TYPE 오브젝트입니다.
+<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM
+enters the ESTABLISHED state." ::= 1 </code></pre>
+</div>
+<p class="p"><samp class="ph codeph">ENTERPRISE</samp> 섹션에서는
+트랩의 상위인 오브젝트를 정의합니다. 그러나 MIB 트리 오브젝트의 경우 <samp class="ph codeph">bgp</samp>가 상위로
+정의되어 하위 번호 1로 정의될 수 있습니다. 실제로 RFC1269-MIB 모듈에서는
+<samp class="ph codeph">bgpVersion</samp>이 <samp class="ph codeph">{ bgp 1}</samp>로 정의됩니다. 그러므로
+<samp class="ph codeph">ENTERPRISE</samp>를 상위로 사용하여 MIB 트리에 v1 트랩을 리프로 추가할 수 없습니다.</p>
+<p class="p">SNMP v2는 TRAP-TYPE에 대한 정의를 NOTIFICATION-TYPE으로 변경하고,
+이 새 v2 트랩을 기타 다른 MIB 오브젝트와 유사하게 정의하도록 지정합니다.
+v1 트랩에서는 상위와 하위 번호로 인해 문제가 발생합니다. RFC1155 섹션 4.1에서는
+하위 번호로 0을 사용하는 것이 올바르지 않고 이 번호는 향후 사용을 위해
+예약되도록 정의합니다. 공급업체에서 v1 트랩을 v2 MIB에 추가하고, 엔터프라이즈 이름에 0을 추가한 후
+0 다음에 트랩 번호를 추가시키면 SNMP v2에서 이 0을 사용할 수 있습니다. 그러므로 v2에서는 0이 엔터프라이즈 하위인
+OID(Object Identifier)를 정의한 후 해당 0의 하위로 v1 트랩을 추가할 수 있습니다.</p>
+<p class="p">이 규칙으로 인해 MIB 작성자들이 다른 일반적인 실수를 하게 됩니다.
+RFC1155의 섹션 4에서는 다음과 같이 설명합니다. </p>
+<p class="p"><span class="q">"An
+object type definition consists of five fields: OBJECT: ------- A
+textual name, termed  the OBJECT DESCRIPTOR, for the object type,
+along with its corresponding OBJECT IDENTIFIER.  Syntax: The abstract syntax for the object type. This must resolve to an instance of the ASN.1 type ObjectSyntax (defined below). Definition: A textual description of the semantics of the object type. Implementations should ensure that their instance of the object fulfills this definition since this MIB is intended for use in multi-vendor environments. As such it is vital that objects have consistent meaning across all machines. Access: One of read-only, read-write, write-only, or not-accessible. Status: One of mandatory, optional, or obsolete. Future memos may
+also specify other fields for the objects which they define."</span></p>
+<div class="p">이 규칙에
+따르면, 모든 오브젝트에는 오브젝트 이름과 오브젝트 번호 모두가 있어야 합니다. 일부 공급업체의 MIB 모듈과
+심지어 일부 RFC에서는 0이 상위이지만 해당 0의 오브젝트 이름은 없는
+NOTIFICATION-TYPE을 정의했습니다. 다음 예제에서는 <samp class="ph codeph">adslAtucTraps</samp> 오브젝트의 하위 번호가
+0으로 정의된 오브젝트 이름이 없으므로 오브젝트 정의가 구문상 올바르지 않습니다.
+<span class="keyword">MIB Manager</span>는 일부 MIB 작성자의 환경 설정을 인식하여
+해당 메소드를 바로 가기로 사용하며 오브젝트 이름 없이 오브젝트를
+추가하도록 허용합니다. 또한 MIB 트리에 v1 트랩을 추가할 수 있도록
+<span class="keyword">MIB Manager</span>가 자동으로 오브젝트 0을 v1 엔터프라이즈
+오브젝트의 하위로 추가하고(v1 MIB는 해당 OID에서 0을 사용할 수 없음)
+해당 오브젝트 O을 엔터프라이즈 이름이 있는 트랩으로 지정하며 MIB
+트리에서 이 새 오브젝트 아래에 트랩을 추가합니다. 예를 들어, <samp class="ph codeph">bgp</samp>를 사용하면
+다음과 같은 트랩 조상이 발생합니다. <samp class="ph codeph">{ bgp bgpTraps(0)
+1 }).</samp> <pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Varbinds</h2><p class="p">v1 트랩 또는 v2 알림과 함께 전송되는 오브젝트가
+varbind입니다. Varbind에는 보고된 이벤트에 대한 추가 정보가 들어 있습니다.
+v1 트랩에서 varbind는 VARIABLES 섹션의 항목이 되고 v2 알림에서
+varbind는 OBJECTS 섹션에 나열됩니다. 이는 SNMP의 모든 버전에서 동일하게 사용됩니다.
+PDU(SNMP 패킷)는 MIB에 나열된 순서대로 연관된 값을 인코드하므로
+varbind가 목록에 표시되는 순서가 중요합니다.</p>
+<p class="p">예를 들어, OBJECTS 섹션에 세 개의
+varbind 즉, <samp class="ph codeph">ifIndex</samp>, <samp class="ph codeph">ifAdminStatus</samp>,
+and <samp class="ph codeph">ifOperStatus</samp>가 정의되어 있습니다. 그러면 <samp class="ph codeph">ifIndex</samp>가
+첫 번째로 인코드되는 varbind고 <samp class="ph codeph">ifAdminStatus</samp>가 두 번째이며
+<samp class="ph codeph">ifOperStatus</samp>가 세 번째로 인코드됩니다. IF-MIB를 점검해보면
+<samp class="ph codeph">ifIndex</samp> 오브젝트 유형이 <samp class="ph codeph">InterfaceIndex</samp>로 정의되는 것을 알 수 있습니다.
+이는 SNMP에 유효한 기초 ASN.1 유형이 아니므로 텍스트 규칙입니다.
+텍스트 규칙을 검색해보면 <samp class="ph codeph">InterfaceIndex</samp>가 실제로
+Integer32(32비트 정수)로 분석되는 것을 알 수 있습니다.
+따라서 PDU가
+<span class="keyword">MIB Manager</span>에 도달하는 경우 첫 번째 varbind는 정수가 됩니다. 정수의 의미를 판별하려면
+<span class="keyword">MIB Manager</span>가 IF-MIB 모듈을 참조하고 <samp class="ph codeph">ifIndex</samp>를 검색하여
+연관된 오브젝트 정보를 읽어야 합니다. 두 번째 varbind를 점검하면 나열된 정수 유형을 찾을 수 있습니다.</p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">varbind가
+SNMP 패킷에서 디코드되는 경우 이의 값은 정수이며 이 목록의 항목을 토대로
+정수의 값을 해석해야 합니다.
+<span class="keyword">MIB Manager</span>를 사용하여 규칙 파일을 작성하는 경우
+열거된 정수와 해당 텍스트 표시를 자동으로 링크하기 위해
+검색 테이블을 작성합니다. 세 번째 varbind도 동일한 값을 갖는 나열 유형입니다.
+따라서 <samp class="ph codeph">ifAdminStatus</samp>가 1(작동 중)이고
+<samp class="ph codeph">ifOperStatus</samp>가 2(작동 중지)인 경우
+이벤트가 생성된 이유와 이 가동 중단의 원인을 판별하기 위한
+방안을 알 수 있습니다.</p>
+<p class="p">Varbind는 <samp class="ph codeph">$1</samp>, <samp class="ph codeph">$2</samp>, <samp class="ph codeph">$3</samp> 등의
+규칙 파일로 사용자에게 제시되며 각 숫자는 varbind 번호를 나타냅니다.
+<span class="keyword">MIB Manager</span>는 varbind 요소를 기반으로 요소를 작성하며
+해당 요소를 사용하여 세부사항 테이블에서 변수를 설정합니다. 예를 들어, 세부사항 테이블에
+사용되는 요소는 $ifIndex = $1(정수), $ifAdminStatus = $2(작동 중(1)과
+비슷한 항목), $ifOperStatus = $3(작동 중지(3)와 비슷한 항목)입니다. 오브젝트 설정에 대한 변경은
+NCKL(Netcool Knowledge Library)에서 설정한 규칙을 사용하여
+자동으로 규칙 파일에 설정됩니다. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">테이블</h2><p class="p">테이블은 행과 컬럼의 데이터로 구성되는 동일한 다차원 배열을
+나타냅니다. 항목 오브젝트에서는 테이블 오브젝트를 SEQUENCE OF로 정의합니다. 그런 다음 OBJECT-TYPE 오브젝트의
+SEQUENCE로 입력 오브젝트가 정의됩니다. 공급업체에서 Cisco 10k 라우터와 같은 일반적이지 않은 시스템을 설계할 때도 종종 있습니다.
+이 디바이스는 내부 알람 조건 테이블을 유지보수하고 테이블이 변경될 경우 트랩 또는
+알림을 생성합니다. 그런 다음 테이블 컨텐츠에 대한 SNMP GET 요청을 발행하여
+디바이스에 대한 활성 알람의 현재 상태를 판별해야 합니다. 
+이는 SNMP 관리자의 알람 수신을 다소 어렵게 만들지만
+관리자가 사용할 도구가 있는 경우 불가능한 것은 아닙니다. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OCTET STRING</h2><p class="p">옥테트는 8비트(바이트라고도 함)로 구성되는 데이터 구조입니다.
+그러므로 OCTET STRING은 바이트 배열(또는 바이트 문자열)입니다.
+OCTET STRING이라는 용어는 문자열에 있는 모든 바이트가 영숫자임을 의미하지는 않습니다.
+2진 문자여서 비트마스크로 사용될 수도 있습니다.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="이 절에서는 SNMP(Simple Network Management Protocol) 아키텍처, SNMP MIB(Management Information Base), 일부 추가 MIB 개념에 대한 추가 정보를 제공합니다.">SNMP에 대한 정보</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

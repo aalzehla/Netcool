@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!-- (C) COPYRIGHT International Business Machines Corp., 2004-2005. All Rights Reserved * Licensed Materials - Property of IBM -->
+
+<project name="All Collector" default="autopdmain" >
+
+    <property name="system.collector.base.dir" location="${basedir}/../.."/>
+    
+    <taskdef file="${autopdrootdir}/properties/autopdtaskdef.properties" loaderref="ISA"/>
+    <!-- Targets shared among multiple scripts are in the XML documents *-sharedtargets.xml. -->
+    
+    <import file="${basedir}/system-sharedtargets.xml"/>
+
+    <import>
+        <javaresource name="scripts/sharedtargets.xml"/>
+    </import>
+
+    <import>
+        <javaresource name="scripts/sharedelements/sharedelements-sharedtargets.xml"/>
+    </import>
+    <property name="autopdProblem" value="System_All_Collector" />
+    <property name="autopdProblem_nlsbundle" value="properties/System/autopd"/>
+    <target name="autopdmain" description="This is AutoPD main to control running steps"  
+            depends="load_sharedelements_tasks,
+            set_problem_type_with_nls_bundle,
+            setup_autopd_v2, 
+            validate_os,
+            setupsystemcollector,
+            collectsystem-win,
+            collectnetwork-win,
+            environmentset-win,
+            registry.installed.software.export-win,
+            unix.getconf-aix.hpux.linux,
+            collectsystem-aix,
+            collectuser-aix,
+            collectnetwork-aix,
+            collectswinstalled-aix,
+            collectpatches-aix,
+            collectnetwork-sun,
+            collectsystem-sun,
+            collectuser-sun,
+            collectswinstalled-sun,
+            collectpatches-sun,
+            collectdmesg-sun,
+            collectnetwork-linux,
+            collectsystem-linux,
+            collectuser-linux,
+            collectprocesses-linux,
+            collectsw-linux,
+            collectdmesg-linux.hpux,
+            collectnetwork-hpux,
+            collectsystem-hp,
+            collectuser-hp,
+            collectswinstalled-hp,
+            collectprocess-hpux,
+            collectpatches-hp,
+            collect_inventory" >
+
+     </target>
+
+</project>

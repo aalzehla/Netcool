@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="瞬时事件列表的 Windows 命令行选项" />
+<meta name="abstract" content="在 Windows 上运行 NCOelct.exe 命令启动瞬时事件列表时，必须指定若干命令行选项来定制事件列表。可以从 %NCHOME%\omnibus\desktop 目录运行此命令。" />
+<meta name="description" content="在 Windows 上运行 NCOelct.exe 命令启动瞬时事件列表时，必须指定若干命令行选项来定制事件列表。可以从 %NCHOME%\omnibus\desktop 目录运行此命令。" />
+<meta name="DC.subject" content="事件列表, 瞬时事件列表命令行选项, 命令行选项, 瞬时事件列表" />
+<meta name="keywords" content="事件列表, 瞬时事件列表命令行选项, 命令行选项, 瞬时事件列表" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingtransienteventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_winevntlstcmdlineopttransient" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingtransienteventlist.html" />
+<title>瞬时事件列表的 Windows 命令行选项</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_winevntlstcmdlineopttransient">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">瞬时事件列表的 Windows 命令行选项</h1>
+<div class="body refbody"><p class="shortdesc">在 Windows 上运行 <span class="keyword cmdname">NCOelct.exe</span> 命令启动瞬时事件列表时，必须指定若干命令行选项来定制事件列表。可以从 <span class="ph filepath">%NCHOME%\omnibus\desktop</span> 目录运行此命令。</p>
+<div class="section"><p class="p">下表描述了用于在 Windows 上启动瞬时事件列表的命令行选项。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. Windows 瞬时事件列表（NCOelct.exe）命令行选项</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d108460e50">命令行选项</th>
+<th class="entry" valign="bottom" width="75%" id="d108460e52">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">显示扩展诊断消息。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指示在桌面 ObjectServer 体系结构中操作时是启用还是禁用双重写方式。 有效选项如下所示：<ul class="ul"><li class="li"><samp class="ph codeph">0</samp>：禁用双写入方式</li>
+<li class="li"><samp class="ph codeph">1</samp>：启用双重写方式</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> 命令行选项将覆盖桌面 ObjectServer master.national 表中的 DualWrite 字段项。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-elf</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 "><p class="p"><em class="ph i">这是必需选项。</em></p>
+指定要用于瞬时事件列表的过滤器文件，其中：<p class="p"><var class="keyword varname">string</var> 指定 <span class="ph filepath">.elf</span> 文件的路径。</p>
+<p class="p"><var class="keyword varname">URL</var> 指定远程服务器上可使用 HTTP 或 FTP 进行访问的 <span class="ph filepath">.elf</span>  文件。 通过使用以下某种格式指定 <var class="keyword varname">URL</var>：</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elf</kbd> </li>
+</ul>
+<p class="p">仅当服务器未使用缺省端口时才需要指定可选端口号 <var class="keyword varname">:port</var>。</p>
+<p class="p">如果使用 FTP，那么路径必须是从根目录开始的完整路径，例如，<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myfilter.elf</span>。</p>
+<p class="p">除了在 <span class="ph filepath">.elf</span> 文件中指定的过滤器参数之外，还可以使用 <span class="keyword option">-params</span> 命令行选项来指定过滤器参数。
+关于用法的详细信息，请参阅位于此表内的 <span class="keyword option">-params</span> 描述。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-elv</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定用于瞬时事件列表的事件列表视图文件，其中：<p class="p"><var class="keyword varname">string</var> 指定 <span class="ph filepath">.elv</span> 文件的路径。</p>
+<p class="p"><var class="keyword varname">URL</var> 指定远程服务器上可使用 HTTP 或 FTP 访问的 <span class="ph filepath">.elv</span> 文件。 通过使用以下某种格式指定 <var class="keyword varname">URL</var>：</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elv</kbd> </li>
+</ul>
+<p class="p">仅当服务器未使用缺省端口时才需要指定可选端口号 <var class="keyword varname">:port</var>。</p>
+<p class="p">如果使用 FTP，路径必须是从根目录开始的完整路径；例如，<span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myview.elv</span>。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">显示该命令的帮助并退出</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指示桌面 ObjectServer 体系结构中要使用的主控 ObjectServer。 <p class="p"><span class="keyword option">-masterserver</span> 命令行选项将覆盖桌面 ObjectServer master.national 表中的 MasterServer 字段项。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定发生网络故障时，多少秒后登录尝试或连接 ObjectServer 将超时。 指定的超时时段后，事件列表将尝试重新连接 ObjectServer。 如果超时时段后的连接不成功，事件列表将尝试连接到备份 ObjectServer（如果可用）。 缺省值为 20 秒。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-params</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定字符串，用于替换过滤器文件的 <samp class="ph tt">filter_text</samp> 参数内的单个占位符。
+此占位符必须以 @ 符号开头（例如，@FilterText）。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定所选用户名的密码。 <span class="keyword cmdname">NCOelct</span> 实用程序仅接受密码内包含字母数字字符。 密码中不允许出现 #、/、&gt;、@ 和 ! 等特殊字符。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定要连接的 ObjectServer 的名称。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">指定用于登录事件列表的用户名。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d108460e50 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d108460e52 ">显示版本信息并退出。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_startingtransienteventlist.html" title="从 UNIX 命令行使用 nco_elct 命令可打开瞬时事件列表，从 Windows 命令行使用 NCOelct.exe 命令可打开瞬时事件列表。">从命令行启动瞬时事件列表</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="可以使用桌面 ObjectServer 体系结构来改善经常承担较大负载的 ObjectServer 的性能。">桌面 ObjectServer 体系结构</a></div>
+</div>
+<div class="relinfo relref"><strong>相关参考</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="在 UNIX 上使用 nco_eve nt 命令启动事件列表时，可指定若干命令行选项来修改配置。您可从 $NCHOME/omnibus/bin 目录运行此命令。">UNIX 事件列表命令行选项</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

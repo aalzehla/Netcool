@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool/OMNIbus Administrator properties and command-line options" />
+<meta name="abstract" content="Netcool/OMNIbus Administrator contains a set of properties and command-line options for configuring the component." />
+<meta name="Description" content="Netcool/OMNIbus Administrator contains a set of properties and command-line options for configuring the component." />
+<meta name="DC.subject" content="Netcool/OMNIbus Administrator, properties, command-line options, nco_config, command-line options" />
+<meta name="keywords" content="Netcool/OMNIbus Administrator, properties, command-line options, nco_config, command-line options" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CIHIBCFA" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_startingadministrator.html" />
+<title>Netcool/OMNIbus Administrator properties and command-line options</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="CIHIBCFA">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Netcool/OMNIbus Administrator properties and command-line options</h1>
+<div class="body refbody"><p class="shortdesc">Netcool/OMNIbus Administrator contains a set of properties and
+command-line options for configuring the component.</p>
+<div class="section"><p class="p">The default Netcool/OMNIbus Administrator properties
+file is <span class="ph filepath">$NCHOME/omnibus/etc/nco_config.props</span> (<span class="ph filepath">%NCHOME%\omnibus\etc\nco_config.props</span> on Windows). The default properties file is
+read each time you start Netcool/OMNIbus Administrator; however,
+you can use the <span class="keyword option">-propsfile</span> command-line option to
+specify an alternative properties file.</p>
+<p class="p">You can use the properties
+file as a template and modify it for different purposes. For example,
+you could use different properties files for logging into different
+ObjectServers.</p>
+<p class="p">The properties and command-line options for <span class="keyword cmdname">nco_config</span> (<span class="keyword cmdname">nco_config.vbs</span> on Windows) are described in the
+following table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Netcool/OMNIbus Administrator properties and command-line options </span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="27.27272727272727%" id="d6764e76">Property</th>
+<th class="entry" valign="top" width="21.21212121212121%" id="d6764e78">Command-line option</th>
+<th class="entry" valign="top" width="51.515151515151516%" id="d6764e80">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">audit.active</span> <span class="keyword option">0 | 1</span></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-auditlogactive</span> <span class="keyword option">0 | 1</span></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Determines whether audit logging is enabled. <p class="p">The default is <span class="keyword option">1</span>; audit logging is enabled.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">audit.file.max.count</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-auditfilecount</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The maximum number of Netcool/OMNIbus Administrator
+audit log files.<p class="p">The default is <span class="keyword option">4</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">audit.file.max.size</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-auditfilesize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The maximum file size (in Bytes) for the Netcool/OMNIbus Administrator audit log files.<p class="p">The default is <span class="keyword option">10000</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">audit.file.name</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-auditfile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The full path to the Netcool/OMNIbus Administrator audit
+log file.<p class="p">The default is <span class="ph filepath">$NCHOME/omnibus/log/nco_config_audit.log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 ">N/A</td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Displays help on the command-line options and exits.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">java.security.policy</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-policyfile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The full path to the Java™ security policy file.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">log.console.active</span> <span class="keyword option">0 | 1</span></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-logtoconsole</span> <span class="keyword option">0 | 1</span></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Determines whether logging information is sent
+to the command shell. <p class="p">The default is <span class="keyword option">1</span>; logging
+information is sent to the command shell.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">log.directory.name</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-logdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The location where the Netcool/OMNIbus Administrator
+system log file is saved.<p class="p">The default is <span class="ph filepath">$NCHOME/omnibus/log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">log.file.max.count</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-logfilecount</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The maximum number of Netcool/OMNIbus Administrator
+system log files.<p class="p">The default is <span class="keyword option">4</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">log.file.max.size</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-logfilesize</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The maximum file size (in Bytes) for the Netcool/OMNIbus Administrator system log files.<p class="p">The default is <span class="keyword option">10000</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">log.file.name</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-logfile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The name of the Netcool/OMNIbus Administrator system
+log file.<p class="p">The default is <span class="ph filepath">nco_config_system.log</span>.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> To change the directory where this file is
+stored, use the <span class="keyword parmname parmname">log.directory.name</span> property or <span class="keyword option">-logdir</span> option.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">messagelevel</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-messagelevel</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Specifies the message logging level for system
+and audit logging. Possible values are: <span class="keyword option">FATAL</span>, <span class="keyword option">ERROR</span>, <span class="keyword option">WARN</span>, <span class="keyword option">INFO</span>, and <span class="keyword option">DEBUG</span>. The default level is <span class="keyword option">ERROR</span>.<p class="p">Messages
+that are logged at each level are listed below:</p>
+<p class="p"><span class="keyword option">FATAL</span> - <span class="keyword option">FATAL</span> only.</p>
+<p class="p"><span class="keyword option">ERROR</span> - <span class="keyword option">FATAL</span> and <span class="keyword option">ERROR</span>.</p>
+<p class="p"><span class="keyword option">WARN</span> - <span class="keyword option">FATAL</span>, <span class="keyword option">ERROR</span>, and <span class="keyword option">WARN</span>.</p>
+<p class="p"><span class="keyword option">INFO</span> - <span class="keyword option">FATAL</span>, <span class="keyword option">ERROR</span>, <span class="keyword option">WARN</span>, and <span class="keyword option">INFO</span>.</p>
+<p class="p"><span class="keyword option">DEBUG</span> - <span class="keyword option">FATAL</span>, <span class="keyword option">ERROR</span>, <span class="keyword option">WARN</span>, <span class="keyword option">INFO</span>, and <span class="keyword option">DEBUG</span>. </p>
+<div class="note note"><span class="notetitle">Note:</span>  The value of <samp class="ph codeph"><var class="keyword varname">string</var></samp> must be in uppercase.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">nco_jdbc.timeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-jdbctimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The Java Database
+Connectivity (JDBC) timeout, in seconds.<p class="p">The default is <span class="keyword option">600</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 ">N/A</td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-propsfile</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The full path to the Netcool/OMNIbus Administrator properties
+file.<p class="p">The default is <span class="ph filepath">$NCHOME/omnibus/etc/nco_config.props</span> (<span class="keyword option">%NCHOME%\omnibus\etc\nco_config.props</span> on Windows).</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The name of the ObjectServer to which you are connecting.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">system.create.conversion</span> <span class="keyword option">0 | 1</span></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-createconversion</span> <span class="keyword option">0 |
+1</span></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Sets up the system so that it automatically creates
+conversion for users that you create. <p class="p">The default is <span class="keyword option">1</span>, which indicates that conversions are automatically created.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">system.conversion.type</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-conversiontype</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Creates a conversion between the user ID, and the
+user name or full name of each newly-created user. Possible values
+are <samp class="ph tt">fullname</samp> and <samp class="ph tt">username</samp>.<p class="p">The default is <samp class="ph tt">fullname</samp>, which creates a conversion between the user ID and
+the full name.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">user.name</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-user</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The Netcool/OMNIbus Administrator login
+user name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 "><span class="keyword parmname parmname">user.password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">The Netcool/OMNIbus Administrator login
+password.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="27.27272727272727%" headers="d6764e76 ">N/A</td>
+<td class="entry" valign="top" width="21.21212121212121%" headers="d6764e78 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="51.515151515151516%" headers="d6764e80 ">Displays version information and then exits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

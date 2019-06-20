@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="查看事件列表内的服务" />
+<meta name="abstract" content="如果安装了 IBM Tivoli Composite Application Manager for Internet Service Monitoring，那么您就可以查看和处理来自因特网服务监视器的服务警报。" />
+<meta name="description" content="如果安装了 IBM Tivoli Composite Application Manager for Internet Service Monitoring，那么您就可以查看和处理来自因特网服务监视器的服务警报。" />
+<meta name="DC.subject" content="事件列表, 因特网服务监视器, 服务警报, 查看服务" />
+<meta name="keywords" content="事件列表, 因特网服务监视器, 服务警报, 查看服务" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_netcoolismineventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_viewingservicesinevntlst" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_netcoolismineventlist.html" />
+<title>查看事件列表内的服务</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_viewingservicesinevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">查看事件列表内的服务</h1>
+<div class="body taskbody"><p class="shortdesc">如果安装了 <span class="keyword">IBM Tivoli Composite Application
+Manager for Internet Service Monitoring</span>，那么您就可以查看和处理来自因特网服务监视器的服务警报。</p>
+<div class="section context">要查看服务信息，请执行以下任意一项操作：</div>
+<ul class="ul steps-unordered"><li class="li step"><span class="ph cmd">从 Conductor 打开事件列表。 </span> 当安装 <span class="keyword">Composite Application Manager
+for Internet Service Monitoring</span> 时，只要从Conductor 访问监视器框窗口就会自动打开“<span class="keyword wintitle">服务</span>”窗口。 </li>
+<li class="li step"><span class="ph cmd">从“<span class="keyword wintitle">事件列表</span>”监视器框窗口单击<span class="ph menucascade"><span class="ph uicontrol">窗口</span> &gt; <span class="ph uicontrol">服务</span></span>。</span></li>
+<li class="li step"><span class="ph cmd">从事件列表单击工具栏中的<span class="ph uicontrol">显示服务窗口</span>。</span></li>
+</ul>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">结果</h2></div><p class="p">此时将打开“<span class="keyword wintitle">服务</span>”窗口。</p>
+<div class="p">“<span class="keyword wintitle">服务</span>”窗口中的每一行表示带有以下信息的不同服务：<dl class="dl" id="omn_usr_el_viewingservicesinevntlst__d8878e19"><dt class="dt dlterm"><em class="ph i">带颜色的符号</em></dt>
+<dd class="dd">每行左边的带颜色符号表示 ObjectServer 从该服务接收到的上一个警报的状态。 符号按照颜色编码，规则如下：<ul class="ul"><li class="li">红色：服务级别协议未满足。</li>
+<li class="li">琥珀色：服务存在问题。</li>
+<li class="li">绿色：服务没有问题。</li>
+<li class="li">黑色：服务状态未知。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">服务</dt>
+<dd class="dd">此列显示正在监视的服务的名称。</dd>
+<dt class="dt dlterm">上次更改时间</dt>
+<dd class="dd">此列显示服务状态上次更改的日期和时间。</dd>
+<dt class="dt dlterm">上次正常工作时间</dt>
+<dd class="dd">此列显示服务上次状态良好的日期和时间。</dd>
+<dt class="dt dlterm">上次故障时间</dt>
+<dd class="dd">此列显示服务上次出现故障的日期和时间。</dd>
+<dt class="dt dlterm">上次边缘状态时间</dt>
+<dd class="dd">此列显示服务上次处于紧急状态的日期和时间。</dd>
+<dt class="dt dlterm">上次报告时间</dt>
+<dd class="dd">此列显示上次生成服务报告的的日期和时间。</dd>
+</dl>
+</div>
+<p class="p">双击任何行都可打开包含该服务类型警报列表的事件列表窗口。 您可按照与从探测器接收到的警报相同的方式来处理事件列表中的服务警报。</p>
+<p class="p">单击<span class="ph uicontrol">关闭</span>可关闭<span class="keyword wintitle">服务</span>窗口。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_netcoolismineventlist.html" title="IBM Tivoli Composite Application Manager for Internet Service Monitoring 与其余 Tivoli Netcool/OMNIbus 产品套件配合使用。 监视器和探测器生成的事件可发送到同一个 ObjectServer，并且您可使用同一个桌面处理这些事件。">事件列表中的因特网服务监视器</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。">启动事件列表</a></div>
+<div><a class="link" href="omn_usr_startingconductor.html" title="Conductor 向所有 Tivoli Netcool/OMNIbus 桌面工具提供了单点登录访问，以用于查看和管理警报。">启动 Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

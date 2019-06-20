@@ -1,0 +1,88 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+Handle java.lang.Exception {
+    log(0,"sql excpetion encountered : " + ErrorMessage );
+    setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',true);
+    if( ErrorMessage like 'discover schema' ) {
+      ErrorMessage = "Unable to establish connection with the database. Check the server logs.";
+      ErrorMessage = ErrorMessage + " Configuration of the data sources associated with Event Isolation And Correlation";
+      ErrorMessage = ErrorMessage + " is required. Check the connectivity to the event rules and object server database(EIC_alertsdb)"; 
+      log(3,"Update the Error Message" + ErrorMessage);   
+    }
+    cause = ExceptionMessage;
+    i = 0; 
+    while ( cause != null ) {
+       cause = JavaCall("java.lang.Exception", cause, "getCause", {});     
+       if( cause != null ) {
+         log("Caused By : " + cause);   
+       }
+       i = i + 1;
+       if ( i > 5 ) {
+         log("Look in server logs");
+         cause = null;
+       }
+    } 
+    setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',ErrorMessage); 
+}
+setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',false);
+setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',"");
+
+EIC_IsolateAndCorrelate.init();
+isSCRReq=false;
+EIC_utils.checkAllConnections(isEr,err,isSCRReq);
+errorMessage = "";
+isExceptionRaised = getGlobalVar('CHECK_CONN_EXCEPTION_RAISED');
+if( isExceptionRaised = true ) {
+  errorMessage = getGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE');
+  /*
+   *  Create a dummy String to be passed back to the opview so that
+   *  Empty view can be displayed.
+   */
+   dummyArr = {};
+   id="name";
+   EIC_utils.convertToJSONStr(dummyArr,id,outString);
+   log(3,"OutString : " + outString);
+   listOfColumnNames=outString;
+
+   id="RULENAME";
+   EIC_utils.convertToJSONStr(dummyArr,id,outString);
+   log(3,"Event rules Outstring : " + outString);
+   listOfEventRuleName=outString;
+
+
+
+} else {
+
+   EIC_eventrule_config.getAlertTableFields(fields);
+   id="name";
+   EIC_utils.convertToJSONStr(fields,id,outString);
+   log(3,"OutString : " + outString);
+   listOfColumnNames=outString;
+
+   EIC_eventrule_config.getListOfEventRules(output);
+   id="RULENAME";
+   EIC_utils.convertToJSONStr(output,id,outString);
+   log(3,"Event rules Outstring : " + outString);
+   listOfEventRuleName=outString;
+
+   //list of policies:
+   id="name";
+   //EIC_utils.getListOfPoliciesObject(policies); 
+   //EIC_utils.convertToJSONStr(policies,id,outString);
+   //listOfPolicies = outString; 
+   //listOfPolicies=""+GetPoliciesList("EIC",true);
+   EIC_utils.getEICPolicyListJSON( listOfPolicies );
+   Log("listOfPolicies : " + listOfPolicies);
+}
+
+opview_servlet_prefix="";
+opview_stylesheet="opview.css";

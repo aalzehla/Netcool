@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="IPv6 구성" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus는 IPv4와 IPv6 모두에 대한 지원을 제공합니다. 구성요소는 IPv4 전용, IPv6 전용이나 듀얼 IPv4와 IPv6 구성을 지원하는 네트워크에서 조작되며 공존할 수 있습니다." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus는 IPv4와 IPv6 모두에 대한 지원을 제공합니다. 구성요소는 IPv4 전용, IPv6 전용이나 듀얼 IPv4와 IPv6 구성을 지원하는 네트워크에서 조작되며 공존할 수 있습니다." />
+<meta name="DC.subject" content="IPv6, 구성" />
+<meta name="keywords" content="IPv6, 구성" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_ipv6_configurationunix" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>IPv6 구성</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_ipv6_configurationunix">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">IPv6 구성</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span>는
+IPv4와 IPv6 모두에 대한 지원을 제공합니다. 구성요소는 IPv4 전용, IPv6 전용이나 듀얼 IPv4와 IPv6 구성을 지원하는 네트워크에서 조작되며 공존할 수 있습니다.</p>
+<div class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> 서버 구성요소는
+다음과 같이 IPv6와 IPv4 환경에서 동작합니다.<ul class="ul"><li class="li">ObjectServer는 IPv4 &amp;
+IPv6 네트워크 모두에서 생성된 이벤트를 처리할 수 있습니다. ObjectServer가 듀얼-스택 호스트에서 실행되면
+명령에 응답하여 클라이언트로 리턴된 호스트 이름은 클라이언트가 실행 중인
+IP 버전에 해당되는 서버의 호스트 이름입니다.
+예를 들어, IPv4를 실행 중인 클라이언트가 ObjectServer의 IPv4 호스트 이름을 수신하고,
+IPv6를 실행 중인 클라이언트는 ObjectServer의 IPv6 호스트 이름을 수신합니다.</li>
+<li class="li">듀얼 IPv4와 IPv6 환경에서, 단방향과 양방향
+ObjectServer 게이트웨이는 통신 소켓의 두 인터페이스에서 인식할 수 있습니다.</li>
+<li class="li">프록시 서버는 IPv4와 IPv6 호스트에서 실행 중인 프로브와 ObjectServer 간
+연결을 지원할 수 있습니다.</li>
+<li class="li">듀얼 IPv4와 IPv6 환경에서, 프로세스 에이전트는 통신 소켓의 두 인터페이스에서 인식할 수 있습니다.</li>
+</ul>
+</div>
+<div class="p">지원되는 IPv6 주소 형식은 다음과 같습니다. <ul class="ul"><li class="li">콜론으로 구분된 4개의 16진 문자의 8개 그룹(예: ABCD:EF01:2345:6789:ABCD:EF01:2345:6789)</li>
+<li class="li">여기서 모든 16비트가 0이면 세그먼트는 콜론(:)으로 대체될 수 있습니다. <p class="p">예를 들어,
+주소 1010:0000:0000:0000:ABCD:EF01:2345:6789가 1010::ABCD:EF01:2345:6789로 작성될 수 있습니다.</p>
+</li>
+<li class="li">IPv4 주소는 IPv6 주소로 표시될 수 있습니다. 예: <ul class="ul"><li class="li">0:0:0:0:0:0:192.101.50.5</li>
+<li class="li">0:0:0:0:0:FFFF:103.27.35.8<p class="p">이 주소를 다음과 같이 표시할 수도 있습니다.</p>
+</li>
+<li class="li">::192.101.50.5</li>
+<li class="li">::FFFF:103.27.35.8</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

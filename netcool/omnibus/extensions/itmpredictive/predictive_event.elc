@@ -1,0 +1,43 @@
+#NCO_CONFIG3
+#
+# Netcool/OMNIbus Event List Configuration File V7.3.1
+#
+
+config_name = 'Predictions';
+config_columns = 4;
+views = {
+{
+view_name = 'Predictions';
+view_editable = true;
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ TrendDirection, 'TrendDirection', 11, centre, centre }
+{ Summary, 'Summary', 30, centre, left }
+{ FirstOccurrence, 'First Occurrence', 15, centre, centre }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+{ PredictionTime, 'PredictionTime', 19, centre, centre }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, asc }
+{ PredictionTime, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = 'Predictions';
+filter_editable = true;
+filter_text = 'Class = 89300';
+filter_metric = 'avg(Severity)';
+default = 'Predictions';
+windows = {
+none
+}
+}
+}
+
+# End of file

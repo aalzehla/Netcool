@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB 管理器 命令行选项" />
+<meta name="abstract" content="MIB 管理器 包含命令行实用程序，可供您用于导入 MIB 数据和导出规则文件。您可以手动发出命令或者通过编程方式调用这些命令。" />
+<meta name="Description" content="MIB 管理器 包含命令行实用程序，可供您用于导入 MIB 数据和导出规则文件。您可以手动发出命令或者通过编程方式调用这些命令。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>MIB 管理器 命令行选项。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">MIB 管理器</span> 命令行选项</h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">MIB 管理器</span> 包含命令行实用程序，可供您用于导入 MIB 数据和导出规则文件。您可以手动发出命令或者通过编程方式调用这些命令。</p>
+<div class="section"><div class="p">要启动命令行实用程序，请使用以下命令：<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[options]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[options]</samp><p class="p">在 Windows 操作系统上，来自 <span class="keyword">MIB 管理器</span> 的输出显示在新控制台中。</p>
+</li>
+</ul>
+</div>
+<p class="p">下表描述了可用的命令行选项。<span class="keyword option">-exportmibs</span>、<span class="keyword option">-exportobjects</span>和 <span class="keyword option">-exportoids</span> 选项可解析符合 Java 模式引擎的正则表达式。</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> 指定目录时请使用完整目录路径。例如：<kbd class="ph userinput">nco_mibmanager_batch
+-importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. <span class="keyword">MIB 管理器</span> 命令行选项</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d633e84">命令行选项</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d633e86">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">如果先前曾使用 <span class="keyword">MIB 管理器</span> 图形实用程序，那么首次运行 <span class="keyword">MIB 管理器</span> 命令行实用程序时请使用该选项。如果不使用此选项，将显示错误。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定生成的规则文件导出到的目录。请使用双引号 (" ") 将该目录路径括起。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定要导出的 MIB 的名称。您可以使用正则表达式来指定多个 MIB。<p class="p">例如，以下命令将从名为“RMON-MIB”的 MIB 导出对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">以下命令将从名称中包含“MON”的所有 MIB 导出对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定导出的文件将写入现有导出目录内的新目录。
+新子目录将以时间戳记自动命名。使用此选项来确保不覆盖现有规则文件。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定要导出的 MIB 对象的名称。您可以使用正则表达式来指定多个对象。<p class="p">例如，以下命令将导出名为“coldStart”的所有对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">以下命令将导出名称以“cold”开头的所有对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportoids</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定要导出的 OID。
+您可以使用正则表达式来指定多个 OID。<p class="p">例如，以下命令将导出含 OID“1.3.6.1.6.3.1.1.5.1”的所有对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1 -filetype csv</samp></p>
+<p class="p">以下命令将导出 OID 以“1.3.6.1.6.3.1.1.5”开头的所有对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">以下命令将导出含 OID“1.3.6.1.6.3.1.1.5.1”或“1.3.6.1.6.3.1.1.5.2”的所有对象：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定要导出的 MIB 对象的类型。此选项采用以下值：<ul class="ul"><li class="li"><span class="keyword option">ALL</span>：导出所有 MIB 对象。</li>
+<li class="li"><span class="keyword option">TRAPS</span>：仅导出陷阱。</li>
+<li class="li"><span class="keyword option">OBJECTS</span>：仅导出对象。</li>
+</ul>
+<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用该选项来指定生成的文件导出到的文件格式。此选项是导出操作必需的。<div class="p">可用参数如下：<ul class="ul"><li class="li"><span class="keyword option">csv</span>：所有对象数据均写入 CSV 文件。</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>：所有陷阱数据和关联的变量绑定对象数据均写入单个 CSV 文件。</li>
+<li class="li"><span class="keyword option">html_with_frames</span>：创建适合发布的网页。</li>
+<li class="li"><span class="keyword option">html_without_frames</span>：创建名为 <span class="ph filepath">oids.html</span> 的单个文件，其中包含已选中的所有输出对象的列表。</li>
+<li class="li"><span class="keyword option">lookup</span>：在适合包含在任何规则文件中的标签列表中输出所有指定的值。</li>
+<li class="li"><span class="keyword option">ncil</span>：为每个企业创建单独的包含文件，并为通用陷阱生成单个文件。</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>：创建适合用于 Netcool Knowledge Library V1.1 的文件。</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>：创建适合用于 Netcool Knowledge Library V3.x 的文件。</li>
+<li class="li"><span class="keyword option">standalone</span>：创建包含所有选中的陷阱的单个规则文件。</li>
+<li class="li"><span class="keyword option">text</span>：为每个 OID 创建单个文本文件。</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>：创建 <span class="ph filepath">.mdl</span> 和 <span class="ph filepath">trapcnfg</span> 文件。</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项以显示有关命令行选项的帮助信息。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项以指定从中导入 MIB 文件的目录。请使用双引号 (" ") 将该目录路径括起。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项以指定 <span class="keyword">MIB 管理器</span> 搜索要导入的 MIB 文件时遍历子目录。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项以指定消息日志记录的级别。此选项采用以下值：<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>：仅记录错误消息。</li>
+<li class="li"><span class="keyword option">WARN</span>：记录警告消息和错误消息。</li>
+<li class="li"><span class="keyword option">INFO</span>：记录参考消息、警告消息和临界消息。</li>
+<li class="li"><span class="keyword option">DEBUG</span>：记录所有消息。</li>
+<li class="li"><span class="keyword option">VERBOSE</span>：详细消息包含变量、数组和散列更改值和状态时的状态。</li>
+<li class="li"><span class="keyword option">NONE</span>：不记录任何消息。</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定消息日志文件 <span class="ph filepath">mibmanager.log</span> 写入的目录。请使用双引号 (" ") 将该目录路径括起。<p class="p">缺省值为 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-searchpath</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此选项来指定以分号分隔的目录列表，以便 <span class="keyword">MIB 管理器</span> 搜索以解析 MIB 依赖关系。请使用双引号 (" ") 将该目录路径括起。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies"</samp></p>
+<p class="p">以下命令会搜索 3 个特定目录的依赖关系：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="从命令行启动 MIB 管理器 GUI。此管理器未设计成通过进程控制运行或作为 Windows 服务运行。">启动 MIB 管理器</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

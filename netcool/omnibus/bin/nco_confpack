@@ -1,0 +1,165 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2003, 2007. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Confpack script - runs command line Confpack program
+#
+# $ProjectRevision: 1.69 $
+#######################################
+
+###########################################################
+# Save the password in a protected file.
+#
+# $1	Password
+# $2	Variable for password file name
+###########################################################
+
+create_password_file() {
+
+	PASSWORD=$1
+
+	# Generate a unique file name in temporary area
+
+	COUNTER=$$
+	BASENAME=`basename $0`
+	PWDFILE=${TMPDIR}/${BASENAME}${COUNTER}.pwd
+	rm -f $PWDFILE
+	while [ -f $PWDFILE ]
+	do 
+		COUNTER=`expr $COUNTER + 1`
+		PWDFILE=${TMPDIR}/${BASENAME}${COUNTER}.pwd
+		rm -f $PWDFILE
+	done
+
+	# Create a new file and set read/write to current user only.
+	# Save password to file
+
+	touch $PWDFILE
+	chmod 600 $PWDFILE
+
+	# Save password to file
+
+	echo $PASSWORD > $PWDFILE
+
+	# return results to caller
+
+	eval $2=$PWDFILE
+}
+
+#######################################
+# MAIN
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+NCO_JAVA_PROGRAM=1
+. $NCO_COMMON
+#
+# Need to unset the XPG_SUS_ENV var because 
+# it effects how the JDBC connection is 
+# established in AIX.
+#
+if [ "$SYSTEM" = "AIX" ]
+then
+	unset XPG_SUS_ENV
+fi
+
+#
+# Set defaults
+#
+OMNIUSER=`$WHOAMI`
+OMNIPASSWD=""
+TMPDIR=${TMPDIR:-'/tmp'}
+
+#
+# Remove password from commandline if necessary
+# Save password to temporary file and pass file name as argument instead
+#
+
+ARGUMENTS=""
+while [ $# -gt 0 ]; do
+	case "$1" in
+		-[pP][aA][sS][sS][wW][oO][rR][dD]*)
+			if [ $# -lt 2 ]; then
+				err "$1 option requires a value"
+			fi
+			shift
+			OMNIPASSWD="$1 "
+			;;
+		*)
+			ARGUMENTS="$ARGUMENTS \"$1\""
+			;;
+	esac
+	shift
+done
+
+if [ "$OMNIPASSWD" != "" ]
+then
+	create_password_file "$OMNIPASSWD" "PWDFILE"
+fi
+
+#
+# Check nco_common found the JRE
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+#
+# Set classpath
+#
+if [ -z "$CLASSPATH" ]; then
+        CLASSPATH=$OMNIHOME/java/jars/confpack.jar
+else
+        CLASSPATH=$CLASSPATH:$OMNIHOME/java/jars/confpack.jar
+fi
+CLASSPATH=$CLASSPATH:$OMNIHOME/java/jars/jconn3.jar
+CLASSPATH=$CLASSPATH:$OMNIHOME/java/jars/utility.jar
+
+#
+# Convert env vars into java commandline properties
+#
+SYS_PROPS=""
+if [ "$NCHOME" != "" ]; then
+	SYS_PROPS="$SYS_PROPS \"-Dnc.home=${NCHOME}\""
+fi
+
+if [ "$OMNIHOME" != "" ]; then
+	SYS_PROPS="$SYS_PROPS \"-Domni.home=${OMNIHOME}\""
+fi
+
+if [ "$PWDFILE" != "" ]; then
+	if [ "$SYS_PROPS" = "" ]; then
+		SYS_PROPS="\"-Domnibus.pwdfile=${PWDFILE}\""
+	else
+		SYS_PROPS="$SYS_PROPS \"-Domnibus.pwdfile=${PWDFILE}\""
+	fi
+fi
+
+SYS_PROPS="$SYS_PROPS -Djdbc.drivers=com.sybase.jdbc3.jdbc.SybDriver"
+
+#
+# Build the command and start the class at main entry point
+#
+COMMAND="exec \"${NCO_JRE_64_32}/bin/java\" -ms32m -mx512m -classpath \"$CLASSPATH\" $SYS_PROPS"
+COMMAND="$COMMAND com.micromuse.common.confpack.ConfpackCommandLine"
+COMMAND="$COMMAND $0 $ARGUMENTS"
+eval $COMMAND

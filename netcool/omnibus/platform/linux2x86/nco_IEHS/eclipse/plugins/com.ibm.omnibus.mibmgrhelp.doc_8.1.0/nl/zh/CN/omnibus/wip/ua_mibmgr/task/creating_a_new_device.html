@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="创建和删除设备" />
+<meta name="abstract" content="MIB 管理器 设备用于对关联的 MIB 模块进行分组以及定义导出所需的所有对象。您可以在 MIB 管理器 GUI 中创建、更新和删除设备。" />
+<meta name="Description" content="MIB 管理器 设备用于对关联的 MIB 模块进行分组以及定义导出所需的所有对象。您可以在 MIB 管理器 GUI 中创建、更新和删除设备。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>创建和删除 MIB 管理器 设备。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">创建和删除设备</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">MIB 管理器</span> 设备用于对关联的 MIB 模块进行分组以及定义导出所需的所有对象。您可以在 <span class="keyword">MIB 管理器</span> GUI 中创建、更新和删除设备。</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">关于此任务</h2></div><p class="p"><span class="keyword">MIB 管理器</span> 设备显示在“<span class="keyword wintitle">设备</span>”视图中。
+从“<span class="keyword wintitle">设备</span>”树中选择设备可显示该设备的制造商、型号以及操作系统版本。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">过程</h2></div><p class="li stepsection"><strong class="ph b">创建设备</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">要创建新设备：</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">在“<span class="keyword wintitle">MIB 模块</span>”视图中，至少选择一个 MIB 模块，然后单击 <img class="image" src="../gifs/create_device.gif" alt="“创建设备”图标" />（创建设备）。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">制造商</span>字段中，从下拉列表中选择设备制造商。</span> <p class="p">系统将使用可用的选项来填充<span class="ph uicontrol">型号</span>和<span class="ph uicontrol">操作系统版本</span>字段。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">型号</span>字段中，从下拉列表中选择一个选项。</span> <p class="p">如果没有可用的型号。请输入描述性的型号名称。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">操作系统版本</span>字段中，从下拉列表中选择一个选项。</span> <p class="p">如果没有可用的操作系统版本，请输入描述性的操作系统版本名称。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">已映射的 MIB 模块</span>字段中，选择要与新设备关联的 MIB 模块。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">单击<span class="ph uicontrol">确定</span>以创建设备。</span> <p class="p">新设备将显示在“<span class="keyword wintitle">设备</span>”视图中。</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">更新设备</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">要更新设备：</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">在“<span class="keyword wintitle">设备</span>”视图中，选择设备并展开其子节点，直至操作系统版本可见为止。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">选择操作系统版本，然后单击 <img class="image" src="../gifs/Edit.gif" alt="“编辑设备”图标" />（编辑设备）。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">制造商</span>字段中，从下拉列表中选择设备制造商。</span> <p class="p">系统将使用可用的选项来填充<span class="ph uicontrol">型号</span>和<span class="ph uicontrol">操作系统版本</span>字段。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">型号</span>字段中，从下拉列表中选择一个选项。</span> <p class="p">如果没有可用的型号。请输入描述性的型号名称。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">操作系统版本</span>字段中，从下拉列表中选择一个选项。</span> <p class="p">如果没有可用的操作系统版本，请输入描述性的操作系统版本名称。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">已映射的 MIB 模块</span>字段中，选择要与新设备关联的 MIB 模块。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">单击<span class="ph uicontrol">确定</span>以更新设备详细信息。</span> <p class="p">经过更新的设备详细信息将显示在“<span class="keyword wintitle">设备</span>”视图中。</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">删除设备</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">在“<span class="keyword wintitle">设备</span>”视图中，选择设备，然后单击 <img class="image" src="../gifs/Delete.gif" alt="“删除设备”图标" />（删除设备）。</span> <p class="p">要删除多个设备，请按下 Ctrl+Alt 键，使用鼠标左键选择元素，然后单击 <img class="image" src="../gifs/Delete.gif" alt="“删除设备”图标" />（删除设备）。</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="可以使用 MIB 管理器 来解析 MIB 模块并创建 Netcool 规则文件。">使用Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

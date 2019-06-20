@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Configurando as preferências de exportação" />
+<meta name="abstract" content="Esta seção descreve como configurar as preferências para a exportação do arquivo de regras." />
+<meta name="Description" content="Esta seção descreve como configurar as preferências para a exportação do arquivo de regras." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="pt-br" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versão 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configurando as preferências de exportação</h1>
+<div class="body refbody"><p class="shortdesc">Esta seção descreve como configurar as preferências para a exportação do arquivo de regras.</p>
+<div class="section"><p class="p">Para configurar as preferências de diretório, clique no <img class="image" src="../gifs/global_preferences.gif" alt="ícone Preferências" /> <span class="ph uicontrol">Preferências</span> ou a partir do menu principal, clique em <span class="ph menucascade"><span class="ph uicontrol">Arquivo</span> &gt; <span class="ph uicontrol">Preferências</span></span>e em seguida a partir da área da janela esquerda da janela <span class="keyword wintitle">Preferências</span>,
+clique em <span class="ph uicontrol">Exportar</span>.</p>
+</div>
+<div class="section"><ul class="ul"><li class="li">No campo <span class="ph uicontrol">Incluir caminho</span>,
+especifique o local das regras que foram instaladas com pacotes de arquivo de regras Netcool Include Library (NCiL) (se estiverem instaladas).
+A opção somente será necessária se você estiver exportando dados no formato de arquivo do Netcool Include Library e quando o caminho de diretório deve apontar para incluir regras. Como resultado, os novos arquivos de regras não necessitam ser editados manualmente. O valor padrão é <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/probes/<var class="keyword varname">arch</var></span>. </li>
+<li class="li">No campo <span class="ph uicontrol">Formato padrão de arquivo de exportação</span>,
+especifique um formato Windows/DOS (CRLF) ou um formato Unix (LF) para o arquivo de saída. Essa propriedade permite criar regras em uma máquina
+Windows e copiá-las para uma máquina UNIX sem executar um utilitário,
+como o <samp class="ph codeph">dos2unix</samp>. <div class="note note"><span class="notetitle">Nota:</span> A seleção aplica-se a todos os arquivos de saída
+e não está restrito aos arquivos de regras. O valor padrão é formato Unix.</div>
+</li>
+<li class="li">No campo <span class="ph uicontrol">Tipos de alerta</span>, especifique as opções da lista suspensa exibida quando um campo <samp class="ph codeph">@Type</samp> é editado na visualização <span class="keyword wintitle">Detalhes</span>.</li>
+</ul>
+<p class="p">As opções a seguir estarão disponíveis somente se o formato de exportação NCKL foi previamente selecionado:</p>
+<ul class="ul"><li class="li">Se a caixa de seleção <span class="ph uicontrol">Incluir descrições varbind</span> for
+selecionada, as descrições varbind serão incluídas como documentação de comentário.
+O valor padrão está ativado.</li>
+<li class="li">Se a caixa de seleção <span class="ph uicontrol">Calcular um valor melhor para @AlertKey</span> for selecionada, o valor <samp class="ph codeph">@AlertKey</samp> será gerado a partir de um objeto-pai varbind. O valor padrão está ativado.</li>
+<li class="li">Se a caixa de seleção <span class="ph uicontrol">Set @Agent uma vez por empresa</span> for selecionada, o campo <samp class="ph codeph">@Agent</samp> será configurado para cada empresa. O campo <samp class="ph codeph">@Agent</samp> está baseado nos nomes dos módulos
+MIB em processamento para o arquivo de regras. O valor padrão está ativado.</li>
+<li class="li">Se a caixa de seleção <span class="ph uicontrol">Incluir modelo @Class</span> for selecionada, o campo <samp class="ph codeph">@Class</samp> será configurado. Se a caixa de seleção <span class="ph uicontrol">Incluir
+Modelo @Class</span> estiver selecionada, o campo <samp class="ph codeph">@Class</samp> será configurado como 300. O valor padrão está ativado.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tópico pai:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="É possível configurar diversas preferências globais do MIB Manager a partir da janela Preferências.">Configurando preferências globais</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Tarefas relacionadas</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="Como exportar dados MIB de SNMP do MIB Manager para uma variedade de formatos.">Exportando dados MIB</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Suporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

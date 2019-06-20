@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Defining services in the process agent configuration file" />
+<meta name="abstract" content="Within the process agent configuration file, you can define services to group together related processes, and configure interdependencies of processes. The processes must already be defined in the list of processes within the file." />
+<meta name="Description" content="Within the process agent configuration file, you can define services to group together related processes, and configure interdependencies of processes. The processes must already be defined in the list of processes within the file." />
+<meta name="DC.subject" content="process control, defining services, defining dependencies, process dependencies" />
+<meta name="keywords" content="process control, defining services, defining dependencies, process dependencies" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_definingprocspaconfigfile.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_definingservpaconfigfile" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Defining services in the process agent configuration file</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_definingservpaconfigfile">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Defining services in the process agent configuration file</h1>
+<div class="body refbody"><p class="shortdesc">Within the process agent configuration file, you can define
+services to group together related processes, and configure interdependencies
+of processes. The processes must already be defined in the list of
+processes within the file.</p>
+<div class="example"><h2 class="title sectiontitle">Service definition example</h2><p class="p">An example service
+definition in the <span class="ph filepath">$NCHOME/omnibus/etc/nco_pa.conf</span> configuration
+file is as follows:</p>
+<pre class="pre codeblock"><code>nco_service 'Omnibus'
+{
+	ServiceType		=		Master
+	ServiceStart		=		Non-Auto
+	process 'ObjectServer' NONE
+	process 'Proxy' 'ObjectServer'
+	process 'Probe' 'Proxy'
+	process 'Probe-1' 'ObjectServer'
+	process 'Sleep' 5
+}</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Service definition description</h2><p class="p">The following
+table uses the preceding example to describe the service definition
+information contained in the configuration file.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Service
+definition description</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d20607e43">Configuration information</th>
+<th class="entry" valign="bottom" width="60%" id="d20607e45">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d20607e43 "><samp class="ph codeph">nco_service 'Omnibus'</samp></td>
+<td class="entry" valign="top" width="60%" headers="d20607e45 ">Defines the name of the service (for example, <samp class="ph tt">Omnibus</samp>). <div class="note note"><span class="notetitle">Note:</span> Each service name must be unique within the process control
+network.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d20607e43 "><samp class="ph codeph">ServiceType</samp></td>
+<td class="entry" valign="top" width="60%" headers="d20607e45 ">Defines whether this service should be started
+before all other services and handled as the master service upon which
+other services depend. This can be set as either <span class="keyword option">Master</span> or <span class="keyword option">Non-Master</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d20607e43 "><samp class="ph codeph">ServiceStart</samp></td>
+<td class="entry" valign="top" width="60%" headers="d20607e45 ">This can be set to <span class="keyword option">Auto</span> to
+start the service as soon as <span class="keyword cmdname">nco_pad</span> has started,
+and <span class="keyword option">Non-Auto</span> if the service must be started manually
+with the <span class="keyword cmdname">nco_pa_start</span> command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d20607e43 "><samp class="ph codeph">process</samp></td>
+<td class="entry" valign="top" width="60%" headers="d20607e45 ">Each process entry defines a process that must
+be run as part of the service. You can indicate process dependencies
+so that a process cannot start before another is already running.<div class="note note"><span class="notetitle">Note:</span> You must include a process only once within any of the
+service definitions in the configuration file.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Specifying process dependencies</h2><p class="p">When defining
+a service, you can use the <samp class="ph tt">process</samp> attribute to define the
+processes that should be run as part of the service. You can add dependencies
+on each of the processes in the service. The format of the <samp class="ph tt">process</samp> attribute
+is as follows:</p>
+<pre class="pre codeblock"><code>process '<var class="keyword varname">processname</var>' <var class="keyword varname">dependency</var></code></pre>
+<p class="p">In
+this attribute, <var class="keyword varname">processname</var> is the name of the
+process defined in the list of processes and <var class="keyword varname">dependency</var> can
+be a numeric value, a string value, or <span class="keyword option">NONE</span>.</p>
+<p class="p">If <var class="keyword varname">dependency</var> is
+a number, it indicates a time dependency, in seconds, for starting
+the dependent process. A time dependency is always measured from the
+start of the service. For example, if you enter <kbd class="ph userinput">5</kbd>,
+the process starts five seconds after the service has started.</p>
+<p class="p">If <var class="keyword varname">dependency</var> is
+a string, it indicates another PA aware process in the same service. </p>
+<div class="note restriction"><span class="restrictiontitle">Restriction:</span> A process cannot be dependent on another process
+that is time-dependent. If you specify a dependency on a time-dependent
+process, an error message is added to the process control log file,
+and the dependent process and any child processes are assigned a status
+of DEAD. The default log file is <span class="ph filepath">$NCHOME/omnibus/log/<var class="keyword varname">pa_name</var>.log</span>,
+where <var class="keyword varname">pa_name</var> is the name of the process agent.</div>
+<p class="p">The <var class="keyword varname">dependency</var> type <span class="keyword option">NONE</span> specifies
+no dependency.</p>
+<p class="p">In the preceding service definition example for
+the <samp class="ph codeph">Omnibus</samp> service, the <samp class="ph codeph">ObjectServer</samp> process
+starts first because it has no dependencies. Five seconds after the
+ObjectServer starts, the <samp class="ph codeph">Sleep</samp> process starts. When
+the ObjectServer is running successfully, <samp class="ph codeph">Proxy</samp> and <samp class="ph codeph">Probe-1</samp> start.
+When the proxy server is running, the <samp class="ph codeph">Probe</samp> process
+starts. If any of the processes was specified as dependent on the
+time-dependent <samp class="ph codeph">Sleep</samp> process, that process does not
+start, and is assigned a status of DEAD.</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_definingprocspaconfigfile.html" title="Within the process agent configuration file, you must define the list of processes that should be run by the process agents.">Defining processes in the process agent configuration file</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

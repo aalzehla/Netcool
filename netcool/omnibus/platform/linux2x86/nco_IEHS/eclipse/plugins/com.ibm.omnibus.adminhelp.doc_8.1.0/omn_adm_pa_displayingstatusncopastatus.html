@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Displaying the status of services and processes (nco_pa_status)" />
+<meta name="abstract" content="You can run the nco_pa_status utility to retrieve the status of services in the process control system configuration. For each service, the nco_pa_status utility returns a list of defined processes, the status of each process, and the process identifier." />
+<meta name="Description" content="You can run the nco_pa_status utility to retrieve the status of services in the process control system configuration. For each service, the nco_pa_status utility returns a list of defined processes, the status of each process, and the process identifier." />
+<meta name="DC.subject" content="process control, nco_pa_status, displaying service status, displaying process status" />
+<meta name="keywords" content="process control, nco_pa_status, displaying service status, displaying process status" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_startingservprocncopastart.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_displayingstatusncopastatus" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Displaying the status of services and processes (nco_pa_status)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_displayingstatusncopastatus">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Displaying the status of services and processes (nco_pa_status)</h1>
+<div class="body refbody"><p class="shortdesc">You can run the <span class="keyword cmdname">nco_pa_status</span> utility
+to retrieve the status of services in the process control system configuration.
+For each service, the <span class="keyword cmdname">nco_pa_status</span> utility returns
+a list of defined processes, the status of each process, and the process
+identifier.</p>
+<div class="section"><p class="p">To display the service status, enter the following command: </p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pa_status
+-server <var class="keyword varname">string</var> </kbd></p>
+<p class="p">In this command, <var class="keyword varname">string</var> is
+the process agent name. You can optionally run the command with additional
+command-line options.</p>
+<p class="p">Example output is as follows:</p>
+<pre class="pre screen"><code>--------------------------------------------------------------------------
+Service Name	Process Name	Hostname	User	Status	PID
+--------------------------------------------------------------------------
+Master Service	ObjectServer	SFOSYS1		root	RUNNING	16751
+			Proxy	SFOSYS1		root	RUNNING	16752
+			Sleep	SFOSYS1		root	RUNNING	16753
+			Probe	SFOSYS1		root	RUNNING	16754
+--------------------------------------------------------------------------</code></pre>
+<p class="p">The <samp class="ph systemoutput">PID</samp> value
+for managed processes is the UNIX process
+identifier, or the PID as shown in the Windows Task Manager.</p>
+<p class="p">The following
+table describes each of the status levels.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Service
+status descriptions </span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d21085e69">Status level</th>
+<th class="entry" valign="bottom" width="60%" id="d21085e71">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e69 ">RUNNING</td>
+<td class="entry" valign="top" width="60%" headers="d21085e71 ">The process is running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e69 ">STARTING</td>
+<td class="entry" valign="top" width="60%" headers="d21085e71 ">A start request has been issued.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e69 ">PENDING</td>
+<td class="entry" valign="top" width="60%" headers="d21085e71 ">The process is waiting for a time dependency
+to complete. This status can also indicate that the process has failed
+to start properly (regardless of any process dependencies).</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e69 ">WAITING</td>
+<td class="entry" valign="top" width="60%" headers="d21085e71 ">The process is waiting for a dependency to start.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e69 ">DEAD</td>
+<td class="entry" valign="top" width="60%" headers="d21085e71 ">The process is not running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e69 ">ERROR</td>
+<td class="entry" valign="top" width="60%" headers="d21085e71 ">It was not possible to retrieve a status from
+the process agent.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">If a process agent is instructed to run a process by a
+process agent running on a separate machine, the remote process agent
+does not retain a record of the process. If the remote process agent
+stops, the process continues to run. When the remote process agent
+restarts, it has no record of the process, and therefore the process
+status for this orphan process is listed as DEAD. You can manually
+restart the process by using the <span class="keyword cmdname">nco_pa_start</span> utility.</p>
+<p class="p">If
+a process is defined as unmanaged (<samp class="ph codeph">Managed = False</samp>)
+in the process agent configuration file (<span class="ph filepath">nco_pa.conf</span>), <span class="keyword cmdname">nco_pa_status</span> can
+return a random status when it checks the process. For example, the
+returned status might be <samp class="ph codeph">DEAD</samp> when the process is
+running correctly. This is not an error and it happens because the
+process agent starts unmanaged processes but does not monitor them.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Command-line options for nco_pa_status</h2><p class="p">Command-line
+options for the <span class="keyword cmdname">nco_pa_status</span> utility are described
+in the following table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Command-line options for
+nco_pa_status</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d21085e139">Command-line option</th>
+<th class="entry" valign="bottom" width="60%" id="d21085e141">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e139 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="60%" headers="d21085e141 ">Displays help on the command-line options and
+exits.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e139 "><span class="keyword option">-nosecure</span></td>
+<td class="entry" valign="top" width="60%" headers="d21085e141 ">Connects to process agents in a non-secure mode
+that does not encrypt login information during transmission.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e139 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d21085e141 ">The password to use for the process agent.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e139 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d21085e141 ">Name of process agent to contact.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e139 "><span class="keyword option">-user</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d21085e141 ">The user name for the process agent. The default
+is the user running the command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21085e139 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="60%" headers="d21085e141 ">Displays software version information and exits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_startingservprocncopastart.html" title="You can run the nco_pa_start utility to start a service or process at any location in the process control system configuration.">Starting a service or process (nco_pa_start)</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

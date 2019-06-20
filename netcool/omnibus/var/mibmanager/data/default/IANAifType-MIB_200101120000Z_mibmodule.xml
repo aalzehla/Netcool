@@ -1,0 +1,251 @@
+<?xml version="1.0"?><MIB_MODULE thread="MibParser:Thread-24" name="IANAifType-MIB" hashcode="MibParser:1248795093" sourcefile="Default Data">
+<IMPORTS>
+<IMPORT name="MODULE-IDENTITY" from="SNMPv2-SMI"></IMPORT>
+<IMPORT name="TEXTUAL-CONVENTION" from="SNMPv2-TC"></IMPORT>
+<IMPORT name="mib-2" from="SNMPv2-SMI"></IMPORT>
+</IMPORTS>
+<EXPORTS></EXPORTS>
+<TEXTUAL-CONVENTION name="IANAifType" version="2">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="other"></ENUM>
+<ENUM index="2" value="regular1822"></ENUM>
+<ENUM index="3" value="hdh1822"></ENUM>
+<ENUM index="4" value="ddnX25"></ENUM>
+<ENUM index="5" value="rfc877x25"></ENUM>
+<ENUM index="6" value="ethernetCsmacd"></ENUM>
+<ENUM index="7" value="iso88023Csmacd"></ENUM>
+<ENUM index="8" value="iso88024TokenBus"></ENUM>
+<ENUM index="9" value="iso88025TokenRing"></ENUM>
+<ENUM index="10" value="iso88026Man"></ENUM>
+<ENUM index="11" value="starLan"></ENUM>
+<ENUM index="12" value="proteon10Mbit"></ENUM>
+<ENUM index="13" value="proteon80Mbit"></ENUM>
+<ENUM index="14" value="hyperchannel"></ENUM>
+<ENUM index="15" value="fddi"></ENUM>
+<ENUM index="16" value="lapb"></ENUM>
+<ENUM index="17" value="sdlc"></ENUM>
+<ENUM index="18" value="ds1"></ENUM>
+<ENUM index="19" value="e1"></ENUM>
+<ENUM index="20" value="basicISDN"></ENUM>
+<ENUM index="21" value="primaryISDN"></ENUM>
+<ENUM index="22" value="propPointToPointSerial"></ENUM>
+<ENUM index="23" value="ppp"></ENUM>
+<ENUM index="24" value="softwareLoopback"></ENUM>
+<ENUM index="25" value="eon"></ENUM>
+<ENUM index="26" value="ethernet3Mbit"></ENUM>
+<ENUM index="27" value="nsip"></ENUM>
+<ENUM index="28" value="slip"></ENUM>
+<ENUM index="29" value="ultra"></ENUM>
+<ENUM index="30" value="ds3"></ENUM>
+<ENUM index="31" value="sip"></ENUM>
+<ENUM index="32" value="frameRelay"></ENUM>
+<ENUM index="33" value="rs232"></ENUM>
+<ENUM index="34" value="para"></ENUM>
+<ENUM index="35" value="arcnet"></ENUM>
+<ENUM index="36" value="arcnetPlus"></ENUM>
+<ENUM index="37" value="atm"></ENUM>
+<ENUM index="38" value="miox25"></ENUM>
+<ENUM index="39" value="sonet"></ENUM>
+<ENUM index="40" value="x25ple"></ENUM>
+<ENUM index="41" value="iso88022llc"></ENUM>
+<ENUM index="42" value="localTalk"></ENUM>
+<ENUM index="43" value="smdsDxi"></ENUM>
+<ENUM index="44" value="frameRelayService"></ENUM>
+<ENUM index="45" value="v35"></ENUM>
+<ENUM index="46" value="hssi"></ENUM>
+<ENUM index="47" value="hippi"></ENUM>
+<ENUM index="48" value="modem"></ENUM>
+<ENUM index="49" value="aal5"></ENUM>
+<ENUM index="50" value="sonetPath"></ENUM>
+<ENUM index="51" value="sonetVT"></ENUM>
+<ENUM index="52" value="smdsIcip"></ENUM>
+<ENUM index="53" value="propVirtual"></ENUM>
+<ENUM index="54" value="propMultiplexor"></ENUM>
+<ENUM index="55" value="ieee80212"></ENUM>
+<ENUM index="56" value="fibreChannel"></ENUM>
+<ENUM index="57" value="hippiInterface"></ENUM>
+<ENUM index="58" value="frameRelayInterconnect"></ENUM>
+<ENUM index="59" value="aflane8023"></ENUM>
+<ENUM index="60" value="aflane8025"></ENUM>
+<ENUM index="61" value="cctEmul"></ENUM>
+<ENUM index="62" value="fastEther"></ENUM>
+<ENUM index="63" value="isdn"></ENUM>
+<ENUM index="64" value="v11"></ENUM>
+<ENUM index="65" value="v36"></ENUM>
+<ENUM index="66" value="g703at64k"></ENUM>
+<ENUM index="67" value="g703at2mb"></ENUM>
+<ENUM index="68" value="qllc"></ENUM>
+<ENUM index="69" value="fastEtherFX"></ENUM>
+<ENUM index="70" value="channel"></ENUM>
+<ENUM index="71" value="ieee80211"></ENUM>
+<ENUM index="72" value="ibm370parChan"></ENUM>
+<ENUM index="73" value="escon"></ENUM>
+<ENUM index="74" value="dlsw"></ENUM>
+<ENUM index="75" value="isdns"></ENUM>
+<ENUM index="76" value="isdnu"></ENUM>
+<ENUM index="77" value="lapd"></ENUM>
+<ENUM index="78" value="ipSwitch"></ENUM>
+<ENUM index="79" value="rsrb"></ENUM>
+<ENUM index="80" value="atmLogical"></ENUM>
+<ENUM index="81" value="ds0"></ENUM>
+<ENUM index="82" value="ds0Bundle"></ENUM>
+<ENUM index="83" value="bsc"></ENUM>
+<ENUM index="84" value="async"></ENUM>
+<ENUM index="85" value="cnr"></ENUM>
+<ENUM index="86" value="iso88025Dtr"></ENUM>
+<ENUM index="87" value="eplrs"></ENUM>
+<ENUM index="88" value="arap"></ENUM>
+<ENUM index="89" value="propCnls"></ENUM>
+<ENUM index="90" value="hostPad"></ENUM>
+<ENUM index="91" value="termPad"></ENUM>
+<ENUM index="92" value="frameRelayMPI"></ENUM>
+<ENUM index="93" value="x213"></ENUM>
+<ENUM index="94" value="adsl"></ENUM>
+<ENUM index="95" value="radsl"></ENUM>
+<ENUM index="96" value="sdsl"></ENUM>
+<ENUM index="97" value="vdsl"></ENUM>
+<ENUM index="98" value="iso88025CRFPInt"></ENUM>
+<ENUM index="99" value="myrinet"></ENUM>
+<ENUM index="100" value="voiceEM"></ENUM>
+<ENUM index="101" value="voiceFXO"></ENUM>
+<ENUM index="102" value="voiceFXS"></ENUM>
+<ENUM index="103" value="voiceEncap"></ENUM>
+<ENUM index="104" value="voiceOverIp"></ENUM>
+<ENUM index="105" value="atmDxi"></ENUM>
+<ENUM index="106" value="atmFuni"></ENUM>
+<ENUM index="107" value="atmIma"></ENUM>
+<ENUM index="108" value="pppMultilinkBundle"></ENUM>
+<ENUM index="109" value="ipOverCdlc"></ENUM>
+<ENUM index="110" value="ipOverClaw"></ENUM>
+<ENUM index="111" value="stackToStack"></ENUM>
+<ENUM index="112" value="virtualIpAddress"></ENUM>
+<ENUM index="113" value="mpc"></ENUM>
+<ENUM index="114" value="ipOverAtm"></ENUM>
+<ENUM index="115" value="iso88025Fiber"></ENUM>
+<ENUM index="116" value="tdlc"></ENUM>
+<ENUM index="117" value="gigabitEthernet"></ENUM>
+<ENUM index="118" value="hdlc"></ENUM>
+<ENUM index="119" value="lapf"></ENUM>
+<ENUM index="120" value="v37"></ENUM>
+<ENUM index="121" value="x25mlp"></ENUM>
+<ENUM index="122" value="x25huntGroup"></ENUM>
+<ENUM index="123" value="trasnpHdlc"></ENUM>
+<ENUM index="124" value="interleave"></ENUM>
+<ENUM index="125" value="fast"></ENUM>
+<ENUM index="126" value="ip"></ENUM>
+<ENUM index="127" value="docsCableMaclayer"></ENUM>
+<ENUM index="128" value="docsCableDownstream"></ENUM>
+<ENUM index="129" value="docsCableUpstream"></ENUM>
+<ENUM index="130" value="a12MppSwitch"></ENUM>
+<ENUM index="131" value="tunnel"></ENUM>
+<ENUM index="132" value="coffee"></ENUM>
+<ENUM index="133" value="ces"></ENUM>
+<ENUM index="134" value="atmSubInterface"></ENUM>
+<ENUM index="135" value="l2vlan"></ENUM>
+<ENUM index="136" value="l3ipvlan"></ENUM>
+<ENUM index="137" value="l3ipxvlan"></ENUM>
+<ENUM index="138" value="digitalPowerline"></ENUM>
+<ENUM index="139" value="mediaMailOverIp"></ENUM>
+<ENUM index="140" value="dtm"></ENUM>
+<ENUM index="141" value="dcn"></ENUM>
+<ENUM index="142" value="ipForward"></ENUM>
+<ENUM index="143" value="msdsl"></ENUM>
+<ENUM index="144" value="ieee1394"></ENUM>
+<ENUM index="145" value="if-gsn"></ENUM>
+<ENUM index="146" value="dvbRccMacLayer"></ENUM>
+<ENUM index="147" value="dvbRccDownstream"></ENUM>
+<ENUM index="148" value="dvbRccUpstream"></ENUM>
+<ENUM index="149" value="atmVirtual"></ENUM>
+<ENUM index="150" value="mplsTunnel"></ENUM>
+<ENUM index="151" value="srp"></ENUM>
+<ENUM index="152" value="voiceOverAtm"></ENUM>
+<ENUM index="153" value="voiceOverFrameRelay"></ENUM>
+<ENUM index="154" value="idsl"></ENUM>
+<ENUM index="155" value="compositeLink"></ENUM>
+<ENUM index="156" value="ss7SigLink"></ENUM>
+<ENUM index="157" value="propWirelessP2P"></ENUM>
+<ENUM index="158" value="frForward"></ENUM>
+<ENUM index="159" value="rfc1483"></ENUM>
+<ENUM index="160" value="usb"></ENUM>
+<ENUM index="161" value="ieee8023adLag"></ENUM>
+<ENUM index="162" value="bgppolicyaccounting"></ENUM>
+<ENUM index="163" value="frf16MfrBundle"></ENUM>
+<ENUM index="164" value="h323Gatekeeper"></ENUM>
+<ENUM index="165" value="h323Proxy"></ENUM>
+<ENUM index="166" value="mpls"></ENUM>
+<ENUM index="167" value="mfSigLink"></ENUM>
+<ENUM index="168" value="hdsl2"></ENUM>
+<ENUM index="169" value="shdsl"></ENUM>
+<ENUM index="170" value="ds1FDL"></ENUM>
+<ENUM index="171" value="pos"></ENUM>
+<ENUM index="172" value="dvbAsiln"></ENUM>
+<ENUM index="173" value="dvbAsiOut"></ENUM>
+<ENUM index="174" value="plc"></ENUM>
+<ENUM index="175" value="nfas"></ENUM>
+<ENUM index="176" value="tr008"></ENUM>
+<ENUM index="177" value="gr303RDT"></ENUM>
+<ENUM index="178" value="gr303IDT"></ENUM>
+<ENUM index="179" value="isup"></ENUM>
+<ENUM index="180" value="propDocsWirelessMaclayer"></ENUM>
+<ENUM index="181" value="propDocsWirelessDownstream"></ENUM>
+<ENUM index="182" value="propDocsWirelessUpstream"></ENUM>
+<ENUM index="183" value="hiperlan2"></ENUM>
+<ENUM index="184" value="propBWAp2Mp"></ENUM>
+<ENUM index="185" value="sonetOverheadChannel"></ENUM>
+<ENUM index="186" value="digitalWrapperOverheadChannel"></ENUM>
+<ENUM index="187" value="aal2"></ENUM>
+<ENUM index="188" value="radioMAC"></ENUM>
+<ENUM index="189" value="atmRadio"></ENUM>
+<ENUM index="190" value="imt"></ENUM>
+<ENUM index="191" value="mvl"></ENUM>
+<ENUM index="192" value="reachDSL"></ENUM>
+<ENUM index="193" value="frDlciEndPt"></ENUM>
+<ENUM index="194" value="atmVciEndPt"></ENUM>
+<ENUM index="195" value="opticalChannel"></ENUM>
+<ENUM index="196" value="opticalTransport"></ENUM>
+</ENUMS>
+</SYNTAX>
+<STATUS>current</STATUS>
+<DESCRIPTION>This data type is used as the syntax of the ifType
+               object in the (updated) definition of MIB-II's
+               ifTable.
+
+               The definition of this textual convention with the
+               addition of newly assigned values is published
+               periodically by the IANA, in either the Assigned
+               Numbers RFC, or some derivative of it specific to
+               Internet Network Management number assignments.  (The
+               latest arrangements can be obtained by contacting the
+               IANA.)
+
+               Requests for new values should be made to IANA via
+               email (iana@iana.org).
+
+               The relationship between the assignment of ifType
+               values and of OIDs to particular media-specific MIBs
+               is solely the purview of IANA and is subject to change
+               without notice.  Quite often, a media-specific MIB's
+               OID-subtree assignment within MIB-II's 'transmission'
+               subtree will be the same as its ifType value.
+               However, in some circumstances this will not be the
+               case, and implementors must not pre-assume any
+               specific relationship between ifType values and
+               transmission subtree OIDs.</DESCRIPTION>
+</TEXTUAL-CONVENTION>
+<MibObject OID="mib-2 30" name="ianaifType" type="MODULE-IDENTITY">
+<DESCRIPTION>This MIB module defines the IANAifType Textual
+                     Convention, and thus the enumerated values of
+                     the ifType object defined in MIB-II's ifTable.</DESCRIPTION>
+<LAST-UPDATED>200101120000Z</LAST-UPDATED>
+<ORGANIZATION>IANA</ORGANIZATION>
+<CONTACT-INFO>        Internet Assigned Numbers Authority
+
+                     Postal: ICANN
+                             4676 Admiralty Way, Suite 330
+                             Marina del Rey, CA 90292
+
+                     Tel:    +1 310 823 9358
+                     E-Mail: iana@iana.org</CONTACT-INFO>
+</MibObject>
+</MIB_MODULE>

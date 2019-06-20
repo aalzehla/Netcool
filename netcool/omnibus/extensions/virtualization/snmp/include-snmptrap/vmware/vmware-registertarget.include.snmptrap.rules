@@ -1,0 +1,30 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+# Compatible with:
+#
+# -  Netcool/Omnibus 7.4 onwards
+# -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+###############################################################################
+
+#
+# %Server and %ServerBackup in registertarget() lines only supported from OMNIbus 7.4.0
+# onwards. For use in previous versions change to explicit server names, i.e. "NCOMS"
+#
+alerts_target = registertarget( %Server, %ServerBackup, "alerts.status", "alerts.details" )
+vmstatus_target = registertarget( %Server, %ServerBackup, "custom.vmstatus", "" )
+

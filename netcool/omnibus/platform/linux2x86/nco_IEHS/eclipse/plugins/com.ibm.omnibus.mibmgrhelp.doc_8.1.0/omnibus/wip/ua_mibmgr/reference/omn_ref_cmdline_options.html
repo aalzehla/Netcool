@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB Manager command-line options" />
+<meta name="abstract" content="MIB Manager has a command-line utility that you can use to import MIB data and export rules files. You can issue commands manually or call them programmatically." />
+<meta name="Description" content="MIB Manager has a command-line utility that you can use to import MIB data and export rules files. You can issue commands manually or call them programmatically." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>MIB Manager command-line options.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">MIB Manager</span> command-line options</h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">MIB Manager</span> has a command-line utility that you can use to import
+MIB data and export rules files. You can issue commands manually or
+call them programmatically.</p>
+<div class="section"><div class="p">To start the command-line utility, use the following command:<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[options]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[options]</samp><p class="p">On Windows operating systems, the output from <span class="keyword">MIB Manager</span> is displayed in a new console.</p>
+</li>
+</ul>
+</div>
+<p class="p">The following table describes the available command-line
+options. The <span class="keyword option">-exportmibs</span>, <span class="keyword option">-exportobjects</span>,
+and <span class="keyword option">-exportoids</span> options can parse regular expressions
+that conform with the Java pattern engine.</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> Use
+full directory paths when you specify directories. For example: <kbd class="ph userinput">nco_mibmanager_batch
+-importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. <span class="keyword">MIB Manager</span> command-line options</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d633e84">Command-line option</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d633e86">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option when you first run the <span class="keyword">MIB Manager</span> command-line utility, if you previously used the <span class="keyword">MIB Manager</span> graphical utility. If you do not use this option,
+an error is displayed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the directory to
+which generated rules files are exported. Enclose the directory path
+in double quotation marks (").<p class="p">For example:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the name of the MIB
+to be exported. You can use regular expressions to specify multiple
+MIBs.<p class="p">For example, the following command exports objects from a
+MIB named <span class="q">"RMON-MIB"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">The following command exports
+objects from all MIBs whose names contain <span class="q">"MON"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify that exported files
+are written to a new directory, within the existing export directory.
+The new subdirectory is automatically named with a time stamp. Use
+this option to ensure that existing rules files are not overwritten.<p class="p">For
+example:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the name of the MIB
+object to be exported. You can use regular expressions to specify
+multiple objects.<p class="p">For example, the following command exports all
+objects named <span class="q">"coldStart"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">The following
+command exports all objects whose names begin with <span class="q">"cold"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportoids</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the OID to be exported.
+You can use regular expressions to specify multiple OIDs.<p class="p">For example,
+the following command exports all objects with the OID <span class="q">"1.3.6.1.6.3.1.1.5.1"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1 -filetype csv</samp></p>
+<p class="p">The following
+command exports all objects whose OIDs begin with <span class="q">"1.3.6.1.6.3.1.1.5"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">The following
+command exports all objects with the OIDs <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> or <span class="q">"1.3.6.1.6.3.1.1.5.2"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify which type of MIB
+objects are exported. This option takes the following values:<ul class="ul"><li class="li"><span class="keyword option">ALL</span>: All MIB objects are exported.</li>
+<li class="li"><span class="keyword option">TRAPS</span>: Only traps are exported.</li>
+<li class="li"><span class="keyword option">OBJECTS</span>: Only objects are exported.</li>
+</ul>
+<p class="p">For example:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the file format in
+which the generated files are exported. This option is required for
+export operations. <div class="p">The available parameters are as follows:<ul class="ul"><li class="li"><span class="keyword option">csv</span>: All object data is written to CSV files.</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>: All trap data and associated
+variable bindings object data is written to a single CSV file.</li>
+<li class="li"><span class="keyword option">html_with_frames</span>: Creates a web page that is
+suitable for publishing.</li>
+<li class="li"><span class="keyword option">html_without_frames</span>: Creates a single file named <span class="ph filepath">oids.html</span> that
+contains a list of all the objects that were selected for output.</li>
+<li class="li"><span class="keyword option">lookup</span>: Outputs all specified values in a tabbed
+list suitable for inclusion in any rules file.</li>
+<li class="li"><span class="keyword option">ncil</span>: Creates separate include files for each
+enterprise and generates a single file for generic traps.</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>: Creates files suitable for use with
+Netcool Knowledge Library V1.1.</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>: Creates files suitable for use with
+Netcool Knowledge Library V3.x.</li>
+<li class="li"><span class="keyword option">standalone</span>: Creates a single rules file that
+contains all the selected traps.</li>
+<li class="li"><span class="keyword option">text</span>: Creates a separate text file for each OID.</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>: Creates <span class="ph filepath">.mdl</span> and <span class="ph filepath">trapcnfg</span> files.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to display help information
+about the command-line options.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the directory from
+which MIB files are imported. Enclose the directory path in double
+quotation marks (").<p class="p">For example:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify that <span class="keyword">MIB Manager</span> traverses subdirectories when it is searching for
+MIB files to import.<p class="p">For example:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the level of message
+logging. This option takes the following values:<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>: Only error messages are logged.</li>
+<li class="li"><span class="keyword option">WARN</span>: Warning and error messages are logged.</li>
+<li class="li"><span class="keyword option">INFO</span>: Information, warning, and critical messages
+are logged.</li>
+<li class="li"><span class="keyword option">DEBUG</span>: All messages are logged.</li>
+<li class="li"><span class="keyword option">VERBOSE</span>: Verbose messages include the state of
+variables, arrays, and hashes as they change value and state.</li>
+<li class="li"><span class="keyword option">NONE</span>: No messages are logged.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify the directory to
+which the message log file, <span class="ph filepath">mibmanager.log</span>, is
+written. Enclose the directory path in double quotation marks (").<p class="p">The
+default is <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-searchpath</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">Use this option to specify a semicolon delimited
+list of directories that <span class="keyword">MIB Manager</span> can search to resolve MIB dependencies. Enclose
+the directory path in double quotation marks (").<p class="p">For example:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies"</samp></p>
+<p class="p">The
+following command searches 3 specific directories for dependencies:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="Start the MIB Manager GUI from the command line. It is not designed to be run under process control or as a Windows service.">Starting MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

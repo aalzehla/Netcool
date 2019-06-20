@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="視圖建置器" />
+<meta name="abstract" content="使用此視窗，可以定義應該出現在事件清單中的警示直欄選項，還可以定義這些直欄的順序及格式。 您可以使用「視圖建置器」來設定及維護事件資料的這些資訊視圖。" />
+<meta name="description" content="使用此視窗，可以定義應該出現在事件清單中的警示直欄選項，還可以定義這些直欄的順序及格式。 您可以使用「視圖建置器」來設定及維護事件資料的這些資訊視圖。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_viewbuilderwindowWIN" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>視圖建置器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_viewbuilderwindowWIN">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">視圖建置器</h1>
+<div class="body refbody"><p class="shortdesc">使用此視窗，可以定義應該出現在事件清單中的警示直欄選項，還可以定義這些直欄的順序及格式。 您可以使用「視圖建置器」來設定及維護事件資料的這些資訊視圖。</p>
+<div class="section"><div class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_descriptionWIN">「視圖建置器」包含下列區域：<ul class="ul"><li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupareaWIN">視圖設定區域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareaWIN">顯示直欄區域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareaWIN">排序直欄區域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareaWIN">限制列區域</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupareaWIN"><h2 class="title sectiontitle">視圖設定區域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_viewsetupareadescriptionWIN">使用此區域，可以定義視圖的名稱並設定其許可權。</p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupfieldsWIN"><dt class="dt dlterm">名稱</dt>
+<dd class="dd">如果您是在建立新視圖，請以視圖的唯一名稱改寫現行名稱。 此名稱會在事件清單中使用。 如果您正在編輯現有的視圖，則不需要在此欄位中進行輸入。</dd>
+<dt class="dt dlterm">可編輯</dt>
+<dd class="dd">如果您擁有相關管理者權限，則可以選取此勾選框，讓其他使用者可編輯此視圖，或者取消勾選該勾選框，以保護視圖，使其免於修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 只有在視圖儲存為事件清單配置（<span class="ph filepath">.elc</span> 檔）時，
+才適用這項設定。</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareaWIN"><h2 class="title sectiontitle">顯示直欄區域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_displaycolumnsareadescriptionWIN">使用此區域，可以選取您要在事件清單中顯示的 alerts.status 直欄，還可以指定直欄的順序及格式。</p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafieldsWIN"><dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafields_availablecolumnslistWIN"><!-- --></a>可用的欄位</dt>
+<dd class="dd">此清單會顯示仍可新增至事件清單的所有直欄。 此清單中的直欄名稱會按字母順序顯示。 <span class="ph uicontrol">可用的欄位</span>清單會與<span class="ph uicontrol">事件清單視圖</span>清單一起運作，後者會保留您已選擇新增至事件清單的直欄。</dd>
+<dd class="dd">使用下表中說明的按鈕，在兩個清單之間移動直欄。<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="netom_viewbuilderwindowWIN__netom_viewbuilder_table1" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 直欄選項按鈕</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d70452e78">按鈕</th>
+<th class="entry" valign="top" width="80%" id="d70452e80">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_right.gif" alt="此圖顯示「Windows 視圖建置器」中的「右側」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">按一下此按鈕，以將選取的直欄從左側的可用欄位清單移至右側的清單。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_rightfar.gif" alt="此圖顯示「Windows 視圖建置器」中的「最右側」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">按一下此按鈕，以將所有直欄從左側的可用欄位清單移至右側的清單。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_left.gif" alt="此圖顯示「Windows 視圖建置器」中的「左側」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">按一下此按鈕，以將選取的直欄從右側的清單移至左側的可用欄位清單。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_leftfar.gif" alt="此圖顯示「Windows 視圖建置器」中的「最左側」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">按一下此按鈕，以將所有直欄從右側的清單移至左側的可用欄位清單。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafields_columnmatrixWIN"><!-- --></a>事件清單視圖</dt>
+<dd class="dd">此清單會顯示所選之要顯示在事件清單視圖中的所有直欄，以及其顯示順序。 </dd>
+<dd class="dd">透過使用下表中說明的按鈕，您可以變更直欄的順序。 <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 2. 直欄順序按鈕</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d70452e126">按鈕</th>
+<th class="entry" valign="top" width="80%" id="d70452e128">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「頂端」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">按一下此按鈕，以將選取的直欄移至清單頂端，讓其成為事件清單中顯示的第一個直欄。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「向上」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">按一下此按鈕，以將選取的直欄在清單中向上移動一個位置 (或在事件清單中向左移動一個位置)。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「向下」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">按一下此按鈕，以將選取的直欄在清單中向下移動一個位置 (或在事件清單中向右移動一個位置)。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「前次」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">按一下此按鈕，以將選取的直欄移至清單底端，讓其成為事件清單中顯示的最後一個直欄。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm">欄位名稱/整理版面</dt>
+<dd class="dd">在<span class="ph uicontrol">事件清單視圖</span>清單中選取直欄時，系統定義的直欄名稱在<span class="ph uicontrol">欄位名稱</span>欄位中顯示為唯讀值。 從相鄰<span class="ph uicontrol">整理版面</span>清單中，選取「靠左」、「置中」或「靠右」，以設定事件清單中直欄資料的對齊方式。</dd>
+<dt class="dt dlterm">直欄標題/整理版面</dt>
+<dd class="dd">如果您要讓<span class="ph uicontrol">事件清單視圖</span>清單中所選直欄顯示的標題與其系統定義的名稱不同，請在<span class="ph uicontrol">直欄標題</span>欄位中輸入此標題。 從相鄰<span class="ph uicontrol">整理版面</span>清單中，選取「靠左」、「置中」或「靠右」，以設定事件清單中直欄標題的對齊方式。</dd>
+<dt class="dt dlterm">欄寬</dt>
+<dd class="dd">指定事件清單中直欄的寬度。 </dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareaWIN"><h2 class="title sectiontitle">排序直欄區域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_sortcolumnsareadescriptionWIN">使用此區域，可以配置事件清單中列的排序及優先順序。 您可以指定零個或多個直欄作為排序資料的依據，以及定義直欄的排序優先順序。 </p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafieldsWIN"><dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafields_selectedcolumnslistWIN"><!-- --></a>可用的排序欄位</dt>
+<dd class="dd">此清單會顯示您據以排序事件資料的所有可用直欄。 此清單中的直欄名稱會按字母順序顯示。 <span class="ph uicontrol">可用的排序欄位</span>清單可與<span class="ph uicontrol">排序方式</span>清單一起使用。</dd>
+<dd class="dd">使用之前<cite class="cite">直欄選項按鈕</cite>表格中說明的按鈕，以在兩個清單之間移動直欄。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafields_sortorderselectionWIN"><!-- --></a>排序方式</dt>
+<dd class="dd">此清單會顯示用於排序事件資料的直欄。 使用此清單，可以指定事件資料的排序定義，如下所示： <ul class="ul"><li class="li">定義每個直欄的排序：箭頭會顯示在清單中每個直欄名稱的左側。 依預設，此箭頭會指向上方，指出直欄會以遞增的英數次序來排序。 若要變為遞減次序，請按兩下箭頭。 若要變更排序方向，您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中選取<span class="ph uicontrol">變更</span>。</li>
+<li class="li">定義所有直欄的排序優先順序：位於排序清單頂端的欄位在排序時具有最高優先順序。 如果您將第二個欄位新增至清單，且第一個欄位具有一些相同的項目，則第二個欄位會用於排序那些項目。 若要提高或降低直欄的排序優先順序，請選取直欄名稱，然後使用箭頭按鈕，如下表所說明。<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 3. 直欄排序按鈕</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d70452e237">按鈕</th>
+<th class="entry" valign="top" width="80%" id="d70452e239">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「頂端」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">按一下此按鈕，以將選取的直欄移至清單頂端。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「向上」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">按一下此按鈕，以將選取的直欄在清單中向上移動一個位置。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「向下」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">按一下此按鈕，以將選取的直欄在清單中向下移動一個位置。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="此圖顯示「Windows 視圖建置器」或「通道直欄明細」視窗中的「前次」按鈕。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">按一下此按鈕，以將選取的直欄移至清單底端。 </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareaWIN"><h2 class="title sectiontitle">限制列區域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_restrictrowsareadescriptionWIN">若要加強效能，您可以限制從 ObjectServer 中讀取的列數。 使用此區域，可以限制事件清單中顯示的列數。</p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareafieldsWIN"><dt class="dt dlterm">限制列 [1-100]</dt>
+<dd class="dd">如果您要將事件清單中顯示的列數限制為 1 到 100 之間，請選取此勾選框。 <span class="ph uicontrol">下限</span>、<span class="ph uicontrol">上限</span>及<span class="ph uicontrol">預設</span>欄位會變為可用。<div class="note note"><span class="notetitle">註：</span> 如果您選取<span class="ph uicontrol">限制列 [1-100]</span> 勾選框，並將配置儲存為 <span class="ph filepath">.elv</span> 檔案，則 <span class="ph filepath">.elv</span> 檔案與 Netcool/OMNIbus 3.6 版不相容。</div>
+</dd>
+<dt class="dt dlterm">最小值</dt>
+<dd class="dd">輸入要顯示的列數下限，或使用箭頭來增加或減少值。</dd>
+<dt class="dt dlterm">最大值</dt>
+<dd class="dd">輸入要顯示的列數上限，或使用箭頭來增加或減少值。</dd>
+<dt class="dt dlterm">預設值</dt>
+<dd class="dd">輸入要顯示的預設列數，或使用箭頭來增加或減少值。</dd>
+<dt class="dt dlterm">從事件清單設定</dt>
+<dd class="dd">如果您要讓事件清單使用者可以選擇要在其事件清單視圖中顯示的事件數目，請選取此勾選框。 如果您選取此勾選框，則使用者可以透過使用事件清單控制項來選擇檢視的事件數目，會受到「視圖建置器」中指定之<span class="ph uicontrol">下限</span>及<span class="ph uicontrol">上限</span>值的限制。 如果取消勾選此勾選框，則顯示的事件數目一律是指定的<span class="ph uicontrol">預設</span>值。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_applying_saving_closingWIN"><h2 class="title sectiontitle">套用及儲存視圖</h2><div class="p">在定義或修改視圖之後，您可以透過按一下相關按鈕來套用、儲存或取消所進行的變更，如下所示：<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_applyclosebuttonsWIN"><dt class="dt dlterm">套用</dt>
+<dd class="dd">按一下此按鈕，以將變更套用至視圖，而不儲存它們。 </dd>
+<dt class="dt dlterm">關閉</dt>
+<dd class="dd">按一下此按鈕，以關閉視窗並捨棄變更。</dd>
+</dl>
+</div>
+<p class="p">您必須使用 <span class="ph filepath">.elv</span> 副檔名儲存視圖。 按一下<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">儲存</span></span>或<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">另存新檔</span></span>。</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="使用「視圖建置器」，可以定義要在事件清單中顯示的直欄。">在 Windows 上建立或編輯視圖</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

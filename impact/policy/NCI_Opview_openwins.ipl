@@ -1,0 +1,283 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+// Functions
+function separateRecurringWindowsByType(windows, TYPE2, TYPE3, TYPE4) {
+    Log(2, "Separating " + Length(windows) + " windows by type");
+    TYPE2 = {};
+    TYPE3 = {};
+    TYPE4 = {};
+    n = 0;
+    While (n < Length(windows)) {
+        If (windows[n].wintype == 2) {
+            TYPE2 = TYPE2 + windows[n];
+        } ElseIf (windows[n].wintype == 3) {
+            TYPE3 = TYPE3 + windows[n];
+        } ElseIf (windows[n].wintype == 4) {
+            TYPE4 = TYPE4 + windows[n];
+        }
+        n = n + 1;
+    }
+    Log(3, "There are: " + Length(TYPE2) + " windows of type 2.");
+    Log(3, "There are: " + Length(TYPE3) + " windows of type 3.");
+    Log(3, "There are: " + Length(TYPE4) + " windows of type 4.");
+}
+
+function deleteWindow(mwid) {
+    Log(2, "Function deleteWindow");
+    MWM_Properties.getProperties(props);
+    Log(3, "Properties: " + props);
+    If (props.clearFlag == TRUE) {
+        // OK get the window in question
+        sql = "SELECT FILTERSTAT, MWID FROM IMPACT.MM_WINDOWS WHERE MWID = " + mwid;
+        deleteMe = DirectSQL('ImpactDB', sql, false);
+        Log(3, "Filter for window to be deleted is: " + deleteMe[0].filterstat);
+        Log(3, "MWID for window to be deleted is: " + deleteMe[0].mwid);
+        If (Length(deleteMe) > 0) {
+            // Yep it's still there. Checking for overlapping windows
+            UTC = GetDate();
+            windows = {};
+            // Check active one-time windows
+            MWM.getTZs(tzArray, 1);
+            n = 0;
+            while (n < length(tzArray))
+            {
+                MWM.getActiveOneTime(tzArray[n], UTC, oWindows);
+                windows = windows + oWindows;
+                n = n + 1;
+            }
+            // Get active recurring windows
+            MWM.getTZsForRecurring(tzArray);
+            n = 0;
+            While (n < Length(tzArray)) {
+                MWM.getActiveRecurring(tzArray[n], UTC, rWindows);
+                windows = windows + rWindows;
+                n = n + 1;
+            }
+            Log(3, "Found a total of: " + Length(windows) + " open windows");
+            If (Length(windows) > 0) {
+                // Do any open windows have the same filterstat?
+                m = 0;
+                While (m < Length(windows)) {
+                    Log(3, "Filter for this open window is: " + windows[m].filterstat);
+                    Log(3, "MWID for this open window is: " + windows[m].mwid);
+                    If ((windows[m].filterstat == deleteMe[0].filterstat) and (windows[m].mwid !=deleteMe[0].mwid)) {
+                        // There is some overlap
+                        overlap = TRUE;
+                    }
+                    m = m + 1; // Continue While loop
+                }
+            }
+            If (overlap == NULL) {
+                // No overlapping windows
+                // Clear flag in OMNIbus
+                cleanFilter = Replace(deleteMe[0].filterstat, "\"", "'");
+                omniSql = "UPDATE alerts.status SET SuppressEscl = 0 WHERE SuppressEscl = 6 AND (" + cleanFilter + ")";
+                DirectSQL('defaultobjectserver', omniSql, false);
+                // Delete the window
+                Log(3, "Deleting the window");
+                BatchDelete('mm_windows', "mwid = " + mwid, null);
+            }
+            If (overlap == TRUE) {
+                // Overlapping windows
+                Log(3, "There is at least one overlapping active window so I'm not changing OMNIbus");
+                Log(3, "Deleting the window");
+                BatchDelete('mm_windows', "mwid = " + mwid, null);
+            }
+        }
+    } Else {
+        Log(3, "Deleting the window");
+        BatchDelete('mm_windows', "mwid = " + mwid, null);
+    }
+
+/***
+//for testing...
+//check for window
+Log("Confirming window: " + mwid + " is gone");
+wSql = "SELECT MWID FROM IMPACT.MM_WINDOWS WHERE MWID = " + mwid;
+w = DirectSQL('ImpactDB', wSql, false);
+Log(w);
+***/
+}
+
+function shineDoWiM(dowim, r) {
+    r = SubString(dowim, 1, Length(dowim) -1);
+    r = Replace(r, "\|", ", ", 100);
+    r = Replace(r, "first", "1st ");
+    r = Replace(r, "second", "2nd ");
+    r = Replace(r, "third", "3rd  ");
+    r = Replace(r, "fourth", "4th ");
+    r = Replace(r, "fifth", "5th ");
+    Log(3, "dowim is......\n" + dowim);
+    Log(3, "Return is..............\n" + r);
+}
+
+function shineDoM(dom, r) {
+    r = SubString(dom, 1, Length(dom) - 1);
+    r = Replace(r, "\|", ", ", 100);
+    Log(3, "dom is...........\n" + dom);
+    Log(3, "Return is.................\n" + r);
+}
+
+function shineDoW(dow, r) {
+    r = Replace(dow, "\|", ", ", 100);
+    Log(3, "dow is...............\n" + dow);
+    Log(3, "Return is...............\n" + r);
+}
+
+function shineFilter(filter, r) {
+    r = Strip(filter, "(");
+    r = Strip(r, ")");
+    r = Replace(r, '"', "'", 100);
+    Log(3, "Filter is....................\n" + filter);
+    Log(3, "Return is..................\n" + r);
+}
+
+// Code for handling deletes
+If (@mwid != NULL) {
+    Opview_openwins.deleteWindow(@mwid);
+}
+
+// Get current epoch time
+UTC = GetDate();
+Log(3, "Current epoch time is " + UTC);
+
+// One Time Windows
+// ================
+
+// Get Active OneTime Windows
+//what time zones do we have to deal with, as each will require a different query
+MWM.getTZs(tzArray, 1);
+
+//get ALL of the active recurring windows and separate them out later.
+
+windows = {};
+n = 0;
+while (n < length(tzArray))
+{
+  MWM.getActiveOneTime(tzArray[n], UTC, wins);
+
+  if(length(wins) > 0)
+  {
+    windows = windows + wins;
+  }
+  n = n + 1;
+}
+
+Log(3, "Found: " + Length(windows) + " active one time windows");
+
+htmltext1 = "<table><tr><th>Suppression Filter</th><th>Start Time</th><th>End Time</th><th>Time Zone</th><th>Delete</th></tr>";
+If (Length(windows) > 0) {
+    // Create HTML
+    n = 0;
+    While (n < Length(windows)) {
+        // Get a display value for the TZ
+        Opview_onetwins.getTZDisplayValue(windows[n].timezone, displayTZ);
+        // Get display value for filterstat
+        Opview_openwins.shineFilter(windows[n].filterstat, displayFilterstat);
+        // Build HTML
+        htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td>";
+        htmltext1 = htmltext1 + "<td>" + windows[n].ot_starttime + "</td><td>" + windows[n].ot_endtime + "</td>";
+        htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+        htmltext1 = htmltext1 + "<td align='center'><a href='"+getClusterName()+"-openwins.html?mwid=" + windows[n].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' ";
+        htmltext1 = htmltext1 + "border=0 alt='Delete Window'/></a></td></tr>";
+        n = n + 1;
+    }
+} Else {
+    htmltext1 = "<center>There are currently no active One Time windows.</center>";
+}
+htmltext1 = htmltext1 + "</table>";
+
+// Recurring Windows
+// =================
+// What time zones do we have to deal with, as each will require a different query
+MWM.getTZsForRecurring(tzArray);
+
+// Get ALL of the active recurring windows and separate them out later.
+windows = {};
+n = 0;
+While (n < Length(tzArray)) {
+    MWM.getActiveRecurring(tzArray[n], UTC, wins);
+    If (Length(wins) > 0) {
+        windows = windows + wins;
+    }
+    n = n + 1;
+}
+Log(3, "Found: " + Length(windows) + " active recurring windows");
+If (Length(windows) > 0) {
+    separateRecurringWindowsByType(windows, type2, type3, type4);
+}
+
+/*** wintype = 2 (DoW) ***/
+htmltext2 = "<table><tr><th>Suppression Filter</th><th>Day of Week</th><th>Start Time</th><th>End Time</th><th>Time Zone</th><th>Delete</th></tr>";
+n = 0;
+While (n < Length(type2)) {
+    // Get a display value for the TZ
+    Opview_onetwins.getTZDisplayValue(type2[n].timezone, displayTZ);
+    // Get display value for filterstat
+    Opview_openwins.shineFilter(type2[n].filterstat, displayFilterstat);
+    // Get display value for dow
+    Opview_openwins.shineDoW(type2[n].daysofweek, displayDoW);
+    htmltext2 = htmltext2 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoW + "</td>";
+    htmltext2 = htmltext2 + "<td>" + type2[n].r_starttime + "</td><td>" + type2[n].r_endtime + "</td>";
+    htmltext2 = htmltext2 + "<td>" + displayTZ + "</td>";
+    htmltext2 = htmltext2 + "<td align='center'><a href='"+getClusterName()+"-openwins.html?mwid=" + type2[n].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' ";
+    htmltext2 = htmltext2 + "border=0 alt='Delete Window'/></a></td></tr>";
+    n = n + 1;
+}
+If (Length(type2) == 0) {
+    htmltext2 = "<center>There are currently no active windows of this type.</center>";
+}
+htmltext2 = htmltext2 + "</table>";
+
+/*** wintype = 3 (DoM) ***/
+htmltext3 = "<table><tr><th>Suppression Filter</th><th>Day of Month</th><th>Start Time</th><th>End Time</th><th>Time Zone</th><th>Delete</th></tr>";
+n = 0;
+While (n < Length(type3)) {
+    // Get a display value for the TZ
+    Opview_onetwins.getTZDisplayValue(type3[n].timezone, displayTZ);
+    // Get display value for filterstat
+    Opview_openwins.shineFilter(type3[n].filterstat, displayFilterstat);
+    // Get display value for dom
+    Opview_openwins.shineDoM(type3[n].daysofmonth, displayDoM);
+    htmltext3 = htmltext3 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoM + "</td>";
+    htmltext3 = htmltext3 + "<td>" + type3[n].r_starttime + "</td><td>" + type3[n].r_endtime + "</td>";
+    htmltext3 = htmltext3 + "<td>" + displayTZ + "</td>";
+    htmltext3 = htmltext3 + "<td align='center'><a href='"+getClusterName()+"-openwins.html?mwid=" + type3[n].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' ";
+    htmltext3 = htmltext3 + "border=0 alt='Delete Window'/></a></td></tr>";
+    n = n + 1;
+}
+If (Length(type3) == 0) {
+    htmltext3 = "<center>There are currently no active windows of this type.</center>";
+}
+htmltext3 = htmltext3 + "</table>";
+
+/*** wintype = 4 (DoM) ***/
+htmltext4 = "<table><tr><th>Suppression Filter</th><th>Weekday of Month</th><th>Start Time</th><th>End Time</th><th>Time Zone</th><th>Delete</th></tr>";
+n = 0;
+While (n < Length(type4)) {
+    // Get a display value for the TZ
+    Opview_onetwins.getTZDisplayValue(type4[n].timezone, displayTZ);
+    // Get display value for filterstat
+    Opview_openwins.shineFilter(type4[n].filterstat, displayFilterstat);
+    // Get display value for dowim
+    Opview_openwins.shineDoWiM(type4[n].nweekdayofmonth, displayDoWiM);
+    htmltext4 = htmltext4 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoWiM + "</td>";
+    htmltext4 = htmltext4 + "<td>" + type4[n].r_starttime + "</td><td>" + type4[n].r_endtime + "</td>";
+    htmltext4 = htmltext4 + "<td>" + displayTZ + "</td>";
+    htmltext4 = htmltext4 + "<td align='center'><a href='"+getClusterName()+"-openwins.html?mwid=" + type4[n].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' ";
+    htmltext4 = htmltext4 + "border=0 alt='Delete Window'/></a></td></tr>";
+    n = n + 1;
+}
+If (Length(type4) == 0) {
+    htmltext4 = "<center>There are currently no active windows of this type.</center>";
+}
+htmltext4 = htmltext4 + "</table>";

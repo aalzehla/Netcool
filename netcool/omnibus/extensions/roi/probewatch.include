@@ -1,0 +1,270 @@
+###
+#
+# probewatch.include
+
+###
+#
+#	MODIFICATION REQUIRED BEFORE USE
+#
+###
+# See section marked 'MODIFICATION REQUIRED' in order to set target name
+# for genevent function call.
+###
+
+###
+#
+# Uncomment for NcKL style entry/exit debug messages
+#
+# log( DEBUG, "<<<Entering probewatch.include>>>" )
+
+###
+#
+# Configure actions for OplHeartbeat events
+#
+# None, one or many of these can be enabled
+
+$OplHeartbeat_discard=1
+	# Set if you want to discard the heartbeat events.
+	# By default discard Heartbeat events to maintain backwards compatability
+
+$OplHeartbeat_populate_master_probestats=0
+	# Enable if you want to send probestat data to the master.probestats table
+	# stats_triggers trigger group must be enabled
+
+$OplHeartbeat_write_to_probe_log=0
+	# Set if you want to log probestat data to the probe logfile at INFO level
+
+$OplHeartbeat_generate_threshold_events=0
+	# Set if you want to generate any threshold events for probestat data
+	# Configuration of this is a manual step below
+
+###
+
+# If set to 1, the Summary text will include HTTP port number as well as node.
+# If set to 2, the Summary text will include HTTPS port number as well as node.
+$prefix_with_http_port=0
+
+switch(@Summary)
+{
+case "Running ...":
+	@Severity = 1
+	@AlertGroup = "probestat"
+	@Type = 2
+case "Going Down ...":
+	@Severity = 5
+	@AlertGroup = "probestat"
+	@Type = 1
+case "Rules file reread upon SIGHUP successful ...":
+	@Severity = 1
+	@AlertGroup = "Probe management"
+	@Type = 2
+case "Rules file reread upon SIGHUP failed ...":
+	@Severity = 4
+	@AlertGroup = "Probe management"
+	@Type = 1
+	if ( exists( $msg ) || exists( $file ) )
+	{
+		@Summary = @Summary + " ("
+	}
+	if( exists( $msg ) )
+	{
+		@Summary = @Summary + "("+$msg+")"
+	}
+	if( exists( $file ) )
+	{
+		@Summary = @Summary + " in file "+$file
+	}
+	if ( exists( $msg ) || exists( $file ) )
+	{
+		@Summary = @Summary + " )"
+	}
+case "Rules file reread upon HTTPS request successful ...":
+	$prefix_with_http_port=2
+	@Severity = 1
+	@AlertGroup = "Probe management"
+	@Type = 2
+case "Rules file reread upon HTTP request successful ...":
+	$prefix_with_http_port=1
+	@Severity = 1
+	@AlertGroup = "Probe management"
+	@Type = 2
+case "Rules file reread upon HTTPS request failed ...":
+	$prefix_with_http_port=2
+	@Severity = 4
+	@AlertGroup = "Probe management"
+	@Type = 1
+	if ( exists( $msg ) || exists( $file ) )
+	{
+		@Summary = @Summary + " ("
+	}
+	if( exists( $msg ) )
+	{
+		@Summary = @Summary + " " + $msg
+	}
+	if( exists( $file ) )
+	{
+		@Summary = @Summary + " in file "+$file
+	}
+	if ( exists( $msg ) || exists( $file ) )
+	{
+		@Summary = @Summary + " )"
+	}
+case "Rules file reread upon HTTP request failed ...":
+	$prefix_with_http_port=1
+	@Severity = 4
+	@AlertGroup = "Probe management"
+	@Type = 1
+	if ( exists( $msg ) || exists( $file ) )
+	{
+		@Summary = @Summary + " ("
+	}
+	if( exists( $msg ) )
+	{
+		@Summary = @Summary + " " + $msg
+	}
+	if( exists( $file ) )
+	{
+		@Summary = @Summary + " in file "+$file
+	}
+	if ( exists( $msg ) || exists( $file ) )
+	{
+		@Summary = @Summary + " )"
+	}
+case "Heartbeat ...":
+# Begin Heartbeat ProbeWatch event handling code
+	if( int( $OplHeartbeat_discard ) == 1 )
+	{
+		discard
+	}
+	if( int( $OplHeartbeat_populate_master_probestats ) == 1 ||
+		int( $OplHeartbeat_write_to_probe_log ) == 1 ||
+		int( $OplHeartbeat_generate_threshold_events ) == 1 )
+	{
+		# Calculate various OplStats values once here
+
+		# Calculate $OplStatsUpTime
+		$OplStatsNow=getdate
+		$OplStatsUpTime = int($OplStatsNow)-int(%OplStatsProbeStartTime)
+
+		# Calculate $OplStatsAverageEventsPerSec
+		$OplStatsAverageEventsPerSec=int(%OplStatsNumberEvents)
+		if( int( $OplStatsUpTime ) > 0 )
+		{
+			$OplStatsAverageEventsPerSec=real(%OplStatsNumberEvents) /
+				int( $OplStatsUpTime )
+		}
+		# Calculate $OplStatsCPUTimeReal
+		$OplStatsCPUTimeReal = real(%OplStatsCPUTimeSec) + (real(%OplStatsCPUTimeUsec)/1000000)
+
+		# Calculate $OplStatsDiscardPercentage
+		$OplStatsDiscardPercentage = 0
+		if( int( %OplStatsNumberEvents ) > 0 )
+		{
+			$OplStatsDiscardPercentage = real(100) * int( %OplStatsNumberEventsDiscarded ) /
+				int( %OplStatsNumberEvents )
+		}
+
+		# Calculate $OplStatsRulesFileTimeAverage
+		# First set total time in real variable
+		$OplStatsRulesFileTimeReal = real(%OplStatsRulesFileTimeSec) +
+			(real(%OplStatsRulesFileTimeUsec)/1000000)
+		# 
+		$OplStatsRulesFileTimeAverage = 0
+		if( int( %OplStatsNumberEvents ) > 0 )
+		{
+			# Avoid division by 0 error on first event
+			$OplStatsRulesFileTimeAverage = real($OplStatsRulesFileTimeReal) * 1000000.0
+			$OplStatsRulesFileTimeAverage = real($OplStatsRulesFileTimeAverage)
+				/ int(%OplStatsNumberEvents)
+			# Round result to integer
+			$OplStatsRulesFileTimeAverage = int($OplStatsRulesFileTimeAverage)
+		}
+	}
+
+	if( int( $OplHeartbeat_populate_master_probestats ) == 1 )
+	{
+		log( DEBUG, "HEARTBEAT - SENDING PROBESTATS TO MASTER.PROBESTATS" )
+
+		# This event is picked up by the probestat_insert automation
+		#
+		# Metrics are copied out from the @ExtendedAttr field into the
+		# appropriate fields
+		#
+		# These events should not make it into alerts.status as
+		# long as the probestat_insert automation is enabled
+		# Sensible defaults for the fields are used just in case
+
+		$old_identifier = @Identifier
+		@Identifier = "probestat"
+		@Severity = 2
+		@Summary='stats_triggers trigger group not enabled for probestat OplHeartbeat events'
+
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'ProbePID', ""+getpid() )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'StatTime', $OplStatsNow )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'ProbeUpTime', $OplStatsUpTime )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'NumEventsProcessed', %OplStatsNumberEvents )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'NumEventsGenerated', %OplStatsNumberEventsGenerated )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'NumEventsDiscarded', %OplStatsNumberEventsDiscarded )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'RulesFileTimeSec', %OplStatsRulesFileTimeSec )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'AvgRulesFileTime', $OplStatsRulesFileTimeAverage )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'CPUTimeSec', %OplStatsCPUTimeSec )
+		@ExtendedAttr = nvp_add( @ExtendedAttr, 'ProbeMemory', %OplStatsMemoryInUse )
+#
+#	MODIFICATION REQUIRED
+#		genevent requires at least one target to be set in the rules file
+#			once that has been set the following line needs to be updated
+#			with the target name of the required destination ObjectServer
+#		genevent( <DefaultOS> )
+
+		# Restore original Identifier
+		@Identifier = $old_identifier
+		# @Summary reset below
+
+	}
+	if( int( $OplHeartbeat_write_to_probe_log ) == 1 )
+	{
+		log( DEBUG, "HEARTBEAT - SENDING PROBESTATS TO PROBE LOGFILE" )
+		log( INFO, "PSHBR: --- ProbeStats report at Heartbeat ---" )
+		log( INFO, "PSHBR: Timestamp: "+$OplStatsNow )
+		log( INFO, "PSHBR: Probe: "+@Agent )
+		log( INFO, "PSHBR: Host: "+@Node )
+		log( INFO, "PSHBR: PID: "+getpid() )
+		log( INFO, "PSHBR: ProbeID: "+@Agent+"@"+@Node )
+		log( INFO, "PSHBR: NumberEventsProcessed: " + %OplStatsNumberEvents )
+		log( INFO, "PSHBR: NumberEventsDiscarded: " + %OplStatsNumberEventsDiscarded )
+		log( INFO, "PSHBR: NumberEventsGenerated: " + %OplStatsNumberEventsGenerated )
+		log( INFO, "PSHBR: DiscardPercentage: " + $OplStatsDiscardPercentage )
+		log( INFO, "PSHBR: TotalRulesTime: " + $OplStatsRulesFileTimeReal + " sec" )
+		log( INFO, "PSHBR: TotalCPUTime: " + $OplStatsCPUTimeReal + " sec" )
+		log( INFO, "PSHBR: ProbeUpTime: "+ $OplStatsUpTime + " sec" )
+		log( INFO, "PSHBR: AverageEventsPerSecond: " + $OplStatsAverageEventsPerSec )
+		log( INFO, "PSHBR: AverageRulesFileTime: "+$OplStatsRulesFileTimeAverage+" usec" )
+		log( INFO, "PSHBR: --- ProbeStats report end ---" )
+	}
+	if( int( $OplHeartbeat_generate_threshold_events ) == 1 ) {
+		#
+		# Area to generate user defined threshold events using genevent
+		# 
+		# No example events provided
+	}
+
+# End Heartbeat ProbeWatch Event handling code
+default:
+	@Severity = 1
+}
+@AlertKey = @Agent
+if ( int( $prefix_with_http_port ) == 1 ) {
+	@Summary = @Agent + " probe on " + @Node + ":" +%(NHttpd.ListeningPort) + ' : ' +@Summary
+} 
+else if ( int( $prefix_with_http_port ) == 2 ) {
+	@Summary = @Agent + " probe on " + @Node + ":" +%(NHttpd.SSLListeningPort) + ' : ' +@Summary
+}
+else {
+	@Summary = @Agent + " probe on " + @Node + ": " + @Summary
+}
+
+###
+#
+# Uncomment for NcKL style entry/exit debug messages
+#
+# log( DEBUG, "<<<Leaving probewatch.include>>>" )

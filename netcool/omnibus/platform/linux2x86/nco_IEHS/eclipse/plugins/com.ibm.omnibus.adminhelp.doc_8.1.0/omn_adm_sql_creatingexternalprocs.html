@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CREATE PROCEDURE (external procedures)" />
+<meta name="abstract" content="Use the CREATE PROCEDURE command to create external procedures." />
+<meta name="Description" content="Use the CREATE PROCEDURE command to create external procedures." />
+<meta name="DC.subject" content="creating, external procedures, CREATE PROCEDURE" />
+<meta name="keywords" content="creating, external procedures, CREATE PROCEDURE" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_creatingexternalprocs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Creating external procedures (CREATE PROCEDURE command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_creatingexternalprocs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">CREATE PROCEDURE (external procedures)</h1>
+<div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">CREATE PROCEDURE</samp> command to create
+external procedures.</p>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>CREATE [ OR REPLACE ] PROCEDURE <var class="keyword varname">procedure_name</var>
+ ( [ <var class="keyword varname">parameter_name</var>
+ { <var class="keyword varname">parameter_type</var> | ARRAY OF <var class="keyword varname">parameter_type</var> 
+    | ROW OF <var class="keyword varname">database_name</var>.<var class="keyword varname">table_name</var> },... ] )
+ EXECUTABLE '<var class="keyword varname">executable_name</var>'
+ HOST '<var class="keyword varname">host_name</var>'
+ USER <var class="keyword varname">user_id</var>
+ GROUP <var class="keyword varname">group_id</var>
+ [ ARGUMENTS <var class="keyword varname">expression</var>,... ] [;]</code></pre>
+<p class="p">If
+there is a possibility that a procedure already exists with the same
+name as the one you want to create, use the optional OR REPLACE keywords.
+If the procedure exists, it is replaced by the one you are creating.
+If the procedure does not exist, a new one is created.</p>
+<p class="p">The <var class="keyword varname">procedure_name</var> must
+be unique within the ObjectServer and comply with the ObjectServer
+naming conventions.</p>
+<p class="p">After the <var class="keyword varname">procedure_name</var>,
+include the parameter declaration within parentheses ( ), to specify
+the parameters that can be passed into the external procedure. You
+must include parentheses after the <dfn class="term">procedure_name</dfn> even
+if the procedure has no parameters. Each <var class="keyword varname">parameter_name</var> must
+be unique within the procedure and must comply with the ObjectServer
+naming conventions.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> External procedure parameters
+are read-only. They allow you to pass variable values into an external
+procedure. You cannot return values from an external procedure.</div>
+<p class="p">The <var class="keyword varname">parameter_type</var> defines
+the type of data that the parameter can pass into the procedure. The
+data type can be any valid ObjectServer data type, except VARCHAR
+or INCR.</p>
+<p class="p">The <var class="keyword varname">executable_name</var> is the path
+to an executable program on a local or remote file system.</p>
+<p class="p">The <var class="keyword varname">host_name</var> is the name of the host
+on which to run the executable program for the procedure.</p>
+<p class="p">The <var class="keyword varname">user_id</var> is
+the effective user ID under which to run the executable program.</p>
+<p class="p">The <var class="keyword varname">group_id</var> is
+the effective group ID under which to run the executable program.</p>
+<p class="p">The
+arguments are those passed to the executable. Only spaces can be used
+to separate arguments. For example: <samp class="ph codeph">cool tool</samp> is
+interpreted as <samp class="ph codeph">cool tool</samp>, whereas <samp class="ph codeph">cool'tool</samp> or <samp class="ph codeph">cool"tool</samp> is
+interpreted as <samp class="ph codeph">cooltool</samp>.</p>
+<p class="p"></p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">The following external procedure
+calls a program called <span class="keyword cmdname">nco_mail</span>, which sends e-mail
+about unacknowledged critical alerts:</p>
+<pre class="pre codeblock"><code>create or replace procedure send_email
+ (in node character(255), in severity integer, in subject character(255),
+ in email character(255), in summary character(255), in hostname character(255))
+ executable '$NCHOME/omnibus/utils/nco_mail'
+ host 'localhost'
+ user 0
+ group 0
+ arguments '\'' + node + '\'', severity, '\'' + subject + '\'',
+  '\'' + email + '\'', '\'' + summary + '\'';</code></pre>
+<p class="p">This example
+also shows how to pass text strings to an executable program. You
+must enclose strings in quotation marks, and escape the quotation
+marks with backslashes. All quotation marks in this example are single
+quotation marks.</p>
+<div class="note note"><span class="notetitle">Note:</span> To run an external procedure,
+you must have a process control agent daemon (<span class="keyword cmdname">nco_pad</span>)
+running on the host where the executable command is stored.</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

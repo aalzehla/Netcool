@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="打开配置/保存配置" />
+<meta name="abstract" content="使用此窗口可打开或保存事件列表配置文件，这些配置文件定义了可用于事件列表的一组过滤器和视图。" />
+<meta name="description" content="使用此窗口可打开或保存事件列表配置文件，这些配置文件定义了可用于事件列表的一组过滤器和视图。" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_openconfigsaveconfigwindow" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>打开配置/保存配置</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_openconfigsaveconfigwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">打开配置/保存配置</h1>
+<div class="body refbody"><p class="shortdesc">使用此窗口可打开或保存事件列表配置文件，这些配置文件定义了可用于事件列表的一组过滤器和视图。</p>
+<div class="section"><p class="p">此窗口与保存或打开过滤器、视图和事件列表配置相关联。 因此，并非所有字段都适用于当前操作。 </p>
+<p class="p">如下所示完成此窗口：</p>
+<dl class="dl"><dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e915"><!-- --></a>过滤器</dt>
+<dd class="dd">使用该字段可为想要打开的文件类型指定一个搜索查询。 该字段应与<span class="ph uicontrol">过滤器</span>按钮和<span class="ph uicontrol">文件</span>列表一起使用。 在<span class="ph uicontrol">过滤器</span>字段中输入当前目录路径和文件类型，然后单击<span class="ph uicontrol">过滤器</span>。 所有匹配的文件都显示在<span class="ph uicontrol">文件</span>列表中。</dd>
+<dd class="dd">例如，要显示 <span class="ph filepath">/myfiles/filters</span> 目录中的所有过滤器文件，请输入 <kbd class="ph userinput">/myfiles/filters/*.elf</kbd> 并单击<span class="ph uicontrol">过滤器</span>以查看所有匹配的文件。 </dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e946"><!-- --></a>目录</dt>
+<dd class="dd">该列表显示当前目录中的所有子目录。
+要刷新该目录，请双击“.”。 标识编号。要将目录树上移一个目录，请双击“..”条目。</dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e951"><!-- --></a>文件</dt>
+<dd class="dd">该列表显示当前目录中与<span class="ph uicontrol">过滤器</span>字段中的选择相匹配的文件。 选择想要打开的文件的名称。 还可以选择想要覆盖的现有文件。 </dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e959"><!-- --></a>选择</dt>
+<dd class="dd">此处显示了要保存或打开的文件的路径和名称。 可以编辑路径和文件名以打开其他文件，将文件保存到其他位置，或者使用其他文件名来保存文件。</dd>
+<dd class="dd">如果保存视图，请在文件名中使用 <span class="ph filepath">.elv</span> 扩展名。 如果保存过滤器，请在文件名中使用 <span class="ph filepath">.elf</span> 扩展名。 如果保存事件列表配置，请在文件名中使用 <span class="ph filepath">.elc</span> 扩展名。</dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e975"><!-- --></a>备份现有文件（仅限 UNIX）</dt>
+<dd class="dd">如果要保存的文件名已经存在，那么选中此复选框可创建现有视图文件的备份。 只有在您保存过滤器、视图或事件列表配置时才显示该复选框。 </dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e983"><!-- --></a>确定</dt>
+<dd class="dd">单击该按钮可打开或保存文件。</dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e988"><!-- --></a>过滤器</dt>
+<dd class="dd">该按钮与<span class="ph uicontrol">过滤器</span>字段和<span class="ph uicontrol">文件</span>列表一起使用才能起作用。 单击该按钮可根据<span class="ph uicontrol">过滤器</span>字段中的选择来显示当前目录中的文件。
+文件显示在<span class="ph uicontrol">文件</span>列表中。</dd>
+<dt class="dt dlterm"><a name="netom_openconfigsaveconfigwindow__d2420e1005"><!-- --></a>取消</dt>
+<dd class="dd">单击该按钮可关闭该窗口，而不打开或保存文件。</dd>
+</dl>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

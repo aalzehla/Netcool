@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="About pop-up notifiers" />
+<meta name="abstract" content="The Accelerated Event Notification client uses pop-up notifiers for the display of channel information. A pop-up notifier provides summary information about an accelerated event and allows you to click across to the desktop event list or the Web GUI Active Event List for further investigation and action." />
+<meta name="Description" content="The Accelerated Event Notification client uses pop-up notifiers for the display of channel information. A pop-up notifier provides summary information about an accelerated event and allows you to click across to the desktop event list or the Web GUI Active Event List for further investigation and action." />
+<meta name="DC.subject" content="Accelerated Event Notification client, pop-up notifiers, pop-up notifiers, Accelerated Event Notification client" />
+<meta name="keywords" content="Accelerated Event Notification client, pop-up notifiers, pop-up notifiers, Accelerated Event Notification client" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_aen_abtpopupnotifier" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>About pop-up notifiers</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_aen_abtpopupnotifier">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">About pop-up notifiers</h1>
+<div class="body conbody"><p class="shortdesc">The Accelerated Event Notification client uses pop-up notifiers
+for the display of channel information. A pop-up notifier provides
+summary information about an accelerated event and allows you to click
+across to the desktop event list or the <span class="keyword">Web GUI</span> Active
+Event List for further investigation and action.</p>
+<p class="p">Whenever an accelerated event notification is received from the
+notification ObjectServer, a pop-up notifier is displayed on the screen.
+Pop-up notifiers form a vertical stack on the screen.</p>
+<p class="p">A sample pop-up notifier is shown in the following figure. Note
+that the type of event data and the position of the data in your pop-up
+notifiers will vary according to your configuration settings.</p>
+<div class="fig fignone"><span class="figcap">Figure 1. Sections of a pop-up notifier</span><div class="image"><img class="image" src="sc_omn_aen_popupdescription.gif" alt="This figure illustrates the different areas of the pop-up notifier that is displayed when an accelerated event is received." /></div></div>
+<p class="p">A pop-up notifier typically contains the following sections:</p>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> Link To button</dt>
+<dd class="dd">Click this button to view and manage the event in either the event
+list or the Active Event List.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> Heading</dt>
+<dd class="dd">A single line of text is shown here in bold font with a black
+font color. A white shadow effect is applied to the text to identify
+this as the most recent accelerated event notification. Long strings
+in the heading are truncated with an ellipses (...). </dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> Drag bar</dt>
+<dd class="dd">Click over this bar and then drag the mouse to move the stack
+of pop-up notifiers to a different location on the screen. The location
+of the stack is remembered between sessions.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> Close button</dt>
+<dd class="dd">Click this button to remove a pop-up notifier from the pop-up
+stack.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> Line 1</dt>
+<dd class="dd">A single line of text in bold font is shown. Long strings are
+truncated with an ellipsis (...).</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> Line 2</dt>
+<dd class="dd">A single line of text in regular font is shown. Long strings are
+truncated with an ellipsis (...).</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 7 </span> Main</dt>
+<dd class="dd">Multiple lines of text in regular font are shown. Automatic word
+wrapping occurs with long strings.<div class="note note"><span class="notetitle">Note:</span> You cannot scroll through
+this text. The point at which word wrapping occurs, and number of
+lines displayed, depend on the font size.</div>
+</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 8 </span> Severity bar</dt>
+<dd class="dd">The color of the bar denotes the severity of the event, as defined
+for the event list.<div class="note note"><span class="notetitle">Note:</span> This bar is not displayed if
+the Severity column is excluded from the channel definition or if
+a conversion for the severity value cannot be found.</div>
+</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 9 </span> Originating server</dt>
+<dd class="dd">The name of the ObjectServer that forwarded the notification is
+shown. An indication of whether this is the primary or backup server
+is also given.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 10 </span> Channel name</dt>
+<dd class="dd">The channel on which the notification was broadcast is shown.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 11 </span> Time of receipt</dt>
+<dd class="dd">The date and time when the notification was received is shown.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 12 </span> Note</dt>
+<dd class="dd">Regular text is shown here, to the far right of the Line 1 text.</dd>
+</dl>
+<p class="p">If a conversion has been set up for a particular column value,
+the converted value is shown, rather than the actual value. If no
+conversion can be found for a value, <span class="ph uicontrol">(Unknown)</span> is
+appended to the actual value. </p>
+<p class="p">Note that you can only click across to the event list or the Active
+Event List if the event data originates from the alerts.status table.
+This is because the event list and the Active Event List only display
+data that is stored in the alerts.status table. </p>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

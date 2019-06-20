@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX 上でのテキスト色を使用した重大度の表示" />
+<meta name="abstract" content="デフォルトでは、イベント・リストのイベントの重大度はその行の背景色で表示されています。 UNIX オペレーティング・システムの場合のみ、イベント・リストを構成して単一の背景色を使用し、代わりにアラート・テキスト色を使用して重大度を表示することができます。" />
+<meta name="Description" content="デフォルトでは、イベント・リストのイベントの重大度はその行の背景色で表示されています。 UNIX オペレーティング・システムの場合のみ、イベント・リストを構成して単一の背景色を使用し、代わりにアラート・テキスト色を使用して重大度を表示することができます。" />
+<meta name="DC.subject" content="イベント・リスト, 重大度の表示, テキスト色による重大度" />
+<meta name="keywords" content="イベント・リスト, 重大度の表示, テキスト色による重大度" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_depictingsevbytextcolor" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>UNIX 上でのテキスト色を使用した重大度の表示</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_depictingsevbytextcolor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX 上でのテキスト色を使用した重大度の表示</h1>
+<div class="body taskbody"><p class="shortdesc">デフォルトでは、イベント・リストのイベントの重大度はその行の背景色で表示されています。 UNIX オペレーティング・システムの場合のみ、イベント・リストを構成して単一の背景色を使用し、代わりにアラート・テキスト色を使用して重大度を表示することができます。 </p>
+<div class="section context">テキスト色を使用して重大度を表示するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">イベント・リスト・リソース定義ファイル <span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</span> をバックアップします。ここで、<var class="keyword varname">arch</var> はお使いのオペレーティング・システムです。 </span> このステップは、
+元のファイルに戻す必要が生じた場合に役に立ちます。</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph filepath">NCOEvent</span> ファイルを編集して以下の X リソース行を追加し、
+イベント・リストの背景色およびテキスト色を定義します。</span> <pre class="pre codeblock"><code>NCOEvent*inverseVideo:True
+
+NCOEvent*clearColour: Black
+NCOEvent*indetColour: Black
+NCOEvent*warnColour: Black
+NCOEvent*minorColour: Black
+NCOEvent*majorColour: Black
+NCOEvent*critColour: Black
+
+NCOEvent*ackClearColour: Black
+NCOEvent*ackIndetColour: Black
+NCOEvent*ackWarnColour: Black
+NCOEvent*ackMinorColour: Black
+NCOEvent*ackMajorColour: Black
+NCOEvent*ackCritColour: Black
+
+NCOEvent*clearTextColour: green3
+NCOEvent*indetTextColour: DarkOrchid2
+NCOEvent*warnTextColour: SteelBlue1
+NCOEvent*minorTextColour: yellow1
+NCOEvent*majorTextColour: #ffffb432294a
+NCOEvent*critTextColour: red1
+
+NCOEvent*ackClearTextColour: #008000
+NCOEvent*ackIndetTextColour: DarkOrchid4
+NCOEvent*ackWarnTextColour: SteelBlue3
+NCOEvent*ackMinorTextColour: yellow3
+NCOEvent*ackMajorTextColour: #b5ab63bd0000
+NCOEvent*ackCritTextColour: red3</code></pre>
+
+<div class="note tip"><span class="tiptitle">ヒント:</span> このサンプル・テキストでは、背景色は
+<samp class="ph codeph">Black</samp> に設定されていますが、指定したテキスト色とのコントラストを良好にするために
+別の色を指定することができます。 別の色のセットを使用して重大度を表示する場合は、
+使用可能な色の選択肢を確認してください。 これらの色は、ファイル
+<span class="ph filepath">/usr/openwin/lib/rgb.txt</span> にリストされています。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">変更をファイルに保存します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">定義された色設定がお使いの環境に読み込まれていることを確認するには、更新されたリソース定義ファイル <span class="ph filepath">NCOEvent</span> が保管されているロケーションに XAPPLRESDIR 環境変数を設定します。 </span> <p class="p">このロケーションは以下のとおりです。</p>
+
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/</span></p>
+
+<p class="p">ここで <var class="keyword varname">arch</var> は、お使いのオペレーティング・システム・ディレクトリーです。</p>
+
+<div class="note tip"><span class="tiptitle">ヒント:</span> シェルの <span class="ph filepath">.login</span> または <span class="ph filepath">.profile</span> 初期設定ファイル内で XAPPLRESDIR 環境変数を設定して、
+色設定を固定します。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">以下のコマンドを入力して、これらの色をシステム色にマージします。</span> <p class="p"><kbd class="ph userinput">/usr/openwin/bin/xrdb -merge $NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</kbd></p>
+
+<p class="p">ここで <var class="keyword varname">arch</var> は、お使いのオペレーティング・システム・ディレクトリーです。</p>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div>イベント・リストを開いた際に、新規色が使用可能になります。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="イベント・リストの表示をカスタマイズすることができます。">イベント・リストの表示のカスタマイズ</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

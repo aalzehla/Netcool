@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Starting the event list" />
+<meta name="abstract" content="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu." />
+<meta name="Description" content="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu." />
+<meta name="DC.subject" content="event lists, starting" />
+<meta name="keywords" content="event lists, starting" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopt.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingteventlist" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>Starting the event list</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Starting the event list</h1>
+<div class="body taskbody"><p class="shortdesc">To monitor and manage alerts in the event list, you must
+connect to a running ObjectServer by using valid authentication credentials.
+You can start the event list from the Conductor, from the command
+line, or from the Windows <span class="ph uicontrol">Start</span> menu.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To start an event list:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Perform the appropriate action for your operating system:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d37642e30-option" valign="bottom" align="left">Option</th>
+<th id="d37642e30-desc" valign="bottom" align="left">Description</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d37642e30-option" id="d37642e32" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d37642e30-desc d37642e32" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">From the Conductor window, click <span class="ph uicontrol">Event List</span> in
+the button bar. </li>
+<li class="li">From a command prompt, enter: <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d37642e30-option" id="d37642e48" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d37642e30-desc d37642e48" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">From the Conductor menu, select <span class="ph uicontrol">Event List</span>.</li>
+<li class="li">From the Windows <span class="ph uicontrol">Start</span> menu,
+select <span class="ph menucascade"><span class="ph uicontrol">Programs</span> &gt; <span class="ph uicontrol">Netcool
+Suite</span> &gt; <span class="ph uicontrol">Event List</span></span>.</li>
+<li class="li">From a command prompt, enter:<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOEvent.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+When starting the event list from the command line, you can
+specify additional command-line options with the <span class="keyword cmdname">nco_event</span> and <span class="keyword cmdname">NCOEvent.exe</span> commands.</li>
+<li class="li step stepexpand"><span class="ph cmd">If you start the event list from the command line or the Windows <span class="ph uicontrol">Start</span> menu,
+and you had not previously started the Conductor, you are prompted
+to provide authentication details for connecting to a running ObjectServer.
+You must complete the <span class="keyword wintitle">Login</span> window for the event
+list as follows: </span> <dl class="dl"><dt class="dt dlterm">Username</dt>
+<dd class="dd">Type your user name.</dd>
+<dt class="dt dlterm">Password</dt>
+<dd class="dd">Type your password. Asterisk (*) characters are shown in place
+of the text that you type.<div class="note note"><span class="notetitle">Note:</span> If your user name and password are
+being verified against an external authentication source (rather than
+an ObjectServer), check whether this source supports multi-byte characters.
+If multi-byte characters are not supported, you must specify the user
+name and password with ASCII characters. </div>
+</dd>
+<dt class="dt dlterm">Server</dt>
+<dd class="dd">The ObjectServer name defaults to NCOMS (Netcool/OMNIbus Master
+Server). If multiple ObjectServers are configured for your environment,
+all available ObjectServers are shown in this drop-down list. Select
+the ObjectServer to which you want to connect.</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to authenticate your login details.<div class="note note"><span class="notetitle">Note:</span> You
+are allowed three attempts to log in. On each attempt, the <span class="ph uicontrol">Password</span> field
+is cleared. If you fail to log in correctly at the third attempt,
+the program terminates.</div>
+</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to cancel your login attempt.</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><p class="p">If
+an instance of the event list (<span class="keyword cmdname">nco_event</span>) is running,
+the <span class="keyword cmdname">nco_event</span> command opens a new event list window.
+If there is no running instance of <span class="keyword cmdname">nco_event</span>, the <span class="keyword cmdname">nco_event</span> command
+starts one, and displays the monitor box window.</p>
+<p class="p">When you start
+an event list, the <span class="keyword wintitle">Event List</span> monitor box window
+opens. From this window, you can monitor and manage all alerts that
+are generated when the ObjectServer receives an event, alarm, message,
+or data item.</p>
+<p class="p">In general, when you start the event list, the
+default event list configuration (<span class="ph filepath">default.elc</span>)
+is shown within the <span class="keyword wintitle">Event List</span> monitor box window.
+You can also choose to open a customized event list configuration
+file. Customized configurations can be specified at the command line
+or by using the <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Open</span></span> window. These customized configurations can be on your
+file system or located on a remote server that is accessible by using
+HTTP or FTP. </p>
+<div class="note note"><span class="notetitle">Failover login:</span> If
+the event list loses its connection to the primary ObjectServer and
+a secondary or failover ObjectServer exists, you are prompted to log
+in to the secondary ObjectServer. When the primary ObjectServer becomes
+available again, a message appears indicating that the event list
+is reconnecting to the primary ObjectServer. You do not need to log
+in again to the primary ObjectServer.</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopt.html">UNIX event list command-line options</a></span><br />
+When you use the <span class="keyword cmdname">nco_event</span> command to
+start the event list on UNIX, you can specify a number of command-line options to modify the
+configuration. You can run this command from the <span class="ph filepath">$NCHOME/omnibus/bin</span> directory.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopt.html">Windows event list command-line options</a></span><br />
+When you use the <span class="keyword cmdname">NCOEvent.exe</span> command
+to start the event list on Windows,
+you can specify a number of command-line options to modify the configuration.
+You can run this command from the <span class="ph filepath">%NCHOME%\omnibus\desktop</span> directory.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="You can use the event list to monitor and manage alerts. An alert is created when the ObjectServer receives an event, alarm, message, or data item. Each alert is made up of columns (or fields) of information that are held in a row in the ObjectServer alerts.status table.">Monitoring and managing events in the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

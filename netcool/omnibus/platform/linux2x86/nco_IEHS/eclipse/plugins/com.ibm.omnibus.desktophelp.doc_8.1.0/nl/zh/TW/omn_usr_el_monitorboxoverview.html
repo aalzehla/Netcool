@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="監視器框概觀" />
+<meta name="abstract" content="「事件清單」監視器框視窗上的監視器框代表過濾器及所選的視圖，建立它們可以決定在事件清單中顯示的警示記錄及直欄。 監視器框以其相關聯過濾器命名。" />
+<meta name="description" content="「事件清單」監視器框視窗上的監視器框代表過濾器及所選的視圖，建立它們可以決定在事件清單中顯示的警示記錄及直欄。 監視器框以其相關聯過濾器命名。" />
+<meta name="DC.subject" content="事件清單, 監視器框概觀, 監視器框, 概觀" />
+<meta name="keywords" content="事件清單, 監視器框概觀, 監視器框, 概觀" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefsunixevntist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefswinevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefswincond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitorboxoverview" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>監視器框概觀</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitorboxoverview">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">監視器框概觀</h1>
+<div class="body conbody"><p class="shortdesc">「<span class="keyword wintitle">事件清單</span>」監視器框視窗上的監視器框代表過濾器及所選的視圖，建立它們可以決定在事件清單中顯示的警示記錄及直欄。 監視器框以其相關聯過濾器命名。</p>
+<p class="p">您可以配置喜好設定，以決定在監視器框中顯示的資訊類型。</p>
+<p class="p">UNIX 上的監視器框顯示在下圖中。 在此圖中，已針對監視器框配置不同的喜好設定。</p>
+<div class="fig fignone"><span class="figcap">圖 1. 監視器框</span><div class="image"><img class="image" src="sc_omn_usr_monitorboxunix.gif" alt="此圖顯示「UNIX 管理者」中的監視器框。" /></div></div>
+<p class="p">監視器框的元件如下所示：</p>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> 過濾器名稱按鈕</dt>
+<dd class="dd">此按鈕會顯示與您可從此監視器框存取之事件清單相關聯的過濾器名稱。 您可以按一下此按鈕，以啟動「過濾器建置器」，並檢視或編輯過濾器詳細資料。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> 數目</dt>
+<dd class="dd">此值代表符合過濾器的警示總數。</dd>
+<dt class="dt dlterm">最高</dt>
+<dd class="dd">如果配置為喜好設定，則此值會顯示在<span class="ph uicontrol">數目</span>及<span class="ph uicontrol">度量</span>之間。
+此值代表符合過濾器之警示中的最高嚴重性。</dd>
+<dt class="dt dlterm">最低</dt>
+<dd class="dd">如果配置為喜好設定，則此值會顯示在<span class="ph uicontrol">數目</span>及<span class="ph uicontrol">度量</span>之間。
+此值代表符合過濾器之警示中的最低嚴重性。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> 度量</dt>
+<dd class="dd">此值代表套用至符合過濾器之警示的計算。 此衍生值會顯示過濾器正在查詢之<samp class="ph tt">警示</samp>資料庫表格中所選直欄的平均值、總和、最低或最高值。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> 配送指示器</dt>
+<dd class="dd">此區域會使用 Lavalamp 或長條圖，以顯示符合過濾器之警示的嚴重性分佈。 Lavalamp 區段或長條圖列中使用的顏色已預先配置，以識別不同的嚴重性層次。 </dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> 視圖按鈕 (UNIX) 或 ... 按鈕 (Windows)</dt>
+<dd class="dd">按一下此按鈕，以開啟包含符合目前所選過濾器及視圖之警示的事件清單。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> 選取視圖下拉清單</dt>
+<dd class="dd">此下拉清單包含所有已設定的視圖名稱，並顯示目前與事件清單相關聯的視圖名稱。 您可以從此下拉清單中選取不同視圖，以變更事件清單中顯示的直欄選項。</dd>
+<dd class="dd">您還可以使用此清單，以選取 X.733 視圖，其會在事件清單中顯示 X.733 相容的警示資訊。</dd>
+</dl>
+<div class="note tip"><span class="tiptitle">提示：</span> 您可以選擇性地在監視器框周圍顯示帶顏色的邊框。 邊框顏色會根據符合過濾器之警示中的最高嚴重性而變更。 </div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_el_settingprefsunixevntist.html" title="您可以配置應顯示在監視器框上的資訊類型，指定應重新整理事件清單的頻率，以及設定最小化事件清單時警示通知的選項。 您還可以設定事件清單的閃動及其他喜好設定。">設定 UNIX 事件清單的喜好設定</a></div>
+<div><a class="link" href="omn_usr_el_settingprefswinevntlst.html" title="您可以配置應顯示在監視器框上的資訊類型，指定應重新整理事件清單的頻率，以及設定最小化事件清單時警示通知的選項。 您還可以設定事件清單的閃動及其他喜好設定。">設定 Windows 事件清單的喜好設定</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="從「UNIX 管理者」中，您可以設定「管理者」視窗、事件清單及事件通知的廣域喜好設定。">設定 UNIX 管理者的廣域喜好設定</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefswincond.html" title="從「Windows 管理者」中，您可以設定事件清單及警示通知的廣域喜好設定。">設定 Windows 管理者的廣域喜好設定</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterunix.html" title="使用「UNIX 過濾器建置器」，可以建置事件清單資料的過濾器。">在 UNIX 上建立或編輯過濾器</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterwin.html" title="使用「Windows 過濾器建置器」，可以建置事件清單資料的過濾器。">在 Windows 上建立或編輯過濾器</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="使用「視圖建置器」，可以定義要在事件清單中顯示的直欄。">在 UNIX 上建立或編輯視圖</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="使用「視圖建置器」，可以定義要在事件清單中顯示的直欄。">在 Windows 上建立或編輯視圖</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

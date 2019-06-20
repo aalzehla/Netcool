@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl-pl" lang="pl-pl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Ustawianie poziomu rejestrowania" />
+<meta name="abstract" content="Można zmienić poziom rejestrowania, aby uzyskać bardziej szczegółowe pliki dziennika lub śledzenia w celu ułatwienia debugowania programu MIB Manager. Dodatkowe informacje, dostępne przez zwiększenie poziomów rejestrowania, mogą być pomocne w trakcie rozwiązywania określonych problemów podczas analizy baz MIB." />
+<meta name="Description" content="Można zmienić poziom rejestrowania, aby uzyskać bardziej szczegółowe pliki dziennika lub śledzenia w celu ułatwienia debugowania programu MIB Manager. Dodatkowe informacje, dostępne przez zwiększenie poziomów rejestrowania, mogą być pomocne w trakcie rozwiązywania określonych problemów podczas analizy baz MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="pl-pl" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus wersja 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Ustawianie poziomu rejestrowania</h1>
+<div class="body refbody"><p class="shortdesc">Można zmienić poziom rejestrowania, aby uzyskać bardziej szczegółowe pliki dziennika lub śledzenia w celu ułatwienia debugowania programu <span class="keyword">MIB Manager</span>. Dodatkowe informacje, dostępne przez zwiększenie poziomów rejestrowania, mogą być pomocne w trakcie rozwiązywania określonych problemów podczas analizy baz MIB.</p>
+<div class="section"><p class="p">Aby zmienić poziom rejestrowania, należy na pasku menu w oknie głównym kliknąć opcję <span class="ph menucascade"><span class="ph uicontrol">Edycja</span> &gt; <span class="ph uicontrol">Debugowanie</span></span>. Pliki dziennika mają sześć poziomów komunikatów, które można cyklicznie przełączać w celu zwiększenia przechwytywanego poziomu szczegółowości: brak, błąd, ostrzeżenie, informacja, debugowanie oraz szczegóły.</p>
+<p class="p">Poniższa tabela zawiera krótki opis każdego poziomu rejestrowania:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabela 1. Lista poziomów rejestrowania i ich opis</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3940e36">Poziom rejestrowania</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3940e38">Opis</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3940e36 ">none (brak)</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3940e38 "><p class="p">Określa poziom rejestrowania, w którym nie są rejestrowane żadne komunikaty debugowania. </p>
+<p class="p">Wydajność aplikacji jest poprawiona, ale żadne komunikaty o błędach ani ostrzeżenia nie są wyświetlane w trakcie analizowania.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3940e36 ">error (błąd)</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3940e38 "><p class="p">Określa poziom rejestrowania, w którym rejestrowane są tylko błędy wpływające na wyniki.</p>
+<p class="p">Obejmuje to wszelkie błędy zidentyfikowane przez program <span class="keyword">MIB Manager</span>, które mogą spowodować wyświetlanie nieprawidłowych danych w oknie głównym. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3940e36 ">warn (ostrzeżenie)</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3940e38 "><p class="p">Określa poziom rejestrowania, w którym rejestrowane są komunikaty o błędach i ostrzeżenia.</p>
+<p class="p">Ostrzeżenie wskazuje warunek, który może spowodować powstanie błędnych danych i dlatego muszą one być sprawdzone. Jednak ten warunek nie powoduje, że dane są uszkodzone.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3940e36 ">info (informacja)</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3940e38 "><p class="p">Określa poziom rejestrowania, w którym rejestrowane są komunikaty informacyjne, ostrzegawcze i krytyczne.</p>
+<p class="p">Komunikaty informacyjne zawierają szczegóły dotyczące ogólnego postępu zadania. Na przykład udostępniają pełny tekst dla obiektów w trakcie ich analizowania.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3940e36 ">debug (debugowanie)</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3940e38 "><div class="p">Określa poziom rejestrowania, w którym rejestrowane są wszystkie komunikaty. <div class="note note"><span class="notetitle">Uwaga:</span> Program <span class="keyword">MIB Manager</span> należy uruchomić w trybie debugowania tylko podczas próby rozwiązania warunku błędu. Ilość danych generowanych podczas analizowania nawet umiarkowanej liczby baz MIB spowoduje szybkie zapełnienie systemu plików.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3940e36 ">verbose (szczegółowy)</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3940e38 "><p class="p">Określa poziom rejestrowania, w którym rejestrowane są wszystkie komunikaty informacyjne.</p>
+<p class="p">Komunikat szczegółowy zawiera informacje o stanie zmiennych, macierzy i innych danych w przypadku zmiany ich wartości i stanów.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Temat nadrzędny:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Aby określić katalog pliku dziennika programu MIB Manager i ustawić domyślny poziom komunikatów, należy użyć preferencji rejestrowania.">Ustawianie preferencji rejestrowania</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteka</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Wsparcie</a> |</span>
+<br />
+</div>
+</body>
+</html>

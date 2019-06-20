@@ -1,0 +1,26 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+//This function will send a message to WBE
+//create an Object with the NewObject() function,
+//populate the Name-Value pairs and send the object
+//to the SendEventToWBE function
+
+
+
+MsgObject = NewObject();
+MsgObject.Identifier='Test Id';
+MsgObject.Node='Test Node';
+MsgObject.AlertKey='Key 5';
+MsgObject.AlertGroup='Group 5';
+MsgObject.Serial=5; 
+MsgObject.Severity =5;
+MsgObject.AdditionalField="Test";
+WBEPolicy.SendEventToWBE(MsgObject);

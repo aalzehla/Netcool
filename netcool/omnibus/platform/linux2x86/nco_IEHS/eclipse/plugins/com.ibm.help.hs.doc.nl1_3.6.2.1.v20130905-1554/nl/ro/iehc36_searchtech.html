@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ro-ro" xml:lang="ro-ro">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tehnici avansate de căutare" />
+<meta name="abstract" content="Puteţi efectua căutări avansate folosind ghilimele, metacaractere, sau operatori booleani pentru a returna un set mai mic de rezultate de căutare" />
+<meta name="description" content="Puteţi efectua căutări avansate folosind ghilimele, metacaractere, sau operatori booleani pentru a returna un set mai mic de rezultate de căutare" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="ro-ro" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Tehnici avansate de căutare</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Tehnici avansate de căutare</h1>
+<div class="body"><p class="shortdesc">Puteţi efectua căutări avansate folosind ghilimele, metacaractere, sau operatori booleani pentru a returna un set mai mic de rezultate de căutare</p>
+<ul class="ul"><li class="li">Când căutaţi în sistemul de ajutor, puteţi să puneţi între ghilimele unele cuvinte sau
+fraze, identificându-le astfel ca fiind un şir exact.<p class="p">De exemplu, atunci când introduceţi <kbd class="ph userinput">"fişier istoric"</kbd> în câmpul <span class="ph uicontrol">Căutare</span>, căutaţi toate apariţiile şirului în <em class="ph i">fişier istoric</em>. dacă nu sunt introduse ghilimelele duble, sunt returnate subiectele care conţin instanţe ale cuvântului <em class="ph i">istoric</em> şi ale cuvântului <em class="ph i">fişier</em>.</p>
+</li>
+<li class="li">Puteţi folosi metacaractere cum ar fi asterisc (*) şi semnul de întrebare (?)
+în căutare pentru a mări domeniul de căutare.<ul class="ul"><li class="li">Folosiţi asterisc (*) pentru caractere multiple necunoscute sau variabile în interogarea căutării. De exemplu, dacă introduceţi <kbd class="ph userinput">par*</kbd>, sunt returnate subiectele care conţin <em class="ph i">în parte</em>, <em class="ph i">participare</em>, <em class="ph i">parţial</em> şi alte cuvinte care încep cu <em class="ph i">par</em>.<div class="note note"><span class="notetitle">Notă:</span>  
+Există o limitare pentru şirul de căutare: când folosiţi un termen de căutare cu un
+asterisc acesta trebuie să fie precedat de cel puţin trei caractere, similar un
+termen de căutare fără joker trebuie să conţină cel puţin trei caractere.</div>
+</li>
+<li class="li">Folosiţi semnul de întrebare pentru un singur caracter în interogarea căutării.
+De exemplu, dacă introduceţi <kbd class="ph userinput">par?</kbd>, sunt returnate subiecte care conţin <em class="ph i">part</em>, dar nu <em class="ph i">parţial</em> sau <em class="ph i">în parte</em>.</li>
+</ul>
+<div class="note note"><span class="notetitle">Notă:</span> La folosirea unui termen de căutare cu asterisc (*) care trebuie să fie precedat de cel puţin trei caractere</div>
+</li>
+<li class="li">Puteţi folosi operatori booleeni ŞI, SAU şi NU pentru a face interogarea mai specifică. De exemplu:<dl class="dl"><dt class="dt dlterm">istoric AND <q>"bază de date"</q></dt>
+<dd class="dd">Limitează rezultatele căutării la subiecte care conţin atât termenul <em class="ph i">bază de date</em> cât şi fraza <em class="ph i">fişier istoric</em>.</dd>
+<dt class="dt dlterm">fişier OR <q>"bază de date"</q></dt>
+<dd class="dd">Extinde rezultatul căutării la subiecte care conţin fie termenul <em class="ph i">bază de date</em> fie fraza <em class="ph i">fişier istoric</em>.</dd>
+<dt class="dt dlterm">bază de date NU "fişier istoric"</dt>
+<dd class="dd">Limitează rezultatul căutării la subiecte care conţin termenul <em class="ph i">bază de date</em> dar nu şi fraza <em class="ph i">fişier istoric</em>.</dd>
+<dt class="dt dlterm">istoric OR <q>"fişier istoric"</q> NOT <q>"bază de date"</q></dt>
+<dd class="dd">Caută subiectele care conţin fie termenul <em class="ph i">bază de date</em> sau fraza <em class="ph i">bază date</em> dar nu fraza <em class="ph i">fişier istoric</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Subiect părinte:</strong> <a class="link" href="iehs36_searching.html" title="Puteţi căuta toate subiectele din sistemul de ajutor, un subiect individual sau o colecţie de subiecte, sau puteţi crea un domeniu de căutare pentru a căuta doar un subset de informaţii. Vizualizarea Rezultate căutare poate afişa până la 500 de rezultate, aranjate după relevanţă.">Căutarea sistemului de ajutor</a></div>
+</div>
+</div></body>
+</html>

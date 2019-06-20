@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Configuring triggers" />
+<meta name="abstract" content="You can create and edit triggers from the default Netcool/OMNIbus Administrator windows, or by using an SQL script. You can create an SQL script in an external text editor. There are three types of triggers: database triggers, signal triggers, and temporal triggers." />
+<meta name="Description" content="You can create and edit triggers from the default Netcool/OMNIbus Administrator windows, or by using an SQL script. You can create an SQL script in an external text editor. There are three types of triggers: database triggers, signal triggers, and temporal triggers." />
+<meta name="DC.subject" content="triggers, configuring" />
+<meta name="keywords" content="triggers, configuring" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringautomations.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittriggergps.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditdbasetrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditsignaltrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittemptrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingxtrnleditorfortriggers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingtriggergp.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingtrigger.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_configuringtriggers" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringautomations.html" />
+<title>Configuring Tivoli Netcool/OMNIbus triggers</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_configuringtriggers">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring triggers</h1>
+<div class="body conbody"><div class="abstract"><div class="shortdesc">You can create and edit
+triggers from the default Netcool/OMNIbus Administrator windows,
+or by using an SQL script. You can create an SQL script in an external
+text editor. There are three types of triggers: database triggers,
+signal triggers, and temporal triggers. </div>
+<p class="p">Database triggers
+fire when a triggering database incident occurs. Signal triggers fire
+when a system or user-defined signal is raised. Temporal triggers
+fire repeatedly, based on a specified frequency.</p>
+</div>
+<p class="p">Every trigger must belong to a <dfn class="term">trigger group</dfn>, which
+is a collection of related triggers. You can use a single action to
+enable or disable all of the triggers in a trigger group.</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingedittriggergps.html">Creating and editing trigger groups</a></span><br />
+When creating a trigger, you are required to assign it
+to a trigger group. You can create trigger groups <em class="ph i">before</em> you
+create your triggers (as a separate action), or <em class="ph i">while</em> you are
+creating your triggers. This task describes how to create a trigger
+group in a separate action.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingeditdbasetrigg.html">Creating and editing database triggers</a></span><br />
+A database trigger fires when a triggering database modification
+occurs. For example, you can create a trigger to perform an action
+each time an insert takes place on the alerts.status table.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingeditsignaltrigg.html">Creating and editing signal triggers</a></span><br />
+Signal triggers fire when a system or user-defined signal
+is raised. <dfn class="term">System</dfn> signals are raised spontaneously by
+the ObjectServer when it detects changes to the system. <dfn class="term">User-defined</dfn> signals
+are explicitly created, raised, and dropped.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingedittemptrigg.html">Creating and editing temporal triggers</a></span><br />
+Temporal triggers fire repeatedly based on a specified
+frequency.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_usingxtrnleditorfortriggers.html">Using an external editor to create and edit triggers</a></span><br />
+From Netcool/OMNIbus Administrator, you
+can configure an external text editor and then use it to create or
+edit triggers.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_deletingtriggergp.html">Deleting trigger groups</a></span><br />
+You cannot delete a trigger group that contains triggers.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_deletingtrigger.html">Deleting triggers</a></span><br />
+</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringautomations.html" title="You can use automation to detect changes in the ObjectServer and to run automated responses to these changes. This enables the ObjectServer to process alerts without requiring an operator to take action.">Configuring automations</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

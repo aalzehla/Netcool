@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and deleting devices" />
+<meta name="abstract" content="A MIB Manager device is used to group associated MIB Modules and to define all the objects required for exporting. You can create, update, and delete devices in the MIB Manager GUI." />
+<meta name="Description" content="A MIB Manager device is used to group associated MIB Modules and to define all the objects required for exporting. You can create, update, and delete devices in the MIB Manager GUI." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Creating and deleting MIB Manager devices.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and deleting devices</h1>
+<div class="body taskbody"><p class="shortdesc">A <span class="keyword">MIB Manager</span> device is used to group associated MIB Modules and
+to define all the objects required for exporting. You can create,
+update, and delete devices in the <span class="keyword">MIB Manager</span> GUI.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p"><span class="keyword">MIB Manager</span> devices are displayed in the <span class="keyword wintitle">Device</span> view.
+Select a device from the <span class="keyword wintitle">Device</span> tree to display
+the manufacturer, the model number, and the OS version of the device.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection"><strong class="ph b">Creating a device</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">To create a new device:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">In the <span class="keyword wintitle">MIB Modules</span> view, select
+at least one MIB Module and then click <img class="image" src="../gifs/create_device.gif" alt="Create Device icon" /> (Create
+Device).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Manufacturer</span> field, select
+a device manufacturer from the drop down list.</span> <p class="p">The <span class="ph uicontrol">Model</span> and <span class="ph uicontrol">OS
+Version</span> fields are populated with the available options.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Model</span> field, select an
+option from the drop down list.</span> <p class="p">If no models are available,
+enter a descriptive model name.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">OS Version</span> field, select
+an option from the drop down list.</span> <p class="p">If no OS versions
+are available, enter a descriptive OS version name.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Mapped Mib Modules</span> field,
+select the MIB modules that you want to associate with the new device.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph uicontrol">OK</span> to create the device.</span> <p class="p">The new device is displayed in the <span class="keyword wintitle">Device</span> view.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Updating a device</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">To update a device:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">In the <span class="keyword wintitle">Device</span> view, select a device
+and expand its subnodes until the OS version is visible.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Select the OS version and then click <img class="image" src="../gifs/Edit.gif" alt="Edit Device icon" /> (Edit
+Device).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Manufacturer</span> field, select
+a device manufacturer from the drop down list.</span> <p class="p">The <span class="ph uicontrol">Model</span> and <span class="ph uicontrol">OS
+Version</span> fields are populated with the available options.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Model</span> field, select an
+option from the drop down list.</span> <p class="p">If no models are available,
+enter a descriptive model name.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">OS Version</span> field, select
+an option from the drop down list.</span> <p class="p">If no OS versions
+are available, enter a descriptive OS version name.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">In the <span class="ph uicontrol">Mapped Mib Modules</span> field,
+select the MIB modules that you want to associate with the new device.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Click <span class="ph uicontrol">OK</span> to update the device
+details.</span> <p class="p">The updated device details are displayed in
+the <span class="keyword wintitle">Device</span> view.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Deleting a device</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">In the <span class="keyword wintitle">Device</span> view, select the device
+and then click <img class="image" src="../gifs/Delete.gif" alt="Delete Device icon" /> (Delete Device). </span> <p class="p">To delete multiple
+devices, hold down the Ctrl+Alt keys, select the elements using the
+left mouse button, and then click <img class="image" src="../gifs/Delete.gif" alt="Delete Device icon" /> (Delete Device).</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="You can use MIB Manager to parse MIB modules and create Netcool rules files.">Using Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Создание и удаление устройств" />
+<meta name="abstract" content="Устройство MIB Manager используется для группировки связанных модулей MIB и для определения всех объектов, требуемых для экспорта. Вы можете создавать, обновлять и удалять устройства в графическом пользовательском интерфейсе MIB Manager." />
+<meta name="Description" content="Устройство MIB Manager используется для группировки связанных модулей MIB и для определения всех объектов, требуемых для экспорта. Вы можете создавать, обновлять и удалять устройства в графическом пользовательском интерфейсе MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Создание и удаление устройств MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Создание и удаление устройств</h1>
+<div class="body taskbody"><p class="shortdesc">Устройство <span class="keyword">MIB Manager</span> используется для группировки связанных модулей MIB и для определения всех объектов, требуемых для экспорта. Вы можете создавать, обновлять и удалять устройства в графическом пользовательском интерфейсе <span class="keyword">MIB Manager</span>.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Об этой задаче</h2></div><p class="p">Устройства <span class="keyword">MIB Manager</span> показаны в представлении <span class="keyword wintitle">Устройство</span>.
+Выберите устройство в дереве <span class="keyword wintitle">Устройство</span>, чтобы вывести производителя, номер модели и версию ОС этого устройства.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Процедура</h2></div><p class="li stepsection"><strong class="ph b">Создание устройства</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">Чтобы создать новое устройство:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">В представлении <span class="keyword wintitle">Модули MIB</span> выберите по крайней мере один модуль MIB, а затем щелкните по значку <img class="image" src="../gifs/create_device.gif" alt="Значок Создать устройство" /> (Создать устройство).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Производитель</span> выберите производителя устройства из выпадающего списка.</span> <p class="p">В полях <span class="ph uicontrol">Модель</span> и <span class="ph uicontrol">Версия ОС</span> содержатся допустимые опции выбора модели и операционной системы.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Модель</span> выберите допустимую опцию из выпадающего списка.</span> <p class="p">Если никакие модели не допустимы, введите описательное имя модели.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Версия ОС</span> выберите допустимую опцию из выпадающего списка.</span> <p class="p">Если никакие версии ОС не допустимы, введите описательное имя версии ОС.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Отображенные модули MIB</span> выберите модули MIB, которые вы хотите связать с новым устройством.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Нажмите кнопку <span class="ph uicontrol">OK</span>, чтобы создать устройство.</span> <p class="p">Новое устройство выводится в представлении <span class="keyword wintitle">Устройство</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Изменение устройства</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">Чтобы изменить устройство:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">В представлении <span class="keyword wintitle">Устройство</span> выберите устройство и раскройте его подузлы, пока не появится версия операционной системы.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Выберите версию ОС и щелкните по значку <img class="image" src="../gifs/Edit.gif" alt="Значок Изменить устройство" /> (Изменить устройство).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Производитель</span> выберите производителя устройства из выпадающего списка.</span> <p class="p">В полях <span class="ph uicontrol">Модель</span> и <span class="ph uicontrol">Версия ОС</span> содержатся допустимые опции выбора модели и операционной системы.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Модель</span> выберите допустимую опцию из выпадающего списка.</span> <p class="p">Если никакие модели не допустимы, введите описательное имя модели.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Версия ОС</span> выберите допустимую опцию из выпадающего списка.</span> <p class="p">Если никакие версии ОС не допустимы, введите описательное имя версии ОС.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">В поле <span class="ph uicontrol">Отображенные модули MIB</span> выберите модули MIB, которые вы хотите связать с новым устройством.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Нажмите кнопку <span class="ph uicontrol">OK</span>, чтобы изменить подробности устройства.</span> <p class="p">Подробности измененного устройства выводятся в представлении <span class="keyword wintitle">Устройство</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Удаление устройства</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">В представлении <span class="keyword wintitle">Устройство</span> выберите устройство, а затем щелкните по значку
+<img class="image" src="../gifs/Delete.gif" alt="значок Удалить устройство" /> (Удалить устройство). </span> <p class="p">Чтобы удалить несколько устройств, удерживайте нажатыми клавиши Ctrl+Alt, выберите элементы при помощи левой кнопки мыши, а затем щелкните по значку
+<img class="image" src="../gifs/Delete.gif" alt="значок Удалить устройство" /> (Удалить устройство).</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB Manager можно использовать для синтаксического анализа модулей MIB и создания файлов правил Netcool.">Использование Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

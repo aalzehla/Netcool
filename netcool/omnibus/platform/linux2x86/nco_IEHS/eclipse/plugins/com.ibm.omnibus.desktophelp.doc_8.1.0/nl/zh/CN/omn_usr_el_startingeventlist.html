@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="启动事件列表" />
+<meta name="abstract" content="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。" />
+<meta name="description" content="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。" />
+<meta name="DC.subject" content="事件列表, 启动" />
+<meta name="keywords" content="事件列表, 启动" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopt.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingteventlist" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>启动事件列表</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingteventlist">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">启动事件列表</h1>
+<div class="body taskbody"><p class="shortdesc">要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。
+您可以从 Conductor、命令行或 Windows <span class="ph uicontrol">开始</span>菜单启动事件列表。</p>
+<div class="section context">要启动事件列表：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">为操作系统执行相应的操作：</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="表格中的每行提供一个可选取的选项。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d184546e30-option" valign="bottom" align="left">选项</th>
+<th id="d184546e30-desc" valign="bottom" align="left">描述</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d184546e30-option" id="d184546e32" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d184546e30-desc d184546e32" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">从 Conductor 窗口单击按钮栏内的<span class="ph uicontrol">事件列表</span>。 </li>
+<li class="li">从命令提示符输入： <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d184546e30-option" id="d184546e48" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d184546e30-desc d184546e48" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">从 Conductor 菜单选择<span class="ph uicontrol">事件列表</span>。</li>
+<li class="li">从 Windows <span class="ph uicontrol">开始</span>菜单选择<span class="ph menucascade"><span class="ph uicontrol">程序</span> &gt; <span class="ph uicontrol">Netcool Suite</span> &gt; <span class="ph uicontrol">事件列表</span></span>。</li>
+<li class="li">从命令提示符输入：<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOEvent.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ 从命令行启动事件列表时，可以使用 <span class="keyword cmdname">nco_event</span> 和 <span class="keyword cmdname">NCOEvent.exe</span> 命令来指定其他命令行选项。</li>
+<li class="li step stepexpand"><span class="ph cmd">如果从命令行或 Windows <span class="ph uicontrol">开始</span>菜单启动事件列表，并且之前未启动 Conductor，系统将提示您提供认证详细信息以连接到正在运行的 ObjectServer。必须按以下方法完成事件列表的“<span class="keyword wintitle">登录</span>”窗口： </span> <dl class="dl"><dt class="dt dlterm">用户名</dt>
+<dd class="dd">请输入用户名。</dd>
+<dt class="dt dlterm">密码</dt>
+<dd class="dd">请输入密码。 在您输入文本之处显示星号（*）。<div class="note note"><span class="notetitle">注：</span> 如果是依据外部认证源（而不是 ObjectServer）验证用户名和密码，请检查该源是否支持多字节字符。
+如果不支持多字节字符，那么您必须使用 ASCII 字符指定用户名和密码。 </div>
+</dd>
+<dt class="dt dlterm">服务器</dt>
+<dd class="dd">ObjectServer 名称缺省设置为 NCOMS（Netcool/OMNIbus 主控服务器）。 如果您的环境配置了多个 ObjectServer，那么所有可用的 ObjectServer 将显示在此下拉列表中。 选择想要连接到的 ObjectServer。</dd>
+<dt class="dt dlterm">确定</dt>
+<dd class="dd">单击此按钮可认证您的登录详细信息。<div class="note note"><span class="notetitle">注：</span> 允许您进行三次登录尝试。 每次尝试时，都会清空<span class="ph uicontrol">密码</span>字段。 如果在第三次尝试时您仍然未能正确登录，那么程序将终止。</div>
+</dd>
+<dt class="dt dlterm">取消</dt>
+<dd class="dd">单击此按钮可取消您的登录尝试。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">结果</h2></div><p class="p">如果事件列表的实例（<span class="keyword cmdname">nco_event</span>）正在运行，那么 <span class="keyword cmdname">nco_event</span> 命令将打开新事件列表窗口。
+如果没有 <span class="keyword cmdname">nco_event</span> 的实例正在运行，那么 <span class="keyword cmdname">nco_event</span> 命令将启动一个实例，然后显示监视器框窗口。</p>
+<p class="p">启动事件列表时，将打开“<span class="keyword wintitle">事件列表</span>”监视器框窗口。 从此窗口可以监视和管理在 ObjectServer 接收事件、警报、消息或数据项时生成的所有警报。</p>
+<p class="p">通常，当启动事件列表时，会在“<span class="keyword wintitle">事件列表</span>”监视器框窗口内显示缺省事件列表配置（<span class="ph filepath">default.elc</span>）。
+也可以选择打开定制的事件列表配置文件。 可在命令行内或通过使用<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">打开</span></span>窗口来指定定制的配置。 这些定制的配置可能在您的文件系统上，或位于可使用 HTTP 或 FTP 访问的远程服务器上。 </p>
+<div class="note note"><span class="notetitle">故障转移登录：</span> 如果事件列表丢失了到主控 ObjectServer 的连接，并且存在辅助或故障转移 ObjectServer，那么将提示您登录到辅助 ObjectServer。 当主控 ObjectServer 再次变为可用时，将出现指示事件列表正在重新连接到主控 ObjectServer 的消息。 不需要再次登录到主控 ObjectServer。</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopt.html">UNIX 事件列表命令行选项</a></span><br />
+在 UNIX 上使用 <span class="keyword cmdname">nco_eve nt</span> 命令启动事件列表时，可指定若干命令行选项来修改配置。您可从 <span class="ph filepath">$NCHOME/omnibus/bin</span> 目录运行此命令。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopt.html">Windows 事件列表命令行选项</a></span><br />
+在 Windows 上使用 <span class="keyword cmdname">NCOEvent.exe</span> 命令启动事件列表时，可指定若干命令行选项来修改配置。可以从 <span class="ph filepath">%NCHOME%\omnibus\desktop</span> 目录运行此命令。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="您可使用事件列表来监视和管理警报。 ObjectServer 收到事件、警报、消息或数据项时，将创建警报。 每个警报由 ObjectServer alerts.status 表的行中的信息列（或字段）组成。">监视和管理事件列表中的事件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

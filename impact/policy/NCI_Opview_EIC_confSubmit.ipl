@@ -1,0 +1,178 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+Handle com.micromuse.common.datasource.SQLDataSourceException {
+   log(0,"sql excpetion encountered : " + ErrorMessage );
+   setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',true);
+   setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',ErrorMessage);
+}
+
+log(0,"######### Configuration Policy Start ###########");
+setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',false);
+setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',"");
+EIC_IsolateAndCorrelate.init();
+isSCRReq=false;
+EIC_utils.checkAllConnections(isEr,err,isSCRReq);
+Message = "";
+successMessage = "";
+errorMessage = "";
+isExceptionRaised = getGlobalVar('CHECK_CONN_EXCEPTION_RAISED');
+if( isExceptionRaised = true ) {
+  Message = getGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE');
+  log(3,"$$$$$$$$$$$$$$$$$$$$$$ Message : " + Message);
+  successMessage = "";
+} else {
+
+   log(0,"######### Condtions Passed, Adding information  ###########");
+   log(0,'Event Rule Name : ' + @eventRuleNameField);
+   log(0,'Primary Event Rule : '  + @primaryEventRuleField);
+   EIC_utils.unescapeHTMLCharacters(@primaryEventRuleField,os);
+   @primaryEventRuleField = os;
+   log(0,'is Dep Resource Required : ' + @isDepResourceNeeded);
+   log(0,'Dependent Event Rule Filed : '  + @dependentEventRuleField);
+   EIC_utils.unescapeHTMLCharacters(@dependentEventRuleField,os);
+   @dependentEventRuleField= os;
+   log(0,'Parameters :' + @parametersInDepEvent);
+   EIC_utils.unescapeHTMLCharacters(@parametersInDepEvent,os);
+   @parametersInDepEvent= os; 
+   log(0,'InitialSubmit : ' + @initialSubmit);
+   log(0,'isPrimaryEventRootCause : ' + @isPrimaryEventRootCauseValueField);
+   log(0,'Identifier FieldName : ' + @eventIdentifierField);
+   log(0,'Time Window in Seconds : ' + @timeInWinField);
+   log(0,'Remote User : ' + @REQ_REMOTEUSER );
+   log(0,"Actions : " + @eventRuleActionsField); 
+   evntRuleData = null;
+   filter = "RULENAME in ( '"+ @eventRuleNameField + "')";
+   EVENTRULEDATATYPE='EVENTRULES';
+   if( @initialSubmit = true ) {
+       @initialSubmit = false;
+       GetByFilter(EVENTRULEDATATYPE,filter,false);
+     if( Num > 0 ) {
+       log(3,"Current Context = " + CurrentContext());
+       DataItems[0].EVENTRULE=@primaryEventRuleField;
+       if( @eventIdentifierField != null ) {
+          DataItems[0].IDENTIFIER=@eventIdentifierField;
+       }
+       DataItems[0].INCLUDEDEPRESOURCES=1;
+       if( @isDepResourceNeeded = false ) {
+          DataItems[0].INCLUDEDEPRESOURCES=0;
+       }
+        if( @dependentEventRuleField != null ) {
+          log(3,"@Dep Event rule:" + @dependentEventRuleField);
+          DataItems[0].RELATEDEVENTQUERY=@dependentEventRuleField;
+       }
+       DataItems[0].ISPRIMARYROOTCAUSE= 0;
+       if( @isPrimaryEventRootCauseValueField = true ) {
+          DataItems[0].ISPRIMARYROOTCAUSE=1;
+       }
+       DataItems[0].TIMEWINDOWINSECONDS=Int(@timeInWinField);
+       eventRuleData = DataItems[0];
+       successMessage = "Save Successful";   
+     } else {
+       insertItem = NewObject();
+       insertItem.RULENAME=@eventRuleNameField;
+       insertItem.EVENTRULE=@primaryEventRuleField;
+       insertItem.INCLUDEDEPRESOURCES=1;
+       insertItem.ISAUTOPROCESS=0;
+       insertItem.ACTION=0;
+       insertItem.ENABLEACTION=0;
+       if( @isDepResourceNeeded = false ) {
+          insertItem.INCLUDEDEPRESOURCES=0;
+       }
+       insertItem.ISPRIMARYROOTCAUSE= 0;
+       if( @isPrimaryEventRootCauseValueField = true ) {
+          insertItem.ISPRIMARYROOTCAUSE=1;
+       }
+   
+       if( @dependentEventRuleField != null ) {
+          log(3,"@Dep Event rule:" + @dependentEventRuleField);
+          insertItem.RELATEDEVENTQUERY=@dependentEventRuleField;
+       }
+       if( @eventIdentifierField != null ) {
+          insertItem.IDENTIFIER =@eventIdentifierField;
+       }
+       insertItem.TIMEWINDOWINSECONDS=Int(@timeInWinField);
+       rtnVal = AddDataItem(EVENTRULEDATATYPE, insertItem);
+       GetByFilter(EVENTRULEDATATYPE,filter,false);
+       log(3,"Data Items : " + DataItems);
+       eventRuleData = DataItems[0]; 
+     }
+   
+     // Lets insert the parameter.
+     eventId = eventRuleData.ID;
+     log(3,"Event ID : " + eventId);
+     log(3," Parameter Options : " + @parametersInDepEvent);
+     keySet={};
+     keySet = keySet + "PrimaryTableColumn";
+     keySet=keySet+"regExpId";
+     keySet = keySet+"Condition";
+     keySet = keySet+"id";
+     keySet = keySet+"Substring";
+     keySet = keySet+"parmName";
+     EIC_utils.convertJsonToIPL(@parametersInDepEvent,true,keySet,outputObj);
+     paramLen = length(outputObj);
+     log(3,"After converting to IPL : " + outputObj);
+     count = 0;
+     //
+     // delete the old parameters.
+     //
+     deleteSql = ' delete from EVENTRULES.PARAMETERS where  EVENTIDENTIFIER = ' + eventId;
+     DirectSQL('EventrulesDB', deleteSql, false);
+     PARAM_DATA_TYPE=getGlobalVar('PARAMETERS_DATATYPE');
+   
+     while ( count < paramLen ) {
+        objFromInput = outputObj[count];
+        paramInsertItem = NewObject();
+        paramInsertItem.EVENTIDENTIFIER=eventId;
+        paramInsertItem.PARAMETERNAME=objFromInput['parmName'];
+        paramInsertItem.OSFIELDNAME=objFromInput['PrimaryTableColumn'];
+        paramInsertItem.CONDITION=objFromInput['Condition'];
+        paramInsertItem.FIELDREGEXPRESSION=objFromInput['regExpId'];
+        log(3,"paramInsertItem : " + paramInsertItem);
+        AddDataItem(PARAM_DATA_TYPE,paramInsertItem);
+        log(0,"Successfully added  Parameter.");
+        count= count +1;
+      }
+     //delete old actions and insert new ones..
+     deleteActionsSQL = "DELETE FROM EVENTRULES.EIC_ACTIONS where RULENAME='" + @eventRuleNameField + "'";
+     DirectSQL('EventrulesDB',deleteActionsSQL, null);
+     //get the IPL objects for Actions...
+     keySet = {};
+     keySet = keySet + "ActionName";
+     keySet = keySet + "PolicyName";
+     keySet = keySet + "AutoExecute";
+     EIC_utils.convertJsonToIPL(@eventRuleActionsField,true,keySet,outputObj);
+     total = Length(outputObj);
+     count = 0; 
+    Log("ClassOf count " + ClassOf(count));
+    Log("ClassOf total " + classOf(total));
+     Log("total is " + total); 
+     while ( count < total ) {
+         insertStr = "INSERT INTO EVENTRULES.EIC_ACTIONS VALUES ('"+@eventRuleNameField + "', ";
+         insertStr = insertStr + "'" + outputObj[count]['ActionName'] + "', ";
+         insertStr = insertStr + "'" + outputObj[count]['PolicyName'] + "', ";
+         insertStr = insertStr + "'" + outputObj[count]['AutoExecute'] + "')";
+         Log("insertStr : " + insertStr );
+         DirectSQL('EventrulesDB',insertStr, null);
+         count = count + 1;
+     }
+     log(3,"Setting up Success Message : ");
+     successMessage = "Save Successful";
+     errorMessage = "";   
+     } else {
+     log(3,"Its not a initialSubmit");
+   }
+}
+log(3,"%%%%%%%%%%%%%%%%%%%%%%%%%%% Message : " + successMessage);
+log(0,"######### Configuration Policy Complete ###########");
+
+opview_servlet_prefix="";
+opview_stylesheet="opview.css";

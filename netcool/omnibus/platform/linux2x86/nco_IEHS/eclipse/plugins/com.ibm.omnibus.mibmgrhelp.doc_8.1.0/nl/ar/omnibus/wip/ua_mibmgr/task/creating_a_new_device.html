@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="تكوين وحذف الأجهزة" />
+<meta name="abstract" content="يتم استخدام جهاز MIB Manager لجمع وحدات برامج MIB المجمعة ولتعريف كل العناصر اللازمة للارسال. يمكنك تكوين وتحديث وحذف الأجهزة فى MIB Manager GUI." />
+<meta name="Description" content="يتم استخدام جهاز MIB Manager لجمع وحدات برامج MIB المجمعة ولتعريف كل العناصر اللازمة للارسال. يمكنك تكوين وتحديث وحذف الأجهزة فى MIB Manager GUI." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>تكوين وحذف أجهزة MIB Manager.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">تكوين وحذف الأجهزة</h1>
+<div class="body taskbody"><p class="shortdesc">يتم استخدام جهاز <span class="keyword">MIB Manager</span> لجمع وحدات برامج MIB المجمعة ولتعريف كل العناصر اللازمة
+للارسال. يمكنك تكوين وتحديث وحذف
+الأجهزة فى <span class="keyword">MIB Manager</span> GUI.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">نبذة عن هذه المهمة</h2></div><p class="p">يتم عرض أجهزة <span class="keyword">MIB Manager</span> فى مشاهدة <span class="keyword wintitle">الجهاز</span>.
+حدد جهاز من تسلسل <span class="keyword wintitle">الأجهزة</span> لعرض جهة التصنيع ورقم النموذج ونسخة نظام التشغيل للجهاز.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">اجراء</h2></div><p class="li stepsection"><strong class="ph b">تكوين جهاز</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">لتكوين جهاز جديد:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">في مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span>، حدد وحدة برامج
+MIB واحدة على الأقل ثم اضغط على  <img class="image" src="../gifs/create_device.gif" alt="شارة تكوين جهاز" /> (تكوين جهاز).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">جهة التصنيع</span>، حدد جهة تصنيع الجهاز من الكشف المسقط.</span> <p class="p">يتم نشر مجال <span class="ph uicontrol">الطراز</span> ومجال <span class="ph uicontrol">نسخة نظام
+التشغيل</span> مع الاختيارات المتاحة.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">الطراز</span>، حدد اختيار من الكشف المسقط.</span> <p class="p">اذا لم يكن هناك طراز متاح، أدخل اسم طراز توصيفي.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">نسخة نظام التشغيل</span>، حدد اختيار من الكشف المسقط.</span> <p class="p">اذا لم يكن هناك نسخ نظام تشغيل متاحة، أدخل اسم نسخة نظام تشغيل توصيفي.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">وحدات برامج Mib التي تم مناظرتها</span>، حدد وحدات برامج MIB التي تريد ارفاقها مع الجهاز الجديد.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">اضغط <span class="ph uicontrol">حسنا</span> لتكوين الجهاز.</span> <p class="p">يتم عرض الجهاز الجديد في مشاهدة <span class="keyword wintitle">الجهاز</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">تحديث جهاز</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">لتحديث جهاز:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">في مشاهدة <span class="keyword wintitle">الجهاز</span>، حدد جهاز وقم بعرض العقد الفرعية الخاصة به حتى تصبح نسخة نظام التشغيل مرئية.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">حدد نسخة نظام التشغيل ثم اضغط على <img class="image" src="../gifs/Edit.gif" alt="شارة تحرير جهاز" /> (تحرير جهاز).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">جهة التصنيع</span>، حدد جهة تصنيع الجهاز من الكشف المسقط.</span> <p class="p">يتم نشر مجال <span class="ph uicontrol">الطراز</span> ومجال <span class="ph uicontrol">نسخة نظام
+التشغيل</span> مع الاختيارات المتاحة.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">الطراز</span>، حدد اختيار من الكشف المسقط.</span> <p class="p">اذا لم يكن هناك طراز متاح، أدخل اسم طراز توصيفي.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">نسخة نظام التشغيل</span>، حدد اختيار من الكشف المسقط.</span> <p class="p">اذا لم يكن هناك نسخ نظام تشغيل متاحة، أدخل اسم نسخة نظام تشغيل توصيفي.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">وحدات برامج Mib التي تم مناظرتها</span>، حدد وحدات برامج MIB التي تريد ارفاقها مع الجهاز الجديد.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">اضغط <span class="ph uicontrol">حسنا</span> لتحديث تفاصيل الجهاز.</span> <p class="p">يتم عرض تفاصيل الجهاز الذي تم تحديثه في مشاهدة <span class="keyword wintitle">الجهاز</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">حذف جهاز</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">في مشاهدة <span class="keyword wintitle">الجهاز</span>، حدد الجهاز ثم اضغط على شارة <img class="image" src="../gifs/Delete.gif" alt="حذف جهاز" /> (حذف جهاز). </span> <p class="p">لحذف أجهزة متعددة، اضغط مع الاستمرار على مفاتيح Ctrl+Alt، حدد العناصر باستخدام مفتاح الفأرة الأيسر، ثم اضغط على <img class="image" src="../gifs/Delete.gif" alt="شارة حذف جهاز" /> (حذف جهاز).</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="يمكنك استخدام MIB Manager لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool.">استخدام Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

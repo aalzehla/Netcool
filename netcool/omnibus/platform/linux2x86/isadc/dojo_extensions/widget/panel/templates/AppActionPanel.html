@@ -1,0 +1,20 @@
+<div class="AppActionPanel">
+<!-- (C) COPYRIGHT International Business Machines Corp., 2011. All Rights Reserved * Licensed Materials - Property of IBM -->
+
+<!-- MenuBar approach .. problem is that menu items are defaulted to the left -->
+<!-- 
+	<div dojoType="dijit.MenuBar" id="actionMenu">
+		<div class="menuItemContainer" style="font-weight: normal;">
+		<span dojoType="dijit.MenuBarItem" dojoAttachEvent="onClick:displayFeedback">Feedback</span>
+		
+	    <div dojoType="dijit.PopupMenuBarItem">
+		    <span>Help</span>
+	        <div dojoType="dijit.Menu" id="helpMenu">
+				<div dojotype="dijit.MenuItem" id="helpContentID" dojoAttachEvent="onClick: displayHelpContent">Help Content</div>
+				<div dojotype="dijit.MenuItem" id="aboutContentID" dojoAttachEvent="onClick: displayAbout">About Web Collector</div>
+	        </div>
+	    </div>
+	    </div>
+	</div> -->
+	<div dojoattachpoint="applicationActionPanel"></div>
+</div>

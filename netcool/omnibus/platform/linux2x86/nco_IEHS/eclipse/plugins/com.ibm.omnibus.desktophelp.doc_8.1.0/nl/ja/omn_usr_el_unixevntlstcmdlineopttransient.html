@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="一時的イベント・リストの UNIX コマンド行オプション" />
+<meta name="abstract" content="UNIX 上で nco_elct コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。" />
+<meta name="Description" content="UNIX 上で nco_elct コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。" />
+<meta name="DC.subject" content="イベント・リスト, 一時的イベント・リストの コマンド行オプション, コマンド行オプション, 一時的イベント・リスト" />
+<meta name="keywords" content="イベント・リスト, 一時的イベント・リストの コマンド行オプション, コマンド行オプション, 一時的イベント・リスト" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingtransienteventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_unixevntlstcmdlineopttransient" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingtransienteventlist.html" />
+<title>一時的イベント・リストの UNIX コマンド行オプション</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_unixevntlstcmdlineopttransient">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">一時的イベント・リストの UNIX コマンド行オプション</h1>
+<div class="body refbody"><p class="shortdesc">UNIX 上で <span class="keyword cmdname">nco_elct</span> コマンドを実行して一時的イベント・リストを開始する場合は、いくつかのコマンド行オプションを指定してイベント・リストをカスタマイズする必要があります。 <span class="ph filepath">$NCHOME/omnibus/bin</span> ディレクトリーからこのコマンドを実行できます。</p>
+<div class="section"><p class="p">以下の表では、UNIX 上で一時的イベント・リストを開始するコマンド行オプションについて説明します。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. UNIX 一時的イベント・リスト (nco_elct) コマンド行オプション</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d109317e49">コマンド行オプション</th>
+<th class="entry" valign="bottom" width="75%" id="d109317e51">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-cmap</span></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">専用カラー・マップを指定します。 このコマンド行オプションは省略することはできません。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">拡張された診断メッセージを表示します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-dualwrite 1 | 0</span></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">デスクトップ ObjectServer アーキテクチャーで動作している場合に、デュアル書き込みモードを使用可能に設定するか、または使用不可に設定するかを指定します。 有効なオプションは以下のとおりです。 <ul class="ul"><li class="li"><samp class="ph codeph">0</samp>: デュアル書き込みモードを使用不可に設定します</li>
+<li class="li"><samp class="ph codeph">1</samp>: デュアル書き込みモードを使用可能に設定します</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> コマンド行オプションにより、デスクトップ ObjectServer の master.national 表内の
+DualWrite フィールド・エントリーが無効になります。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-ffile</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">一時的イベント・リストで使用するフィルター・ファイルを
+指定します。 イベント・リスト・フィルターの拡張子は <span class="ph filepath">.elf</span> です。<div class="note note"><span class="notetitle">注:</span> HTTP および FTP を使用することにより、リモート <span class="ph filepath">.elf</span> ファイルを検索することもできます。 <span class="keyword cmdname">nco_event</span> コマンドを実行して UNIX イベント・リストを開始する場合は、<span class="keyword option">-config</span> コマンド行オプションを指定してこれを実行します。</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-fmetric</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">一時的イベント・リストのフィルター・メトリックを指定します。 <span class="keyword option">-ffile</span> コマンド行オプションを使用して既存のイベント・リスト・フィルター・ファイルを指定した場合、この設定は無視されます。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-fname</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">フィルターの名前を指定します。 <span class="keyword option">-ffile</span> コマンド行オプションを使用して既存のイベント・リスト・フィルター・ファイルを指定した場合、この設定は無視されます。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-ftext</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">イベントのフィルター処理で使用する SQL ステートメントを指定します。 <span class="keyword option">-ffile</span> コマンド行オプションを使用して既存のイベント・リスト・フィルター・ファイルを指定した場合、この設定は無視されます。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">このコマンドのヘルプを表示して終了します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">デスクトップ ObjectServer アーキテクチャー内で使用するマスター ObjectServer
+を指定します。 <p class="p"><span class="keyword option">-masterserver</span> コマンド行オプションにより、デスクトップ ObjectServer の master.national 表内の
+MasterServer フィールド・エントリーが無効になります。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var> </td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">ネットワーク障害が発生した場合に、ログイン試行または
+ObjectServer サーバーへの接続がタイムアウトするまでの時間を秒単位で指定します。 指定されたタイムアウト期間が過ぎると、
+イベント・リストは ObjectServer への再接続を試みます。 2 回目のタイムアウト期間が過ぎても接続が成功しなかった場合、イベント・リストはバックアップ ObjectServer (使用可能な場合) への接続を試みます。 デフォルトは 20 秒です。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">選択したユーザー名のパスワードを指定します。 <span class="keyword cmdname">nco_elct</span> ユーティリティーは、
+パスワード内で英数字のみを受け入れます。 パスワードに #、/、&gt;、@、および ! などの特殊文字は使用できません。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">接続する ObjectServer の名前を指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">イベント・リストにログインするのに使用するユーザー名を指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">バージョン情報を表示して終了します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d109317e49 "><span class="keyword option">-vfile</span> <var class="keyword varname">string | URL</var></td>
+<td class="entry" valign="top" width="75%" headers="d109317e51 ">指定されたイベント・リスト・ビューを使用して、
+一時的イベント・リストを開きます。 イベント・リスト・ビューのファイル拡張子は <span class="ph filepath">.elv</span> です。<div class="note note"><span class="notetitle">注:</span> HTTP および FTP を使用することにより、リモート <span class="ph filepath">.elv</span> ファイルを検索することもできます。 <span class="keyword cmdname">nco_event</span> コマンドを実行して UNIX イベント・リストを開始する場合は、<span class="keyword option">-config</span> コマンド行オプションを指定してこれを実行します。</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><div class="note tip"><span class="tiptitle">ヒント:</span> 一時的イベント・リストのコマンド行オプションは、
+それぞれ固有の最短の省略形に省略することができます。
+例えば、<span class="keyword option">-ffile</span> は
+<span class="keyword option">-ff</span> に省略することができます。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_startingtransienteventlist.html" title="UNIX のコマンド行から一時的イベント・リストを開く場合は nco_elct コマンドを使用し、Windows のコマンド行から 一時的イベント・リストを開く場合は NCOelct.exe コマンドを使用します。">コマンド行から一時的イベント・リストを開始する</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="デスクトップ ObjectServer アーキテクチャーを使用すると、負荷が重くなりがちな ObjectServer のパフォーマンスを改善できます。">デスクトップ ObjectServer アーキテクチャー</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="UNIX 上で nco_event コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。">UNIX イベント・リストのコマンド行オプション</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

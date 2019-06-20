@@ -1,0 +1,811 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+//
+// This is the main policy to process the incoming event.
+//
+// Incoming Parameter is serialNumber.
+//
+
+//
+// GLOBAL PARAMETER SO that if we change the data type name its easy to change it.
+//
+
+CI_TYPE_STR = 'CI';
+EVENT_TYPE_STR = 'EVENT';
+
+function init() {
+  setglobalvar('EVENTRULES_DB','EventrulesDB');
+  setglobalvar('EVENTRULES_DATATYPE','EVENTRULES');
+  setglobalvar('PARAMETERS_DATATYPE','EIC_PARAMETERS');
+  setglobalvar('EVENT_DATATYPE','EIC_alertquery');
+  setglobalvar('BSMIDENTITIES_DATATYPE','bsmidentities');
+  setglobalvar('DEPENDENTS_DATATYPE','getDependents');
+  setglobalvar('RESOURCEINFO_DATATYPE','getRscInfo');
+  setglobalvar('MAXDEPTH',10);
+  setglobalvar('MAX_DEP_RESOURCES',50);
+  setglobalvar('EVENT_DATASOURCE','EIC_alertsdb');
+  setglobalvar('DEFAULT_TIMEWINDOW',600);
+  setglobalvar('CI_TYPE_STR','CI');
+  setglobalvar('EVEN_TYPE_STR','EVENT');
+  setglobalvar('ENABLE_JSON_LOG',false);
+  setglobalvar('ACTIONS_DATATYPE','EIC_RulesActions');
+  setglobalvar('RESOURCES_DATATYPE','EIC_RuleResources');
+}
+
+function EIC_log(lvl,message) {
+   init();
+   log(lvl,"EIC LOG : "  + message);
+}
+
+parentsProcessed = NewObject();
+childProcessed = NewObject();
+CIsAdded = NewObject();
+/**
+* checks if there are actions to execute for the matching rule
+* based on the flag AutoExecute in the database
+*/
+function getAndExecuteActions(MatchingRuleName,inSerialNum) {
+  RuleName = GetGlobalVar("MATCHINGRULENAME");
+  EIC_log(3,"getAndExecuteActions: matching rule name : " + RuleName);
+  Actions = DirectSQL('EventrulesDB',"SELECT * FROM EventRules.EIC_Actions WHERE RULENAME='" + RuleName + "'", null);
+  PrimaryEventSerial = inSerialNum; 
+  EIC_log(3,"Number of Action(s) for rule : " + RuleName + " : " + Length(Actions)); 
+  if (Length(Actions) > 0 ) {
+    index = 0 ; 
+    while (index < Length(Actions) ) { 
+      ActionName =  Actions[index].ACTIONNAME;
+      PolicyToExecute = Actions[index].POLICYNAME;
+      AutoExecute = ""+Actions[index].AUTOEXECUTE;
+      EIC_log(3,"Action index : "  + index + " --> [ActionName : " + ActionName + "] , [Policy To Execute : " + PolicyToExecute + "] , [Auto Execute Action : " +  AutoExecute  + "]");
+      if (Trim(AutoExecute) == "true") {
+        EIC_log(3,"Action is set to be auto-executed, activating policy : " + PolicyToExecute );
+        Activate(null,PolicyToExecute);
+      } else {
+        EIC_log(3,ActionName + " Action will not be auto-executed"); 
+      }
+      index = index + 1; 
+    } 
+  }
+}
+
+function createCIDataObj(srcId, relType,dpth,parentObj,oObj,isCreatedObjectParent) {
+   EIC_log(3,"++++++ Parent Obj : " + parentObj);
+   EIC_log(3,"++++++ Child Obj : " + oObj);
+   isResourceRelationshipEnabled = @isResourceRel;
+   EIC_log(3,"++++++ IS Resource relationship enabled ? : " + isResourceRelationshipEnabled  ); 
+   oObj = NewObject(); 
+  //
+  // -1 is a special object.
+  //
+   if( srcId = -1 ) {
+     oObj.id = 'UNKNOWN';
+   } else {
+     oObj.id = srcId;
+
+   }
+   oObj.reltype=relType;
+   oObj.leveldown = dpth;
+   label = '';
+   if( srcId != -1 ) {
+      getResourceInfoLabel(label,srcId);
+   }
+   oObj.label = label;
+   oObj.children = {};
+   Log("Before isCreateObjectParent : " + isCreatedObjectParent);
+   if( isCreatedObjectParent = true ) {
+      if(  isResourceRelationshipEnabled   = true )  {
+           // In this case the parent Obj will be the child object 
+           chiId = parentObj['id'];
+           children = oObj.children;
+           children = children + chiId;
+           oObj.children = children;
+      }
+   }else {
+      Log("Else Condition : " + parentObj + " class of : " + classof(parentObj) ); 
+      if( parentObj != NULL ) {
+         if ( isResourceRelationshipEnabled   = true ) {
+            children = parentObj['children']; 
+            children = children + srcId ;
+            Log("Children : " + children);
+            parentObj['children'] = children; 
+         } 
+      }
+   }
+   CI_TYPE_STR = getglobalvar('CI_TYPE_STR');
+   oObj.type = CI_TYPE_STR;
+   //
+
+   // Set the Event Information as empty Strings.
+
+   // 
+
+   oObj.Summary = ' ' ;
+   oObj.Serial = ' ';
+   oObj.AlertGroup =' ';
+   oObj.Severity  = ' ';
+   oObj.AlertKey = ' '; 
+   oObj.Type = ' ' ;
+   oObj.Identifier = ' ';
+   oObj.Node= ' ' ;
+   // oObj.label=' ';
+   oObj.resourceIdentifier  = ' ' ;
+}
+
+function createAlrtDataObj(dItem,inIdFieldName,oObj) {
+
+   oObj = NewObject();
+   oObj.reltype=' ';
+   oObj.leveldown = ' ';
+   // oObj.label = label;
+   oObj.children = {};
+   EVENT_TYPE_STR = getglobalvar('EVENT_TYPE_STR');
+   oObj.type = EVENT_TYPE_STR;
+   //
+   // Set the Event Information.
+   // 
+   oObj.Summary = dItem.Summary;
+   oObj.Serial = dItem.Serial;
+   oObj.AlertGroup = dItem.AlertGroup;
+   oObj.Severity  = dItem.Severity;
+   oObj.AlertKey = dItem.AlertKey;
+   oObj.Type = dItem.Type;
+   oObj.Identifier = dItem.Identifier;
+   oObj.Node=dItem.Node;
+   oObj.label=' ';
+   oObj.id=dItem.Serial + '_'  + dItem.Identifier;
+   dI = dItem;
+   EIC_log(3,"Input Identity Field Name : " + inIdFieldName );
+   oObj.resourceIdentifier  = dI[inIdFieldName];
+   EIC_log(3,"Resource Identifier added to alert : " + oObj.resourceIdentifier);
+}
+
+
+function getEventRule(eventRuleInfo,sNum) {
+   init();
+   EIC_log(1,"Entering getEventInfoFromObjectServer");
+   eventRuleFilter = "1=1";
+   eventrulesdatatype=getglobalvar('EVENTRULES_DATATYPE');
+   GetByFilter(eventrulesdatatype,eventRuleFilter,false);
+   if( Num > 0 ) {
+   //
+      // There are rows in the event rules identify the event based on the filter.
+      //
+      count = 0;
+      eventRuleItems = DataItems;
+      numEventRules = Num;
+      while( count < numEventRules ) {
+          eventFilter = eventRuleItems[count].EVENTRULE;
+          eventFilter = " ( " + eventFilter + ") AND Serial = " + sNum ; 
+          EIC_log(3,"Event Filter : " + eventFilter);
+          evtDataType = getglobalvar('EVENT_DATATYPE');
+          GetByFilter(evtDataType,eventFilter,false);
+          EIC_log(3,"Return Data : " + Num);
+          // EIC_log(3,"CurrentContext : " + CurrentContext());
+          if( Num > 0 ) {
+              //
+              // found matching rule.
+              //
+              eventRuleInfo = eventRuleItems[count];
+              EIC_log(3,"found matching rule : " + eventRuleItems[count]);
+              EIC_log(3,"Identifier in the event Rule : " + eventRuleInfo.IDENTIFIER);
+              EIC_log(3,"Matching Rule Name (RULENAME) : " + eventRuleInfo.RULENAME);
+              //set rulename as global var
+              MatchingRuleName = eventRuleInfo.RULENAME;
+              Log("MatchingRuleName " + MatchingRuleName);
+              SetGlobalVar("MATCHINGRULENAME",eventRuleInfo.RULENAME);
+              Log("GetGlobalVar " + GetGlobalVar("MATCHINGRULENAME"));
+              EIC_log(3," Time window in Seconds : " + eventRuleInfo.TIMEWINDOWINSECONDS);
+              if(eventRuleInfo.TIMEWINDOWINSECONDS = null ) {
+                 defTimeWin = getglobalvar('DEFAULT_TIMEWINDOW');
+                 eventRuleInfo.TIMEWINDOWINSECONDS = defTimeWin;
+                 EIC_log(3, "After Setting default value : " + eventRuleInfo.TIMEWINDOWINSECONDS);
+              }
+
+              //
+              // Break out of the loop.
+              //
+              count = numEventRules;
+          } // end of If Num > 0
+          count = count + 1 ;
+      } // end of While loop ( count < numEventRules)
+   } // end of if Num > 0 ( outer : get from event rules datatype )
+   EIC_log(3,"Event rule info : " + eventRuleInfo);
+} // end of the function getEventRule
+
+
+function addToReturnData(inData, depNodeID) {
+  EIC_log(3,"addToReturnData entry");
+  init();
+
+  addData = 1;
+  lengthOfinData = length(inData);
+  EIC_log(3,"addToReturnData: lengthOfinData is : " + lengthOfinData);
+  j=0;
+  while( j < lengthOfinData ) {
+     Log("addToReturnData: " + j + "  inData[j].id = " + inData[j].id + " depNodeID.id = " + depNodeID.id);
+     if ( inData[j].id = depNodeID.id )  { 
+       addData = 0;
+       j = lengthOfinData;
+     } // end of if
+     j = j + 1;
+  } // end of while
+  Log("End of While for addToReturnData");
+  if ( addData = 1  ) {
+    Log("Adding to array");
+    inData = inData + depNodeID;
+    EIC_log(3,"inData after addition : " + inData);
+    idInArr = ""+depNodeID.id;
+    Log("Before assigning the value : " + idInArr);
+    CIsAdded[idInArr] = 1;
+    EIC_log(3,"After assigning the value : " + idInArr + " CIsAdded is " + CIsAdded);
+  }
+} //addToReturnData
+
+
+function getParents (parentSrcId, inputDataObj, returnData, depth ) {
+  init();
+  EIC_log(1,"Entry : getParents");
+  if (parentSrcId != NULL) {
+     Log(3,"getParents: Setting inSrcId using parentSrcId : " + parentSrcId );
+     inputSRCID = "" + parentSrcId;
+     inSrcId = "" + parentSrcId;
+  } else {
+    Log(3,"getParents: Setting inSrcId using inputDataObj"); 
+    inputSRCID = inputDataObj['id'];
+    inSrcId = ""+inputSRCID; 
+  } 
+ // inputSRCID = inputDataObj['id'];
+  //inSrcId = ""+inputSRCID; 
+  if ( parentsProcessed[inputSRCID] = 1 ) {
+    EIC_log(3,"Parent Objects have been processed for the ID : " + inputSRCID);
+  }else{
+     maxdep = getglobalvar('MAXDEPTH');
+     nMaxDepRes = getGlobalVar('MAX_DEP_RESOURCES');
+     Log(3,"Depth : " + depth + " maxdep : " + maxdep); 
+     if( depth < maxdep) {
+        filter = "tgtid = "+inputSRCID;
+        EIC_log(3,"getParents : filter : " + filter);
+        depdatatype = getglobalvar('DEPENDENTS_DATATYPE');
+        GetByFilter(depdatatype,filter,false);
+        EIC_log(3,"Number Of Parents (Num) : "  + Num);        
+        inSrcId = "" + inputSRCID; 
+        EIC_log(3,"inSrcId :  "  + inSrcId);
+        parentsProcessed[inSrcId] = 1;
+        EIC_log(3,"getParents: parentsProcessed is " + parentsProcessed);
+        if ( Num > 0 ) {
+           //
+           // found some dependents
+           //
+           Log(3,"Found parts..."); 
+           i = 0;
+           numDependents = Num;
+           dependentNodes = DataItems;
+           lLenOfRetData = Length(returnData);
+           EIC_log(3," Length of Return Data : " + lLenOfRetData );
+           while( i < numDependents && lLenOfRetData < nMaxDepRes ) {
+                //
+                // Need to create a temporary variable to handle
+                // the passing of strings between functions
+                //
+                rType = dependentNodes[i].reltype;
+                sId = dependentNodes[i].srcid;
+                createCIDataObj(sId, rType,depth,inputDataObj,data,true);
+                EIC_log(3,"inputDataObj " + inputDataObj);
+                Log("INPUT DATA OBJ  ( PARENT / CHILDREN ) : " + inputDataObj['children'] + " ID : " + inputDataObj['id'] ); 
+                addToReturnData(returnData,data);
+                i = i + 1;
+                lLenOfRetData = Length(returnData);
+                EIC_log(3,"after addition, Length Of Return Data " + lLenOfRetData);
+                Log(3,"Check if the current parent resource with id : " + sId + " has parents...");
+                getParents(sId, inputDataObj, returnData, depth );
+           } // end of while
+
+        } // end of If Num > 0
+     } // end of if depth < MAXDEPTH
+     Log(3,"Before return"); 
+  }
+  
+}//end of getParents
+
+
+
+function getDepResource(parentSrcId ,inputDataObj, returnData, depth ) {
+  init();
+  EIC_log(1,"Entry : getDepResource");
+  Log(3,"parentSrcId : " + parentSrcId );
+  if (parentSrcId != NULL) {
+     Log(3,"Setting inSrcId using parentSrcId : " + parentSrcId );
+     inputSRCID = "" + parentSrcId;
+     inSrcId = "" + parentSrcId;
+  } else {
+    Log(3,"Setting inSrcId using inputDataObj"); 
+    inputSRCID = inputDataObj['id'];
+    inSrcId = ""+inputSRCID; 
+  } 
+  Log("############################# getDepResource : SRCID : " + inSrcId  +"   "+ childProcessed[inSrcId] );
+  if ( childProcessed[inSrcId] = 1 ) {
+    EIC_log(3,"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! :: Children have been processed for the ID : " + inputSRCID);
+  }else{
+     maxdep = getglobalvar('MAXDEPTH');
+     nMaxDepRes = getGlobalVar('MAX_DEP_RESOURCES');
+     if( depth < maxdep) {
+        filter = "srcid = "+inSrcId;
+        EIC_log(3,"getDepResource : filter : " + filter);
+        depdatatype = getglobalvar('DEPENDENTS_DATATYPE');
+        GetByFilter(depdatatype,filter,false);
+        inSrcId = ""+inputSRCID;
+        childProcessed[inSrcId] = 1;
+        EIC_log(3,"getDepResource: childProcessed for inSrcId : " + inSrcId + " is : " + childProcessed);
+        if ( Num > 0 ) {
+           //
+           // found some dependents
+           //
+           i = 0;
+           numDependents = Num;
+           dependentNodes = DataItems;
+           lLenOfRetData = Length(returnData);
+           EIC_log(3,"getDepResource: Length of Return Data : " + lLenOfRetData );
+           while( i < numDependents && lLenOfRetData < nMaxDepRes ) {
+                //
+                // Need to create a temporary variable to handle
+                // the passing of strings between functions
+                //
+                rType = dependentNodes[i].reltype;
+                sId = dependentNodes[i].tgtid;
+                createCIDataObj(sId, rType,depth,inputDataObj,data,false);
+                Log("INPUT DATA OBJ  ( PARENT / CHILDREN ) : " + inputDataObj['children'] + " ID : " + inputDataObj['id'] ); 
+                addToReturnData(returnData,data);
+                i = i + 1;
+                lLenOfRetData = Length(returnData);
+           } // end of while
+
+        } // end of If Num > 0
+     } // end of if depth < MAXDEPTH
+  }
+  
+}//end of getDepResource
+
+function getDependentResourceFromRel(returnData,startingPoint, depth) {
+      EIC_log(3,"getDependentResourceFromRel entry");
+      init();
+      lengthOfReturnData = length(returnData);
+      j = startingPoint; 
+      mxDepResources = getglobalvar('MAX_DEP_RESOURCES');
+      while ( j < mxDepResources && j < lengthOfReturnData ) {
+          getDepResource(NULL,returnData[j],returnData,depth);
+          j=j+1;
+          // lengthOfReturnData = length(returnData);
+      }
+   
+}
+
+function getResourceInfoLabel(label, rtnId ) {
+  init();
+  EIC_log(1,"Entry : getResourceInfoLabel : " + label);
+  EIC_log(3,"ID : " + rtnId);
+  rsInfoFilter = "ID = "+rtnId;
+  EIC_log(3,"Filter : " + rsInfoFilter);
+  rsinfodatatype = getglobalvar('RESOURCEINFO_DATATYPE');
+  GetByFilter(rsinfodatatype,rsInfoFilter,false);
+  if(Num > 0 ) {
+     EIC_log(3,"Found Resource Info");
+     label = DataItems[0].LABEL;
+     EIC_log(3,"Resource Label : " + label);
+  }
+}
+
+
+function getResourceInfo(label, rtnId ) {
+  init();
+  EIC_log(3,"Entry : getResourceInfo : " + label);
+  EIC_log(3,"label : " + label);
+  rsInfoFilter = "label = '"+label+"'";
+  EIC_log(3,"rsInfoFilter : " + rsInfoFilter);
+  rsinfodatatype = getglobalvar('RESOURCEINFO_DATATYPE');
+  GetByFilter(rsinfodatatype,rsInfoFilter,false);
+  if(Num > 0 ) {
+     EIC_log(3,"Found Resource Info");
+     rtnId = DataItems[0].ID;
+  }
+}
+
+function buildFilter(inIdentityFieldName, inDependentResources, outFilter) {
+      init();
+          lengthOfRtnData = 0;
+          if (inDependentResources != NULL ) {
+            lengthOfRtnData = length(inDependentResources);
+           }
+          bsmIdentityFilter = null;
+          IDFilter = "";
+          i = 0;
+          while(  i < lengthOfRtnData ) {
+              IDFilter = IDFilter + "( ID = " + inDependentResources[i].id + ")";
+              i = i + 1;
+              if( i != ( lengthOfRtnData ) )  {
+                 IDFilter = IDFilter + " OR " ;
+              } // if i != lengthOFRtnData-1
+          } // end of while length OfRtnData
+          EIC_log(3,"IDFilter : " + IDFilter );
+           bsmidentitiesdatatype = getglobalvar('BSMIDENTITIES_DATATYPE');
+          GetByFilter(bsmidentitiesdatatype,IDFilter,false);
+          if ( Num > 0 ) {
+              // found the dependent Componenet Event IDs
+              i = 0;
+              bsmIdentityFilter = "";
+              while( i < Num ) {
+                 bsmIdentityFilter = bsmIdentityFilter + " ( " + inIdentityFieldName + " = '" + DataItems[i].COMPEVENTIDS+"')";
+                 i = i + 1;
+                 if( i != (Num)) {
+                    bsmIdentityFilter = bsmIdentityFilter + " OR " ;
+                 }
+              } // While i < NUM 
+         } // end of If Num > 0 
+         outFilter = bsmIdentityFilter;
+
+}
+
+function getEvents(filter,inIdentityFieldName,outA) {
+    init();
+    EIC_log(3,"Filter : " + filter);
+    eventdatatype=getglobalvar('EVENT_DATATYPE');
+    EIC_log(3,"Event Datatypename : " + eventdatatype);
+    GetByFilter(eventdatatype,filter,false);
+    i = 0;
+    alertArray = {};
+    if ( Num > 0 ) {
+       while ( i < Num ) {
+         // alrtObj = NewObject();
+         alrtObj = null;
+         createAlrtDataObj(DataItems[i],inIdentityFieldName,alrtObj );
+         alertArray = alertArray + alrtObj;
+          i = i + 1;
+        } // end of while
+     } else {
+       EIC_log(0,"No Event  was found for dependent resource");
+     } // if Num > 0
+     outA = alertArray;
+
+}
+
+function getDependentEvents(inEventInfo,inEventRuleInfo,inDependentResources, inIdentityFieldName, outAlertA) {
+     init();
+       if( inEventRuleInfo = null ) {
+         //
+          // Get Dependent Events
+          //
+          startTime = inEventInfo.LastOccurrence - getglobalvar('DEFAULT_TIMEWINDOW'); 
+          EIC_log(3,"++++++ Input Dependent Resources : " + inDependentResources);
+          buildFilter(inIdentityFieldName, inDependentResources, outFilter);
+          if ( outFilter != null && outFilter != NULL ) {
+              bsmIdentityFilter = outFilter + ' AND LastOccurrence >  ' + startTime;
+              EIC_log(3,"BSM Identity Filter : " + bsmIdentityFilter);
+              getEvents(bsmIdentityFilter,inIdentityFieldName,outA);
+              outAlertA = outA;
+          }// if ( Num > 0 )
+     }else {
+        // Get the parameters apply against the events on the dependent resources.
+        ruleIdentifier = inEventRuleInfo.ID;
+        paramFilter = "EVENTIDENTIFIER = "  + ruleIdentifier;
+        EIC_log(3,"Parameter Query Filter : " + paramFilter);
+        dependencyRule  = inEventRuleInfo.RELATEDEVENTQUERY;
+        paramdatatype=GetGlobalVar('PARAMETERS_DATATYPE');
+        GetByFilter(paramdatatype,paramFilter,false);
+        if( Num > 0 ) {
+            // Parameters are specified replace the values in the dependency rule
+            j = 0;
+            while( j < Num ) {
+              EIC_log(3,"FiledName : " + DataItems[j].OSFIELDNAME);
+              osFieldValue = inEventInfo[DataItems[j].OSFIELDNAME];
+              EIC_log(3,"OS Field Value : " + osFieldValue);
+              expression=DataItems[j].FIELDREGEXPRESSION;
+              extractedValue = Rextract(osFieldValue, expression);
+              paramName = "@" + DataItems[j].PARAMETERNAME + "@";
+              if( extractedValue != null ) {
+                 EIC_log(3,"Extracted Value : " + extractedValue);
+                 EIC_log(3,"Filed Value : " + osFieldValue);
+                 EIC_log(3,"Parameter Name : " + paramName);
+                 dependencyRule = Replace(dependencyRule, paramName, extractedValue, 1);
+              } // if extractedValue !=null
+              j = j + 1;
+            } // end of while
+        } //if ( NUM> 0 )
+        EIC_log(3,"Dependency rule : " + dependencyRule);
+        idFName = inEventRuleInfo.IDENTIFIER;
+        EIC_log(3," Identity field Name : " + idFName);
+        outFilter=null;
+        if( inEventRuleInfo.INCLUDEDEPRESOURCES = 1 ) {
+            buildFilter(idFName, inDependentResources, outFilter);
+        }
+        eventFilter = " ";
+        if( outFilter != null && outFilter != NULL) {
+           eventFilter = "(" + outFilter + ")";
+        }
+        EIC_log(3,"before if 1 " + eventFilter);
+        if( dependencyRule != null ) {
+           EIC_log(3,"before if 2 ");
+           if( outFilter != null ) {
+              EIC_log(3,"Including outFilter and dependency rule");
+              eventFilter = eventFilter + " AND "  + dependencyRule;
+           } else {
+              EIC_log(3,"Just Dependency Rule");
+              eventFilter = dependencyRule;
+           }
+        }
+         EIC_log(3,"Before calculating a time");
+         EIC_log(3,"Calculating Start time : " + inEventInfo.LastOccurrence + " " + inEventRuleInfo.TIMEWINDOWINSECONDS);
+         startTime = inEventInfo.LastOccurrence - inEventRuleInfo.TIMEWINDOWINSECONDS;
+         eventFilter=eventFilter + ' AND LastOccurrence >= ' + startTime;
+         getEvents(eventFilter,idFName,outA);
+         outAlertA = outA;
+     } // if eventRuleInfo == null
+
+}
+
+function getDependentResources(bsmIdentity, identityFieldName, returnData) {
+  init();
+   EIC_log(1,"entry :  getDependentResources identity Field Name :  " + identityFieldName  );
+   //
+   // get BSM Identities 
+   //
+   // get ID 
+   identitiesFilter = "(eventfield='" + identityFieldName + "' and compeventids='"+ bsmIdentity + "')";
+   EIC_log(3,"identities Filter : " + identitiesFilter);
+   bsmidentitiesdatatype= getglobalvar('BSMIDENTITIES_DATATYPE');
+   SQL =  " SELECT DISTINCT ID FROM TBSMSCR.VIEW_COMPONENTEVENTIDS WHERE " + identitiesFilter ;
+   DirectSQL('SCR_DB',SQL,null);
+   //GetByFilter(bsmidentitiesdatatype,identitiesFilter,false);
+   EIC_log(3,"Num of Identities returned from the identities Filter : " + Num);
+   numberOfCurrentResources = Num;
+   if( Num > 0) {
+       //
+       // Found the identity of the resource.
+       // 
+      index = 0;  
+      srcId = DataItems[0].ID;
+      EIC_log(3,"srcID : " + srcId + "~~Data Items " + DataItems[index]);
+      returnData = {};
+      data = null;
+      data = NewObject();
+      createCIDataObj(srcId, ' ',0,null ,data,false);
+
+      Log("Created Base Node");
+      // returnData = returnData+data;
+      addToReturnData(returnData,data);    
+
+
+      while (index < numberOfCurrentResources ) { 
+        Log(3,"getDependentResources: calling getDepResource on srcId: " + DataItems[index].ID); 
+        getDepResource(DataItems[index].ID,data,returnData,0);
+        index = index + 1; 
+      }
+      Log(3,"returnData =  : " + returnData);
+      depth=1;
+      lastStartingPoint = 1;
+      lenOfRetData = length(returnData);
+      storedLenOfRetData = lenOfRetData; 
+      while ( lenOfRetData > lastStartingPoint ) {
+           storedLastStartingPoint = lenOfRetData;
+           getDependentResourceFromRel(returnData,lastStartingPoint,depth);
+           depth=depth+1;
+           lenOfRetData = length(returnData);
+           storedLenOfRetData = lenOfRetData; 
+           lastStartingPoint = storedLastStartingPoint;
+      }// end of While
+      inDataObj = returnData[0]; 
+      Log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Starting to Process the parent Objects %%%%%%%%%%%%%%%%%%%%%%%%%%"); 
+      index = 0;
+      while (index < numberOfCurrentResources ) {
+        getParents (DataItems[index].ID, inDataObj, returnData, depth ); 
+        index = index + 1; 
+      } 
+      Log("Processed IDS : "  + parentsProcessed + " children " + childProcessed ); 
+      ll = Length(returnData);
+      Log(3,"After Processing get Parents :  Length of Return data : " + ll + " Before : " + storedLenOfRetData); 
+      if( ll > storedLenOfRetData ) { 
+        lastStartingPoint = storedLenOfRetData;
+        lenOfRetData = length(returnData);
+         while ( lenOfRetData > lastStartingPoint ) {
+           storedLastStartingPoint = lenOfRetData;
+           getDependentResourceFromRel(returnData,lastStartingPoint,depth);
+           depth=depth+1;
+           lenOfRetData = length(returnData);
+           storedLenOfRetData = lenOfRetData; 
+           lastStartingPoint = storedLastStartingPoint;
+      }// end of While
+ 
+      }
+     //index = index + 1; 
+   } // end of while index < Num
+
+} // end of function getDependent Resources.
+
+function findAndAssignEvents(alrt,resData,unknownObj) {
+   lenOfResData = Length(resData);
+   l = 0;
+   id = alrt['resourceIdentifier'];
+   compFilter = " AND COMPEVENTIDS in '" + id + "'";
+   EIC_log(3,"~~~~~~~~~~~ Incoming alert's Id : " + id);
+   // unknownObj = null;
+   foundMatch = false;
+   bsmDType = getGlobalVar('BSMIDENTITIES_DATATYPE');
+   while( l < lenOfResData) {
+      rData = resData[l];
+      if( rData['id'] = 'UNKNOWN') {
+        unknownObj = rData;
+      }
+      EIC_log(3,"resource Id : " + rData['id'] );
+      filterForCompId = "ID = " +rData['id'] + compFilter;
+      EIC_log(3,"Filter : " + filterForCompId );
+      GetByFilter(bsmDType , filterForCompId,true);
+      if( Num > 0 ) {
+          EIC_log(3,"Found the identity match");
+         foundMatch= true;
+         childInfo = rData['children'];
+         Log("CHILD INFO BEFORE ASSIGINGING EVENTS : " + childInfo); 
+         childInfo = childInfo + alrt['id'];
+         rData.children=childInfo;
+      }
+      l = l +1;
+   } // end of while l< lenOfResData
+   //
+   // Create a Dummy Root object and assign the CI as no 
+   // resources found. 
+   // 
+   EIC_log(3,"Found Match Value : " + foundMatch + " Alert ID : " + alrt['id']);
+   if( foundMatch = false ) {
+       childInfo = unknownObj['children'];
+       childInfo = childInfo + alrt['id'];
+       unknownObj.children=childInfo;
+       EIC_log(3,"Children Info : " + unknownObj.children);
+   }
+} // end of function findAndAssignEvents
+
+
+
+function analyze(inSerialNum, outPrimaryEventInfo, outAlertArray, outDependentResourcesArray, outEventRuleInfo,eMsg) {
+  init();
+  EIC_log(0,"++++++++++++++++++++++++++ ENTRY ANALAYZE : EIC POLICY Event Serial Number : " + inSerialNum);
+  eventInfo = null;
+  evtFilter = 'Serial = ' + inSerialNum;
+  EIC_log(3,"Event Filter : " + evtFilter);
+  eventdatatype=getglobalvar('EVENT_DATATYPE');
+  EIC_log(3,"Event Dataype : " + eventdatatype);
+  analyzeEvent = true;
+  GetByFilter(eventdatatype,evtFilter,false);
+  if( Num > 0 ) {
+     EIC_log(3,"Found the right event");
+     EIC_log(3,"Context : " + CurrentContext());
+     eventInfo = DataItems[0];
+     outPrimaryEventInfo = eventInfo;
+  } else {
+     analyzeEvent = false;
+     outAlertArray={};
+     outDependentResourcesArray = {};
+     eMsg = "Selected event is cannot be reterieved from Objectserver";
+  } // end of If Num >0
+  
+  
+  //
+  // Run the query from  eventrulesDB and serial Number in the query.
+  //
+  //
+  // get Event Rules Info :
+  //
+  if( analyzeEvent = true ) {
+     EIC_log(1,"Event Info : " + eventInfo);
+     eventRuleInfo=null;
+     getEventRule(eventRuleInfo,inSerialNum);
+     returnData={};
+     if( eventRuleInfo == null ) {
+        //
+        // no event rule was found. Use the BSM_Identity to find the dependent resource and
+        // events
+        outEventRuleInfo = null;
+        bsmIdentity = eventInfo.BSM_Identity;
+        lenOfBsmId = Length(bsmIdentity);
+        EIC_log(3,"BSM Identity : " + bsmIdentity + " Length : " + lenOfBsmId);
+     
+        if( bsmIdentity != null && bsmIdentity != '' && lenOfBsmId > 0 ) {
+            //
+            // get Dependent resources.
+             idenFieldName  = 'BSM_Identity';
+             EIC_log(3,"Field Name : " + idenFieldName);
+             getDependentResources(bsmIdentity,idenFieldName,returnData);
+             //
+             // Get Dependent Events
+             // 
+            EIC_log(3,"++++++ Return Data : " + returnData);
+            inIdentityFieldName='BSM_Identity';
+         
+            getDependentEvents(eventInfo,eventRuleInfo,returnData, inIdentityFieldName, alertArray); 
+            outAlertArray = alertArray;
+            outDependentResourcesArray = returnData;
+  
+         } else {
+            outAlertArray={};
+            outDependentResourcesArray = {};
+            EIC_log(0,"Value in BSM Identity is not a valid. Returning empty inforation");
+            eMsg = "Value in BSM Identity is not valid and No event rule matched for the selected event";
+         } // end of if ( bsmIdentity != null )
+     } else {
+            outEventRuleInfo = eventRuleInfo;
+            EIC_log(3,"Event Rule Info : " + eventRuleInfo);
+            identityValue = eventInfo[eventRuleInfo.IDENTIFIER];
+            identityField = eventRuleInfo.IDENTIFIER;
+            EIC_log(3,"Identity Field : " + identityField);
+            getDependentResources(identityValue,identityField,returnData);
+            getDependentEvents(eventInfo,eventRuleInfo,returnData, identityField, alertArray); 
+            outAlertArray = alertArray;
+            outDependentResourcesArray = returnData;
+     } // end of if ( event Rule Info if condition )
+     //
+     // add all the alert type data in to the returnData.
+     // set appropriate children values.
+     // 
+     numOfAlerts = Length(outAlertArray);
+     k = 0;
+     lenOfResD = Length(returnData);
+     createCIDataObj(-1, ' ',0,null,dummyObj,false);
+     dummyObj.label = 'No Known Resources found';
+     // outDependentResourcesArray = outDependentResourcesArray + dummyObj;
+     EIC_log(3,"Assigning Events : " + outDependentResourcesArray );
+
+     while( k < numOfAlerts ) {
+         findAndAssignEvents(outAlertArray[k],outDependentResourcesArray,dummyObj);
+         k = k + 1;
+     }
+     nodesInUnknown = dummyObj['children'];
+     lenOfChildren = Length(nodesInUnknown);
+     EIC_log(1," Resources in Unknown : " + dummyObj);
+     if( lenOfChildren > 0 ) {
+       EIC_log(0," There are event associated with unknown resources");
+       outDependentResourcesArray = outDependentResourcesArray + dummyObj;
+     }
+  
+     outDependentResourcesArray = outDependentResourcesArray + outAlertArray;
+  } // if analyze = true
+  // EIC_log(3,"Dependent Resources : " + returnData);
+  MatchingRuleName = GetGlobalVar("MATCHINGRULENAME");
+  Log("MatchingRuleName from GetGlobalVar : " + MatchingRuleName );
+  EIC_log(3,"Check for Actions...");
+   Log("Length(outDependentResourcesArray ) " + Length(outDependentResourcesArray ));
+   
+  //Activate the EIC_UtilsJS policy to form all the resources in an arrayOfObjects;
+  //Activate(null,"EIC_UtilsJS"); 
+  //Log("Resources Impact Objects: " + arrayOfObjects); 
+   if (MatchingRuleName != NULL && outDependentResourcesArray != NULL && Length(outDependentResourcesArray ) > 0) { 
+     EIC_utils.createImpactObjectsFromResources(MatchingRuleName ,inSerialNum,outDependentResourcesArray  ,arrayOfObjectsIPL);
+     Log("Resources Impact Objects from IPL : " + arrayOfObjectsIPL); 
+    //convert the objects to a JSON String to insert it into the database.
+     EIC_utils.convertToJSONStr(arrayOfObjectsIPL,"Resources",resourcesJSON);
+     Log("resourcesJSON : " + resourcesJSON);
+    EIC_utils.insertOrUpdateRuleResources(MatchingRuleName,inSerialNum,resourcesJSON); 
+    getAndExecuteActions(MatchingRuleName,inSerialNum);
+   } 
+  EIC_log(0,"++++++++++++++++++++++++++ EXIT ANALAYZE : EIC POLICY ");
+}
+
+//EIC_log(3,"Current Context : " + currentContext());
+
+serialNum = @serialNumber;
+//serialNum =1042;
+ 
+isResourceRelationshipEnabled = @isResourceRel ;
+EIC_log(3,"~~~~~~~~~~~~~~ RCA POLICY ~~~~~~~~~~~~ ");
+EIC_log(3,"isResourceRelationshipEnabled is " + isResourceRelationshipEnabled);
+analyze(serialNum, primaryEventInfo, alertArray, dependentResourcesArray,eRuleInfo,em );
+EIC_log(0," Primary Event Info : " + primaryEventInfo);
+EIC_log(0,"alert Array : " + alertArray);
+idValue = 'Identifier';
+EIC_utils.convertToJSONStr(alertArray,idValue,outString);
+EIC_log(0,"resources Array : "  + dependentResourcesArray);
+EIC_log(0,"~~~~~~~~~~~~~~END OF EXECUTION :  RCA POLICY ~~~~~~~~~~~~ ");

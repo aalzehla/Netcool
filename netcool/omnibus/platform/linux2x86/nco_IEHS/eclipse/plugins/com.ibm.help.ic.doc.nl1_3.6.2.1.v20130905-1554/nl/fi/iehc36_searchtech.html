@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fi-fi" xml:lang="fi-fi">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Tarkennetun haun tekniikat" />
+<meta name="abstract" content="Voit tehdä tarkempia hakuja käyttämällä lainausmerkkejä, yleismerkkejä tai Boolen operaattoreita, jotka palauttavat vähemmän hakutuloksia" />
+<meta name="description" content="Voit tehdä tarkempia hakuja käyttämällä lainausmerkkejä, yleismerkkejä tai Boolen operaattoreita, jotka palauttavat vähemmän hakutuloksia" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="fi-fi" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Tarkennetun haun tekniikat</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Tarkennetun haun tekniikat</h1>
+<div class="body"><p class="shortdesc">Voit tehdä tarkempia hakuja käyttämällä lainausmerkkejä, yleismerkkejä tai Boolen operaattoreita, jotka palauttavat vähemmän hakutuloksia</p>
+<ul class="ul"><li class="li">Kun teet hakuja Information Center -sivustossa, voit määrittää sanoja tai lauseita tarkkana merkkijonona kirjoittamalla ne lainausmerkkeihin.<p class="p">Kun esimerkiksi kirjoitat <span class="ph uicontrol">Haku</span>-kenttään merkkijonon <kbd class="ph userinput">"tiedoston loki"</kbd>, järjestelmä hakee merkkijonon <em class="ph i">tiedoston loki</em> kaikkia esiintymiä. Jos et kirjoita merkkijonoa lainausmerkkeihin, järjestelmä palauttaa aiheet, jotka sisältävät sekä sanan <em class="ph i">loki</em> että sanan <em class="ph i">tiedoston</em>.</p>
+</li>
+<li class="li">Voit laajentaa hakua käyttämällä yleismerkkejä, kuten tähteä (*) ja kysymysmerkkiä (?).<ul class="ul"><li class="li">Tähti (*) tarkoittaa sitä, että hakukyselyssä on useita tuntemattomia tai muuttuvia merkkejä. Jos kirjoitat esimerkiksi merkkijonon <kbd class="ph userinput">osa*</kbd>, järjestelmä palauttaa aiheet, jotka sisältävät sanan <em class="ph i">osa</em>, <em class="ph i">osallistua</em> tai <em class="ph i">osasto</em> tai jonkin muun merkkijonolla <em class="ph i">osa</em> alkavan sanan.<div class="note note"><span class="notetitle">Huomautus:</span>  Hakumerkkijonoon liittyy seuraava rajoitus: kun käytät hakumerkkijonossa tähteä, sen edellä on oltava vähintään kolme merkkiä. Myös muissa kuin yleismerkkejä sisältävissä hakumerkkijonoissa on oltava vähintään kolme merkkiä.</div>
+</li>
+<li class="li">Kysymysmerkki tarkoittaa hakukyselyssä yksittäistä merkkiä.
+Jos kirjoitat esimerkiksi merkkijonon <kbd class="ph userinput">osa?</kbd>, järjestelmä palauttaa aiheet, jotka sisältävät sanan <em class="ph i">osat</em>, mutta ei aiheita, jotka sisältävät sanan <em class="ph i">osallistua</em> tai <em class="ph i">osasto</em>.</li>
+</ul>
+</li>
+<li class="li">Voit tarkentaa kyselyä käyttämällä Boolen operaattoreita AND, OR ja NOT. Esimerkiksi:<dl class="dl"><dt class="dt dlterm">tietokanta AND "tiedoston loki"</dt>
+<dd class="dd">Rajaa hakutulokset aiheisiin, jotka sisältävät sekä sanan <em class="ph i">tietokanta</em> että sanaliiton <em class="ph i">tiedoston loki</em>.</dd>
+<dt class="dt dlterm">tietokanta OR "tiedoston loki"</dt>
+<dd class="dd">Laajentaa hakutuloksia aiheisiin, jotka sisältävät joko sanan <em class="ph i">tietokanta</em> tai sanaliiton <em class="ph i">tiedoston loki</em>.</dd>
+<dt class="dt dlterm">tietokanta NOT "tiedoston loki"</dt>
+<dd class="dd">Rajaa hakutulokset aiheisiin, jotka sisältävät sanan <em class="ph i">tietokanta</em>, mutta eivät sanaliittoa <em class="ph i">tiedoston loki</em>.</dd>
+<dt class="dt dlterm">tietokanta OR "tieto kanta" NOT "tiedoston loki"</dt>
+<dd class="dd">Hakee aiheita, jotka sisältävät joko sanan <em class="ph i">tietokanta</em> tai sanaliiton <em class="ph i">tieto kanta</em>, mutta eivät sanaliittoa <em class="ph i">tiedoston loki</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Pääaihe:</strong> <a class="link" href="iehs36_searching.html" title="Voit hakea tietoja Information Center -sivuston kaikista aiheista, hakea yksittäistä aihetta tai aihekokoelmaaa tai luoda hakualueen, jonka avulla haetaan vain tietojen alijoukkoa. Hakutulosnäkymässä voidaan näyttää enintään 500 tulosta tärkeysjärjestyksessä.">Haku Information Center -sivustossa</a></div>
+</div>
+</div></body>
+</html>

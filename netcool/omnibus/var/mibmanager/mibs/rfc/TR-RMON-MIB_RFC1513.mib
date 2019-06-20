@@ -1,0 +1,1619 @@
+
+TR-RMON-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    Counter                              FROM RFC1155-SMI
+    DisplayString                        FROM RFC1158-MIB
+--    mib-2                                FROM RFC1213-MIB
+    OBJECT-TYPE                          FROM RFC-1212;
+--    rmon, OwnerString, EntryStatus,
+--	statistics, history, filter,
+--	capture				FROM RFC1271-MIB;
+  
+
+--  This MIB module uses the extended OBJECT-TYPE macro as
+--  defined in [9].
+
+--  MIB-II (same prefix as MIB-I)
+
+    mib-2      OBJECT IDENTIFIER ::= { mgmt 1 }
+
+    rmon       OBJECT IDENTIFIER ::= { mib-2 16 }
+
+    tokenRing  OBJECT IDENTIFIER ::= { rmon 10 }
+
+              -- textual conventions
+
+            OwnerString ::= DisplayString
+              -- This data type is used to model an administratively
+              -- assigned name of the owner of a resource. This
+              -- information is taken from the NVT ASCII character set.
+              -- It is suggested that this name contain one or more
+              -- of the following:
+              -- IP address, management station name, network manager's
+              -- name, location, or phone number.
+              -- In some cases the agent itself will be the owner of
+              -- an entry.  In these cases, this string shall be set
+              -- to a string starting with 'monitor'.
+              --
+              -- SNMP access control is articulated entirely in terms of
+              -- the contents of MIB views; access to a particular SNMP
+              -- object instance depends only upon its presence or
+              -- absence in a particular MIB view and never upon its
+              -- value or the value of related object instances. Thus,
+              -- objects of this type afford resolution of resource
+              -- contention only among cooperating managers; they
+              -- realize no access control function with respect
+              -- to uncooperative parties.
+              --
+              -- By convention, objects with this syntax are declared
+              -- as having
+              --
+              --      SIZE (0..127)
+
+
+--              EntryStatus ::= INTEGER
+--                         { valid(1),
+--                           createRequest(2),
+--                           underCreation(3),
+--                           invalid(4)
+--                         }
+
+              -- The status of a table entry.
+              --
+              -- Setting this object to the value invalid(4) has the
+              -- effect of invalidating the corresponding entry.
+              -- That is, it effectively disassociates the mapping
+              -- identified with said entry.
+              -- It is an implementation-specific matter as to whether
+              -- the agent removes an invalidated entry from the table.
+              -- Accordingly, management stations must be prepared to
+              -- receive tabular information from agents that corresponds
+              -- to entries currently not in use.  Proper
+              -- interpretation of such entries requires examination
+              -- of the relevant EntryStatus object.
+              --
+              -- An existing instance of this object cannot be set to
+              -- createRequest(2).  This object may only be set to
+              -- createRequest(2) when this instance is created.  When
+              -- this object is created, the agent may wish to create
+              -- supplemental object instances to complete a conceptual
+              -- row in this table.  Immediately after completing the
+              -- create operation, the agent must set this object to
+              -- underCreation(3).
+              --
+              -- Entries shall exist in the underCreation(3) state until
+              -- the management station is finished configuring the
+              -- entry and sets this object to valid(1) or aborts,
+              -- setting this object to invalid(4).  If the agent
+              -- determines that an entry has been in the
+              -- underCreation(3) state for an abnormally long time,
+              -- it may decide that the management station has
+              -- crashed.  If the agent makes this decision,
+              -- it may set this object to invalid(4) to reclaim the
+              -- entry.  A prudent agent will understand that the
+              -- management station may need to wait for human input
+              -- and will allow for that possibility in its
+              -- determination of this abnormally long period.
+
+
+              statistics        OBJECT IDENTIFIER ::= { rmon 1 }
+              history           OBJECT IDENTIFIER ::= { rmon 2 }
+              alarm             OBJECT IDENTIFIER ::= { rmon 3 }
+              hosts             OBJECT IDENTIFIER ::= { rmon 4 }
+              hostTopN          OBJECT IDENTIFIER ::= { rmon 5 }
+              matrix            OBJECT IDENTIFIER ::= { rmon 6 }
+              filter            OBJECT IDENTIFIER ::= { rmon 7 }
+              capture           OBJECT IDENTIFIER ::= { rmon 8 }
+              event             OBJECT IDENTIFIER ::= { rmon 9 }
+
+-- Part of the statistics group
+
+tokenRingStatsTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF TokenRingStatsEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+	"A list of Token Ring statistics entries."
+    ::= { statistics 2 }
+
+tokenRingStatsEntry OBJECT-TYPE
+    SYNTAX TokenRingStatsEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+	"A collection of statistics kept for a particular
+	Token Ring interface."
+    INDEX { tokenRingStatsIndex }
+    ::= { tokenRingStatsTable 1 }
+
+TokenRingStatsEntry ::= SEQUENCE {
+  tokenRingStatsIndex                   INTEGER,
+  tokenRingStatsDatasource              OBJECT IDENTIFIER,
+  tokenRingStatsDropEvents              Counter,
+  tokenRingStatsOctets                  Counter,
+  tokenRingStatsPackets                 Counter,
+  tokenRingStatsDataBroadcastPackets    Counter,
+  tokenRingStatsDataAllRoutesBroadcasts Counter,
+  tokenRingStatsDataMulticastPackets    Counter,
+  tokenRingStatsMacOctets               Counter,
+  tokenRingStatsMacPackets              Counter,
+  tokenRingStatsRingPurgeEvents         Counter,
+  tokenRingStatsRingPurgePackets        Counter,
+  tokenRingStatsBeaconEvents            Counter,
+  tokenRingStatsBeaconPackets           Counter,
+  tokenRingStatsMonitorContentionEvents Counter,
+  tokenRingStatsMonitorContentionPackets Counter,
+  tokenRingStatsNAUNChanges             Counter,
+  tokenRingStatsLineErrors              Counter,
+  tokenRingStatsInternalErrors          Counter,
+  tokenRingStatsBurstErrors             Counter,
+  tokenRingStatsACErrors                Counter,
+  tokenRingStatsAbortErrors             Counter,
+  tokenRingStatsLostFramesErrors        Counter,
+  tokenRingStatsCongestionErrors        Counter,
+  tokenRingStatsFrameCopiedErrors       Counter,
+  tokenRingStatsFrequencyErrors         Counter,
+  tokenRingStatsTokenErrors             Counter,
+  tokenRingStatsSoftErrorReports        Counter,
+  tokenRingStatsDataPkts18to63Octets    Counter,
+  tokenRingStatsDataPkts64to127Octets   Counter,
+  tokenRingStatsDataPkts128to255Octets  Counter,
+  tokenRingStatsDataPkts256to511Octets  Counter,
+  tokenRingStatsDataPkts512to1023Octets Counter,
+  tokenRingStatsDataPkts1024to2047Octets Counter,
+  tokenRingStatsDataPkts2048to4095Octets Counter,
+  tokenRingStatsDataPkts4096to8191Octets Counter,
+  tokenRingStatsDataPkts8192to18000Octets Counter,
+  tokenRingStatsDataPkts18000orGreaterOctets Counter
+}
+
+tokenRingStatsIndex OBJECT-TYPE
+    SYNTAX INTEGER (1..65535)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The value of this object uniquely identifies this
+        tokenRingStats entry."
+    ::= { tokenRingStatsEntry 1 }
+
+tokenRingStatsDataSource OBJECT-TYPE
+    SYNTAX OBJECT IDENTIFIER
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "This object identifies the source of the data that
+        this tokenRingStats entry is configured to analyze.  This
+        source can be any tokenRing interface on this device.
+        In order to identify a particular interface, this object
+        shall identify the instance of the ifIndex object,
+        defined in [4,6], for the desired interface.  For example,
+        if an entry were to receive data from interface #1,
+        this object would be set to ifIndex.1.
+
+        The statistics in this group reflect all packets
+        on the local network segment attached to the identified
+        interface.
+
+	This object may not be modified if the associated
+        tokenRingStatsStatus object is equal to valid(1)."
+    ::= { tokenRingStatsEntry 2 }
+
+tokenRingStatsDropEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of events in which packets
+        were dropped by the probe due to lack of resources.
+        Note that this number is not necessarily the number of
+        packets dropped; it is just the number of times this
+        condition has been detected."
+    ::= { tokenRingStatsEntry 3 }
+
+tokenRingStatsOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of octets of data (including
+        those in bad packets) received on the
+        network (excluding framing bits but including
+        FCS octets)."
+    ::= { tokenRingStatsEntry 4 }
+
+tokenRingStatsPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of packets (including error packets)
+        received."
+    ::= { tokenRingStatsEntry 5 }
+
+tokenRingStatsDataBroadcastPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good Data packets received that were
+        directed to an LLC broadcast address (0xFFFFFFFFFFFF or
+	0xC000000000FF)."
+    ::= { tokenRingStatsEntry 6 }
+
+tokenRingStatsDataAllRoutesBroadcastPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good packets received that were
+	All Routes Broadcast."
+    ::= { tokenRingStatsEntry 7 }
+
+tokenRingStatsDataMulticastPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good Data packets received that were
+        directed to a local or global multicast or functional address.
+	Note that this number does not include packets directed to
+	the broadcast address."
+    ::= { tokenRingStatsEntry 8 }
+
+tokenRingStatsMACOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of octets of data in MAC packets
+	(including those in bad MAC packets) received on the
+        network (excluding framing bits but including
+        FCS octets)."
+    ::= { tokenRingStatsEntry 9 }
+
+tokenRingStatsMACPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of MAC packets (including error packets)
+        received."
+    ::= { tokenRingStatsEntry 10 }
+
+tokenRingStatsRingPurgeEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of times that the ring enters the ring purge
+        state from normal ring state.
+        The ring purge state that comes from the monitor contention
+        or beacon state is not counted."
+    ::= { tokenRingStatsEntry 11 }
+
+tokenRingStatsRingPurgePackets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Ring Purge MAC packets detected by
+	the probe."
+    ::= { tokenRingStatsEntry 12 }
+
+tokenRingStatsBeaconEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of times that the ring enters the beaconing
+	state."
+    ::= { tokenRingStatsEntry 13 }
+
+tokenRingStatsBeaconPackets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Beacon MAC packets detected by
+	the probe."
+    ::= { tokenRingStatsEntry 14 }
+
+tokenRingStatsMonitorContentionEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of times that the ring enters the monitor
+        contention state from normal ring state or ring purge state.
+	The monitor contention state that comes from the beacon
+	state is not counted."
+    ::= { tokenRingStatsEntry 15 }
+
+tokenRingStatsMonitorContentionPackets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Monitor Contention MAC packets detected by
+	the probe."
+    ::= { tokenRingStatsEntry 16 }
+
+tokenRingStatsNAUNChanges OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of NAUN changes detected by the probe."
+    ::= { tokenRingStatsEntry 17 }
+
+tokenRingStatsLineErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Line Errors reported in error reporting
+	packets detected by the probe."
+    ::= { tokenRingStatsEntry 18 }
+
+tokenRingStatsInternalErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of adapter internal errors reported in error
+	reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 19 }
+
+tokenRingStatsBurstErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of burst errors reported in error
+	reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 20 }
+
+tokenRingStatsACErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of AC (Address Copied)  errors
+	reported in error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 21 }
+
+tokenRingStatsAbortErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of abort delimiters reported in
+	error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 22 }
+
+tokenRingStatsLostFramesErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of lost frame errors
+	reported in error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 23 }
+
+tokenRingStatsCongestionErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of receive congestion errors
+	reported in error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 24 }
+
+tokenRingStatsFrameCopiedErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of frame copied errors
+	reported in error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 25 }
+
+tokenRingStatsFrequencyErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of frequency errors
+	reported in error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 26 }
+
+tokenRingStatsTokenErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of token errors
+	reported in error reporting packets detected by the probe."
+    ::= { tokenRingStatsEntry 27 }
+
+tokenRingStatsSoftErrorReports OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of soft error report frames
+	detected by the probe."
+    ::= { tokenRingStatsEntry 28 }
+
+tokenRingStatsDataPkts18to63Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 18 and 63 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 29 }
+
+tokenRingStatsDataPkts64to127Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 64 and 127 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 30 }
+
+tokenRingStatsDataPkts128to255Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 128 and 255 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 31 }
+
+tokenRingStatsDataPkts256to511Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 256 and 511 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 32 }
+
+tokenRingStatsDataPkts512to1023Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 512 and 1023 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 33 }
+
+tokenRingStatsDataPkts1024to2047Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 1024 and 2047 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 34 }
+
+tokenRingStatsDataPkts2048to4095Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 2048 and 4095 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 35 }
+
+tokenRingStatsDataPkts4096to8191Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 4096 and 8191 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 36 }
+
+tokenRingStatsDataPkts8192to18000Octets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were between 8192 and 18000 octets in length
+	inclusive, excluding framing bits but including FCS octets."
+    ::= { tokenRingStatsEntry 37 }
+
+tokenRingStatsDataPkts18000orGreaterOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of data packets (including error packets)
+        received that were greater than or equal to 18000 octets in
+	length inclusive, excluding framing bits but including FCS
+	octets."
+    ::= { tokenRingStatsEntry 38 }
+
+-------------------------------------------------------
+-- part of the history group
+
+tokenRingHistoryTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF TokenRingHistoryEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+	"A list of Token Ring statistics entries."
+    ::= { history 3 }
+
+tokenRingHistoryEntry OBJECT-TYPE
+    SYNTAX TokenRingHistoryEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+	"A collection of statistics kept for a particular
+	Token Ring interface."
+    INDEX { tokenRingHistoryIndex }
+    ::= { tokenRingHistoryTable 1 }
+
+TokenRingHistoryEntry ::= SEQUENCE {
+  tokenRingHistoryIndex                   INTEGER,
+  tokenRingHistorySampleIndex		  INTEGER,
+  tokenRingHistoryIntervalStart		  TimeTicks,
+  tokenRingHistoryDropEvents              Counter,
+  tokenRingHistoryOctets                  Counter,
+  tokenRingHistoryPackets                 Counter,
+  tokenRingHistoryDataBroadcastPackets    Counter,
+  tokenRingHistoryDataAllRoutesBroadcasts Counter,
+  tokenRingHistoryDataMulticastPackets    Counter,
+  tokenRingHistoryMacOctets               Counter,
+  tokenRingHistoryMacPackets              Counter,
+  tokenRingHistoryRingPurgeEvents         Counter,
+  tokenRingHistoryRingPurgePackets        Counter,
+  tokenRingHistoryBeaconEvents            Counter,
+  tokenRingHistoryBeaconPackets           Counter,
+  tokenRingHistoryMonitorContentionEvents Counter,
+  tokenRingHistoryMonitorContentionPackets Counter,
+  tokenRingHistoryNAUNChanges             Counter,
+  tokenRingHistoryLineErrors              Counter,
+  tokenRingHistoryInternalErrors          Counter,
+  tokenRingHistoryBurstErrors             Counter,
+  tokenRingHistoryACErrors                Counter,
+  tokenRingHistoryAbortErrors             Counter,
+  tokenRingHistoryLostFramesErrors        Counter,
+  tokenRingHistoryCongestionErrors        Counter,
+  tokenRingHistoryFrameCopiedErrors       Counter,
+  tokenRingHistoryFrequencyErrors         Counter,
+  tokenRingHistoryTokenErrors             Counter,
+  tokenRingHistorySoftErrorReports        Counter,
+  tokenRingHistoryActiveStations	  INTEGER
+}
+
+tokenRingHistoryIndex OBJECT-TYPE
+    SYNTAX INTEGER (1..65535)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The history of which this entry is a part.  The
+	history identified by a particular value of this
+	index is the same history as identified
+	by the same value of historyControlIndex."
+    ::= { tokenRingHistoryEntry 1 }
+
+tokenRingHistorySampleIndex OBJECT-TYPE
+    SYNTAX OBJECT IDENTIFIER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"An index that uniquely identifies the particular
+	sample this entry represents among all samples
+	associated with the same historyControlEntry.
+	This index starts at 1 and increases by one
+	as each new sample is taken."
+    ::= { tokenRingHistoryEntry 2 }
+
+tokenRingHistoryIntervalStart OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The value of sysUpTime at the start of the interval
+	over which this sample was measured.  If the probe
+	keeps track of the time of day, it should start
+	the first sample of the history at a time such that
+	when the next hour of the day begins, a sample is
+	started at that instant.  Note that following this
+	rule may require the probe to delay collecting the
+	first sample of the history, as each sample must be
+	of the same interval.  Also note that the sample which
+	is currently being collected is not accessible in this
+	table until the end of its interval."
+    ::= { tokenRingHistoryEntry 3 }
+
+tokenRingHistoryDropEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of events in which packets
+	were dropped by the probe due to lack of resources
+	during this interval.  Note that this number is not
+	necessarily the number of packets dropped, it is just
+	the number of times this condition has been detected."
+    ::= { tokenRingHistoryEntry 4 }
+
+tokenRingHistoryOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of octets of data (including
+        those in bad packets) received on the
+        network (excluding framing bits but including
+        FCS octets)."
+    ::= { tokenRingHistoryEntry 5 }
+
+tokenRingHistoryPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of packets (including error packets)
+        received during this sampling interval."
+    ::= { tokenRingHistoryEntry 6 }
+
+tokenRingHistoryDataBroadcastPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good Data packets received during
+	this sampling interval that were directed to an LLC
+	broadcast address (0xFFFFFFFFFFFF or 0xC000000000FF)."
+    ::= { tokenRingHistoryEntry 7 }
+
+tokenRingHistoryDataAllRoutesBroadcastPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good packets received during this
+	sampling interval that were All Routes Broadcast."
+    ::= { tokenRingHistoryEntry 8 }
+
+tokenRingHistoryDataMulticastPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good Data packets received during this
+	sampling interval that were directed to a local or global
+	multicast or functional address.  Note that this number does
+	not include packets directed to	the broadcast address."
+    ::= { tokenRingHistoryEntry 9 }
+
+tokenRingHistoryMACOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of octets of data in MAC packets
+	(including those in bad MAC packets) received on the
+        network during this sampling interval (excluding framing
+	bits but including FCS octets)."
+    ::= { tokenRingHistoryEntry 10 }
+
+tokenRingHistoryMACPkts OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of MAC packets (including error packets)
+        received during this sampling interval."
+    ::= { tokenRingHistoryEntry 11 }
+
+tokenRingHistoryRingPurgeEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of times that the ring entered the ring purge
+        state from normal ring state during this sampling interval.
+        The ring purge state that comes from the monitor contention
+        or beacon state is not counted."
+    ::= { tokenRingHistoryEntry 12 }
+
+tokenRingHistoryRingPurgePackets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Ring Purge MAC packets detected by
+	the probe during this sampling interval."
+    ::= { tokenRingHistoryEntry 13 }
+
+tokenRingHistoryBeaconEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of times that the ring enters the beaconing
+	state during this sampling interval."
+    ::= { tokenRingHistoryEntry 14 }
+
+tokenRingHistoryBeaconPackets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Beacon MAC packets detected by
+	the probe during this sampling interval."
+    ::= { tokenRingHistoryEntry 15 }
+
+tokenRingHistoryMonitorContentionEvents OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of times that the ring enters the monitor
+        contention state from normal ring state or ring purge state
+	during this sampling interval.  The monitor contention state
+	that comes from the beacon state is not counted."
+    ::= { tokenRingHistoryEntry 16 }
+
+tokenRingHistoryMonitorContentionPackets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Monitor Contention MAC packets detected by
+	the probe during this sampling interval."
+    ::= { tokenRingHistoryEntry 17 }
+
+tokenRingHistoryNAUNChanges OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of NAUN changes detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 18 }
+
+tokenRingHistoryLineErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Line Errors reported in error reporting
+	packets detected by the probe during this sampling interval."
+    ::= { tokenRingHistoryEntry 19 }
+
+tokenRingHistoryInternalErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of adapter internal errors reported in error
+	reporting packets detected by the probe during this sampling
+	interval."
+    ::= { tokenRingHistoryEntry 20 }
+
+tokenRingHistoryBurstErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of burst errors reported in error
+	reporting packets detected by the probe during this sampling
+	interval."
+    ::= { tokenRingHistoryEntry 21 }
+
+tokenRingHistoryACErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of AC (Address Copied) errors
+	reported in error reporting packets detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 22 }
+
+tokenRingHistoryAbortErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of abort delimiters reported in
+	error reporting packets detected by the probe during
+	this sampling interval."
+    ::= { tokenRingHistoryEntry 23 }
+
+tokenRingHistoryLostFramesErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of lost frame errors
+	reported in error reporting packets detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 24 }
+
+tokenRingHistoryCongestionErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of receive congestion errors
+	reported in error reporting packets detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 25 }
+
+tokenRingHistoryFrameCopiedErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of frame copied errors
+	reported in error reporting packets detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 26 }
+
+tokenRingHistoryFrequencyErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of frequency errors
+	reported in error reporting packets detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 27 }
+
+tokenRingHistoryTokenErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of token errors
+	reported in error reporting packets detected by the probe
+	during this sampling interval."
+    ::= { tokenRingHistoryEntry 28 }
+
+tokenRingHistorySoftErrorReports OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of soft error report frames
+	detected by the probe during this sampling interval."
+    ::= { tokenRingHistoryEntry 29 }
+
+tokenRingHistoryActiveStations OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The maximum number of active stations on the ring
+	detected by the probe during this sampling interval."
+    ::= { tokenRingHistoryEntry 30 }
+
+---------------------------------------------------------
+
+-- The Ring Station group
+
+ringStationControlTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF RingStationControlEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A list of host table control entries."
+    ::= { tokenRing 1 }
+
+ringStationControlEntry OBJECT-TYPE
+    SYNTAX RingStationControlEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A list of parameters that set up the discovery of hosts
+        on a particular interface and the collection of statistics
+        about these hosts."
+    INDEX { ringStationControlIfIndex }
+    ::= { ringStationControlTable 1 }
+
+RingStationControlEntry ::= SEQUENCE {
+    ringStationControlIfIndex          INTEGER (1..65535),
+    ringStationControlTableSize        INTEGER,
+    ringStationControlActiveStations   INTEGER,
+    ringStationControlRingState        INTEGER,
+    ringStationControlBeaconSender     OCTET STRING (SIZE(6)),
+    ringStationControlBeaconNAUN       OCTET STRING (SIZE(6)),
+    ringStationControlChanges	       Counter,
+    ringStationControlOwner            OwnerString,
+    ringStationControlStatus           INTEGER
+}
+
+ringStationControlIfIndex OBJECT-TYPE
+    SYNTAX INTEGER (1..65535)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The value of this object uniquely identifies the
+        interface on this remote network monitoring device from which
+	ringStation data is collected.  The interface identified by
+	a particular value of this object is the same interface as
+	identified by the same value of the ifIndex object, defined
+	in [4,6]."
+    ::= { ringStationControlEntry 1 }
+
+ringStationControlTableSize OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The number of ringStationEntries in the ringStationTable
+        associated with this ringStationControlEntry."
+    ::= { ringStationControlEntry 2 }
+
+ringStationControlActiveStations OBJECT-TYPE
+    SYNTAX INTEGER (1..255)
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The number of active ringStationEntries in the
+	ringStationTable associated with this
+	ringStationControlEntry."
+    ::= { ringStationControlEntry 3 }
+
+ringStationControlRingState OBJECT-TYPE
+    SYNTAX INTEGER {
+	normalOperation(1),
+	ringPurgeState(2),
+	monitorContentionState(3),
+	beaconFrameStreamingState(4),
+	beaconBitStreamingState(5),
+	beaconRingSignalLossState(6),
+	beaconSetRecoveryModeState(7)
+    }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The current status of this ring."
+    ::= { ringStationControlEntry 4 }
+
+ringStationControlBeaconSender OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE(6))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The address of the sender of the last beacon frame received
+	on this	ring.  If no beacon frames have been received, this
+	object shall be equal to six octets of zero."
+    ::= { ringStationControlEntry 5 }
+
+ringStationControlBeaconNAUN OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE(6))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The address of the NAUN in the last beacon frame received
+	on this	ring.  If no beacon frames have been received, this
+	object shall be equal to six octets of zero."
+    ::= { ringStationControlEntry 6 }
+
+ringStationControlChanges OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The number of add and delete events in the 
+        ringStationTable associated with this ringStationControlEntry.
+	If nochanges have occurred, this value shall be zero."
+    ::= { ringStationControlEntry 7 }
+
+ringStationControlOwner OBJECT-TYPE
+    SYNTAX OwnerString
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The entity that configured this entry and is therefore
+        using the resources assigned to it."
+    ::= { ringStationControlEntry 8 }
+
+ringStationControlStatus OBJECT-TYPE
+    SYNTAX INTEGER
+             { valid(1),
+               createRequest(2),
+               underCreation(3),
+               invalid(4)
+             }
+
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The status of this ringStationControl entry.
+
+        If this object is not equal to valid(1), all associated
+        entries in the ringStationTable shall be deleted by the agent."
+    ::= { ringStationControlEntry 9 }
+
+ringStationTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF RingStationEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A list of ring station entries."
+    ::= { tokenRing 2 }
+
+ringStationEntry OBJECT-TYPE
+    SYNTAX RingStationEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A collection of statistics for a particular station that has
+        been discovered on a ring monitored by this device."
+    INDEX { ringStationIfIndex, ringStationMacAddress }
+    ::= { ringStationTable 1 }
+
+RingStationEntry ::= SEQUENCE {
+    ringStationIfIndex                    INTEGER,
+    ringStationMacAddress                 OCTET STRING,
+    ringStationOrderIndex                 INTEGER,
+    ringStationStationStatus              INTEGER,
+    ringStationLastEnterTime              TimeTicks,
+    ringStationLastExitTime               TimeTicks,
+    ringStationDuplicateAddresses         Counter,
+    ringStationLineErrors                 Counter,
+    ringStationInternalErrors             Counter,
+    ringStationBurstErrors                Counter,
+    ringStationACErrors                   Counter,
+    ringStationAbortErrors                Counter,
+    ringStationLostFramesErrors           Counter,
+    ringStationCongestionsErrors          Counter,
+    ringStationFrameCopiedErrors          Counter,
+    ringStationFrequencyErrors            Counter,
+    ringStationTokenErrors                Counter,
+    ringStationInBeaconErrors             Counter,
+    ringStationOutBeaconErrors            Counter,
+    ringStationInsertions                 Counter
+}
+
+ringStationIfIndex OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The value of this object uniquely identifies the
+        interface on this remote network monitoring device on which
+	this station was detected.  The interface identified by
+	a particular value of this object is the same interface as
+	identified by the same value of the ifIndex object, defined
+	in [4,6]."
+    ::= { ringStationEntry 1 }
+
+ringStationMACAddress OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE(6))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The physical address of this station."
+    ::= { ringStationEntry 2 }
+
+ringStationOrderIndex OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"This index denotes the location of this station with respect to
+	other stations on the ring.  This index is equal to the number
+	of hops downstream that this station is from the rmon probe.
+	The rmon probe itself gets the value zero."
+    ::= { ringStationEntry 3 }
+
+ringStationStationStatus OBJECT-TYPE
+    SYNTAX INTEGER {
+	active(1),
+	inactive(2),
+	notInRingPoll(3),
+	forcedRemoval(4)
+    }
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The insert status of this station on the ring."
+    ::= { ringStationEntry 4 }
+
+ringStationLastEnterTime OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The value of sysUpTime at the time this station last entered
+	the ring."
+    ::= { ringStationEntry 5 }
+
+ringStationLastExitTime OBJECT-TYPE
+    SYNTAX TimeTicks
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The value of sysUpTime at the time this station last exited
+	the ring."
+    ::= { ringStationEntry 6 }
+
+ringStationDuplicateAddresses OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The number of times this station experienced a duplicate
+	address error."
+    ::= { ringStationEntry 7 }
+
+ringStationLineErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of Line Errors pertaining to this station
+	reported in error reporting packets detected by the probe."
+    ::= { ringStationEntry 8 }
+
+ringStationInternalErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of adapter internal errors pertaining to
+	this station reported in error reporting packets detected
+	by the probe."
+    ::= { ringStationEntry 9 }
+
+ringStationBurstErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of burst errors pertaining to this station
+	reported in error reporting packets detected by the probe."
+    ::= { ringStationEntry 10 }
+
+ringStationACErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of AC (Address Copied) errors pertaining to
+	this station reported in error reporting packets detected by
+	the probe."
+    ::= { ringStationEntry 11 }
+
+ringStationAbortErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of abort delimiters pertaining to this station
+	reported in error reporting packets detected by the probe."
+    ::= { ringStationEntry 12 }
+
+ringStationLostFramesErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of lost frame errors pertaining to this station
+	reported in error reporting packets detected by the probe."
+    ::= { ringStationEntry 13 }
+
+ringStationCongestionErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of receive congestion errors pertaining to
+	this station reported in error reporting packets detected by
+	the probe."
+    ::= { ringStationEntry 14 }
+
+ringStationFrameCopiedErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of frame copied errors pertaining to this station
+	reported in error reporting packets detected by the probe."
+    ::= { ringStationEntry 15 }
+
+ringStationFrequencyErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of frequency errors pertaining to this station
+	reported in error reporting packets detected by the probe."
+    ::= { ringStationEntry 16 }
+
+ringStationTokenErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The total number of token errors pertaining to this station
+	reported in error reporting frames detected by the probe."
+    ::= { ringStationEntry 17 }
+
+ringStationInBeaconErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	""
+    ::= { ringStationEntry 18 }
+
+ringStationOutBeaconErrors OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	""
+    ::= { ringStationEntry 19 }
+
+ringStationInsertions OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	""
+    ::= { ringStationEntry 20 }
+
+-- The ring station config table contains configuration information for
+-- each station on the ring.
+-- If an rmon agent cannot retrieve any of the configuration objects
+-- the agent must not create the object, even if it leaves the
+-- row with some collumns missing.
+
+ringStationConfigTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF RingStationConfigEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A list of ring station entries."
+    ::= { tokenRing 2 }
+
+ringStationConfigEntry OBJECT-TYPE
+    SYNTAX RingStationConfigEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+        "A collection of statistics for a particular station that has
+        been discovered on a ring monitored by this device."
+    INDEX { ringStationConfigIfIndex, ringStationConfigMacAddress }
+    ::= { ringStationConfigTable 1 }
+
+RingStationConfigEntry ::= SEQUENCE {
+    ringStationConfigIfIndex              INTEGER,
+    ringStationConfigMacAddress           OCTET STRING,
+    ringStationConfigRemove		  INTEGER,
+    ringStationConfigUpdateStats	  INTEGER
+    -- location, microcode level, group address, functional address
+    -- ....
+}
+
+ringStationConfigIfIndex OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The value of this object uniquely identifies the
+        interface on this remote network monitoring device on which
+	this station was detected.  The interface identified by
+	a particular value of this object is the same interface as
+	identified by the same value of the ifIndex object, defined
+	in [4,6]."
+    ::= { ringStationConfigEntry 1 }
+
+ringStationConfigMACAddress OBJECT-TYPE
+    SYNTAX OCTET STRING (SIZE(6))
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The physical address of this station."
+    ::= { ringStationConfigEntry 2 }
+
+ringStationConfigRemove OBJECT-TYPE
+    SYNTAX INTEGER {
+	stable(1),
+	remove(2)
+    }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "Setting this object to remove(2) causes a Remove Station MAC
+	frame to be sent."
+    ::= { ringStationConfigEntry 3 }
+
+ringStationConfigUpdate OBJECT-TYPE
+    SYNTAX INTEGER {
+	stable(1),
+	update(2)
+    }
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "Setting this object to update(2) causes the configuration
+	information in this entry to be updated."
+    ::= { ringStationConfigEntry 4 }
+
+--------------------------------------------------
+
+-- The Source Routing group
+
+sourceRoutingStatsTable OBJECT-TYPE
+    SYNTAX SEQUENCE OF SourceRoutingStatsEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+	"A list of source routing statistics entries."
+    ::= { tokenRing 3 }
+
+sourceRoutingStatsEntry OBJECT-TYPE
+    SYNTAX SourceRoutingStatsEntry
+    ACCESS not-accessible
+    STATUS mandatory
+    DESCRIPTION
+	"A collection of source routing statistics kept for a
+	particular Token Ring interface."
+    INDEX { sourceRoutingStatsIfIndex }
+    ::= { sourceRoutingStatsTable 1 }
+
+SourceRoutingStatsEntry ::= SEQUENCE {
+  sourceRoutingStatsIfIndex                        INTEGER,
+  sourceRoutingStatsRingNumber                     INTEGER,  -- RO
+  sourceRoutingStatsInFrames                       Counter, -- in to our net
+  sourceRoutingStatsOutFrames                      Counter, -- out from our net
+  sourceRoutingStatsThroughFrames                  Counter, -- through our net
+  sourceRoutingStatsAllRoutesBroadcastFrames       Counter,
+  sourceRoutingStatsSingleRouteBroadcastFrames     Counter,
+  sourceRoutingStatsInOctets                       Counter,
+  sourceRoutingStatsOutOctets                      Counter,
+  sourceRoutingStatsThroughOctets                  Counter,
+  sourceRoutingStatsAllRoutesBroadcastOctets       Counter,
+  sourceRoutingStatsSingleRoutesBroadcastOctets    Counter,
+  sourceRoutingStats0HopsFrames                    Counter,
+  sourceRoutingStats1HopFrames                     Counter,
+  sourceRoutingStats2HopsFrames                    Counter,
+  sourceRoutingStats3HopsFrames                    Counter,
+  sourceRoutingStats4HopsFrames                    Counter,
+  sourceRoutingStats5HopsFrames                    Counter,
+  sourceRoutingStats6HopsFrames                    Counter,
+  sourceRoutingStats7HopsFrames                    Counter,
+  sourceRoutingStats8orMoreHopsFrames              Counter,
+  sourceRoutingStatsOwner                          OwnerString,
+  sourceRoutingStatsStatus                         INTEGER
+}
+
+sourceRoutingStatsIfIndex OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The value of this object uniquely identifies the
+        interface on this remote network monitoring device on which
+	source routing statistics will be detected.  The interface
+	identified by a particular value of this object is the same
+	interface as identified by the same value of the ifIndex object,
+	defined	in [4,6]."
+    ::= { sourceRoutingStatsEntry 1 }
+
+sourceRoutingStatsRingNumber OBJECT-TYPE
+    SYNTAX INTEGER
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The ring Number of the ring monitored by this entry.  When
+	any object in this entry is created, the probe will attempt to
+	discover the ring number.  Only after the ring number is
+	discovered will this object be created.  After creating an
+	object in this entry, the Management Station should poll
+	this object to detect when it is created.  Only after this object
+	is created can the Management Station set the
+	sourceRoutingStatsStatusentry to valid(1)."
+    ::= { sourceRoutingStatsEntry 2 }
+
+sourceRoutingStatsInFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The count of frames sent into this ring from another ring."
+    ::= { sourceRoutingStatsEntry 3 }
+
+sourceRoutingStatsOutFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The count of frames sent from this ring to another ring."
+    ::= { sourceRoutingStatsEntry 4 }
+
+sourceRoutingStatsThroughFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The count of frames sent another ring, through this ring,
+	to another ring."
+    ::= { sourceRoutingStatsEntry 5 }
+
+sourceRoutingStatsAllRoutesBroadcastFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good frames received that were
+	All Routes Broadcast."
+    ::= { sourceRoutingStatsEntry 6 }
+
+sourceRoutingStatsSingleRoutesBroadcastFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of good frames received that were
+	Single Route Broadcast."
+    ::= { sourceRoutingStatsEntry 7 }
+
+sourceRoutingStatsInOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The count of octets in good frames sent into this ring
+	from another ring."
+    ::= { sourceRoutingStatsEntry 8 }
+
+sourceRoutingStatsOutOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The count of octets in good frames sent from this ring
+	to another ring."
+    ::= { sourceRoutingStatsEntry 9 }
+
+sourceRoutingStatsThroughOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+	"The count of octets in good frames sent another ring,
+	through this ring, to another ring."
+    ::= { sourceRoutingStatsEntry 10 }
+
+sourceRoutingStatsAllRoutesBroadcastOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of octets in good frames received that were
+	All Routes Broadcast."
+    ::= { sourceRoutingStatsEntry 11 }
+
+sourceRoutingStatsSingleRoutesBroadcastOctets OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of octets in good frames received that were
+	Single Route Broadcast."
+    ::= { sourceRoutingStatsEntry 12 }
+
+sourceRoutingStats0HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved who had no routing
+	information."
+    ::= { sourceRoutingStatsEntry 13 }
+
+sourceRoutingStats1HopFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 1 hop."
+    ::= { sourceRoutingStatsEntry 14 }
+
+sourceRoutingStats2HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 2 hops."
+    ::= { sourceRoutingStatsEntry 15 }
+
+sourceRoutingStats3HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 3 hops."
+    ::= { sourceRoutingStatsEntry 16 }
+
+sourceRoutingStats4HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 4 hops."
+    ::= { sourceRoutingStatsEntry 17 }
+
+sourceRoutingStats5HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 5 hops."
+    ::= { sourceRoutingStatsEntry 18 }
+
+sourceRoutingStats6HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 6 hops."
+    ::= { sourceRoutingStatsEntry 19 }
+
+sourceRoutingStats7HopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 7 hops."
+    ::= { sourceRoutingStatsEntry 20 }
+
+sourceRoutingStats8orMoreHopsFrames OBJECT-TYPE
+    SYNTAX Counter
+    ACCESS read-only
+    STATUS mandatory
+    DESCRIPTION
+        "The total number of frames recieved whose route had 8 or more
+	hops."
+    ::= { sourceRoutingStatsEntry 21 }
+
+sourceRoutingStatsOwner OBJECT-TYPE
+    SYNTAX OwnerString
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The entity that configured this entry and is therefore
+        using the resources assigned to it."
+    ::= { sourceRoutingStatsEntry 22 }
+
+sourceRoutingStatsStatus OBJECT-TYPE
+    SYNTAX INTEGER
+             { valid(1),
+               createRequest(2),
+               underCreation(3),
+               invalid(4)
+             }
+
+    ACCESS read-write
+    STATUS mandatory
+    DESCRIPTION
+        "The status of this sourceRoutingStats entry."
+    ::= { sourceRoutingStatsEntry 23 }
+
+END

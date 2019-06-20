@@ -1,0 +1,977 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="System signals and their attributes" />
+<meta name="abstract" content="When a system signal is raised, attributes that identify the cause of the signal are set. These attributes are passed as implicit variables into the associated signal trigger." />
+<meta name="Description" content="When a system signal is raised, attributes that identify the cause of the signal are set. These attributes are passed as implicit variables into the associated signal trigger." />
+<meta name="DC.subject" content="system signals, signals" />
+<meta name="keywords" content="system signals, signals" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_systemsignalsattribs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>System signals and their attributes</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_systemsignalsattribs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">System signals and their attributes</h1>
+<div class="body refbody"><p class="shortdesc">When a system signal is raised, attributes that identify
+the cause of the signal are set. These attributes are passed as implicit
+variables into the associated signal trigger.</p>
+<div class="section"><p class="p">You can refer to system signal variables by using the <samp class="ph codeph">%signal</samp> notation
+in the action section of a signal trigger. The <samp class="ph codeph">%</samp> symbol
+indicates that you are referencing an implicit variable. The <samp class="ph codeph">signal</samp> keyword
+references the signal currently passed to the trigger. For example,
+to reference the time at which a system signal was raised in a signal
+trigger, use the following syntax:</p>
+<pre class="pre codeblock"><code>%signal.at</code></pre>
+<div class="note tip"><span class="tiptitle">Tip:</span> You can also use the <samp class="ph codeph">%</samp> helper button to
+select <samp class="ph codeph">%signal</samp> variables.</div>
+<p class="p">The system signals
+that can be raised by the ObjectServer or the gateway are as follows:</p>
+<ul class="ul"><li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_startupsignal">startup signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_shutdownsignal">shutdown signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_connectsignal">connect signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_disconnectsignal">disconnect signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_backupfailedsignal">backup_failed signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_backupsucceededsignal">backup_succeeded signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_loginfailedsignal">login_failed signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_securitytimeoutsignal">security_timeout signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_createobjectsignal">create_object signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_alterobjectsignal">alter_object signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_dropobjectsignal">drop_object signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_permissiondeniedsignal">permission_denied signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwcounterpartdownsignal">gw_counterpart_down signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwcounterpartupsignal">gw_counterpart_up signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducmissedsignal">iduc_missed signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducconnectsignal">iduc_connect signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducdisconnectsignal">iduc_disconnect signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducdatafetchsignal">iduc_data_fetch signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_resynclocksignal">resync_lock signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_resyncunlocksignal">resync_unlock signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwresyncstartsignal">gw_resync_start signal</a></li>
+<li class="li"><a class="xref" href="#omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwresyncfinishsignal">gw_resync_finish signal</a></li>
+</ul>
+<div class="note tip"><span class="tiptitle">Tip:</span> You can query the catalog.primitive_signals
+table and the catalog.primitive_signal_parameters table to view information
+about system signals. For example, to view the attributes of each
+system signal, use the following SQL command: <br /><samp class="ph codeph">SELECT
+* FROM catalog.primitive_signal_parameters ORDER BY SignalName, OrdinalPosition;</samp></div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_startupsignal"><h2 class="title sectiontitle">startup signal</h2><p class="p">The
+startup signal is raised when the ObjectServer starts. The following
+table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. startup
+signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e125">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e127">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e129">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e125 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e127 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e129 ">Indicates the name of the ObjectServer that
+started.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e125 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e127 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e129 ">Indicates the computer on which the ObjectServer
+started.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e125 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e127 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e129 ">Indicates the time at which the ObjectServer
+started.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_shutdownsignal"><h2 class="title sectiontitle">shutdown signal</h2><p class="p">The
+shutdown signal is raised when the ObjectServer shuts down. The following
+table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. shutdown
+signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e170">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e172">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e174">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e170 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e172 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e174 ">Indicates the name of the ObjectServer that
+shut down.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e170 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e172 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e174 ">Indicates the computer on which the ObjectServer
+shut down.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e170 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e172 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e174 ">Indicates the time at which the ObjectServer
+shut down.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_connectsignal"><h2 class="title sectiontitle">connect signal</h2><p class="p">The
+connect signal is raised when a client connects to the ObjectServer.
+The following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 3. connect signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e215">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e217">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e219">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e215 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e217 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e219 ">Indicates the type of client process that connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e215 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e217 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e219 ">Contains additional information about the client
+that connected, where available. For example, if the client is a probe,
+the description contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e215 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e217 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e219 ">Indicates the name of the user that connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e215 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e217 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e219 ">Indicates the name of the client computer that
+connected to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e215 "><var class="keyword varname">connectionid</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e217 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e219 ">Uniquely identifies the connection.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e215 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e217 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e219 ">Indicates the time at which the client connected.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_disconnectsignal"><h2 class="title sectiontitle">disconnect signal</h2><p class="p">The
+disconnect signal is raised when a client disconnects from the ObjectServer.
+The following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 4. disconnect signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e284">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e286">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e288">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e284 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e286 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e288 ">Indicates the type of process that disconnected
+from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e284 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e286 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e288 ">Contains additional information about the client
+that disconnected, where available. For example, if the client is
+a probe, the description contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e284 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e286 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e288 ">Indicates the name of the user that disconnected
+from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e284 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e286 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e288 ">Indicates the name of the client computer that
+disconnected from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e284 "><var class="keyword varname">connectionid</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e286 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e288 ">Uniquely identifies the connection.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e284 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e286 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e288 ">Indicates the time at which the client disconnected.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_backupfailedsignal"><h2 class="title sectiontitle">backup_failed
+signal</h2><p class="p">The backup_failed signal is raised when an attempt
+to back up the ObjectServer fails. The following table describes the
+attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 5. backup_failed signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e353">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e355">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e357">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e353 "><var class="keyword varname">error</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e355 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e357 ">Indicates a reason why the backup attempt failed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e353 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e355 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e357 ">Indicates the time at which the backup attempt
+occurred.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e353 "><var class="keyword varname">path_prefix</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e355 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e357 ">Indicates the directory to which the backup
+attempted to write.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e353 "><var class="keyword varname">elapsed_time</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e355 ">real</td>
+<td class="entry" valign="top" width="60%" headers="d33562e357 ">Indicates the amount of time the backup was
+running before it failed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e353 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e355 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e357 ">Indicates the name of the computer from which
+the backup was run.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_backupsucceededsignal"><h2 class="title sectiontitle">backup_succeeded
+signal</h2><p class="p">The backup_succeeded signal is raised when the ObjectServer
+is successfully backed up. The following table describes the attributes
+of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 6. backup_succeeded signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e414">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e416">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e418">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e414 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e416 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e418 ">Indicates the time at which the backup occurred.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e414 "><var class="keyword varname">path_prefix</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e416 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e418 ">Indicates the directory to which the backup
+was written.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e414 "><var class="keyword varname">elapsed_time</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e416 ">real</td>
+<td class="entry" valign="top" width="60%" headers="d33562e418 ">Indicates the amount of time that the backup
+took to complete.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e414 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e416 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e418 ">Indicates the name of the computer from which
+the backup was run.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_loginfailedsignal"><h2 class="title sectiontitle">login_failed signal</h2><p class="p">The
+login_failed signal is raised when a client fails to log in to the
+ObjectServer. The following table describes the attributes of this
+signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 7. login_failed signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e467">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e469">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e471">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e467 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e469 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e471 ">Indicates the name of the process that could
+not connect because the login was denied.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e467 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e469 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e471 ">Indicates the name of the user that failed to
+connect because login was denied.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e467 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e469 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e471 ">Indicates the name of the client computer that
+could not connect because the login was denied.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e467 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e469 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e471 ">Indicates the time at which the client failed
+to connect because the login was denied.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_securitytimeoutsignal"><h2 class="title sectiontitle">security_timeout
+signal</h2><p class="p">The security_timeout signal is raised when a login
+attempt to the ObjectServer times out. The following table describes
+the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 8. security_timeout signal
+attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e520">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e522">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e524">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e520 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e522 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e524 ">Indicates the name of the process that failed
+to connect because login credentials could not be validated.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e520 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e522 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e524 ">Indicates the name of the user that failed to
+connect because login credentials could not be validated.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e520 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e522 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e524 ">Indicates the name of the client computer that
+failed to connect because login credentials could not be validated.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e520 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e522 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e524 ">Indicates the time at which the client failed
+to connect because login credentials could not be validated.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_createobjectsignal"><h2 class="title sectiontitle">create_object
+signal</h2><p class="p">The create_object signal is raised when an object
+is created in the ObjectServer. The following table describes the
+attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 9. create_object signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e573">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e575">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e577">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">objecttype</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the object type, which is one of the
+following types:<ul class="ul"><li class="li"><span class="keyword option">CREATE DATABASE</span></li>
+<li class="li"><span class="keyword option">CREATE TABLE</span></li>
+<li class="li">CREATE INDEX</li>
+<li class="li"><span class="keyword option">CREATE TRIGGER GROUP</span></li>
+<li class="li"><span class="keyword option">CREATE TRIGGER</span></li>
+<li class="li"><span class="keyword option">CREATE PROCEDURE</span></li>
+<li class="li"><span class="keyword option">CREATE RESTRICTION FILTER</span></li>
+<li class="li"><span class="keyword option">CREATE USER SIGNAL</span></li>
+<li class="li"><span class="keyword option">CREATE FILE</span></li>
+<li class="li"><span class="keyword option">CREATE USER</span></li>
+<li class="li"><span class="keyword option">CREATE GROUP</span></li>
+<li class="li"><span class="keyword option">CREATE ROLE</span></li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">parentname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the name of the parent object. For
+triggers, this is the trigger group name. For tables, this is the
+database name. Other objects do not have a parent object.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the name of the object. For example,
+the value for the alerts.status table is <samp class="ph tt">status</samp>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the name of the user that ran the
+command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the name of the ObjectServer to which
+the object was added.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the name of the computer running the
+ObjectServer to which the object was added.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">hostname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the name of the client computer from
+which the request to add the object was made.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e573 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e575 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e577 ">Indicates the time at which the object was added.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_alterobjectsignal"><h2 class="title sectiontitle">alter_object signal</h2><p class="p">The
+alter_object signal is raised when an object in the ObjectServer is
+altered. The following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 10. alter_object signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e698">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e700">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e702">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">objecttype</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the object type, which is one of the
+following types: <ul class="ul"><li class="li"><span class="keyword option">ALTER TABLE</span></li>
+<li class="li"><span class="keyword option">ALTER TRIGGER GROUP</span></li>
+<li class="li"><span class="keyword option">ALTER TRIGGER</span></li>
+<li class="li"><span class="keyword option">ALTER PROCEDURE</span></li>
+<li class="li"><span class="keyword option">ALTER RESTRICTION FILTER</span></li>
+<li class="li"><span class="keyword option">ALTER USER SIGNAL</span> </li>
+<li class="li"><span class="keyword option">ALTER FILE</span></li>
+<li class="li"><span class="keyword option">ALTER USER</span></li>
+<li class="li"><span class="keyword option">ALTER GROUP</span></li>
+<li class="li"><span class="keyword option">ALTER ROLE</span></li>
+</ul>
+<div class="note note"><span class="notetitle">Note:</span> The ALTER PROCEDURE, ALTER RESTRICTION FILTER,
+and ALTER USER SIGNAL permissions are required if a CREATE OR REPLACE
+command is run against an object of one of these types and the object
+already exists. You must have the appropriate ALTER permission even
+though there is no ALTER command for these objects.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">parentname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the name of the parent object. For
+triggers, this is the trigger group name. For tables, this is the
+database name. Other objects do not have a parent object.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the name of the object. For example,
+the value for the alerts.status table is <samp class="ph tt">status</samp>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the name of the user that ran the
+command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the name of the ObjectServer in which
+the object was altered.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the name of the computer running the
+ObjectServer in which the object was altered.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">hostname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the name of the client computer from
+which the request to alter the object was made.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e698 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e700 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e702 ">Indicates the time at which the object was altered.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_dropobjectsignal"><h2 class="title sectiontitle">drop_object signal</h2><p class="p">The
+drop_object signal is raised when an object in the ObjectServer is
+dropped. The following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 11. drop_object signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e821">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e823">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e825">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">objecttype</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the object type, which is one of the
+following types:<ul class="ul"><li class="li"><span class="keyword option">DROP DATABASE</span></li>
+<li class="li"><span class="keyword option">DROP TABLE</span></li>
+<li class="li">DROP INDEX</li>
+<li class="li"><span class="keyword option">DROP TRIGGER GROUP</span> </li>
+<li class="li"><span class="keyword option">DROP TRIGGER</span></li>
+<li class="li"><span class="keyword option">DROP PROCEDURE</span></li>
+<li class="li"><span class="keyword option">DROP RESTRICTION FILTER</span></li>
+<li class="li"><span class="keyword option">DROP USER SIGNAL</span></li>
+<li class="li"><span class="keyword option">DROP FILE</span></li>
+<li class="li"><span class="keyword option">DROP USER</span></li>
+<li class="li"><span class="keyword option">DROP GROUP</span></li>
+<li class="li"><span class="keyword option">DROP ROLE</span></li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">parentname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the name of the parent object. For
+triggers, this is the trigger group name. For tables, this is the
+database name. Other objects do not have a parent object.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the name of the object. For example,
+the value for the alerts.status table is <samp class="ph tt">status</samp>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the name of the user that ran the
+command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the name of the ObjectServer from
+which the object was dropped.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the name of the computer running the
+ObjectServer from which the object was dropped.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">hostname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the name of the client computer from
+which the request to drop the object was made.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e821 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e823 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e825 ">Indicates the time at which the object was dropped.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_permissiondeniedsignal"><h2 class="title sectiontitle">permission_denied
+signal</h2><p class="p">The permission_denied signal is raised when permission
+to perform an operation is denied. The following table describes the
+attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 12. permission_denied signal
+attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e947">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e949">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e951">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e947 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e949 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e951 ">Indicates the name of the user that made the
+request that caused the permission denied error.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e947 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e949 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e951 ">Indicates the name of the ObjectServer that
+generated the permission denied error.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e947 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e949 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e951 ">Indicates the name of the computer running the
+ObjectServer that generated the permission denied error.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e947 "><var class="keyword varname">hostname</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e949 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e951 ">Indicates the name of the client computer from
+which the request that caused the permission denied error was made.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e947 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e949 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e951 ">Indicates the time at which the permission denied
+error occurred.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e947 "><var class="keyword varname">sql_cmd</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e949 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e951 ">Indicates the SQL command that caused the permission
+denied error.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwcounterpartdownsignal"><h2 class="title sectiontitle">gw_counterpart_down
+signal</h2><p class="p">The gateway raises a gw_counterpart_down signal in
+the backup ObjectServer when it detects that the primary ObjectServer
+is unavailable. The following table describes the attributes of this
+signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 13. gw_counterpart_down signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1016">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1018">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1020">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1016 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1018 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1020 ">Indicates the name of the counterpart ObjectServer
+that failed, in a failover/failback pair.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1016 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1018 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1020 ">Indicates the name of the computer from which
+the counterpart ObjectServer was run.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1016 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1018 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1020 ">Indicates the time at which the counterpart
+ObjectServer failed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1016 "><var class="keyword varname">gateway_name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1018 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1020 ">Indicates the name of the gateway between the
+primary and backup ObjectServers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwcounterpartupsignal"><h2 class="title sectiontitle">gw_counterpart_up
+signal</h2><p class="p">The gateway raises a gw_counterpart_up signal in
+the backup ObjectServer when it detects that the primary ObjectServer
+is available again. The following table describes the attributes of
+this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 14. gw_counterpart_up signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1069">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1071">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1073">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1069 "><var class="keyword varname">server</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1071 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1073 ">Indicates the name of the counterpart ObjectServer
+that is available again, in a failover/failback pair.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1069 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1071 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1073 ">Indicates the name of the computer from which
+the counterpart ObjectServer was run.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1069 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1071 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1073 ">Indicates the time at which the counterpart
+ObjectServer failed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1069 "><var class="keyword varname">gateway_name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1071 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1073 ">Indicates the name of the gateway between the
+primary and backup ObjectServers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducmissedsignal"><h2 class="title sectiontitle">iduc_missed signal</h2><p class="p">The
+iduc_missed signal is raised whenever a desktop or gateway client
+fails to respond to an IDUC prompt from the ObjectServer. The following
+table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 15. iduc_missed
+signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1122">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1124">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1126">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Indicates the type of client process that failed
+to respond to the IDUC prompt from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Contains additional information about the client,
+where available. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Indicates the name of the user that is connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Indicates the name of the client computer that
+is connected to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">connectionid</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Uniquely identifies the connection.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Indicates the time at which the IDUC cycle was
+missed.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1122 "><var class="keyword varname">missed_cycles</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1124 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1126 ">Indicates the number of consecutively-missed
+IDUC cycles.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducconnectsignal"><h2 class="title sectiontitle">iduc_connect signal</h2><p class="p">The
+iduc_connect signal is raised when a client establishes an IDUC connection.
+The following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 16. iduc_connect signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1199">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1201">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1203">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1199 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1201 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1203 ">Indicates the type of client process that connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1199 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1201 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1203 ">Contains additional information about the client
+that connected, where available. For example, if the client is a probe,
+the description contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1199 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1201 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1203 ">Indicates the name of the user that connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1199 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1201 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1203 ">Indicates the name of the client computer that
+connected to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1199 "><var class="keyword varname">conn_id</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1201 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1203 ">Indicates the ID of the connection.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducdisconnectsignal"><h2 class="title sectiontitle">iduc_disconnect
+signal</h2><p class="p">The iduc_disconnect signal is raised when a client
+disconnects an established IDUC connection. The following table describes
+the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 17. iduc_disconnect signal
+attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1260">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1262">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1264">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1260 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1262 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1264 ">Indicates the type of client process that disconnected
+from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1260 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1262 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1264 ">Contains additional information about the client
+that disconnected, where available. For example, if the client is
+a probe, the description contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1260 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1262 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1264 ">Indicates the name of the user that disconnected
+from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1260 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1262 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1264 ">Indicates the name of the client computer that
+disconnected from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1260 "><var class="keyword varname">conn_id</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1262 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1264 ">Indicates the ID of the connection.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_iducdatafetchsignal"><h2 class="title sectiontitle">iduc_data_fetch
+signal</h2><p class="p">The iduc_data_fetch signal is raised whenever an
+IDUC client retrieves its IDUC changes from the ObjectServer. The
+following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 18. iduc_data_fetch signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1321">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1323">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1325">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1321 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1323 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1325 ">Indicates the type of client process that requested
+pending IDUC changes from the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1321 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1323 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1325 ">Contains additional information about the client,
+where available. For example, if the client is a probe, the description
+contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1321 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1323 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1325 ">Indicates the name of the user that is connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1321 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1323 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1325 ">Indicates the name of the client computer that
+is connected to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1321 "><var class="keyword varname">connectionid</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1323 ">int</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1325 ">Uniquely identifies the connection.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1321 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1323 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1325 ">Indicates the time at which the client retrieved
+changes corresponding to the last IDUC notification.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_resynclocksignal"><h2 class="title sectiontitle">resync_lock signal</h2><p class="p">The
+resync_lock signal is raised by the ObjectServer when the resync lock
+is locked. The following table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 19. resync_lock signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1390">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1392">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1394">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1390 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1392 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1394 ">Indicates the type of client process that locked
+the resync lock.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1390 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1392 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1394 ">Contains additional information about the client
+that locked the resync lock, where available. For example, if the
+client is a probe, the description contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1390 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1392 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1394 ">Indicates the name of the user running the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1390 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1392 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1394 ">Indicates the name of the client computer connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1390 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1392 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1394 ">Indicates the time at which the signal occurred</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_resyncunlocksignal"><h2 class="title sectiontitle">resync_unlock
+signal</h2><p class="p">The resync_unlock signal is raised by the ObjectServer
+when the resync lock is unlocked. The following table describes the
+attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 20. resync_unlock signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1451">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1453">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1455">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1451 "><var class="keyword varname">process</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1453 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1455 ">Indicates the type of client process that unlocked
+the resync lock.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1451 "><var class="keyword varname">description</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1453 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1455 ">Contains additional information about the client
+that unlocked the resync lock, where available. For example, if the
+client is a probe, the description contains the probe name.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1451 "><var class="keyword varname">username</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1453 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1455 ">Indicates the name of the user running the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1451 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1453 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1455 ">Indicates the name of the client computer connected
+to the ObjectServer.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1451 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1453 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1455 ">Indicates the time at which the signal occurred</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwresyncstartsignal"><h2 class="title sectiontitle">gw_resync_start
+signal</h2><p class="p">The gw_resync_start signal is raised by the gateway
+to indicate the start of a resynchronization operation. The following
+table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 21. gw_resync_start
+signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1512">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1514">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1516">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1512 "><var class="keyword varname">gateway_name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1514 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1516 ">Indicates the name of the gateway that is starting
+the resynchronization.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1512 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1514 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1516 ">Indicates the host name of the computer on which
+the gateway is running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1512 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1514 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1516 ">Indicates the time at which the resynchronization
+started.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1512 "><var class="keyword varname">is_master</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1514 ">Boolean</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1516 ">Indicates whether the local ObjectServer is
+the master or slave of the resynchronization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="omn_adm_sql_systemsignalsattribs__omn_adm_sql_gwresyncfinishsignal"><h2 class="title sectiontitle">gw_resync_finish
+signal</h2><p class="p">The gw_resync_finish signal is raised by the gateway
+to indicate the end of a resynchronization operation. The following
+table describes the attributes of this signal.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 22. gw_resync_finish
+signal attributes</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d33562e1566">Attributes</th>
+<th class="entry" valign="bottom" width="20%" id="d33562e1568">Data type</th>
+<th class="entry" valign="bottom" width="60%" id="d33562e1570">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1566 "><var class="keyword varname">gateway_name</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1568 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1570 ">Indicates the name of the gateway that is finishing
+the resynchronization.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1566 "><var class="keyword varname">node</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1568 ">string</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1570 ">Indicates the host name of the computer on which
+the gateway is running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1566 "><var class="keyword varname">at</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1568 ">UTC</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1570 ">Indicates the time at which the resynchronization
+finished.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d33562e1566 "><var class="keyword varname">is_master</var></td>
+<td class="entry" valign="top" width="20%" headers="d33562e1568 ">Boolean</td>
+<td class="entry" valign="top" width="60%" headers="d33562e1570 ">Indicates whether the local ObjectServer is
+the master or slave of the resynchronization.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

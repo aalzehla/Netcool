@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Starting the Accelerated Event Notification client" />
+<meta name="abstract" content="You must start the Accelerated Event Notification client in order to receive and manage accelerated events." />
+<meta name="Description" content="You must start the Accelerated Event Notification client in order to receive and manage accelerated events." />
+<meta name="DC.subject" content="Accelerated Event Notification client, starting" />
+<meta name="keywords" content="Accelerated Event Notification client, starting" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_monitoringfasttrackevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_aenstates.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_abtpopupnotifier.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_aenstates.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_abtpopupnotifier.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_aen_startingaen" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_aen_monitoringfasttrackevnts.html" />
+<title>Starting the Accelerated Event Notification client</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_aen_startingaen">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Starting the Accelerated Event Notification client</h1>
+<div class="body taskbody"><p class="shortdesc">You must start the Accelerated Event Notification client
+in order to receive and manage accelerated events.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To start the Accelerated Event Notification client:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Perform the appropriate action for your operating system:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d4257e24-option">Operating system</th>
+<th valign="bottom" align="left" id="d4257e24-desc">Action</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d4257e24-option" id="d4257e31" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d4257e24-desc d4257e31" class="stentry chdesc" width="80%">Enter the following command at the command line:<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_aen</kbd></p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d4257e24-option" id="d4257e40" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d4257e24-desc d4257e40" class="stentry chdesc" width="80%">Perform either of the following actions:<ul class="ul"><li class="li">Click <span class="ph menucascade"><span class="ph uicontrol">Start</span> &gt; <span class="ph uicontrol">Programs</span> &gt; <span class="ph uicontrol">Netcool Suite</span> &gt; <span class="ph uicontrol">Notifier</span></span>.</li>
+<li class="li">Enter the following command at the command line:<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\bin\nco_aen.vbs</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p class="p">The <span class="keyword wintitle">Accelerated Event Notifier</span> login
+window opens.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm">User ID</dt>
+<dd class="dd">Type your user ID for logging in to the ObjectServer that holds channel
+definition information, and from which you want to receive accelerated event
+notifications.</dd>
+<dd class="dd">If you are signing in to the Accelerated Event Notification client (after
+previously signing out), your previously-specified user ID is displayed. You
+can type a different user ID if required.</dd>
+<dt class="dt dlterm">Password</dt>
+<dd class="dd">Type the password for the specified user ID.</dd>
+<dt class="dt dlterm">Log In</dt>
+<dd class="dd">Click this button to log in to the ObjectServer.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to cancel the login process and close this window.</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>When you click <span class="ph uicontrol">Log In</span>, you are connected
+to the ObjectServer, and the state of the Accelerated Event Notification
+client is shown in a floating notifier panel on UNIX, or in the Windows system tray.</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_aenstates.html">Accelerated event notification states</a></span><br />
+The Accelerated Event Notification client can have one
+of three possible states, and uses icons to depict its state.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_abtpopupnotifier.html">About pop-up notifiers</a></span><br />
+The Accelerated Event Notification client uses pop-up notifiers
+for the display of channel information. A pop-up notifier provides
+summary information about an accelerated event and allows you to click
+across to the desktop event list or the <span class="keyword">Web GUI</span> Active
+Event List for further investigation and action.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_aen_monitoringfasttrackevnts.html" title="Tivoli Netcool/OMNIbus can handle millions of events a day, with all events being treated with equal importance. However, operators might have key systems or events that have tightly-controlled latency requirements. To accommodate such requirements, the Accelerated Event Notification (AEN) application provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption.">Monitoring accelerated events</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_aen_aenstates.html" title="The Accelerated Event Notification client can have one of three possible states, and uses icons to depict its state.">Accelerated event notification states</a></div>
+<div><a class="link" href="omn_aen_abtpopupnotifier.html" title="The Accelerated Event Notification client uses pop-up notifiers for the display of channel information. A pop-up notifier provides summary information about an accelerated event and allows you to click across to the desktop event list or the Web GUI Active Event List for further investigation and action.">About pop-up notifiers</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="イベント・リスト構成の操作" />
+<meta name="abstract" content="「イベント・リスト」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (.elc) ファイルになります。" />
+<meta name="Description" content="「イベント・リスト」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (.elc) ファイルになります。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_savinglocevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_openinglocevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_openingremevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_savingremevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_creatingevntlstconfigunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_creatingevntlstconfigwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_workingwithevntlstconfigs" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>イベント・リスト構成の操作</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_workingwithevntlstconfigs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リスト構成の操作</h1>
+<div class="body taskbody"><p class="shortdesc">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (<span class="ph filepath">.elc</span>) ファイルになります。 </p>
+<div class="section context"><p class="p">さまざまな構成ファイルを必要な数だけ作成できます。また、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウには、いつでも別の構成ファイルをロードできます。</p>
+<p class="p">ローカルに保存されているイベント・リスト構成も、リモート・サーバーに保存されているイベント・リスト構成も開くことができます。 さらに、イベント・リスト構成をローカルに保存することも、HTTP または FTP でアクセスできるリモート・サーバーに保存することも可能です。</p>
+</div>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_savinglocevntlstconfigs.html">ローカル・イベント・リスト構成の保存</a></span><br />
+「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウでは、現在のモニター・ボックス・グループで定義されているフィルターやビューや他のアラート構成を保存して、後からその構成をイベント・リストに適用できます。 現在のモニター・ボックスで構成されているいずれかのフィルターを変更した場合は、そのフィルターの変更を保存しておくと便利です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_openinglocevntlstconfigs.html">ローカル・イベント・リスト構成を開く</a></span><br />
+以前にローカルに 1 つ以上のイベント・リスト構成を保存している場合、
+定義されたフィルターおよびビューに一致するイベントをモニターして管理するために、
+関連付けられたイベント・リスト構成ファイルのいずれかを開くことができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_openingremevntlstconfigs.html">リモート・イベント・リスト構成を開く</a></span><br />
+リモート・サーバーに配置された 1 つ以上のイベント・リストを開くために、リモート・イベント・リスト構成ファイルを開くことができます。 HTTP または FTP を使用してサーバーにアクセス可能である必要があります。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_savingremevntlstconfigs.html">リモート・イベント・リスト構成の保存</a></span><br />
+ネットワーク上のリモート・サーバーからイベント・リスト構成を開いた場合は、そのサーバーに構成内容を保存できません。 別のロケーションにファイルを保存する必要があります。 そのサーバーは、HTTP または FTP によってアクセスできる状態になっていなければなりません。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_creatingevntlstconfigunix.html">UNIX 上でのイベント・リスト構成の作成および編集</a></span><br />
+「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内に表示されるモニター・ボックスで、フィルターを保持して定義を表示するイベント・リスト構成を作成または編集することができます。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_creatingevntlstconfigwin.html">Windows 上でのイベント・リスト構成の作成および編集</a></span><br />
+「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内に表示されるモニター・ボックスで、フィルターを保持して定義を表示するイベント・リスト構成を作成または編集することができます。</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="イベント・リストを使用して、アラートをモニターおよび管理できます。 アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。">イベント・リスト内のイベントのモニターおよび管理</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="UNIX 上で nco_event コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。">UNIX イベント・リストのコマンド行オプション</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

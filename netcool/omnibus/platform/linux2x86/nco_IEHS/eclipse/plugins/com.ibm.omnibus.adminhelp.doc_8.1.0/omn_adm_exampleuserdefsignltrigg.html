@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Example: User-defined signal and trigger" />
+<meta name="abstract" content="This example shows a user-defined signal called illegal_delete, and the DETECT_AN_ILLEGAL_DELETE database trigger in which it is used. The database trigger uses the signal to trap deletes that occur outside of standard office hours." />
+<meta name="Description" content="This example shows a user-defined signal called illegal_delete, and the DETECT_AN_ILLEGAL_DELETE database trigger in which it is used. The database trigger uses the signal to trap deletes that occur outside of standard office hours." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringsignals.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_exampleuserdefsignltrigg" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringsignals.html" />
+<title>Example: User-defined signal and trigger</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_exampleuserdefsignltrigg">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Example: User-defined signal and trigger</h1>
+<div class="body refbody"><p class="shortdesc">This example shows a user-defined signal called <samp class="ph codeph">illegal_delete</samp>,
+and the <samp class="ph codeph">DETECT_AN_ILLEGAL_DELETE</samp> database trigger
+in which it is used. The database trigger uses the signal to trap
+deletes that occur outside of standard office hours.</p>
+<div class="section"><div class="p">Within the <span class="keyword wintitle">User Defined Signal Details</span> window,
+the user-defined signal called illegal_delete is created with the
+following entries:<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Entries for the illegal_delete user-defined
+signal in the User Defined Signal Details window</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d9423e30">Field</th>
+<th class="entry" valign="bottom" width="75%" id="d9423e32">Entry</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d9423e30 "><span class="ph uicontrol">Signal Name</span></td>
+<td class="entry" valign="top" width="75%" headers="d9423e32 "><kbd class="ph userinput">illegal_delete</kbd></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d9423e30 "><span class="ph uicontrol">Comment</span></td>
+<td class="entry" valign="top" width="75%" headers="d9423e32 "><kbd class="ph userinput">To be used with the DETECT_AN_ILLEGAL_DELETE
+trigger.</kbd></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d9423e30 "><span class="ph uicontrol">Parameters</span></td>
+<td class="entry" valign="top" width="75%" headers="d9423e32 "><kbd class="ph userinput">user_name Char(20) <br />row_summary
+Char(20)</kbd><div class="p">These read-only entries in the Parameters list
+are constructed from entries made in the <span class="ph uicontrol">Name</span>, <span class="ph uicontrol">Data
+Type</span>, and <span class="ph uicontrol">Data Length</span> fields in
+the <span class="ph uicontrol">Parameters</span> area. For example, for <samp class="ph systemoutput">user_name
+Char(20)</samp>, the entries are:<ul class="ul"><li class="li"><span class="ph uicontrol">Name</span>: <kbd class="ph userinput">user_name</kbd></li>
+<li class="li"><span class="ph uicontrol">Data Type</span>: <kbd class="ph userinput">Char</kbd></li>
+<li class="li"><span class="ph uicontrol">Data Length</span>: <kbd class="ph userinput">20</kbd></li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="p">In the following SQL text for the <samp class="ph codeph">DETECT_AN_ILLEGAL_DELETE</samp> pre-insert
+database trigger, the <samp class="ph tt">raise signal</samp> command is shown in bold.</p>
+<pre class="pre codeblock"><code>create trigger DETECT_AN_ILLEGAL_DELETE
+group default_triggers
+priority 1
+before delete on alerts.status
+for each row
+begin
+   if( ( (hourofday() &gt; 17) and (minuteofhour() &gt; 30) ) or (hourofday() &lt; 9) ) then
+      <strong class="ph b">raise signal ILLEGAL_DELETE %user.user_name, old.Summary;</strong>
+         cancel;
+      end if;
+end;</code></pre>
+<p class="p">This trigger raises the <samp class="ph codeph">illegal_delete</samp> user-defined
+signal. Normally, the raised signal would then be detected and acted
+upon, for example, by another trigger.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringsignals.html" title="Signals are occurrences within the ObjectServer that can be detected and acted upon. Signals are part of the automation subsystem.">Configuring signals</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

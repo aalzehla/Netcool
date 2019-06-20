@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="桌面 ObjectServer 体系结构" />
+<meta name="abstract" content="可以使用桌面 ObjectServer 体系结构来改善经常承担较大负载的 ObjectServer 的性能。" />
+<meta name="description" content="可以使用桌面 ObjectServer 体系结构来改善经常承担较大负载的 ObjectServer 的性能。" />
+<meta name="DC.subject" content="桌面 ObjectServer, 概述, ObjectServer, 桌面 ObjectServer 体系结构, 体系结构概述" />
+<meta name="keywords" content="桌面 ObjectServer, 概述, ObjectServer, 桌面 ObjectServer 体系结构, 体系结构概述" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CEGICIEA" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>桌面 ObjectServer 体系结构</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="CEGICIEA">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">桌面 ObjectServer 体系结构</h1>
+<div class="body conbody"><p class="shortdesc">可以使用桌面 ObjectServer 体系结构来改善经常承担较大负载的 ObjectServer 的性能。 </p>
+<p class="p">桌面 ObjectServer 体系结构：</p>
+<ul class="ul"><li class="li">通过将负载轮换到专门的桌面 ObjectServer 来减少中央 ObjectServer 的工作负载</li>
+<li class="li">提高桌面响应性；即桌面操作员的操作与其在桌面 GUI 中的反应之间的时间</li>
+<li class="li">减少桌面 GUI 冻结的可能性</li>
+<li class="li">改善负载较重的标准 ObjectServer 配置中的端到端等待时间</li>
+<li class="li">通过同时更新主控 ObjectServer 来维持高数据完整性和一致性</li>
+</ul>
+<p class="p">桌面 ObjectServer 体系结构包含主控 ObjectServer 和一个或多个桌面 ObjectServer，它们分担通常由单个 ObjectServer 执行的职责。 双服务器桌面（DSD）在写数据时连接至单个主控 ObjectServer，而从桌面 ObjectServer 读取和显示警报数据。 DSD 的主要功能与标准桌面相同；对于操作员而言，DSD 的行为与标准桌面完全一致。</p>
+<p class="p">在下图中显示了桌面 ObjectServer 体系结构。</p>
+<div class="fig fignone"><span class="figcap">图 1. 双服务器桌面体系结构示例</span><div class="image"><img class="image" src="cd_omn_adm_dualserverdesktop.gif" alt="该图所显示的主控 ObjectServer 使用两个单向网关将事件数据转发到两个桌面 ObjectServer。 使用 IDUC 连接将事件数据发送到两个双服务器桌面，这两个桌面接着使用 SQL 连接将数据写入主控 ObjectServer。" /></div></div>
+<p class="p">DSD 同时连接到桌面 ObjectServer 和主控 ObjectServer。 在 DSD 中执行的任何操作员操作（例如：工具或日志操作）都通过单向 SQL 连接直接发送到主控 ObjectServer。</p>
+<p class="p">主控 ObjectServer 中的警报会通过桌面 ObjectServer 发送到 DSD。 这是通过从主控 ObjectServer 到桌面 ObjectServer 的单向 ObjectServer 网关以及从桌面 ObjectServer 到 DSD 的 IDUC 连接来实现的。</p>
+<p class="p">如果启用双写入方式，还会通过其他单向 SQL 连接将更新发送到桌面 ObjectServer，正如下图所示。 </p>
+<div class="fig fignone"><span class="figcap">图 2. 启用了双写入方式的双服务器桌面体系结构示例</span><div class="image"><img class="image" src="cd_omn_adm_dsddualwrite.gif" alt="该图显示启用了双写入方式的双服务器桌面体系结构。" /></div></div>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

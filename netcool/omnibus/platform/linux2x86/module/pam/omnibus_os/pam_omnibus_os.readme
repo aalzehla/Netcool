@@ -1,0 +1,111 @@
+##############################################################################
+# Netcool/OMNIbus ObjectServer Pluggable Authentication Module (PAM) 8.1.0
+#
+# ObjectServer PAM Module documentation (pam_omnibus_os).
+#
+# Ident: $Id: pam_omnibus_os.readme 1.1 2003/11/04 11:43:31 cappl Development $
+#
+# Revision History:
+#	1.1:	Initial revision.
+#
+##############################################################################
+
+Module Description
+------------------
+
+The ObjectServer Pluggable Authentication Module (PAM) is a dynamic library
+that can be loaded by the Operating Systems PAM system to allow a system
+to be authenticated against an ObjectServer. The ObjectServer itself is a
+PAM aware client application which can use these system PAM services. This
+feature enables an ObjectServer to authenticate its locally connected clients
+with a remote ObjectServer that is acting as a centralised authentication 
+server.
+
+The ObjectServer PAM module provides authentication and password management
+capabilities. This allows users to update their password in the central
+ObjectServer via the PAM system. Deploying the ObjectServer PAM module is
+simple, but once deployed allow users to be authenticated in a central location
+and update their password in this central location without using gateways.
+
+As the ObjectServer is now a PAM aware client application and you do not
+wish to use the ObjectServer PAM module, you can configure you PAM system
+to use either UNIX, NIS or LDAP modules as the central authentication systems
+for users connecting to an ObjectServer.
+
+To install the ObjectServer PAM module on the local machine, run the 
+installation script shown below and follow on-screen prompts.
+
+	${OMNIHOME}/install/nco_install_ospam
+
+Do not forget to enable PAM support in the ObjectServer by adding or setting
+the ObjectServer property, 'Sec.UsePam' to 'True'.
+
+The ObjectServer PAM module is configured in two locations as detailed 
+below.
+
+1) The global ObjectServer PAM module configuration file, pam_omnibus_os.conf,
+is read when the module is invoked, from the ${OMNIHOME}/etc/ directory,
+if it exists. Here you can store global settings for all invocations of the
+ObjectServer PAM module via various PAM client applications. This file is
+a standard properties file. The current properties that can be defined in
+this file are defined below.
+
+	Server:		The name of the ObjectServer that will be used to
+			authenticate users. The default server name is NCOMS.
+
+	Debug:		The module uses the syslog() call to log debugging
+			information to the system log files. Default setting
+			is False.
+
+	LogToStderr:	Send all messages to the stderr stream of the process
+			that is running the authentication module, if one
+			exists, instead of to syslog. Default setting is False.
+
+2) The module can also be configured via arguments to the module that are
+defined in the system PAM configuration file pam.conf. The list of arguments
+that can be use are defined below in the 'Recognised Arguments' section.
+
+Recognised Arguments
+--------------------
+
+The following options may be passed to the ObjectServer PAM module.
+
+	debug		The module uses the syslog() call to log debugging
+			information to the system log files.
+
+	no_warn		Instruct the module to not give warning messages to the
+			application.
+
+	use_first_pass	The module should not prompt the user for a password,
+			it should obtain the previously entered password and
+			use that one. This module is used when it is not the
+			first module in the stack. Option is intended for
+			auth and password modules only.
+ 
+	try_first_pass	This option is similar to 'use_first_pass', but is
+			only intended for auth modules.
+
+	server=XXXXX	Specifies the name of the ObjectServer that will be
+			used to authenticate users. Setting the server name
+			as an argument to module overrides any server setting
+			in the global configuration file. XXXXX is the name
+			of the server.
+
+	log_to_stderr	Send all messages to the stderr stream of the process
+			that is running the authentication module, if one
+			exists, instead of to syslog. This is useful in
+			debugging problems without having to examine the
+			system logs.
+	
+
+Module Services Provided
+------------------------
+
+The module provides the following services:-
+
+	Management Group			Functions
+	---------------------------------------------------------------------
+	PAM_SM_AUTH (auth)			pam_sm_authenticate
+	PAM_SM_PASSWORD (password)		pam_sm_chauthtok
+	PAM_SM_SESSION (session)		pam_sm_open_session,
+						pam_sm_close_session

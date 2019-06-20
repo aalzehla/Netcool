@@ -1,0 +1,788 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+//THIS POLICY IS NOT FOR RUNNING AS IS.  COPY OUT THE EXAMPLE CODE YOU WISH TO USE.
+
+//
+// EXAMPLE NGF_authentication_change.ipl  ////////////////////
+//
+////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="authentication_change"><taskdef classname="com.micromuse.ncgf.security.anttask.AuthenticationAntTask" classpath="%CLASSPATH%" name="authenticationtask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="changes authentication parameters in ngf" name="main"><authenticationtask minPasswordLength="6" password="${password}" server="${server}" username="${username}" verbose="true"/></target></project>
+*/
+
+///////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "authentication_change");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+IPLtoXML.addAttribute(a_taskdef, "name", "authenticationtask");
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.AuthenticationAntTask");
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+IPLtoXML.addAttribute(c_target, "description", "changes authentication parameters in ngf");
+
+IPLtoXML.newSubElement(c_target, task1, "authenticationtask");
+//IPLtoXML.addAttribute(task1, "accountusername", "userFromImpact");
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "minPasswordLength", "6");
+
+
+
+///////////////////////////////////////////////////function call
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_group_add.ipl  ///////////////////////
+//
+//
+//////////////////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="create_group"><taskdef classname="com.micromuse.ncgf.security.anttask.GroupAntTask" classpath="%CLASSPATH%" name="grouptask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="creates an example group in ngf" name="main"><grouptask action="create" active="true" displayname="Impact Group" groupname="groupFromImpact" password="${password}" server="${server}" username="${username}" verbose="true"/></target></project>
+*/
+
+
+
+////////////////////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "create_group");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+IPLtoXML.addAttribute(a_taskdef, "name", "grouptask");
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.GroupAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+IPLtoXML.addAttribute(c_target, "description", "creates an example group in ngf");
+
+IPLtoXML.newSubElement(c_target, task1, "grouptask");
+//IPLtoXML.addAttribute(task1, "accountusername", "userFromImpact");
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "create");
+IPLtoXML.addAttribute(task1, "groupname", "groupFromImpact");
+IPLtoXML.addAttribute(task1, "displayname", "Impact Group");
+IPLtoXML.addAttribute(task1, "active", "true");
+
+
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_group_addrole.ipl  ///////////////////////
+//
+//
+/////////////////////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="add_role_to_group"><taskdef classname="com.micromuse.ncgf.security.anttask.GroupRoleAntTask" classpath="%CLASSPATH%" name="grouproletask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="adds a role to a group" name="main"><grouproletask action="create" groupname="Desktop" password="${password}" server="${server}" username="${username}" verbose="true"><role action="add" name="IMPACT_USER"/><role action="add" name="ncw_user"/></grouproletask></target></project>
+*/
+
+/////////////////////////////////////////////////////IPL
+
+
+IPLtoXML.newDocument(ngfProject);
+
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "add_role_to_group");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+IPLtoXML.addAttribute(a_taskdef, "name", "grouproletask");
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.GroupRoleAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+IPLtoXML.addAttribute(c_target, "description", "adds a role to a group");
+
+IPLtoXML.newSubElement(c_target, task1, "grouproletask");
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "create");
+IPLtoXML.addAttribute(task1, "groupname", "groupFromImpact");
+
+IPLtoXML.newSubElement(task1, role1, "role");
+IPLtoXML.addAttribute(role1, "name", "IMPACT_USER");
+IPLtoXML.addAttribute(role1, "action", "add");
+
+IPLtoXML.newSubElement(task1, role2, "role");
+IPLtoXML.addAttribute(role2, "name", "ncw_user");
+IPLtoXML.addAttribute(role2, "action", "add");
+
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_group_delete.ipl  //////////////////
+//
+//
+
+///////////////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "delete_group");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+IPLtoXML.addAttribute(a_taskdef, "name", "grouptask");
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.GroupAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+IPLtoXML.addAttribute(c_target, "description", "deletes an example group in ngf");
+
+IPLtoXML.newSubElement(c_target, task1, "grouptask");
+//IPLtoXML.addAttribute(task1, "accountusername", "userFromImpact");
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "delete");
+IPLtoXML.addAttribute(task1, "groupname", "groupFromImpact");
+//IPLtoXML.addAttribute(task1, "displayname", "Impact Group");
+//IPLtoXML.addAttribute(task1, "active", "true");
+
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_page_import.ipl  ///////////////////////
+//
+//
+///////////////////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="import a psml page"><taskdef classname="com.sybase.mach.ant.extension.MachPsmlTask" classpath="%CLASSPATH%" name="psmltask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><property name="netcool.home" value="/opt/ibm/netcool"/><target description="creates an example page in ngf" name="main"><psmltask action="import" categoryName="user" categoryValue="impact" mediaType="html" name="generated_page.psml" password="${password}" psmlfile="${netcool.home}/guifoundation/webapps/desktop/WEB-INF/psml/user/anon/media-type/html/page/default.psml" server="${server}" username="${username}"/></target></project>
+*/
+
+
+
+///////////////////////////////////////////////////IPL
+IPLtoXML.newDocument(ngfProject);
+
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "import a psml page");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+IPLtoXML.addAttribute(a_taskdef, "name", "psmltask");
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.sybase.mach.ant.extension.MachPsmlTask");
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, b_property4, "property");
+IPLtoXML.addAttribute(b_property4, "name", "netcool.home");
+IPLtoXML.addAttribute(b_property4, "value", "/opt/ibm/netcool"); //change to match ngf server host:port
+
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+IPLtoXML.addAttribute(c_target, "description", "creates an example page in ngf");
+
+IPLtoXML.newSubElement(c_target, task1, "psmltask");
+//IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+
+IPLtoXML.addAttribute(task1, "name", "generated_page.psml");
+IPLtoXML.addAttribute(task1, "action", "import"); //import or delete
+//copy from:
+IPLtoXML.addAttribute(task1, "psmlfile", "${netcool.home}/guifoundation/webapps/desktop/WEB-INF/psml/user/anon/media-type/html/page/default.psml");  //file must be there
+IPLtoXML.addAttribute(task1, "mediaType", "html");
+IPLtoXML.addAttribute(task1, "categoryName", "user"); //assign page to user, role, or group
+IPLtoXML.addAttribute(task1, "categoryValue", "impact");
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_role_add.ipl  ///////////////////////
+//
+//
+////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="add_a_role"><taskdef classname="com.micromuse.ncgf.security.anttask.RoleAntTask" classpath="%CLASSPATH%" name="roletask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="create role in ngf" name="main"><roletask action="create" displayname="Impact Generated" password="${password}" rolename="roleFromImpact" server="${server}" username="${username}" verbose="true"/></target></project>
+*/
+
+///////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "add_a_role");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "name", "roletask"); //change to match task
+
+
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.RoleAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+
+//change to match task
+IPLtoXML.addAttribute(c_target, "description", "create role in ngf");
+
+//change to match task
+IPLtoXML.newSubElement(c_target, task1, "roletask");
+
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "create"); //create or delete
+IPLtoXML.addAttribute(task1, "rolename", "roleFromImpact");
+IPLtoXML.addAttribute(task1, "displayname", "Impact Generated");
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_role_delete.ipl  //////////////////////
+//
+//
+////////////////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="delete_a_role"><taskdef classname="com.micromuse.ncgf.security.anttask.RoleAntTask" classpath="%CLASSPATH%" name="roletask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="delete role in ngf" name="main"><roletask action="delete" password="${password}" rolename="roleFromImpact" server="${server}" username="${username}" verbose="true"/></target></project>
+*/
+
+////////////////////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "delete_a_role");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "name", "roletask"); //change to match task
+
+
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.RoleAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+
+//change to match task
+IPLtoXML.addAttribute(c_target, "description", "delete role in ngf");
+
+//change to match task
+IPLtoXML.newSubElement(c_target, task1, "roletask");
+
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "delete"); //create or delete
+IPLtoXML.addAttribute(task1, "rolename", "roleFromImpact");
+//IPLtoXML.addAttribute(task1, "displayname", "Impact Generated");
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_user_add.ipl  ///////////////////////////////
+//
+//
+/////////////////////////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="add a user"><taskdef classname="com.micromuse.ncgf.security.anttask.UserAntTask" classpath="%CLASSPATH%" name="usertask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="add user in ngf" name="main"><usertask accountpassword="netcool" accountusername="userFromImpact" action="create" firstname="Impact" lastname="User" model="true" password="${password}" server="${server}" username="${username}" verbose="true"/></target></project>
+*/
+
+
+
+//////////////////////////////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "add a user");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "name", "usertask"); //change to match task
+
+
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.UserAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+
+//change to match task
+IPLtoXML.addAttribute(c_target, "description", "add user in ngf");
+
+//change to match task
+IPLtoXML.newSubElement(c_target, task1, "usertask");
+
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "create");
+IPLtoXML.addAttribute(task1, "accountusername", "userFromImpact");
+IPLtoXML.addAttribute(task1, "accountpassword", "netcool");
+IPLtoXML.addAttribute(task1, "firstname", "Impact");
+IPLtoXML.addAttribute(task1, "lastname", "User");
+IPLtoXML.addAttribute(task1, "model", "true");
+
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_user_delete.ipl  ////////////////////////
+//
+//
+/////////////////////////////////////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="delete a user"><taskdef classname="com.micromuse.ncgf.security.anttask.UserAntTask" classpath="%CLASSPATH%" name="usertask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="delete user in ngf" name="main"><usertask accountusername="userFromImpact" action="delete" password="${password}" server="${server}" username="${username}" verbose="true"/></target></project>
+*/
+
+
+
+////////////////////////////////////////////////////IPL
+
+IPLtoXML.newDocument(ngfProject);
+IPLtoXML.newSubElement(ngfProject, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "delete a user");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "name", "usertask"); //change to match task
+
+
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.UserAntTask");  //change to match task
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+
+//change to match task
+IPLtoXML.addAttribute(c_target, "description", "delete user in ngf");
+
+//change to match task
+IPLtoXML.newSubElement(c_target, task1, "usertask");
+
+IPLtoXML.addAttribute(task1, "verbose", "true");
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+IPLtoXML.addAttribute(task1, "action", "delete");
+IPLtoXML.addAttribute(task1, "accountusername", "userFromImpact");
+
+
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfProject);
+
+log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+// EXAMPLE NGF_usergrouprole_assign.ipl ////////////////////////////
+//
+//
+///////////////////////XML
+/*
+<?xml version="1.0" encoding="UTF-8"?><project basedir="." default="main" name="createExampleUser"><taskdef classname="com.micromuse.ncgf.security.anttask.UserGroupRoleAntTask" classpath="%CLASSPATH%" name="usergrouproletask"/><property name="username" value="admin"/><property name="password" value="netcool"/><property name="server" value="localhost:8080"/><target description="assigns an example user to a group and a role in ngf" name="main"><usergrouproletask accountusername="userFromImpact" password="${password}" server="${server}" username="${username}" verbose="true"><role action="add" name="ncw_user"/><group action="add" name="System"/></usergrouproletask></target></project>
+*/
+
+
+///////////////////////IPL
+
+IPLtoXML.newDocument(ngfXML);
+IPLtoXML.newSubElement(ngfXML, project1, "project");
+IPLtoXML.addAttribute(project1, "name", "createExampleUser");
+IPLtoXML.addAttribute(project1, "default", "main");
+IPLtoXML.addAttribute(project1, "basedir", ".");
+IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "name", "usergrouproletask"); 
+
+
+IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+
+
+//change to match task
+IPLtoXML.addAttribute(a_taskdef, "classname", "com.micromuse.ncgf.security.anttask.UserGroupRoleAntTask");
+
+
+
+IPLtoXML.newSubElement(project1, b_property1, "property");
+IPLtoXML.addAttribute(b_property1, "name", "username");
+IPLtoXML.addAttribute(b_property1, "value", "admin");
+
+IPLtoXML.newSubElement(project1, b_property2, "property");
+IPLtoXML.addAttribute(b_property2, "name", "password");
+IPLtoXML.addAttribute(b_property2, "value", "netcool");
+
+IPLtoXML.newSubElement(project1, b_property3, "property");
+IPLtoXML.addAttribute(b_property3, "name", "server");
+IPLtoXML.addAttribute(b_property3, "value", "localhost:8080"); //change to match ngf server host:port
+
+IPLtoXML.newSubElement(project1, c_target, "target");
+IPLtoXML.addAttribute(c_target, "name", "main");
+
+
+//change to match task
+IPLtoXML.addAttribute(c_target, "description", "assigns an example user to a group and a role in ngf");
+
+
+IPLtoXML.newSubElement(c_target, task1, "usergrouproletask");
+IPLtoXML.addAttribute(task1, "accountusername", "userFromImpact");
+
+
+//some tasks don't support verbose
+IPLtoXML.addAttribute(task1, "verbose", "true");
+
+
+IPLtoXML.addAttribute(task1, "username", "${username}");
+IPLtoXML.addAttribute(task1, "password", "${password}");
+IPLtoXML.addAttribute(task1, "server", "${server}");
+
+
+IPLtoXML.newSubElement(task1, role1, "role");
+IPLtoXML.addAttribute(role1, "name", "ncw_user"); //actual role name not display name for role
+IPLtoXML.addAttribute(role1, "action", "add");
+
+IPLtoXML.newSubElement(task1, group1, "group");
+IPLtoXML.addAttribute(group1, "name", "System");
+IPLtoXML.addAttribute(group1, "action", "add");
+
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+NGF.Provision(ngfXML);
+
+log(ngfXML.NGFAPI_OUTPUT);

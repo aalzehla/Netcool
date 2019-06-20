@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="識別事件清單中的主要原因事件" />
+<meta name="abstract" content="在虛擬化環境中，Tivoli Netcool/OMNIbus 可以使事件產生關聯，以判定哪些事件是其他症狀事件的主要原因。在清單事件中，您可以識別症狀事件背後的主要原因事件，如果您的系統上已啟用此功能的話。" />
+<meta name="description" content="在虛擬化環境中，Tivoli Netcool/OMNIbus 可以使事件產生關聯，以判定哪些事件是其他症狀事件的主要原因。在清單事件中，您可以識別症狀事件背後的主要原因事件，如果您的系統上已啟用此功能的話。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_identifyrootcauseevent" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>識別事件清單中的主要原因事件</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_identifyrootcauseevent">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">識別事件清單中的主要原因事件</h1>
+<div class="body taskbody"><p class="shortdesc">在虛擬化環境中，<span class="keyword">Tivoli Netcool/OMNIbus</span> 可以使事件產生關聯，以判定哪些事件是其他症狀事件的主要原因。在清單事件中，您可以識別症狀事件背後的主要原因事件，如果您的系統上已啟用此功能的話。</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">開始之前</h2></div>確定 <span class="ph uicontrol">CauseType</span> 欄位及 <span class="ph uicontrol">ParentIdentifier</span> 欄位是否已新增至視圖中。也可以選擇性地新增 <span class="ph uicontrol">ParentServerSerial</span> 欄位。症狀事件的 <span class="ph uicontrol">CauseType</span> 值為 <span class="keyword option">Symptom</span>。</div>
+<div class="section context">依預設，症狀事件具有「警告」嚴重性層次，而主要原因事件具有「重要」嚴重性層次。</div>
+<p class="li stepsection"></p><div class="li step"><span class="ph cmd">若要識別症狀事件的主要原因，請在事件清單中的單一症狀事件上按一下滑鼠右鍵，然後按一下<span class="ph uicontrol">顯示主要原因</span>。</span> 如果您選取多個症狀事件，則只會顯示所選取第一個事件的主要原因事件。 <p class="p">新的事件清單會開啟，顯示主要原因事件。<span class="ph uicontrol">CauseType</span> 欄位的值是 <span class="keyword option">RootCause</span>。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="您可以使用事件清單來監視及管理警示。 在 ObjectServer 接收事件、警示、訊息或資料項目時，會建立警示。 每個警示都是由 ObjectServer alerts.status 表格的列中保留之資訊的直欄 (或欄位) 所組成。">監視及管理事件清單中的事件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

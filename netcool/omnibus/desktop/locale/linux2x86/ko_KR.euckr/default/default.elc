@@ -1,0 +1,145 @@
+#NCO_CONFIG3
+#
+# Default __OEM__ Event List Configuration File __VERSION__ 
+#
+
+config_name = '기본값';
+config_columns = 4;
+views = {
+{
+view_name = '기본값';
+view_editable = true;
+columns = {
+{ Node, '노드', 15, centre, left }
+{ AlertGroup, '경보 그룹', 18, centre, left }
+{ Summary, '요약', 60, centre, left }
+{ LastOccurrence, '마지막 발생', 15, centre, centre }
+{ Tally, '개수', 6, centre, centre }
+{ Type, '유형', 12, centre, left }
+{ ExpireTime, '만료 시간', 10, centre, centre }
+{ Agent, '에이전트', 25, centre, left }
+{ Manager, '관리자', 25, centre, left }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, desc }
+{ Node, asc }
+{ AlertGroup, asc }
+{ AlertKey, asc }
+{ Summary, asc }
+}
+}
+{
+view_name = 'X733';
+view_editable = true;
+columns = {
+{ Node, '노드', 15, centre, left }
+{ X733EventType, '이벤트 유형', 24, centre, left }
+{ X733ProbableCause, '가능한 원인', 25, centre, left }
+{ Summary, '추가 텍스트', 60, centre, left }
+{ X733SpecificProb, '특정 문제', 20, centre, left }
+{ AlertKey, '관리 오브젝트', 18, centre, left }
+{ LastOccurrence, '마지막 발생', 15, centre, centre }
+{ Tally, '개수', 6, centre, centre }
+{ Type, '유형', 12, centre, left }
+{ ExpireTime, '만료 시간', 10, centre, centre }
+{ Agent, '에이전트', 25, centre, left }
+{ Manager, '관리자', 25, centre, left }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, desc }
+{ Node, asc }
+{ AlertGroup, asc }
+{ AlertKey, asc }
+{ Summary, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = '최근 10분';
+filter_editable = true;
+filter_text = '( ( LastOccurrence >= getdate - 600 ) and ( Manager not like \'^.*Watch$\' ) ) and ( Severity > 0 )';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = '유지보수';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( SuppressEscl = 6 )';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = '에스컬레이션';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( ( SuppressEscl < 4 ) and ( SuppressEscl > 0 ) )';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = '정보';
+filter_editable = true;
+filter_text = '( ( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 ) ) and ( Type = 13 )';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = '태스크 목록';
+filter_editable = true;
+filter_text = '( ( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 ) ) and ( TaskList = 1 )';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = 'Netcool 상태';
+filter_editable = true;
+filter_text = 'Manager like \'^.*Watch$\'';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = '기본값';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 )';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+{
+filter_name = '모든 이벤트';
+filter_editable = true;
+filter_text = '';
+filter_metric = 'sum(Tally)';
+default = '기본값';
+windows = {
+none
+}
+}
+}
+
+# End of file

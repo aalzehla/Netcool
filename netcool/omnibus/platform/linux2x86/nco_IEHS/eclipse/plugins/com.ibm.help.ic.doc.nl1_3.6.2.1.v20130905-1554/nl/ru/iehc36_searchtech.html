@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-ru" xml:lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Приемы расширенного поиска" />
+<meta name="abstract" content="Поддерживается расширенный поиск с помощью цитат, шаблонов и булевских операторов, позволяющий уменьшить количество результатов поиска" />
+<meta name="description" content="Поддерживается расширенный поиск с помощью цитат, шаблонов и булевских операторов, позволяющий уменьшить количество результатов поиска" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="ru-ru" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Приемы расширенного поиска</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Приемы расширенного поиска</h1>
+<div class="body"><p class="shortdesc">Поддерживается расширенный поиск с помощью цитат, шаблонов и булевских операторов, позволяющий уменьшить количество результатов поиска</p>
+<ul class="ul"><li class="li">При поиске в Information Center можно заключить слово
+или фразу в двойные кавычки, чтобы искалось точное совпадение.<p class="p">Например, если ввести <kbd class="ph userinput">"файл протокола"</kbd> в поле
+<span class="ph uicontrol">Поиск</span>, будут найдены все строки <em class="ph i">файл протокола</em>. Если двойные кавычки не вводить, будут найдены разделы содержащие слова <em class="ph i">протокола</em> и <em class="ph i">файл</em>.</p>
+</li>
+<li class="li">Можно использовать символы подстановки, например звездочку (*) и знак вопроса (?), для расширения области поиска.<ul class="ul"><li class="li">Звездочка (*) обозначает произвольное число символов в поисковом запросе. Например, если ввести <kbd class="ph userinput">час*</kbd>, будут найдены разделы, содержащие <em class="ph i">частично</em>, <em class="ph i">частота</em>, <em class="ph i">частичный</em> и другие слова, начинающиеся с <em class="ph i">час</em>.<div class="note note"><span class="notetitle">Прим.:</span>  Существует
+ограничение для строки поиска: при использовании звездочки в искомом слове
+ей должно предшествовать не менее 3 символов,
+аналогично, искомое слово без символов подстановки должно содержать как
+минимум три символа.</div>
+</li>
+<li class="li">Вопросительный знак обозначает один символ в строке запроса.
+Например, если ввести <kbd class="ph userinput">част?</kbd>, будут найдены разделы, содержащие <em class="ph i">часть</em>, но не <em class="ph i">частичный</em> или <em class="ph i">частично</em>.</li>
+</ul>
+</li>
+<li class="li">Для уточнения запроса можно использовать булевские операторы AND, OR и NOT. Например:<dl class="dl"><dt class="dt dlterm">сообщение AND "файл протокола"</dt>
+<dd class="dd">Сужает результаты поиска, включая только разделы, содержащие и слово <em class="ph i">сообщение</em> и словосочетание <em class="ph i">файл протокола</em>.</dd>
+<dt class="dt dlterm">сообщение OR "файл протокола"</dt>
+<dd class="dd">Расширяет результаты поиска, включая разделы, содержащие слово <em class="ph i">сообщение</em> или словосочетание <em class="ph i">файл протокола</em>.</dd>
+<dt class="dt dlterm">сообщение NOT "файл протокола"</dt>
+<dd class="dd">Сужает результаты поиска, включая только разделы, содержащие слово <em class="ph i">сообщение</em>, и не содержащие словосочетание
+<em class="ph i">файл протокола</em>.</dd>
+<dt class="dt dlterm">сообщение OR "код ошибки" NOT "файл протокола"</dt>
+<dd class="dd">Поиск разделов, содержащих слово <em class="ph i">сообщение</em> или словосочетание
+<em class="ph i">код ошибки</em>, и не содержащих словосочетания <em class="ph i">файл протокола</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="iehs36_searching.html" title="Можно искать во всех разделах Information Center, конкретном разделе или наборе разделов; можно создать область поиска для поиска только в определенном подмножестве информации. На панели Результаты поиска показывается до 500 результатов, упорядоченных по степени соответствия.">Поиск в Information Center</a></div>
+</div>
+</div></body>
+</html>

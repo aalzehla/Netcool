@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Использование Netcool MIB Manager" />
+<meta name="abstract" content="MIB Manager можно использовать для синтаксического анализа модулей MIB и создания файлов правил Netcool." />
+<meta name="Description" content="MIB Manager можно использовать для синтаксического анализа модулей MIB и создания файлов правил Netcool." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Использование Netcool MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Использование <span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">MIB Manager</span> можно использовать для синтаксического анализа модулей MIB и создания файлов правил Netcool.</p>
+<p class="p"><span class="keyword">MIB Manager</span> содержит набор базовых MIB и MIB RFC в каталоге <span class="ph filepath"><var class="keyword varname">ДОМАШНИЙ_КАТАЛОГ_NC</var>/omnibus/var/mibmanager/mibs</span>.
+Эти MIB поставляются, чтобы обеспечить возможность импорта дополнительных MIB. <span class="keyword">MIB Manager</span> автоматически использует эти включенные в пакет поставки MIB для разрешения зависимостей при импорте новых MIB.
+Включенные в поставку модули MIB можно увидеть в представлении <span class="keyword wintitle">Модули MIB</span> при первом запуске <span class="keyword">MIB Manager</span>.</p>
+<p class="p"><span class="keyword">MIB Manager</span> включает в себя также файлы данных XML, представляющие импорт входящих в поставку базовых MIB. <span class="keyword">MIB Manager</span> использует эти файлы XML для хранения данных MIB, которые он импортирует из исходных текстовых файлов MIB.</p>
+<p class="p">Добавьте ваши MIB в каталог, доступный с сервера, на котором запущен компонент <span class="keyword">MIB Manager</span>. Все стандартные MIB должны быть установлены в отдельном каталоге, который может быть расположен по пути поиска для простоты разрешения зависимостей. По умолчанию базовые SNMP MIB установлены в каталоге <span class="ph filepath"><var class="keyword varname">ДОМАШНИЙ_КАТАЛОГ_NC</var>/omnibus/var/mibmanager/mibs/base</span>, а все RFC MIB установлены в каталоге <span class="ph filepath"><var class="keyword varname">ДОМАШНИЙ_КАТАЛОГ_NC</var>/omnibus/var/mibmanager/mibs/rfc</span>.</p>
+<div class="section"><h2 class="title sectiontitle">Окно <span class="keyword">Netcool MIB Manager</span></h2><p class="p">При запуске <span class="keyword">MIB Manager</span> перечисленные ниже элементы появляются в исходном окне <span class="keyword">MIB Manager</span>: несколько элементов появляются в исходном окне <span class="keyword wintitle">MIB Manager</span>. Эти элементы показаны на приведенном ниже рисунке.</p>
+<div class="fig fignone"><span class="figcap">Рис. 1. Исходное окно <span class="keyword">MIB Manager</span></span><div class="image"><img class="image" src="../../images/cd_omn_mib_screen.gif" alt="Изображение. на котором показано исходное окно MIB Manager" /></div></div>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> Панель инструментов</dt>
+<dd class="dd">Обеспечивает доступ к наиболее часто используемым функциям <span class="keyword">MIB Manager</span>.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> Перспективы</dt>
+<dd class="dd">Просматривать данные MIB можно в одной из двух перспектив - <span class="ph uicontrol">MIB Manager</span> или <span class="ph uicontrol">mib2rules</span>. Перспектива <span class="ph uicontrol">MIB
+Manager</span> используется как перспектива по умолчанию. Перспектива <span class="ph uicontrol">mib2rules</span> основана на идентификаторах объектов (Object Identifiers, OID) и предоставляется для пользователей, знакомых с утилитой <span class="keyword cmdname">mib2rules</span>.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> Представление <span class="keyword wintitle">Устройство</span></dt>
+<dd class="dd">Используйте это представление, чтобы создавать, обновлять и удалять устройства <span class="keyword">MIB Manager</span>.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> Представление <span class="keyword wintitle">Подробности</span> и представление <span class="keyword wintitle">Консоль</span></dt>
+<dd class="dd">В представлении <span class="keyword wintitle">Подробности</span> показаны подробные сведения о выбранных элементах MIB.
+В представлении <span class="keyword wintitle">Консоль</span> показаны все сообщения журналов, сгенерированные компонентом <span class="keyword">MIB Manager</span> во время работы текущего экземпляра.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> <span class="keyword wintitle">Модули MIB</span></dt>
+<dd class="dd">Используйте это представление для поиска и удаления модулей MIB и для поиска конкретных значений MIB.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> Представление <span class="keyword wintitle">Дерево OID</span></dt>
+<dd class="dd">В этом представлении показаны все объекты MIB, находящиеся в импортированных модулях MIB.</dd>
+</dl>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">Представление Модули MIB</a></span><br />
+Представление <span class="keyword wintitle">Модули MIB</span> содержит все импортированные модули MIB и предоставляет возможность их поиска и удаления, а также поиска конкретных значений MIB.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">Представление Дерево OID</a></span><br />
+Представление Дерево OID (Object Identifier, идентификатор объектов) показывает все объекты MIB, которые расположены в импортированных модулях MIB.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">Импорт данных MIB</a></span><br />
+Как импортировать данные SNMP MIB в MIB Manager.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">Экспорт данных MIB</a></span><br />
+Как экспортировать данные SNMP MIB из <span class="keyword">MIB Manager</span> в различных форматах.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">Редактирование прерываний SNMP</a></span><br />
+Как редактировать прерывания SNMP.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">Генерирование прерываний SNMP</a></span><br />
+Как генерировать прерывания SNMP. Эта функциональность может использоваться также для проверки файлов правил, сгенерированных <span class="keyword">MIB Manager</span>.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html">Создание и удаление устройств</a></span><br />
+Устройство <span class="keyword">MIB Manager</span> используется для группировки связанных модулей MIB и для определения всех объектов, требуемых для экспорта. Вы можете создавать, обновлять и удалять устройства в графическом пользовательском интерфейсе <span class="keyword">MIB Manager</span>.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager - это прикладная программа с графическим пользовательским интерфейсом на основе IBM Eclipse, которую можно использовать для синтаксического анализа файлов информационной базы управления (management information base, MIB) протокола SNMP; из них вы можете генерировать файлы правил Netcool. Она предназначена в качестве замены утилиты mib2rules.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

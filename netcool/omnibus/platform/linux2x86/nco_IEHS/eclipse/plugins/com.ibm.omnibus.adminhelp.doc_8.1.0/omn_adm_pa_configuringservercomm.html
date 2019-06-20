@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring server communication information for process agents" />
+<meta name="abstract" content="You must use the Server Editor to assign a unique server name to each process agent and specify other communication information, and then make these details available to each host computer in the process control network system. This enables all process agents on all host computers to communicate with each other." />
+<meta name="Description" content="You must use the Server Editor to assign a unique server name to each process agent and specify other communication information, and then make these details available to each host computer in the process control network system. This enables all process agents on all host computers to communicate with each other." />
+<meta name="DC.subject" content="process control, configuring server communication" />
+<meta name="keywords" content="process control, configuring server communication" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_customizingservdefns.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_configuringservercomm" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<title>Configuring server communication information for process agents</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_configuringservercomm">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring server communication information for process agents</h1>
+<div class="body taskbody"><p class="shortdesc">You must use the Server Editor to assign a unique server
+name to each process agent and specify other communication information,
+and then make these details available to each host computer in the
+process control network system. This enables all process agents on
+all host computers to communicate with each other. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>Perform the following actions to configure server communication
+information for process agents:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Start the Server Editor on a host computer and add a server
+entry for each process agent that you want to include in the process
+control network system. Save this information.</span> <div class="note tip"><span class="tiptitle">Tip:</span> The name of a server entry must consist of
+29 or fewer uppercase letters and cannot begin with an integer. The
+naming convention is to also append _PA to the name so that you can
+easily identify the server as a process agent in the Server Editor.
+For example, if you are configuring the process agent on a host named
+sfosys1, the process agent can be named SFOSYS1_PA. By default, the
+first process agent installed in a configuration is named NCO_PA.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">On UNIX, generate
+an interfaces file that contains the server communication information.
+The interfaces file is typically named <span class="ph filepath">$NCHOME/etc/interfaces.<var class="keyword varname">arch</var></span>,
+where <var class="keyword varname">arch</var> is the UNIX operating
+system name. </span> <p class="p">In a Windows environment,
+configure server communications on each Windows computer.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">On UNIX, distribute
+the updated interfaces file to all host workstations in the configuration. </span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_creatingstartpctrlsysunix.html" title="To manage process control, you must first determine your process control configuration requirements and then perform a number of configuration tasks.">Creating and starting a process control network system</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_customizingservdefns.html" title="When you install or change a server component on any host in your Tivoli Netcool/OMNIbus system, you must configure the component to communicate with other components by using the Server Editor.">Configuring server communication details in the Server Editor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

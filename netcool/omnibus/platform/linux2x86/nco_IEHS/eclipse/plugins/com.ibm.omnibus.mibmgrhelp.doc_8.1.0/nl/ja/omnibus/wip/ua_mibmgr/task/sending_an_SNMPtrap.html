@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="SNMP トラップの生成" />
+<meta name="abstract" content="SNMP トラップの生成方法です。この機能は、MIB マネージャーで生成される ルール・ファイルのテストにも使用できます。" />
+<meta name="Description" content="SNMP トラップの生成方法です。この機能は、MIB マネージャーで生成される ルール・ファイルのテストにも使用できます。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB マネージャー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SNMP トラップの生成</h1>
+<div class="body taskbody"><p class="shortdesc">SNMP トラップの生成方法です。この機能は、<span class="keyword">MIB マネージャー</span>で生成される
+ルール・ファイルのテストにも使用できます。</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><p class="li stepsection">SNMP トラップを生成するには、以下の手順を実行します。</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><img class="image" src="../gifs/trap.gif" alt="「トラップ」アイコン" /> <span class="ph uicontrol">「トラップ」</span>をクリックします。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「宛先アドレス」</span>フィールドに、
+SNMP Trapd サービスを稼働するコンピューターのホスト名または
+IP アドレスを指定します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「宛先ポート」</span>フィールドに、
+SNMP Trapd サービスが待機する UDP ポートを指定します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「コミュニティー」</span>フィールドに、
+Trapd マネージャーの有効なストリングを指定します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">生成するトラップのタイプに応じて、
+<span class="ph uicontrol">「変数バインディング」</span>セクションが
+<span class="keyword wintitle">「SNMP トラップの生成」</span>ウィンドウに表示される場合があります。<span class="ph uicontrol">「変数バインディング」</span>
+セクションで使用できるフィールドも、生成されるトラップ
+のタイプに応じて変わります。</span> <p class="p"><span class="ph uicontrol">「変数バインディング」</span>フィールド名の上に
+マウスを置くと、フィールド値の構文について詳細が表示されます。複数の値を、コンマで区切って指定
+できます。これらの値は、トラップを作成するために無作為に選択されます。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「反復メトリック」</span>フィールドに、
+生成可能なトラップ数 (1 から 1000) を指定します。</span> <p class="p">大きな数を指定すると、
+トラップは迅速に続けて生成されるため、Trapd マネージャーで
+アラームが連続して発生する原因になることがあります。1 よりも
+大きい値 (&gt; 1)、およびセミコロン区切りのリストとして指定される値の場合、
+<span class="keyword">MIB マネージャー</span>は、指定されたリストから無作為に選択し、
+varbind として表される任意の値でトラップを生成します。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「実行」</span>をクリックして、トラップを生成します。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div><span class="keyword wintitle">「SNMP トラップの
+生成」</span>ウィンドウの<span class="ph uicontrol">「結果」</span>フィールドに、トラップが
+正常に送信されたかどうかが示されます。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。">Netcool MIB マネージャー の使用</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

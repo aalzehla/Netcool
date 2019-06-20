@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX でのビューの作成または編集" />
+<meta name="abstract" content="ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。" />
+<meta name="Description" content="ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。" />
+<meta name="DC.subject" content="ビュー, 作成, 編集" />
+<meta name="keywords" content="ビュー, 作成, 編集" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_startingviewbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_vb_creatingeditingviewunix" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_vb_settingupviewsevntlsts.html" />
+<title>UNIX でのビューの作成または編集</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_vb_creatingeditingviewunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX でのビューの作成または編集</h1>
+<div class="body taskbody"><p class="shortdesc">ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。</p>
+<div class="section context">ビューを作成または編集するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">ビュー・ビルダーを開始します。 </span></li>
+<li class="li step stepexpand"><span class="ph cmd">ビュー・セットアップ域で以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">ビュー名</dt>
+<dd class="dd">新規ビューを作成する場合は、現在の名前をビューの固有の名前で上書きします。 この名前はイベント・リストで使用されています。 既存のビューを編集する場合は、このフィールドに入力する必要はありません。</dd>
+<dt class="dt dlterm">編集可能</dt>
+<dd class="dd">適切な管理者権限を持っている場合は、このチェック・ボックスを選択して他のユーザーによるこのビューの編集を許可するか、またはチェック・ボックスをクリアしてビューが変更されないように保護します。<div class="note restriction"><span class="restrictiontitle">制約事項:</span> この設定は、ビューがイベント・リスト構成 (<span class="ph filepath">.elc</span> ファイル) の一部として保存されている場合にのみ適用されます。</div>
+</dd>
+</dl>
+
+<p class="p">ビューを定義するために、どの列を組み込むのかを選択し、イベント・リストでの列の順序や形式を指定できます。
+イベント・リストの行のソート順や優先順位を構成したり、表示する行数を制限したりすることも可能です。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「列の表示」</span>領域から、以下のように列の追加、削除、位置変更を行います。</span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">イベント・リスト・マトリックス</em></dt>
+<dd class="dd">このマトリックスは、イベント・リスト・ビューに表示されるように選択されたすべての列、およびそれらの列の表示順序を示します。 実際の列名は最上部に表示され、その下の行には、各列のデータ・タイプが表示されます。 行では、ワード・<samp class="ph tt">ダミー</samp>を使用して、ストリング列を表し、数字 <samp class="ph tt">1</samp> は整数列を表し、<samp class="ph tt">01/01/70 01:00:01</samp> は時刻列を表します。</dd>
+<dd class="dd">イベント・リスト・マトリックスは、<span class="ph uicontrol">「削除」</span>、<span class="ph uicontrol">「最初」</span>、<span class="ph uicontrol">「左方」</span>、<span class="ph uicontrol">「右方」</span>、および<span class="ph uicontrol">「最後」</span>の各ボタンに関連して使用されます。 このマトリックス内の任意の列でアクションを実行するには、その列に関連付けられているセルを最初にクリックする必要があります。 このようにして列を選択すると、その列に対して現在定義されている詳細も、<span class="ph uicontrol">「列の詳細」</span>域に表示されます。</dd>
+<dt class="dt dlterm"><em class="ph i">使用可能な列リスト</em></dt>
+<dd class="dd"><span class="ph uicontrol">「列の詳細」</span>域に隣接したこのリストには、イベント・リストにまだ追加できるすべての列が表示されます。
+使用可能な列リストは、<span class="ph uicontrol">「追加」</span>ボタンに関連して使用されます。</dd>
+<dd class="dd">イベント・リストに追加する任意の列を選択します。<div class="note tip"><span class="tiptitle">ヒント:</span> このリスト内の列名は、アルファベット順に表示されます。</div>
+</dd>
+<dt class="dt dlterm">追加</dt>
+<dd class="dd">このボタンをクリックして、使用可能な列リストで現在選択されている列をイベント・リストに追加します。 この列は、イベント・リスト・マトリックス内の右端項目として追加されます。<div class="note tip"><span class="tiptitle">ヒント:</span> 列の追加には、ドラッグ・アンド・ドロップ手法を使用できます。 使用可能な列リストから、追加する列を選択します。 この列上でマウスの中央ボタンを押したまま、イベント・リスト・マトリックス内にドラッグします。 列をドロップできる領域内に入ると、カーソルが変化して緑のティックが表示されます。 マウス・ボタンを放します。 この列は、イベント・リスト・マトリックス内の右端項目として追加されます。</div>
+</dd>
+<dt class="dt dlterm">削除</dt>
+<dd class="dd">このボタンをクリックして、イベント・リスト・マトリックス内で現在選択されている列を、使用可能な列リストに移動して戻します。 これで、この列は、イベント・リスト内に表示されなくなります。<div class="note tip"><span class="tiptitle">ヒント:</span> 列の削除には、ドラッグ・アンド・ドロップ手法を使用できます。 イベント・リスト・マトリックスから、削除する列のセルを選択します。 このセル上でマウスの中央ボタンを押したまま、カーソルを、使用可能な列リスト内にドラッグします。 列をドロップできる領域内に入ると、カーソルが変化して緑のティックが表示されます。 マウス・ボタンを放します。 列が、使用可能な列リストに追加されます。</div>
+</dd>
+<dt class="dt dlterm">最初</dt>
+<dd class="dd">このボタンをクリックして、イベント・リスト・マトリックス内で現在選択されている列を、イベント・リスト内の最初 (左端) の列として位置変更します。</dd>
+<dt class="dt dlterm">左方</dt>
+<dd class="dd">このボタンをクリックして、イベント・リスト・マトリックス内で現在選択されている列を、1 ポジション左方に移動します。</dd>
+<dt class="dt dlterm">右方</dt>
+<dd class="dd">このボタンをクリックして、イベント・リスト・マトリックス内で現在選択されている列を、1 ポジション右方に移動します。</dd>
+<dt class="dt dlterm">最後</dt>
+<dd class="dd">このボタンをクリックして、イベント・リスト・マトリックス内で現在選択されている列を、イベント・リスト内の最後 (右端) の列として位置変更します。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「列の表示」</span>領域から、以下のように列の形式を設定します。</span> <dl class="dl"><dt class="dt dlterm">列の詳細</dt>
+<dd class="dd">この領域を使用して、イベント・リスト・マトリックス内で現在選択されている列を以下のようにフォーマットします。<dl class="dl"><dt class="dt dlterm">列/行末揃え</dt>
+<dd class="dd">システム定義の列名は、<span class="ph uicontrol">「列」</span>フィールドに読み取り専用値として表示されます。 隣接した<span class="ph uicontrol">「行末揃え」</span>リストから、「<span class="keyword option">左方</span>」、「<span class="keyword option">中心</span>」、または「<span class="keyword option">右方</span>」を選択して、イベント・リスト内の列データの位置合わせを設定します。</dd>
+<dt class="dt dlterm">タイトル/行末揃え</dt>
+<dd class="dd">列をシステム定義名以外の別タイトルで表示する必要がある場合は、そのタイトルを<span class="ph uicontrol">「タイトル」</span>フィールドに入力します。
+隣接した<span class="ph uicontrol">「行末揃え」</span>リストから、「左方」、「中心」、または「右方」を選択して、イベント・リスト内の列タイトルの位置合わせを設定します。</dd>
+<dt class="dt dlterm">幅</dt>
+<dd class="dd">スライダー・ボックスを左方または右方にドラッグして、イベント・リスト内の列の幅を設定します。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">固定列</dt>
+<dd class="dd">いくつかの固定列をイベント・リストの左側に含めることができます。 固定列は、ビュー内で列をスクロールした場合に、画面の外へ移動しません。 このスライダーを使用して、ビュー内の列の総数より 1 を引いた数に固定します。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「列のソート」</span>領域から、以下のようにイベント・リストの列のソート順とソート優先順位を指定します。</span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e196"><!-- --></a><em class="ph i">使用可能なソート・リスト</em></dt>
+<dd class="dd">このリスト (左側の) には、イベント・データのソートに使用できるすべての使用可能な列が表示されます。 使用可能なソート・リストは、<span class="ph uicontrol">「追加」</span>ボタンに関連して使用されます。</dd>
+<dd class="dd">イベント・リスト行のソートに使用する任意の列を選択します。<div class="note tip"><span class="tiptitle">ヒント:</span> このリスト内の列名は、アルファベット順に表示されます。</div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e209"><!-- --></a>追加</dt>
+<dd class="dd">このボタンをクリックして、使用可能なソート・リスト内で選択された列を、隣接するソート順定義リストに追加します。 列が、ソート・リストの下部に追加されます。<div class="note tip"><span class="tiptitle">ヒント:</span> 列の追加には、ドラッグ・アンド・ドロップ手法を使用できます。 使用可能なソート・リストから、ソート順定義リストに追加する列を選択します。 この列名上でマウスの中央ボタンを押したまま、カーソルを、ソート順定義リスト内にドラッグします。
+列をドロップできる領域内に入ると、カーソルが変化して緑のティックが表示されます。 マウス・ボタンを放します。 列が、ソート順定義リストの下部に追加されます。</div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e216"><!-- --></a><em class="ph i">ソート順定義リスト</em></dt>
+<dd class="dd">このリスト (右側の) には、イベント・データのソートに使用されるすべての列が表示されます。 このリストを使用して、イベント・データのソート定義を以下のように指定します。 <ul class="ul"><li class="li">ソート順を列ごとに定義する。矢印が、リスト内の各列名の左方に表示されます。 デフォルトでは、この矢印は上方向を指し、列がアルファベットの昇順でソートされることを示しています。 降順に変更するには、矢印をダブルクリックします。 ソート方向を変更する場合、選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「変更」</span>を選択することもできます。</li>
+<li class="li">すべての列に対するソート優先順位を定義する。ソート・リストの最上部のフィールドが、ソート時における最も高い優先順位を持ちます。 1 番目のフィールドにいくつかの項目について同じ値が含まれているときは、それらの項目のソートにリストの 2 番目のフィールドが使用されます。
+列のソート優先順位を上げる、または下げるには、以下で説明するように、列名を選択してから、<span class="ph uicontrol">「一番上へ」</span>、<span class="ph uicontrol">「上へ」</span>、<span class="ph uicontrol">「下へ」</span>、および<span class="ph uicontrol">「一番下へ」</span>ボタンを使用します。</li>
+</ul>
+</dd>
+<dd class="dd">ソート順定義リストを、<span class="ph uicontrol">「削除」</span>ボタンに関連して使用することもできます。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e247"><!-- --></a>削除</dt>
+<dd class="dd">このボタンをクリックして、現在選択されているソート列を、ソート順定義リストから削除して、使用可能なソート・リストに戻します。 選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「削除」</span>を選択することもできます。<div class="note tip"><span class="tiptitle">ヒント:</span> 列の削除には、ドラッグ・アンド・ドロップ手法を使用できます。 ソート順定義リストから、削除する列を選択します。 この列名上でマウスの中央ボタンを押したまま、カーソルを、使用可能なソート・リスト内にドラッグします。 列をドロップできる領域内に入ると、カーソルが変化して緑のティックが表示されます。 マウス・ボタンを放します。 列が、使用可能なソート・リストに追加されます。</div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e257"><!-- --></a>一番上へ</dt>
+<dd class="dd">このボタンをクリックして、選択された列をリストの一番上へ移動します。 選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「一番上へ」</span>をクリックすることもできます。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e265"><!-- --></a>上へ</dt>
+<dd class="dd">このボタンをクリックして、選択された列をリスト内で 1 つ上へ移動します。 選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「上へ」</span>をクリックすることもできます。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e273"><!-- --></a>下へ</dt>
+<dd class="dd">このボタンをクリックして、選択された列をリスト内で 1 つ下へ移動します。 選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「下へ」</span>をクリックすることもできます。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10684e281"><!-- --></a>一番下へ</dt>
+<dd class="dd">このボタンをクリックして、選択された列をリストの一番下へ移動します。 選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「一番下へ」</span>をクリックすることもできます。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「行の制限」</span>領域から、以下のようにイベント・リストに表示する行数を制限します。</span> <dl class="dl"><dt class="dt dlterm">行の制限 [1-100]</dt>
+<dd class="dd">イベント・リスト内に表示される行の数を 1 から 100 までの範囲で制限する場合は、このチェック・ボックスを選択します。 <span class="ph uicontrol">「最小」</span>、<span class="ph uicontrol">「最大」</span>、および<span class="ph uicontrol">「デフォルト」</span>フィールドが使用可能になります。<div class="note note"><span class="notetitle">注:</span> <span class="ph uicontrol">「行の制限 [1-100]」</span>チェック・ボックスを選択し、構成を <span class="ph filepath">.elv</span> ファイルとして保存した場合、<span class="ph filepath">.elv</span> ファイルは、Netcool/OMNIbus V3.6 とは互換性がありません。</div>
+</dd>
+<dt class="dt dlterm">最小</dt>
+<dd class="dd">表示される行の最小数を入力するか、矢印を使用して、値を増減します。</dd>
+<dt class="dt dlterm">最大</dt>
+<dd class="dd">表示される行の最大数を入力するか、矢印を使用して、値を増減します。</dd>
+<dt class="dt dlterm">デフォルト</dt>
+<dd class="dd">表示される行のデフォルト数を入力するか、矢印を使用して、値を増減します。</dd>
+<dt class="dt dlterm">イベント・リストから設定</dt>
+<dd class="dd">イベント・リスト・ユーザーによる、イベント・リスト・ビュー内に表示するイベント数の選択を可能にする場合は、このチェック・ボックスを選択します。
+このチェック・ボックスを選択した場合、ユーザーがイベント・リスト制御を使用して表示を選択できるイベントの数は、ビュー・ビルダーで指定された<span class="ph uicontrol">「最小」</span>および<span class="ph uicontrol">「最大」</span>値によって制約されます。 このチェック・ボックスがクリアされている場合、表示されるイベントの数は、常に、指定されている<span class="ph uicontrol">「デフォルト」</span>値となります。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">ビューを定義した後、以下のようにビューを保存するか、変更をキャンセルします。</span> <dl class="dl"><dt class="dt dlterm">適用</dt>
+<dd class="dd">このボタンをクリックして、変更内容を保存せずにビューに適用します。 </dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして、ウィンドウを閉じ、変更内容を廃棄します。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div><p class="p">ビューは、<span class="ph filepath">.elv</span> ファイル拡張子を付けて保存する必要があります。</p>
+<div class="note note"><span class="notetitle">注:</span> UNIX のビュー・ビルダーをコンダクターから実行する場合は、<span class="ph uicontrol">「適用」</span>ボタンが表示されません。 その場合にすべてのビューを保存するには、UNIX のビュー・ビルダーから<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「保存」</span></span>または<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「別名保存」</span></span>を選択する必要があります。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_vb_settingupviewsevntlsts.html" title="ビューでは、イベント・リストに表示される列の選択およびこれらの列内の情報のフォーマットが定義されます。">イベント・リストのビュー設定</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_vb_startingviewbuilder.html" title="ビュー・ビルダーには、ビューを構成するためのインターフェースが用意されています。">ビュー・ビルダーの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

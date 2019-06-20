@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="「イベント・リスト」モニター・ボックス" />
+<meta name="abstract" content="このウィンドウは、システム管理者が構成した 1 つ以上のカテゴリーのアラート情報を表示する場合に使用します。 アラート・カテゴリーはそれぞれ、モニター・ボックス で示されます。このボックスには、イベント・リスト用に作成されたフィルターとビューが表示されます。 フィルターを使用すると、特定の基準に基づいてアラートのサブセットを表示することができます。 ビューを使用すると、表示するアラート・フィールドを選択することができます。" />
+<meta name="Description" content="このウィンドウは、システム管理者が構成した 1 つ以上のカテゴリーのアラート情報を表示する場合に使用します。 アラート・カテゴリーはそれぞれ、モニター・ボックス で示されます。このボックスには、イベント・リスト用に作成されたフィルターとビューが表示されます。 フィルターを使用すると、特定の基準に基づいてアラートのサブセットを表示することができます。 ビューを使用すると、表示するアラート・フィールドを選択することができます。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_indicatingeventinmaint.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_escalatingdeescalating.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_addingeventstotasklist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitorboxoverview.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistmonitorboxwindow" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>「イベント・リスト」モニター・ボックス</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistmonitorboxwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">「イベント・リスト」モニター・ボックス</h1>
+<div class="body refbody"><p class="shortdesc">このウィンドウは、システム管理者が構成した 1 つ以上のカテゴリーのアラート情報を表示する場合に使用します。 アラート・カテゴリーはそれぞれ、<dfn class="term">モニター・ボックス</dfn> で示されます。このボックスには、イベント・リスト用に作成されたフィルターとビューが表示されます。 フィルターを使用すると、特定の基準に基づいてアラートのサブセットを表示することができます。 ビューを使用すると、表示するアラート・フィールドを選択することができます。</p>
+<div class="section"><div class="p">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウには、以下の領域が含まれています。<ul class="ul"><li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea">モニター・ボックス領域</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar">ステータス・バー</a></li>
+</ul>
+</div>
+<div class="note tip" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorboxwindow_note"><span class="tiptitle">ヒント:</span> 「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウのタイトル・バーには、現在のイベント・リスト構成名が表示されます。 </div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea"><h2 class="title sectiontitle">モニター・ボックス領域</h2><div class="p">この領域にはモニター・ボックスが表示されます。モニター・ボックスでは、関連したイベント・リストに適用できる特定のフィルターや選択したビューが示されます。 システムに表示されるモニター・ボックスは、システム管理者がシステムを構成する方法によって異なる場合があります。 デフォルトの「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウには、個々のモニター・ボックス用の以下のフィルター定義が含まれています。<dl class="dl" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_defaultmonitorboxes"><dt class="dt dlterm">最後の 10 分</dt>
+<dd class="dd">このフィルターは、ProbeWatch、TSMWatch、ConnectionWatch を除くすべてのアラートを表示します。 結果は<span class="ph uicontrol">「デフォルト」</span>フィルターの結果と同じですが、<span class="ph uicontrol">「最後の 10 分」</span>フィルターでは最近 10 分間に発生したアラートだけを表示する点が異なります。</dd>
+<dt class="dt dlterm">保守</dt>
+<dd class="dd">このフィルターは、オペレーターによって「保守中」と示されているアラートを表示します。 </dd>
+<dt class="dt dlterm">エスカレート</dt>
+<dd class="dd">このフィルターは、オペレーターがエスカレートしたアラートを表示します。 </dd>
+<dt class="dt dlterm">情報</dt>
+<dd class="dd">このフィルターは、情報アラートとして識別されたアラートを表示します。
+情報アラートは以下のとおりです。<ul class="ul"><li class="li">プローブにより情報アラートと指定されたアラート</li>
+<li class="li">ProbeWatch、TSMWatch、ConnectionWatch 以外のアラート</li>
+<li class="li">エスカレーション・レベルが設定されているアラート </li>
+</ul>
+</dd>
+<dt class="dt dlterm">タスク・リスト</dt>
+<dd class="dd">このフィルターは、オペレーターのタスク・リストに追加されたアラートを表示します。 </dd>
+<dt class="dt dlterm">Netcool® 状況</dt>
+<dd class="dd">このフィルターは、ProbeWatch アラート、TSMWatch アラート、ConnectionWatch アラートだけを表示します。</dd>
+<dt class="dt dlterm">デフォルト</dt>
+<dd class="dd">このフィルターは、ProbeWatch、TSMWatch、ConnectionWatch を除くすべてのアラートを表示します。</dd>
+<dt class="dt dlterm">すべてのイベント</dt>
+<dd class="dd">このフィルターは、すべてのアラートを表示します。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar"><h2 class="title sectiontitle">ステータス・バー</h2><div class="p">ステータス・バーには、次の情報が表示されます。<ul class="ul"><li class="li">状況メッセージ</li>
+<li class="li">セッションへのログインに使用した現在のユーザー名</li>
+<li class="li">現在の接続先 ObjectServer と、それが 1 次サーバー (<samp class="ph tt">PRI</samp>) かバックアップ・サーバー (<samp class="ph tt">BAK</samp>) か</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_usr_el_monitorboxoverview.html" title="「イベント・リスト」モニター・ボックス・ウィンドウ内のモニター・ボックスは、イベント・リストに表示するアラート・レコードおよび列を決めるために作成される、フィルターおよびビューの選択を表します。 モニター・ボックスは、それに関連付けられるフィルターの後で指定されます。">モニター・ボックスの概要</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="「イベント・リスト」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (.elc) ファイルになります。">イベント・リスト構成の操作</a></div>
+<div><a class="link" href="omn_usr_el_indicatingeventinmaint.html" title="イベントの原因となる問題を処理する場合は、イベント・リストにイベントが「保守」であることを表示することができます。 「保守」の優先順位は、 「保守」イベント・リスト・フィルターと連動して動作します。">イベントが「保守」であることの表示</a></div>
+<div><a class="link" href="omn_usr_el_escalatingdeescalating.html" title="例えば、別のレベルのサポート・スタッフがイベントを管理することができるようにそのイベントに注意する必要がある場合、イベント・リストのイベントをエスカレートすることができます。 イベントのエスカレートおよびエスカレート解除は、「エスカレート」イベント・リスト・フィルターと連動して動作します。">イベントのエスカレートおよびエスカレート解除</a></div>
+<div><a class="link" href="omn_usr_el_addingeventstotasklist.html" title="タスク・リストを使用して、特別な注意が必要なイベントを識別することができます。 タスク・リストへのイベントの追加は、「タスク・リスト」イベント・リスト・フィルターと連動して動作します。">タスク・リストへのイベントの追加</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

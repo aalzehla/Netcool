@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Property value encryption" />
+<meta name="abstract" content="You can use property value encryption to encrypt string values in a properties file or configuration file so that the strings cannot be read without a key. When the process that uses the properties file or configuration file starts up, the strings are decrypted." />
+<meta name="Description" content="You can use property value encryption to encrypt string values in a properties file or configuration file so that the strings cannot be read without a key. When the process that uses the properties file or configuration file starts up, the strings are decrypted." />
+<meta name="DC.subject" content="property value encryption, encrypting, values in properties files" />
+<meta name="keywords" content="property value encryption, encrypting, values in properties files" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_propsfileencryption" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Property value encryption</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_propsfileencryption">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Property value encryption</h1>
+<div class="body refbody"><p class="shortdesc">You can use property value encryption to encrypt string
+values in a properties file or configuration file so that the strings
+cannot be read without a key. When the process that uses the properties
+file or configuration file starts up, the strings are decrypted.</p>
+<div class="section"><p class="p">You can use this encryption mechanism in the
+ObjectServer, proxy server, <span class="keyword cmdname">nco_postmsg</span>, LDAP,
+probe, and gateway properties files. You can also use this mechanism
+to encrypt passwords that are stored in process agent configuration
+files.</p>
+<p class="p">The property value encryption mechanism uses the Advanced
+Encryption Standard (AES), which supports keys of 128, 192, and 256
+bits, a command-line key generator (<span class="keyword cmdname">nco_keygen</span>),
+and an encryption utility (<span class="keyword cmdname">nco_aes_crypt</span>). Cryptographic
+algorithms are also available for use in FIPS 140–2 and non-FIPS 140–2
+mode. The procedure is as follows:</p>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

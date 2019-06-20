@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Création et suppression d'unités" />
+<meta name="abstract" content="Une unité MIB Manager est utilisée pour regrouper des modules MIB associés et pour définir tous les objets requis pour l'exportation. Vous pouvez créer, mettre à jour et supprimer des unités dans l'interface graphique de MIB Manager." />
+<meta name="Description" content="Une unité MIB Manager est utilisée pour regrouper des modules MIB associés et pour définir tous les objets requis pour l'exportation. Vous pouvez créer, mettre à jour et supprimer des unités dans l'interface graphique de MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="fr-fr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Création et suppression d'unitésMIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Création et suppression d'unités</h1>
+<div class="body taskbody"><p class="shortdesc">Une unité <span class="keyword">MIB Manager</span>
+est utilisée pour regrouper des modules MIB associés et pour définir tous les objets
+requis pour l'exportation. Vous pouvez créer, mettre à jour et supprimer des
+unités dans l'interface graphique de <span class="keyword">MIB Manager</span>. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Pourquoi et quand exécuter cette tâche</h2></div><p class="p">Les unités <span class="keyword">MIB Manager</span> sont affichées dans la vue <span class="keyword wintitle">Unité</span>.
+Sélectionnez une unité dans l'arborescence <span class="keyword wintitle">Unité</span> pour afficher le fabricant, le numéro de modèle et la version du système d'exploitation de l'unité.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procédure</h2></div><p class="li stepsection"><strong class="ph b">Création d'une unité</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">Pour créer une unité :</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Dans la vue <span class="keyword wintitle">Modules MIB</span>, sélectionnez au moins un module MIB, puis cliquez sur <img class="image" src="../gifs/create_device.gif" alt="Icône Créer une unité" /> (Créer une unité).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Fabricant</span>, sélectionnez un fabricant d'unité dans la liste déroulante.</span> <p class="p">Les zones <span class="ph uicontrol">Modèle</span>  <span class="ph uicontrol">Version du système d'exploitation</span> sont remplies avec les options disponibles.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Modèle</span> , sélectionnez une option dans la liste déroulante.</span> <p class="p">Si aucun modèle n'est disponible, entrez un nom de modèle explicite.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Version du SE</span>, sélectionnez une option dans la liste déroulante.</span> <p class="p">Si aucune version du système d'exploitation n'est disponible, entrez un nom de version du système d'exploitation explicite.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Modules MIB mappés</span>, sélectionnez les modules MIB que vous voulez associer à la nouvelle unité.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Cliquez sur <span class="ph uicontrol">OK</span> pour créer l'unité.</span> <p class="p">La nouvelle unité est affichée dans la vue <span class="keyword wintitle">Unité</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Mise à jour d'une unité</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">Pour mettre à jour une unité :</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">Dans la vue <span class="keyword wintitle">Unité</span>, sélectionnez une unité et développez ses sous-noeuds jusqu'à ce que la version du système d'exploitation soit visible.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Sélectionnez la version du système d'exploitation, puis cliquez sur <img class="image" src="../gifs/Edit.gif" alt="Icône Editer une unité" /> (Editer une unité).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Fabricant</span>, sélectionnez un fabricant d'unité dans la liste déroulante.</span> <p class="p">Les zones <span class="ph uicontrol">Modèle</span>  <span class="ph uicontrol">Version du système d'exploitation</span> sont remplies avec les options disponibles.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Modèle</span> , sélectionnez une option dans la liste déroulante.</span> <p class="p">Si aucun modèle n'est disponible, entrez un nom de modèle explicite.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Version du SE</span>, sélectionnez une option dans la liste déroulante.</span> <p class="p">Si aucune version du système d'exploitation n'est disponible, entrez un nom de version du système d'exploitation explicite.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Modules MIB mappés</span>, sélectionnez les modules MIB que vous voulez associer à la nouvelle unité.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Cliquez sur <span class="ph uicontrol">OK</span> pour mettre à jour les détails de l'unité.</span> <p class="p">Les détails actualisés de l'unité sont affichés dans la vue <span class="keyword wintitle">Unité</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Suppression d'une unité</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">Dans la vue <span class="keyword wintitle">Unité</span>, sélectionnez l'unité, puis cliquez sur <img class="image" src="../gifs/Delete.gif" alt="Icône Supprimer une unité" /> (Supprimer une unité). </span> <p class="p">Pour supprimer plusieurs unités, maintenez les touches Ctrl+Alt enfoncées, sélectionnez les éléments à l'aide du bouton gauche de la souris, puis cliquez sur <img class="image" src="../gifs/Delete.gif" alt="Icône Supprimer une unité" /> (Supprimer une unité).</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Rubrique parent :</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Vous pouvez utiliser MIB Manager pour analyser des modules MIB et créer des fichiers de règles Netcool.">Utilisation de Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothèque</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

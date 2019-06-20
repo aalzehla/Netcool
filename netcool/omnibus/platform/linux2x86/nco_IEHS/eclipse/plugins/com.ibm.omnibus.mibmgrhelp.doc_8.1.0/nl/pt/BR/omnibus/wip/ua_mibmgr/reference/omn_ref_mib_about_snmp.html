@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Sobre o SNMP" />
+<meta name="abstract" content="Esta seção fornece informações adicionais sobre a arquitetura do Protocolo Simples de Gerenciamento de Rede (SNMP), a base de informações de gerenciamento (MIB) do SNMP e alguns conceitos adicionais da MIB." />
+<meta name="Description" content="Esta seção fornece informações adicionais sobre a arquitetura do Protocolo Simples de Gerenciamento de Rede (SNMP), a base de informações de gerenciamento (MIB) do SNMP e alguns conceitos adicionais da MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="pt-br" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Sobre o SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versão 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Sobre o SNMP</h1>
+<div class="body refbody"><p class="shortdesc">Esta seção fornece informações adicionais sobre a arquitetura do
+Protocolo Simples de Gerenciamento de Rede (SNMP), a base de informações de
+gerenciamento (MIB) do SNMP e alguns conceitos adicionais da MIB.</p>
+<div class="section"><p class="p">Em uma arquitetura do SNMP, um componente gerenciador gerencia um
+agente. O agente é o software que é executado em um dispositivo de rede ou aplicativo, responde a solicitações de informações (SETs e GETs) e, então, gera notificações autônomas denominadas traps. O gerenciador é o software que recebe os traps e que fornece um mecanismo para realizar SET ou GET de objetos SNMP do dispositivo de rede.</p>
+<p class="p">Para receber traps autônomos, o gerenciador executa um aplicativo que recebe na porta do trap SNMP TCP/IP (porta 162). SETs e GETs SNMP usam a porta
+161. Este aplicativo normalmente é denominado Trapd ou trap daemon. Um trap daemon é um processo que é executado em segundo plano e manipula um serviço em um computador. O aplicativo
+Netcool Trapd é denominado SNMP Probe (<span class="ph filepath">nco_p_mttrapd</span>,
+em que <span class="ph filepath">mt</span> é uma abreviação de multiencadeado)
+e está localizado no diretório <span class="ph filepath">$OMNIHOME/probes/</span>.
+Os arquivos de regras gerados pelo <span class="keyword">MIB Manager</span> são projetados para serem usados pelo SNMP Probe. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Segurança</h2><p class="p">A segurança básica no SNMP v1 e v2 é fornecida por meio do uso de sequências de comunidades. Sequências de comunidades são senhas de texto simples que são enviadas com todas as solicitações. Há sequências de comunidades separadas para acesso somente leitura
+e acesso leitura/gravação. O <span class="keyword">MIB Manager</span> deve conhecer a sequência de comunidades definida em um dispositivo
+antes de poder executar quaisquer solicitações (somente leitura para um GET e leitura/gravação
+para um SET) e os traps SNMP e as notificações são enviados para o <span class="keyword">MIB Manager</span>
+ com uma sequência de comunidades predefinida. </p>
+<p class="p">Todos os dispositivos de rede que suportam SNMP possuem um mecanismo para definir a sequência de comunidades. A senha de leitura padrão
+é pública e a senha de leitura/gravação padrão é privada. Se nenhuma sequência de comunidades foi configurada em um dispositivo, ela geralmente será uma destas senhas.
+Por motivos de segurança, as senhas padrão deverão ser alteradas o mais rápido possível.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Mais informações</h2><div class="p">Os livros a seguir são úteis para obter um bom entendimento da estrutura do SNMP e das MIBs:<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP (Third Edition)</cite> de
+Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite> de David Perkins e Evan
+McGinnis (Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">Para obter uma discussão do ASN.1 e as Regras Básicas de Codificação
+(BER) que são usadas para codificação de dados SNMP nos pacotes de Unidade de Dados de Protocolo
+(PDU) para transmissão na rede, consulte o manual a seguir: </p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management
+Standards</cite> de William Stallings (Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">Design de conceito MIB</a></span><br />
+Todos os módulos MIB SNMP que são definidos para uso por um determinado
+dispositivo incluem a MIB para esse dispositivo. O termo MIB é frequentemente usado
+para descrever uma única definição de módulo, mas isto é tecnicamente incorreto.
+De fato, a MIB é a combinação de todos os módulos usados para gerenciar um dispositivo
+específico, quer o dispositivo se relacione com hardware ou software. Por esta razão, o nome mais preciso para cada módulo definido por um fornecedor ou em um RFC,
+é módulo MIB SNMP.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">Tipos de Objetos MIB</a></span><br />
+Este tópico descreve os tipos de objetos definidos no SNMP v1
+e v2.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">Formatos de objetos MIB válidos</a></span><br />
+Este tópico descreve os formatos de objetos MIB válidos.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Tópico pai:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="O Netcool MIB Manager é um aplicativo de GUI baseado no IBM Eclipse que pode ser usado para analisar os arquivos Management Information Base (MIB) de Protocolo Simples de Gerenciamento de Rede (SNMP), a partir dos quais é possível gerar arquivos de regras do Netcool. É desejado como uma substituição para o utilitário. mib2rules">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Suporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

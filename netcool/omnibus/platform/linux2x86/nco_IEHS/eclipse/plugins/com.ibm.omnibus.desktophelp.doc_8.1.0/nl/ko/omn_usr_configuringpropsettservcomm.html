@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="특성, 서버 통신 및 설정 구성" />
+<meta name="abstract" content="You can configure properties for Tivoli Netcool/OMNIbus 구성요소에 대한 특성 및 UNIX와 Windows 컨덕터에서 서버 구성요소에 대한 통신 정보를 구성할 수 있습니다. Windows의 경우, 설정 창에 있는 결합된 태스크의 두 가지 기능을 수행할 수 있습니다. UNIX의 경우, 이벤트 목록의 데이터 형식을 변경할 수도 있습니다." />
+<meta name="Description" content="You can configure properties for Tivoli Netcool/OMNIbus 구성요소에 대한 특성 및 UNIX와 Windows 컨덕터에서 서버 구성요소에 대한 통신 정보를 구성할 수 있습니다. Windows의 경우, 설정 창에 있는 결합된 태스크의 두 가지 기능을 수행할 수 있습니다. UNIX의 경우, 이벤트 목록의 데이터 형식을 변경할 수도 있습니다." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringproperties.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringservercomminfo.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringnetomsettingswin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_changingdateunixevntlst.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringpropsettservcomm" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>특성, 서버 통신 및 설정 구성</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringpropsettservcomm">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">특성, 서버 통신 및 설정 구성</h1>
+<div class="body taskbody"><p class="shortdesc">You can configure properties for <span class="keyword">Tivoli Netcool/OMNIbus</span> 구성요소에 대한 특성 및
+UNIX와 Windows
+컨덕터에서 서버 구성요소에 대한 통신 정보를 구성할 수 있습니다. Windows의 경우, 설정 창에 있는 결합된 태스크의
+두 가지 기능을 수행할 수 있습니다. UNIX의 경우, 이벤트 목록의 데이터 형식을 변경할 수도 있습니다. </p>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_configuringproperties.html">특성 구성</a></span><br />
+ObjectServers, 프록시 서버, 데이터베이스 초기화
+유틸리티(<span class="keyword cmdname">nco_dbinit</span>), Confpack 유틸리티(<span class="keyword cmdname">nco_confpack</span>),
+Netcool/OMNIbus
+Administrator(nco_config), 프로브 및 게이트웨이에 대한 특성 파일에
+포함된 정보를 편집할 수 있습니다. 특성 파일은
+<span class="ph filepath">.props</span> 확장자를 가지고 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_configuringservercomminfo.html">서버 통신 정보 구성</a></span><br />
+<span class="keyword">Tivoli Netcool/OMNIbus</span> 서버
+구성요소에 대한 서버 통신 정보를 유지보수해야 합니다. 서버 편집기를 사용하여 서버 구성요소에
+대한 통신 세부사항을 작성 및 수정하고 서버 활동을 테스트하고 백업(또는 장애 조치) 서버
+및 리스너를 추가할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_configuringnetomsettingswin.html">Windows에서 Tivoli Netcool/OMNIbus 설정 구성</a></span><br />
+Windows에서
+<span class="keyword">Tivoli Netcool/OMNIbus</span>에 대한 특성 및 서버 통신 정보를 단일 태스크로 구성할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_changingdateunixevntlst.html">UNIX에서 이벤트 목록의 날짜 형식 변경</a></span><br />
+이벤트 목록의 날짜 형식은 NCO_TIME 환경 변수에서 정의됩니다. 기본 형식은 mm/dd/yy hh:mm:ss입니다(예: 11/12/03 20:13:36).
+이 형식은 POSIX strptime 함수로 판별됩니다. </li>
+</ul>
+</div></div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

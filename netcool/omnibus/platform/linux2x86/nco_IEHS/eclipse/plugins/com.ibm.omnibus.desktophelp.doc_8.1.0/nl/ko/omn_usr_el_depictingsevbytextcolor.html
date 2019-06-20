@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX에서 텍스트 색상으로 심각도 표시" />
+<meta name="abstract" content="기본적으로 이벤트 목록에서 이벤트의 심각도는 해당 행의 백그라운드 색상으로 표시됩니다. UNIX 운영 체제에서만 이벤트 목록을 구성하여 백그라운드를 사용할 수 있습니다. 그 대신에 경보 텍스트 색상을 사용하여 심각도를 표시할 수 있습니다." />
+<meta name="Description" content="기본적으로 이벤트 목록에서 이벤트의 심각도는 해당 행의 백그라운드 색상으로 표시됩니다. UNIX 운영 체제에서만 이벤트 목록을 구성하여 백그라운드를 사용할 수 있습니다. 그 대신에 경보 텍스트 색상을 사용하여 심각도를 표시할 수 있습니다." />
+<meta name="DC.subject" content="이벤트 목록, 심각도 표시, 텍스트 색상별 심각도" />
+<meta name="keywords" content="이벤트 목록, 심각도 표시, 텍스트 색상별 심각도" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_depictingsevbytextcolor" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>UNIX에서 텍스트 색상으로 심각도 표시</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_depictingsevbytextcolor">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX에서 텍스트 색상으로 심각도 표시</h1>
+<div class="body taskbody"><p class="shortdesc">기본적으로 이벤트 목록에서 이벤트의 심각도는 해당 행의 백그라운드 색상으로 표시됩니다.
+UNIX 운영 체제에서만 이벤트 목록을 구성하여 백그라운드를 사용할 수 있습니다.
+그 대신에 경보 텍스트 색상을 사용하여 심각도를 표시할 수 있습니다.</p>
+<div class="section context">텍스트 색상을 사용하여 심각도를 표시하려면 다음을 수행하십시오.</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">이벤트 목록 자원 정의 파일
+<span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</span>를 백업하십시오. 여기서 <var class="keyword varname">arch</var>는 운영 체제입니다. </span> 이 단계는 원본 파일로 복귀해야 하는 경우에 권할 만합니다.</li>
+<li class="li step stepexpand"><span class="ph cmd">이벤트 목록에 대한 백그라운드 및 텍스트 색상을 정의하기 위해 다음 X 자원 라인을 추가하여 <span class="ph filepath">NCOEvent</span> 파일을 편집하십시오.</span> <pre class="pre codeblock"><code>NCOEvent*inverseVideo:True
+
+NCOEvent*clearColour: Black
+NCOEvent*indetColour: Black
+NCOEvent*warnColour: Black
+NCOEvent*minorColour: Black
+NCOEvent*majorColour: Black
+NCOEvent*critColour: Black
+
+NCOEvent*ackClearColour: Black
+NCOEvent*ackIndetColour: Black
+NCOEvent*ackWarnColour: Black
+NCOEvent*ackMinorColour: Black
+NCOEvent*ackMajorColour: Black
+NCOEvent*ackCritColour: Black
+
+NCOEvent*clearTextColour: green3
+NCOEvent*indetTextColour: DarkOrchid2
+NCOEvent*warnTextColour: SteelBlue1
+NCOEvent*minorTextColour: yellow1
+NCOEvent*majorTextColour: #ffffb432294a
+NCOEvent*critTextColour: red1
+
+NCOEvent*ackClearTextColour: #008000
+NCOEvent*ackIndetTextColour: DarkOrchid4
+NCOEvent*ackWarnTextColour: SteelBlue3
+NCOEvent*ackMinorTextColour: yellow3
+NCOEvent*ackMajorTextColour: #b5ab63bd0000
+NCOEvent*ackCritTextColour: red3</code></pre>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 이 샘플 텍스트에서 백그라운드 색상은
+<samp class="ph codeph">Black</samp>으로 설정되어 있으나 지정된 텍스트 색상과 정확히 대조하여
+다른 색상을 지정할 수 있습니다.
+다양한 색상 세트를 사용하여 심각도를 묘사하려는 경우 사용 가능한 색상
+선택사항의 유용함에 대해 검증하는 것이 도움이 될 수 있습니다.
+이 색상은 파일 <span class="ph filepath">/usr/openwin/lib/rgb.txt</span>에 표시되어 있습니다.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">파일에 대한 변경사항을 저장하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">정의된 색상 설정이 사용자 환경에 로드되게 하려면 XAPPLRESDIR 환경 변수를 업데이트된 자원 정의 파일 <span class="ph filepath">NCOEvent</span>가 저장되어 있는 위치로 설정하십시오. </span> <p class="p">이 위치는 다음과 같습니다. </p>
+
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/</span></p>
+
+<p class="p">여기서 <var class="keyword varname">arch</var>는 운영 체제 디렉토리입니다. </p>
+
+<div class="note tip"><span class="tiptitle">팁:</span> 쉘에서 색상 설정을 영구화할 수 있도록 <span class="ph filepath">.login</span> 또는 <span class="ph filepath">.profile</span> 초기화 파일의 XAPPLRESDIR 환경 변수를 설정하십시오.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">다음 명령을 입력하여 색상을 시스템 색상과 병합하십시오.</span> <p class="p"><kbd class="ph userinput">/usr/openwin/bin/xrdb -merge $NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</kbd></p>
+
+<p class="p">여기서 <var class="keyword varname">arch</var>는 운영 체제 디렉토리입니다. </p>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">결과</h2></div>새 색상은 이벤트 목록을 열 때 사용 가능하게 됩니다. </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="이벤트 목록의 모양을 사용자 정의할 수 있습니다.">이벤트 목록의 모양 사용자 정의</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Defining routing hosts in the process agent configuration file" />
+<meta name="abstract" content="To specify the hosts that are participating in the process control system, you must define the process agent host names in the process agent configuration file." />
+<meta name="Description" content="To specify the hosts that are participating in the process control system, you must define the process agent host names in the process agent configuration file." />
+<meta name="DC.subject" content="process control, defining routing hosts, defining, routing hosts" />
+<meta name="keywords" content="process control, defining routing hosts, defining, routing hosts" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingunixusergps.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_pacmdlineoptions.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_propsfileencryption.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_definingrouthostpaconfigfile" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Defining routing hosts in the process agent configuration file</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_definingrouthostpaconfigfile">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Defining routing hosts in the process agent configuration file</h1>
+<div class="body refbody"><p class="shortdesc">To specify the hosts that are participating in the process
+control system, you must define the process agent host names in the
+process agent configuration file.</p>
+<div class="section"><p class="p">Each host entry defines the name of the host (for example,
+sfosys1) and the name of the process agent to be used in the process
+control system (for example, SFOSYS1_PA). For each host definition,
+you can also specify user name and password credentials for connecting
+to the process agent. </p>
+</div>
+<div class="example"><h2 class="title sectiontitle">Routing definition example</h2><p class="p">An example routing
+definition in the <span class="ph filepath">$NCHOME/omnibus/etc/nco_pa.conf</span> configuration
+file is as follows: </p>
+<pre class="pre codeblock"><code>nco_routing
+{
+host 'sfosys1' 'SFOSYS1_PA' '<var class="keyword varname">username</var>' '<var class="keyword varname">password</var>'
+host 'sfosys2' 'SFOSYS2_PA' '<var class="keyword varname">username</var>' '<var class="keyword varname">password</var>'
+}</code></pre>
+<div class="note note"><span class="notetitle">Note:</span> The <var class="keyword varname">username</var> and <var class="keyword varname">password</var> entries
+are mandatory if you are running the remote process agent in secure
+mode. If you are not running the remote process agent in secure mode,
+user names and passwords are optional.</div>
+<p class="p">If the process agent
+is using UNIX authentication
+(the default on UNIX), the <var class="keyword varname">username</var> must
+be an operating system user that is a member of the ncoadmin group
+(default) or any other administrative group that is created for granting
+access to the process control system. A process agent daemon that
+is running in secure mode must be run by the root user.</p>
+<p class="p">On Windows, <var class="keyword varname">username</var> must
+be the user name of a valid local account, domain account, or UPN
+account.</p>
+<div class="note note"><span class="notetitle">Note:</span> To prevent unauthorized users from gaining
+access, operating system security must be set appropriately for files
+that contain user names and passwords.</div>
+<p class="p">When running the process
+agent daemon <span class="keyword cmdname">nco_pad</span>, you can also specify the
+user name and password by using the <span class="keyword option">-user</span> and <span class="keyword option">-password</span> command-line
+options. This overrides any entries in the <span class="ph filepath">nco_pa.conf</span> configuration
+file.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Encrypting plain text passwords in routing definitions</h2><p class="p">You
+can encrypt plain text login passwords that are stored in the <span class="ph filepath">nco_pa.conf</span> file.</p>
+<p class="p">Password
+encryption details for running in FIPS 140–2 mode and non-FIPS 140–2
+mode are described in the following table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Password
+encryption in FIPS 140–2 mode and non-FIPS 140–2 mode</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d20054e108">Mode</th>
+<th class="entry" valign="bottom" width="80%" id="d20054e110">Action</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d20054e108 ">FIPS 140–2 mode</td>
+<td class="entry" valign="top" width="80%" headers="d20054e110 "><p class="p">When in FIPS 140–2 mode, passwords
+can either be specified in plain text or in encrypted format. You
+can encrypt passwords by using property value encryption, as follows:</p>
+<ol class="ol"><li class="li">If you do not yet have a key
+for encrypting the password, create one by running the <span class="keyword cmdname">nco_keygen</span> utility,
+which is located in <span class="ph filepath">$NCHOME/omnibus/bin</span>.</li>
+<li class="li">Run the <span class="keyword cmdname">nco_aes_crypt</span> utility
+to encrypt the password with the key that was generated by the <span class="keyword cmdname">nco_keygen</span> utility.
+The <span class="keyword cmdname">nco_aes_crypt</span> utility is also located in <span class="ph filepath">$NCHOME/omnibus/bin</span>.
+Note that you must specify <span class="keyword option">AES_FIPS</span> as the algorithm
+to use for encrypting the password.</li>
+<li class="li">Copy the encrypted password into the appropriate routing definition
+in the configuration file.</li>
+</ol>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d20054e108 ">Non-FIPS 140–2 mode</td>
+<td class="entry" valign="top" width="80%" headers="d20054e110 "><p class="p">In non-FIPS 140–2 mode, you can either use
+the <span class="keyword cmdname">nco_pa_crypt</span> utility or use property value
+encryption to encrypt plain text login passwords on UNIX. On Windows,
+you can use the <span class="keyword cmdname">nco_g_crypt</span> utility or use property
+value encryption. Perform either of the following actions:</p>
+<ul class="ul"><li class="li">To encrypt a password by using the <span class="keyword cmdname">nco_pa_crypt</span> or <span class="keyword cmdname">nco_g_crypt</span> utility,
+run the command as follows:<ul class="ul"><li class="li">UNIX: <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pa_crypt <var class="keyword varname">plaintext_password</var></kbd></p>
+</li>
+<li class="li">Windows:<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\bin\nco_g_crypt <var class="keyword varname">plaintext_password</var></kbd></p>
+</li>
+</ul>
+<p class="p">In these commands, <var class="keyword varname">plaintext_password</var> represents
+the unencrypted form of the password. The encryption utility displays
+an encrypted version of the password. Copy the encrypted password
+into the appropriate routing definition in the configuration file.</p>
+</li>
+<li class="li"><span class="ph">To encrypt a password by using property
+value encryption, you require a key that is generated with the <span class="keyword cmdname">nco_keygen</span> utility.
+You can then run <span class="keyword cmdname">nco_aes_crypt</span> to encrypt the password
+with the key. Note that you can specify either <span class="keyword option">AES_FIPS</span> or <span class="keyword option">AES</span> as
+the algorithm for encrypting the password. Use <span class="keyword option">AES</span> only
+if you need to maintain compatibility with passwords that were encrypted
+using the tools provided in versions earlier than <span class="keyword">Tivoli Netcool/OMNIbus</span> V7.2.1.</span><p class="p">Copy
+the encrypted password into the appropriate routing definition in
+the configuration file.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> On UNIX,
+even if the password is specified on the command line, it does not
+appear in <span class="keyword cmdname">ps</span> command output.</div>
+<p class="p">Passwords
+that are encrypted using <span class="keyword cmdname">nco_pa_crypt</span> are decrypted
+by the remote process control agent. </p>
+<p class="p">Passwords that are encrypted
+using <span class="keyword cmdname">nco_aes_crypt</span> are decrypted by the process
+agent daemon, and are passed to remote process agents as plain text.
+To decrypt the passwords, you must set the <span class="keyword option">-cryptalgorithm</span> and <span class="keyword option">-keyfile</span> command-line
+options when running <span class="keyword cmdname">nco_pad</span>. These options specify
+which algorithm and key file to use for decryption.</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_pa_creatingunixusergps.html" title="The process control daemon controls who can log in to it. On UNIX, any user who needs access to the process control system must be a member of a UNIX user group that you identify as an administrative group for this purpose.">Creating UNIX user groups for the process control system</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_pacmdlineoptions.html" title="When running the process agent with the nco_pad command, you can specify a number of command-line options for additional configuration.">Process agent command-line options</a></div>
+<div><a class="link" href="omn_adm_propsfileencryption.html" title="You can use property value encryption to encrypt string values in a properties file or configuration file so that the strings cannot be read without a key. When the process that uses the properties file or configuration file starts up, the strings are decrypted.">Property value encryption</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

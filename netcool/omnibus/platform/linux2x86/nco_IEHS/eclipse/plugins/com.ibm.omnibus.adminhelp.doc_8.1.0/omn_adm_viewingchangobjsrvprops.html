@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Viewing and changing ObjectServer properties" />
+<meta name="abstract" content="ObjectServer properties help to determine the behavior of the ObjectServer. You can view and change ObjectServer properties using Netcool/OMNIbus Administrator. You cannot add ObjectServer properties; you can only edit existing ones." />
+<meta name="Description" content="ObjectServer properties help to determine the behavior of the ObjectServer. You can view and change ObjectServer properties using Netcool/OMNIbus Administrator. You cannot add ObjectServer properties; you can only edit existing ones." />
+<meta name="DC.subject" content="properties, configuring, ObjectServer, viewing properties, changing properties" />
+<meta name="keywords" content="properties, configuring, ObjectServer, viewing properties, changing properties" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringobjservdbases.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_howpropscmdlnopts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_viewingchangobjsrvprops" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringobjservdbases.html" />
+<title>Viewing and changing ObjectServer properties</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_viewingchangobjsrvprops">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Viewing and changing ObjectServer properties</h1>
+<div class="body taskbody"><p class="shortdesc">ObjectServer properties help to determine the behavior
+of the ObjectServer. You can view and change ObjectServer properties
+using Netcool/OMNIbus Administrator.
+You cannot add ObjectServer properties; you can only edit existing
+ones.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">The default location of the ObjectServer properties file
+is <span class="ph filepath">$NCHOME/omnibus/etc/</span><var class="keyword varname">servername</var>.props.
+The ObjectServer reads the properties file when it starts.</p>
+<div class="note important"><span class="importanttitle">Important:</span> It is essential that you are familiar with the ObjectServer
+properties before modifying them. Incorrect configuration can negatively
+impact system performance and functionality. </div>
+<p class="p">To change the
+value of an ObjectServer property:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">System</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Properties</span>. </span> The <span class="keyword wintitle">ObjectServer
+Properties</span> pane opens.<div class="note tip"><span class="tiptitle">Tip:</span> View-only properties
+have the text <samp class="ph codeph">false</samp> in the <span class="ph uicontrol">Editable</span> column.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a property, select the column to edit and then
+click <span class="ph uicontrol">Edit Property</span> in the toolbar.</span> The <span class="keyword wintitle">Property Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">The unique name allocated to the ObjectServer property is shown here.
+You cannot change this value.</dd>
+<dt class="dt dlterm">Description</dt>
+<dd class="dd">A description of the ObjectServer property is shown here. You cannot change
+this value.</dd>
+<dt class="dt dlterm">Value</dt>
+<dd class="dd">Edit the property value as required.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the property details and close the window. The
+updated value is reflected in the <span class="keyword wintitle">ObjectServer Properties</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><div class="note tip"><span class="tiptitle">Tip:</span> Changes to some ObjectServer properties do
+not take effect until you restart the ObjectServer. These properties
+have the text <samp class="ph codeph">false</samp> in the <span class="ph uicontrol">Immediate</span> column.</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringobjservdbases.html" title="You can configure the following ObjectServer system components: ObjectServer database structures, files, properties, connections, and channels.">Configuring ObjectServer databases, files, properties, connections, and channels</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_howpropscmdlnopts.html" title="Use the ObjectServer properties or command-line options to configure settings for the ObjectServer. To avoid errors, add as many properties as possible to the properties file rather than using the command-line options. Additional utilities are provided that you can use to encrypt the property values.">ObjectServer properties and command-line options</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

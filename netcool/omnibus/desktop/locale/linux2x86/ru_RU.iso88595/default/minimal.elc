@@ -1,0 +1,38 @@
+#NCO_CONFIG3
+#
+# __OEM__ Event List Configuration File __VERSION__
+#
+#
+
+config_name = 'По умолчанию';
+config_columns = 4;
+views = {
+{
+view_name = 'По умолчанию';
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertKey, 'Alert Key', 15, centre, left }
+{ Summary, 'Summary', 30, centre, left }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+num_fixed = 0;
+}
+sorting = {
+{ Node, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = 'По умолчанию';
+filter_text = '';
+filter_metric = 'avg(Severity)';
+default = 'По умолчанию';
+windows = {
+none
+}
+}
+}
+
+# End of file

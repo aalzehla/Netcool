@@ -1,0 +1,36 @@
+# Sample properties file for nco_rules_util
+
+###############################################################################
+# Repository configuration
+###############################################################################
+# Root directory for rules file repository
+# repository.root		: '$NC_RULES_HOME'
+
+###############################################################################
+# Tool configuration
+###############################################################################
+# File or directory to run operation on if none specified
+# targetpath			: '.'
+
+###############################################################################
+# Logging configuration
+###############################################################################
+
+# The filename to write to log file. Defaults to stderr if not specified.
+# log.filename			: '$OMNIHOME/log/nco_rules_util.log'
+
+# The maximum size of the log file in KB before it is rotated or wraps.
+# 0 is unlimited size. Defaults to 100 if not specified.
+# log.maxsize			: 100
+
+# The maximum number of log files. (When a log file reaches maximum size , a
+# new one is created). When a maximum count is specified, the log file names are
+# suffixed with a number uniquely identifying each file. They start at 0
+# (newest file) and increment up to the maximum number of rotated files.
+# 1 means no rotation. Defaults to 2 if not specified.
+# log.maxcount			: 2
+
+# The level of messages to output. Can be ERROR,WARN,INFO,DEBUG.
+# DEBUG will output all messages, INFO will output ERROR,WARN and INFO etc.
+# (Defaults to WARN if not specified)
+# log.level			: 'WARN'

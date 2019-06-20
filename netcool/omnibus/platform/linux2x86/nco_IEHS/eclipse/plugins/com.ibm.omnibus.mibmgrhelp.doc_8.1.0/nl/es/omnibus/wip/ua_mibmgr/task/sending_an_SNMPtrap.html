@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Generación de interrupciones SNMP" />
+<meta name="abstract" content="Cómo generar interrupciones SNMP. Esta funcionalidad también se puede utilizar para probar los archivos de reglas generados por MIB Manager." />
+<meta name="Description" content="Cómo generar interrupciones SNMP. Esta funcionalidad también se puede utilizar para probar los archivos de reglas generados por MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="es-es" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versión 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Generación de interrupciones SNMP</h1>
+<div class="body taskbody"><p class="shortdesc">Cómo generar interrupciones SNMP. Esta funcionalidad también se puede
+utilizar para probar los archivos de reglas generados por
+<span class="keyword">MIB Manager</span>.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedimiento</h2></div><p class="li stepsection">Para generar una interrupción SNMP:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Pulse <img class="image" src="../gifs/trap.gif" alt="icono Interrupción" /> <span class="ph uicontrol">Interrupción</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Dirección de destino</span>,
+especifique el nombre de host o la dirección IP de un sistema
+que ejecute un servicio de Trapd SNMP.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Puerto de destino</span>, especifique
+el puerto UDP en el que el servicio Trapd SNMP está a la escucha.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Comunidad</span>, especifique
+una serie válida para el gestor de Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Según el tipo de interrupción que se genera,
+es posible que se visualice la sección <span class="ph uicontrol">Enlaces variables</span>
+en la ventana <span class="keyword wintitle">Generar una interrupción SNMP</span>. Los campos
+que están disponibles de la sección <span class="ph uicontrol">Enlaces variables</span> también
+dependen del tipo de interrupción que se genera.</span> <p class="p">Deslice el ratón sobre los nombres del campo
+<span class="ph uicontrol">Enlaces variables</span> para obtener detalles sobre
+la sintaxis del valor del campo. Puede especificar varios valores, separados
+por comas. Estos valores se elegirán aleatoriamente para compilar la interrupción.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Repetir medida</span>, especifique
+el número de interrupciones (de 1 a 1000) que se pueden generar.</span> <p class="p">Si especifica un número grande, las interrupciones se generarán
+en una sucesión rápida y pueden provocar una tormenta de alarmas
+en el gestor de Trapd. Para los valores mayores de uno
+(&gt; 1), y para los valores especificados como listas separadas por
+punto y coma, <span class="keyword">MIB Manager</span> realiza una selección aleatoria de las listas especificadas
+y genera interrupciones con los valores arbitrarios presentados como enlaces de variable (varbinds).</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Pulse <span class="ph uicontrol">Ejecutar</span> para generar la interrupción.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Resultados</h2></div>El campo <span class="ph uicontrol">Resultado</span> de la ventana <span class="keyword wintitle">Generar
+una interrupción SNMP</span> indicará si la interrupción se ha enviado
+correctamente.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Puede utilizar MIB Manager para analizar módulos MIB y crear archivos de reglas de Netcool.">Utilización de Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Soporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

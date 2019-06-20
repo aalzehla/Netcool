@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="匯出 MIB 資料" />
+<meta name="abstract" content="如何將 MIB Manager 中的 SNMP MIB 資料匯出為各種格式。" />
+<meta name="Description" content="如何將 MIB Manager 中的 SNMP MIB 資料匯出為各種格式。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_exportdata" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>匯出 MIB 資料</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_exportdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">匯出 MIB 資料</h1>
+<div class="body taskbody"><p class="shortdesc">如何將 <span class="keyword">MIB Manager</span> 中的 SNMP MIB 資料匯出為各種格式。</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">程序</h2></div><p class="li stepsection">若要匯出 MIB 資料，請執行下列動作：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">按一下 <img class="image" src="../gifs/export.gif" alt="MIB 匯出圖示" /> <span class="ph uicontrol">匯出</span>，或從功能表中按一下<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">匯出</span></span>。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目錄</span>欄位中，指定匯出檔的目的地目錄。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">檔案類型</span>欄位中，指定匯出檔的檔案類型。</span> <p class="p">無論如何，您都必須使用
+Netcool Knowledge Library (NCKL)，因為 NCKL 規則檔案是基於裝置的功能。使用
+NCKL 時，必須指定 <span class="ph uicontrol">Netcool Knowledge Library 3.x 版</span>檔案類型。如此即可讓產生的檔案新增至現有的 Netcool Include Library 安裝中。</p>
+
+<p class="p"><span class="ph uicontrol">檔案類型</span>下拉清單中提供了下列選項：</p>
+
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="表格中的每個橫列提供一個可選取的選項。" class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d7702e57-option">檔案類型</th>
+<th valign="bottom" align="left" id="d7702e57-desc">說明</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e64" class="stentry choption"><strong>CSV</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e64" class="stentry chdesc">選取此選項來指定所有物件資料都載入 CSV 檔，以便可以使用試算表應用程式來檢視。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e69" class="stentry choption"><strong>CSV 設陷物件</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e69" class="stentry chdesc">選取此選項來指定所有設陷資料及關聯的變數連結物件資料都載入單一 CSV 檔案，以便可以使用試算表應用程式來檢視。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e74" class="stentry choption"><strong>具有訊框的 HTML</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e74" class="stentry chdesc">選取此選項以建立適合發佈的網頁。<p class="p">選取的 MIB 樹狀結構視圖會顯示在產生的網頁左側。您可以透過展開及收合 MIB 樹狀結構中的節點，來導覽「MIB 樹狀結構」視圖。從 MIB 樹狀結構選取元素時，其關聯資訊會顯示在網頁的右側。</p>
+<p class="p">此格式通常可建立大量匯出檔，針對 MIB 樹狀結構中列出的每個物件，每個匯出檔案都包含 HTML 檔案。目標目錄可進行壓縮並放置在任何 Web 伺服器下，或者可以開啟匯出目錄中建立的 <span class="ph filepath">index.html</span> 檔來直接從磁碟檢視頁面。</p>
+<p class="p">若要利用 Web 瀏覽器來使用個別的 HTML 檔案，請匯出至<span class="ph uicontrol">具有訊框的 HTML</span>，然後使用位於匯出目錄下 <span class="ph filepath">data</span> 子目錄中的檔案。</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e94" class="stentry choption"><strong>沒有訊框的 HTML</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e94" class="stentry chdesc">選取此選項來建立單一檔案 <span class="ph filepath">oids.html</span>。
+此檔案將包含針對輸出選取的所有物件清單，每個物件以水平尺規（使用 <samp class="ph codeph">&lt;HR&gt;</samp> 標籤）來區隔。每個 OID 由錨點標籤括住，以便在載入 OID 時，瀏覽器會自動向下捲動到在 URL 中包括雜湊符號 (#) 的任何 OID，例如：<span class="ph filepath">file:c:/oids.html#1.3.6.1.4.1.9</span>。<p class="p">如果匯出大量物件，則這個檔案會變得非常大。因此，這個格式只應用於匯出少量設陷。</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e110" class="stentry choption"><strong>Netcool Lookup Table</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e110" class="stentry chdesc">選取此選項來輸出所有指定的值（以加上標籤的清單形式），其中 OID 顯示在左欄，物件名稱顯示在右欄。這適合併入任何規則檔。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e115" class="stentry choption"><strong>Netcool Include Library</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e115" class="stentry chdesc">選取此選項以為每個企業建立個別併入檔，以及為一般設陷（亦即，不是位於企業子樹狀結構之下的任何設陷）產生單一檔案。
+假設併入檔已插入現有的 <span class="ph filepath">snmp.rules</span> 檔案（之前由 <span class="keyword">MIB Manager</span> 建立的檔案或由 Netcool Include Library (NCIL) 建立的檔案）中。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e126" class="stentry choption"><strong>Netcool Knowledge Library 1.1 版</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e126" class="stentry chdesc">選取此選項以從 <span class="keyword">MIB Manager</span> 輸出檔案。這些檔案將併入現有的 Netcool Knowledge Library 實作中。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e134" class="stentry choption"><strong>Netcool Knowledge Library 3.x 版</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e134" class="stentry chdesc">選取此選項以從 <span class="keyword">MIB Manager</span> 輸出檔案。這些檔案將併入現有的 Netcool Knowledge Library 實作中。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e142" class="stentry choption"><strong>獨立式規則</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e142" class="stentry chdesc">選取此選項以建立一個包含所有所選設陷的單一規則檔。您可以在任何 <span class="keyword">Tivoli Netcool/OMNIbus</span> SNMP
+設陷探測器的內容檔中指定這個檔案。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e150" class="stentry choption"><strong>個別文字檔</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e150" class="stentry chdesc">「個別文字檔」格式用於 Netcool Event
+List 的右鍵功能表。<p class="p">匯出至個別文字檔時，每個 OID 會匯出到個別文字檔，例如 <span class="ph filepath">1.3.6.1.4.1.9.1.1.txt</span>。
+外部工具隨後可新增至右鍵功能表，該右鍵功能表使用 <span class="ph filepath">nco_message</span> 來顯示在欄位中指定了 OID 之事件的所有物件資訊；例如 <samp class="ph codeph">cat 1.3.6.1.4.1.9.1.txt |nco_message
+stdin title "trap info"</samp>。</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e57-option" id="d7702e167" class="stentry choption"><strong>Tivoli Universal Agent</strong></td>
+<td valign="top" headers="d7702e57-desc d7702e167" class="stentry chdesc">Tivoli Universal Agent 格式根據選取的內容匯出 <span class="ph filepath">.mdl</span> 和 <span class="ph filepath">trapcnfg</span> 檔。<div class="p">選取此格式來匯出檔案時，可以選取多個子樹狀結構。如果選取多個子樹狀結構，則會針對位於 MIB 樹狀結構中所選取項目下的所有物件，建立 <span class="ph filepath">.mdl</span> 和 <span class="ph filepath">trapcnfg</span> 檔。<div class="note note"><span class="notetitle">註：</span> 在 <span class="ph filepath">.mdl</span> 檔中，應用程式名稱的前三個字母，後跟 //APPL 標籤，在企業中必須唯一。<span class="keyword">MIB Manager</span> 嘗試遵循此需求，但無法知道可能在執行中的任何其他代理程式。您可能需要修改 <span class="ph filepath">.mdl</span> 檔以確保應用程式名稱在企業中是唯一的。</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">範圍</span>欄位中，使用下拉清單來指定 <span class="keyword">MIB Manager</span> 是只輸出設陷、只輸出物件還是輸出所有 OID。</span> <p class="p">選項是否可用視正在匯出的檔案類型而定。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">若要限制產生的檔案中併入的物件數，請選取<span class="ph uicontrol">僅限選取的子樹狀結構</span>勾選框。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">按一下<span class="ph uicontrol">匯出</span>以將檔案匯出至目的地目錄。</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。">使用 Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>相關參考</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" title="本節說明如何設定規則檔匯出喜好設定。">設定匯出喜好設定</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

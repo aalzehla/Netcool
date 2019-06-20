@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Running the process agent as a privileged user" />
+<meta name="abstract" content="Use this procedure to set up a process agent to run as a privileged user." />
+<meta name="Description" content="Use this procedure to set up a process agent to run as a privileged user." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_processagentsecurity.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_runningpaprivilegeduser" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_processagentsecurity.html" />
+<title>Running the process agent as a privileged user</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_runningpaprivilegeduser">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Running the process agent as a privileged user</h1>
+<div class="body taskbody"><p class="shortdesc">Use this procedure to set up a process agent to run as
+a privileged user.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">There are instances when the process agent must be run
+as a privileged user. For example, when running the SNMP Probe which
+needs to open port 162, or when local file authentication is in use
+and the process agent must be able to read the <span class="ph filepath">/etc/shadow</span> file
+to authenticate users (UNIX only).</p>
+<p class="p">To
+set up a process agent to run as a privileged user:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Install and run the primary process agent as a privileged
+user, and configure it to run on the host machine using the start-up
+script (UNIX) or using a service
+(Windows).</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Run a secondary process agent as a non-privileged user,
+and configure it to execute external ObjectServer actions. You must
+also configure it to run in non-daemon mode, as a child process of
+the primary process agent. Therefore, you must create an additional
+process entry in your primary process agent configuration file, as
+shown in the following example:</span> <pre class="pre codeblock"><code>nco_process 'NON_ROOT_PA'
+{
+Command '$OMNIHOME/bin/nco_pad -name NON_ROOT_PA -nodaemon -configfile 
+$OMNIHOME/etc/NON_ROOT_PA.conf' run as 1000
+Host = 'hostx'
+Managed = True
+RestartMsg = '${NAME} running as ${EUID} has been restored on ${HOST}.'
+AlertMsg = '${NAME} running as ${EUID} has died on ${HOST}.'
+RetryCount = 0
+ProcessType = PaPA_AWARE
+}</code></pre>
+<div class="note note"><span class="notetitle">Additional notes:</span> </div>
+ <ul class="ul"><li class="li">In the previous example, the secondary process agent is set to
+start as user <samp class="ph tt">1000</samp> (UID). It is also set to start with the <samp class="ph codeph">-nodaemon</samp> start-up
+switch. This prevents it from forking to a child process, and allows
+it to be managed by the primary process agent.</li>
+<li class="li">You must define a configuration file for the secondary process
+agent. The permissions for the configuration file must enable it to
+be accessed by the user account that is running the secondary process
+agent.</li>
+<li class="li">You must modify the properties file associated with the ObjectServer
+which is currently running as a process under the primary process
+agent. This includes setting the following properties: <span class="keyword parmname parmname">PA.Name</span>, <span class="keyword parmname parmname">PA.Username</span>,
+and <span class="keyword parmname parmname">PA.Password</span>.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_processagentsecurity.html" title="If the process agent is running as a privileged or super user on the host machine, it is possible for a Netcool/OMNIbus Administrator to configure external actions which are then executed on the host system as a privileged user. For example, as the root user (UNIX) or as the Local System User (Windows). This presents a potential security risk. Therefore, the process agent must be run as a non-privileged user.">Process agent security considerations</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

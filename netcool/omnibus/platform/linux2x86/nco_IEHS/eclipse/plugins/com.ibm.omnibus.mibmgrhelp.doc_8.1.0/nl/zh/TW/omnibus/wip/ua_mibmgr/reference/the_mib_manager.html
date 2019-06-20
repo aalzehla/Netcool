@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool MIB Manager" />
+<meta name="abstract" content="Netcool MIB Manager 是基於 IBM Eclipse 的 GUI 應用程式，您可以使用它來剖析可從中產生 Netcool 規則檔案的「簡易網路管理通訊協定 (SNMP)」管理資訊庫 (MIB) 檔案。它預期作為 mib2rules 公用程式的取代項目。" />
+<meta name="Description" content="Netcool MIB Manager 是基於 IBM Eclipse 的 GUI 應用程式，您可以使用它來剖析可從中產生 Netcool 規則檔案的「簡易網路管理通訊協定 (SNMP)」管理資訊庫 (MIB) 檔案。它預期作為 mib2rules 公用程式的取代項目。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="the_mib_manager" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<title>MIB Manager 會剖析 SNMP MIB 檔案並產生規則檔案。 它會取代 mib2rules 公用程式。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="the_mib_manager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">Netcool MIB Manager</span> 是基於 IBM® Eclipse 的
+GUI 應用程式，您可以使用它來剖析可從中產生 Netcool 規則檔案的「簡易網路管理通訊協定 (SNMP)」管理資訊庫 (MIB) 檔案。它預期作為 <span class="keyword cmdname">mib2rules</span> 公用程式的取代項目。</p>
+<div class="section"><p class="p"><span class="keyword">Tivoli
+Netcool/OMNIbus</span> 還包含一個 <span class="keyword">Netcool MIB Manager</span> 指令行公用程式 (<span class="keyword cmdname">nco_mibmanager_batch</span>)，您可以使用該公用程式來手動或以程式化方式發出指令。</p>
+<div class="p"><span class="keyword">Netcool MIB Manager</span> 具有下列功能：<ul class="ul"><li class="li">它可匯入 SNMP MIB 檔案並解析 MIB 相依關係以建置物件 ID (OID) 樹狀結構。</li>
+<li class="li">它可以將部分或全部匯入的 SNMP 物件匯出到 Netcool 規則檔案及其他檔案格式。</li>
+<li class="li">它包括其他 MIB 檔案最常要求的基本 MIB 及 RFC MIB。</li>
+<li class="li">它包括裝置定義以啟用已匯入 MIB 模組的裝置中樞分組。</li>
+<li class="li">它可以依物件名稱或 OID 來過濾及搜尋 MIB 模組和 OID 樹狀結構。</li>
+<li class="li">它可以產生 SNMP 設陷以傳送至 SNMP 探測器 (<span class="ph filepath">nco_p_mttrapd</span>) 或其他 SNMP 代理程式。</li>
+<li class="li">它具有一個可用來匯入 MIB 資料及匯出規則檔案的指令行介面。您可以手動發出指令，或以程式化方式呼叫指令。</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html">啟動 MIB Manager</a></span><br />
+從指令行啟動 <span class="keyword">MIB Manager</span> GUI。它未設計為受程序控制執行或作為 Windows 服務執行。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html">使用 Netcool MIB Manager</a></span><br />
+您可以使用 <span class="keyword">MIB Manager</span> 來剖析 MIB 模組及建立 Netcool 規則檔案。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html">配置廣域喜好設定</a></span><br />
+您可以從「<span class="keyword wintitle">喜好設定</span>」視窗配置數個 <span class="keyword">MIB Manager</span> 廣域喜好設定。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html">關於 SNMP</a></span><br />
+本節提供有關「簡易網路管理通訊協定 (SNMP)」架構、SNMP 管理資訊庫 (MIB) 及一些其他 MIB 概念的其他相關資訊。</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

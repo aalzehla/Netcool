@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring automations" />
+<meta name="abstract" content="You can use automation to detect changes in the ObjectServer and to run automated responses to these changes. This enables the ObjectServer to process alerts without requiring an operator to take action." />
+<meta name="Description" content="You can use automation to detect changes in the ObjectServer and to run automated responses to these changes. This enables the ObjectServer to process alerts without requiring an operator to take action." />
+<meta name="DC.subject" content="ObjectServer, configuring automations, automations, configuring" />
+<meta name="keywords" content="ObjectServer, configuring automations, automations, configuring" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingnetomadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringtriggers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringprocedures.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringsignals.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_sqlintinteface.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_runningprocedures.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_standardnetomautomatns.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_configuringautomations" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_usingnetomadministrator.html" />
+<title>Configuring automations</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_configuringautomations">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring automations</h1>
+<div class="body taskbody"><p class="shortdesc">You can use automation to detect changes in the ObjectServer
+and to run automated responses to these changes. This enables the
+ObjectServer to process alerts without requiring an operator to take
+action.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">For example, network alerts often include the message <samp class="ph msgph">Link
+Down</samp>, which indicates that there is a problem in the network.
+When the problem is resolved, the ObjectServer receives another alert
+including the message <samp class="ph msgph">Link Up</samp>. Using a correctly-configured
+automation, the ObjectServer can automatically associate the two alerts,
+recognize that the <samp class="ph msgph">Link Up</samp> message indicates that the
+problem is resolved, and delete both alerts.</p>
+<p class="p">You can also use
+automation to manage deduplication, which reduces the quantity of
+data held in the ObjectServer by eliminating duplicate events. Netcool/OMNIbus includes
+a number of standard automations.</p>
+<p class="p"><dfn class="term">Triggers</dfn> form
+the basis of the ObjectServer automation subsystem. Triggers automatically
+perform a trigger action or <dfn class="term">fire</dfn> when the ObjectServer
+detects an incident associated with a trigger. In a trigger, you can
+run SQL commands, and call procedures in response to the change.</p>
+<p class="p"><dfn class="term">Signals</dfn> and <dfn class="term">procedures</dfn> are
+also part of the automation subsystem. Signals can have triggers attached
+to them, so that the ObjectServer can automatically respond when a
+signal is raised. Procedures are executable programs that are created
+to perform common operations, and you can run them in a trigger, or
+from the SQL interactive interface. </p>
+</div>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringtriggers.html">Configuring triggers</a></span><br />
+You can create and edit
+triggers from the default Netcool/OMNIbus Administrator windows,
+or by using an SQL script. You can create an SQL script in an external
+text editor. There are three types of triggers: database triggers,
+signal triggers, and temporal triggers. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringprocedures.html">Configuring procedures</a></span><br />
+A procedure is an executable SQL object that can be called
+to perform common operations.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_configuringsignals.html">Configuring signals</a></span><br />
+Signals are occurrences within the ObjectServer that can
+be detected and acted upon. Signals are part of the automation subsystem.</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_usingnetomadministrator.html" title="The ObjectServer stores, manages, and processes alert and status data that is collected by external applications such as probes and gateways. You can use Netcool/OMNIbus Administrator to configure your ObjectServer objects and to configure process control.">Using Netcool/OMNIbus Administrator to configure ObjectServers</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_sql_sqlintinteface.html" title="You can use the SQL interactive interface command-line utility provided with Tivoli Netcool/OMNIbus to issue SQL commands to an ObjectServer.">SQL interactive interface</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_sql_runningprocedures.html" title="After you create a procedure, you must run it using the EXECUTE PROCEDURE command for the actions in the procedure to occur. You can do this using the SQL interactive interface (nco_sql) or in a trigger or procedure.">EXECUTE PROCEDURE</a></div>
+<div><a class="link" href="omn_adm_sql_standardnetomautomatns.html" title="A set of standard automations is included with Tivoli Netcool/OMNIbus. These automations are created during database initialization.">Standard Tivoli Netcool/OMNIbus automations</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE exclusions SYSTEM "exclusions.dtd">
+<!--
+******************************************************************************
+
+Licensed Materials - Property of IBM
+
+5724O4800
+
+(C) Copyright IBM Corp. 1994, 2005. All Rights Reserved
+
+US Government Users Restricted Rights - Use, duplication
+or disclosure restricted by GSA ADP Schedule Contract
+with IBM Corp.
+
+******************************************************************************
+
+This XML file is used to exclude specific files and all files in 
+directories from being included in the nco_confpack export package.  
+Any of the specific files or files in these directories will be 
+ignored during the creation of the export package.
+
+This will be used when external files (such as scripts in tools, 
+automations, or stored procedures) are implicitly included in the 
+export package.  There will be one element for the common OmniHome 
+exclusions, followed by any number of operating system specific 
+exclusions.  
+
+A slash (/) is used as a generic path separator.  The slash will be 
+replaced by the operating system specific separator during processing.
+For the OmniHome element, the value in the $OMNIHOME variable will be 
+added to the front of each file and directory, thus these pathes will 
+need to be relative to $OMNIHOME.  For the Platform elements, the path 
+should be from the system root.  For Windows systems, the drive will 
+need to be included (for example C: or D:).  The C: drive is used as 
+a default.  
+
+******************************************************************************
+-->
+<exclusions>
+<OmniHome>
+	<File Name="/utils/nco_functions"/>
+	<File Name="/utils/nco_mail"/>
+	<File Name="/desktop/default.elv"/>
+	<File Name="/desktop/default.elc"/>
+	<File Name="/desktop/minimal.elc"/>
+	<File Name="/ini/default.elc"/>
+	<File Name="/ini/default.elv"/>
+	<File Name="/ini/tool.elf"/>
+	<File Name="/ini/minimal.elc"/>
+	<File Name="/desktop/NCOelct.exe"/>
+	<Dir Name="/bin"/>
+	<Dir Name="/db"/>
+	<Dir Name="/etc"/>
+	<Dir Name="/install"/>
+	<Dir Name="/log"/>
+	<Dir Name="/platform"/>
+	<Dir Name="/patches"/>
+</OmniHome>
+<Platform Name="SunOS" Type="UNIX">
+	<Dir Name="/bin"/>
+	<Dir Name="/etc"/>
+	<Dir Name="/lib"/>
+	<Dir Name="/sbin"/>
+	<Dir Name="/usr"/>
+</Platform>
+<Platform Name="AIX" Type="UNIX">
+	<Dir Name="/bin"/>
+	<Dir Name="/etc"/>
+	<Dir Name="/lib"/>
+	<Dir Name="/lpp"/>
+	<Dir Name="/sbin"/>
+	<Dir Name="/usr"/>
+</Platform>
+<Platform Name="HP-UX" Type="UNIX">
+	<Dir Name="/bin"/>
+	<Dir Name="/etc"/>
+	<Dir Name="/lib"/>
+	<Dir Name="/sbin"/>
+	<Dir Name="/usr"/>
+</Platform>
+<Platform Name="Linux" Type="UNIX">
+	<Dir Name="/bin"/>
+	<Dir Name="/etc"/>
+	<Dir Name="/lib"/>
+	<Dir Name="/sbin"/>
+	<Dir Name="/usr"/>
+</Platform>
+<Platform Name="Windows NT" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows 2000" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows 2003" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Server 2003" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows XP" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Server 2008" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Server 2008 R2" Type="WIN">
+        <Dir Name="C:/WINDOWS"/>
+        <Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Vista" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows 7" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Server 8" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Server 2012" Type="WIN">
+	<Dir Name="C:/WINDOWS"/>
+	<Dir Name="C:/WINNT"/>
+</Platform>
+<Platform Name="Windows Server 2012 R2" Type="WIN">
+        <Dir Name="C:/WINDOWS"/>
+        <Dir Name="C:/WINNT"/>
+</Platform>
+</exclusions>

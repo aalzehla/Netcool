@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="「MIB モジュール」ビュー" />
+<meta name="abstract" content="「MIB モジュール」ビューは、インポートされた すべての MIB モジュールを表示します。これを使用して、MIB モジュールの検索、 MIB モジュールの削除、および特定の MIB 値の検索を行うことができます。" />
+<meta name="Description" content="「MIB モジュール」ビューは、インポートされた すべての MIB モジュールを表示します。これを使用して、MIB モジュールの検索、 MIB モジュールの削除、および特定の MIB 値の検索を行うことができます。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mibtree" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB マネージャー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="mibtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">「MIB モジュール」ビュー</h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword wintitle">「MIB モジュール」</span>ビューは、インポートされた
+すべての MIB モジュールを表示します。これを使用して、MIB モジュールの検索、
+MIB モジュールの削除、および特定の MIB 値の検索を行うことができます。</p>
+<div class="section"><p class="p"><span class="keyword wintitle">「MIB モジュール」</span>ビューでは、MIB ツリー内のノードを展開したり縮小したりすることによって、
+ビュー内を移動します。MIB ツリーの最上位の
+ブランチには、MIB モジュールの名前が含まれており、
+各 MIB モジュール・ブランチの中には、MIB を構成するその他の
+エレメントが含まれています。</p>
+<div class="p"><span class="keyword wintitle">「MIB
+モジュール」</span>ビュー内のデータは、以下のオプションのいずれかを
+<span class="ph uicontrol">「ビュー」</span>ドロップダウン・リストから選択することでフィルタリングできます。<ul class="ul"><li class="li"><span class="ph uicontrol">すべて</span></li>
+<li class="li"><span class="ph uicontrol">モジュール</span></li>
+<li class="li"><span class="ph uicontrol">列挙</span></li>
+<li class="li"><span class="ph uicontrol">テキスト規則</span></li>
+<li class="li"><span class="ph uicontrol">構文規則</span></li>
+<li class="li"><span class="ph uicontrol">インポート</span></li>
+<li class="li"><span class="ph uicontrol">エクスポート</span></li>
+<li class="li"><span class="ph uicontrol">列</span></li>
+<li class="li"><span class="ph uicontrol">説明</span></li>
+</ul>
+</div>
+<p class="p">特定の値を<span class="keyword wintitle">「MIB モジュール」</span>ビューで
+検索するには、テキストを<span class="ph uicontrol">「検索」</span>フィールドに入力して、
+<span class="ph uicontrol">「Enter」</span>を押すか<img class="image" src="../gifs/find.gif" alt="検索アイコン" /> (検索) をクリックします。</p>
+<p class="p"><span class="keyword">MIB マネージャー</span>は、
+選択されたアイテムから検索を開始するか、アイテムが現在選択されていない場合は、
+リスト内の最初のアイテムから検索を開始します。一致する次のアイテムを
+リストから検索するには、続けて <img class="image" src="../gifs/find.gif" alt="検索アイコン" /> (検索) をクリックします。</p>
+<p class="p">アイテムが
+見つかると、アイテムは自動的に強調表示され、
+<span class="keyword wintitle">「MIB モジュール」</span>ビューに表示されます。</p>
+<p class="p"><span class="ph uicontrol">「検索」</span>フィールドに、
+有効な正規表現を指定するか、オブジェクト名のすべてまたは一部を表す
+プレーン・テキストを入力します。</p>
+<p class="p">1 つ以上の MIB
+モジュールを削除するには、選択した MIB モジュール (複数可) を右クリックして、ポップアップ・メニューから
+<span class="ph uicontrol">「削除」</span>を選択します。選択した MIB
+モジュールは、<span class="keyword">MIB マネージャー</span>から削除されます。ただし、元の MIB
+ソース・ファイル (MIB インポートで提供) は削除されません。</p>
+<div class="p"><div class="note note"><span class="notetitle">注:</span> MIB モジュールの
+削除は、MIB モジュールにエラーが含まれており、置き換える新しいバージョンの MIB モジュールが
+存在する場合にのみ行う必要があります。この方法を使用して MIB モジュールを削除すると、
+MIB 依存関係が欠落する可能性があります。また、エクスポート処理中に、ログ・ファイル内の
+警告メッセージまたはエラー・メッセージとともに、不完全なルール・ファイルが生成される
+場合もあります。</div>
+</div>
+<p class="p">以下の表では、
+<span class="keyword wintitle">「MIB モジュール」</span>ビューのアイコンをリストし、それぞれが
+表す内容を説明しています。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 「MIB モジュール」ビューのアイコンおよび
+アイコンが表すオブジェクト</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="28.14070351758794%" id="d4444e111">アイコン</th>
+<th class="entry" valign="top" width="71.85929648241206%" id="d4444e113">表記</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "> <div class="image"><img class="image" src="../gifs/exports.gif" alt="エクスポート・&#xA;アイコン" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">EXPORTS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "> <div class="image"><img class="image" src="../gifs/export.gif" alt="エクスポート・&#xA;アイコン" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">EXPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "> <div class="image"><img class="image" src="../gifs/imports.gif" alt="インポート・&#xA;アイコン" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">IMPORTS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "> <div class="image"><img class="image" src="../gifs/import.gif" alt="インポート・&#xA;アイコン" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">IMPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="オブジェクト ID&#xA;アイコン" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">OBJECT IDENTIFIER、OBJECT-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="エージェント機能" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">AGENT-CAPABILITIES</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="モジュール・コンプライアンス・&#xA;アイコン" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">MODULE-COMPLIANCE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/module_identity.gif" alt="モジュール&#xA;ID" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">MODULE、MODULE-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/obj_group.gif" alt="オブジェクト・&#xA;グループ" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">OBJECT-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="通知&#xA;グループ" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">NOTIFICATION-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="トラップ・&#xA;タイプ" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">TRAP-TYPE (v1 トラップ)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="通知タイプ" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">NOTIFICATION-TYPE (v2 トラップ)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="汎用&#xA;オブジェクト・タイプ" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">Generic OBJECT-TYPE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="カウンター" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="カウンター&#xA;32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">COUNTER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="カウンター&#xA;64" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">COUNTER64</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="ゲージ" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">GAUGE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="ゲージ&#xA;32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">GAUGE32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="整数" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">INTEGER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="整数&#xA;32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">INTEGER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP アドレス" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">IpAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="ネットワーク・&#xA;アドレス" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">NetworkAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="オクテット・&#xA;ストリング" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">OCTET STRING</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="シーケンス&#xA;表" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">SEQUENCE (表)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="シーケンス&#xA;表項目" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">SEQUENCE (項目、表の行)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="時間刻み" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">TIMETICKS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e111 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="テキスト&#xA;規則" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e113 ">TEXTUAL-CONVENTION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。">Netcool MIB マネージャー の使用</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

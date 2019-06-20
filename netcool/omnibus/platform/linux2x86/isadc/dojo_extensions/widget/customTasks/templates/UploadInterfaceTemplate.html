@@ -1,0 +1,18 @@
+<div dojoAttachPoint="mainInterface" dojoType="dijit.layout.BorderContainer" class="dijitBorderContainer uploadInterfaceMain" design="sidebar" gutters="true">
+	 <div dojoType="dijit.layout.ContentPane" region="top" class="uploadInterfaceRegion"  >
+	    <div dojoAttachPoint="initialFocusDiv" class="transferHeader" tabindex="0" id="testthis"></div>
+		<div dojoAttachPoint="transferLabelSpan" class="transferHeader" ></div>
+		<div dojoAttachPoint="transferInfoDiv" class="transferInfo transferRegion"></div>
+	</div>
+	
+	<div dojoType="dijit.layout.ContentPane" region="center" class="uploadInterfaceRegion">
+		<div dojoAttachPoint="transferButtonDiv" class="transferButtonDiv"></div>
+		<div dojoAttachPoint="transferDiv"></div>
+	</div>
+	 <div dojoType="dijit.layout.ContentPane" dojoAttachPoint="transferBottom" region="bottom" class="uploadInterfaceRegion">
+		<div dojoAttachPoint="transferActionDiv" class="transferActionButtons left">
+			<span dojoAttachPoint="sendUploadButton" class="transferActionButton"></span>
+			<span dojoAttachPoint="doNotUploadButton" class="transferActionButton"></span>
+		</div>
+	</div>
+</div>

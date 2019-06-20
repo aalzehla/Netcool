@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="设置导出首选项" />
+<meta name="abstract" content="本节描述了如何设置规则文件导出首选项。" />
+<meta name="Description" content="本节描述了如何设置规则文件导出首选项。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB 管理器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">设置导出首选项</h1>
+<div class="body refbody"><p class="shortdesc">本节描述了如何设置规则文件导出首选项。</p>
+<div class="section"><p class="p">要设置目录首选项，请单击 <img class="image" src="../gifs/global_preferences.gif" alt="“首选项”图标" /> <span class="ph uicontrol">首选项</span>，或在主菜单中单击<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">首选项</span></span>，然后在“<span class="keyword wintitle">首选项</span>”窗口的左窗格中单击<span class="ph uicontrol">导出</span>。</p>
+</div>
+<div class="section"><ul class="ul"><li class="li">在<span class="ph uicontrol">包含路径</span>字段中，指定已随 Netcool 包含库 (NCiL) 规则文件包安装的规则的位置（如果规则文件包已安装）。仅当您要以 Netcool 包含库文件格式导出数据以及目录路径必须指向已包含的规则时，才需要指定此选项。指定此选项后，就不需要手动编辑新的规则文件。缺省值为 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/probes/<var class="keyword varname">arch</var></span>。</li>
+<li class="li">在<span class="ph uicontrol">缺省导出文件格式</span>字段中，为输出文件指定 Windows/DOS 格式 (CRLF) 或 Unix 格式 (LF)。此属性使您无需运行实用程序（例如 <samp class="ph codeph">dos2unix</samp>）就能够在 Windows 机器上创建规则并将它们复制到 Unix 机器。<div class="note note"><span class="notetitle">注：</span> 此选项应用于所有输出文件，并不限于规则文件。缺省值为 Unix 格式。</div>
+</li>
+<li class="li">在<span class="ph uicontrol">警报类型</span>字段中，指定在“<span class="keyword wintitle">详细信息</span>”视图中编辑 <samp class="ph codeph">@Type</samp> 字段时显示的下拉列表选项。</li>
+</ul>
+<p class="p">仅当先前选择了 NCKL 导出格式时，以下选项才可用：</p>
+<ul class="ul"><li class="li">如果选中了<span class="ph uicontrol">包含 varbind 描述</span>复选框，那么会将 varbind 描述添加为注释文档。缺省值是已启用。</li>
+<li class="li">如果选中了<span class="ph uicontrol">计算更佳的 @AlertKey 值</span>复选框，那么将根据 varbind 父对象生成 <samp class="ph codeph">@AlertKey</samp> 值。缺省值是已启用。</li>
+<li class="li">如果选中了<span class="ph uicontrol">为每个企业设置 @Agent</span> 复选框，那么将为每个企业设置 <samp class="ph codeph">@Agent</samp> 字段。<samp class="ph codeph">@Agent</samp> 字段基于为规则文件处理的 MIB 模块的名称。缺省值是已启用。</li>
+<li class="li">如果选中了<span class="ph uicontrol">添加 @Class 模板</span>复选框，那么将设置 <samp class="ph codeph">@Class</samp> 字段。如果选中了<span class="ph uicontrol">添加 @Class 模板</span>复选框，那么会将 <samp class="ph codeph">@Class</samp> 字段设置为 300。缺省值是已启用。</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="可以从“首选项”窗口配置多个 MIB 管理器 全局首选项。">配置全局首选项</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="如何将 SNMP MIB 数据从 MIB 管理器 导出为各种格式。">导出 MIB 数据</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

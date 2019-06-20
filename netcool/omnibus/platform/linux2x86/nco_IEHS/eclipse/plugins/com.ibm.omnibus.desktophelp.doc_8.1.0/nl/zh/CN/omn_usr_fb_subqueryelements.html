@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="子查询元素" />
+<meta name="abstract" content="构造过滤器时，您可使用子查询元素在条件中进行查询。" />
+<meta name="description" content="构造过滤器时，您可使用子查询元素在条件中进行查询。" />
+<meta name="DC.subject" content="过滤器, 子查询元素" />
+<meta name="keywords" content="过滤器, 子查询元素" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_subqueryelements" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_componentsoffilter.html" />
+<title>子查询元素</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_subqueryelements">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">子查询元素</h1>
+<div class="body conbody"><p class="shortdesc">构造过滤器时，您可使用子查询元素在条件中进行查询。</p>
+<div class="p">子查询元素可查询存储在以下 ObjectServer <samp class="ph tt">警报</samp>数据库表中的数据并返回结果：<ul class="ul"><li class="li">alerts.details：此表存储事件详细信息，并通过“标识”列链接到 alerts.status 表。</li>
+<li class="li">alerts.journal：此表存储对事件执行的工作的历史记录，并通过“序列”列链接到 alerts.status 表。</li>
+<li class="li">alerts.status: 此表存储探测器检测到的问题的相关状态信息。</li>
+</ul>
+</div>
+<p class="p">例如，您可能需要在 alerts.journal 表中查找带有日志项的事件，或在 alerts.details 表中查找具有特定详细信息属性的事件。</p>
+<p class="p">子查询元素后可跟有条件、逻辑和其他子查询元素。 这些元素使您能够为其他表中的信息指定所选条件。</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_fb_componentsoffilter.html" title="过滤器由一组 元素 组成。 可用元素类型包括条件、逻辑和子查询元素。">过滤器组件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

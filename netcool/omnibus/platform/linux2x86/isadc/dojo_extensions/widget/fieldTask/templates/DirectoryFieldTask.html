@@ -1,0 +1,18 @@
+<div id="dialogID_${uniqueid}" style="align:right">
+<!-- (C) COPYRIGHT International Business Machines Corp., 2011. All Rights Reserved * Licensed Materials - Property of IBM -->
+  <div dojoType="dijit.Dialog" id="dialog1_${uniqueid}" title="" 
+      dojoAttachEvent="onClick:_cancelSelectionClicked"> 
+     <div   style="width:400px;height:300px;overflow:auto;align:left;valign:top">
+       <div dojoType="dijit.layout.ContentPane" id="ContentPane_${uniqueid}"  style="overflow:auto;text-align:left;valign:top">
+          <div id="navigateToDirectory_${uniqueid}"> Navigate to your directory selection </div>
+      </div>
+      
+     <div dojoType="dijit.layout.ContentPane" id="ContentPane0_${uniqueid}" style="overflow:auto;text-align:left;valign:top">
+     </div>
+    </div>
+    <div id="selectionID_${uniqueid}" style="overflow:auto;align:left;valign:top"> Directory Selected: <p id="selectionText_${uniqueid}"> </p></div>
+    <div dojoType="dijit.layout.ContentPane" id="ContentPane1_${uniqueid}" style="text-align:right">
+     <button id="acceptDirectorySelectionButton_${uniqueid}" dojoType="dijit.form.Button" label="Accept" style="align:right" dojoAttachEvent="onClick:_acceptSelectionClicked"></button>
+  </div>
+</div>
+</div>

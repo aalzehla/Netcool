@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="MIB マネージャーの始動" />
+<meta name="abstract" content="MIB マネージャー GUI は、コマンド行から始動します。プロセス制御の下で、または Windows サービスとして実行されるようには設計されていません。" />
+<meta name="Description" content="MIB マネージャー GUI は、コマンド行から始動します。プロセス制御の下で、または Windows サービスとして実行されるようには設計されていません。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_cmdline_options.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_cmdline_options.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="starting_mibmanager" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>MIB マネージャーの始動。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="starting_mibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB マネージャーの始動</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">MIB マネージャー</span> GUI は、コマンド行から始動します。プロセス制御の下で、または Windows サービスとして実行されるようには設計されていません。</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">このタスクについて</h2></div><p class="p">AIX および Solaris オペレーティング・システム上で <span class="keyword">MIB マネージャー</span>を実行するための要件について詳しくは、サポートされるオペレーティング・システムの資料を参照してください。</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <span class="keyword">MIB マネージャー</span>を始動する前に、<span class="ph filepath">$DISPLAY</span> 環境変数が、機能している X11 サーバーに設定されていることを確認する必要があります。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">次のコマンドを使用して <span class="keyword">MIB マネージャー</span> GUI を始動します。</span> <p class="p"><kbd class="ph userinput"><var class="keyword varname">NCHOME</var>/omnibus/bin/nco_mibmanager</kbd></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">次のコマンドを使用して <span class="keyword">MIB マネージャー</span>・コマンド行ユーティリティーを開始します。</span> <p class="p"><kbd class="ph userinput"><var class="keyword varname">NCHOME</var>/omnibus/bin/nco_mibmanager_batch
+[options]</kbd></p>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_cmdline_options.html">MIB マネージャー コマンド行オプション</a></span><br />
+<span class="keyword">MIB マネージャー</span> には、MIB データのインポートおよびルール・ファイルのエクスポートに使用できるコマンド行ユーティリティーが備わっています。コマンドを手動で発行したり、あるいはプログラムで呼び出したりすることができます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB マネージャーは、IBM Eclipse をベースにした GUI アプリケーションであり、これを使用して Simple Network Management Protocol (SNMP) 管理情報ベース (MIB) ファイルを解析できるとともに、 Netcool ルール・ファイルを生成できます。mib2rules ユーティリティーの置き換えとして使用されることが意図されています。">Netcool MIB マネージャー</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_cmdline_options.html" title="MIB マネージャー には、MIB データのインポートおよびルール・ファイルのエクスポートに使用できるコマンド行ユーティリティーが備わっています。コマンドを手動で発行したり、あるいはプログラムで呼び出したりすることができます。">MIB マネージャー コマンド行オプション</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Представление Дерево OID" />
+<meta name="abstract" content="Представление Дерево OID (Object Identifier, идентификатор объектов) показывает все объекты MIB, которые расположены в импортированных модулях MIB." />
+<meta name="Description" content="Представление Дерево OID (Object Identifier, идентификатор объектов) показывает все объекты MIB, которые расположены в импортированных модулях MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="oidtree" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Представление Дерево OID</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="oidtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Представление Дерево OID</h1>
+<div class="body refbody"><p class="shortdesc">Представление Дерево OID (Object Identifier, идентификатор объектов) показывает все объекты MIB, которые расположены в импортированных модулях MIB.</p>
+<div class="section"><div class="p">Фильтровать данные в представлении <span class="keyword wintitle">Дерево OID</span> можно, выбрав одну из следующих опций из выпадающего списка <span class="ph uicontrol">Представление</span>:<ul class="ul"><li class="li"><span class="ph uicontrol">Все</span></li>
+<li class="li"><span class="ph uicontrol">Прерывания/Уведомления</span></li>
+<li class="li"><span class="ph uicontrol">Объекты</span></li>
+<li class="li"><span class="ph uicontrol">Модули</span></li>
+</ul>
+</div>
+<p class="p">Для поиска в представлении <span class="keyword wintitle">Дерево OID</span> конкретного значения введите текст в поле <span class="ph uicontrol">Поиск</span>, а после этого или нажмите клавишу <span class="ph uicontrol">Enter</span>, или  щелкните по значку <img class="image" src="../gifs/find.gif" alt="Значок Поиск" /> (Поиск).</p>
+<p class="p"><span class="keyword">MIB Manager</span> начинает поиск с выбранного элемента или, если никакой элемент в данный момент не выбран, с первого элемента в списке. Чтобы найти в списке следующий подходящий элемент, снова щелкните по значку <img class="image" src="../gifs/find.gif" alt="Значок Поиск" /> (Поиск).</p>
+<p class="p">Если элемент найден, он автоматически выделяется и выводится в представлении <span class="keyword wintitle">Дерево OID</span>. </p>
+<p class="p">В поле <span class="ph uicontrol">Поиск</span> задайте допустимые регулярные выражения или введите простой текст, представляющий полное или частичное имя объекта или OID. Число, показанное на каждом узле ветвей, представляет собой последнюю цифру OID для данного конкретного объекта.</p>
+<p class="p">В следующей таблицы перечислены значки представления <span class="keyword wintitle">Дерево OID</span> и объясняется, что каждый из них означает.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Табл. 1. Значки дерева <span class="keyword wintitle">Дерево OID</span> и связанные с ними представляемые объекты</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="29.145728643216078%" id="d5875e83">Значок</th>
+<th class="entry" valign="top" width="70.85427135678391%" id="d5875e85">Представление</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "> <div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="значок Идентификатор объекта" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">OBJECT IDENTIFIER, OBJECT-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="Возможности агента" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">AGENT-CAPABILITIES</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="значок совместимости модуля" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">MODULE-COMPLIANCE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "> <div class="image"><img class="image" src="../gifs/module_identity.gif" alt="Идентификация модуля" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">MODULE, MODULE-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "> <div class="image"><img class="image" src="../gifs/obj_group.gif" alt="Группа объектов" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">OBJECT-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "> <div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="Группа уведомлений" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">NOTIFICATION-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="Тип прерывания" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">TRAP-TYPE (прерывание v1)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="Тип уведомления" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">NOTIFICATION-TYPE (прерывание v2)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="Общий тип объектов" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">Общий OBJECT-TYPE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="Счетчик" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="Счетчик 32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">COUNTER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="Счетчик 64" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">COUNTER64</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="Индикаторная шкала" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">GAUGE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="Индикаторная шкала 32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">GAUGE32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="Целое" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">ЦЕЛЫЙ</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="Целое 32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">INTEGER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP-адрес" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">IpAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="Сетевой адрес" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">NetworkAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="Строка октетов" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">OCTET STRING</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="Таблица последовательности" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">SEQUENCE (таблица)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="Запись таблицы последовательности" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">SEQUENCE (запись, строка таблицы)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="Тики" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">TIMETICKS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5875e83 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="Текстовое соглашение" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5875e85 ">TEXTUAL-CONVENTION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB Manager можно использовать для синтаксического анализа модулей MIB и создания файлов правил Netcool.">Использование Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

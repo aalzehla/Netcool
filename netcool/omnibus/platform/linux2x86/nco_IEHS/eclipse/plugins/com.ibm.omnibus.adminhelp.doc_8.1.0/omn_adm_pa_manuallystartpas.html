@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Manually starting process agents" />
+<meta name="abstract" content="You can manually start process agents from the command line." />
+<meta name="Description" content="You can manually start process agents from the command line." />
+<meta name="DC.subject" content="process agents, starting manually, starting, nco_pad, process control" />
+<meta name="keywords" content="process agents, starting manually, starting, nco_pad, process control" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_pacmdlineoptions.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_manuallystartpas" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<title>Manually starting process agents</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_manuallystartpas">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Manually starting process agents</h1>
+<div class="body taskbody"><p class="shortdesc">You can manually start process agents from the command
+line.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To manually start a process agent, enter the following
+command on the command line of the host:</p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pad
+-name <var class="keyword varname">process_agent</var></kbd></p>
+<p class="p">In this command, <var class="keyword varname">process_agent</var> is
+the name of the process agent, as defined in the <span class="ph filepath">omni.dat</span> file
+(UNIX) or <span class="ph filepath">sql.ini</span> file
+(Windows). You can specify
+additional command-line options with this command.</p>
+<p class="p">The process
+agent daemon (<span class="keyword cmdname">nco_pad</span>) runs relative to the <span class="ph filepath">$NCHOME/omnibus</span> location. </p>
+<div class="p"><img src="ngunix.gif" alt="For UNIX operating system" /> The process agent daemon (<span class="keyword cmdname">nco_pad</span>)
+follows UNIX-style quoting rules when deciding whether to expand environment
+variables inside arguments for external actions. The rules are as
+follows, in order of precedence: <ul class="ul"><li class="li">Double quotes (" ") inside a substring delimited by single quotes
+have no effect.</li>
+<li class="li">Single quotes (' ') inside a substring delimited by double quotes
+have no effect.</li>
+<li class="li">Environment variables inside single quotes are not be expanded.</li>
+</ul>
+See the section <span class="q">"Example"</span> for more information.</div>
+<div class="note note"><span class="notetitle">Note:</span> A
+new instance of the process agent cannot manage processes that were
+started by another instance, and which are still running. When the
+process agent is stopped and restarted, it has no knowledge of such
+processes, and therefore starts new instances of them. The previous
+instances are left running.</div>
+<div class="note note"><span class="notetitle">Note:</span> If you run the <span class="keyword cmdname">nco_pad</span> command
+on a computer that already contains a process agent that is installed
+as a Windows service, any
+commands that are specified for the Windows service
+are merged with command-line options for running <span class="keyword cmdname">nco_pad</span> from
+the command prompt. If there is a conflict between the options that
+are specified for the service, and the options that you enter at the
+command prompt, the options that you enter at the command prompt take
+precedence. The screen output displays the merged options.</div>
+</div>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_pacmdlineoptions.html">Process agent command-line options</a></span><br />
+When running the process agent with the <span class="keyword cmdname">nco_pad</span> command,
+you can specify a number of command-line options for additional configuration.</li>
+</ul>
+</div><div class="example" id="omn_adm_pa_manuallystartpas__eg"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Example</h2></div><p class="p"><img src="ngunix.gif" alt="For UNIX operating system" /> In the following
+example, only <samp class="ph codeph">$B</samp> is expanded, because <samp class="ph codeph">$B</samp> is
+outside of a pair of single quotes:</p>
+<pre class="pre codeblock"><code>'$A'$B'$C'</code></pre>
+<p class="p">The
+following example shows how you can avoid expansion but still output
+quotes. To obtain single quotes in the output, you must escape the
+string inside double quotes, as follows:</p>
+<pre class="pre codeblock"><code>"'"'$A'"'"'$B'"'"'$C'"'"</code></pre>
+<p class="p">This
+string produces the following output:</p>
+<pre class="pre codeblock"><code>'$A'$B'$C'</code></pre>
+<p class="p">To
+obtain the output <samp class="ph codeph">'$A'$B'$C'</samp> with
+no expansion, it is not sufficient to place the string in double quotes
+because, according to the UNIX quoting rules, the string would be
+expanded. For no expansion to take place the whole string must be
+inside single quotes. </p>
+  </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_creatingstartpctrlsysunix.html" title="To manage process control, you must first determine your process control configuration requirements and then perform a number of configuration tasks.">Creating and starting a process control network system</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

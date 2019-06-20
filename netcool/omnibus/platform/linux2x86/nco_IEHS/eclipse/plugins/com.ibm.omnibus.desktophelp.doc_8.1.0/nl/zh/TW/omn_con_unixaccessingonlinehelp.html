@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="在 UNIX 上存取線上說明" />
+<meta name="abstract" content="線上說明使用「IBM Eclipse 說明系統 (IEHS)」（其為 Web 應用程式）進行部署。基於安裝及配置設定，您可以獨立模式或資訊中心模式存取線上說明。" />
+<meta name="description" content="線上說明使用「IBM Eclipse 說明系統 (IEHS)」（其為 Web 應用程式）進行部署。基於安裝及配置設定，您可以獨立模式或資訊中心模式存取線上說明。" />
+<meta name="DC.subject" content="線上說明, 存取, 配置, 獨立模式, 資訊中心模式, IBM Eclipse 說明系統 (IEHS), IEHS (IBM Eclipse 說明系統), IEHS, 關閉伺服器" />
+<meta name="keywords" content="線上說明, 存取, 配置, 獨立模式, 資訊中心模式, IBM Eclipse 說明系統 (IEHS), IEHS (IBM Eclipse 說明系統), IEHS, 關閉伺服器" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_unixaccessingonlinehelp" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>在 UNIX 上存取線上說明</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_unixaccessingonlinehelp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">在 UNIX 上存取線上說明</h1>
+<div class="body taskbody"><p class="shortdesc">線上說明使用「IBM® Eclipse 說明系統 (IEHS)」（其為 Web 應用程式）進行部署。基於安裝及配置設定，您可以獨立模式或資訊中心模式存取線上說明。</p>
+<div class="section context"><p class="p">若要配置及存取線上說明，請依下表所述開始進行。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 說明配置設定</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d5786e59">設定</th>
+<th class="entry" valign="bottom" width="75%" id="d5786e61">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d5786e59 ">瀏覽器環境變數 (UNIX)</td>
+<td class="entry" valign="top" width="75%" headers="d5786e61 ">將瀏覽器目錄位置新增至下列環境變數 (如果尚未新增的話)：<ul class="ul"><li class="li">PATH</li>
+<li class="li">LD_LIBRARY_PATH（Solaris 及 Linux）、LIBPATH (AIX®) 或 SHLIB_PATH
+(HP-UX)</li>
+<li class="li">瀏覽器特定環境變數；例如，MOZILLA_FIVE_HOME</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5786e59 ">獨立模式</td>
+<td class="entry" valign="top" width="75%" headers="d5786e61 ">若要以獨立模式使用線上說明，則在安裝 <span class="keyword">Tivoli Netcool/OMNIbus</span> 期間，您必須已選取<span class="ph uicontrol">本端說明系統</span>功能。 <div class="p">安裝之後，僅當另一個本端服務正在使用預設 IEHS 埠號 8888 時，才必須進行配置。 如果是這種情況，請編輯 IEHS 配置檔 <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span>，如下所示： <ul class="ul"><li class="li">IEHSMode：0</li>
+<li class="li">IEHSHost：<var class="keyword varname">空白</var></li>
+<li class="li">IEHSPort：<var class="keyword varname">未用的埠號</var></li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">註：</span> 變更配置檔中的埠號之後，您必須關閉本端 IEHS 伺服器，變更才會生效。 執行 <kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd> 指令。
+(如果您變更瀏覽器的環境變數設定，則必須同時關閉 IEHS 伺服器，變更才會生效)。 </div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5786e59 ">資訊中心模式</td>
+<td class="entry" valign="top" width="75%" headers="d5786e61 ">在資訊中心模式中，您的系統管理者會配置設定，以便所有使用者都可以共用線上說明系統的同一 IEHS Web 伺服器，以減輕本端主機或工作站上的負載。<p class="p">如果您的系統管理者已通知您必須以資訊中心模式存取線上說明，則您必須配置本端 IEHS 配置檔 <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span>，如下所示： </p>
+<ul class="ul"><li class="li">IEHSMode：1</li>
+<li class="li">IEHSHost：<var class="keyword varname">IEHS 伺服器的 IP 位址或主機名稱</var></li>
+<li class="li">IEHSPort：<var class="keyword varname">執行 IEHS 伺服器的埠號</var></li>
+</ul>
+<p class="p">您的系統管理者會提供 IEHSHost 及 IEHSPort 設定。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">當您以獨立模式存取線上說明時，您的預設說明瀏覽器視窗會自動開啟並顯示相關文字。 本端 IEHS 伺服器開始於第一個說明要求，並繼續執行直到您關閉它為止。 若要關閉本端 IEHS 伺服器，請執行下列指令：</p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd></p>
+<p class="p">通常，僅在電腦重新開機之前才會執行 <span class="keyword cmdname">help_end</span> 指令。</p>
+<p class="p">在您可以使用資訊中心模式存取線上說明之前，您的系統管理者必須啟動指定的遠端 IEHS 伺服器。</p>
+<div class="note note"><span class="notetitle">註：</span> 在獨立模式中，只有在本端電腦上執行的瀏覽器才可以顯示說明主題。 如果另一個主機上正在執行開啟的瀏覽器，則說明系統會嘗試使用該瀏覽器來顯示線上說明。 這會導致下列錯誤訊息： <br /><samp class="ph systemoutput">嘗試連接至 localhost:<var class="keyword varname">name</var> 時，連線遭到拒絕</samp> <br />請關閉該視窗，以在正確的瀏覽器中顯示說明。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="您可以使用「管理者」，以管理 Tivoli Netcool/OMNIbus 桌面工具 (或用戶端應用程式)。">存取桌面工具</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

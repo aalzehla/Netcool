@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="サーバー通信情報の構成" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus サーバー・コンポーネントのサーバー通信情報を保守する必要があります。 サーバー・エディターを使用して、サーバー・コンポーネント、サーバー・アクティビティーのテスト、およびバックアップ (または、フェイルオーバー) サーバーおよびリスナーの追加に関する通信の詳細を作成して変更することができます。" />
+<meta name="Description" content="Tivoli Netcool/OMNIbus サーバー・コンポーネントのサーバー通信情報を保守する必要があります。 サーバー・エディターを使用して、サーバー・コンポーネント、サーバー・アクティビティーのテスト、およびバックアップ (または、フェイルオーバー) サーバーおよびリスナーの追加に関する通信の詳細を作成して変更することができます。" />
+<meta name="DC.subject" content="サーバー通信情報, 構成, サーバー・エディター" />
+<meta name="keywords" content="サーバー通信情報, 構成, サーバー・エディター" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_ipv6_configurationunix.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringservercomminfo" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>サーバー通信情報の構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringservercomminfo">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">サーバー通信情報の構成</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> サーバー・コンポーネントのサーバー通信情報を保守する必要があります。 サーバー・エディターを使用して、サーバー・コンポーネント、サーバー・アクティビティーのテスト、およびバックアップ (または、フェイルオーバー) サーバーおよびリスナーの追加に関する通信の詳細を作成して変更することができます。 </p>
+<div class="section context">サーバー通信情報を構成するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">ご使用のオペレーティング・システムに該当するアクションを実行します。</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="この表の各行には選択肢が示されています。" class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d136045e28-option">オペレーティング・システム</th>
+<th valign="bottom" align="left" id="d136045e28-desc">アクション</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d136045e28-option" id="d136045e35" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d136045e28-desc d136045e35" class="stentry chdesc" width="80%">次のいずれかのアクションを実行します。<ul class="ul"><li class="li">UNIX コンダクターの<span class="ph uicontrol">「インターフェース」</span>ボタンをクリックします。</li>
+<li class="li">コマンド行で <kbd class="ph userinput">$NCHOME/omnibus/bin/nco_xigen</kbd> と入力します。</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d136045e28-option" id="d136045e54" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d136045e28-desc d136045e54" class="stentry chdesc" width="80%">次のいずれかのアクションを実行します。<ul class="ul"><li class="li"><span class="ph menucascade"><span class="ph uicontrol">「スタート」</span> &gt; <span class="ph uicontrol">「プログラム」</span> &gt; <span class="ph uicontrol">「Netcool スイート」</span> &gt; <span class="ph uicontrol">「システム・ユーティリティー」</span> &gt; <span class="ph uicontrol">「サーバー・エディター」</span></span>をクリックします。 </li>
+<li class="li">デスクトップ・トレイのバス・アイコンを右クリックして<span class="ph uicontrol">「コンダクター」</span>メニューを開き、
+次に<span class="ph uicontrol">「サーバー」</span>をクリックします。</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ サーバー・エディターが開きます。</li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">サーバー・リスト</em></dt>
+<dd class="dd">サーバー・リストは、既存のサーバー・コンポーネントとその設定を示します。<dl class="dl"><dt class="dt dlterm">サーバー</dt>
+<dd class="dd">この列には、このワークステーション用に定義されている各サーバーの名前が表示されます。 デフォルトのサーバー名は以下のとおりです。<ul class="ul"><li class="li">NCOMS: ObjectServer のデフォルト名</li>
+<li class="li">NCO_PROXY: プロキシー・サーバーのデフォルト名</li>
+<li class="li">NCO_GATE: ゲートウェイのデフォルト名</li>
+<li class="li">NCO_PA: プロセス・エージェントのデフォルト名</li>
+</ul>
+</dd>
+<dd class="dd">Windows の場合、サーバーのホスト・ワークステーションには <dfn class="term">listener</dfn> 項目が必要です。また、ホスト・ワークステーションおよびサーバーに接続する他のすべてのワークステーションには <dfn class="term">client</dfn> 項目が必要です。</dd>
+<dd class="dd">バックアップの ObjectServer は、サーバー・エディターでは 1 次 ObjectServer の下に表示されます。 バックアップの ObjectServer のリストを非表示にするには、1 次 ObjectServer の名前かサーバー・アイコンをダブルクリックします。 バックアップの ObjectServer は非表示になり、サーバー・アイコンに <em class="ph i">C</em> の文字が表示されます。 バックアップの ObjectServer を再度表示するには、もう一度ダブルクリックしてください。 サーバー・アイコンも通常の表示に戻ります。 </dd>
+<dt class="dt dlterm">ホスト名</dt>
+<dd class="dd">この列には、サーバー・コンポーネントがインストールされているワークステーションのホスト名または IP アドレスが表示されます。<div class="note note"><span class="notetitle">注:</span> インストールが終了すると、どのサーバーのホストも <samp class="ph tt">omnihost</samp> に設定されます (UNIX の場合)。 これを、サーバーのホスト・ワークステーションの名前に変更する必要があります。 Windows の場合、デフォルトはホスト名です。</div>
+</dd>
+<dt class="dt dlterm">ポート</dt>
+<dd class="dd">この列には、サーバー・コンポーネントが暗号化されていない接続の listen を行うポートが表示されます。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">UNIX の場合、この列には、サーバー・コンポーネントが暗号化されている接続の listen を行うポートが表示されます。 UNIX システムでは、サーバー・コンポーネントに対して標準のポートか SSL ポート、またはその両方を定義することができます。</dd>
+<dd class="dd">Windows の場合、接続が暗号化されていれば、この列には <samp class="ph tt">yes</samp> と表示されます。 Windows システムでは、暗号化されている接続と暗号化されていない接続の両方に同じポート番号が使用されます。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">サーバー項目フィールド</dt>
+<dd class="dd">サーバー項目フィールドは、各サーバー・コンポーネントの詳細の入力または編集に使用します。 既存のサーバー・コンポーネントの詳細を編集する場合は、まず最初にサーバー・リストから該当する行を選択し、その詳細をサーバー項目フィールドに表示する必要があります。 <dl class="dl"><dt class="dt dlterm">名前</dt>
+<dd class="dd">新規サーバー・コンポーネントの名前を入力するか、既存のコンポーネントの名前を編集します。 Windows の場合は、ドロップダウン・リストから名前を選択することもできます。 コンポーネントの名前を指定する際に使用するサフィックスは、プロキシー・サーバーの場合は _PROXY、ゲートウェイの場合は _GATE、プロセス・エージェントの場合は _PA です。<div class="note note"><span class="notetitle">注:</span> サーバー項目の名前は、29 文字以下の大文字で入力する必要があります。最初の文字を整数にすることはできません。</div>
+</dd>
+<dt class="dt dlterm">ホスト</dt>
+<dd class="dd">サーバー・コンポーネントがインストールされているワークステーションのホスト名または IP アドレスを入力または編集します。 (UNIX の新規サーバー・コンポーネントの場合、名前はデフォルトで <samp class="ph tt">omnihost</samp> に設定されるため、実際のホスト名または IP アドレスに変更する必要があります。)</dd>
+<dd class="dd">IP アドレスを入力する場合は、IPv4 または IPv6 アドレスを指定できます。
+例えば、以下のようになります。<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">ポート</dt>
+<dd class="dd">UNIX の場合、暗号化されていない接続を使用するクライアントがサーバーと接続できるようにするには、このフィールドに有効な未使用のポート番号を入力します。 暗号化されていない接続を不許可にするには、ポートを未設定のままにします。</dd>
+<dd class="dd">Windows の場合、このフィールドには有効な未使用のポート番号を入力します。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">UNIX の場合、暗号化されている接続を使用するクライアントがサーバーと接続できるようにするには、このフィールドに有効な未使用のポート番号を入力します。 暗号化されている接続を不許可にするには、ポートを未設定のままにします。 </dd>
+<dd class="dd">Windows の場合、SSL を使用するクライアントからの暗号化されている接続をそのポートで受け入れるように指示するには、このチェック・ボックスを選択してチェック・マークを付けます。 <div class="note note"><span class="notetitle">注:</span> UNIX システムでは、サーバー・コンポーネントに対して標準のポートか SSL ポート、またはその両方のポートを定義することができます。 Windows システムでは、どちらのタイプの接続にも同じポート番号が使用されます。</div>
+</dd>
+<dt class="dt dlterm">リスナー (Windows のみ)</dt>
+<dd class="dd">サーバーのホスト・ワークステーションのリスナー項目の場合は、このチェック・ボックスを選択してチェック・マークを付けます。 クライアントについて入力する場合は、<span class="ph uicontrol">「リスナー」</span>チェック・ボックスのチェック・マークを外します。</dd>
+<dt class="dt dlterm">追加</dt>
+<dd class="dd">サーバー・リストに新規 (および固有) のサーバーの詳細を追加するには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">削除/更新</dt>
+<dd class="dd">このボタンは、現在選択されているサーバー・コンポーネントを変更したかどうかに基づいて変更されます。 現在選択されているサーバー・コンポーネントをサーバー・リストから削除する場合は、<span class="ph uicontrol">「削除」</span>をクリックします。 サーバー・リストを最新表示して、既存のサーバー・コンポーネントの詳細に対する更新を反映させるには、<span class="ph uicontrol">「更新」</span>をクリックします。</dd>
+<dt class="dt dlterm">テスト</dt>
+<dd class="dd">サーバー・リストで選択されているサーバーへの接続が可能かどうかをテストするには、このボタンをクリックします。 サーバー・エディターは、指定されたホストおよびポートの上にあるサーバーへの接続を試行します。 テスト・コマンドの結果を表示するウィンドウが表示されます。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">優先順位フィールド</dt>
+<dd class="dd">サーバーの優先順位フィールドを使用することで、フェイルオーバー・システムとして構成されているサーバー・コンポーネントの優先順位を上げたり下げたりすることができます。 例えば、NCOMS_PRI という ObjectServer が、NCOMS_BAK というバックアップとともに構成されているとします。 <span class="ph uicontrol">「上げる」</span>または<span class="ph uicontrol">「下げる」</span>ボタンを使用することで、NCOMS_BAK の優先順位を上げて 1 次 ObjectServer とし、NCOMS_PRI をバックアップにすることができます。<dl class="dl"><dt class="dt dlterm">上げる</dt>
+<dd class="dd">選択されているサーバー・コンポーネントの優先順位を 1 段階上げるには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">下げる</dt>
+<dd class="dd">選択されているサーバー・コンポーネントの優先順位を 1 段階下げるには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">すべてを生成 (UNIX のみ)</dt>
+<dd class="dd">すべての UNIX オペレーティング・システムのインターフェース・ファイルを生成するには、このボタンをクリックします。 この場合、(<span class="ph uicontrol">「適用」</span>ボタンを使用して) 変更を適用すると、<span class="ph filepath">$NCHOME/etc/interfaces.<var class="keyword varname">arch</var></span> という名前のインターフェース・ファイルが生成されます。<span class="ph filepath"><var class="keyword varname">arch</var></span> には、個々の UNIX プラットフォームの名前 (例えば、<span class="ph filepath">interfaces.hpux11</span> や <span class="ph filepath">interfaces.solaris2</span> など) が入ります。</dd>
+<dt class="dt dlterm">グループを表示 (Windows のみ) </dt>
+<dd class="dd">Windows の場合、サーバー・リスト内の各サーバーを名前でグループ化し、識別されたバックアップ・サーバーおよびリスナーをクライアント項目の後に表示するには、このチェック・ボックスを選択してチェック・マークを付けます。</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="dl"><dt class="dt dlterm">適用 (UNIX のみ)</dt>
+<dd class="dd">インターフェース・ファイルに変更を適用するには、このボタンをクリックします。
+サーバー・リストに追加されたサーバー・コンポーネント、サーバー・リストから削除されたサーバー・コンポーネント、または編集されたサーバー・コンポーネントは、すべてこのファイルに保存されます。</dd>
+<dt class="dt dlterm">OK (Windows のみ)</dt>
+<dd class="dd">このボタンは、変更を保存して、このウィンドウを閉じる場合にクリックします。</dd>
+<dt class="dt dlterm">閉じる (UNIX)/キャンセル (Windows)</dt>
+<dd class="dd">このボタンは、<span class="ph uicontrol">「適用」</span>ボタンを使用して変更を保存したあとでこのウィンドウを閉じる場合か、変更を保存せずにこのウィンドウを閉じる場合にクリックします。</dd>
+<dt class="dt dlterm">インポート (UNIX のみ)</dt>
+<dd class="dd">このボタンをクリックして、通信の詳細をインポートします。 </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="Tivoli Netcool/OMNIbus コンポーネントのプロパティー、および UNIX コンダクターと Windows コンダクターのサーバー・コンポーネントの通信情報を構成することができます。 Windows の場合は、設定ウィンドウ内でこれら 2 つの機能を結合タスクとして実行することができます。 UNIX の場合は、イベント・リストの日付形式を変更することもできます。">プロパティー、サーバー通信、および設定の構成</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_con_ipv6_configurationunix.html" title="Tivoli Netcool/OMNIbus は、IPv4 と IPv6 を両方ともサポートします。 IPv4 のみの構成、IPv6 のみの構成、または IPv4 と IPv6 のデュアル構成をサポートするネットワーク上にコンポーネントを共存させ、動作させることができます。">IPv6 構成</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

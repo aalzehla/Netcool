@@ -1,0 +1,93 @@
+##############################################################################
+# Netcool/OMNIbus Uni-directional ObjectServer Gateway 8.1.0
+#
+# Default property file.
+#
+# Ident: $Id: objserv_uni.props 1.1 2003/09/26 15:51:27 cappl Development $
+#
+# Revision History:
+#	1.0:	Initial revision.
+#
+# Notes:
+#
+##############################################################################
+
+##############################################################################
+#
+# Property Name				Default
+#
+# Common Netcool/OMNIbus Properties.
+#
+# MaxLogFileSize			: 1024 
+# MessageLevel				: 'warn'
+# MessageLog				: '$OMNIHOME/log/NCO_GATE.log'
+# Name					: 'NCO_GATE'
+# PropsFile				: '$OMNIHOME/etc/NCO_GATE.props'
+# Help					: FALSE
+# UniqueLog				: FALSE
+# Version				: FALSE
+#
+# Common IPC Properties.
+#
+# Ipc.ClientOverrideSybase		: FALSE
+# Ipc.OpenClientDebug			: FALSE
+# Ipc.QueueSize				: 1024
+# Ipc.ServerOverrideSybase		: FALSE
+# Ipc.SingleThreaded			: FALSE
+# Ipc.StackSize				: 34816
+# Ipc.Timeout				: 60
+# Ipc.TruncateVendorLogFile		: TRUE
+# Ipc.VendorLogFileSize			: 1024
+# Connections				: 256
+#
+# Common Gateway Properties.
+#
+# Gate.CacheHashTblSize			: 5023
+# Gate.MapFile				: '$OMNIHOME/gates/objserv_uni/objserv_uni.map'
+# Gate.StartupCmdFile			: '$OMNIHOME/gates/objserv_uni/objserv_uni.startup.cmd'
+# Gate.Transfer.FailoverSyncRate	: 60
+# Gate.NGtkDebug			: TRUE
+# Gate.PAAware				: 0
+# Gate.PAAwareName			: ''
+#
+#
+# Unidirectional ObjectServer Gateway Properties.
+#
+# Gate.Mapper.Debug			: TRUE
+# Gate.Mapper.ForwardHistoricDetails	: FALSE
+# Gate.Mapper.ForwardHistoricJournals	: FALSE
+#
+# Gate.Reader.Debug			: TRUE
+# Gate.Reader.Server			: 'NCOMS'
+# Gate.Reader.Username			: 'root'
+# Gate.Reader.Password			: ''
+# Gate.Reader.FailbackEnabled		: TRUE
+# Gate.Reader.FailbackTimeout		: 30
+# Gate.Reader.IducFlushRate		: 0
+# Gate.Reader.LogOSSql			: FALSE
+# Gate.Reader.ReconnectTimeout		: 30
+# Gate.Reader.StatusTableName		: 'alerts.status'
+# Gate.Reader.JournalTableName		: 'alerts.journal'
+# Gate.Reader.DetailsTableName		: 'alerts.details'
+# Gate.Reader.TblReplicateDefFile	: '$OMNIHOME/gates/objserv_uni/objserv_uni.reader.tblrep.def'
+#
+# Gate.Writer.Debug			: TRUE
+# Gate.Writer.Username			: 'root'
+# Gate.Writer.Server			: 'REMOTE'
+# Gate.Writer.Password			: ''
+# Gate.Writer.BufferSize		: 25
+# Gate.Writer.FailbackEnabled		: TRUE
+# Gate.Writer.FailbackTimeout		: 30
+# Gate.Writer.LogOSSql			: FALSE
+# Gate.Writer.ReconnectTimeout		: 30
+# Gate.Writer.RefreshCacheOnUpdate	: TRUE
+# Gate.Writer.SAF			: FALSE
+# Gate.Writer.SAFFile			: '$OMNIHOME/var/objserv_uni/NCO_GATE_Writer.store'
+#
+# Gate.Resync.Enable			: TRUE
+# Gate.Resync.Type			: 'NORMAL'
+# Gate.Resync.LockType			: 'PARTIAL'
+# Gate.Resync.BackoffRetryTime		: 60
+#
+#######################################################################
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB Manager 指令行選項" />
+<meta name="abstract" content="MIB Manager 有一個指令行公用程式，您可以使用它來匯入 MIB 資料及匯出規則檔案。您可以手動發出指令，或以程式化方式呼叫指令。" />
+<meta name="Description" content="MIB Manager 有一個指令行公用程式，您可以使用它來匯入 MIB 資料及匯出規則檔案。您可以手動發出指令，或以程式化方式呼叫指令。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>MIB Manager 指令行選項。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">MIB Manager</span> 指令行選項</h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">MIB Manager</span> 有一個指令行公用程式，您可以使用它來匯入 MIB 資料及匯出規則檔案。您可以手動發出指令，或以程式化方式呼叫指令。</p>
+<div class="section"><div class="p">若要啟動指令行公用程式，請使用下列指令：<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[options]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[options]</samp><p class="p">在 Windows 作業系統上，來自 <span class="keyword">MIB Manager</span> 的輸出會顯示在新的主控台中。</p>
+</li>
+</ul>
+</div>
+<p class="p">下表說明可用的指令行選項。
+<span class="keyword option">-exportmibs</span>、<span class="keyword option">-exportobjects</span> 及 <span class="keyword option">-exportoids</span> 選項可以剖析符合 Java 型樣引擎的正規表示式。</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> 指定目錄時，請使用完整目錄路徑。例如：<kbd class="ph userinput">nco_mibmanager_batch
+-importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. <span class="keyword">MIB Manager</span> 指令行選項</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d633e84">指令行選項</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d633e86">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">如果您之前已使用 <span class="keyword">MIB Manager</span> 圖形公用程式，則當您第一次執行 <span class="keyword">MIB Manager</span> 指令行公用程式時，請使用此選項。如果您不使用此選項，則會顯示錯誤。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定將所產生規則檔案匯出至的目錄。請用雙引號 (") 括住目錄路徑。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定要匯出之 MIB 的名稱。您可以使用正規表示式來指定多個 MIB。<p class="p">例如，下列指令從名為 <span class="q">"RMON-MIB"</span> 的 MIB 匯出物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">下列指令從名稱中包含 <span class="q">"MON"</span> 的所有 MIB 匯出物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定將匯出的檔案寫入現有匯出目錄內的新目錄。
+這個新子目錄會自動以時間戳記命名。使用此選項可以確保不會改寫現有的規則檔案。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定要匯出之 MIB 物件的名稱。您可以使用正規表示式來指定多個物件。<p class="p">例如，下列指令匯出名為 <span class="q">"coldStart"</span> 的所有物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">下列指令匯出其名稱以 <span class="q">"cold"</span> 開頭的所有物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportoids</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定要匯出的 OID。
+您可以使用正規表示式來指定多個 OID。<p class="p">例如，下列指令匯出 OID 為 <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> 的所有物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1 -filetype csv</samp></p>
+<p class="p">下列指令匯出其 OID 以 <span class="q">"1.3.6.1.6.3.1.1.5"</span> 開頭的所有物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">下列指令匯出 OID 為 <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> 或 <span class="q">"1.3.6.1.6.3.1.1.5.2"</span> 的所有物件：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定匯出的 MIB 物件類型。此選項採用下列值：<ul class="ul"><li class="li"><span class="keyword option">ALL</span>：匯出所有 MIB 物件。</li>
+<li class="li"><span class="keyword option">TRAPS</span>：僅匯出設陷。</li>
+<li class="li"><span class="keyword option">OBJECTS</span>：僅匯出物件。</li>
+</ul>
+<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定所產生檔案的檔案匯出格式。匯出作業需要此選項。
+<div class="p">可用的參數如下所示：<ul class="ul"><li class="li"><span class="keyword option">csv</span>：所有物件資料都寫入 CSV 檔案中。</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>：所有設陷資料及關聯的變數連結物件資料都寫入單一 CSV 檔案中。</li>
+<li class="li"><span class="keyword option">html_with_frames</span>：建立適用於發佈的網頁。</li>
+<li class="li"><span class="keyword option">html_without_frames</span>：建立名為 <span class="ph filepath">oids.html</span> 的單一檔案，以包含選取用於輸出的所有物件清單。</li>
+<li class="li"><span class="keyword option">lookup</span>：將所有指定值輸出到適合併入任何規則檔內的標籤式清單中。</li>
+<li class="li"><span class="keyword option">ncil</span>：為每個企業建立個別併入檔，並產生用於一般設陷的單一檔案。</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>：建立適合與 Netcool Knowledge Library 1.1 版搭配使用的檔案。</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>：建立適合與 Netcool Knowledge Library 3.x 版搭配使用的檔案。</li>
+<li class="li"><span class="keyword option">standalone</span>：建立包含所有選取設陷的單一規則檔。</li>
+<li class="li"><span class="keyword option">text</span>：為每一個 OID 建立個別文字檔。</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>：建立 <span class="ph filepath">.mdl</span> 及 <span class="ph filepath">trapcnfg</span> 檔案。</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來顯示指令行選項的相關說明資訊。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定從中匯入 MIB 檔案的目錄。請用雙引號 (") 括住目錄路徑。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定 <span class="keyword">MIB Manager</span> 在搜尋要匯入的 MIB 檔案時遍訪子目錄。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定訊息記載層次。
+此選項採用下列值：<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>：僅記載錯誤訊息。</li>
+<li class="li"><span class="keyword option">WARN</span>：記載警告及錯誤訊息。</li>
+<li class="li"><span class="keyword option">INFO</span>：記載參考資訊、警告及重要訊息。</li>
+<li class="li"><span class="keyword option">DEBUG</span>：記載所有訊息。</li>
+<li class="li"><span class="keyword option">VERBOSE</span>：詳細訊息包括變數、陣列及雜湊在變更值和狀態時的狀態。</li>
+<li class="li"><span class="keyword option">NONE</span>：不記載任何訊息。</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定將寫入訊息日誌檔 <span class="ph filepath">mibmanager.log</span> 的目錄。
+請用雙引號 (") 括住目錄路徑。<p class="p">預設值為 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-searchpath</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">使用此選項來指定 <span class="keyword">MIB Manager</span> 可以搜尋以解析 MIB 相依關係的目錄清單（以分號區隔）。請用雙引號 (") 括住目錄路徑。<p class="p">例如：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies"</samp></p>
+<p class="p">下列指令搜尋三個特定的目錄以解析相依關係：</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="從指令行啟動 MIB Manager GUI。它未設計為受程序控制執行或作為 Windows 服務執行。">啟動 MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

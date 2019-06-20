@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2003, 2015. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# help_end - Shutdown IEHS running in Standalone mode
+#
+# --
+#######################################
+
+#######################################
+# MAIN
+#######################################
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+	echo "Cannot find nco_common" 1>&2
+	exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export OMNIHOME NCHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+
+if [ "$NCHOME" = ""  ]
+then
+	echo Cannot find your NCHOME environment
+	exit 1
+fi
+# redefine OMNIHOME to NCHOME/omnibus
+OMNIHOME="$NCHOME/omnibus"
+#
+# Locate JRE
+#
+if [ -n "$NCO_JRE_64" -a -x "$NCO_JRE_64/bin/java" ]
+then
+	JAVA="$NCO_JRE_64/bin/java"
+elif [ -n "$NCO_JRE" -a -x "$NCO_JRE/bin/java" ]
+then
+	JAVA="$NCO_JRE/bin/java"
+else
+	JAVA=`ls "$NCHOME/platform/$ARCH/"jre_*.*.*"/jre/bin/java" 2> /dev/null | tail -1`
+	if [ -z "$JAVA" -o ! -x "$JAVA" ]
+	then
+		echo "Cannot find your Java environment"
+		echo "$NCHOME/platform/$ARCH/jre_*.*.*/jre"
+		exit 1
+	fi
+fi
+#
+# Set classpath to only include relevant jar files
+#
+if [ -z "${CLASSPATH}" ]; then
+	export CLASSPATH
+fi
+CLASSPATH=${OMNIHOME}/platform/${ARCH}/nco_IEHS/eclipse/plugins/org.eclipse.help.base_3.5.0.v201006080911/helpbase.jar
+
+IEHSPATH=${OMNIHOME}/platform/${ARCH}/nco_IEHS
+
+#
+# Shutdown IEHS
+#
+${JAVA} -classpath ${CLASSPATH} org.eclipse.help.standalone.Help -eclipsehome ${IEHSPATH}/eclipse -command shutdown -configuration configuration_iehs
+
+

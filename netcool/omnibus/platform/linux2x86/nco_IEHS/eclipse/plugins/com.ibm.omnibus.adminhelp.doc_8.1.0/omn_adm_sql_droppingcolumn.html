@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="DROP COLUMN" />
+<meta name="abstract" content="To drop columns from an existing table, use the DROP COLUMN setting with the ALTER TABLE command." />
+<meta name="Description" content="To drop columns from an existing table, use the DROP COLUMN setting with the ALTER TABLE command." />
+<meta name="DC.subject" content="deleting, table columns, columns, dropping, DROP COLUMN" />
+<meta name="keywords" content="deleting, table columns, columns, dropping, DROP COLUMN" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_droppingcolumn" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Dropping a column (DROP COLUMN command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_droppingcolumn">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">DROP COLUMN</h1>
+<div class="body refbody"><p class="shortdesc">To drop columns from an existing table, use the <samp class="ph codeph">DROP
+COLUMN</samp> setting with the <samp class="ph codeph">ALTER TABLE</samp> command.</p>
+<div class="section"><p class="p">In this command, the syntax for dropping columns is as
+follows:</p>
+<pre class="pre codeblock"><code>DROP [COLUMN] <var class="keyword varname">column_name</var></code></pre>
+<p class="p">You
+cannot drop a column if the column is a primary key.</p>
+<p class="p">When dropping
+a column, a considerable amount of preliminary action is required
+to identify and remove any external dependencies on the column. You
+must search for any references to the column within triggers, procedures,
+views, and restriction filters by querying the relevant database tables.
+You must also search your probe rules files and gateway mapping files
+for references to the column.</p>
+<div class="note attention"><span class="attentiontitle">Attention:</span> If
+you drop a column on which triggers, procedures, views, restriction
+filters, or indexes depend, these dependent objects are also deleted,
+and a warning is written to the ObjectServer log file. To avoid inadvertently
+deleting triggers, procedures, views, or restriction filters, read
+the following guidelines for dropping columns. (Because indexes are
+directly linked to columns, indexes are always deleted when their
+associated columns are dropped.)</div>
+<p class="p">The following
+guidelines are based on an example scenario where you want to drop
+the <samp class="ph codeph">Country</samp> column from a table in your ObjectServer:</p>
+<ol class="ol"><li class="li">Connect to your ObjectServer (for example, OWL) using the SQL
+interactive interface, as shown in the following table. Your user
+name is assumed by default, but you are required to enter your password.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Starting the SQL interactive interface</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="16.666666666666664%" id="d28851e87">Option</th>
+<th class="entry" valign="top" width="83.33333333333334%" id="d28851e89">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="16.666666666666664%" headers="d28851e87 "><strong class="ph b">UNIX</strong></td>
+<td class="entry" valign="top" width="83.33333333333334%" headers="d28851e89 ">Enter:<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_sql -server OWL</kbd></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="16.666666666666664%" headers="d28851e87 "><strong class="ph b">Windows</strong></td>
+<td class="entry" valign="top" width="83.33333333333334%" headers="d28851e89 ">Enter:<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\bin\isql -S OWL</kbd></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li">Back up your ObjectServer to a temporary location (for example, <span class="ph filepath">/tmp/mybackup</span>)
+using the ALTER SYSTEM BACKUP command. This precautionary measure
+ensures that you can restore your system if required.<pre class="pre codeblock"><code>1&gt; alter system backup '/tmp/mybackup';
+2&gt; go</code></pre>
+</li>
+<li class="li">List details of your triggers, as stored in the catalog.triggers
+table:<pre class="pre codeblock"><code>1&gt; describe catalog.triggers;
+2&gt; go</code></pre>
+<p class="p">The type of key, name, data type, and length of
+each column in the table are output to the screen.</p>
+</li>
+<li class="li">Retrieve the names of all triggers that reference
+the <samp class="ph codeph">Country</samp> column in the body or the evaluate clause
+of the trigger:<pre class="pre codeblock"><code>1&gt; select TriggerName from catalog.triggers where CodeBlock like ' Country' or EvaluateBlock like ' Country';</code></pre>
+</li>
+<li class="li">Make a note of all listed triggers and remove the <samp class="ph codeph">Country</samp> references
+by editing each trigger. You can do this from the <span class="keyword wintitle">Trigger
+Details</span> window (<span class="ph uicontrol">Action</span> tab) in the Netcool/OMNIbus Administrator.<div class="p"><div class="note important"><span class="importanttitle">Important:</span> Before you make any of the changes
+described in the remaining steps of this procedure, check for the
+following conditions:<ul class="ul"><li class="li">There might be two or more tables using the same column name in
+your schema. If this is the case, identify the correct triggers for
+the table that you want to drop before you make any changes.</li>
+<li class="li">Check that there are no dependencies between triggers that might
+result in unwanted changes.</li>
+</ul>
+</div>
+</div>
+</li>
+<li class="li">Repeat steps 3 to 5 to identify any other objects that reference
+the <samp class="ph codeph">Country</samp> column, and to remove all instances of
+the reference. The following table lists the database tables that
+you need to search, the relevant SELECT statements, and the Netcool/OMNIbus Administrator
+windows that you can use to edit the object.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="90%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. System catalog tables to be searched, SELECT statements,
+and Netcool/OMNIbus Administrator
+windows</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="22.22222222222222%" id="d28851e177">Object type</th>
+<th class="entry" valign="top" width="22.22222222222222%" id="d28851e179">Table name</th>
+<th class="entry" valign="top" width="33.33333333333333%" id="d28851e181">SELECT statement</th>
+<th class="entry" valign="top" width="22.22222222222222%" id="d28851e183">Netcool/OMNIbus Administrator
+window</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="22.22222222222222%" headers="d28851e177 ">Procedures</td>
+<td class="entry" valign="top" width="22.22222222222222%" headers="d28851e179 ">catalog.sql_procedures</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d28851e181 "><samp class="ph codeph">select ProcedureName from catalog.sql_procedures where
+CodeBlock like 'Country';</samp></td>
+<td class="entry" valign="top" width="22.22222222222222%" headers="d28851e183 "><span class="keyword wintitle">SQL Procedure Details</span> window</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="22.22222222222222%" headers="d28851e177 ">Restriction Filters</td>
+<td class="entry" valign="top" width="22.22222222222222%" headers="d28851e179 ">catalog.restrictions</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d28851e181 "><samp class="ph codeph">select RestrictionName from catalog.restrictions where
+ConditionText like 'Country';</samp></td>
+<td class="entry" valign="top" width="22.22222222222222%" headers="d28851e183 "><span class="keyword wintitle">Restriction Filter Details</span> window</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="22.22222222222222%" headers="d28851e177 ">Views</td>
+<td class="entry" valign="top" width="22.22222222222222%" headers="d28851e179 ">catalog.views</td>
+<td class="entry" valign="top" width="33.33333333333333%" headers="d28851e181 "><samp class="ph codeph">select ViewName from catalog.views where CreationText
+like 'Country';</samp></td>
+<td class="entry" valign="top" width="22.22222222222222%" headers="d28851e183 "> </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li">Search your probe rules files and remove any references to the
+column.</li>
+<li class="li">Search your gateway mapping files <span class="ph filepath">$NCHOME/omnibus/gates/objserv_<var class="keyword varname">type</var>/objserv_<var class="keyword varname">type</var>.map</span>,
+where <var class="keyword varname">type</var> represents <samp class="ph codeph">uni</samp> or <samp class="ph codeph">bi</samp>.
+Remove any references to the column.</li>
+<li class="li">After all the references have been removed, drop the <samp class="ph codeph">Country</samp> column
+using the <samp class="ph codeph">ALTER TABLE ... DROP COLUMN</samp> syntax.</li>
+</ol>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

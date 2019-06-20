@@ -1,0 +1,31 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2013, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+ 
+DataSource_Name = "defaultobjectserver";
+Reader_Name = "OMNIbusEventReader";
+
+Query="select * from alerts.serialtrack where pk = 1";
+CountOnly=False;
+
+SerialRollover = DirectSQL(DataSource_Name, Query, CountOnly);
+
+if (Num > 0) {
+  if (SerialRollover[0].cur_serial = 1) {
+    Log("Serial Rollover received");
+    reader_service = GetByFilter("Service", "Name = '" + Reader_Name + "'", false);
+    reader_service[0].Running = false;
+    JavaCall("java.lang.Thread", null, "sleep", {3000});
+    reader_service[0].ClearState = TRUE;
+    JavaCall("java.lang.Thread", null, "sleep", {2000});
+    reader_service[0].Running=true;
+    DirectSQL(DataSource_Name, "update alerts.serialtrack set cur_serial = 0 where pk = 1;", CountOnly);
+  }
+}

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Group Details" />
+<meta name="abstract" content="Use this window to set up a new group or edit the details of an existing group." />
+<meta name="Description" content="Use this window to set up a new group or edit the details of an existing group." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditgroups.html" />
+<meta name="DC.Relation" scheme="URI" content="role_details.html" />
+<meta name="DC.Relation" scheme="URI" content="restriction_filters.html" />
+<meta name="DC.Relation" scheme="URI" content="user_details.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_groupdetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Group Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_groupdetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Group Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new group or edit the details of an
+existing group.</p>
+<div class="section">The <span class="keyword wintitle">Group Details</span> window contains the following
+areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_groupdetailswindow__netom_groupdetails_groupsetuparea">Group setup area</a></li>
+<li class="li"><a class="xref" href="#netom_groupdetailswindow__netom_groupdetails_rolestab">Roles tab</a></li>
+<li class="li"><a class="xref" href="#netom_groupdetailswindow__netom_groupdetails_restrictionfilterstab">Restriction Filters tab</a></li>
+<li class="li"><a class="xref" href="#netom_groupdetailswindow__netom_groupdetails_userstab">Users tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_groupdetailswindow__netom_groupdetails_groupsetuparea"><h2 class="title sectiontitle">Group setup area</h2><div class="p">Complete
+this area as follows:<dl class="dl" id="netom_groupdetailswindow__netom_groupdetails_groupsetupfields"><dt class="dt dlterm">Group Name</dt>
+<dd class="dd">Type a unique name for the group. If you are editing a group, you cannot
+change the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Group ID</dt>
+<dd class="dd">Specify a unique numerical identifier for the group. If you are editing
+a group, you cannot change the group ID.</dd>
+<dt class="dt dlterm">Description</dt>
+<dd class="dd">Type a meaningful description for the group, or update the description.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_groupdetailswindow__netom_groupdetails_rolestab"><h2 class="title sectiontitle">Roles tab</h2><div class="p">Use this
+tab to assign roles to the group. When you assign a role to a group of users,
+any user added to that group assumes the security permissions granted to the
+role. Complete this tab as follows:<dl class="dl" id="netom_groupdetailswindow__netom_groupdetails_rolestabfields"><dt class="dt dlterm">Available Roles</dt>
+<dd class="dd">This list displays the available roles that you can assign to the group.
+To assign one or more of these roles, use the arrow keys to move the roles
+to the <span class="ph uicontrol">Applied Roles</span> list.</dd>
+<dd class="dd">To move all roles to the <span class="ph uicontrol">Applied Roles</span> list, click <span class="ph uicontrol">&gt;&gt;</span>.
+To move a single role or multiple roles to the <span class="ph uicontrol">Applied Roles</span> list,
+select each role and then click <span class="ph uicontrol">&gt;</span>. You can use the
+SHIFT key for consecutive selections, or the CTRL key for non-consecutive
+selections.</dd>
+<dt class="dt dlterm">Applied Roles</dt>
+<dd class="dd">This list displays the roles that are already assigned to the group. To
+unassign roles, use the arrow keys to move the roles to the <span class="ph uicontrol">Available
+Roles</span> list. </dd>
+<dd class="dd">To move all roles to the <span class="ph uicontrol">Available Roles</span> list,
+click <span class="ph uicontrol">&lt;&lt;</span>. To move a single role or multiple roles
+to the <span class="ph uicontrol">Available Roles</span> list, select each role and then
+click <span class="ph uicontrol">&lt;</span>. You can use the SHIFT key for consecutive
+selections, or the CTRL key for non-consecutive selections.</dd>
+<dt class="dt dlterm">Add new role</dt>
+<dd class="dd">Click this button if you want to create a new role that can then be assigned
+to this group. The <span class="keyword wintitle">Role Details</span> window opens. Complete
+this window and save your changes.</dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Roles</span> tab, the new role
+will be added to the <span class="ph uicontrol">Available Roles</span> list. You can
+then add this role to the group.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_groupdetailswindow__netom_groupdetails_restrictionfilterstab"><h2 class="title sectiontitle">Restriction
+Filters tab</h2><div class="p">Use this tab to specify any restriction filters that
+you want to apply to the group. You can use restriction filters to prevent
+the group of users from viewing or modifying certain rows in ObjectServer
+tables. Complete this tab as follows:<dl class="dl" id="netom_groupdetailswindow__netom_groupdetails_restrictionfilterstabfields"><dt class="dt dlterm">All Restriction Filters</dt>
+<dd class="dd">This list displays the available restriction filters that have been set
+up. To assign a restriction filter to the group, select the restriction filter
+row and then click <span class="ph uicontrol">Add Restriction Filter</span>. The selected
+restriction filter is transferred to the <span class="ph uicontrol">Assigned Restriction Filters</span> list.</dd>
+<dd class="dd">If no restriction filters have previously been set up, or if you want
+to create a new restriction filter and assign it to the group, click <span class="ph uicontrol">New
+Restriction Filter</span>. The <span class="keyword wintitle">Restriction Filter Details</span> window
+opens. Complete this window and save your changes. </dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Restriction Filters</span> tab,
+the new restriction filter will be added to the <span class="ph uicontrol">All Restriction
+Filters</span> list. You can then assign this restriction filter to the
+group.</dd>
+<dt class="dt dlterm">Assigned Restriction Filters</dt>
+<dd class="dd">This list displays the restriction filters that are assigned to the group.
+To unassign a restriction filter, select the restriction filter row and then
+click <span class="ph uicontrol">Remove Restriction Filter</span>. The selected restriction
+filter is transferred to the <span class="ph uicontrol">All Restriction Filters</span> list.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_groupdetailswindow__netom_groupdetails_userstab"><h2 class="title sectiontitle">Users tab</h2><div class="p">Use this
+tab to assign users to the group. Complete this tab as follows:<dl class="dl" id="netom_groupdetailswindow__netom_groupdetails_userstabfields"><dt class="dt dlterm">Non members</dt>
+<dd class="dd">This list displays the available users that you can assign as members
+of the group. To assign one or more of these users, use the arrow keys to
+move the users to the <span class="ph uicontrol">Members</span> list.</dd>
+<dd class="dd">To move all users to the <span class="ph uicontrol">Members</span> list, click <span class="ph uicontrol">&gt;&gt;</span>.
+To move a single user or multiple users to the <span class="ph uicontrol">Members</span> list,
+select each user and then click <span class="ph uicontrol">&gt;</span>. You can use the
+SHIFT key for consecutive selections, or the CTRL key for non-consecutive
+selections.</dd>
+<dt class="dt dlterm">Members</dt>
+<dd class="dd">This list displays the users who are already assigned to the group. To
+unassign users, use the arrow keys to move the users to the <span class="ph uicontrol">Non
+members</span> list. </dd>
+<dd class="dd">To move all users to the <span class="ph uicontrol">Non members</span> list, click <span class="ph uicontrol">&lt;&lt;</span>.
+To move a single user or multiple users to the <span class="ph uicontrol">Non members</span> list,
+select each user and then click <span class="ph uicontrol">&lt;</span>. You can use the
+SHIFT key for consecutive selections, or the CTRL key for non-consecutive
+selections.</dd>
+<dt class="dt dlterm">Add new user</dt>
+<dd class="dd">Click this button if you want to create a new user that can then be assigned
+to this group. The <span class="keyword wintitle">User Details</span> window opens. Complete
+this window and save your changes.</dd>
+<dd class="dd"> When you return to the <span class="ph uicontrol">Users</span> tab, the new user
+will be added to the <span class="ph uicontrol">Non members</span> list. You can then
+add this user to the group.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_groupdetailswindow__netom_groupdetails_saving_closing"><h2 class="title sectiontitle">Saving your group details</h2><div class="p">After
+creating or editing a group, you can save or cancel the changes made by clicking
+the relevant button as follows:<dl class="dl" id="netom_groupdetailswindow__netom_groupdetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the group details and close the window. New
+groups are added to the <span class="keyword wintitle">Groups</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingeditgroups.html">Creating and editing groups</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="role_details.html" title="Use this window to set up a new role or edit the details of an existing role.">Role Details</a></div>
+<div><a class="link" href="restriction_filters.html" title="Use this pane to view details of all restriction filters that are set up in the selected ObjectServer, and to set up and maintain restriction filters.">Restriction Filters</a></div>
+<div><a class="link" href="user_details.html" title="Use this window to set up a new user or edit the details of an existing user.">User Details</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

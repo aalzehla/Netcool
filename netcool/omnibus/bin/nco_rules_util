@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2015. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# nco_rules_util script - runs command line nco_rules_util program
+#
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+#
+# Need to unset the XPG_SUS_ENV var because 
+# it effects how the JDBC connection is 
+# established in AIX.
+#
+if [ "$SYSTEM" = "AIX" ]
+then
+	unset XPG_SUS_ENV
+fi
+
+#
+# Check nco_common found the JRE
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+JAVA="\"${NCO_JRE_64_32}/bin/java\""
+
+#
+# Set classpath
+#
+CLASSPATH=$OMNIHOME/java/jars/repository.jar:$CLASSPATH
+CLASSPATH=$OMNIHOME/java/jars/utility.jar:$CLASSPATH
+CLASSPATH=$OMNIHOME/java/jars/icu4j-51_2.jar:$CLASSPATH
+START_CLASS=com.ibm.netcool.omnibus.repository.CommandLine
+
+export CLASSPATH
+
+#
+# Run nco_rules_util
+#
+eval exec $JAVA $JDBC_PROP $START_CLASS "$@"

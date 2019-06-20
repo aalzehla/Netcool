@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB オブジェクト・タイプ" />
+<meta name="abstract" content="このトピックでは、SNMP v1 および v2 で定義されているオブジェクト・タイプについて説明します。" />
+<meta name="Description" content="このトピックでは、SNMP v1 および v2 で定義されているオブジェクト・タイプについて説明します。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB オブジェクト・タイプ</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB オブジェクト・タイプ</h1>
+<div class="body refbody"><p class="shortdesc">このトピックでは、SNMP v1 および v2 で定義されているオブジェクト・タイプについて説明します。</p>
+<div class="section"><p class="p"><span class="keyword wintitle">「MIB モジュール」</span>ビューでモジュールを選択し、<span class="keyword wintitle">「OID Tree」</span>ビューの<span class="ph uicontrol">「検索」</span>フィールドで<kbd class="ph userinput">「ifIndex」</kbd>を検索することによって、以下のセクションで説明されているオブジェクト情報を見つけることができます。<span class="keyword wintitle">「OID ツリー」</span>階層で <samp class="ph codeph">ifIndex</samp> オブジェクトをクリックし、<span class="keyword wintitle">「詳細」</span>ビューでオブジェクト情報およびテキスト規則情報を参照します。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p"><samp class="ph codeph">OBJECT IDENTIFIER</samp> は SNMP v1 で定義されており、MIB ツリーの主要なビルディング・ブロックです。オブジェクト ID は、書籍の章見出しに似ており、実際のデータは含んでいませんが、下位層で中継される内容の種類に関する概念を示しています。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p"><samp class="ph codeph">OBJECT-TYPE</samp> は SNMP v1 で定義されており、管理対象デバイスに関する情報またはデバイス上の一部の測定値を保管するコンテナーとして使用されます。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p"><samp class="ph codeph">TEXTUAL-CONVENTION</samp> (TC) は、オブジェクト・タイプの定義ですが、実際のオブジェクトではありません。<span class="keyword wintitle">「MIB モジュール」</span>ビューで、<span class="ph uicontrol">「ビュー」</span>リストから<span class="ph uicontrol">「テキスト規則」</span>を選択して、MIB ツリーに表示された解析済みのテキスト規則を参照できます。MIB ツリーで TC 名を選択して、TC の定義を
+<span class="keyword wintitle">「詳細」</span>ビューに表示します。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE および SNMP v2 NOTIFICATION TYPE</h2><div class="p">SNMP v1 TRAP-TYPE および SNMP v2 NOTIFICATION-TYPE は、SNMP マネージャーに対する自律イベントを生成する SNMP の仕組みです。v1 での SNMP トラップは、
+MIB ツリー内でオブジェクトとして定義されません。TRAP-TYPE オブジェクトには、OBJECT IDENTIFIER フォーマットで定義された親はありません。代わりに、トラップ定義が、トラップが定義される対象の
+エンタープライズを指定します。標準的な TRAP-TYPE オブジェクトは
+次のとおりです。<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM 
+enters the ESTABLISHED state." ::= 1 </code></pre>
+</div>
+<p class="p"><samp class="ph codeph">ENTERPRISE</samp> セクションでは、トラップの親であるオブジェクトを
+定義します。ただし、MIB ツリー・オブジェクトは <samp class="ph codeph">bgp</samp> を使用して親として定義でき、このオブジェクトは子番号 1 として定義されます。実際、<samp class="ph codeph">bgpVersion</samp> は、
+RFC1269-MIB モジュールで <samp class="ph codeph">{ bgp 1}</samp> として定義されます。このため、
+親として <samp class="ph codeph">ENTERPRISE</samp> を使用して、v1 トラップを MIB ツリーに
+リーフとして追加することはできません。</p>
+<p class="p">SNMP v2 では、
+TRAP-TYPE の定義を NOTIFICATION-TYPE に変更するとともに、この新しい
+v2 トラップがその他の MIB オブジェクトのように定義されるように指定します。
+v1 トラップの場合にのみ、親子の番号によって、これが問題になります。RFC1155 セクション 4.1 では、子番号としてのゼロ (0) の使用を無効と定義しており、0 を将来の使用のために予約しています。SNMP v2 では、この 0 を使用します。それには、0 をエンタープライズ名に追加
+してから 0 の後にトラップ番号を追加することにより、ベンダーが v1 トラップを v2 MIB に
+追加できるようにします。したがって、v2 では、0 の付いたオブジェクト ID をエンタープライズの子として定義し、次に、その 0 の子として v1 トラップを追加することは適正です。</p>
+<p class="p">この規則は、MIB 作成者による一般的な誤りの
+原因になっています。RFC1155 セクション 4 では、以下のように述べています。</p>
+<p class="p"><span class="q">"An
+object type definition consists of five fields: OBJECT: ------- A
+textual name, termed  the OBJECT DESCRIPTOR, for the object type,
+along with its corresponding OBJECT IDENTIFIER.  Syntax: The abstract syntax for the object type. This must resolve to an instance of the ASN.1 type ObjectSyntax (defined below). Definition: A textual description of the semantics of the object type. Implementations should ensure that their instance of the object fulfills this definition since this MIB is intended for use in multi-vendor environments. As such it is vital that objects have consistent meaning across all machines. Access: One of read-only, read-write, write-only, or not-accessible. Status: One of mandatory, optional, or obsolete. Future memos may
+also specify other fields for the objects which they define."</span></p>
+<div class="p">このルールによると、すべてのオブジェクトはオブジェクト名とオブジェクト番号の両方を持つ
+必要があります。一部のベンダーの MIB モジュール (および一部の RFC すら) は、
+親に 0 を使用して NOTIFICATION-TYPE を定義していますが、その 0 に対する
+オブジェクト名はありません。以下の例で、オブジェクト定義は、
+実際、構文的には正しくありません。<samp class="ph codeph">adslAtucTraps</samp> オブジェクトの
+子番号 0 に対するオブジェクト名が定義されていないためです。
+<span class="keyword">MIB マネージャー</span>は、一部の MIB 作成者の設定で、ショートカットとしてこのような方法を使用すること、およびオブジェクト名なしでオブジェクトを追加できるようにすることを認めています。また、v1 トラップを MIB ツリーに追加することを
+容易にするために、<span class="keyword">MIB マネージャー</span>は、自動的に、オブジェクト 0 を v1 エンタープライズ・オブジェクトの
+子として追加し (v1 MIB は自分の OID 内では 0 を使用できないことに注意)、
+オブジェクト 0 をエンタープライズ名であるトラップとして割り当て、
+さらに MIB ツリーでこの新規オブジェクトの下にトラップを追加します。例えば、<samp class="ph codeph">bgp</samp> を使用すると、トラップの祖先は <samp class="ph codeph">{ bgp bgpTraps(0) 1 }).</samp> のようになります。<pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, 
+adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute 
+interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">varbind</h2><p class="p">v1 トラップまたは v2 通知で伝送されるオブジェクトは、varbind と呼ばれます。varbind には、報告されたイベントに関する追加情報が含まれています。varbind は、v1 トラップでは VARIABLES セクションで項目化されており、v2 通知では OBJECTS セクションでリストされています。これらは、すべてのバージョンの SNMP で同じように使用されます。varbind がリスト内に現れる順序は重要です。なぜなら、PDU (SNMP パケット) は、関連付けられた値を、それらの値が MIB 内でリストされるのと同じ順序でエンコードするからです。</p>
+<p class="p">例えば、OBJECTS セクションで、<samp class="ph codeph">ifIndex</samp>、<samp class="ph codeph">ifAdminStatus</samp>、および <samp class="ph codeph">ifOperStatus</samp> の 3 つの varbind が指定されています。したがって、varbind のうち、<samp class="ph codeph">ifIndex</samp> は最初にエンコードされ、<samp class="ph codeph">ifAdminStatus</samp> は 2 番目にエンコードされ、<samp class="ph codeph">ifOperStatus</samp> は 3 番目にエンコードされます。IF-MIB を確認すると、<samp class="ph codeph">ifIndex</samp> オブジェクト・タイプが <samp class="ph codeph">InterfaceIndex</samp> として定義されていることが分かります。これは SNMP 用の有効な ASN.1 プリミティブ型ではないので、テキスト規則である必要があります。テキスト規則を検索すると、<samp class="ph codeph">InterfaceIndex</samp> は実際には、Integer32 (32 ビット整数) に解決されることが分かります。したがって、PDU が <span class="keyword">MIB マネージャー</span>に到着する際、最初の varbind は整数となります。
+この整数が何を意味するかを決定するため、<span class="keyword">MIB マネージャー</span>は、IF-MIB モジュールを参照し、<samp class="ph codeph">ifIndex</samp> を検索して、関連付けられたオブジェクト情報を読み取る必要があります。2 つ目の varbind を確認すると、以下のような整数の列挙型が見つかります。</p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">varbind が SNMP パケットからデコードされると、その値は整数となり、値はこの列挙リスト内のアイテムに基づいて解釈される必要があります。<span class="keyword">MIB マネージャー</span>がルール・ファイルの作成に使用される際、MIB マネージャーはルックアップ表を作成して、列挙された整数をそのテキスト規則へ自動的にリンクします。3 つ目の varbind もまた、同じ値を持つ列挙型です。したがって、<samp class="ph codeph">ifAdminStatus</samp>が 1 (アップ) で <samp class="ph codeph">ifOperStatus</samp> が 2 (ダウン) の場合、イベントが生成された理由が分かり、引き続き、この障害の原因特定を試みることができます。</p>
+<p class="p">varbind は、ルール・ファイルにおいて、<samp class="ph codeph">$1</samp>、<samp class="ph codeph">$2</samp>、<samp class="ph codeph">$3</samp> などの形式でユーザーに表示され、各番号は varbind の番号を表します。<span class="keyword">MIB マネージャー</span>は、varbind エレメントに基づいてエレメントを作成し、それらを使用して詳細テーブルに変数を設定します。例えば、詳細テーブルで使用されるエレメントは、$ifIndex = $1 (整数)、$ifAdminStatus = $2 (アップ (1) のような値)、および $ifOperStatus = $3 (ダウン (3) のような値) である場合があります。オブジェクト設定に行われたすべての変更は、Netcool Knowledge Library (NCKL) によって設定された規則を使用して、ルール・ファイルに自動的に設定されます。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">テーブル</h2><p class="p">テーブルは、データの行と列からなる
+多次元配列と同等のものを表します。テーブル・オブジェクトは、
+Entry オブジェクトの SEQUENCE OF として定義されます。次に、Entry オブジェクトは、
+OBJECT-TYPE オブジェクトの SEQUENCE として定義されます。場合によって、ベンダーは、一般的でないシステム (例: Cisco 10k ルーター) を設計することがあります。
+このデバイスは、アラーム条件の内部テーブルを保持して、テーブルが変更されると
+トラップや通知を生成します。そうすると、ユーザーは、テーブルの内容に
+関する SNMP GET 要求を発行して、デバイスに関するアクティブ・アラームの最新状況を
+判別する必要があります。これが原因で、SNMP マネージャーがアラームを取得するのが少し難しくなりますが、それに応じたツールを管理者が持っていれば不可能ではありません。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OCTET STRING</h2><p class="p">オクテットは、8 ビットで構成されるデータ構造 (通称、バイト) です。OCTET STRING は、バイトの配列 (またはバイト・ストリング)
+です。OCTET STRING という用語は、ストリング内のすべてのバイトが英数字であることを意味しません。バイナリー文字になることもあり、
+ビット・マスクとして使用されます。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="このセクションでは、Simple Network Management Protocol (SNMP) アーキテクチャー、 SNMP 管理情報ベース (MIB)、および MIB の追加概念のいくつかに関する追加情報を説明します。">SNMP について</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

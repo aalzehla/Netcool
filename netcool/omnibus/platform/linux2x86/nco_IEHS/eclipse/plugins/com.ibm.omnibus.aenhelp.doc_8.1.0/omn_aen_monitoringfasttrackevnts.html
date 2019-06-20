@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Monitoring accelerated events" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus can handle millions of events a day, with all events being treated with equal importance. However, operators might have key systems or events that have tightly-controlled latency requirements. To accommodate such requirements, the Accelerated Event Notification (AEN) application provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus can handle millions of events a day, with all events being treated with equal importance. However, operators might have key systems or events that have tightly-controlled latency requirements. To accommodate such requirements, the Accelerated Event Notification (AEN) application provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption." />
+<meta name="DC.subject" content="accelerated event notification, overview, channels" />
+<meta name="keywords" content="accelerated event notification, overview, channels" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_startingaen.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_configuringprops.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_viewinghistoricalinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_savingnotificationslog.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_messagelogging.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_signingoutaen.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_signinginaen.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_exitingaen.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_aen_monitoringfasttrackevnts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Monitoring accelerated events</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_aen_monitoringfasttrackevnts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Monitoring accelerated events</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> can
+handle millions of events a day, with all events being treated with
+equal importance. However, operators might have key systems or events
+that have tightly-controlled latency requirements. To accommodate
+such requirements, the Accelerated Event Notification (AEN) application
+provides a means of accelerating high-priority events to help ensure
+that systems can continue to run without interruption.</p>
+<p class="p">To configure accelerated event notification, system administrators
+define conditions that identify key events for acceleration, and use
+channels to propagate these events to specific recipients for action.
+A channel defines which type (or columns) of event data to broadcast
+for accelerated events, and the recipients (typically operators) of
+this data.</p>
+<p class="p">Recipients of the accelerated event data manage the events from
+the Accelerated Event Notification client. All events that are identified
+for acceleration are directly sent to the client as pop-up notifications.
+These notifications contain event data that maps to the columns defined
+for the channel that is currently in use. </p>
+<p class="p">Recipients can additionally configure settings for the pop-up notifications,
+and can click across to the desktop event list or the <span class="keyword">Web GUI</span> Active
+Event List to obtain full details for the event and manage the event.</p>
+<div class="note note"><span class="notetitle">Prerequisites:</span> <ul class="ul"><li class="li">The Accelerated Event Notification client must be installed in
+order to receive accelerated event notifications, and you must have
+the relevant permissions.</li>
+<li class="li">The <span class="keyword">Web GUI</span> must
+be running and configured in order to view events within the Active
+Event List.</li>
+<li class="li">The <span class="ph uicontrol">Desktop</span> feature of <span class="keyword">Tivoli Netcool/OMNIbus</span> must
+be installed in order to view events within the event list.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_startingaen.html">Starting the Accelerated Event Notification client</a></span><br />
+You must start the Accelerated Event Notification client
+in order to receive and manage accelerated events.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_configuringprops.html">Configuring property settings for the Accelerated Event Notification client</a></span><br />
+You can configure the Accelerated Event Notification client
+to specify which ObjectServer you want the client to receive notifications
+from, how notifications are displayed, the type of information displayed,
+and retention settings for this information. You can also specify
+where the associated events are managed.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_viewinghistoricalinfo.html">Viewing historical information for accelerated events</a></span><br />
+Inbound notifications for accelerated events are maintained
+within a history buffer. You can view this information within the
+Historical Data Viewer window, and access further details about these
+events from the desktop event list or the <span class="keyword">Web GUI</span> Active
+Event List.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_savingnotificationslog.html">Saving accelerated event notification details to log files</a></span><br />
+You can choose to save details of the accelerated event
+notifications that you receive, to log files.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_messagelogging.html">Accelerated event notification message logging</a></span><br />
+The Accelerated Event Notification client logs its internal
+messages to disk.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_signingoutaen.html">Signing out of the Accelerated Event Notification client</a></span><br />
+You can sign out of the Accelerated Event Notification
+client if you want to connect to a different ObjectServer, or if you
+want to temporarily log off the client.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_signinginaen.html">Signing in to the Accelerated Event Notification client</a></span><br />
+You must sign in to a notification ObjectServer in order
+to receive accelerated events.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_aen_exitingaen.html">Exiting the Accelerated Event Notification client</a></span><br />
+You can exit from the Accelerated Event Notification client
+when you are in any of the three states: <span class="ph uicontrol">Connected</span>, <span class="ph uicontrol">Not
+Connected</span>, or <span class="ph uicontrol">You have Messages</span>.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

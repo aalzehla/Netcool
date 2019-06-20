@@ -1,0 +1,152 @@
+/***************************************************** {COPYRIGHT-TOP} ***
+* Licensed Materials - Property of IBM
+* 5724-S44
+*
+* (C) Copyright IBM Corp. 2009
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+********************************************************** {COPYRIGHT-END} */
+
+/*  ********************* TABLES STYLE **********************************  */
+/* Affect the rendering (i.e. alignment, border,background color, etc) as well as text attributes */
+
+table {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+}
+
+.isc-table-scroll-container {
+	border-style: solid;
+	border-color: #AAAAAA #AAAAAA #AAAAAA #AAAAAA;
+	border-width: 0px 1px 0px 1px;
+}
+
+/* table toolbar */
+/*  <TR>  */
+.isc-table-toolbar {
+	background-image: url(../images/table_toolbar_bkg.gif);
+	background-repeat: repeat-x;
+	background-color: #CBCBCB;
+	background-position: top;
+	padding: 0px;
+	height: 31px;
+}
+
+.isc-table-toolbar-cap-r {
+/* This background images acts as the right border, and is needed when tool bar is the correct height */ 
+	background-image: url(../images/table_toolbar_bkg_r.gif);
+	background-repeat: repeat-y;
+	background-position: top right;
+	padding: 0px;
+}
+
+.isc-table-toolbar-cap-l {
+/* This background images acts as the right border, and is needed when tool bar is the correct height */ 
+	background-image: url(../images/table_toolbar_bkg_l.gif);
+	background-repeat: repeat-y;
+	background-position: top left;
+	padding: 0px;
+}
+
+.isc-table-toolbar-buttonbar {
+	padding: 0px 0px 0px 4px;
+	white-space: nowrap;
+	width: 100%;
+}
+
+/* table header */
+
+.isc-table-header {
+	color: #000000;
+	background-image: url(../images/portlet_titlebar_bkg.gif);
+	background-repeat: repeat-x;
+	background-color: #CCCCCC;
+	background-position:top;
+	color: #000000;
+	padding: 0px 4px 0px 4px;
+	height: 22px;
+	margin: 0px;
+}
+
+.isc-table-header-data {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #000000;
+	border-style: solid;
+	border-color: #BBBBBB #CCCCCC #CCCCCC #CCCCCC;
+	border-width: 1px 1px 1px 0px;
+	padding: 0px 4px 0px 4px;
+	white-space: nowrap;
+}
+
+/* table footer */
+
+.isc-table-footer {
+/* Applied to the <TR> tag. Handles look and feel of the footer */
+	background-image: url(../images/table_footer_bkg.gif);
+	background-repeat: repeat-x;
+	background-position: top left;
+	background-color: #CBCBCB;
+	height: 28px;
+}
+
+.isc-table-footer-cap-l {
+/* This background images acts as the right border, and is needed when tool bar is the correct height */
+	background-image: url(../images/table_toolbar_bkg_l.gif);
+	background-repeat: repeat-y;
+	background-position: bottom left;
+	padding: 0px;
+	border-style: solid;
+	border-color: #AAAAAA #AAAAAA #AAAAAA #AAAAAA;
+	border-width: 1px 0px 0px 0px;
+	white-space: nowrap;
+}
+
+.isc-table-footer-cap-r {
+/* This background images acts as the right border, and is needed when tool bar is the correct height */
+	background-image: url(../images/table_toolbar_bkg_r.gif);
+	background-repeat: repeat-y;
+	background-position: bottom right;
+	padding: 0px;
+	border-style: solid;
+	border-color: #AAAAAA #AAAAAA #AAAAAA #AAAAAA;
+	border-width: 1px 0px 0px 0px;
+	white-space: nowrap;
+}
+
+/* Normal table Row */
+
+.isc-table-body-border {
+	border-style: solid;
+	border-color: #AAAAAA #BBBBBB #AAAAAA #BBBBBB;
+	border-width: 0px 0px 0px 0px;
+}
+
+.isc-table-row {
+	color: #000000;
+	background-color: #FFFFFF;
+	height: 20px;
+}
+
+/*  Eery other row in the table  */
+.isc-table-row-alternate {
+	color: #000000;
+	background-color: #F3F3F3;
+	height: 20px;
+}
+
+/* Text for table cells */
+.isc-table-data {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: normal;
+	color: #333333;
+	border-style: solid;
+	border-color: #AAAAAA #DEDEDE #AAAAAA #AAAAAA;
+	border-width: 0px 1px 0px 0px;
+	padding: 2px 4px 2px 4px;
+	height: 20px;
+}
+
+/* Table End */
+

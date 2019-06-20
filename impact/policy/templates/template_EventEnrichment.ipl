@@ -1,0 +1,41 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2003, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+function EventEnrichmentReturnEvent(EnrichmentOrgNode) {
+  log("enter function EventEnrichmentReturnEvent");
+  i=0;
+  while(i<Length(ReturnFields)) {
+    EventContainer[ReturnFields[i]]=EnrichmentOrgNode[ReturnFields[i]];
+    i=i+1;
+  }
+  ReturnEvent(EventContainer);
+  log("ReturnEvent successful");
+}
+
+log("start EventEnrichment policy");
+
+Type = "__TEMPLATE__MyDataType__"; //Substitute with the type you want to use
+FilterField = " __TEMPLATE__Fieldname__"; //Substitute with the field in your data source to compare
+FilterValue = " __TEMPLATE__OSFieldname__"; //Substitute either with a literal string 
+					// to compare to (in between the quotes)
+					// or an Object Server field name in 
+					// @field notation (delete quotes for this notation)
+ReturnFields = {"Identifier", "Serial", "Node"}; // Include all fields to be returned here
+Filter = FilterField + " = " + "'" + FilterValue +"'"; //If you are comparing integers, delete single quotes
+
+EnrichmentOrgNodes=GetByFilter(Type, Filter, CountOnly);
+
+Num = length(EnrichmentOrgNodes);
+
+log("GetByFilter successful");
+
+if (Num > 0) {
+  EventEnrichmentReturnEvent(EnrichmentOrgNodes[0]);
+}

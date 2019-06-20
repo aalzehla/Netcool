@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="建立及刪除裝置" />
+<meta name="abstract" content="MIB Manager 裝置用來分組關聯的 MIB 模組及定義需要匯出的所有物件。您可以在 MIB Manager GUI 中建立、更新及刪除裝置。" />
+<meta name="Description" content="MIB Manager 裝置用來分組關聯的 MIB 模組及定義需要匯出的所有物件。您可以在 MIB Manager GUI 中建立、更新及刪除裝置。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>建立及刪除 MIB Manager 裝置。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">建立及刪除裝置</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">MIB Manager</span> 裝置用來分組關聯的 MIB 模組及定義需要匯出的所有物件。您可以在 <span class="keyword">MIB Manager</span> GUI 中建立、更新及刪除裝置。</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">關於這項作業</h2></div><p class="p"><span class="keyword">MIB Manager</span> 裝置顯示在「<span class="keyword wintitle">裝置</span>」視圖中。
+從「<span class="keyword wintitle">裝置</span>」樹狀結構中選取裝置，以顯示裝置的製造商、型號及作業系統版本。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">程序</h2></div><p class="li stepsection"><strong class="ph b">建立裝置</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">若要建立新裝置，請執行下列動作：</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">在「<span class="keyword wintitle">MIB 模組</span>」視圖中，至少選取一個 MIB 模組，然後按一下 <img class="image" src="../gifs/create_device.gif" alt="建立裝置圖示" />（建立裝置）。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">製造商</span>欄位中，從下拉清單中選取裝置製造商。</span> <p class="p"><span class="ph uicontrol">模型</span>和<span class="ph uicontrol">作業系統版本</span>欄位中會移入可用的選項。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">模型</span>欄位中，從下拉清單中選取選項。</span> <p class="p">如果沒有模型可用，則輸入敘述性模型名稱。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">作業系統版本</span>欄位中，從下拉清單中選取選項。</span> <p class="p">如果沒有作業系統版本可用，則輸入敘述性作業系統版本名稱。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">對映的 MIB 模組</span>欄位中，選取要與新裝置建立關聯的 MIB 模組。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">按一下<span class="ph uicontrol">確定</span>以建立裝置。</span> <p class="p">新裝置會顯示在「<span class="keyword wintitle">裝置</span>」視圖中。</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">更新裝置</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">若要更新裝置，請執行下列動作：</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">在「<span class="keyword wintitle">裝置</span>」視圖中，選取裝置並展開其子節點，直到看到作業系統版本為止。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">選取作業系統版本，然後按一下 <img class="image" src="../gifs/Edit.gif" alt="編輯裝置圖示" />（編輯裝置）。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">製造商</span>欄位中，從下拉清單中選取裝置製造商。</span> <p class="p"><span class="ph uicontrol">模型</span>和<span class="ph uicontrol">作業系統版本</span>欄位中會移入可用的選項。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">模型</span>欄位中，從下拉清單中選取選項。</span> <p class="p">如果沒有模型可用，則輸入敘述性模型名稱。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">作業系統版本</span>欄位中，從下拉清單中選取選項。</span> <p class="p">如果沒有作業系統版本可用，則輸入敘述性作業系統版本名稱。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">在<span class="ph uicontrol">對映的 MIB 模組</span>欄位中，選取要與新裝置建立關聯的 MIB 模組。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">按一下<span class="ph uicontrol">確定</span>以更新裝置詳細資料。</span> <p class="p">更新的裝置詳細資料會顯示在「<span class="keyword wintitle">裝置</span>」視圖中。</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">刪除裝置</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">在「<span class="keyword wintitle">裝置</span>」視圖中，選取裝置然後按一下 <img class="image" src="../gifs/Delete.gif" alt="刪除裝置圖示" />（刪除裝置）。</span> <p class="p">若要刪除多個裝置，請按住 Ctrl+Alt 鍵，使用左滑鼠按鈕選取元素，然後按一下 <img class="image" src="../gifs/Delete.gif" alt="刪除裝置圖示" />（刪除裝置）。</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。">使用 Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

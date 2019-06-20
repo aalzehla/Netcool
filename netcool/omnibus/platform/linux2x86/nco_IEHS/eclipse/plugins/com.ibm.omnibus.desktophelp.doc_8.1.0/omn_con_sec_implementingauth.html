@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Implementing authorization by using groups and roles" />
+<meta name="abstract" content="Permissions control access to objects and data in the ObjectServer. By combining one or more permissions into roles, you can manage access quickly and efficiently." />
+<meta name="Description" content="Permissions control access to objects and data in the ObjectServer. By combining one or more permissions into roles, you can manage access quickly and efficiently." />
+<meta name="DC.subject" content="authorization" />
+<meta name="keywords" content="authorization" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="xF1040928" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Implementing authorization by using groups and roles</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="xF1040928">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Implementing authorization by using groups and roles</h1>
+<div class="body conbody"><p class="shortdesc">Permissions control access to objects and data in the ObjectServer.
+By combining one or more permissions into <dfn class="term">roles</dfn>, you
+can manage access quickly and efficiently. </p>
+<p class="p">Each user is assigned to one or more <dfn class="term">groups</dfn>. You can
+assign permissions to each group to perform actions on database objects
+by granting one or more roles to the group. You can create logical
+groupings such as super users or system administrators, physical groupings
+such as London or New York NOCs, or any other groupings to simplify
+your security setup.</p>
+<p class="p">For example, creating automations requires knowledge of <span class="keyword">Tivoli Netcool/OMNIbus</span> operations
+and the way that a particular ObjectServer is configured. You do not
+typically want all of your users to create or modify automations.
+One solution is to create a role named AutoAdmin, with permissions
+to create and modify trigger groups, files, SQL and external procedures,
+and signals. You can then grant that role to a group of administrators
+who will be creating and updating automations. </p>
+<p class="p">The <span class="ph filepath">security.sql</span> script contains default groups
+and roles for different classes of users, such as operators and administrators.
+You can also use this script as a template to create your own groups
+and roles. </p>
+<p class="p">Users, groups, and roles can be configured by using <span class="keyword">Netcool/OMNIbus
+Administrator </span> or
+ObjectServer SQL. </p>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<methodCall xmlns:prompt="http://www.ibm.com/tivoli/netcool/webtop/prompts/2.2"
+	xmlns:tool="http://www.ibm.com/tivoli/netcool/webtop/tools/2.1">
+
+        <!-- Delete items before rerunning through WAAPI -->
+	<!--
+        <method methodName="filter.deleteFilter">
+                <filter name="PredictiveEvents" type="global"/>
+        </method>
+
+        <method methodName="menu.deleteMenu">
+                <supermenu name="PredictiveEventTools"> </supermenu>
+        </method>
+
+        <method methodName="tool.deleteTool">
+                <tool:tool name="ShowThresholdEvents"/>
+                <tool:tool name="ShowExtAttrs"/>
+                <tool:tool name="ShowPredictionConfidence"/>
+                <tool:tool name="ShowDetailsInTEP"/>
+        </method>
+        -->
+
+	<!-- Create tools -->
+	<method methodName="tool.createTool">
+		<tool:tool name="ShowThresholdEvents">
+			<tool:access>
+				<tool:osfield>
+					<tool:criterion name="Class">
+						<tool:equals value="89300"/>
+					</tool:criterion>
+				</tool:osfield>
+				<tool:security/>
+			</tool:access>
+
+			<tool:cgiurl foreach="false" windowforeach="false" target="pe_events" method="GET" url="$(SERVER)/AELView?sql=%22Node+=+'{@Node}'+AND+FirstOccurrence+%3E=+{@FirstOccurrence}+AND+LastOccurrence+%3C+{@PredictionTime}%22&amp;transientname=%22PredictiveThreshold%22&amp;view=PredictiveEventsView"/>
+		</tool:tool>
+
+		<tool:tool name="ShowExtAttrs">
+			<tool:access>
+				<tool:osfield>
+					<tool:criterion name="Class">
+						<tool:equals value="89300"/>
+					</tool:criterion>
+				</tool:osfield>
+				<tool:security/>
+			</tool:access>
+
+			<tool:cgiurl foreach="false" windowforeach="false" target="pe_events" method="GET" url="$(SERVER)/predictiveevent/ext_attrs_table.jsp?Serial={@Serial}&amp;extAttr={@ExtendedAttr}"/>
+		</tool:tool>
+
+		<tool:tool name="ShowPredictionConfidence">
+			<tool:access>
+				<tool:osfield/>
+				<tool:security/>
+			</tool:access>
+
+			<tool:cgiurl foreach="false" windowforeach="false" target="pe_events" method="GET" url="$(SERVER)/AELView?sql=%22Class=89300+AND+to_int(nvp_get(ExtendedAttr,'Confidence'))+{$prompt.pe_operators}+{$prompt.pe_confidence}%22&amp;transientname=%22PredictionConfidence%22&amp;view=PredictiveEventsView"/>
+		</tool:tool>
+
+		<tool:tool name="ShowDetailsInTEP">
+			<tool:access>
+				<tool:osfield>
+					<tool:criterion name="Class">
+						<tool:equals value="89300"/>
+					</tool:criterion>
+				</tool:osfield>
+				<tool:security/>
+			</tool:access>
+
+			<tool:cgiurl foreach="false" windowforeach="false" target="_blank" method="GET" url="http://[teps_host]:15200/LICServletWeb/LICServlet"/>
+		</tool:tool>
+	</method>
+
+	<!-- Create prompts used by ShowPredictionConfidence tool -->
+	<method methodName="prompt.createPrompt">
+		<prompt:prompt type="FixedChoice" name="pe_operators">
+			<prompt:parameters label="Operator" order="210" localized="true" defaultValue="&gt;"/>
+			<prompt:choice>
+				<prompt:item value="&lt;" label="less than"/>
+				<prompt:item value="&lt;=" label="less than or equals"/>
+				<prompt:item value="=" label="equals"/>
+				<prompt:item value="&gt;" label="greater than"/>
+				<prompt:item value="&gt;=" label="greater than or equals"/>
+			</prompt:choice>
+		</prompt:prompt>
+		<prompt:prompt type="FormattedString" name="pe_confidence">
+			<prompt:parameters label="Predictive event confidence (0-100)" order="200" errorMessage="Invalid confidence level" localized="true" defaultValue="80">
+				<prompt:additionalParams>
+					<prompt:param name="format" value="(?:^[0-9]$)|(?:^[1-9][0-9]$)|(?:^100$)"/>
+				</prompt:additionalParams>
+			</prompt:parameters>
+		</prompt:prompt>	
+	</method>
+
+	<!-- Upload web resources used by ShowExtAttrs tool -->
+	<method methodName="file.addDir">
+		<file dirName="predictiveevent"/>
+		<file dirName="predictiveevent/images"/>
+		<file dirName="predictiveevent/styles"/>
+	</method>
+
+	<method methodName="file.addFile">
+		<file fileName="predictiveevent/ext_attrs_table.jsp" toDir="predictiveevent"/>
+		<file fileName="predictiveevent/images/portlet_titlebar_bkg.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_footer_bkg.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_footer_lcap.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_footer_rcap.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_toolbar_bkg.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_toolbar_bkg_l.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_toolbar_bkg_r.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_toolbar_lcap.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/images/table_toolbar_rcap.gif" toDir="predictiveevent/images"/>
+		<file fileName="predictiveevent/styles/tablestyles.css" toDir="predictiveevent/styles"/>
+	</method>
+
+	<!-- Create menu for the tools -->
+	<method methodName="menu.createMenu">
+		<supermenu name="PredictiveEventTools" label="Predictive Events" mnemonic="v">
+			<tool name="ShowThresholdEvents" label="Show Threshold Events" mnemonic="C"/>
+			<tool name="ShowPredictionConfidence" label="Show Prediction Confidence" mnemonic="P"/>
+			<tool name="ShowExtAttrs" label="Show Extended Attributes" mnemonic="E"/>
+			<tool name="ShowDetailsInTEP" label="Show Details in TEP" mnemonic="D"/>
+		</supermenu>
+	</method>
+
+	<!-- Create view -->
+	<method methodName="view.createView">
+		<view viewName="PredictiveEventsView" type="global">
+			<columns>
+				<visualEntry fieldName="Node" fieldTitle="Node" dataJustify="centre" titleJustify="centre" columnWidth="10" datasource=""/>
+				<visualEntry fieldName="TrendDirection" fieldTitle="TrendDirection" dataJustify="left" titleJustify="centre" columnWidth="10" datasource=""/>
+				<visualEntry fieldName="Summary" fieldTitle="Summary" dataJustify="left"  titleJustify="centre" columnWidth="40" datasource=""/>
+				<visualEntry fieldName="FirstOccurrence" fieldTitle="FirstOccurrence" dataJustify="centre" titleJustify="centre" columnWidth="14" datasource=""/>
+				<visualEntry fieldName="LastOccurrence" fieldTitle="LastOccurrence" dataJustify="centre" titleJustify="centre" columnWidth="14" datasource=""/>
+				<visualEntry fieldName="Tally" fieldTitle="Count" dataJustify="centre"  titleJustify="centre" columnWidth="4" datasource=""/>
+				<visualEntry fieldName="PredictionTime" fieldTitle="PredictionTime" dataJustify="centre" titleJustify="centre" columnWidth="8" datasource=""/>
+			</columns>
+			<sorting>
+				<sortColumn fieldName="Severity" order="desc" datasource=""/>
+				<sortColumn fieldName="LastOccurrence" order="asc" datasource=""/>
+				<sortColumn fieldName="PredictionTime" order="asc" datasource=""/>
+			</sorting>
+		</view>
+	</method>
+
+	<!-- Create filter -->
+	<method methodName="filter.addFilter">
+		<filter name="PredictiveEvents" sql="Class = 89300" type="global" view="PredictiveEventsView" viewtype="global" metriclabel="Metric:" metricshow="Average" metricof="Severity" description="Filter to display predictive events"/>
+	</method>
+</methodCall>

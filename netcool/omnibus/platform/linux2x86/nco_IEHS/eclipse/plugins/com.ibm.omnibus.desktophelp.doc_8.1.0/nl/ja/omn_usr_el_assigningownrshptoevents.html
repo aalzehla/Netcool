@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="イベントへの所有権の割り当て" />
+<meta name="abstract" content="プローブからイベントが到着する際に、イベントの所有権が特定のユーザーに割り当てられていない場合、そのイベントは nobody ユーザーによって所有されます。 適切な特権を持つユーザーは、 問題ライフ・サイクルを通してイベントの所有権を取得するか、または イベントを特定のユーザーかグループに割り当てることができます。" />
+<meta name="Description" content="プローブからイベントが到着する際に、イベントの所有権が特定のユーザーに割り当てられていない場合、そのイベントは nobody ユーザーによって所有されます。 適切な特権を持つユーザーは、 問題ライフ・サイクルを通してイベントの所有権を取得するか、または イベントを特定のユーザーかグループに割り当てることができます。" />
+<meta name="DC.subject" content="イベント・リスト, イベントへの所有権の割り当て, 所有権の割り当て, イベント, 所有権" />
+<meta name="keywords" content="イベント・リスト, イベントへの所有権の割り当て, 所有権の割り当て, イベント, 所有権" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_selectingdeselecting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_assigningownrshptoevents" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>イベントへの所有権の割り当て</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_assigningownrshptoevents">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベントへの所有権の割り当て</h1>
+<div class="body taskbody"><p class="shortdesc">プローブからイベントが到着する際に、イベントの所有権が特定のユーザーに割り当てられていない場合、そのイベントは <samp class="ph tt">nobody</samp> ユーザーによって所有されます。 適切な特権を持つユーザーは、
+問題ライフ・サイクルを通してイベントの所有権を取得するか、または
+イベントを特定のユーザーかグループに割り当てることができます。</p>
+<div class="section context"><p class="p">所有者 UID 列および所有者 GID 列には、個人またはチームのメンバーとして作業するためにこの機能があります。 (所有者 UID 列にはイベントの所有者の <span class="keyword">Tivoli Netcool/OMNIbus</span> ユーザー ID が保持されており、所有者 GID 列にはグループ ID が保持されています。)</p>
+<p class="p">イベントがユーザーによって所有されると
+すぐに、より高位の特権を持つ個人またはユーザーのみがそのイベントを変更することができるようになります。 イベントがグループに割り当てられると、所有者 UID が <samp class="ph tt">nobody</samp> ユーザーに再度割り当てられます。
+イベントがグループに割り当てられると、そのグループのメンバーまたはより高位の特権を有するユーザーのみがイベントを変更できるようになります。 </p>
+<div class="note note"><span class="notetitle">注:</span> イベントを割り当てることができるユーザーまたはグループは、セキュリティー権限に応じて異なります。 通常のユーザーの場合は、
+ユーザー、ユーザーのグループ、または <samp class="ph tt">nobody</samp> ユーザーに割り当てられたイベントのみを割り当てることができます。</div>
+<p class="p">イベントの所有権を割り当てるには次のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">イベント・リストから、1 つ以上のイベントを選択します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">別のユーザー、別のグループ、または自分自身にイベントを割り当てるには、次のように実行します。</span><ul class="ul choices"><li class="li choice">選択されたイベントを別のユーザーに割り当てるには、<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「所有権」</span> &gt; <span class="ph uicontrol">「ユーザーに割り当て」</span></span>をクリックして、
+次にサブメニューでユーザーを選択します。</li>
+<li class="li choice">選択されたイベントを別のグループに割り当てるには、<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「所有権」</span> &gt; <span class="ph uicontrol">「グループに割り当て」</span></span>をクリックして、
+次にサブメニューでグループを選択します。 イベントを別のグループに割り当てると、
+イベントはそのグループの <samp class="ph tt">nobody</samp> ユーザーによって所有されます。 </li>
+<li class="li choice">選択されたイベントをユーザー自身に割り当てるには、<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「所有権」</span> &gt; <span class="ph uicontrol">「ユーザーに割り当て」</span></span>をクリックして、
+次にサブメニューでユーザー自身の名前を選択します。 または、<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「所有権」</span> &gt; <span class="ph uicontrol">「所有権の取得」</span></span>をクリックします。</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="イベント・リストに含まれているイベントを操作するには、まずイベントを選択する必要があります。">イベントの操作</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+<div><a class="link" href="omn_usr_el_selectingdeselecting.html" title="イベント・リストに含まれている 1 つ以上のイベントを操作するには、まず対象のイベントを選択する必要があります。 次に、「アラート」メニューのオプションを使用して、イベントを操作できます。 選択したイベントのリストから 1 つ以上のイベントを選択解除することも可能です。">イベントの選択と選択解除</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

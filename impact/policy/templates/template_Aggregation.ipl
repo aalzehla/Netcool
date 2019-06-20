@@ -1,0 +1,110 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2003, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+//No need to change this function
+function BuildKeyList_Aggregation() {
+  agg_i=0;
+  AggKey="";
+  AggField="";
+  while(FieldList[ agg_i ] != NULL) {
+    key=FieldList[ agg_i ];
+    AggKey=AggKey+EventContainer[ key ];
+    if(AggField = "") { 
+      AggField=key;  
+    } else { 
+    AggField=AggField+"+"+key; 
+    }
+  agg_i=agg_i+1;
+  }//endofwhile
+
+  log(1,"<Aggregation> Fields='"+AggField+"'");
+  log(1,"<Aggregation> Key='"+AggKey+"'");
+
+  AggFilter=AggField+"='"+AggKey+"'";
+  log(1,"<Aggregation> Filter="+AggFilter);
+  GetMetricDown_Aggregation();
+}
+
+function GetMetricDown_Aggregation() {
+  Type=ObjectServerType;
+  Filter = "__TEMPLATE__FILTER__"; //Substitue with the filter expression you want to use. example: Filter="Severity>1 and Class!="+AggClass+" and "+AggFilter;
+  Metric="__TEMPLATE_METRIC__";//Substitue with the metric you want. example:  Metric = "count(*)";
+
+  log(1,"<Aggregation> Getting DOWN Metric from "+Type);
+  MetricValue=CallDBFunction(Type, Filter, Metric);
+  GetMetricUp_Aggregation(MetricValue);
+}
+
+function GetMetricUp_Aggregation(MetricDown) {
+
+  Type=ObjectServerType;
+  Filter = "__TEMPLATE__FILTER__"; //Substitue with the filter expression you want to use. example: Filter="Severity<=1 and Class!="+AggClass+" and "+AggFilter;
+  Metric="__TEMPLATE_METRIC__";//Substitue with the metric you want. example:  Metric = "count(*)";
+  
+
+  log(1,"<Aggregation> Getting UP Metric from "+Type);
+  MetricValue = CallDBFunction(Type, Filter, Metric);
+  AggEvent_Aggregation(MetricValue, MetricDown);
+}
+
+function AggEvent_Aggregation(MetricUp, MetricDown) {
+
+  log(1,"<Aggregation> DOWN="+MetricDown+" UP="+MetricUp);
+
+  if((MetricDown + MetricUp) > 0) {
+    Value=100 * (MetricDown / (MetricDown + MetricUp));
+    agg_i=length(ThresholdList); 
+    agg_flag=true;
+    while((agg_i > 0) and (agg_flag = true)) {
+      agg_i=agg_i-1;
+      Threshold=ThresholdList[ agg_i ];
+      if(Value >= float(Threshold)) {
+      Severity=agg_i;
+      agg_flag=false;
+    }
+  }
+   log(1,"<Aggregation> Value="+Value+" Threshold="+Threshold);
+   Summary=Value+"% elements DOWN (Threshold="+Threshold+")";
+ } else {
+   Severity=1;
+   Summary="Could not aggregate events";
+ } 
+
+  Type=ObjectServerType;
+  ObjectToCopy=NewObject();
+
+  ObjectToCopy.Identifier="AggEvent"+AggKey;
+  ObjectToCopy.FirstOccurrence=getdate();
+  ObjectToCopy.LastOccurrence=getdate();
+  ObjectToCopy.Severity=Severity;
+  ObjectToCopy.Class=AggClass;
+  ObjectToCopy.Summary=Summary;
+
+  agg_i=0;
+  while(FieldList[ agg_i ] != NULL) {
+    key=FieldList[ agg_i ];
+    ObjectToCopy[ key ]=EventContainer[ key ];
+    agg_i=agg_i+1;
+  } 
+
+  log(1,"<Aggregation> Stopping --------------------");
+  AddDataItem(Type, ObjectToCopy);
+}
+
+log(1,"<Aggregation> Starting --------------------");
+
+FieldList={"Agent", "Location", "Manager"}; //Include all the fields to be used as a combination to build the unique key
+
+/* 5 values (for each Severity values2) in % */
+ThresholdList={0, 111, 40, 60, 80, 100}; 
+
+ObjectServerType="__TEMPLATE__ObjectServerDataType__"; //Substitute with the type you want to use
+AggClass="__TEMPLATE__AGGCLASS__";//Substitue with the aggclass value
+BuildKeyList_Aggregation();

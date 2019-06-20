@@ -1,0 +1,144 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/*** This Policy retrieves Recurring Day of Month windows for display ***/
+/*   ================================================================   */
+
+// Functions
+function getDOMArray(domString, domArray) {
+	Log(2, "Function getDOMArray");
+	Log(3, "domString = " + domString);
+	domArray = {};
+	domStringArray  = Split(domString, "|");
+	Log(3, "domStringArray = " + domStringArray);
+	n = 0;
+	While (n < Length(domStringArray)) {
+		If (domStringArray[n] != NULL) {
+			domArray = domArray + domStringArray[n];
+		}
+		n = n + 1;
+	}
+	Log(2, "domArray is = " + domArray);
+}
+
+function inArray(x, theArray, boo) {
+	Log(2, "Function inArray");
+	Log(3, "Target is: " + x);
+	Log(3, "Array is: " + theArray);
+	boo = FALSE;
+	n = 0;
+	While (n < length(theArray)) {
+		If (x == theArray[n]) {
+			boo = TRUE;
+		}
+		n = n + 1;
+	}
+	Log(3, "Return is: " + boo);
+}
+
+function transformHHMMSS(hhmmss, intArray) {
+	Log(2, "Function transformHHMMSS");
+	Log(3, "hhmmss is: " + hhmmss);
+	tempArray = Split(hhmmss, ":");
+	intArray = {};
+	n = 0;
+	While (n < Length(tempArray)) {
+		intArray = intArray + Int(tempArray[n]);
+		n = n + 1;
+	}
+	Log(3, "intArray is " + intArray);
+}
+
+// Deletes
+// =======
+// Code for handling deletes
+If (@mwid != NULL) {
+	Opview_openwins.deleteWindow(@mwid);
+}
+
+// SETUP
+// =====
+// Get UTC
+UTC = GetDate();
+Log(2, "Current epoch GMT time is: " + UTC);
+
+// Start of HTML
+htmltext1 = "<table><tr><th>Suppression Filter</th><th>Day of Month</th><th>Start Time</th><th>End Time</th><th>Time Zone</th><th>Status</th><th>Delete</th></tr>";
+
+// Get all the windows in the DB
+recdom = DirectSQL('ImpactDB', 'SELECT * FROM IMPACT.MM_WINDOWS WHERE WINTYPE = 3', false);
+
+// Loop through the windows and create the appropriate HTML
+// ========================================================
+If (Length(recdom) > 0) {
+	Log(3, "Found some DoM windows");
+	winCount = 0;
+	While (winCount < length(recdom)) {
+		// Get a display value for the TZ
+		Opview_onetwins.getTZDisplayValue(recdom[winCount].timezone, displayTZ);
+		// Get a display value for the filterstat
+		Opview_openwins.shineFilter(recdom[winCount].filterstat, displayFilterstat);
+		// Get the display value for the DoM
+		Opview_openwins.shineDoM(recdom[winCount].daysofmonth, displayDoM);
+		// Get the current time in that time zone
+		MWM.newCalendar(recdom[winCount].timezone, UTC, calendar, false);
+		// Get DoM
+		MWM.getDOM(recdom[winCount].timezone, calendar, DOM);
+		// Type 2   getDOW(tzArray[n], calendar, DOW);
+		// Type 4   getNTH(tzArray[n], calendar, NTH);
+		// Turn the comma separated DoM values from the DB into an array
+		getDOMArray(recdom[winCount].daysofmonth, domArray);
+		// Determine if the current DOM is in the array
+		inArray(DOM, domArray, DOMboo);
+		If (DOMboo) {
+			// TRUE...today is one of the dates
+			Log(3, "Date matches");
+			// Get clock times for comparison
+			// Get current HHMMSS
+			MWM.getHHMMSS(calendar, HHMMSSstring);
+			// Convert to ints for comparisons
+			transformHHMMSS(HHMMSSstring, currentClockTime);
+			transformHHMMSS(recdom[winCount].r_starttime, startClockTime);
+			transformHHMMSS(recdom[winCount].r_endtime, endClockTime);
+			// Convert to seconds for comparison
+			// [0] = hour, [1] = minutes, [2] = seconds
+			currentSeconds = (currentClockTime[0] * 3600) + (currentClockTime[1] * 60) + (currentClockTime[2]);
+			startSeconds = (startClockTime[0] * 3600) + (startClockTime[1] * 60) + (startClockTime[2]);
+			endSeconds = (endClockTime[0] * 3600) + (endClockTime[1] * 60) + (endClockTime[2]);
+			If ((currentSeconds >= startSeconds) and (currentSeconds < endSeconds)) {
+				Log(3, "Time matches");
+				htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoM + "</td>";
+				htmltext1 = htmltext1 + "<td>" + recdom[winCount].r_starttime + "</td><td>" + recdom[winCount].r_endtime + "</td>";
+				htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+				htmltext1 = htmltext1 + "<td align='center'><img src='../assets/installed/mwms/activestat.jpg' border=0 /></td>";
+			} Else {
+				Log(3, "Time doesn't match");
+				htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoM + "</td>";
+				htmltext1 = htmltext1 + "<td>" + recdom[winCount].r_starttime + "</td><td>" + recdom[winCount].r_endtime + "</td>";
+				htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+				htmltext1 = htmltext1 + "<td align='center'><img src='../assets/installed/mwms/inactivestat.jpg' border=0 /></td>";
+			}
+		} Else {
+			Log(3, "Date doesn't match");
+			htmltext1 = htmltext1 + "<tr><td>" + displayFilterstat + "</td><td>" + displayDoM + "</td>";
+			htmltext1 = htmltext1 + "<td>" + recdom[winCount].r_starttime + "</td><td>" + recdom[winCount].r_endtime + "</td>";
+			htmltext1 = htmltext1 + "<td>" + displayTZ + "</td>";
+			htmltext1 = htmltext1 + "<td align='center'><img src='../assets/installed/mwms/inactivestat.jpg' border=0 /></td>";
+		}
+		htmltext1 = htmltext1 + "<td align='center'><a href='"+getClusterName()+"-rdomwins.html?mwid=" + recdom[winCount].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' border=0 alt='Delete Window'/></a></td></tr>";
+		winCount = winCount + 1;
+	}
+} Else {
+	// No DOM windows
+	htmltext1 = htmltext1 + "<tr><td>There are currently no recurring Day of Month windows.</td></tr>";
+}
+htmltext1 = htmltext1 + "</table>";
+Log(3, "htmltext1: " + htmltext1);

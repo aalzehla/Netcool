@@ -1,0 +1,69 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2006. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Probe script - runs the correct tsm for the current OS
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+# do NOT Set platform variables, as we need XPG_SUS_ENV to be unset for 
+# probes/tsms
+#f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export NCHOME OMNIHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+#
+# What program are we attempting to run ?
+#
+PROGRAM=`basename $0`
+
+#
+# Check the script name - if nco_tsm is being run as itself it does nothing
+#
+if [ $PROGRAM = nco_tsm ]; then
+	exit 0
+fi
+
+#
+# Can we run this tsm ?
+#
+if [ -x $OMNIHOME/platform/$ARCH/tsm64/$PROGRAM -a "64" = "$KERN_ARCH" ]
+then
+	bin=$OMNIHOME/platform/$ARCH/tsm64/$PROGRAM
+else
+	if [ -x $OMNIHOME/tsm/$ARCH/$PROGRAM ]
+	then
+		bin=$OMNIHOME/tsm/$ARCH/$PROGRAM
+	else
+		err "Not installed for $ARCH"
+	fi
+fi
+
+#
+# Execute tsm 
+#
+exec $bin "$@"

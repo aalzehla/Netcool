@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="設定事件清單資料的過濾器" />
+<meta name="abstract" content="過濾器用於建置可在 ObjectServer 警示資料庫表格上執行的 SQL 查詢，以便在監視器框及事件清單中顯示自訂警示資訊。" />
+<meta name="description" content="過濾器用於建置可在 ObjectServer 警示資料庫表格上執行的 SQL 查詢，以便在監視器框及事件清單中顯示自訂警示資訊。" />
+<meta name="DC.subject" content="過濾器, 說明" />
+<meta name="keywords" content="過濾器, 說明" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_filtermetrics.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_bestpracticesfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingfiltersunixdragdrop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_openingprevsavedfilter.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_settingupfiltersevntlst" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<title>設定事件清單資料的過濾器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_settingupfiltersevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">設定事件清單資料的過濾器</h1>
+<div class="body conbody"><p class="shortdesc">過濾器用於建置可在 ObjectServer <samp class="ph tt">警示</samp>資料庫表格上執行的 SQL 查詢，以便在監視器框及事件清單中顯示自訂警示資訊。</p>
+<div class="p">過濾器會定義顯示在事件清單中的警示：<ul class="ul"><li class="li">其中某個欄位具有某個特定值</li>
+<li class="li">其中某個欄位具有類似於某值的值</li>
+<li class="li">其中事件發生在兩個固定的時間點內</li>
+<li class="li">其中事件發生在一定分鐘數之前</li>
+</ul>
+</div>
+<div class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> 提供一些預設過濾器。
+這些過濾器如下所示：<dl class="dl"><dt class="dt dlterm">最近 10 分鐘</dt>
+<dd class="dd">此過濾器會顯示除 ProbeWatch、TSMWatch 及 ConnectionWatch 警示以外的所有警示。 結果與<span class="ph uicontrol">預設</span>過濾器的那些結果相同，除了<span class="ph uicontrol">最近 10 分鐘</span>過濾器僅會顯示前 10 分鐘內發生的警示。</dd>
+<dt class="dt dlterm">維護中</dt>
+<dd class="dd">此過濾器會顯示由操作員指出正處於「維護中」的警示。 </dd>
+<dt class="dt dlterm">已提升</dt>
+<dd class="dd">此過濾器會顯示已由操作員提升的警示。 </dd>
+<dt class="dt dlterm">資訊</dt>
+<dd class="dd">此過濾器會顯示已識別為「資訊」警示的警示。
+「資訊」警示為：<ul class="ul"><li class="li">已由探測器指定為「資訊」警示的警示</li>
+<li class="li">非 ProbeWatch、TSMWatch 或 ConnectionWatch 警示的警示</li>
+<li class="li">已設定提升層次的警示 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">作業清單</dt>
+<dd class="dd">此過濾器會顯示已新增至操作員作業清單的警示。 </dd>
+<dt class="dt dlterm">Netcool® 狀態</dt>
+<dd class="dd">此過濾器僅會顯示 ProbeWatch、TSMWatch 及 ConnectionWatch 警示。</dd>
+<dt class="dt dlterm">預設值</dt>
+<dd class="dd">此過濾器會顯示除 ProbeWatch、TSMWatch 及 ConnectionWatch 警示以外的所有警示。</dd>
+<dt class="dt dlterm">所有的事件</dt>
+<dd class="dd">此過濾器會顯示所有警示。</dd>
+</dl>
+</div>
+<p class="p">此外，您可以建置自訂過濾器。 過濾器會儲存為 <span class="ph filepath">.elf</span> 檔案。
+您可以使用「過濾器建置器」來建立及編輯過濾器。</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_componentsoffilter.html">過濾器元件</a></span><br />
+過濾器是由<dfn class="term">元素</dfn>集合所組成。 可用的元素類型包括條件、邏輯及子查詢元素。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_filtermetrics.html">過濾器度量</a></span><br />
+所有過濾器都有與其相關聯的度量。 度量是一種測量，可套用至過濾器，以便計算有用的數字。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_bestpracticesfilters.html">過濾器的最佳作法</a></span><br />
+建置過濾器時，請先執行最低運算精密度測試。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_startingfilterbuilder.html">啟動過濾器建置器</a></span><br />
+「過濾器建置器」會提供圖形介面，您可在其中建置及測試比較過濾器的 SQL 陳述式。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterunix.html">在 UNIX 上建立或編輯過濾器</a></span><br />
+使用「UNIX 過濾器建置器」，可以建置事件清單資料的過濾器。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterwin.html">在 Windows 上建立或編輯過濾器</a></span><br />
+使用「Windows 過濾器建置器」，可以建置事件清單資料的過濾器。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingfiltersunixdragdrop.html">透過拖放在 UNIX 上建立過濾器</a></span><br />
+在 UNIX 上，您可以透過使用拖放功能來建立過濾器。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_openingprevsavedfilter.html">開啟過濾器</a></span><br />
+您可以開啟已儲存的過濾器，以檢視或編輯其定義。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_fb_usingfiltersviewstodisplay.html" title="警示資料庫表格會保留轉遞到 ObjectServer 的事件資訊。 您可以使用過濾器及視圖，以定義在事件清單中顯示的事件資訊。">使用過濾器及視圖來顯示自訂事件資訊</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

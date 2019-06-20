@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="IDUC EVTFT" />
+<meta name="abstract" content="Use the IDUC EVTFT command to activate pop-up notifiers for accelerated events to be sent to clients, and to enable click-across functionality to the desktop event list or the Web GUI Active Event List." />
+<meta name="Description" content="Use the IDUC EVTFT command to activate pop-up notifiers for accelerated events to be sent to clients, and to enable click-across functionality to the desktop event list or the Web GUI Active Event List." />
+<meta name="DC.subject" content="IDUC EVTFT" />
+<meta name="keywords" content="IDUC EVTFT" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_activatingaen" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Activating accelerated event notification (IDUC EVTFT command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_activatingaen">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">IDUC EVTFT</h1>
+<div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">IDUC EVTFT</samp> command to activate
+pop-up notifiers for accelerated events to be sent to clients, and
+to enable click-across functionality to the desktop event list or
+the <span class="keyword">Web GUI</span> Active
+Event List.</p>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>IDUC EVTFT <var class="keyword varname">destination</var>, <var class="keyword varname">action_type</var>, <var class="keyword varname">row</var></code></pre>
+<div class="p">The
+variables in this command can take the following values:<ul class="ul"><li class="li"><var class="keyword varname">destination</var> = <var class="keyword varname">spid</var> | <var class="keyword varname">iduc_channel</var> </li>
+<li class="li"><var class="keyword varname">spid</var> = <var class="keyword varname">integer_expression</var> (The
+literal client connection ID) </li>
+<li class="li"><var class="keyword varname">iduc_channel</var> = <var class="keyword varname">string_expression</var> (Channel
+name) </li>
+<li class="li"><var class="keyword varname">action_type</var> = INSERT | UPDATE | DELETE </li>
+<li class="li"><var class="keyword varname">row</var> = <var class="keyword varname">variable</var> (Variable
+name reference of a row in the automation)</li>
+</ul>
+</div>
+<p class="p">For example, if you have set up an accelerated event flag
+within your probe rules file and added a column for this flag to the
+alerts.status table, you can add a condition within a post-insert
+trigger to examine the value within this column. If the value is satisfied
+for accelerated event notification, the event is then forwarded as
+a pop-up notification to specific Accelerated Event Notification clients.
+You can define the condition in the trigger by using the following
+format:</p>
+<pre class="pre codeblock"><code>begin
+	if ( new.<var class="keyword varname">accelerated_event_column_name</var> = 1 )
+		then
+			iduc evtft '<var class="keyword varname">channel_name</var>' , insert , new ;
+	end if;
+end;</code></pre>
+<p class="p">In this syntax, <var class="keyword varname">accelerated_event_column_name</var> is
+the name of the column that holds accelerated event flag in the alerts.status
+table, and <var class="keyword varname">channel_name</var> is the name of a channel
+over which accelerated event data is broadcast. Note that the channel
+name is case-sensitive, so ensure that you use the correct case within
+the syntax.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>create or replace trigger evtft_insert
+group channel_triggers
+priority 1
+comment 'Fast track critical events from alerts.status'
+after insert on alerts.status
+for each row
+begin
+	if ( new.FastTrack = 1 )
+		then
+			iduc evtft 'FastTrack' , insert , new ;
+	end if;
+end;</code></pre>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

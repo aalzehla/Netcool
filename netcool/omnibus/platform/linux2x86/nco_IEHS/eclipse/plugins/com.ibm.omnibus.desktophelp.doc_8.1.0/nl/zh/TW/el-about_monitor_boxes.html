@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="事件清單監視器框" />
+<meta name="abstract" content="使用此視窗，可以檢視一或多個種類的警示資訊 (由系統管理者配置)。 每個警示種類都由一個監視器框說明，其代表已為事件清單建立的過濾器及視圖。 過濾器可讓您根據特定的準則顯示警示子集。 視圖可讓您選擇要顯示的警示欄位。" />
+<meta name="description" content="使用此視窗，可以檢視一或多個種類的警示資訊 (由系統管理者配置)。 每個警示種類都由一個監視器框說明，其代表已為事件清單建立的過濾器及視圖。 過濾器可讓您根據特定的準則顯示警示子集。 視圖可讓您選擇要顯示的警示欄位。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_indicatingeventinmaint.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_escalatingdeescalating.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_addingeventstotasklist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitorboxoverview.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistmonitorboxwindow" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>事件清單監視器框</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistmonitorboxwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">事件清單監視器框</h1>
+<div class="body refbody"><p class="shortdesc">使用此視窗，可以檢視一或多個種類的警示資訊 (由系統管理者配置)。 每個警示種類都由一個<dfn class="term">監視器框</dfn>說明，其代表已為事件清單建立的過濾器及視圖。 過濾器可讓您根據特定的準則顯示警示子集。 視圖可讓您選擇要顯示的警示欄位。</p>
+<div class="section"><div class="p">「<span class="keyword wintitle">事件清單</span>」監視器框視窗包含下列區域：<ul class="ul"><li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea">監視器框區域</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar">狀態列</a></li>
+</ul>
+</div>
+<div class="note tip" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorboxwindow_note"><span class="tiptitle">提示：</span> 「<span class="keyword wintitle">事件清單</span>」監視器框視窗的標題列會顯示現行事件清單配置名稱。 </div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea"><h2 class="title sectiontitle">監視器框區域</h2><div class="p">此區域會顯示監視器框，其代表可套用至相關聯事件清單的特定過濾器及選取的視圖。 顯示在系統上的監視器框可能有所不同，取決於系統管理者如何配置您的系統。 預設「<span class="keyword wintitle">事件清單</span>」監視器框視窗包含個別監視器框的下列過濾器定義：<dl class="dl" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_defaultmonitorboxes"><dt class="dt dlterm">最近 10 分鐘</dt>
+<dd class="dd">此過濾器會顯示除 ProbeWatch、TSMWatch 及 ConnectionWatch 警示以外的所有警示。 結果與<span class="ph uicontrol">預設</span>過濾器的那些結果相同，除了<span class="ph uicontrol">最近 10 分鐘</span>過濾器僅會顯示前 10 分鐘內發生的警示。</dd>
+<dt class="dt dlterm">維護中</dt>
+<dd class="dd">此過濾器會顯示由操作員指出正處於「維護中」的警示。 </dd>
+<dt class="dt dlterm">已提升</dt>
+<dd class="dd">此過濾器會顯示已由操作員提升的警示。 </dd>
+<dt class="dt dlterm">資訊</dt>
+<dd class="dd">此過濾器會顯示已識別為「資訊」警示的警示。
+「資訊」警示為：<ul class="ul"><li class="li">已由探測器指定為「資訊」警示的警示</li>
+<li class="li">非 ProbeWatch、TSMWatch 或 ConnectionWatch 警示的警示</li>
+<li class="li">已設定提升層次的警示 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">作業清單</dt>
+<dd class="dd">此過濾器會顯示已新增至操作員作業清單的警示。 </dd>
+<dt class="dt dlterm">Netcool® 狀態</dt>
+<dd class="dd">此過濾器僅會顯示 ProbeWatch、TSMWatch 及 ConnectionWatch 警示。</dd>
+<dt class="dt dlterm">預設值</dt>
+<dd class="dd">此過濾器會顯示除 ProbeWatch、TSMWatch 及 ConnectionWatch 警示以外的所有警示。</dd>
+<dt class="dt dlterm">所有的事件</dt>
+<dd class="dd">此過濾器會顯示所有警示。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar"><h2 class="title sectiontitle">狀態列</h2><div class="p">狀態列會顯示：<ul class="ul"><li class="li">狀態訊息</li>
+<li class="li">用於登入階段作業的現行使用者名稱</li>
+<li class="li">您目前所連接的 ObjectServer，以及它是主要 (<samp class="ph tt">PRI</samp>) 還是備份 (<samp class="ph tt">BAK</samp>) 伺服器</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>相關概念</strong>:<br />
+<div><a class="link" href="omn_usr_el_monitorboxoverview.html" title="「事件清單」監視器框視窗上的監視器框代表過濾器及所選的視圖，建立它們可以決定在事件清單中顯示的警示記錄及直欄。 監視器框以其相關聯過濾器命名。">監視器框概觀</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="您可以儲存針對「事件清單」監視器框視窗上所有監視器框定義的過濾器、視圖及其他事件配置。 此資訊儲存在事件清單配置檔案 (.elc) 中。">使用事件清單配置</a></div>
+<div><a class="link" href="omn_usr_el_indicatingeventinmaint.html" title="如果正在處理導致事件的問題，您可以在事件清單中指出該事件正處於「維護中」。 「維護」優先順序可與「維護」事件清單過濾器一起使用。">指出事件處於維護中</a></div>
+<div><a class="link" href="omn_usr_el_escalatingdeescalating.html" title="您可以提升事件清單中的事件，比方說，如果您需要引起其他人對事件的注意，以使不同層次的支援人員可以管理這些事件。 提升及取消提升事件可與「已提升」事件清單過濾器一起使用。">提升及取消提升事件</a></div>
+<div><a class="link" href="omn_usr_el_addingeventstotasklist.html" title="您可以使用作業清單，以識別需要特別注意的事件。 將事件新增至作業清單可與「作業清單」事件清單過濾器一起使用。">新增事件至作業清單</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

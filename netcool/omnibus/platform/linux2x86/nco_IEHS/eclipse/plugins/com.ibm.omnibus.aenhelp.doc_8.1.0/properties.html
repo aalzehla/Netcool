@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Accelerated Event Notifier Properties" />
+<meta name="abstract" content="Use this window to configure settings for the Accelerated Event Notification client." />
+<meta name="Description" content="Use this window to configure settings for the Accelerated Event Notification client." />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_abtpopupnotifier.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_configuringprops.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_properties" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Accelerated Event Notifier Properties</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_properties">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Accelerated Event Notifier Properties</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to configure settings for the Accelerated
+Event Notification client.</p>
+<div class="section">The <span class="keyword wintitle">Accelerated Event Notifier Properties</span> window
+contains the following tabs:<ul class="ul"><li class="li"><a class="xref" href="#omn_properties__omn_properties_applicationtab">Application tab</a></li>
+<li class="li"><a class="xref" href="#omn_properties__omn_properties_messagestab">Messages tab</a></li>
+<li class="li"><a class="xref" href="#omn_properties__omn_properties_channelstab">Channels tab</a></li>
+<li class="li"><a class="xref" href="#omn_properties__omn_properties_informationtab">Information tab</a></li>
+<li class="li"><a class="xref" href="#omn_properties__omn_properties_abouttab">About tab</a></li>
+</ul>
+</div>
+<div class="section" id="omn_properties__omn_properties_applicationtab"><h2 class="title sectiontitle">Application tab</h2><p class="p">Use
+this tab to configure the ObjectServer from which you want to receive
+accelerated event notifications, and the event list where you want
+to manage these events. You can also specify a Web browser for displaying
+online help. </p>
+<div class="note note"><span class="notetitle">Note:</span> It is your responsibility to check
+the availability of any servers that you specify. In addition, if
+you want to view and manage events by using the Active Event List,
+the <span class="keyword">Web GUI</span> must
+be configured and running.</div>
+<p class="p">Complete the tab as follows:</p>
+<dl class="dl" id="omn_properties__omn_properties_applicationtabfields"><dt class="dt dlterm">Notification Settings</dt>
+<dd class="dd">Use these fields to specify whether operators can view additional
+details for accelerated events in the desktop event list or the <span class="keyword">Web GUI</span> Active
+Event List. Based on your selection, operators can use one or the
+other of these event lists to manage accelerated events.<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">Select the name of the ObjectServer from which accelerated event
+notifications should be received. This list is populated with ObjectServer
+entries from the Server Editor.<div class="note note"><span class="notetitle">Note:</span> In a failover configuration,
+connection to the name of a virtual pair is not supported. You must
+select either the <span class="ph uicontrol">(primary)</span> or <span class="ph uicontrol">(backup)</span> server
+name.</div>
+</dd>
+<dt class="dt dlterm">View In</dt>
+<dd class="dd">Select <span class="ph uicontrol">Netcool Event list</span> to
+use the desktop event list to manage accelerated events. Select <span class="ph uicontrol"><span class="keyword">Web GUI</span></span> to
+use the Active Event List to manage accelerated events.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Launch In Context Settings: Netcool Event list tab</dt>
+<dd class="dd">If you selected the <span class="ph uicontrol">Netcool Event list</span> option
+in the <span class="ph uicontrol">Notification Settings</span> area, you must
+use this tab to configure connection settings, and views, for the
+event list. Complete this tab as follows:<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">Select the ObjectServer from which accelerated event notifications
+are received. This list is populated with ObjectServer entries from
+the Server Editor.</dd>
+<dt class="dt dlterm">View</dt>
+<dd class="dd">Specify the view that you want to apply to the event list. Either
+type the path to the <span class="ph filepath">.elv</span> file, or click the
+ellipses (...) button to navigate to the <span class="ph filepath">.elv</span> file.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Launch In Context Settings: <span class="keyword">Web GUI</span> tab</dt>
+<dd class="dd">If you selected the <span class="ph uicontrol"><span class="keyword">Web GUI</span></span> option
+in the <span class="ph uicontrol">Notification Settings</span> area, you must
+use this tab to configure connection settings, and views, for the
+Active Event List. Complete this tab as follows:<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">Type the host name or IP address of the <span class="keyword">Web GUI</span> server.
+The host name can be a short name or a fully-qualified name.</dd>
+<dd class="dd">If you type an IP address, you can specify an IPv4 or IPv6 address
+for the server. For IPv6 addresses, use brackets [] as delimiters.
+For example, for a literal IPv6 address of FEDC:BA12:3456:7890:FEDC:BA12:3456:7890,
+type:</dd>
+<dd class="dd"><kbd class="ph userinput">[FEDC:BA12:3456:7890:FEDC:BA12:3456:7890]</kbd></dd>
+<dt class="dt dlterm">Port</dt>
+<dd class="dd">Specify the port number on which the <span class="keyword">Web GUI</span> server
+listens. The range is from 1 to 65536.</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">Select this check box to specify that page requests to the <span class="keyword">Web GUI</span> server
+should be made by using the Hypertext Transfer Protocol over Secure
+Socket Layer (HTTPS).</dd>
+<dt class="dt dlterm">Version</dt>
+<dd class="dd">Specify the <span class="keyword">Web GUI</span> server
+version.</dd>
+<dt class="dt dlterm">View</dt>
+<dd class="dd">Type the name of a view within the <span class="keyword">Web GUI</span> server,
+which must be applied to the Active Event List.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Browser Settings</dt>
+<dd class="dd">Use this area to specify a Web browser for displaying online help.<dl class="dl"><dt class="dt dlterm">Application </dt>
+<dd class="dd">Either type the path to the executable file, or click the ellipses
+(...) button to navigate to the file. If you manually type a path
+to the file name, the system checks whether it is valid. </dd>
+<dd class="dd">If you do not specify a browser for Windows, the default Windows
+browser is automatically used. On UNIX, you are prompted that you
+need to specify a browser.</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="omn_properties__omn_properties_messagestab"><h2 class="title sectiontitle">Messages tab</h2><div class="p">Use
+this tab to configure settings for the history buffer and the pop-up
+notifier. Complete this tab as follows:<dl class="dl" id="omn_properties__omn_properties_messagestabfields"><dt class="dt dlterm">History Settings</dt>
+<dd class="dd">Inbound event notifications are stored in a history buffer, which
+is automatically cleared at the end of each application session. You
+can view this information in the <span class="keyword wintitle">Historical Data Viewer</span> window.
+Use these fields to configure the size of the history buffer.<dl class="dl"><dt class="dt dlterm">Remove Messages Older Than</dt>
+<dd class="dd">Specify how long messages should remain in the history buffer
+before being automatically removed. The range is from 0 to 10080 minutes.
+(10080 minutes equates to the number of minutes in a week.) A value
+of 0 indicates that this field is to be ignored, in which case the
+automatic removal of messages from the history buffer is controlled
+by the value of the <span class="ph uicontrol">Number of Messages to Keep</span> field.</dd>
+<dt class="dt dlterm">Number of Messages to Keep</dt>
+<dd class="dd">Specify the maximum number of messages that the history buffer
+can store during a session. When this maximum number is attained,
+the oldest message will be removed to make way for a new incoming
+message. The number of messages can range from 1 to 1000.</dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> If you reduce the size of the history buffer
+during the current session, the oldest messages that are over and
+above the new limit are lost.</div>
+</dd>
+<dt class="dt dlterm">Clear History</dt>
+<dd class="dd">Click this button to clear the history buffer. This action causes
+all the information in the <span class="keyword wintitle">Historical Data Viewer</span> window
+to be deleted.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Pop-up Settings</dt>
+<dd class="dd">Accelerated events are displayed using pop-up notifiers. Use these
+fields to configure the number and behavior of the pop-up notifiers
+that are visible on the screen. <dl class="dl"><dt class="dt dlterm">Display No More Than</dt>
+<dd class="dd">Specify the maximum number of pop-up notifiers that can be visible
+on the screen at any time. The range is from 1 to 10. If the maximum
+number of pop-up notifiers is currently visible on the screen and
+another notification is received, the oldest event is removed from
+the stack of pop-up notifiers, and replaced with the new event. Intermediate
+alerts are repositioned to maintain the order in which they were received.</dd>
+<dt class="dt dlterm">Popups Expire After</dt>
+<dd class="dd">Specify how long a pop-up notifier remains on the screen before
+it is automatically removed from the screen. The range is from 0 to
+10 minutes. (You can also manually close pop-up notifiers.)</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Custom Settings: Visual tab</dt>
+<dd class="dd">Use these fields to specify whether to include details of the
+channel name and the ObjectServer from which notifications are received,
+within the pop-up notifier. You can also specify the point of insertion
+of new pop-up notifiers.<dl class="dl"><dt class="dt dlterm">Display Channel Name</dt>
+<dd class="dd">Select this check box to add the name of the channel on which
+an accelerated event notification was broadcast. </dd>
+<dt class="dt dlterm">Display Server Name</dt>
+<dd class="dd">Select this check box to add the name of the ObjectServer that
+forwarded the notification to the Accelerated Event Notification client.</dd>
+<dt class="dt dlterm">Insert New Messages At The</dt>
+<dd class="dd">Select <span class="ph uicontrol">Top</span> if you want new pop-up notifiers
+to be added at the top of the pop-up stack. Select <span class="ph uicontrol">Bottom</span> if
+you want new pop-up notifiers to be added at the bottom of the pop-up
+stack. This setting also controls the insertion point for entries
+in the history buffer and consequently, the <span class="keyword wintitle">Historical Data
+Viewer</span> window.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Custom Settings: System tab</dt>
+<dd class="dd">Use this tab to configure settings for data retention, logging,
+and sound.<dl class="dl"><dt class="dt dlterm">Maintain History</dt>
+<dd class="dd">Select this check box if you want to save the contents of the
+history buffer when you sign out or exit. When you sign in again,
+saved historical data that falls within the specified expiration limits
+for notifications can be viewed in the <span class="keyword wintitle">Historical Data Viewer</span> window.
+Clear this check box (the default) if you do not want the contents
+of the history buffer to be reloaded when you next sign in.</dd>
+<dt class="dt dlterm">Log Notifications</dt>
+<dd class="dd">Select this check box to save the notification details to text
+log files that are maintained in your <span class="ph filepath"><var class="keyword varname">userhome</var>/.netcool/nco_aen_settings/logs</span> directory
+on UNIX, where <var class="keyword varname">userhome</var> represents your home directory.
+On Windows, these files are stored in <span class="ph filepath"><var class="keyword varname">userhome</var>\.netcool\nco_aen_settings\logs</span>. </dd>
+<dt class="dt dlterm">Play Sound</dt>
+<dd class="dd">Select this check box to play an audio sound whenever notifications
+are received. The sound is muted by default if multiple notifications
+are received in rapid succession. Clear this check box (the default)
+to stop the sound from playing. Note that you cannot change the sound,
+and the workstation must have the relevant hardware for playing sounds.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Default Settings</dt>
+<dd class="dd">Click this button to restore the default settings.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="omn_properties__omn_properties_channelstab"><h2 class="title sectiontitle">Channels tab</h2><div class="p">Use
+this tab to specify which of the defined channel columns are shown
+in the pop-up notifier, and the position of the data in the pop-up
+notifier. Complete this tab as follows:<dl class="dl" id="omn_properties__omn_properties_channelstabfields"><dt class="dt dlterm"><var class="keyword varname">Channel list</var></dt>
+<dd class="dd">This list shows all the channels over which you can receive accelerated
+event notifications. These channels are created by your system administrator,
+who also grants access rights to channels. From this list, select
+a channel that you want to configure. The columns configured for the
+channel, and their position within the pop-up notifier, are shown
+to the right.<div class="note note"><span class="notetitle">Note:</span> Click-across functionality to the event
+list or the Active Event List is available only for events in the
+alerts.status table.</div>
+</dd>
+<dt class="dt dlterm">Column data</dt>
+<dd class="dd">Each column that is configured for the selected channel is listed
+here.</dd>
+<dt class="dt dlterm">Filter</dt>
+<dd class="dd">Use these check boxes to construct a dynamic AND logic filter
+for the event list or Active Event List that is accessible from the
+pop-up notifier and the <span class="keyword wintitle">Historical Data Viewer</span> window.
+Select the <span class="ph uicontrol">Filter</span> check box for each column
+on which you want to filter.</dd>
+<dt class="dt dlterm">Position in Popup</dt>
+<dd class="dd">Use these fields to reposition column data within the pop-up notifier
+and the <span class="keyword wintitle">Historical Data Viewer</span> window. </dd>
+<dt class="dt dlterm">Default Positions</dt>
+<dd class="dd">Click this button to reset the channel columns to their default
+position in the pop-up notifier.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="omn_properties__omn_properties_informationtab"><h2 class="title sectiontitle">Information tab</h2><p class="p">Use
+this tab to view version and build information about the Accelerated
+Event Notification client.</p>
+</div>
+<div class="section" id="omn_properties__omn_properties_abouttab"><h2 class="title sectiontitle">About tab</h2><p class="p">This
+tab displays the name and version of the product, together with copyright
+and trademark information.</p>
+</div>
+<div class="section" id="omn_properties__omn_properties_saving_closing"><h2 class="title sectiontitle">Saving your property
+settings</h2><div class="p">After configuring properties for the Accelerated
+Event Notification client, you can save or cancel the changes made
+by clicking the relevant button as follows:<dl class="dl" id="omn_properties__omn_properties_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the property settings and close the
+window.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_aen_abtpopupnotifier.html" title="The Accelerated Event Notification client uses pop-up notifiers for the display of channel information. A pop-up notifier provides summary information about an accelerated event and allows you to click across to the desktop event list or the Web GUI Active Event List for further investigation and action.">About pop-up notifiers</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_aen_configuringprops.html" title="You can configure the Accelerated Event Notification client to specify which ObjectServer you want the client to receive notifications from, how notifications are displayed, the type of information displayed, and retention settings for this information. You can also specify where the associated events are managed.">Configuring property settings for the Accelerated Event Notification client</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="이벤트 목록 보안" />
+<meta name="abstract" content="모든 Tivoli Netcool/OMNIbus 사용자는 하나 이상의 사용자 그룹에 속합니다. 각 그룹에는 하나 이상의 역할이 지정되어, 해당 그룹의 권한을 결정합니다. 사용자가 액세스할 수 있는 데스크탑 도구 및 사용자가 데스크탑 도구로 수행할 수 있는 태스크는 사용자가 속하는 그룹과 그룹에 지정되어 있는 역할에 따라 결정됩니다." />
+<meta name="Description" content="모든 Tivoli Netcool/OMNIbus 사용자는 하나 이상의 사용자 그룹에 속합니다. 각 그룹에는 하나 이상의 역할이 지정되어, 해당 그룹의 권한을 결정합니다. 사용자가 액세스할 수 있는 데스크탑 도구 및 사용자가 데스크탑 도구로 수행할 수 있는 태스크는 사용자가 속하는 그룹과 그룹에 지정되어 있는 역할에 따라 결정됩니다." />
+<meta name="DC.subject" content="이벤트 목록, 보안, AlertSecurityModel 특성, ObjectServer 특성" />
+<meta name="keywords" content="이벤트 목록, 보안, AlertSecurityModel 특성, ObjectServer 특성" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_sec_implementingauth.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_assigningownrshptoevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_acknowledgingdeack.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_eventlistsecurity" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_managingevents.html" />
+<title>이벤트 목록 보안</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_eventlistsecurity">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">이벤트 목록 보안</h1>
+<div class="body conbody"><p class="shortdesc">모든
+<span class="keyword">Tivoli Netcool/OMNIbus</span> 사용자는
+하나 이상의 사용자 <dfn class="term">그룹</dfn>에 속합니다. 각 그룹에는 하나 이상의
+<dfn class="term">역할</dfn>이 지정되어, 해당 그룹의 권한을 결정합니다.
+사용자가 액세스할 수 있는 데스크탑 도구 및 사용자가 데스크탑 도구로 수행할 수 있는 태스크는
+사용자가 속하는 그룹과 그룹에 지정되어 있는 역할에 따라 결정됩니다.</p>
+<p class="p">일반, 관리자와 시스템 그룹은 이벤트 목록에 그룹 행 레벨
+보안을 제공합니다. 
+<span class="keyword parmname parmname">AlertSecurityModel</span> ObjectServer 특성은
+그룹 행 레벨 보안이 이벤트 목록에서 적용하는지 여부를
+결정합니다. </p>
+<p class="p"><span class="keyword parmname parmname">AlertSecurityModel</span> 특성은 기본값이 사용 안함으로 설정되어 있으며
+그룹 행 레벨 보안이 실행되지 않습니다.
+이 경우,</p>
+<ul class="ul"><li class="li">일반 그룹의 구성원은 자신이나 <samp class="ph tt">nobody</samp> 사용자에게
+지정된 행을 수정할 수 있습니다. ObjectServer에서 경보를 수신하는 경우
+해당 경보는 <samp class="ph tt">nobody</samp> 사용자에게 기본값으로 지정됩니다. </li>
+<li class="li">관리자 그룹의 구성원은 자신이나 <samp class="ph tt">nobody</samp> 사용자 또는 일반 그룹의
+구성원에게 지정된 행을 수정할 수
+있습니다.</li>
+</ul>
+<p class="p"><span class="keyword parmname parmname">AlertSecurityModel</span> 특성이 사용되면,
+행을 소유한 그룹의 사용자만이 행을 수정할 수 있습니다. 이 경우,
+일반이나 관리자 그룹의 구성원은 구성원인 그룹에 지정된
+행을 수정할 수 있습니다.</p>
+<p class="p">시스템 그룹의 구성원은 언제든지 모든 행을 수정할 수
+있습니다. </p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_managingevents.html" title="이벤트 목록을 사용하면 이벤트를 관리할 수 있습니다.">이벤트 목록을 사용한 이벤트 관리</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>관련 개념</strong>:<br />
+<div><a class="link" href="omn_con_sec_implementingauth.html" title="권한은 ObjectServer의 오브젝트와 데이터에 대한 액세스를 제어합니다. 하나 이상의 권한을 역할에 결합하여 신속하고 효율적으로 액세스를 관리할 수 있습니다.">그룹과 역할을 사용하여 권한 구현</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_el_assigningownrshptoevents.html" title="프로브에서 이벤트가 도착하면 해당 이벤트는 소유권이 특정 사용자에게 지정되지 않은 경우 nobody 사용자에 의해 소유됩니다. 적절한 권한이 있는 사용자는 문제점 수명 주기를 통해 이벤트의 소유권을 가져가거나 이벤트를 특정 사용자 또는 그룹에 지정할 수 있습니다.">이벤트에 소유권 지정</a></div>
+<div><a class="link" href="omn_usr_el_acknowledgingdeack.html" title="해당 작업을 수행할 권한이 있는 경우에만 이벤트 목록에서 수신확인 및 수신확인 취소할 수 있습니다.">이벤트 수신확인 및 수신확인 취소</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

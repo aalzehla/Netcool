@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="User Details" />
+<meta name="abstract" content="Use this window to set up a new user or edit the details of an existing user." />
+<meta name="Description" content="Use this window to set up a new user or edit the details of an existing user." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditusers.html" />
+<meta name="DC.Relation" scheme="URI" content="group_details.html" />
+<meta name="DC.Relation" scheme="URI" content="restriction_filter_details.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_userdetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>User Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_userdetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">User Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new user or edit the details
+of an existing user.</p>
+<div class="section">The <span class="keyword wintitle">User Details</span> window contains the
+following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_userdetailswindow__netom_userdetails_usersetuparea">User setup area</a></li>
+<li class="li"><a class="xref" href="#netom_userdetailswindow__netom_userdetails_groupstab">Groups tab</a></li>
+<li class="li"><a class="xref" href="#netom_userdetailswindow__netom_userdetails_restrictionfilterstab">Restriction Filters tab</a></li>
+<li class="li"><a class="xref" href="#netom_userdetailswindow__netom_userdetails_settingstab">Settings tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_userdetailswindow__netom_userdetails_usersetuparea"><h2 class="title sectiontitle">User setup area</h2><div class="p">Complete this area as follows:<dl class="dl" id="netom_userdetailswindow__netom_userdetails_usersetupfields"><dt class="dt dlterm">Username</dt>
+<dd class="dd">Type a unique name for the user. If the user is to
+be externally authenticated, for example, in a Lightweight Directory
+Access Protocol (LDAP) repository or by using Pluggable Authentication
+Modules (PAM), the name entered in this field must be identical to
+the name stored in the external authentication repository. If you
+are editing a user, you cannot change the name.<div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">User ID</dt>
+<dd class="dd">Specify a unique numerical identifier for the user. This should
+be set to match the UNIX UID
+where possible. If you are editing a user, you cannot change the user
+ID.</dd>
+<dd class="dd">The identifier for the <samp class="ph tt">root</samp> user is <samp class="ph tt">0</samp>. The identifier
+for the <samp class="ph tt">nobody</samp> user is <samp class="ph tt">65534</samp>. Identifiers for other
+users can be set to any value between <samp class="ph tt">1</samp> and <samp class="ph tt">2147483647</samp>.</dd>
+<dt class="dt dlterm">Full Name</dt>
+<dd class="dd">Type the full name of the user.</dd>
+<dt class="dt dlterm">Create Conversion</dt>
+<dd class="dd">Select this check box if you want to create a conversion
+for the user. This causes either the user name or the full name of
+the user to be displayed in Tivoli® Netcool/OMNIbus event lists. The name shown is determined by the
+value of the <span class="keyword parmname parmname">system.conversion.type</span> property
+in the Netcool/OMNIbus Administrator properties file <span class="ph filepath">$NCHOME/omnibus/etc/nco_config.props</span>. This property creates a conversion between the user ID and the
+user name or full name of each newly-created user.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_userdetailswindow__netom_userdetails_groupstab"><h2 class="title sectiontitle">Groups tab</h2><div class="p">Use this tab to assign the user to groups. Complete this tab as
+follows:<dl class="dl" id="netom_userdetailswindow__netom_userdetails_groupstabfields"><dt class="dt dlterm">Unassigned Groups</dt>
+<dd class="dd">This list displays the available groups to which you can assign
+the user. To assign the user to one or more of these groups, use the
+arrow keys to move the groups to the <span class="ph uicontrol">Assigned Groups</span> list.</dd>
+<dd class="dd">To move all groups to the <span class="ph uicontrol">Assigned Groups</span> list, click <span class="ph uicontrol">&gt;&gt;</span>. To move a single group or
+multiple groups to the <span class="ph uicontrol">Assigned Groups</span> list,
+select each group and then click <span class="ph uicontrol">&gt;</span>. You can
+use the SHIFT key for consecutive selections, or the CTRL key for
+non-consecutive selections.<div class="note note"><span class="notetitle">Note:</span> If you do not add the user to a group,
+the user will have no permissions.</div>
+</dd>
+<dt class="dt dlterm">Assigned Groups</dt>
+<dd class="dd">This list displays the groups to which the user is assigned. To
+unassign groups, use the arrow keys to move the groups to the <span class="ph uicontrol">Unassigned Groups</span> list. </dd>
+<dd class="dd">To move all groups to the <span class="ph uicontrol">Unassigned Groups</span> list, click <span class="ph uicontrol">&lt;&lt;</span>. To move a single group
+or multiple groups to the <span class="ph uicontrol">Unassigned Groups</span> list, select each group and then click <span class="ph uicontrol">&lt;</span>. You can use the SHIFT key for consecutive selections, or the CTRL
+key for non-consecutive selections.</dd>
+<dt class="dt dlterm">Add new group</dt>
+<dd class="dd">Click this button if you want to create a new group to which the
+user can then be assigned. The <span class="keyword wintitle">Group Details</span> window
+opens. Complete this window and save your changes. </dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Groups</span> tab in the <span class="keyword wintitle">User Details</span> window, the new group will be added to the <span class="ph uicontrol">Unassigned Groups</span> list. You can then assign the user
+to this group.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_userdetailswindow__netom_userdetails_restrictionfilterstab"><h2 class="title sectiontitle">Restriction
+Filters tab</h2><div class="p">Use this tab to specify any restriction filters
+that you want to apply to the user. You can use restriction filters
+to prevent the user from viewing or modifying certain rows in ObjectServer
+tables. Complete this tab as follows:<dl class="dl" id="netom_userdetailswindow__netom_userdetails_restrictionfilterstabfields"><dt class="dt dlterm">All Restriction Filters</dt>
+<dd class="dd">This list displays the available restriction filters that have
+been set up. To assign a restriction filter to the user, select the
+restriction filter row and then click <span class="ph uicontrol">Add Restriction Filter</span>. The selected restriction filter is transferred to the <span class="ph uicontrol">Assigned Restriction Filters</span> list.</dd>
+<dd class="dd">If no restriction filters have previously been set up, or if you
+want to create a new restriction filter and assign it to the user,
+click <span class="ph uicontrol">New Restriction Filter</span>. The <span class="keyword wintitle">Restriction Filter Details</span> window opens. Complete this
+window and save your changes. </dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Restriction Filters</span> tab, the new restriction filter will be added to the <span class="ph uicontrol">All Restriction Filters</span> list. You can then assign this
+restriction filter to the user.</dd>
+<dt class="dt dlterm">Assigned Restriction Filters</dt>
+<dd class="dd">This list displays the restriction filters that are assigned to
+the user. To unassign a restriction filter, select the restriction
+filter row and then click <span class="ph uicontrol">Remove Restriction Filter</span>. The selected restriction filter is transferred to the <span class="ph uicontrol">All Restriction Filters</span> list.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_userdetailswindow__netom_userdetails_settingstab"><h2 class="title sectiontitle">Settings tab</h2><div class="p">Use this tab to specify authentication details for the user and
+activate (or enable) the user on the system. Complete this tab as
+follows:<dl class="dl" id="netom_userdetailswindow__netom_userdetails_settingstabfields"><dt class="dt dlterm">Password</dt>
+<dd class="dd">Type an optional password for the user. Asterisks (*) appear in
+place of the password characters that you type. </dd>
+<dd class="dd">If the user is to be externally authenticated, the password is
+stored in the external repository, so leave this field blank. </dd>
+<dt class="dt dlterm">Verify</dt>
+<dd class="dd">If you typed a password in the <span class="ph uicontrol">Password</span> field, retype the password here.</dd>
+<dt class="dt dlterm">Change</dt>
+<dd class="dd">Click this button to reset the user password. You must then retype
+it in the <span class="ph uicontrol">Password</span> and <span class="ph uicontrol">Verify</span> fields. </dd>
+<dd class="dd">This button is visible only when editing a user.</dd>
+<dt class="dt dlterm">External Authentication</dt>
+<dd class="dd">Select this check box to externally authenticate the user. Clear
+this check box to store the user name and associated password in the
+ObjectServer, and to perform ObjectServer authentication. </dd>
+<dt class="dt dlterm">User Type</dt>
+<dd class="dd">This read-only field indicates the type of user. This is set automatically
+based on the groups to which the user belongs.</dd>
+<dt class="dt dlterm">User Enabled</dt>
+<dd class="dd">Select this check box to activate the user account and allow login
+access to Tivoli Netcool/OMNIbus.
+New user accounts are activated by default.</dd>
+<dd class="dd">Clear this check box to create the user account without activating
+it. You might choose to do this if you want to deny login access to
+the user until all the appropriate permissions are assigned to them.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_userdetailswindow__netom_userdetails_saving_closing"><h2 class="title sectiontitle">Saving your
+user details</h2><div class="p">After creating or editing a user, you can save
+or cancel the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_userdetailswindow__netom_userdetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the user details and close the window.
+New users are added to the <span class="keyword wintitle">Users</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingeditusers.html" title="When setting up users, you must assign them to groups with allocated roles. This determines the user permissions.">Creating and editing users</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="group_details.html" title="Use this window to set up a new group or edit the details of an existing group.">Group Details</a></div>
+<div><a class="link" href="restriction_filter_details.html" title="Use this window to set up a new restriction filter or edit the settings of an existing restriction filter.">Restriction Filter Details</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

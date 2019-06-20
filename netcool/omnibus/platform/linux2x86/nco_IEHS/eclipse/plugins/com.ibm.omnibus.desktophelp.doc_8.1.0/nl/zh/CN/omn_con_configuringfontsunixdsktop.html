@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="配置 UNIX 桌面的字体" />
+<meta name="abstract" content="如果要以您的语言环境查看 UNIX 桌面，您可能会发现必需配置所需的字体才能以您语言环境的编码显示文本。" />
+<meta name="description" content="如果要以您的语言环境查看 UNIX 桌面，您可能会发现必需配置所需的字体才能以您语言环境的编码显示文本。" />
+<meta name="DC.subject" content="多文化支持, 配置字体" />
+<meta name="keywords" content="多文化支持, 配置字体" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsunixdsktop" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>配置 UNIX 桌面的字体</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsunixdsktop">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">配置 UNIX 桌面的字体</h1>
+<div class="body taskbody"><p class="shortdesc">如果要以您的语言环境查看 UNIX 桌面，您可能会发现必需配置所需的字体才能以您语言环境的编码显示文本。</p>
+<div class="section context"><p class="p">Tivoli® Netcool/OMNIbus 安装包含资源文件，这些文件包含 UNIX 桌面应用程序的用户界面元素的定义；例如，窗口维数、字体选择、颜色、窗口标题的字符串值、菜单、按钮、图标、字段标签和消息字符串的定义。</p>
+<p class="p">可提供以下语言环境中资源文件的翻译：英语、法语、德语、日语、韩国语、俄语、西班牙语、简体中文和繁体中文。此外，在英语设置启用时，使用 ISO-8859-1 字符集的语言环境可正确显示字体。其他字符集可能需要某些字体配置。</p>
+<p class="p">资源文件存储在以下位置：</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+<p class="p">其中 <var class="keyword varname">arch</var> 是操作系统目录，<var class="keyword varname">locale_name</var> 是完整的语言环境名称；例如，en_GB.ISO8859-1。请注意，一些语言环境名称可能是带有缩写名称的符号链接。</p>
+<div class="p">资源文件包括：<ul class="ul"><li class="li"><span class="ph filepath">NCO</span>：Conductor 及其关联的过滤器构建器和视图构建器的定义</li>
+<li class="li"><span class="ph filepath">NCOBanner</span>：Conductor 启动屏幕的定义</li>
+<li class="li"><span class="ph filepath">NCOELCT</span>：瞬时事件列表的定义</li>
+<li class="li"><span class="ph filepath">NCOEvent</span>：“<span class="keyword wintitle">事件列表</span>”监视器框窗口、事件列表和关联的窗口（例如，“<span class="keyword wintitle">登录</span>”窗口）、过滤器构建器及视图构建器的定义</li>
+<li class="li"><span class="ph filepath">NCOHelp</span>：与联机帮助相关的定义；该文件可能没有任何定义</li>
+<li class="li"><span class="ph filepath">NCOMessage</span>：可用于工具的消息传递对话框的定义</li>
+<li class="li"><span class="ph filepath">NCOXigen</span>：服务器编辑器的定义</li>
+<li class="li"><span class="ph filepath">NCOXprops</span>：属性编辑器的定义</li>
+</ul>
+</div>
+<p class="p">如果您的语言环境未包含在 Tivoli Netcool/OMNIbus 安装软件包内，那么缺省情况下将使用 en_US.ISO8859-1 语言环境的资源文件。您可以将您的安装配置为使用未在安装软件包内提供的其他语言环境。如果您的语言环境使用非 ISO-8859-1 的字符集编码，那么您还必须确保定义的字体能将资源文件字符正确译成您语言环境的字符。</p>
+<p class="p">要配置其他语言环境和字体集：</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">运行以下命令以列出所有支持的语言环境：</span> <p class="p"><kbd class="ph userinput">locale -a</kbd></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">将 LC_ALL 环境变量设置为其中一个语言环境。</span></li>
+<li class="li step stepexpand" id="omn_con_configuringfontsunixdsktop__omn_intnzn_step"><span class="ph cmd">运行以下命令以显示您的字符编码：</span> <p class="p"><kbd class="ph userinput">locale charmap</kbd></p>
+
+<p class="p">记录编码，因为稍后可能需要。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">要以能正确显示的字体创建一组本地化资源文件，请转至目录 <span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></span>，其中 <var class="keyword varname">arch</var> 代表您的操作系统目录。您必须从包含适于您编码的字体的语言环境复制一组资源文件，然后定制复制的文件。例如，要创建阿拉伯语言环境（ar）的文件，请使用该语言环境名称创建一个目录，并复制 en_US.ISO8859-1 语言环境的资源文件：</span> <p class="p"><kbd class="ph userinput">cd $NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></kbd></p>
+
+<p class="p"><kbd class="ph userinput">mkdir
+ar</kbd></p>
+
+<p class="p"><kbd class="ph userinput">cd ar</kbd></p>
+
+<p class="p"><kbd class="ph userinput">cp
+-r ../en_US.ISO8859-1/* .</kbd></p>
+
+<p class="p">资源文件（前缀为 NCO）、映像子目录和缺省事件列表配置文件都将复制到 <span class="ph filepath">ar</span> 目录中。您现在必须查找系统上合适的字体集，该字体集应与资源文件中的应用程序字体匹配。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">从命令行输入操作系统的相应命令：</span> <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d1875e165" class="stentry" width="25%">操作系统</th>
+<th valign="bottom" align="left" id="d1875e167" class="stentry" width="75%">命令</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d1875e165" class="stentry">AIX®</td>
+<td valign="top" headers="d1875e167" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1875e165" class="stentry">HP-UX</td>
+<td valign="top" headers="d1875e167" class="stentry"><kbd class="ph userinput">/usr/bin/X11/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1875e165" class="stentry">Linux（Red Hat）</td>
+<td valign="top" headers="d1875e167" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1875e165" class="stentry">Solaris</td>
+<td valign="top" headers="d1875e167" class="stentry"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+</table>
+
+<p class="p"></p>
+
+<p class="p">在此命令中，<var class="keyword varname">font_name</var> 是步骤<a class="xref" href="#omn_con_configuringfontsunixdsktop__omn_intnzn_step">3</a>中输出的字符编码。使用星号（*）将该值指定为通配符。请注意，必须用引号括起该值，以避免 shell 解释文本中的星号。For example:</p>
+
+<p class="p"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts
+-fn "*-iso8859-6"</kbd></p>
+ 此时将显示匹配字体的列表。</li>
+<li class="li step stepexpand"><span class="ph cmd">预览每种字体，以确定其是否合适。对于每种字体，输入以下命令：</span> <p class="p"><kbd class="ph userinput">xfd
+-fn <var class="keyword varname">font_name</var></kbd></p>
+
+<p class="p">其中 <var class="keyword varname">font_name</var> 是在上一步中返回的一个匹配的字体名称。</p>
+ 此时将打开窗口，显示字体的全名，以及每个单元包含一个字符的网格。您可能需要使用<span class="ph uicontrol">下一页</span>和<span class="ph uicontrol">上一页</span>按钮来查看所有字符。确定了合适的字体后，就可以将字体集添加至资源文件。</li>
+<li class="li step stepexpand"><span class="ph cmd">轮流打开每个名为 <span class="ph filepath">NCO</span> 的资源文件，以更改字体。</span> 例如，对于事件列表资源，必须将 <samp class="ph codeph">NCOEvent*fontList</samp>、<samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp>、<samp class="ph codeph">*view_builder*display_matrix.labelFont</samp> 和 <samp class="ph codeph">NCOEvent*info_matrix.labelFont</samp> 设置为包含语言环境所需的所有字体的字体集。<p class="p">UNIX 字体名称格式如下：</p>
+
+<pre class="pre codeblock"><code>-foundry-font family-weight-slant-set width-serif-pixels-points-hres-vres-spacing-average <br />width-character set-encoding</code></pre>
+可以使用通配符指定字体名称。例如，事件列表的缺省字体为 <pre class="pre codeblock"><code>-adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*</code></pre>
+
+<p class="p">对于阿拉伯语，可以替换为：</p>
+
+<pre class="pre codeblock"><code>-dt-interface user-bold-r-normal-m serif-14-140-75-75-p-188-iso8859-6</code></pre>
+
+<p class="p"></p>
+使用 EUC 字符集时，一次需要多种字体；例如，EUCJIS（日语）需要 iso8859-1、jisx0201.1976-0、jisx0208.1983-0 和 jisx0212.1990-0 字体。可以使用包含通配符的一个或多个字体名称指定此类字体集。（字体集中的字体以分号分隔，字体集则以冒号结尾。）</li>
+<li class="li step stepexpand"><span class="ph cmd">必要时可如下更改资源中的其他设置：</span> <ul class="ul"><li class="li">指定窗口的缺省宽度（以像素为单位）。您可能需要调整这些值以适应字体，并确保窗口上的文本标签显示正确。</li>
+<li class="li">使用翻译后的文本替换窗口标题（<samp class="ph codeph">*.title</samp>）、按钮标签（<samp class="ph codeph">*.labelString</samp>）、消息（<samp class="ph codeph">*.messageString</samp>）和其他文本元素的字符串值。确保翻译后的文本使用您语言环境的字符编码。</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">保存文件更改。</span> 现在，您即可使用正确的语言环境和字体运行 Tivoli Netcool/OMNIbus。</li>
+</ol>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

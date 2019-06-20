@@ -1,0 +1,387 @@
+########################################################################
+#
+#       Licensed Materials - Property of IBM
+#       
+#       
+#       
+#       (C) Copyright IBM Corp. 1994, 2015. All Rights Reserved
+#       
+#       US Government Users Restricted Rights - Use, duplication
+#       or disclosure restricted by GSA ADP Schedule Contract
+#       with IBM Corp.
+#
+#######################################################################
+
+#######################################################################
+#
+# EVENT SPECIFIC CODE SECTION
+#
+# IN THIS SECTION OF THE CODE, THE SPECIFIC FIELDS RELATING TO THE
+# INCOMING EVENT NEED TO BE SET.  THESE INCLUDE:
+#
+#  - ScopeID - THE PRIMARY CONTAINMENT VALUE
+#  - NormalisedAlarmCode - THIS DETERMINES THE IMPACT AND CAUSE WEIGHTINGS
+#  - OSILevel - THIS DETERMINES THE WEIGHTING MULTIPLIERS
+#
+#  - SiteName - THE SECONDARY CONTAINMENT VALUE - OPTIONAL
+#
+#######################################################################
+
+# SET / INITIALISE MANDATORY VARIABLES
+
+@ScopeID = ""
+@NormalisedAlarmCode = 0
+$OSILevel = 9
+
+# SET / INITIALISE OPTIONAL VARIABLES
+
+@SiteName = ""
+
+# SET @NormalisedAlarmCode AND $OSILevel BASED ON INCOMING EVENT
+# $EventCode COULD BE ANY FIELD THAT IDENTIFIES THE EVENT CATEGORISATION
+# $OSILevel NEEDS TO BE SET APPROPRIATELY DEPENDING ON THE EVENT
+
+switch ($EventCode) {
+
+	case "10": # EXAMPLE - Informational events
+
+		@NormalisedAlarmCode = 10
+		$OSILevel = 3
+
+	case "20": # EXAMPLE - Workarounds in execution
+
+		@NormalisedAlarmCode = 20
+		$OSILevel = 3
+
+	case "30": # EXAMPLE - Control Path Loss
+
+		@NormalisedAlarmCode = 30
+		$OSILevel = 3
+
+	case "40": # EXAMPLE - Heartbeat Loss
+
+		@NormalisedAlarmCode = 40
+		$OSILevel = 3
+
+	case "50": # EXAMPLE - Service delivery reported as non-Functional
+
+		@NormalisedAlarmCode = 50
+		$OSILevel = 3
+
+	case "60": # EXAMPLE - Missing Component
+
+		@NormalisedAlarmCode = 60
+		$OSILevel = 3
+
+	case "70": # EXAMPLE - Operational Warning, inc running on backup
+
+		@NormalisedAlarmCode = 70
+		$OSILevel = 3
+
+	case "80": # EXAMPLE - Performance Warning
+
+		@NormalisedAlarmCode = 80
+		$OSILevel = 3
+
+	case "90": # EXAMPLE - Device inoperative State, Change of State
+
+		@NormalisedAlarmCode = 90
+		$OSILevel = 3
+
+	case "100": # EXAMPLE - Performance Degradation
+
+		@NormalisedAlarmCode = 100
+		$OSILevel = 3
+
+	case "110": # EXAMPLE - Performance Failure
+
+		@NormalisedAlarmCode = 110
+		$OSILevel = 3
+
+	case "120": # EXAMPLE - Environmental Warning, inc Door Open and similar alarms
+
+		@NormalisedAlarmCode = 120
+		$OSILevel = 3
+
+	case "130": # EXAMPLE - General Component Failure
+
+		@NormalisedAlarmCode = 130
+		$OSILevel = 3
+
+	case "140": # EXAMPLE - Catastrophic Component Failure
+
+		@NormalisedAlarmCode = 140
+		$OSILevel = 3
+
+	case "150": # EXAMPLE - Power Loss
+
+		@NormalisedAlarmCode = 150
+		$OSILevel = 3
+
+	case "160": # EXAMPLE - Control Shut Down
+
+		@NormalisedAlarmCode = 160
+		$OSILevel = 3
+
+	default:
+
+		@NormalisedAlarmCode = 0
+}
+
+#######################################################################
+#
+# VENDOR NON-SPECIFIC CODE - DO NOT EDIT
+#
+# THIS SECTION APPLIES THE STANDARD WEIGHTINGS ACCORDING TO THE CATEGORISATION
+# OF THE EVENT IN THE PREVIOUS STEP BY SETTING NormalisedAlarmCode AND OSILevel.
+#
+#  - NormalisedAlarmName - THIS IS USED TO CONSTRUCT THE Summary FIELD OF
+#                          THE SYNTHETIC CONTAINMENT ALARM IN THE OBJECTSERVER
+#  - ImpactWeight - THIS IS A RELATIVE INDICATION OF THIS EVENT'S IMPACT TO AN INCIDENT
+#  - CauseWeight - THIS IS A RELATIVE INDICATION OF THIS EVENT'S LIKELIHOOD THAT IT IS A CAUSE
+#
+#######################################################################
+
+# ASSIGN INITIAL CAUSE AND IMPACT WEIGHTS AND NormalisedAlarmName BASED ON NormalisedAlarmCode
+
+@CauseWeight = @NormalisedAlarmCode
+
+switch (@NormalisedAlarmCode) {
+
+	case "10":
+
+		@ImpactWeight = 130
+		@NormalisedAlarmName = "Informational events"
+
+	case "20":
+
+		@ImpactWeight = 140
+		@NormalisedAlarmName = "Workarounds in execution"
+
+	case "30":
+
+		@ImpactWeight = 150
+		@NormalisedAlarmName = "Control Path Loss"
+
+	case "40":
+
+		@ImpactWeight = 160
+		@NormalisedAlarmName = "Heartbeat Loss"
+
+	case "50":
+
+		@ImpactWeight = 110
+		@NormalisedAlarmName = "Service delivery reported as non-Functional"
+
+	case "60":
+
+		@ImpactWeight = 100
+		@NormalisedAlarmName = "Missing Component"
+
+	case "70":
+
+		@ImpactWeight = 90
+		@NormalisedAlarmName = "Operational Warning, inc running on backup"
+
+	case "80":
+
+		@ImpactWeight = 120
+		@NormalisedAlarmName = "Performance Warning"
+
+	case "90":
+
+		@ImpactWeight = 80
+		@NormalisedAlarmName = "Device inoperative State, Change of State"
+
+	case "100":
+
+		@ImpactWeight = 70
+		@NormalisedAlarmName = "Performance Degradation"
+
+	case "110":
+
+		@ImpactWeight = 60
+		@NormalisedAlarmName = "Performance Failure"
+
+	case "120":
+
+		@ImpactWeight = 50
+		@NormalisedAlarmName = "Environmental Warning, inc Door Open and similar alarms"
+
+	case "130":
+
+		@ImpactWeight = 40
+		@NormalisedAlarmName = "General Component Failure"
+
+	case "140":
+
+		@ImpactWeight = 30
+		@NormalisedAlarmName = "Catastrophic Component Failure"
+
+	case "150":
+
+		@ImpactWeight = 20
+		@NormalisedAlarmName = "Power Loss"
+
+	case "160":
+
+		@ImpactWeight = 10
+		@NormalisedAlarmName = "Control Shut Down"
+
+	default:
+
+		@ImpactWeight = 0
+		@NormalisedAlarmName = "UNKNOWN"
+}
+
+# DETERMINE CAUSE AND IMPACT MULTIPLIERS BASED ON OSILevel
+
+switch ($OSILevel) {
+
+	case "0" | "1":
+
+		switch(@NormalisedAlarmCode) {
+
+			case "10" | "20" | "30" | "40" | "50" | "60" | "70" | "80":
+
+				$CauseWeightMultiplier = 8
+				$ImpactWeightMultiplier = 2
+
+			case "90" | "100" | "110" | "120" | "130" | "140" | "150" | "160":
+
+				$CauseWeightMultiplier = 10
+				$ImpactWeightMultiplier = 1
+
+			default:
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 1
+		}
+
+	case "2":
+
+		switch(@NormalisedAlarmCode) {
+
+			case "10" | "20" | "30" | "40" | "50" | "60" | "70" | "80":
+
+				$CauseWeightMultiplier = 6
+				$ImpactWeightMultiplier = 3
+
+			case "90" | "100" | "110" | "120" | "130" | "140" | "150" | "160":
+
+				$CauseWeightMultiplier = 8
+				$ImpactWeightMultiplier = 2
+
+			default:
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 1
+		}
+
+	case "3":
+
+		switch(@NormalisedAlarmCode) {
+
+			case "10" | "20" | "30" | "40" | "50" | "60" | "70" | "80":
+
+				$CauseWeightMultiplier = 5
+				$ImpactWeightMultiplier = 4
+
+			case "90" | "100" | "110" | "120" | "130" | "140" | "150" | "160":
+
+				$CauseWeightMultiplier = 6
+				$ImpactWeightMultiplier = 4
+
+			default:
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 1
+		}
+
+	case "4":
+
+		switch(@NormalisedAlarmCode) {
+
+			case "10" | "20" | "30" | "40" | "50" | "60" | "70" | "80" | "90" | "100" | "110" | "120":
+
+				$CauseWeightMultiplier = 4
+				$ImpactWeightMultiplier = 5
+
+			case "130" | "140":
+
+				$CauseWeightMultiplier = 5
+				$ImpactWeightMultiplier = 5
+
+			case "150" | "160":
+
+				$CauseWeightMultiplier = 8
+				$ImpactWeightMultiplier = 4
+
+			default:
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 1
+		}
+
+	case "5" | "6":
+
+		switch(@NormalisedAlarmCode) {
+
+			case "10" | "20" | "30" | "40" | "50" | "60" | "70" | "80" | "90" | "100" | "110" | "120":
+
+				$CauseWeightMultiplier = 2
+				$ImpactWeightMultiplier = 6
+
+			case "130" | "140":
+
+				$CauseWeightMultiplier = 4
+				$ImpactWeightMultiplier = 6
+
+			case "150" | "160":
+
+				$CauseWeightMultiplier = 6
+				$ImpactWeightMultiplier = 4
+
+			default:
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 1
+		}
+
+	case "7":
+
+		switch(@NormalisedAlarmCode) {
+
+			case "10" | "20" | "30" | "40" | "50" | "60" | "70" | "80" | "90" | "100" | "110" | "120":
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 8
+
+			case "130" | "140":
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 8
+
+			case "150" | "160":
+
+				$CauseWeightMultiplier = 6
+				$ImpactWeightMultiplier = 8
+
+			default:
+
+				$CauseWeightMultiplier = 1
+				$ImpactWeightMultiplier = 1
+		}
+
+	default:
+
+		$CauseWeightMultiplier = 1
+		$ImpactWeightMultiplier = 1
+}
+
+# ASSIGN FINAL CAUSE AND IMPACT WEIGHTS BASED ON DERIVED MULTIPLIERS
+
+@CauseWeight = int(@CauseWeight) * int($CauseWeightMultiplier)
+@ImpactWeight = int(@ImpactWeight) * int($ImpactWeightMultiplier)
+
+

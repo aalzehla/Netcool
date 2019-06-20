@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX의 온라인 도움말 액세스" />
+<meta name="abstract" content="온라인 도움말은 웹 애플리케이션인 IEHS(IBM Eclipse Help System)를 사용하여 배치됩니다. 설치 및 구성 설정에 따라 독립형 모드 또는 정보 센터 모드 중 하나에서 온라인 도움말에 액세스할 수 있습니다." />
+<meta name="Description" content="온라인 도움말은 웹 애플리케이션인 IEHS(IBM Eclipse Help System)를 사용하여 배치됩니다. 설치 및 구성 설정에 따라 독립형 모드 또는 정보 센터 모드 중 하나에서 온라인 도움말에 액세스할 수 있습니다." />
+<meta name="DC.subject" content="온라인 도움말, 액세스, 구성, 독립형 모드, 정보 센터 모드, IBM Eclipse 도움말 시스템(IEHS), IEHS(IBM Eclipse Help System), IEHS, 서버 종료" />
+<meta name="keywords" content="온라인 도움말, 액세스, 구성, 독립형 모드, 정보 센터 모드, IBM Eclipse 도움말 시스템(IEHS), IEHS(IBM Eclipse Help System), IEHS, 서버 종료" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_unixaccessingonlinehelp" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>UNIX의 온라인 도움말 액세스</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_unixaccessingonlinehelp">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX의 온라인 도움말 액세스</h1>
+<div class="body taskbody"><p class="shortdesc">온라인 도움말은 웹 애플리케이션인 IEHS(IBM® Eclipse Help System)를 사용하여
+배치됩니다.
+설치 및 구성 설정에 따라 독립형 모드 또는 정보 센터 모드 중 하나에서 온라인 도움말에
+액세스할 수 있습니다.</p>
+<div class="section context"><p class="p">온라인 도움말을 구성하고 액세스하려면 다음 표의 지시를 따르십시오.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">표 1. 도움말 구성 설정</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d5787e58">설정</th>
+<th class="entry" valign="bottom" width="75%" id="d5787e60">설명</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d5787e58 ">브라우저에 대한 환경 변수(UNIX)</td>
+<td class="entry" valign="top" width="75%" headers="d5787e60 ">브라우저의 디렉토리 위치를 다음 환경 변수에 추가하십시오(아직 추가되지 않은 경우).
+<ul class="ul"><li class="li">PATH</li>
+<li class="li">LD_LIBRARY_PATH(Solaris 및 Linux),
+LIBPATH(AIX®) 또는 SHLIB_PATH(HP-UX)</li>
+<li class="li">브라우저 특정의 환경 변수(예: MOZILLA_FIVE_HOME)</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5787e58 ">독립형 모드</td>
+<td class="entry" valign="top" width="75%" headers="d5787e60 ">독립형 모드에서 온라인 도움말을 사용하려면
+<span class="keyword">Tivoli Netcool/OMNIbus</span> 설치
+중에 <span class="ph uicontrol">로컬 도움말 시스템</span> 기능을 선택해야 합니다. <div class="p">설치 후에는
+기본 IEHS 포트 번호 8888이 다른 로컬 서비스에 사용되고 있는 경우에만 구성이 필요합니다.
+이 경우 IEHS 구성 파일 <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span>를 다음과 같이
+편집하십시오.
+<ul class="ul"><li class="li">IEHSMode: 0</li>
+<li class="li">IEHSHost: <var class="keyword varname">공백</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">사용하지 않은 포트 번호</var></li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">참고:</span> 구성 파일에서
+포트 번호를 변경한 후 변경사항을 실행하기 위해서는 로컬 IEHS 서버를 종료해야 합니다.
+<kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd> 명령을 실행하십시오. (브라우저에
+대한 환경 변수 설정을 변경하는 경우에도 변경사항을 실행하기 위해 IEHS 서버를 종료해야 합니다.)</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5787e58 ">정보 센터 모드</td>
+<td class="entry" valign="top" width="75%" headers="d5787e60 ">정보 센터 모드에서 시스템 관리자는 모든 사용자가 온라인
+도움말 시스템에 대해 하나의 IEHS 웹 서버를 공유함으로써 로컬 호스트 또는
+워크스테이션의 로드를 줄일 수 있도록 설정을 구성합니다.
+<p class="p">시스템 관리자가 정보 센터 모드에서 온라인 도움말을 액세스해야 한다고 알려준 경우
+로컬 IEHS 구성 파일 <span class="ph filepath">$NCHOME/omnibus/etc/nco_IEHS.cfg</span>를
+다음과 같이 구성해야 합니다. </p>
+<ul class="ul"><li class="li">IEHSMode: 1</li>
+<li class="li">IEHSHost: <var class="keyword varname">IEHS 서버의 IP 주소 또는 호스트 이름</var></li>
+<li class="li">IEHSPort: <var class="keyword varname">IEHS 서버가 실행 중인 포트 번호</var></li>
+</ul>
+<p class="p">IEHSHost 및 IEHSPort 설정은 시스템 관리자가 제공합니다. </p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="p">독립형
+모드에서 온라인 도움말에 액세스하면 기본 도움말 브라우저 창이 관련 텍스트와 함께
+자동으로 열립니다.
+로컬 IEHS 서버는 처음 도움말이 요청되었을 때부터 서버가 종료될 때까지 계속해서 실행됩니다.
+로컬 IEHS 서버를 종료하려면 다음 명령을 실행하십시오. </p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/help_end</kbd></p>
+<p class="p">일반적으로
+<span class="keyword cmdname">help_end</span> 명령을 실행한 후에는 반드시 컴퓨터를 재부팅하십시오.</p>
+<p class="p">정보 센터 모드에서 온라인 도움말에 액세스하기 전에 먼저 시스템 관리자가
+지정된 원격 IEHS 서버를 시작해야 합니다.</p>
+<div class="note note"><span class="notetitle">참고:</span> 독립형 모드의 경우, 로컬 컴퓨터에서 실행 중인 브라우저만
+도움말 항목을 표시할 수 있습니다.
+다른 호스트에서 실행 중인 브라우저가 열려 있는 경우, 도움말 시스템은 해당 브라우저에
+온라인 도움말을 표시하려고 시도합니다.
+그 결과 다음 오류 메시지가 나타납니다. <br /><samp class="ph systemoutput">로컬 호스트:<var class="keyword varname">이름</var>에 연결을 시도하는 중에 연결이 거부되었습니다.</samp><br />올바른 브라우저에 도움말을 표시하려면 이 창을 닫으십시오.</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="컨덕터를 사용하여 Tivoli Netcool/OMNIbus 데스크탑 도구(또는 클라이언트 애플리케이션)를 관리할 수 있습니다.">데스크탑 도구 액세스</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

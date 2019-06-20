@@ -1,0 +1,76 @@
+
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+ * Licensed Materials - Property of IBM
+ * "Restricted Materials of IBM"
+ * 5724-S43
+ *
+ * (C) Copyright IBM Corporation 2006, 2014. All Rights Reserved.
+ *
+ * US Government Users Restricted Rights - Use, duplication, or
+ * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+ ******************************************************* {COPYRIGHT-END-RM} **/
+ 
+/**
+* IBM 
+* Example policy to perform X in Y correlation. The example is using
+* ITM MS_Offline events floods. It can be updated to match any other events by changing the CorrelationFilter
+* @ITMHostname is an Object Server Field. If it doesn't exist it should be created or changed.
+*/
+
+/*Threshold time window in seconds:*/
+CorrelationThreshold =120;
+
+/*
+* number of older events exist in the database before the incoming events
+*/
+numberOfEventsToCheck=5;
+
+Log("LastOccurrence : " + @LastOccurrence ); 
+/**
+*DiffTime can be calculated using DiffTime = GetDate() - Int(CorrelationThreshold)
+*Using GetDate() instead of @LastOccurrence makes sure that the policy checks period of time from "now time" - Threshold
+*which keeps the time constant to check instead of using relative timestamp from  LastOccurrence
+*/
+//DiffTime=@LastOccurrence - Int(CorrelationThreshold);
+DiffTime=GetDate() - Int(CorrelationThreshold);
+Log("DiffTime: " +  DiffTime);
+
+/*Following filter is used to correlate the events. It can be changed as needed
+*This specific example is to filter events to handle ITM MS_OFFLine flood events
+*/
+CorrelationFilter="ITMHostname='" + @ITMHostname + "' AND Summary Like 'MS_Offline' AND Severity = 5 AND Serial != " + @Serial   ;
+CorrelationFilter = CorrelationFilter + "  AND LastOccurrence <= " + DiffTime ;
+ 
+/*ORDER BY can be used to rank the events and check which one came in first
+ *used to mark which is the primary event.
+ */
+CorrelationOrderBy = "ORDER BY LastOccurrence ASC"; 
+
+/*Following is to get COUNT(*) as EventCount from the same object server data source used by
+ *reader
+ */
+CorrelationFields="COUNT(*) AS EventCount";
+
+/*form the correlation query including the Threshold filter*/
+SQLQuery = "SELECT " + CorrelationFields + " FROM status WHERE " + CorrelationFilter ;
+Log("Reader Policy Query: " + SQLQuery);
+Log("Check older events...");
+Nodes=DirectSQL('defaultobjectserver',SQLQuery,NULL);
+Log("Number of Old Events: " + Nodes[0].EventCount );
+
+/*The following if condition checks if there is an X events occurred in the threshold
+* default is numberOfEventsToCheck (default 5)  events older than the incoming event that was picked up by the reader.
+* If there are older events, the incoming event will be correlated by updated the Severity
+* and SuppressEscl
+*/
+if (Nodes[0].EventCount > numberOfEventsToCheck) {
+  Log("Found older events correlating this event: " + @Serial);
+  @Severity=2;
+  @SuppressEscl=6;
+ //event can deleted if the following is uncomented:
+  //@DeleteEvent=true;
+  ReturnEvent(EventContainer);
+ 
+} else {
+  Log("No older events found that greater than the number of events to check ( " +numberOfEventsToCheck +")  ..."); 
+}

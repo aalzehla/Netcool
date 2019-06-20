@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="View Builder" />
+<meta name="abstract" content="Use this window to define the selection of alert columns that should appear in the event list, and to define the order and formatting of these columns. You can use the View Builder to set up and maintain these information views of your event data." />
+<meta name="Description" content="Use this window to define the selection of alert columns that should appear in the event list, and to define the order and formatting of these columns. You can use the View Builder to set up and maintain these information views of your event data." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_viewbuilderwindowWIN" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>View Builder</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_viewbuilderwindowWIN">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">View Builder</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to define the selection of alert columns
+that should appear in the event list, and to define the order and
+formatting of these columns. You can use the View Builder to set up
+and maintain these information views of your event data.</p>
+<div class="section"><div class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_descriptionWIN">The View Builder
+contains the following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupareaWIN">View setup area</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareaWIN">Display Columns area</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareaWIN">Sort Columns area</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareaWIN">Restrict Rows area</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupareaWIN"><h2 class="title sectiontitle">View setup
+area</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_viewsetupareadescriptionWIN">Use
+this area to define a name and to set permissions for the view.</p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupfieldsWIN"><dt class="dt dlterm">Name</dt>
+<dd class="dd">If you are creating a new view, overwrite the current name with
+a unique name for the view. This name is used in the event list. If
+you are editing an existing view, you do not need to make an entry
+in this field.</dd>
+<dt class="dt dlterm">Editable</dt>
+<dd class="dd">If you have the relevant administrator permissions, select this
+check box to allow other users to edit this view, or clear the check
+box to protect the view from being modified.<div class="note restriction"><span class="restrictiontitle">Restriction:</span> This setting applies only if the view is saved
+as part of an event list configuration (<span class="ph filepath">.elc</span> file).</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareaWIN"><h2 class="title sectiontitle">Display
+Columns area</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_displaycolumnsareadescriptionWIN">Use
+this area to select the alerts.status columns that you want to display
+in the event list, and to specify the order and format of the columns.</p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafieldsWIN"><dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafields_availablecolumnslistWIN"><!-- --></a>Available Fields</dt>
+<dd class="dd">This list displays all of the columns that can still be added
+to the event list. Column names in this list are shown in alphabetical
+order. The <span class="ph uicontrol">Available Fields</span> list works in conjunction
+with the <span class="ph uicontrol">Event List View</span> list, which holds
+columns that you have chosen to add to the event list.</dd>
+<dd class="dd">Use the buttons described in the following table to move columns
+between the two lists.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="netom_viewbuilderwindowWIN__netom_viewbuilder_table1" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Column selection buttons</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d13326e78">Button</th>
+<th class="entry" valign="top" width="80%" id="d13326e80">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e78 "><div class="image"><img class="image" src="bt_omn_vb_right.gif" alt="This figure shows the Right button in the Windows View Builder." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e80 ">Click this button to move a selected column from the list of
+available fields on the left, to the list on the right.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e78 "><div class="image"><img class="image" src="bt_omn_vb_rightfar.gif" alt="This figure shows the Far Right button in the Windows View Builder." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e80 ">Click this button to move all columns from the list of available
+fields on the left, to the list on the right.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e78 "><div class="image"><img class="image" src="bt_omn_vb_left.gif" alt="This figure shows the Left button in the Windows View Builder." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e80 ">Click this button to move a selected column from the list on
+the right, to the list of available fields on the left.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e78 "><div class="image"><img class="image" src="bt_omn_vb_leftfar.gif" alt="This figure shows the Far Left button in the Windows View Builder." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e80 ">Click this button to move all columns from the list on the
+right, to the list of available fields on the left.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafields_columnmatrixWIN"><!-- --></a>Event List View</dt>
+<dd class="dd">This list shows all the columns that are selected to appear in
+the event list view, and the order in which they will be displayed. </dd>
+<dd class="dd">You can change the order of the columns by using the buttons described
+in the following table. <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Column order buttons</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d13326e126">Button</th>
+<th class="entry" valign="top" width="80%" id="d13326e128">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e126 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="This figure shows the Top button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e128 ">Click this button to move the selected column to the top of
+the list, making it the first column shown in the event list.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e126 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="This figure shows the Up button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e128 ">Click this button to move the selected column up one place
+in the list (or one position to the left in the event list).</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e126 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="This figure shows the Down button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e128 ">Click this button to move the selected column down one place
+in the list (or one position to the right in the event list).</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e126 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="This figure shows the Last button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e128 ">Click this button to move the selected column to the bottom
+of the list, making it the last column shown in the event list.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm">Field Name/Justify</dt>
+<dd class="dd">When you select a column in the <span class="ph uicontrol">Event List View</span> list,
+the system-defined column name is shown in the <span class="ph uicontrol">Field Name</span> field
+as a read-only value. From the adjacent <span class="ph uicontrol">Justify</span> list,
+select Left, Centre, or Right to set the alignment of the column data
+in the event list.</dd>
+<dt class="dt dlterm">Column Title/Justify</dt>
+<dd class="dd">If you want the selected column in the <span class="ph uicontrol">Event List View</span> list
+to appear with a different title other than its system-defined name,
+type this title in the <span class="ph uicontrol">Column Title</span> field.
+From the adjacent <span class="ph uicontrol">Justify</span> list, select Left,
+Centre, or Right to set the alignment of the column title in the event
+list.</dd>
+<dt class="dt dlterm">Column Width</dt>
+<dd class="dd">Specify the width of the column in the event list. </dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareaWIN"><h2 class="title sectiontitle">Sort Columns
+area</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_sortcolumnsareadescriptionWIN">Use
+this area to configure sort orders and priorities for the rows in
+the event list. You can specify zero or more columns by which the
+data can be sorted, and define the sort priorities for the columns. </p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafieldsWIN"><dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafields_selectedcolumnslistWIN"><!-- --></a>Available Sort Fields</dt>
+<dd class="dd">This list displays all the available columns by which you can
+sort event data. Column names in this list are shown in alphabetical
+order. The <span class="ph uicontrol">Available Sort Fields</span> list is used
+in conjunction with the <span class="ph uicontrol">Sorted By</span> list.</dd>
+<dd class="dd">Use the buttons that are described in the preceding <cite class="cite">Column
+selection buttons</cite> table to move columns between the two lists.</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafields_sortorderselectionWIN"><!-- --></a>Sorted By</dt>
+<dd class="dd">This list shows the columns for sorting event data. Use this list
+to specify your sort definitions for event data as follows: <ul class="ul"><li class="li">Define a sort order for each column: An arrow is shown to the
+left of each column name in the list. By default, this arrow points
+upwards, indicating that the column will be sorted in ascending alphabetic
+order. To change to descending order, double-click the arrow. To change
+the sort direction, you can also right-click over the selected column
+name and then select <span class="ph uicontrol">Change</span> from the pop-up
+menu.</li>
+<li class="li">Define a sort priority for all columns: The field at the top of
+the sort list has the highest priority when sorting. If you add a
+second field to the list, and the first field is identical for a number
+of entries, the second field is used to sort those entries. To raise
+or lower the sort priority of a column, select the column name and
+then use the arrow buttons, as described in the following table.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 3. Column sort order buttons</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d13326e237">Button</th>
+<th class="entry" valign="top" width="80%" id="d13326e239">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e237 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="This figure shows the Top button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e239 ">Click this button to move the selected column to the top of
+the list. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e237 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="This figure shows the Up button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e239 ">Click this button to move the selected column up one place
+in the list. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e237 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="This figure shows the Down button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e239 ">Click this button to move the selected column down one place
+in the list. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d13326e237 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="This figure shows the Last button in the Windows View Builder or the Channel Column Details window." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d13326e239 ">Click this button to move the selected column to the bottom
+of the list. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareaWIN"><h2 class="title sectiontitle">Restrict
+Rows area</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_restrictrowsareadescriptionWIN">To enhance
+performance, you can restrict the number of rows that are read from
+the ObjectServer. Use this area to restrict the number of rows that
+are displayed in the event list.</p>
+<p class="p">Complete this area as follows:</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareafieldsWIN"><dt class="dt dlterm">Restrict rows [1-100]</dt>
+<dd class="dd">Select this check box if you want to restrict the number of rows
+that are shown in the event list, to between 1 and 100. The <span class="ph uicontrol">Minimum</span>, <span class="ph uicontrol">Maximum</span>,
+and <span class="ph uicontrol">Default</span> fields become available.<div class="note note"><span class="notetitle">Note:</span> If you select the <span class="ph uicontrol">Restrict rows [1-100]</span> check
+box, and save the configuration as a <span class="ph filepath">.elv</span> file,
+the <span class="ph filepath">.elv</span> file is not compatible with Netcool/OMNIbus V3.6.</div>
+</dd>
+<dt class="dt dlterm">Minimum</dt>
+<dd class="dd">Type the minimum number of rows to be displayed, or use the arrows
+to increase or decrease the value.</dd>
+<dt class="dt dlterm">Maximum</dt>
+<dd class="dd">Type the maximum number of rows to be displayed, or use the arrows
+to increase or decrease the value.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">Type the default number of rows to be displayed, or use the arrows
+to increase or decrease the value.</dd>
+<dt class="dt dlterm">Set from Event List</dt>
+<dd class="dd">Select this check box if you want event list users to be able
+to choose the number of events to display in their event list view.
+If you select this check box, the number of events that users can
+choose to view by using the event list controls is constrained by
+the <span class="ph uicontrol">Minimum</span> and <span class="ph uicontrol">Maximum</span> values
+specified in the View Builder. If this check box is clear, the number
+of events displayed will always be the specified <span class="ph uicontrol">Default</span> value.</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_applying_saving_closingWIN"><h2 class="title sectiontitle">Applying
+and saving your view</h2><div class="p">After defining or modifying the view,
+you can apply, save, or cancel changes made by clicking the relevant
+button as follows:<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_applyclosebuttonsWIN"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to apply changes to the view without saving
+it. </dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the window and discard the changes.</dd>
+</dl>
+</div>
+<p class="p">You must save views with a <span class="ph filepath">.elv</span> file
+extension. Click <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save</span></span> or <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save
+As</span></span>.</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="Use the View Builder to define which columns to display in the event list.">Creating or editing a view on Windows</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

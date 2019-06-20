@@ -1,0 +1,225 @@
+/*
+* (C) Copyright IBM Corporation 2009, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/*** This Policy retrieves the One-Time windows for display ***/
+/*   ======================================================   */
+
+
+Log("In One Time Windows   " + currentcontext());
+
+
+function shineFilter(filter, r) { 
+    inStr = rextract(filter, ".*( in ).*");
+    r = filter; 
+    if (inStr <> " in ") {
+      r = Strip(filter, "(");
+      r = Strip(r, ")");
+    }
+    r = Replace(r, '"', "'", 100);
+    Log(3, "Filter is....................\n" + filter);
+    Log(3, "Return is..................\n" + r);
+}
+ 
+ 
+function getTZDisplayValue(storedTZ, displayValue) {
+ log("In getTZDisplayValue " + storedTZ); 
+ Log(2, "Function getTZDisplayValue");
+ Log(3, "Getting TZ Display Value");
+ Log(3, "storedTZ is: " + storedTZ);
+ If (storedTZ == "MIT") {
+  displayValue = "MIT, Midway, Samoa";
+ }
+ If (storedTZ == "HST") {
+  displayValue = "Hawaii, Tahiti";
+ }
+ If (storedTZ == "AST") {
+  displayValue = "Alaska, Juneau";
+ }
+ If (storedTZ == "PST") {
+  displayValue = "Los Angeles, Vancouver";
+ }
+ If (storedTZ == "MST") {
+  displayValue = "Denver";
+ }
+ If (storedTZ == "CST") {
+  displayValue = "Chicago, Mexico City";
+ }
+ If (storedTZ == "EST") {
+  displayValue = "New York, Toronto";
+ }
+ If (storedTZ == "PRT") {
+  displayValue = "Goose Bay, St Thomas";
+ }
+ If (storedTZ == "BET") {
+  displayValue = "AGT, Buenos Aires";
+ }
+ If (storedTZ == "America/Noronha") {
+  displayValue = "DeNoronha";
+ }
+ If (storedTZ == "Atlantic/Cape_Verde") {
+  displayValue = "Cape Verde";
+ }
+ If (storedTZ == "GMT") {
+  displayValue = "Bissau, Greenwich, GMT";
+ }
+ If (storedTZ == "CET") {
+  displayValue = "Algiers, Berlin";
+ }
+ If (storedTZ == "EET") {
+  displayValue = "Cairo, Istanbul, Kiev";
+ }
+ If (storedTZ == "EAT") {
+  displayValue = "Baghdad, Moscow, EAT";
+ }
+ If (storedTZ == "NET") {
+  displayValue = "Dubai, Mahe, NET";
+ }
+ If (storedTZ == "IST") {
+  displayValue = "Calcutta, IST, Katmandu";
+ }
+ If (storedTZ == "BST") {
+  displayValue = "BST, Rangoon";
+ }
+ If (storedTZ == "VST") {
+  displayValue = "Bangkok, Jakarta, VST";
+ }
+ If (storedTZ == "PRC") {
+  displayValue = "Hongkong, China, Perth";
+ }
+ If (storedTZ == "JST") {
+  displayValue = "Seoul, Japan, ROK";
+ }
+ If (storedTZ == "AET") {
+  displayValue = "AET, Sydney, Guam";
+ }
+ If (storedTZ == "SST") {
+  displayValue = "Guadalcanal, SST";
+ }
+ If (storedTZ == "NST") {
+  displayValue = "NZ, Fiji";
+ }
+ If (storedTZ == "Pacific/Enderbury") {
+  displayValue = "Enderbury";
+ }
+ If (storedTZ == "Pacific/Kiritimati") {
+  displayValue = "Kiritimati";
+ }
+ Log(3, "displayValue is: " + displayValue);
+}
+
+// @mwids = mwids;
+ 
+// Process deletes
+Log(3, "mwids is: " + mwids);
+If (mwids != NULL) { 
+ mwidArray = Split(mwids, ",");
+ j = 0;
+ while (mwidArray[j] <> NULL) { 
+   log("Deleting mwm with id " + mwidArray[j]); 
+   Opview_openwins.deleteWindow(mwidArray[j]);
+   j = j + 1; 
+ }
+}
+
+// Prepare data for display
+Log(3, "Time Zone is: " + @timezone);
+//Log(3, "DST is: " + @dst);
+
+// Select all of them...
+onetime = DirectSQL('ImpactDB', 'SELECT * FROM IMPACT.MM_WINDOWS WHERE WINTYPE = 1 ORDER BY OT_STARTTIME DESC', false);
+
+origCurrenttime = GetDate();
+Log(3, "current epoch is: " + Currenttime);
+
+/*
+ctime = LocalTime(Currenttime, "yyyy-MM-dd HH:mm:ss.S");
+Log(3, "Current time: " + ctime);
+*/
+
+// Headings
+htmltext = "<table><tr><th>Suppression Filter</th><th>Start Time</th><th>End Time</th><th>Time Zone<th>Status</th><th>Delete</th></tr>";
+
+// Loop through windows
+NumWins = Length(onetime); 
+Status = {}; 
+Filters = {}; 
+displayValue = ""; 
+If (NumWins > 0) {
+ i = 0;
+ While (i < NumWins) {
+  /*    Using eot_ values instead
+  Maintenance_Begin = ParseDate(onetime[i].ot_starttime, "yyyy-MM-dd HH:mm:ss.S");
+  Maintenance_End = ParseDate(onetime[i].ot_endtime, "yyyy-MM-dd HH:mm:ss.S");
+  */
+  // Get display value for time zone
+  log("i is now " + i); 
+  displayTZ = ""; 
+ // getTZDisplayValue(onetime[i].timezone, displayTZ); 
+ // theTimeZone = newObject();
+ // theTimeZone.timezone = displayTZ;
+ // TimeZones = TimeZones + theTimeZone; 
+  Log(3, "CurrentTime = " + origCurrenttime); 
+    //MWM.getDSTOffset(onetime[i].timezone, offset);
+    //Log(3, "Offset = " + offset); 
+    Currenttime = Int(origCurrenttime);
+    //Log(3, "CurrentTime with Offset = " + Currenttime); 
+    
+  // Get display value for the filterstat
+  shineFilter(onetime[i].filterstat, displayFilterstat);
+  If ((onetime[i].eot_starttime <= Currenttime) and (Currenttime < onetime[i].eot_endtime)) {
+     winStatus = newObject();
+     winStatus.status = "active";
+     Status = Status + winStatus;
+  } ElseIf (Currenttime >= onetime[i].eot_endtime) {
+     winStatus = newObject();
+     winStatus.status = "expired";
+     Status = Status + winStatus; 
+  }  ElseIf (Currenttime < onetime[i].eot_starttime) {
+     winStatus = newObject();
+     winStatus.status = "future";
+     Status = Status + winStatus;  
+  } 
+  Log(3, onetime[i].eot_starttime + "  |  " + Currenttime  + "  |  " + onetime[i].eot_endtime);
+  If ((onetime[i].eot_starttime <= Currenttime) and (Currenttime < onetime[i].eot_endtime)) {
+   // htmltext = htmltext + "<tr><td>" + onetime[i].mwid + "</td><td>" + onetime[i].filterstat + "</td>";
+   htmltext = htmltext + "<tr><td>" + displayFilterstat + "</td>";
+   htmltext = htmltext + "<td>" + onetime[i].ot_starttime + "</td><td>" + onetime[i].ot_endtime + "</td>";
+   htmltext = htmltext + "<td>" + displayTZ + "</td>";
+   // htmltext = htmltext + "<td><b><font color='#4CC417'>ACTIVE</font></b></td>";
+   htmltext = htmltext + "<td align='center'><img src='../assets/installed/mwms/activestat.jpg' border=0 /></td>";
+  } ElseIf (Currenttime >= onetime[i].eot_endtime) {
+   /*
+   htmltext = htmltext + "<tr><td>" + onetime[i].mwid + "</td><td>" + onetime[i].filterstat + "</td>";
+   htmltext = htmltext + "<td>" + onetime[i].ot_starttime + "</td><td>" + onetime[i].ot_endtime + "</td>";
+   */
+   htmltext = htmltext + "<tr><td>" + displayFilterstat + "</td>";
+   htmltext = htmltext + "<td>" + onetime[i].ot_starttime + "</td><td>" + onetime[i].ot_endtime + "</td>";
+   htmltext = htmltext + "<td>" + displayTZ + "</td>";
+   // htmltext = htmltext + "<td><b><font color='#6D7B8D'>EXPIRED</font></b></td>";
+   htmltext = htmltext + "<td align='center'><img src='../assets/installed/mwms/expiredstat.jpg' border=0 /></td>";
+  }  {
+   /*
+   htmltext = htmltext + "<tr><td>" + onetime[i].mwid + "</td><td>" + onetime[i].filterstat + "</td>";
+   htmltext = htmltext + "<td>" + onetime[i].ot_starttime + "</td><td>" + onetime[i].ot_endtime + "</td>";
+   */
+   htmltext = htmltext + "<tr><td>" + displayFilterstat + "</td>";
+   htmltext = htmltext + "<td>" + onetime[i].ot_starttime + "</td><td>" + onetime[i].ot_endtime + "</td>";
+   htmltext = htmltext + "<td>" + displayTZ + "</td>";
+   // htmltext = htmltext + "<td><b><font color='#2B60DE'>FUTURE</font></b></td>";
+   htmltext = htmltext + "<td align='center'><img src='../assets/installed/mwms/futurestat.jpg' border=0 /></td>";
+  }
+  theFilter = newObject();
+  theFilter.filter = displayFilterstat;
+  Filters = Filters + theFilter; 
+  htmltext = htmltext + "<td align='center'><a href='"+getClusterName()+"-onetwins.html?mwid=" + onetime[i].mwid + "&securityTokenHiddenValue=<!--token:-->'><img src='../assets/installed/mwms/delete.jpg' border=0 alt='Delete Window'/></a></td></tr>";
+  i = i + 1;
+ }
+} ElseIf (NumWins == 0) {
+ htmltext = htmltext + "<tr><td>There are currently no One Time windows.</td></tr>";
+}
+htmltext = htmltext + "</table>";
+Log(3, "htmltext: " + htmltext);

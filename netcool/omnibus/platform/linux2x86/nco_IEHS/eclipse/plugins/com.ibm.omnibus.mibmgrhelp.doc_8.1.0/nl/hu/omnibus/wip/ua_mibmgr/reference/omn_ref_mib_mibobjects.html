@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB objektumtípusok" />
+<meta name="abstract" content="Ez a témakör az SNMP v1 és v2 változatában meghatározott objektumtípusokat mutatja be." />
+<meta name="Description" content="Ez a témakör az SNMP v1 és v2 változatában meghatározott objektumtípusokat mutatja be." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB objektumtípusok</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB objektumtípusok</h1>
+<div class="body refbody"><p class="shortdesc">Ez a témakör az SNMP v1 és v2 változatában meghatározott
+objektumtípusokat mutatja be.</p>
+<div class="section"><p class="p">Az alábbi szakaszokban bemutatott objektuminformációkat úgy keresheti ki,
+hogy a <span class="keyword wintitle">MIB modulok</span> nézetben kiválaszt egy modult, majd az
+<span class="keyword wintitle">OID fa</span> nézetben a <span class="ph uicontrol">Keresés</span> mezőbe beírja
+az <kbd class="ph userinput">ifIndex</kbd> kifejezést. Az objektuminformációk és a szöveges
+egyezmény információk megtekintéséhez a <span class="keyword wintitle">Részletek</span> nézetben,
+az <span class="keyword wintitle">OID fa</span> hierarchiában kattintson az <samp class="ph codeph">ifIndex</samp>
+objektumra.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p">Az <samp class="ph codeph">OBJECT IDENTIFIER</samp>
+az SNMP v1 változatában van meghatározva, és az MIB fa legfontosabb építőköve.
+Az objektumazonosítók hasonlóak egy könyv fejezetcíméhez, saját maguk nem
+tartalmaznak valós adatokat, inkább arra utalnak, hogy milyen típusú tartalmat
+közvetítenek a leszármazottaik.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p">Az <samp class="ph codeph">OBJECT-TYPE</samp>
+az SNMP v1 változatban van meghatározva, és a felügyelt eszközzel vagy valamilyen,
+az eszközön mért értékkel kapcsolatos információkat tárol.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p">A <samp class="ph codeph">TEXTUAL-CONVENTION</samp> (TC)
+az objektumtípus meghatározása, de nem valós objektum. A
+<span class="keyword wintitle">MIB modulok</span> nézetben a <span class="ph uicontrol">Nézet</span> listáról
+kiválaszthatja a <span class="ph uicontrol">Szöveges egyezmények</span> elemet, és megtekintheti
+az MIB fán megjelenített értelmezett szöveges egyezményeket. Ha kiválaszt egy TC nevet az MIB fában, akkor megjelenik a meghatározása a <span class="keyword wintitle">Részletek</span> nézetben.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE és SNMP v2 NOTIFICATION TYPE</h2><div class="p">Az SNMP v1 TRAP-TYPE és
+a v2 NOTIFICATION-TYPE egy SNMP mechanizmus, autonóm események előállításhoz az SNMP kezelő számára. Az SNMP trap-ek a v1 változatban nem az MIB fa objektumaiként vannak meghatározva. A TRAP-TYPE
+objektumnak nincs meghatározott szülője az OBJECT IDENTIFIER formátumban. Ehelyett a trap meghatározás megad egy vállalatot, amelyhez egy trap kerül meghatározásra.
+Az  alábbi egy tipikus TRAP-TYPE objektum:<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "A BGP létesített esemény akkor kerül előállításra, ha a BGP FSM
+megadja az ESTABLISHED állapotot." ::= 1 </code></pre>
+</div>
+<p class="p">Az <samp class="ph codeph">ENTERPRISE</samp> szakasz határozza meg, hogy melyik objektum a trap szülője. Lehetséges azonban, hogy az MIB fa objektum a
+<samp class="ph codeph">bgp</samp> alapján szülő, és az 1. számú utódként van meghatározva. Valójában a <samp class="ph codeph">bgpVersion</samp> az RFC1269-MIB modulban mint
+<samp class="ph codeph">{ bgp 1}</samp> van meghatározva. Ezért nem lehet v1 trap-et hozzáadni az MIB fához olyan levélként, amely az <samp class="ph codeph">ENTERPRISE</samp>  elemet használja szülőként.</p>
+<p class="p">Az SNMP v2 a TRAP-TYPE meghatározását NOTIFICATION-TYPE értékre módosítja, és megadja, hogy ezt az új v2 trap-et úgy kell meghatározni, mint más MIB objektumokat, szülő és utód számmal, egy az csak a v1 trap-ek számára jelent majd problémát. Az
+RFC1155 4.1 szakasza azt határozza meg, hogy a nulla (0) érvénytelen utód szám, és jövőbeni használatra fenntartott. Az SNMP v2 úgy használja fel azt a nullát, hogy lehetővé teszi a kereskedők számára, hogy a v1 trap-eket felvegyék a v2 MIB alkalmazásokba úgy, hogy egy nullát adnak a vállalat nevéhez, majd a nulla után felveszik a trap számát. Ezért a v2 alatt megfelelő eljárás nullát tartalmazó objektumazonosító megadása a vállalat utódjaként, majd a vi trap-ek felvétele a nulla utódaiként. </p>
+<p class="p">Ez az egyezmény egy másik általános hibát okozott az MIB szerzők körében. Az RFC1155 4. szakasza a következőket tartalmazza:</p>
+<p class="p"><span class="q">"Az
+objektumtípus meghatározás öt mezőből áll: OBJECT: ------- Szöveges név, melynek része az OBJECT DESCRIPTOR,
+amely az objektum típusa, illetve a hozzá tartozó OBJECT IDENTIFIER.  Szintaxis: Az objektumtípus absztrakt szintaxisa. Ennek a feloldása az ASN.1 típusú (alább meghatározott) ObjectSyntax egy példánya. Meghatározás: az objektumtípus szemantikájának szöveges leírása. A megvalósításoknak biztosítaniuk kell, hogy a hozzájuk tartozó objektumpéldány megfelel ennek a meghatározásnak, mivel ezt az MIB-t több kereskedős környezetben való használatra szánták. Emiatt létfontosságú, hogy az objektumok jelentése minden számítógépen konzisztens legyen.
+Hozzáférés: csak olvasható, olvasható-írható, csak írható vagy nem elérhető.
+Állapot: kötelező, elhagyható vagy elavult.  A jövőbeni emlékeztetők más mezőket
+is megadhatnak az objektumokhoz, melyeket meghatároznak."</span></p>
+<div class="p">Ennek a szabálynak megfelelően minden objektumnak objektumnévvel és objektumszámmal kell rendelkeznie. Néhány kereskedő MIB modulja, sőt néhány RFC esetében is a NOTIFICATION-TYPE nulla szülővel van meghatározva, de a nullához nincs objektumnév. Az alábbi példában az objektummeghatározás valójában szintaktikailag helytelen, mivel  nincs objektumnév meghatározva az <samp class="ph codeph">adslAtucTraps</samp> objektum nulla számú utódjához. <span class="keyword">MIB Manager</span> felismeri, hogy néhány MIB szerző szeret ilyen
+módszereket használni a gyorsaság kedvéért, és engedélyezi, hogy az objektum
+név nélkül kerüljön felvételre. Emellett, a v1 trap-ek MIB fába való felvételének
+segítése érdekében a <span class="keyword">MIB Manager</span> automatikusan felvesz egy nulla objektumot a v1 vállalati objektum
+utódjaként (ne feledjük, hogy a v1 MIB nem használhat nullát az IOD azonosítóban),
+ezt a nulla objektumot Traps-ként felveszi oda, ahol a vállalati név van, és az új
+objektum alatti nevet felveszi az MIB fába. A
+<samp class="ph codeph">bgp</samp> használata például az alábbi traps ősöket eredményezi: <samp class="ph codeph">{
+bgp bgpTraps(0) 1 }).</samp> <pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Varbind elemek</h2><p class="p">A v1 trappel vagy a v2 értesítéssel átadott
+objektumok neve varbind elemek. A varbind elemek további információkat tartalmaznak
+a jelentett eseményről. A v1 trapben a varbind elemek a VARIABLES részben vannak
+elemesítve, a v2 értesítésben pedig a varbind elemek az OBJECTS részben vannak
+felsorolva. Az SNMP minden változatában ugyanaz a szerepük. A listán fontos a varbind elemek megjelenési sorrendje, mert a
+PDU (SNMP csomag) ugyanabban a sorrendben kódolja a társított
+értékeket, ahogy az MIB-ben fel vannak sorolva.</p>
+<p class="p">Az OBJECTS szakaszban például az alábbi három varbind elem
+lett megadva: <samp class="ph codeph">ifIndex</samp>, <samp class="ph codeph">ifAdminStatus</samp>
+és <samp class="ph codeph">ifOperStatus</samp>. Ezért az <samp class="ph codeph">ifIndex</samp> az
+első varbind elem, amelyet kódolni kell, az <samp class="ph codeph">ifAdminStatus</samp> a
+második és az <samp class="ph codeph">ifOperStatus</samp> a harmadik. Az
+IF-MIB ellenőrzésével láthatjuk, hogy az <samp class="ph codeph">ifIndex</samp> objektumtípus
+<samp class="ph codeph">InterfaceIndex</samp> értékként van meghatározva. Mivel ez az SNMP-hez
+egy érvénytelen primitív ASN.1 típus, ezért szöveges egyezménynek kell lennie. A
+szöveges egyezményekben végzett keresés során láthatjuk, hogy az <samp class="ph codeph">InterfaceIndex</samp>
+valójában egy Integer32 (32 bites egész szám) értékre kerül feloldásra. Ezért amikor a PDU
+megérkezik a <span class="keyword">MIB Manager</span>hez, akkor az első varbind egy egész szám lesz. Annak megállapításához,
+hogy az egész szám mit jelent, a <span class="keyword">MIB Manager</span>nek hivatkoznia kell az IF-MIB modulra, kikeresni az <samp class="ph codeph">ifIndex</samp> varbind elemet,
+majd beolvasni a társított objektuminformációkat. A második varbind eleme megtekintésekor egy
+felsorolt egész szám típust találunk: </p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- kész leadni a csomagokat(2), 
+testing(3) -- néhány tesztelési módban }</code></pre>
+<p class="p">Ha a varbind visszafejtésre
+kerül az SNMP csomagból, akkor az értéke egy egész szám lesz, amelyet az adott
+felsorolt lista elemei alapján kell értelmezni. Ha a <span class="keyword">MIB Manager</span>el szabályfájl lett létrehozva, akkor létrehoz egy kikeresési táblát a
+felsorolt egész szám automatikus hivatkozással ellátásához a szöveges
+ábrázolásával. A harmadik varbind elem is egy felsorolt típus, ugyanazokkal
+az értékekkel. Ezért, ha az <samp class="ph codeph">ifAdminStatus</samp> értéke
+1 (up) és az <samp class="ph codeph">ifOperStatus</samp> értéke 2 (down), akkor tudjuk,
+hogy az esemény miért lett előállítva, és megkísérelhetjük folytatni a kimaradás
+okának megállapítását.</p>
+<p class="p">A varbind elemek a felhasználóknak szabályfájlban
+<samp class="ph codeph">$1</samp>, <samp class="ph codeph">$2</samp>, <samp class="ph codeph">$3</samp> és így tovább
+jelennek meg, amelyben minden egyes szám egy varbind számot ábrázol. A
+<span class="keyword">MIB Manager</span> a varbind elemek alapján hoz létre elemeket és változók beállítására
+használja azokat a részletek táblában. A részletek táblában használt elemek
+lehetnek például a következők: $ifIndex = $1, ami egy egész szám lesz,
+$ifAdminStatus = $2, ami lehet például up (1), és a $ifOperStatus = $3, ami
+lehet például down (3).
+Az objektumbeállításokban végzett összes
+módosítás automatikusan beállításra kerül a szabályfájlban, a Netcool Knowledge Library (NCKL)
+által beállított egyezmények felhasználásával.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Táblázatok</h2><p class="p">A táblázatok egy többdimenziós tömbbel egyenértékűek, adatsorokkal és -oszlopokkal. A táblázat objektum egy bejegyzés objektum SEQUENCE OF elemeként van megadva. A bejegyzés objektum ezután OBJECT-TYPE objektumok SEQUENCE elemeként van megadva. Előfordulhat,
+hogy a kereskedő nem szokványos rendszert tervez, mint a Cisco 10k útválasztó.
+Ez az eszköz fenntart egy belső riasztási helyzet táblázatot, és trap-et vagy értesítést generál, amikor a táblázat megváltozik. Ezután ki kell adnia egy SNMP GET kérést a táblázat tartalmára vonatkozóan, így megállapítva az eszköz aktív riasztásainak állapotát. Ez kicsit megnehezíti
+az SNMP kezelő számára a riasztások beszerzését, de nem teszi lehetetlenné, ha az adminisztrátor rendelkezik
+a megfelelő eszközökkel.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OKTETT KARAKTERSOROZAT</h2><p class="p">Az oktett egy nyolc bitből álló
+adatszerkezet (közismert néven byte). Az OCTET STRING tehát byte-ok tömbje (vagy byte-ok karaktersorozata). Az
+OCTET STRING kifejezés nem utal arra, hogy a karaktersorozat minden byte-ja alfanumerikus.
+Bináris karakterek is lehetnek, melyek bitmaszkként kerülnek felhasználásra.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="Ez a szakasz kiegészítő információkat nyújt az Egyszerű hálózatkezelési protokoll (SNMP) architektúráról, az SNMP management information base (MIB) alkalmazásról és néhány további MIB fogalomról.">SNMP bemutatása</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

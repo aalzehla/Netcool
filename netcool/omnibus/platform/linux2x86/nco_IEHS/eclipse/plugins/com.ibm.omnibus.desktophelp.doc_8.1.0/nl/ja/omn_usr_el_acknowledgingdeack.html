@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="イベントの確認と確認解除" />
+<meta name="abstract" content="権限が与えられている場合にのみ、イベント・リストのイベントを確認および確認解除することができます。" />
+<meta name="Description" content="権限が与えられている場合にのみ、イベント・リストのイベントを確認および確認解除することができます。" />
+<meta name="DC.subject" content="イベント・リスト, イベントの確認, イベントの確認解除, 確認, イベント, 確認解除" />
+<meta name="keywords" content="イベント・リスト, イベントの確認, イベントの確認解除, 確認, イベント, 確認解除" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_selectingdeselecting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_acknowledgingdeack" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>イベントの確認と確認解除</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_acknowledgingdeack">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベントの確認と確認解除</h1>
+<div class="body taskbody"><p class="shortdesc">権限が与えられている場合にのみ、イベント・リストのイベントを確認および確認解除することができます。</p>
+<div class="section context"><div class="note note"><span class="notetitle">注:</span> ユーザー、ユーザーのグループ、または <samp class="ph tt">nobody</samp> ユーザーに割り当てられているイベントのみを確認および確認解除することができます。</div>
+<p class="p">選択されたイベントをすべて確認するには、
+<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「確認」</span></span>をクリックします。 状況表示行に確認されたイベントの数が表示されますが、イベントの数はユーザーに割り当てられていないため確認することはできません。</p>
+<div class="p">システム管理者が構成を行っている場合は、
+イベント・リストのイベントを確認する際には常にジャーナル項目を入力する必要があります。
+この場合、イベントを確認する際には常に「<span class="keyword wintitle">ジャーナル項目</span>」ウィンドウが開きます。 このウィンドウに以下のように入力します。 <dl class="dl"><dt class="dt dlterm"><em class="ph i">「ジャーナル」リスト・ボックス</em></dt>
+<dd class="dd">システム管理者によって構成されている場合、このリスト・ボックスにはシステム管理者によって入力された既存のジャーナル・テキストが表示されます。 ジャーナル項目を入力します。</dd>
+<dd class="dd">システム管理者によって構成されている場合、情報を入力または選択するためのプロンプト・ウィンドウまたはポップアップ・メニューが表示される場合があります。 ジャーナル項目ごとに 4096 文字までの制限があります。</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">このボタンをクリックしてジャーナルへのテキスト入力を保存し、アラートを確認します。 このツールを使用すると、テキストが選択した 1 つまたは複数のアラートのジャーナルに追加されます。 ユーザー名および日時が自動的に追加されます。 </dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして、入力を保存せずにウィンドウを閉じます。</dd>
+</dl>
+</div>
+<p class="p">選択されたイベントをすべて確認解除するには、
+<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「確認解除」</span></span>をクリックします。 状況表示行に確認解除されたイベントの数が表示されますが、イベントの数はユーザーに割り当てられていないため確認解除することはできません。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="イベント・リストに含まれているイベントを操作するには、まずイベントを選択する必要があります。">イベントの操作</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+<div><a class="link" href="omn_usr_el_selectingdeselecting.html" title="イベント・リストに含まれている 1 つ以上のイベントを操作するには、まず対象のイベントを選択する必要があります。 次に、「アラート」メニューのオプションを使用して、イベントを操作できます。 選択したイベントのリストから 1 つ以上のイベントを選択解除することも可能です。">イベントの選択と選択解除</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

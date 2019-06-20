@@ -1,0 +1,108 @@
+<?xml version="1.0"?><MIB_MODULE thread="MibParser:Thread-43" name="UDP-MIB" hashcode="MibParser:1813705512" sourcefile="Default Data">
+<IMPORTS>
+<IMPORT name="Counter32" from="SNMPv2-SMI"></IMPORT>
+<IMPORT name="IpAddress" from="SNMPv2-SMI"></IMPORT>
+<IMPORT name="MODULE-COMPLIANCE" from="SNMPv2-CONF"></IMPORT>
+<IMPORT name="MODULE-IDENTITY" from="SNMPv2-SMI"></IMPORT>
+<IMPORT name="OBJECT-GROUP" from="SNMPv2-CONF"></IMPORT>
+<IMPORT name="OBJECT-TYPE" from="SNMPv2-SMI"></IMPORT>
+<IMPORT name="mib-2" from="SNMPv2-SMI"></IMPORT>
+</IMPORTS>
+<EXPORTS></EXPORTS>
+<TEXTUAL-CONVENTION name="UdpEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="IpAddress" name="udpLocalAddress"></COLUMN>
+<COLUMN syntax="INTEGER" name="udpLocalPort"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<MibObject OID="mib-2 50" name="udpMIB" type="MODULE-IDENTITY">
+<DESCRIPTION>The MIB module for managing UDP implementations.</DESCRIPTION>
+<LAST-UPDATED>9411010000Z</LAST-UPDATED>
+<ORGANIZATION>IETF SNMPv2 Working Group</ORGANIZATION>
+<CONTACT-INFO>        Keith McCloghrie
+
+             Postal: Cisco Systems, Inc.
+                     170 West Tasman Drive
+                     San Jose, CA  95134-1706
+                     US
+
+             Phone:  +1 408 526 5260
+             Email:  kzm@cisco.com</CONTACT-INFO>
+</MibObject>
+<MibObject OID="mib-2 7" name="udp" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 7.1" name="udpInDatagrams" type="OBJECT-TYPE" version="2">
+<SYNTAX type="TEXTUAL-CONVENTION">Counter32</SYNTAX>
+<MAX-ACCESS>read-only</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>The total number of UDP datagrams delivered to UDP users.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 7.2" name="udpNoPorts" type="OBJECT-TYPE" version="2">
+<SYNTAX type="TEXTUAL-CONVENTION">Counter32</SYNTAX>
+<MAX-ACCESS>read-only</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>The total number of received UDP datagrams for which there
+            was no application at the destination port.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 7.3" name="udpInErrors" type="OBJECT-TYPE" version="2">
+<SYNTAX type="TEXTUAL-CONVENTION">Counter32</SYNTAX>
+<MAX-ACCESS>read-only</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>The number of received UDP datagrams that could not be
+            delivered for reasons other than the lack of an application
+            at the destination port.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 7.4" name="udpOutDatagrams" type="OBJECT-TYPE" version="2">
+<SYNTAX type="TEXTUAL-CONVENTION">Counter32</SYNTAX>
+<MAX-ACCESS>read-only</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>The total number of UDP datagrams sent from this entity.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 7.5" name="udpTable" type="OBJECT-TYPE" version="2">
+<SYNTAX type="SEQUENCE OF">UdpEntry</SYNTAX>
+<MAX-ACCESS>not-accessible</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>A table containing UDP listener information.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 7.5.1" name="udpEntry" type="OBJECT-TYPE" version="2">
+<SYNTAX type="TEXTUAL-CONVENTION">UdpEntry</SYNTAX>
+<MAX-ACCESS>not-accessible</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>Information about a particular current UDP listener.</DESCRIPTION>
+<INDEX>udpLocalAddress, udpLocalPort</INDEX>
+</MibObject>
+<MibObject OID="mib-2 7.5.1.1" name="udpLocalAddress" type="OBJECT-TYPE" version="2">
+<SYNTAX type="IpAddress"></SYNTAX>
+<MAX-ACCESS>read-only</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>The local IP address for this UDP listener.  In the case of
+            a UDP listener which is willing to accept datagrams for any
+            IP interface associated with the node, the value 0.0.0.0 is
+            used.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 7.5.1.2" name="udpLocalPort" type="OBJECT-TYPE" version="2">
+<SYNTAX MaxRange="65535" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<MAX-ACCESS>read-only</MAX-ACCESS>
+<STATUS>current</STATUS>
+<DESCRIPTION>The local port number for this UDP listener.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 50.2" name="udpMIBConformance" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 50.2.1" name="udpMIBCompliances" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 50.2.2" name="udpMIBGroups" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 50.2.1.1" name="udpMIBCompliance" type="MODULE-COMPLIANCE">
+<STATUS>current</STATUS>
+<DESCRIPTION>The compliance statement for SNMPv2 entities which
+            implement UDP.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 50.2.2.1" name="udpGroup" type="OBJECT-GROUP">
+<DESCRIPTION>The udp group of objects providing for management of UDP
+            entities.</DESCRIPTION>
+<OBJECTS>
+<OBJECT name="udpInDatagrams"></OBJECT>
+<OBJECT name="udpNoPorts"></OBJECT>
+<OBJECT name="udpInErrors"></OBJECT>
+<OBJECT name="udpOutDatagrams"></OBJECT>
+<OBJECT name="udpLocalAddress"></OBJECT>
+<OBJECT name="udpLocalPort"></OBJECT>
+</OBJECTS>
+</MibObject>
+</MIB_MODULE>

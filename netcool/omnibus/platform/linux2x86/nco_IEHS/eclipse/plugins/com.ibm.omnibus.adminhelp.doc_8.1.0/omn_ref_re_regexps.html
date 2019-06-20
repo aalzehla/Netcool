@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Regular expressions" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus supports the use of regular expressions in search queries that you perform on ObjectServer data. Regular expressions are sequences of atoms that are made up of normal characters and metacharacters." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus supports the use of regular expressions in search queries that you perform on ObjectServer data. Regular expressions are sequences of atoms that are made up of normal characters and metacharacters." />
+<meta name="DC.subject" content="regular expressions, overview, atoms, RegexpLibrary property, description" />
+<meta name="keywords" content="regular expressions, overview, atoms, RegexpLibrary property, description" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_re_regexps" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Regular expressions</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_re_regexps">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Regular expressions</h1>
+<div class="body conbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> supports
+the use of regular expressions in search queries that you perform
+on ObjectServer data. Regular expressions are sequences of <dfn class="term">atoms</dfn> that
+are made up of normal characters and metacharacters.</p>
+<p class="p">An atom is a single character or a pattern of one or more characters
+in parentheses. Normal characters include uppercase and lowercase
+letters, and numbers. Metacharacters are non-alphabetic characters
+that possess special meanings in regular expressions. </p>
+<p class="p">Two types of regular expression libraries are available for use
+with the ObjectServer:</p>
+<ul class="ul"><li class="li">NETCOOL: This library is useful for single-byte character processing. </li>
+<li class="li">TRE: This library enables use of the POSIX 1003.2
+extended regular expression syntax, and provides support for both
+single-byte and multi-byte character languages. When the UTF-8 encoding
+is enabled on Windows, only
+the characters within Unicode plane 0, the Basic Multilingual Plane
+(BMP), are supported in regular expression patterns. Any character
+outside of the BMP, which is found in the pattern, will result in
+an error. The matching strings for the regular expression pattern
+can contain any UTF-8 character.<div class="note note"><span class="notetitle">Note:</span> Use of the TRE library can lead to a marked decrease in
+system performance. Optimal system performance is achieved with the
+NETCOOL library.</div>
+</li>
+</ul>
+<p class="p">You can use the ObjectServer property <span class="keyword parmname parmname">RegexpLibrary</span> to
+specify which library should be used for regular expression matching.
+The NETCOOL regular expression library is enabled by default. </p>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

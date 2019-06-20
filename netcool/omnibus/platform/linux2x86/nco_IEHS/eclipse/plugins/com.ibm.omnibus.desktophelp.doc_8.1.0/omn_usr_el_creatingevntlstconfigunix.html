@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing event list configurations on UNIX" />
+<meta name="abstract" content="You can create or edit event list configurations that hold your filter and view definitions for the monitor boxes that appear within the Event List monitor box window." />
+<meta name="Description" content="You can create or edit event list configurations that hold your filter and view definitions for the monitor boxes that appear within the Event List monitor box window." />
+<meta name="DC.subject" content="event list configurations, creating" />
+<meta name="keywords" content="event list configurations, creating" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_creatingevntlstconfigunix" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevntlstconfigs.html" />
+<title>Creating and editing event list configurations on UNIX</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_creatingevntlstconfigunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing event list configurations on UNIX</h1>
+<div class="body taskbody"><p class="shortdesc">You can create or edit event list configurations that hold
+your filter and view definitions for the monitor boxes that appear
+within the <span class="keyword wintitle">Event List</span> monitor box window. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">You can specify how many monitor box columns should be
+displayed on the <span class="keyword wintitle">Event List</span> monitor box window,
+specify which filters and views should be applied to the associated
+event lists, and specify the order in which the filters and views
+should be displayed. </p>
+<p class="p">To create or edit an event list configuration
+on UNIX:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the <span class="keyword wintitle">Event List</span> monitor
+box window, perform either of the following actions:</span> <ul class="ul choices"><li class="li choice">If you are creating a new event list configuration, clear
+the current event list configuration and set the configuration to
+the default settings. To do this, click <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">New</span></span>.</li>
+<li class="li choice">If you are editing an existing event list configuration that
+is on display in the <span class="keyword wintitle">Event List</span> monitor box window,
+go to step <a class="xref" href="#omn_usr_el_creatingevntlstconfigunix__omn_unixelc_step">2</a>.</li>
+</ul>
+</li>
+<li class="li step stepexpand" id="omn_usr_el_creatingevntlstconfigunix__omn_unixelc_step"><span class="ph cmd">Click <span class="ph menucascade"><span class="ph uicontrol">Windows</span> &gt; <span class="ph uicontrol">Configuration</span></span>.</span> The <span class="keyword wintitle">Event
+List Configuration</span> window opens. </li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">If you are creating a new event list configuration,
+type a unique name for the event list configuration.</dd>
+<dt class="dt dlterm">Columns</dt>
+<dd class="dd">Use the slider box to specify the number of monitor box columns
+that are allowed in the <span class="keyword wintitle">Event List</span> monitor box
+window.</dd>
+<dt class="dt dlterm">Filters/Views</dt>
+<dd class="dd">Click this button to switch between the filters and views that
+are part of this event list configuration. The filters or views appear
+in the list below this button.<div class="note note"><span class="notetitle">Note:</span> The order in which
+filters and views appear in the <span class="keyword wintitle">Event List Configuration</span> window
+determines the order in which the event list pop-up menus and drop-down
+lists display the filter and view lists. You can use the <span class="ph uicontrol">Top</span>, <span class="ph uicontrol">Up</span>, <span class="ph uicontrol">Down</span>,
+and <span class="ph uicontrol">Bottom</span> buttons to change this order. </div>
+</dd>
+<dt class="dt dlterm">New</dt>
+<dd class="dd">To create a new filter or view, click this button to open the
+Filter Builder or View Builder. <div class="note attention"><span class="attentiontitle">Attention:</span> While within
+the Filter Builder or View Builder, if you specify a filter or view
+name that already exists in the event list configuration, the existing
+filter or view is replaced.</div>
+</dd>
+<dt class="dt dlterm">Edit</dt>
+<dd class="dd">To edit a filter or view, select the relevant filter or view from
+the adjacent list, and then click this button to open the Filter Builder
+or View Builder for the selected filter or view. If you change the
+name of the filter or view to a name that does not exist in the event
+list configuration, a new filter or view is created. If you change
+the name to one that already exists, the new filter or view replaces
+the existing filter or view in the event list configuration. </dd>
+<dt class="dt dlterm">Load</dt>
+<dd class="dd">To load an existing filter or view into the event list configuration,
+click this button. From the <span class="keyword wintitle">Filter Load</span> window,
+navigate to the location where the filter or view is stored, select
+it, and then click <span class="ph uicontrol">OK</span>. The filter or view is
+added to the list in the <span class="keyword wintitle">Event List Configuration</span> window. <div class="note tip"><span class="tiptitle">Tip:</span> Filters have a <span class="ph filepath">.elf</span> extension. Views
+have a <span class="ph filepath">.elv</span> extension.</div>
+</dd>
+<dt class="dt dlterm">Delete</dt>
+<dd class="dd">To delete a filter or view from the event list configuration,
+select the relevant filter or view from the adjacent list, and then
+click this button to delete the selected filter or view. You are not
+prompted to confirm the deletion, so ensure that you have selected
+the appropriate filter or view before clicking <span class="ph uicontrol">Delete</span>. </dd>
+<dt class="dt dlterm">Top</dt>
+<dd class="dd">To move a filter or view to the top of the list, select the relevant
+filter or view from the adjacent list, and then click this button.</dd>
+<dt class="dt dlterm">Up</dt>
+<dd class="dd">To move a filter or view one position up in the list, select the
+relevant filter or view from the adjacent list, and then click this
+button.</dd>
+<dt class="dt dlterm">Down</dt>
+<dd class="dd">To move a filter or view one position down in the list, select
+the relevant filter or view from the adjacent list, and then click
+this button.</dd>
+<dt class="dt dlterm">Bottom</dt>
+<dd class="dd">To move a filter or view to the bottom of the list, select the
+relevant filter or view from the adjacent list, and then click this
+button.</dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the <span class="keyword wintitle">Event List Configuration</span> window
+and apply the event list configuration to the current event list.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To save the event list configuration, click <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save As</span></span> from
+the monitor box window. The <span class="keyword wintitle">Save Configuration</span> window
+opens.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e919"><!-- --></a>Filter</dt>
+<dd class="dd">Use this field to specify a search query for the type of file
+that you want to open. This field works in conjunction with the <span class="ph uicontrol">Filter</span> button
+and the <span class="ph uicontrol">Files</span> list. Enter the current directory
+path and file type in the <span class="ph uicontrol">Filter</span> field, and
+then click <span class="ph uicontrol">Filter</span>. All matching files are displayed
+in the <span class="ph uicontrol">Files</span> list.</dd>
+<dd class="dd">For example, to display all the filter files in the <span class="ph filepath">/myfiles/filters</span> directory,
+enter <kbd class="ph userinput">/myfiles/filters/*.elf</kbd> and click <span class="ph uicontrol">Filter</span> to
+view all matching files. </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e950"><!-- --></a>Directories</dt>
+<dd class="dd">This list displays all of the subdirectories in the current directory.
+To refresh the directory, double-click the '.' entry. To move up the
+directory tree by one directory, double-click the '..' entry.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e955"><!-- --></a>Files</dt>
+<dd class="dd">This list displays the files in the current directory, which match
+the selection in the <span class="ph uicontrol">Filter</span> field. Select the
+name of the file that you want to open. You can also select an existing
+file that you want to overwrite. </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e963"><!-- --></a>Selection</dt>
+<dd class="dd">The path and name of the file that you are saving or opening are
+shown here. You can edit the path and file name to open a different
+file, to save a file to another location, or to save a file by using
+a different file name.</dd>
+<dd class="dd">If you are saving a view, use a <span class="ph filepath">.elv</span> extension
+in the file name. If you are saving a filter, use a <span class="ph filepath">.elf</span> extension
+in the file name. If you are saving an event list configuration, use
+a <span class="ph filepath">.elc</span> extension in the file name.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e979"><!-- --></a>Backup Existing Files (UNIX only) </dt>
+<dd class="dd">Select this check box to create a backup of an existing view file
+if the file name that you are saving already exists. This check box
+is displayed only if you are saving a filter, view, or event list
+configuration. </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e987"><!-- --></a>OK</dt>
+<dd class="dd">Click this button to open or save the file.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e992"><!-- --></a>Filter</dt>
+<dd class="dd">This button works in conjunction with the <span class="ph uicontrol">Filter</span> field
+and the <span class="ph uicontrol">Files</span> list. Click this button to display
+files in the current directory based on your selection in the <span class="ph uicontrol">Filter</span> field.
+The files appear in the <span class="ph uicontrol">Files</span> list.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_creatingevntlstconfigunix__d6510e1009"><!-- --></a>Cancel</dt>
+<dd class="dd">Click this button to close this window without opening or saving
+a file.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="You can save the filter, view, and other event configurations that are defined for all the monitor boxes on the Event List monitor box window. This information is saved within an event list configuration (.elc) file.">Working with event list configurations</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

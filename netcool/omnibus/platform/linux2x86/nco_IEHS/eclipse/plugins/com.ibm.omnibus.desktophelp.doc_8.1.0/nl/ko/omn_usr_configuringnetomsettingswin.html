@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Windows에서 Tivoli Netcool/OMNIbus 설정 구성" />
+<meta name="abstract" content="Windows에서 Tivoli Netcool/OMNIbus에 대한 특성 및 서버 통신 정보를 단일 태스크로 구성할 수 있습니다." />
+<meta name="Description" content="Windows에서 Tivoli Netcool/OMNIbus에 대한 특성 및 서버 통신 정보를 단일 태스크로 구성할 수 있습니다." />
+<meta name="DC.subject" content="설정, 구성, 특성, 특성 파일, 편집, 서버 통신 정보, 서버 편집기" />
+<meta name="keywords" content="설정, 구성, 특성, 특성 파일, 편집, 서버 통신 정보, 서버 편집기" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringnetomsettingswin" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>Windows에서 Tivoli Netcool/OMNIbus 설정 구성</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringnetomsettingswin">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Windows에서 <span class="keyword">Tivoli Netcool/OMNIbus</span>
+설정 구성</h1>
+<div class="body taskbody"><p class="shortdesc">Windows에서
+<span class="keyword">Tivoli Netcool/OMNIbus</span>에 대한 특성 및 서버 통신 정보를 단일 태스크로 구성할 수 있습니다.</p>
+<div class="section context">Windows에서 설정을 구성하려면 다음을 수행하십시오. </div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">시작</span> &gt; <span class="ph uicontrol">프로그램</span> &gt; <span class="ph uicontrol">Netcool 스위트</span> &gt; <span class="ph uicontrol">시스템 유틸리티</span> &gt; <span class="ph uicontrol">OMNIbus 설정</span></span>을 클릭하십시오. </span> <span class="keyword wintitle">Netcool/OMNIbus
+설정</span> 창이 열립니다. <div class="note tip"><span class="tiptitle">팁:</span> 해당 탭 중 하나를 변경한 다음
+변경사항을 저장하지 않고 다른 탭에 액세스하려는 경우
+변경사항을 저장하거나 취소하라는 프롬프트가 표시됩니다.
+또한 <span class="ph uicontrol">확인</span> 단추를 클릭하여 모든 변경사항을 저장하고 창을 닫거나
+<span class="ph uicontrol">취소</span> 단추를 클릭하여 변경사항을 저장하지 않고 창을 닫을 수 있습니다.
+창을 닫지 않고 탭의 변경사항을 저장하려는 경우
+<span class="ph uicontrol">적용</span> 단추를 클릭하십시오. </div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">개요</span> 탭에서
+<span class="keyword">Tivoli Netcool/OMNIbus</span> 서버
+구성요소의 위치 및 특성에 대한 정보를 보십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">서버</span> 탭에서 서버 구성요소에 대한 통신 세부사항을 작성 또는 수정하고 서버 활동을 테스트하고 백업(또는 장애 조치) 서버 및 리스너를 추가하십시오.
+탭을 완료하려면 다음을 참조하십시오.</span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">서버 목록</em></dt>
+<dd class="dd">서버 목록은 기존 서버 구성요소 및 해당 설정을 표시합니다.<dl class="dl"><dt class="dt dlterm">서버</dt>
+<dd class="dd">이 컬럼은 이 워크스테이션에 대해 정의되는 각 서버의 이름을 표시합니다.
+기본 서버 이름은 다음과 같습니다. <ul class="ul"><li class="li">NCOMS: ObjectServer의 기본 이름</li>
+<li class="li">NCO_PROXY: 프록시 서버의 기본 이름</li>
+<li class="li">NCO_GATE: 게이트웨이의 기본 이름</li>
+<li class="li">NCO_PA: 프로세스 에이전트의 기본 이름</li>
+</ul>
+</dd>
+<dd class="dd">서버의 호스트 워크스테이션은 <dfn class="term">리스너</dfn> 항목을 포함해야 하고
+호스트 워크스테이션 및 해당 서버에 연결되는 다른 워크스테이션은
+<dfn class="term">클라이언트</dfn> 항목을 포함해야 합니다. </dd>
+<dd class="dd">백업 ObjectServer는 서버 편집기의 기본 ObjectServer 아래에 표시됩니다.
+백업 ObjectServer의 목록을 숨기려면 기본 ObjectServer 이름 또는 서버 아이콘을
+두 번 클릭하십시오. 백업 ObjectServer가 숨겨지고
+문자 <em class="ph i">C</em>가 서버 아이콘에 나타납니다. 백업 ObjectServer를 표시하려면 다시 두 번 클릭하십시오.
+서버 아이콘이 정상으로 돌아옵니다.</dd>
+<dt class="dt dlterm">호스트</dt>
+<dd class="dd">이 컬럼은 서버 구성요소가 설치된 워크스테이션의 호스트 이름 또는 IP 주소를 표시합니다. 기본값은 호스트 이름입니다. </dd>
+<dt class="dt dlterm">포트</dt>
+<dd class="dd">이 컬럼은 서버 구성요소가 암호화되지 않은 연결을 인식하는 포트를 표시합니다. </dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">이 컬럼은 암호화된 연결에 대해 <samp class="ph tt">예</samp>를 표시합니다.
+암호화 및 비암호화 연결에 대해 모두 동일한 포트 번호가 사용됩니다. </dd>
+</dl>
+</dd>
+<dt class="dt dlterm">서버 항목 필드</dt>
+<dd class="dd">서버 항목 필드를 사용하여 각 서버 구성요소의 세부사항을 입력하거나 편집하십시오.
+기존 서버 구성요소의 세부사항을 편집할 경우
+맨 먼저 서버 목록에서 해당 행을 선택하여 세부사항이 서버 항목 필드 안에 표시되도록 해야
+합니다.
+<dl class="dl"><dt class="dt dlterm">이름</dt>
+<dd class="dd">새 서버 구성요소의 이름을 입력하거나 기존 구성요소의 이름을 편집하십시오.
+또한 드롭 다운 목록을 사용하여 이름을 선택할 수 있습니다. 구성요소 이름 지정 시
+프록시 서버인 경우 _PROXY를, 게이트웨이인 경우 _GATE를, 프로세스 제어 에이전트인 경우 _PA와 같은 접미어를 사용하십시오.<div class="note note"><span class="notetitle">참고:</span> 서버 항목의 이름은 29자 이하의 대문자로 구성되어야 하며
+정수 값으로 시작할 수 없습니다. </div>
+</dd>
+<dt class="dt dlterm">호스트</dt>
+<dd class="dd">서버 구성요소가 설치된 워크스테이션의 호스트 이름 또는 IP 주소를 입력하거나 편집하십시오</dd>
+<dd class="dd">IP 주소를 입력하는 경우 IPv4 또는 IPv6 주소를 지정할 수 있습니다. 예: <ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">포트</dt>
+<dd class="dd">사용하지 않은 올바른 포트 번호를 입력하십시오. </dd>
+<dt class="dt dlterm">리스너</dt>
+<dd class="dd">서버 호스트 워크스테이션의 리스너 항목인 경우 이 선택란을 선택하십시오. 클라이언트 항목이면 <span class="ph uicontrol">리스너</span> 선택란을 선택 취소하십시오. </dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">포트가 SSL을 사용하는 클라이언트로부터 암호화된 연결을 허용함을 표시하려면 이 선택란을 선택하십시오.
+암호화 및 비암호화 연결에 대해 동일한 포트 번호가 사용됩니다.</dd>
+<dt class="dt dlterm">추가</dt>
+<dd class="dd">서버 목록에 새 고유한 서버 세부사항을 추가하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">제거/업데이트</dt>
+<dd class="dd">이 단추는 현재 선택된 서버 구성요소를 변경했는지 여부에 따라 변경됩니다.
+서버 목록에서 현재 선택된 서버 구성요소를 제거하려면
+<span class="ph uicontrol">제거</span>를 클릭하십시오. 기존 서버 구성요소의 업데이트된 세부사항으로 서버 목록을 새로 고치려면
+<span class="ph uicontrol">업데이트</span>를 클릭하십시오. </dd>
+<dt class="dt dlterm">테스트</dt>
+<dd class="dd">서버 목록에서 선택된 서버에 연결할 수 있는지 테스트하려면 이 단추를 클릭하십시오. 서버 편집기가 지정된 호스트와 포트의 서버에 연결하려고 시도합니다. 테스트 명령 결과가 창에 표시됩니다. </dd>
+</dl>
+</dd>
+<dt class="dt dlterm">우선순위</dt>
+<dd class="dd">서버 우선순위 필드를 사용하면 오류 복구 시스템으로 구성되어 있는 서버
+구성요소의 우선순위를 높이거나 낮출 수 있습니다.
+예를 들어,
+NCOMS_PRI라는 ObjectServer는 NCOMS_BAK이라는 백업으로 구성된다고 가정합니다.
+<span class="ph uicontrol">높임</span> 또는 <span class="ph uicontrol">낮춤</span> 단추를 사용하여
+NCOMS_BAK의 우선순위를 기본 ObjectServer 및
+NCOMS_PRI 백업이 되도록 높일 수 있습니다. <dl class="dl"><dt class="dt dlterm">높임</dt>
+<dd class="dd">선택된 서버 구성요소의 우선순위를 한 레벨씩 올리려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">낮춤</dt>
+<dd class="dd">선택된 서버 구성요소의 우선순위를 한 레벨씩 내리려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">그룹 표시</dt>
+<dd class="dd">클라이언트 항목 다음에 식별된 리스너 및 백업 서버에 대하여
+서버 목록에서 각 서버를 이름순으로 그룹화하려면 이 선택란을 체크하십시오. </dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">특성</span> 탭에서 각 ObjectServer, 프록시 서버,
+프로세스 에이전트, 프로브 및 게이트웨이에 대한 특성 파일에 포함된 정보를 편집하십시오. 탭을 완료하려면 다음을 참조하십시오.</span> <dl class="dl"><dt class="dt dlterm">유형</dt>
+<dd class="dd">다음 옵션 중에서 선택하십시오. <ul class="ul"><li class="li">ObjectServer 및 프록시 서버 등의 구성요소의 특성 파일을 편집하려면 <span class="ph uicontrol">ObjectServer</span>를
+선택하십시오. <span class="ph uicontrol">이름</span> 드롭 다운 목록은
+이 파일로 채워집니다. 해당 파일은 일반적으로
+<span class="ph filepath">%NCHOME%\omnibus\etc</span> 디렉토리에 저장됩니다. </li>
+<li class="li">프로브 특성 파일을 편집하려면 <span class="ph uicontrol">프로브</span>를 선택하십시오. <span class="ph uicontrol">이름</span> 드롭 다운 목록은
+이 파일로 채워집니다. 해당 파일은 일반적으로
+<span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> 디렉토리에 저장됩니다. </li>
+<li class="li">새 특성 파일을 추가하려면 <span class="ph uicontrol">서버</span>를 선택하십시오. 해당 파일은
+<span class="ph filepath">%NCHOME%\omnibus\ini</span> 디렉토리에 저장됩니다.
+<span class="ph uicontrol">이름</span> 드롭 다운 목록은
+<samp class="ph codeph">&lt;New File&gt;</samp> 텍스트로 채워집니다. </li>
+</ul>
+</dd>
+<dt class="dt dlterm">이름</dt>
+<dd class="dd">이 드롭 다운 목록에서 편집하려는 특성 파일을 선택하십시오.
+이 목록은 <span class="ph uicontrol">유형</span> 드롭 다운 목록에서 선택사항에 따라 채워집니다.
+기본값은 다음과 같습니다. <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit</span>: 데이터베이스 초기화 시작 시 읽을 특성
+파일(데이터베이스를 초기화하기 위해 <span class="keyword cmdname">nco_dbinit</span>를 실행합니다.)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY</span>: 프록시 서버 특성 파일(프록시 서버는
+ObjectServer에 대한 프로브 연결 수를 감축하기 위해 사용될 수 있습니다.)</li>
+<li class="li"><span class="ph filepath">nco_confpack</span>: Confpack 특성 파일(<span class="keyword cmdname">nco_confpack</span>은
+ObjectServer 구성 가져오기 및 내보내기에 사용됩니다.)</li>
+<li class="li"><span class="ph filepath">nco_config</span>: <span class="keyword">Netcool/OMNIbus
+Administrator </span> 특성 파일</li>
+<li class="li"><span class="ph filepath">NCOMS</span>: ObjectServer 특성 파일</li>
+</ul>
+</dd>
+<dd class="dd"><span class="ph filepath">.props</span> 파일 확장자가 표시되지 않고,
+특성 목록이 자동으로
+<span class="ph uicontrol">이름</span> 목록의 파일 선택 시 사용할 수 있는 특성으로 채워집니다. </dd>
+<dt class="dt dlterm"><em class="ph i">특성 목록</em></dt>
+<dd class="dd">이 행렬은 특성 파일에 추가한 모든 특성의 세부사항을 표시합니다.
+특성을 변경하려는 경우 이 목록에서 해당 특성을 선택할 수 있습니다.
+프로브 특성 파일에 대해 이미 정의된 특성의 기본 세트가 있으며,
+이러한 특성을 제거할 수 없습니다. 해당 특성은 특성 목록에서 회색으로 표시됩니다.</dd>
+<dt class="dt dlterm">이름</dt>
+<dd class="dd">이 필드는 특성 목록에서 편집용으로 선택한 특성의 이름을 표시합니다.
+기존 특성의 이름을 변경할 수 없습니다.
+또한 드롭 다운 목록을 사용하여 편집할 특성을 선택할 수 있습니다. </dd>
+<dd class="dd">선택된 특성 파일에 새 특성을 추가하려면 여기에 특성의 이름을 입력하십시오.</dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+여기에 새 특성의 이름을 입력하십시오.</dd>
+<dt class="dt dlterm">값</dt>
+<dd class="dd">기존의 선택된 특성 파일을 사용하여 작업하는 경우 선택된 특성의 값을 편집하거나
+추가하려는 새 특성의 값을 입력하십시오.</dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+새 특성의 값을 입력하십시오. </dd>
+<dt class="dt dlterm">추가/업데이트</dt>
+<dd class="dd">이 단추는 기존 특성을 추가하거나 편집하는지 여부에 따라 변경됩니다.
+새 특성 이름 및 값을 입력하는 경우 <span class="ph uicontrol">추가</span>를 클릭하여 해당 값을 특성 목록에 추가하십시오.
+특성 목록에서 선택되는 특성의 값을 변경하는 경우
+<span class="ph uicontrol">업데이트</span>를 클릭해 특성 목록의 값을 업데이트하십시오.</dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+<span class="ph uicontrol">추가</span>를 클릭하여 새 특성을 추가할 수 있습니다.</dd>
+<dt class="dt dlterm">제거</dt>
+<dd class="dd">특성 파일에서 선택한 특성을 제거하려면 이 단추를 클릭하십시오.
+기본 특성을 선택하면 해당 단추를 사용할 수 없습니다. </dd>
+<dt class="dt dlterm">저장</dt>
+<dd class="dd">특성 파일의 변경사항을 저장하려면 이 단추를 클릭하십시오. </dd>
+<dd class="dd">특성 파일을 새로 작성하기 위해 <span class="ph uicontrol">유형</span> 목록에서 <span class="keyword option">서버</span>를 선택한 경우
+특성 목록에 새 특성을 추가한 다음 <span class="ph uicontrol">저장</span>을 클릭하십시오.
+<span class="keyword wintitle">새 특성 저장</span> 창에서
+특성 파일의 이름을 입력하고 <span class="ph filepath">.props</span> 확장자를 생략하십시오.
+이는 사용자에 대해 자동으로 추가됩니다. <span class="ph uicontrol">저장</span>을 클릭해
+파일을 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 디렉토리에 저장하십시오.
+특성 파일 이름이 <span class="ph uicontrol">유형</span> 필드 옆에 있는 <span class="ph uicontrol">이름</span> 필드에 표시되고
+사용자는 이 파일에 특성을 계속 추가할 수 있습니다.
+특성에 지정하는 문자열 값에 인용 표시를 추가하기 위해
+이 파일을 편집해야 합니다.</dd>
+</dl>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">다음에 수행할 작업</h2></div><div class="note tip"><span class="tiptitle">팁:</span> 또한 특성 편집기를 사용하여 특성 파일을 구성하고 서버 편집기로 서버 통신을 구성할 수도 있습니다.</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="You can configure properties for Tivoli Netcool/OMNIbus 구성요소에 대한 특성 및 UNIX와 Windows 컨덕터에서 서버 구성요소에 대한 통신 정보를 구성할 수 있습니다. Windows의 경우, 설정 창에 있는 결합된 태스크의 두 가지 기능을 수행할 수 있습니다. UNIX의 경우, 이벤트 목록의 데이터 형식을 변경할 수도 있습니다.">특성, 서버 통신 및 설정 구성</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

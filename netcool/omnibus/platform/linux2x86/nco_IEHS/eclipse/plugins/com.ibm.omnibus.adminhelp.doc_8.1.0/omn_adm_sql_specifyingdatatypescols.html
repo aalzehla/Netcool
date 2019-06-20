@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Specifying data types for columns" />
+<meta name="abstract" content="Each column value in the ObjectServer has an associated data type. The data type determines how the ObjectServer processes the data in the column. For example, the plus operator (+) adds integer values or concatenates string values, but does not act on Boolean values." />
+<meta name="Description" content="Each column value in the ObjectServer has an associated data type. The data type determines how the ObjectServer processes the data in the column. For example, the plus operator (+) adds integer values or concatenates string values, but does not act on Boolean values." />
+<meta name="DC.subject" content="data types, columns" />
+<meta name="keywords" content="data types, columns" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_specifyingdatatypescols" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Specifying data types for columns</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_specifyingdatatypescols">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Specifying data types for columns</h1>
+<div class="body refbody"><div class="abstract"><div class="shortdesc">Each column value in the ObjectServer has an
+associated data type. The data type determines how the ObjectServer
+processes the data in the column. For example, the plus operator (<samp class="ph codeph">+</samp>)
+adds integer values or concatenates string values, but does not act
+on Boolean values.</div>
+<p class="p">When creating a table using the CREATE
+TABLE command, you must specify a data type for each column that you
+define.</p>
+</div>
+<div class="section"><div class="note important"><span class="importanttitle">Important:</span> You can display columns
+only of type CHAR, VARCHAR, INCR, INTEGER, and TIME in the event list.
+Do not add columns of any other type to the alerts.status table. If
+you add any columns that are not of type CHAR, VARCHAR, INCR, INTEGER,
+or TIME, probes cannot write to the alerts.status table. As a result,
+the probes fail to start.</div>
+<p class="p">The data types supported by the
+ObjectServer are listed in the following table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. ObjectServer
+data types</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" id="d29799e39">SQL type</th>
+<th class="entry" valign="top" id="d29799e41">Description</th>
+<th class="entry" valign="top" id="d29799e43">Default value</th>
+<th class="entry" valign="top" id="d29799e45">ObjectServer ID for data type</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">INTEGER</td>
+<td class="entry" valign="top" headers="d29799e41 ">32-bit signed integer.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">0</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">0</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">INCR</td>
+<td class="entry" valign="top" headers="d29799e41 ">32-bit unsigned auto-incrementing integer. Applies to table
+columns only. <p class="p">Columns of this type are set by the system.
+You can change the auto increment to a different value by using the
+ALTER TABLE SET INCR command. You can use the command to set what
+values are assigned to new rows. You cannot change INCR columns in
+existing rows.</p>
+</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">1</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">5</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">UNSIGNED</td>
+<td class="entry" valign="top" headers="d29799e41 ">32-bit unsigned integer.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">0</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">12</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">BOOLEAN</td>
+<td class="entry" valign="top" headers="d29799e41 "><span class="keyword option">TRUE</span> or <span class="keyword option">FALSE</span>.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">FALSE</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">13</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">REAL</td>
+<td class="entry" valign="top" headers="d29799e41 ">64-bit signed floating point number.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">0.0</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">14</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">TIME</td>
+<td class="entry" valign="top" headers="d29799e41 ">Time, stored as the number of seconds since midnight January
+1, 1970. This is the Coordinated Universal Time (UTC) international
+time standard.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">Thu Jan 1 01:00:00 1970</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">1</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">CHAR(<var class="keyword varname">integer</var>)</td>
+<td class="entry" valign="top" headers="d29799e41 ">Fixed size character string, <var class="keyword varname">integer</var> characters
+long (8192 Bytes is the maximum).<p class="p">The char type is identical in
+operation to VARCHAR, but performance is better for mass updates that
+change the length of the string.</p>
+</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">''</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">10</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">VARCHAR(<var class="keyword varname">integer</var>)</td>
+<td class="entry" valign="top" headers="d29799e41 ">Variable size character string, up to <var class="keyword varname">integer</var> characters
+long (8192 Bytes is the maximum).<p class="p">The VARCHAR type uses less storage
+space than the char type and the performance is better for deduplication,
+scanning, insert, and delete operations.</p>
+</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">''</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">2</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">INTEGER64</td>
+<td class="entry" valign="top" headers="d29799e41 ">64-bit signed integer.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">0</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">16</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" headers="d29799e39 ">UNSIGNED64</td>
+<td class="entry" valign="top" headers="d29799e41 ">64-bit unsigned integer.</td>
+<td class="entry" valign="top" headers="d29799e43 "><span class="keyword option">0</span></td>
+<td class="entry" valign="top" headers="d29799e45 ">17</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

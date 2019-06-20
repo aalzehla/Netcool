@@ -1,0 +1,76 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2014, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+Function TADDM_onNewEvent(event) {
+    TADDMLibraryFunctionsIPL.TADDM_newEvent("TADDM_events", event, event.Serial, event.Severity);
+}
+
+Function TADDM_onDeleteEvent(event) {
+    TADDMLibraryFunctionsIPL.TADDM_deleteEvent("TADDM_events", event.Serial);
+}
+
+Function TADDM_hasEvent(event, hasEvent) {
+    TADDMLibraryFunctionsIPL.TADDM_isEventReported("TADDM_events", event.Serial, hasEvent);
+}
+
+Function TADDM_getCIs(event, returnedItems) {
+    TADDMLibraryFunctionsIPL.TADDM_getAllConfigurationItems("TADDM_items", event.Serial, returnedItems);
+}
+
+Function TADDM_getBizapps(event, returnedBizApps) {
+    TADDMLibraryFunctionsIPL.TADDM_getAllBusinessApplications("TADDM_bizapps", event.Serial, returnedBizApps);
+}
+
+Function reportEvent(event) {
+    Log("Reporting to TADDM event: " + event); 
+    TADDM_onNewEvent(event);
+
+    Log("Getting correlated CIs");
+    TADDM_getCIs(event, items);
+    i = 0; 
+    size = Length(items); 
+    While (i < size) {
+        item = items[i]; 
+        Log("Found CI: " + item.displayName + ", guid: " + item.guid); 
+        i = i + 1;
+    }
+
+    Log("Getting correlated BizApps");
+    TADDM_getBizapps(event, bizapps);
+    i = 0; 
+    size = Length(bizapps);
+    While (i < size) {
+        bizapp = bizapps[i];
+        Log("Found BizApp: " + bizapp.name + ", guid: " + bizapp.guid); 
+        i = i + 1;
+    }
+}
+
+Function reportCurrentEvent() {
+    reportEvent(EventContainer);
+}
+
+Function removeEvent(event) {
+    Log("Removing event correlation for event: " + event);
+    TADDM_hasEvent(event, hasEvent);
+    if (hasEvent) {
+        Log("Event: " + event.Serial + " found in TADDM, deleting");
+        TADDM_onDeleteEvent(event);
+    } else {
+        Log("Event: " + event.Serial + " not found in TADDM, skipping");
+    }
+}
+
+Function removeCurrentEvent() {
+    removeEvent(EventContainer);
+}
+
+// by default report current event and log correlated items
+reportCurrentEvent();

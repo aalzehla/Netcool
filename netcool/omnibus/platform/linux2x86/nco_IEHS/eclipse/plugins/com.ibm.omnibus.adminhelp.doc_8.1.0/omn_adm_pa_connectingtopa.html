@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Connecting to a process agent" />
+<meta name="abstract" content="Before you can connect to a process agent by using Netcool/OMNIbus Administrator, you must ensure that the process agent has started." />
+<meta name="Description" content="Before you can connect to a process agent by using Netcool/OMNIbus Administrator, you must ensure that the process agent has started." />
+<meta name="DC.subject" content="connecting, process agent, process control, connecting to process agent" />
+<meta name="keywords" content="connecting, process agent, process control, connecting to process agent" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_usingnetomadminunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_automaticallystartpas.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_automaticallystartpaswin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_manuallystartpas.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_connectingtopa" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_usingnetomadminunix.html" />
+<title>Connecting to a process agent</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_connectingtopa">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Connecting to a process agent</h1>
+<div class="body taskbody"><p class="shortdesc">Before you can connect to a process agent by using Netcool/OMNIbus Administrator,
+you must ensure that the process agent has started. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">You can start the process agent automatically by using
+the supplied startup scripts on UNIX,
+or by running the process agent as a Windows service.
+You can also start the process agent manually by running the <span class="ph filepath">$NCHOME/omnibus/bin/nco_pad</span> command.</p>
+<p class="p">To
+connect to a process agent:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">Reports</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click the <span class="ph uicontrol">PA</span> icon. </span> The <span class="keyword wintitle">Process
+Agent Report</span> window opens. This window displays all the
+process agents that were selected when the Import Connections Wizard
+was last run. <div class="note tip"><span class="tiptitle">Tip:</span> After you have
+started Netcool/OMNIbus Administrator, you can select <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Import</span></span> at any time to import new server
+communication information that is specified in the Server Editor. This information
+facilitates communication between Tivoli Netcool/OMNIbus server components
+such as ObjectServers, gateways, process agents, and proxy servers.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Select the process agent to which you want to connect and
+then perform either of the following actions:</span> <ul class="ul choices"><li class="li choice">If you are connecting for the first time or want to enter
+updated authentication information to be used when connecting, click <span class="ph uicontrol">Connect
+As</span> in the toolbar. The <span class="keyword wintitle">Process Agent Security</span> window
+opens. Go to step <a class="xref" href="#omn_adm_pa_connectingtopa__omn_adminpa_step4">4</a>.</li>
+<li class="li choice">If you want to connect by using previously-specified authentication
+information, click <span class="ph uicontrol">Connect</span>. The <span class="keyword wintitle">Process
+Agent Security</span> window opens with the previously-specified
+authentication details. Go to step <a class="xref" href="#omn_adm_pa_connectingtopa__omn_adminpa_step5">5</a>.</li>
+</ul>
+</li>
+<li class="li step stepexpand" id="omn_adm_pa_connectingtopa__omn_adminpa_step4"><span class="ph cmd">Complete the <span class="keyword wintitle">Process Agent
+Security</span> window as follows: </span> <dl class="dl"><dt class="dt dlterm">Username</dt>
+<dd class="dd">Type the user name that is used to log into the process agent.</dd>
+<dd class="dd">On UNIX, any user that needs access to the process agent must be a member
+of a UNIX user group that you identify as an administration group for this
+purpose. On Windows, the user must be a valid user with a local or domain
+account.</dd>
+<dt class="dt dlterm">Password</dt>
+<dd class="dd">Type the password that is used to log into the process agent.</dd>
+<dt class="dt dlterm">Always use for this connection</dt>
+<dd class="dd">Select this check box to indicate that the specified user name and password
+should be saved for automatic reuse on subsequent connection attempts to this
+process agent. These settings last for the length of the application session.</dd>
+<dt class="dt dlterm">Use as default</dt>
+<dd class="dd">Select this check box if you want the values specified for the user name
+and password to be automatically filled in the next time this window is displayed. These
+settings last for the length of the application session. </dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> If you select both check boxes, the <span class="ph uicontrol">Always
+use for this connection</span> setting takes precedence. </div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand" id="omn_adm_pa_connectingtopa__omn_adminpa_step5"><span class="ph cmd">Verify or cancel the authentication
+as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to verify the credentials for connection, and close
+the window. The <span class="keyword wintitle">Service/Process Details</span> pane opens. This
+pane contains information about the processes and services that are configured
+for the selected process agent.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the <span class="keyword wintitle">Process Agent Security</span> window
+without attempting to connect to the process agent. You return to the <span class="keyword wintitle">Process
+Agent Report</span> window.</dd>
+</dl>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>When you first connect to existing process agents with Netcool/OMNIbus Administrator,
+the remote processes are only visible if they have been defined manually
+in the configuration of the local process agent. To make remote processes
+visible to all linked process agents, select each service or process
+in turn, click the <span class="ph uicontrol">Edit</span> button, and close the
+resulting window without making any changes. Save each configuration
+file after that process is complete. </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_usingnetomadminunix.html" title="Netcool/OMNIbus Administrator provides a visual interface from which you can manage process control. You can use Netcool/OMNIbus Administrator to view and manage process agents, processes, and services on your Tivoli Netcool/OMNIbus hosts.">Using Netcool/OMNIbus Administrator to manage process control</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_pa_automaticallystartpas.html" title="On UNIX, startup scripts are available to automatically start the process agent when the system starts.">Automatically starting process agents on UNIX</a></div>
+<div><a class="link" href="omn_adm_pa_automaticallystartpaswin.html" title="On Windows, you can install the process agent as a Windows service.">Automatically starting process agents on Windows</a></div>
+<div><a class="link" href="omn_adm_pa_manuallystartpas.html" title="You can manually start process agents from the command line.">Manually starting process agents</a></div>
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

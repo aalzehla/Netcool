@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Defining processes, services, and hosts for process control" />
+<meta name="abstract" content="To run under process control, processes, services, and hosts must be defined within a process agent configuration file. When the process agent starts, it reads this file to establish configuration settings." />
+<meta name="Description" content="To run under process control, processes, services, and hosts must be defined within a process agent configuration file. When the process agent starts, it reads this file to establish configuration settings." />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_definingprocsserviceshosts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Defining processes, services, and hosts for process control</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_definingprocsserviceshosts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Defining processes, services, and hosts for process control</h1>
+<div class="body taskbody"><p class="shortdesc">To run under process control, processes, services, and hosts must
+be defined within a process agent configuration file. When the process agent
+starts, it reads this file to establish configuration settings.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">The default process agent configuration file is:</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/etc/nco_pa.conf</span></p>
+<div class="p">The
+file is made up of definitions, each of which contains attributes and associated
+values, for each process, service, and host. The definitions are listed in
+the following order within the file:<ol class="ol"><li class="li">Process definitions</li>
+<li class="li">Service definitions</li>
+<li class="li">Security definitions (optional)</li>
+<li class="li">Routing definitions</li>
+</ol>
+</div>
+<p class="p">Edit this file directly to add or modify definitions. Maintain
+the configuration files on all of your hosts to ensure that the host configuration
+information stays synchronized across all of the process agents in the configuration.</p>
+<div class="note note"><span class="notetitle">Note:</span> To prevent unauthorized users from gaining access, operating system
+security must be set appropriately for files, such as configuration files,
+that might contain user names and passwords.</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

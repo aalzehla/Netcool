@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="hu-hu" xml:lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2010" />
+<meta name="copyright" content="© Copyright IBM 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Összetett keresési eljárások" />
+<meta name="abstract" content="Összetett kereséseket hajthat végre idézőjelek, helyettesítő karakterek vagy logikai operátorok használatával, hogy kisebb keresési eredményhalmazt kapjon" />
+<meta name="description" content="Összetett kereséseket hajthat végre idézőjelek, helyettesítő karakterek vagy logikai operátorok használatával, hogy kisebb keresési eredményhalmazt kapjon" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="hu-hu" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Összetett keresési eljárások</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Összetett keresési eljárások</h1>
+<div class="body"><p class="shortdesc">Összetett kereséseket hajthat végre idézőjelek, helyettesítő karakterek vagy logikai operátorok használatával, hogy kisebb keresési eredményhalmazt kapjon</p>
+<ul class="ul"><li class="li">Amikor keresést végez a súgórendszerben, akkor úgy azonosíthat
+bizonyos szavakat vagy kifejezéseket pontos karaktersorozatként, hogy
+dupla idézőjelek közé teszi.<p class="p">Ha például a <kbd class="ph userinput">"naplófájl"</kbd> karaktersorozatot írja be a <span class="ph uicontrol">Keresés</span> mezőbe, akkor a <em class="ph i">naplófájl</em> minden előfordulását keresi. Ha a dupla idézőjelek nincsenek megadva, akkor a <em class="ph i">napló</em> és a <em class="ph i">fájl</em> szavakat is tartalmazó témakörök kerülnek a találatok közé.</p>
+</li>
+<li class="li">Használhat helyettesítő karaktereket, mint a csillag (*) és a kérdőjel (?),
+a keresésben a keresési hatókör kibontásához.<ul class="ul"><li class="li">Használjon csillagot (*) több ismeretlen vagy változó karakter helyett a keresési
+ kifejezésben. Ha például a <kbd class="ph userinput">rész*</kbd> kifejezést adja meg, akkor a <em class="ph i">részben</em>, <em class="ph i">résztvesz</em>, <em class="ph i">részleges</em> és egyéb, a
+ <em class="ph i">rész</em> karakterekkel kezdődő szavakat tartalmazó témakörök kerülnek a találati listába.<div class="note note"><span class="notetitle">Megjegyzés:</span>  
+A keresési karaktersorozatokra vonatkozóan van egy korlátozás: ha a
+keresési kifejezést egy csillaggal használja, akkor azt legalább három
+karakternek kell megelőznie, és ehhez hasonlóan, a helyettesítő
+karakter nélküli keresési kifejezéseknek is legalább három karaktert
+kell tartalmazniuk. </div>
+</li>
+<li class="li">Kérdőjelet használjon egyetlen karakter helyett a keresési kifejezésben.
+Ha például a <kbd class="ph userinput">rész?</kbd> kifejezést adja meg, akkor a <em class="ph i">részt</em> szót tartalmazó témakörök igen, de a <em class="ph i">részleges</em> vagy  <em class="ph i">részben</em> szavakat tartalmazó témakörök nem kerülnek bele a találati listába.</li>
+</ul>
+<div class="note note"><span class="notetitle">Megjegyzés:</span> Ha a keresési kifejezést csillaggal (*) használja, akkor azt legalább három karakternek meg kell előznie</div>
+</li>
+<li class="li">Az AND, OR vagy NOT logikai operátorokkal a lekérdezést specifikusabbá teheti. Például:<dl class="dl"><dt class="dt dlterm">adatbázis AND "tápkábel csatlakozója"</dt>
+<dd class="dd">Leszűkíti a találatokat azokra a témakörökre, amelyekben megtalálható az <em class="ph i">adatbázis</em> és a
+<em class="ph i">naplófájl</em> kifejezés is.</dd>
+<dt class="dt dlterm">adatbázis OR "tápkábel csatlakozója"</dt>
+<dd class="dd">Leszűkíti a találatokat azokra a témakörökre, amelyekben vagy az <em class="ph i">adatbázis</em> vagy a
+ <em class="ph i">naplófájl</em> kifejezés megtalálható.</dd>
+<dt class="dt dlterm">adatbázis NOT "tápkábel csatlakozója"</dt>
+<dd class="dd">Leszűkíti a találatokat azokra a témakörökre, amelyekben megtalálható az <em class="ph i">adatbázis</em> kifejezés, de a <em class="ph i">naplófájl</em> kifejezés nem.</dd>
+<dt class="dt dlterm">adatbázis OR "adat bázis" NOT "tápkábel csatlakozója"</dt>
+<dd class="dd">Olyan témaköröket keres, amelyekben vagy az <em class="ph i">adatbázis</em> vagy az <em class="ph i">adat bázis</em> kifejezés megtalálható, de a <em class="ph i">naplófájl</em> kifejezés nem.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="iehs36_searching.html" title="Az összes témakörben kereshet a súgórendszerben, kereshet egyedi témakörben vagy témakörgyűjteményben, vagy létrehozhat egy keresési hatókört, hogy csak az információk egy részhalmazában történjen a keresés. A Keresési eredmények nézet legfeljebb 500 eredményt tud megjeleníteni, jelentőség szerinti sorrendben.">Keresés a súgórendszerben</a></div>
+</div>
+</div></body>
+</html>

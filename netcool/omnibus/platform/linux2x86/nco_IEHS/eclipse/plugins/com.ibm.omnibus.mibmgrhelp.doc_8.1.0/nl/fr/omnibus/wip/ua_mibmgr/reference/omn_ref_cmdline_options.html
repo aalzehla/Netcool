@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Options de ligne de commande de MIB Manager" />
+<meta name="abstract" content="MIB Manager comporte un utilitaire de ligne de commande que vous pouvez utiliser pour importer des données MIB et exporter des fichiers de règles. Vous pouvez exécuter manuellement des commandes ou les appeler à l'aide d'un programme." />
+<meta name="Description" content="MIB Manager comporte un utilitaire de ligne de commande que vous pouvez utiliser pour importer des données MIB et exporter des fichiers de règles. Vous pouvez exécuter manuellement des commandes ou les appeler à l'aide d'un programme." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="fr-fr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>Options de ligne de commande de MIB Manager.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Options de ligne de commande de <span class="keyword">MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">MIB Manager</span> comporte un utilitaire de ligne de commande que vous pouvez utiliser pour importer des données MIB et exporter des fichiers de règles. Vous pouvez exécuter manuellement des commandes ou les appeler à l'aide d'un programme.</p>
+<div class="section"><div class="p">Pour démarrer l'utilitaire de ligne de commande, utilisez la commande suivante :<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[options]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[options]</samp><p class="p">Sur les systèmes d'exploitation Windows, la sortie de <span class="keyword">MIB Manager</span> s'affiche sur une nouvelle console. </p>
+</li>
+</ul>
+</div>
+<p class="p">Le tableau suivant décrit les options de ligne de commande disponibles. Les options <span class="keyword option">-exportmibs</span>, <span class="keyword option">-exportobjects</span> et <span class="keyword option">-exportoids</span> peuvent analyser les expressions régulières qui sont conformes avec le moteur de modèle Java.</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> Utilisez des chemin de répertoire complets pour indiquer les répertoires. Par exemple : <kbd class="ph userinput">nco_mibmanager_batch -importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tableau 1. Options de ligne de commande de <span class="keyword">MIB Manager</span></span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d630e85">Option de ligne de commande</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d630e87">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option lorsque vous exécutez pour la première fois l'utilitaire de ligne de commande<span class="keyword">MIB Manager</span>, si vous avez utilisé auparavant l'utilitaire graphique <span class="keyword">MIB Manager</span>. Si vous n'utilisez pas cette option, une erreur s'affiche.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-exportdir</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le répertoire vers lequel les fichiers de règles générés sont exportés. Placez le chemin de répertoire entre guillemets (").<p class="p">Exemple :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le nom de la base MIB à exporter. Vous pouvez utiliser des expressions régulières pour indiquer plusieurs bases MIB.<p class="p">Par exemple, la commande suivante exporte les objets à partir d'une base MIB appelée <span class="q">"RMON-MIB"</span> :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">La commande suivante exporte les objets de toutes les bases MIB dont le nom contient <span class="q">"MON"</span> :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour demander que les fichiers exportés soient écrits dans un nouveau répertoire, au sein du répertoire d'exportation existant.
+Le nouveau sous-répertoire est nommé automatiquement avec un horodatage. Cette option permet d'éviter que les fichiers de règles existants soient écrasés.<p class="p">Exemple :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le nom de l'objet MIB à exporter. Vous pouvez utiliser des expressions régulières pour indiquer plusieurs objets.<p class="p">Par exemple, la commande suivante exporte tous les objets nommés <span class="q">"coldStart"</span> :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">La commande suivante exporte tous les objets dont le nom commence par <span class="q">"cold"</span> :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-exportoids</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer l'ID objet (OID) à exporter.
+Vous pouvez utiliser des expressions régulières pour indiquer plusieurs ID objet.<p class="p">Par exemple, la commande suivante exporte tous les objets avec l'ID objet <span class="q">"1.3.6.1.6.3.1.1.5.1"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportoids 1.3.6.1.6.3.1.1.5.1
+-filetype csv</samp></p>
+<p class="p">La commande suivante exporte tous les objets dont l'ID objet commence par <span class="q">"1.3.6.1.6.3.1.1.5"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">La commande suivante exporte tous les objets avec l'ID objet <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> ou <span class="q">"1.3.6.1.6.3.1.1.5.2"</span> :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le type des objets MIB exportés. Cette option utilise les valeurs suivantes :<ul class="ul"><li class="li"><span class="keyword option">ALL</span> : Tous les objets MIB sont exportés.</li>
+<li class="li"><span class="keyword option">TRAPS</span> : Seules les interceptions sont exportées.</li>
+<li class="li"><span class="keyword option">OBJECTS</span> : Seuls les objets sont exportés.</li>
+</ul>
+<p class="p">Exemple :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le format de fichier dans lequel les fichiers générés sont exportés. Cette option est obligatoire pour les opérations d'exportation. <div class="p">Les paramètres disponibles sont les suivants :<ul class="ul"><li class="li"><span class="keyword option">csv</span> : Toutes les données objet sont écrites dans des fichiers CSV.</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span> : Toutes les données d'interception et les données d'objet de liaisons de variable associées sont écrites dans un fichier CSV unique.</li>
+<li class="li"><span class="keyword option">html_with_frames</span> : Crée une page Web adaptée à la publication.</li>
+<li class="li"><span class="keyword option">html_without_frames</span> : Crée un fichier unique appelé <span class="ph filepath">oids.html</span> qui contient la liste de tous les objets sélectionnés pour la sortie.</li>
+<li class="li"><span class="keyword option">lookup</span> : Place toutes les valeurs spécifiées dans une liste à tabulations pour inclusion dans tout fichier de règles.</li>
+<li class="li"><span class="keyword option">ncil</span> : Crée un fichier d'inclusion distinct pour chaque entreprise et génère un fichier unique pour les interceptions génériques.</li>
+<li class="li"><span class="keyword option">nckl_1_1</span> : Crée un fichier adapté à une utilisation avec Netcool Knowledge Library V1.1.</li>
+<li class="li"><span class="keyword option">nckl_3_0</span> : Crée un fichier adapté à une utilisation avec Knowledge Library V3.x.</li>
+<li class="li"><span class="keyword option">standalone</span> : Crée un fichier de règles unique qui contient toutes les interceptions sélectionnées.</li>
+<li class="li"><span class="keyword option">text</span> : Crée un fichier texte distinct pour chaque ID objet.</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span> : Crée les fichiers <span class="ph filepath">.mdl</span> et <span class="ph filepath">trapcnfg</span>.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour afficher des informations d'aide sur les options de ligne de commande.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-importdir</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le répertoire depuis lequel les fichiers MIB sont importés. Placez le chemin de répertoire entre guillemets (").<p class="p">Exemple :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer que <span class="keyword">MIB Manager</span> explore les sous-répertoires lorsqu'il recherche les fichiers MIB à importer.<p class="p">Exemple :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le niveau de consignation de messages. Cette option utilise les valeurs suivantes :<ul class="ul"><li class="li"><span class="keyword option">ERROR</span> : Seuls les messages d'erreur sont consignés.</li>
+<li class="li"><span class="keyword option">WARN</span> : Les messages d'avertissement et d'erreur sont consignés.</li>
+<li class="li"><span class="keyword option">INFO</span> : Les messages Information, d'information, d'avertissement et critiques sont consignés.</li>
+<li class="li"><span class="keyword option">DEBUG</span> : Tous les messages sont consignés.</li>
+<li class="li"><span class="keyword option">VERBOSE</span> : Les messages en mode prolixe incluent l'état des variables, des tableaux et des hachages au fur et à mesure que leurs valeurs et leur état changent.</li>
+<li class="li"><span class="keyword option">NONE</span> : Aucun message n'est consigné.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-messagelog</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer le répertoire dans lequel le fichier journal des messages, <span class="ph filepath">mibmanager.log</span>, est écrit. Placez le chemin de répertoire entre guillemets (").<p class="p">La valeur par défaut est <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d630e85 "><span class="keyword option">-searchpath</span> <var class="keyword varname">chaîne</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d630e87 ">Utilisez cette option pour indiquer une liste de répertoire séparés par des points-virgules que <span class="keyword">MIB Manager</span> peut explorer pour résoudre des dépendances de MIB. Placez le chemin de répertoire entre guillemets (").<p class="p">Exemple :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -importdir "/home/user/mibs" -searchpath
+"/home/user/mib_dependencies"</samp></p>
+<p class="p">La commande suivante recherche les dépendances dans 3 répertoires spécifiques :</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -importdir "/home/user/mibs" -searchpath
+"/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Rubrique parent :</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="Démarrez l'interface graphique de MIB Manager à partir de la ligne de commande. Il n'est pas conçu pour être exécuté sous le contrôle de processus ou en tant que service Windows.">Démarrage de MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothèque</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

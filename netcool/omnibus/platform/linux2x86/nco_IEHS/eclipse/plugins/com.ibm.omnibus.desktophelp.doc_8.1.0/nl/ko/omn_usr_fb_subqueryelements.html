@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="하위 조회 요소" />
+<meta name="abstract" content="필터 구성 시 하위 조회 요소를 사용하여 조건의 조회를 작성할 수 있습니다." />
+<meta name="Description" content="필터 구성 시 하위 조회 요소를 사용하여 조건의 조회를 작성할 수 있습니다." />
+<meta name="DC.subject" content="필터, 하위 조회 요소" />
+<meta name="keywords" content="필터, 하위 조회 요소" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_subqueryelements" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_componentsoffilter.html" />
+<title>하위 조회 요소</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_subqueryelements">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">하위 조회 요소</h1>
+<div class="body conbody"><p class="shortdesc">필터 구성 시 하위 조회 요소를 사용하여 조건의 조회를 작성할 수 있습니다.</p>
+<div class="p">하위 조회 요소는 다음의 ObjectServer <samp class="ph tt">경보</samp> 데이터베이스
+테이블에 저장되어 있는 데이터의 결과를 조회 및 리턴하는 데 사용됩니다. <ul class="ul"><li class="li">alerts.details: 이 테이블은 이벤트 세부사항을 보유하고 ID 컬럼으로
+alerts.status 테이블에 링크됩니다. </li>
+<li class="li">alerts.journal: 이 테이블은 이벤트에 대해 수행된 작업 히스토리를 보유하고
+연속 컬럼으로 alerts.status 테이블에 링크됩니다. </li>
+<li class="li">alerts.status: 이 테이블은 프로브에 의해 발견된 문제점에 대한 상태 정보를
+보유합니다.</li>
+</ul>
+</div>
+<p class="p">예를 들어, alerts.journal 테이블에 저널 항목이 있는 이벤트를 찾으려고 하거나
+alerts.details 테이블에 특정 세부 속성이 있는 이벤트를 찾으려고 할 수 있습니다.</p>
+<p class="p">하위 조회 요소의 다음에는 조건, 논리 및 기타 하위 조회 요소가 올 수 있습니다.
+이 요소를 사용하여 다른 테이블의 정보에 대한 선택사항 기준을 지정할 수 있습니다.</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_fb_componentsoffilter.html" title="필터는 요소의 콜렉션으로 구성되어 있습니다. 사용 가능 요소 유형은 조건, 논리 및 하위 조회 요소를 포함합니다.">필터의 구성요소</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

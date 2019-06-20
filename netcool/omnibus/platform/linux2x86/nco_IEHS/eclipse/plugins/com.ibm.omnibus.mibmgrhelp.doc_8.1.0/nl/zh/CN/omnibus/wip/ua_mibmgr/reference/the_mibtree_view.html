@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="“MIB 模块”视图" />
+<meta name="abstract" content="“MIB 模块”视图显示了所有已导入的 MIB 模块，并允许您搜索 MIB 模块、删除 MIB 模块，以及搜索特定的 MIB 值。" />
+<meta name="Description" content="“MIB 模块”视图显示了所有已导入的 MIB 模块，并允许您搜索 MIB 模块、删除 MIB 模块，以及搜索特定的 MIB 值。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="mibtree" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB 管理器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="mibtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">“MIB 模块”视图</h1>
+<div class="body refbody"><p class="shortdesc">“<span class="keyword wintitle">MIB 模块</span>”视图显示了所有已导入的 MIB 模块，并允许您搜索 MIB 模块、删除 MIB 模块，以及搜索特定的 MIB 值。</p>
+<div class="section"><p class="p">展开和折叠 MIB 树中的节点可在整个“<span class="keyword wintitle">MIB 模块</span>”视图中移动。MIB 树的顶级分支包含 MIB 模块的名称，而包含在每个 MIB 模块分支内的是组成 MIB 的其他元素。</p>
+<div class="p">从<span class="ph uicontrol">视图</span>下拉列表中选择以下一个选项可过滤“<span class="keyword wintitle">MIB 模块</span>”视图中的数据：<ul class="ul"><li class="li"><span class="ph uicontrol">全部</span></li>
+<li class="li"><span class="ph uicontrol">模块</span></li>
+<li class="li"><span class="ph uicontrol">枚举</span></li>
+<li class="li"><span class="ph uicontrol">文本约定</span></li>
+<li class="li"><span class="ph uicontrol">语法</span></li>
+<li class="li"><span class="ph uicontrol">导入</span></li>
+<li class="li"><span class="ph uicontrol">导出</span></li>
+<li class="li"><span class="ph uicontrol">列</span></li>
+<li class="li"><span class="ph uicontrol">描述</span></li>
+</ul>
+</div>
+<p class="p">要在“<span class="keyword wintitle">MIB 模块</span>”视图中搜索特定值，请在<span class="ph uicontrol">搜索</span>字段中输入您要搜索的文本，然后按 <span class="ph uicontrol">Enter</span> 键或单击 <img class="image" src="../gifs/find.gif" alt="“搜索”图标" />（搜索）。</p>
+<p class="p"><span class="keyword">MIB 管理器</span> 将从选定的项开始搜索，如果当前未选择任何项，那么将从列表中的第一项开始搜索。要在列表中查找下一个匹配项，请继续单击 <img class="image" src="../gifs/find.gif" alt="“搜索”图标" />（搜索）。</p>
+<p class="p">找到匹配项后，会自动突出显示该项并将其显示在“<span class="keyword wintitle">MIB 模块</span>”视图中。</p>
+<p class="p">在<span class="ph uicontrol">搜索</span>字段中，指定一个有效的正则表达式或输入纯文本来表示完整或部分的对象名称。</p>
+<p class="p">要删除一个或多个 MIB 模块，请右键单击选定的 MIB 模块，然后从弹出菜单中选择<span class="ph uicontrol">删除</span>。将从 <span class="keyword">MIB 管理器</span> 中删除选定的 MIB 模块。但是，不会删除为 MIB 导入提供的原始 MIB 源文件。</p>
+<div class="p"><div class="note note"><span class="notetitle">注：</span> 只应删除含有错误或者存在新的替代版本的 MIB 模块。使用此方法删除 MIB 模块可能导致 MIB 依赖关系缺失。还可能在导出过程中生成不完整的规则文件，并且在日志文件中出现警告或错误消息。</div>
+</div>
+<p class="p">下表列出了“<span class="keyword wintitle">MIB 模块</span>”视图图标并描述了每个图标所代表的对象。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. “MIB 模块”视图图标及其代表的对象</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="28.14070351758794%" id="d4444e115">图标</th>
+<th class="entry" valign="top" width="71.85929648241206%" id="d4444e117">表示的对象</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "> <div class="image"><img class="image" src="../gifs/exports.gif" alt="“多个导出”图标" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">EXPORTS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "> <div class="image"><img class="image" src="../gifs/export.gif" alt="“单个导出”图标" /></div> </td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">EXPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "> <div class="image"><img class="image" src="../gifs/imports.gif" alt="“多个导入”图标" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">IMPORTS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "> <div class="image"><img class="image" src="../gifs/import.gif" alt="“单个导入”图标" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">IMPORT</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="“对象标识”图标" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">OBJECT IDENTIFIER, OBJECT-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="代理能力" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">AGENT-CAPABILITIES</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="“模块合规性”图标" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">MODULE-COMPLIANCE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/module_identity.gif" alt="模块身份" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">MODULE, MODULE-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/obj_group.gif" alt="对象组" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">OBJECT-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="通知组" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">NOTIFICATION-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="陷阱类型" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">TRAP-TYPE（v1 陷阱）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="通知类型" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">NOTIFICATION-TYPE（v2 陷阱）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="一般对象类型" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">一般 OBJECT-TYPE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="计数器" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="Counter&#xA;32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">COUNTER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="Counter&#xA;64" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">COUNTER64</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="Gauge" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">GAUGE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="Gauge&#xA;32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">GAUGE32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="Integer" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">INTEGER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="Integer&#xA;32" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">INTEGER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP 地址" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">IpAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="网络地址" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">NetworkAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="八位元字符串" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">OCTET STRING</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="顺序表" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">SEQUENCE（表）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="顺序表条目" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">SEQUENCE（条目，表行）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="时间标记" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">TIMETICKS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.14070351758794%" headers="d4444e115 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="文本约定" /></div></td>
+<td class="entry" valign="top" width="71.85929648241206%" headers="d4444e117 ">TEXTUAL-CONVENTION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="可以使用 MIB 管理器 来解析 MIB 模块并创建 Netcool 规则文件。">使用Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

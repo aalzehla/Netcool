@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="プロパティーの構成" />
+<meta name="abstract" content="ObjectServer、プロキシー・サーバー、データベース初期化ユーティリティー (nco_dbinit)、Confpack ユーティリティー (nco_confpack)、Netcool/OMNIbus Administrator (nco_config)、プローブ、およびゲートウェイのプロパティー・ファイルに含まれる情報を編集できます。 プロパティー・ファイルの拡張子は .props です。" />
+<meta name="Description" content="ObjectServer、プロキシー・サーバー、データベース初期化ユーティリティー (nco_dbinit)、Confpack ユーティリティー (nco_confpack)、Netcool/OMNIbus Administrator (nco_config)、プローブ、およびゲートウェイのプロパティー・ファイルに含まれる情報を編集できます。 プロパティー・ファイルの拡張子は .props です。" />
+<meta name="DC.subject" content="プロパティー, 構成, プロパティー・ファイル, 編集" />
+<meta name="keywords" content="プロパティー, 構成, プロパティー・ファイル, 編集" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringproperties" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>プロパティーの構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringproperties">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">プロパティーの構成</h1>
+<div class="body taskbody"><p class="shortdesc">ObjectServer、プロキシー・サーバー、データベース初期化ユーティリティー (<span class="keyword cmdname">nco_dbinit</span>)、Confpack ユーティリティー (<span class="keyword cmdname">nco_confpack</span>)、Netcool/OMNIbus Administrator (nco_config)、プローブ、およびゲートウェイのプロパティー・ファイルに含まれる情報を編集できます。 プロパティー・ファイルの拡張子は <span class="ph filepath">.props</span> です。</p>
+<div class="section context">プロパティーを編集するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">次のいずれかのアクションを実行します。</span><ul class="ul choices"><li class="li choice">UNIX の「<span class="keyword wintitle">コンダクター</span>」ウィンドウで、ボタン・バーの<span class="ph uicontrol">「プロパティー」</span>をクリックします。 </li>
+<li class="li choice">Windows の<span class="ph uicontrol">「コンダクター」</span>メニューから<span class="ph uicontrol">「プロパティー」</span>をクリックします。 <p class="p">「<span class="keyword wintitle">プロパティー・エディター</span>」ウィンドウが開きます。</p>
+</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">タイプ</dt>
+<dd class="dd">UNIX では、以下のオプションのいずれかを選択してください。<ul class="ul"><li class="li">プローブ以外のコンポーネントのプロパティー・ファイルを編集するには、<span class="ph uicontrol">「汎用」</span>を選択する。 <span class="ph uicontrol">「ファイル」</span>ドロップダウン・リストに該当するファイルが取り込まれます。</li>
+<li class="li">プローブ・プロパティー・ファイルを編集するには、<span class="ph uicontrol">「プローブ」</span>を選択する。 <span class="ph uicontrol">「ファイル」</span>ドロップダウン・リストに該当するファイルが取り込まれます。</li>
+</ul>
+</dd>
+<dd class="dd">Windows では、以下のオプションのいずれかを選択してください。<ul class="ul"><li class="li">ObjectServer やプロキシー・サーバーなどのコンポーネントのプロパティー・ファイルを編集するには、<span class="ph uicontrol">「ObjectServer」</span>を選択する。 <span class="ph uicontrol">「名前」</span>ドロップダウン・リストに該当するファイルが取り込まれます。 これらのファイルは通常、<span class="ph filepath">%NCHOME%¥omnibus¥etc</span> ディレクトリーに保管されています。</li>
+<li class="li">プローブ・プロパティー・ファイルを編集するには、<span class="ph uicontrol">「プローブ」</span>を選択する。 <span class="ph uicontrol">「名前」</span>ドロップダウン・リストに該当するファイルが取り込まれます。 これらのファイルは通常、<span class="ph filepath">%NCHOME%¥omnibus¥probes¥win32</span> ディレクトリーに保管されています。</li>
+<li class="li">新規プロパティー・ファイルを追加するには、<span class="ph uicontrol">「サーバー」</span>を選択する。 これらのファイルは、<span class="ph filepath">%NCHOME%¥omnibus¥ini</span> ディレクトリーに保存されます。
+<span class="ph uicontrol">「名前」</span>ドロップダウン・リストにテキスト <samp class="ph codeph">&lt;New File&gt;</samp> が取り込まれます。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">ファイル (UNIX) / 名前 (Windows)</dt>
+<dd class="dd">ドロップダウン・リストから編集するプロパティー・ファイルを選択します。
+このリストに取り込まれる内容は、<span class="ph uicontrol">「タイプ」</span>ドロップダウン・リストから何を選択するかによって異なります。 デフォルト値は以下のとおりです。 <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit.props</span>: データベースの初期化の始動時に読み取られるプロパティー・ファイル (データベースを初期化するには、<span class="keyword cmdname">nco_dbinit</span> を実行します。)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY.props</span>: プロキシー・サーバーのプロパティー・ファイル (プロキシー・サーバーは、ObjectServer へのプローブ接続の数を削減するために使用できます。)</li>
+<li class="li"><span class="ph filepath">nco_confpack.props</span>: Confpack のプロパティー・ファイル (<span class="keyword cmdname">nco_confpack</span> は、ObjectServer 構成のインポートおよびエクスポートに使用されます。)</li>
+<li class="li"><span class="ph filepath">nco_config.props</span>: <span class="keyword">Netcool/OMNIbus Administrator</span>のプロパティー・ファイル</li>
+<li class="li"><span class="ph filepath">NCOMS.props</span>: ObjectServer のプロパティー・ファイル</li>
+</ul>
+</dd>
+<dd class="dd">Windows では、<span class="ph filepath">.props</span> ファイル拡張子は表示されません。<span class="ph uicontrol">「名前」</span>リストでファイルを選択すると、プロパティー・リストに使用可能なプロパティーが自動的に取り込まれます。</dd>
+<dt class="dt dlterm">開く (UNIX のみ)</dt>
+<dd class="dd">UNIX では、タイプおよびファイル名を選択してから、このボタンをクリックしてプロパティー・ファイルを開きます。</dd>
+<dt class="dt dlterm"><em class="ph i">プロパティー・リスト</em></dt>
+<dd class="dd">このマトリックスは、プロパティー・ファイルに追加されたプロパティーの詳細を示します。 このリストからプロパティーを選択して、変更することができます。 プローブ・プロパティー・ファイルで事前定義されているプロパティーのデフォルト・セットは、除去できません。 これらのプロパティーは、プロパティー・リストで灰色表示されます。 </dd>
+<dt class="dt dlterm">名前</dt>
+<dd class="dd">このフィールドは、編集するためにプロパティー・リストから選択されたプロパティーの名前を示します。 既存のプロパティーの名前は変更できません。
+Windows の場合は、ドロップダウン・リストを使用して編集するプロパティーを選択することもできます。 </dd>
+<dd class="dd">選択されたプロパティー・ファイルに新規プロパティーを追加する場合は、ここにプロパティーの名前を入力します。 </dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option">サーバー</span>」を選択した場合は、ここに新規プロパティーの名前を入力します。</dd>
+<dt class="dt dlterm">値</dt>
+<dd class="dd">選択された既存のプロパティー・ファイルで作業している場合は、選択されたプロパティーの値を編集するか、追加する新規プロパティーの値を入力します。</dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option">サーバー</span>」を選択した場合は、新規プロパティーの値を入力します。</dd>
+<dt class="dt dlterm">追加/更新</dt>
+<dd class="dd">このボタンは、プロパティーを追加するか既存のプロパティーを編集するかに応じて変更されます。 新規プロパティーの名前および値を入力する場合は、<span class="ph uicontrol">「追加」</span>をクリックしてプロパティー・リストに値を追加します。 プロパティー・リストで選択したプロパティーの値を変更する場合は、<span class="ph uicontrol">「更新」</span>をクリックしてプロパティー・リストの値を更新します。</dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option"> サーバー</span>」を選択した場合は、<span class="ph uicontrol">「追加」</span>をクリックして新規プロパティーを追加します。</dd>
+<dt class="dt dlterm">削除</dt>
+<dd class="dd">選択したプロパティーをプロパティー・ファイルから削除するには、このボタンをクリックします。 デフォルト・プロパティーを選択した場合、このボタンは使用不可です。</dd>
+<dt class="dt dlterm">保存</dt>
+<dd class="dd">プロパティー・ファイルへの変更を保存するには、このボタンをクリックします。</dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option">サーバー</span>」を選択した場合は、プロパティー・リストに新規プロパティーを追加した後で<span class="ph uicontrol">「保存」</span>をクリックします。 「<span class="keyword wintitle">新規プロパティーの保存</span>」ウィンドウから、プロパティー・ファイルの名前を入力します。<span class="ph filepath">.props</span> 拡張子は自動的に追加されるので、入力は省略します。 <span class="ph uicontrol">「保存」</span>をクリックして、ファイルを <span class="ph filepath">%NCHOME%¥omnibus¥ini</span> ディレクトリーに保存します。
+<span class="ph uicontrol">「タイプ」</span>フィールドに隣接する<span class="ph uicontrol">「名前」</span>フィールドにプロパティー・ファイル名が表示され、このファイルへのプロパティーの追加を続行できます。 指定するプロパティーのストリング値に引用符を追加するために、このファイルを編集する必要があります。</dd>
+</dl>
+
+<dl class="dl"><dt class="dt dlterm">閉じる (UNIX)</dt>
+<dd class="dd">このボタンは、変更を保存したあとでこのウィンドウを閉じる場合か、変更を保存せずにこのウィンドウを閉じる場合にクリックします。</dd>
+<dt class="dt dlterm">OK (Windows)</dt>
+<dd class="dd">このボタンは、変更を保存したあとでこのウィンドウを閉じる場合にクリックします。</dd>
+<dt class="dt dlterm">キャンセル (Windows)</dt>
+<dd class="dd">このボタンは、変更を保存せずにこのウィンドウを閉じる場合にクリックします。</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="Tivoli Netcool/OMNIbus コンポーネントのプロパティー、および UNIX コンダクターと Windows コンダクターのサーバー・コンポーネントの通信情報を構成することができます。 Windows の場合は、設定ウィンドウ内でこれら 2 つの機能を結合タスクとして実行することができます。 UNIX の場合は、イベント・リストの日付形式を変更することもできます。">プロパティー、サーバー通信、および設定の構成</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_startingconductor.html" title="コンダクターからは、アラートの表示と管理のために使用できるすべての Tivoli Netcool/OMNIbus デスクトップ・ツールにシングル・サインオンでアクセスできます。">コンダクターの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

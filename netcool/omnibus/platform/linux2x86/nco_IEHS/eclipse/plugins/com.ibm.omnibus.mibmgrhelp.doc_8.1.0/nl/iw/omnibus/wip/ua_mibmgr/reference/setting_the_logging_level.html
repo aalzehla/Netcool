@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="הגדרת רמת התיעוד" />
+<meta name="abstract" content="ניתן לשנות את רמת התיעוד במטרה לספק יומנים או קובצי מעקב מפורטים יותר המסייעים לאיתור באגים ב-MIB Manager. המידע הנוסף המתקבל על-ידי הגדלת רמות התיעוד עשוי לסייע לכם במהלך איתור באגים של בעיות מסוימות בעת ניתוח של רכיבי MIB." />
+<meta name="description" content="ניתן לשנות את רמת התיעוד במטרה לספק יומנים או קובצי מעקב מפורטים יותר המסייעים לאיתור באגים ב-MIB Manager. המידע הנוסף המתקבל על-ידי הגדלת רמות התיעוד עשוי לסייע לכם במהלך איתור באגים של בעיות מסוימות בעת ניתוח של רכיבי MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">הגדרת רמת התיעוד</h1>
+<div class="body refbody"><p class="shortdesc">ניתן לשנות את רמת התיעוד במטרה לספק יומנים או קובצי מעקב מפורטים יותר המסייעים לאיתור באגים ב-MIB Manager. המידע הנוסף המתקבל על-ידי הגדלת רמות התיעוד עשוי לסייע לכם במהלך איתור באגים של בעיות מסוימות בעת ניתוח של רכיבי MIB.</p>
+<div class="section"><p class="p">לשינוי רמת התיעוד, לחצו על <span class="ph menucascade"><span class="ph uicontrol">עריכה</span> &gt; <span class="ph uicontrol">איתור באגים</span></span> משורת התפריטים בחלון הראשי. לקובצי היומן יש שש רמות הודעה שניתן לעבור ביניהן להגדלת רמת הפרטים הנלכדים: 'ללא', 'שגיאה', 'אזהרה', 'מידע', 'איתור באגים' ו'מילולי'.</p>
+<p class="p">הטבלה שלהלן מספקת תיאור קצר של כל אחת מרמות התיעוד:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">טבלה 1. רשימת רמות התיעוד והתיאורים שלהן</span></caption><thead class="thead" align="right"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d12642e32">רמת תיעוד</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d12642e34">תיאור</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d12642e32 ">ללא</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d12642e34 "><p class="p">אפשרות זו מציינת רמת תיעוד שבה הודעות איתור באגים אינן מהוות פלט. </p>
+<p class="p">הביצועים של היישום טובים יותר אך לא מוצגות הודעות שגיאה או אזהרה כלשהן במהלך הניתוח.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d12642e32 ">שגיאה</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d12642e34 "><p class="p">אפשרות זו מציינת רמת תיעוד שבה נרשמות רק שגיאות המשפיעות על התוצאות.</p>
+<p class="p">רישום זה כולל כל שגיאה המזוהה על-ידי MIB Manager שעשויה להוביל להצגת נתונים שגויים בחלון הראשי.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d12642e32 ">אזהרה</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d12642e34 "><p class="p">אפשרות זו מציינת רמת תיעוד שבה נרשמות הודעות אזהרה ושגיאה.</p>
+<p class="p">אזהרות מעידות על תנאי שעלול לגרום לנתונים שגויים ולכן יש לבדוק אותו. עם זאת, התנאי לא יפגום בנתונים.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d12642e32 ">מידע</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d12642e34 "><p class="p">אפשרות זו מציינת רמת תיעוד שבה נרשמות הודעות מידע, הודעות אזהרה והודעות קריטיות.</p>
+<p class="p">הודעות מידע מכילות פרטים בנוגע להתקדמות הכללית במשימה. לדוגמה, הן מספקות תמליל מלא עבור אובייקטים תוך כדי הניתוח שלהם.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d12642e32 ">איתור באגים</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d12642e34 "><div class="p">אפשרות זו מציינת רמת תיעוד שבו כל ההודעות נרשמות. <div class="note note"><span class="notetitle">הערה:</span> עליכם להריץ את MIB Manager במצב איתור באגים רק אם אתם מנסים לפתור תנאי שגיאה. כמות הנתונים המופקת במהלך ניתוח של מספר מתון של רכיבי MIB בלבד תגרום למערכת הקבצים להתמלא במהרה.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d12642e32 ">מילולי</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d12642e34 "><p class="p">אפשרות זו מציינת רמת רישום שבה כל הודעות המידע נרשמות.</p>
+<p class="p">הודעה מילולית כוללת את מצב המשתנים, המערכים ורכיבי ה-Hash כאשר חל שינוי בערכם או במצבם.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="השתמשו בהעדפות התיעוד כדי לציין את מדריך קובץ היומן של MIB Manager, וכדי להגדיר את רמת ההודעה המוגדרת כברירת מחדל.">הגדרת העדפות תיעוד</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="匯入 MIB 資料" />
+<meta name="abstract" content="如何將 SNMP MIB 資料匯入 MIB Manager。" />
+<meta name="Description" content="如何將 SNMP MIB 資料匯入 MIB Manager。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>匯入 MIB 資料</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">匯入 MIB 資料</h1>
+<div class="body taskbody"><p class="shortdesc">如何將 SNMP MIB 資料匯入 MIB Manager。</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">開始之前</h2></div><p class="p">在「<span class="keyword wintitle">喜好設定</span>」視窗中，指定一般由供應商 MIB 使用之 MIB 的位置。請確保您的 MIB 位於供應商特定的目錄中，且任何關聯的設備號碼位於子目錄中。另請確保這些目錄不包含任何非 MIB 文字檔。大部分 MIB 都安裝在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> 目錄中，而所有 RFC MIB 都安裝在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> 目錄中。</p>
+<p class="p">您正在匯入的 MIB 可能仰賴於其他 MIB。若要確保 <span class="keyword">MIB Manager</span> 可以在執行匯入時搜尋相依的 MIB，請設定相依 MIB 檔案位置的搜尋路徑。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">程序</h2></div><p class="li stepsection">若要匯入 MIB 資料，請執行下列動作：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">按一下 <img class="image" src="../gifs/import.gif" alt="MIB 匯入圖示" /> <span class="ph uicontrol">匯入</span>，或從功能表中按一下<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">匯入</span></span>。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目錄</span>欄位中，指定要匯入的 MIB 模組位置。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">若要讓 <span class="keyword">MIB Manager</span> 剖析在可用子目錄中找到的所有 MIB，請選取<span class="ph uicontrol">遍訪子目錄</span>勾選框。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">按一下<span class="ph uicontrol">匯入</span>。</span> <p class="p">剖析 MIB 模組時，會顯示「<span class="keyword wintitle">匯入狀態</span>」視窗。
+在剖析匯入的 MIB 檔案期間探索到每個 MIB 物件類型時，此視窗的左側會顯示不同的 MIB 物件類型號碼。</p>
+  剖析 MIB 之後，<span class="keyword">MIB Manager</span> 會檢查每個 MIB 模組並剖析找到的所有 MIB 物件。
+剖析所有物件之後，<span class="keyword">MIB Manager</span> 會檢查每個 MIB 並處理 import 陳述式以尋找所有參照的 MIB 模組。
+如果在之前匯入的 MIB 模組中找不到任何參照的 MIB 模組，則 <span class="keyword">MIB Manager</span> 會搜尋在搜尋路徑中指定的目錄。「<span class="keyword wintitle">匯入狀態</span>」視窗右側顯示的圖示，用來顯示所匯入 MIB 中找到的任何 import 陳述式狀態，如下表所示：
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="顯示在「匯入狀態」視窗中的圖示及其意義。" class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8255e106">圖示</th>
+<th class="entry" valign="bottom" id="d8255e108">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/question_mark.gif" alt="問號" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">指出 import 陳述式尚未解析。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/tick.gif" alt="勾號" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">指出 import 陳述式已解析。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/cross.gif" alt="叉號" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">指出無法解析 import 陳述式中參照的 MIB 模組。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">您可以展開 import 陳述式樹狀結構來顯示哪些 MIB 模組使用 import 陳述式來參照其他 MIB 模組。</p>
+
+<p class="p"><span class="ph uicontrol">匯入完成</span>會在已處理完所有匯入的 MIB 檔案時，顯示在狀態訊框的頂部。您可以按一下<span class="ph uicontrol">檢視狀態歷程</span>並使用<span class="ph uicontrol">檢視</span>下拉清單選取過濾選項，來檢視匯入期間產生的所有狀態訊息。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">按一下<span class="ph uicontrol">跳出</span>以關閉「<span class="keyword wintitle">匯入狀態</span>」視窗。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">結果</h2></div><p class="p">「<span class="keyword wintitle">MIB 模組</span>」視圖會自動重新整理，以顯示最近匯入的 MIB 模組名稱。「<span class="keyword wintitle">OID 樹狀結構</span>」視圖會自動重新整理，以顯示所有最近匯入的 MIB 物件。為了重建樹狀結構，<span class="keyword">MIB Manager</span> 會遞迴地搜尋樹狀結構的母節點（<span class="ph filepath">iso</span>、<span class="ph filepath">ccitt</span> 及 <span class="ph filepath">joint-iso-ccitt</span>）來尋找子節點，直到找到沒有相關聯子項的子節點為止。如果未偵測到任何錯誤，則完全移入的 MIB 樹狀結構會顯示在「<span class="keyword wintitle">OID 樹狀結構</span>」視圖中，其中包含剖析的物件。</p>
+<p class="p">按一下「<span class="keyword wintitle">OID 樹狀結構</span>」視圖中的物件，即會自動顯示「<span class="keyword wintitle">MIB 模組</span>」視圖中的物件。「<span class="keyword wintitle">詳細資料</span>」視圖會顯示所選取物件的相關詳細資訊。</p>
+<p class="p">匯入的 MIB 模組儲存在 XML 檔案中，該檔案代表該 MIB 模組的結構。XML 檔案位於 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span> 目錄中。</p>
+<p class="p">如果偵測到無法分辨的 import 陳述式，請聯絡負責遺漏的一個以上 MIB 的供應商，將遺漏的一個以上檔案新增至搜尋路徑並重複匯入作業。</p>
+<div class="p"><div class="note note"><span class="notetitle">註：</span> <p class="p">供應商有時會指定重複的物件名稱，或指定的物件名稱與 RFC 中指定的物件名稱相同。</p>
+
+<p class="p">例如，物件 <samp class="ph codeph">system</samp> 定義於模組 SNMPv2-MIB（OID 為 1.3.6.1.2.1.1）中，而另一個物件 <samp class="ph codeph">system</samp> 定義於模組 WINDOWS-NT-PERFORMANCE（OID 為 1.3.6.1.4.1.311.1.1.3.1.1.23）中。
+此外，物件 <samp class="ph codeph">sysDescr</samp> 在模組 SNMPv2-MIB 中定義為 <samp class="ph codeph">system.1</samp>，而另一個物件 <samp class="ph codeph">sysFileReadOperationsPerSec</samp> 在模組 WINDOWS-NT-PERFORMANCE 中定義為 <samp class="ph codeph">system.1</samp>。
+在此情況下，不清楚與子物件相關聯的母項物件。</p>
+
+<p class="p">找到具有重複母項名稱的物件時，<span class="keyword">MIB Manager</span> 會嘗試尋找定義於相同 MIB 模組中的母項。在前一個範例中，則為
+WINDOWS-NT-PERFORMANCE。如果沒有任何母項定義於相同的 MIB 模組中，則 <span class="keyword">MIB Manager</span> 會繼續搜尋以查看母項是否定義於該物件相依的其他 MIB 模組中。
+<span class="keyword">MIB Manager</span> 還會識別參照該母項的其他 MIB 模組，並選取最常參照的母項名稱。但是，這樣做會導致錯誤地移入 MIB 樹狀結構以及錯誤地計算 OID 數目。因此，<span class="keyword">MIB Manager</span> 每次找到重複的物件名稱時，都會在除錯檔案中記載警告並記錄解決重複問題所採取的動作。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。">使用 Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>相關參考</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="使用目錄喜好設定來指定目錄，用來儲存匯入的 MIB、MIB 資料以及匯出的規則檔案。">設定目錄喜好設定</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="本節說明如何定義用於搜尋 MIB 檔案的 MIB Manager 喜好設定。">設定搜尋喜好設定</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

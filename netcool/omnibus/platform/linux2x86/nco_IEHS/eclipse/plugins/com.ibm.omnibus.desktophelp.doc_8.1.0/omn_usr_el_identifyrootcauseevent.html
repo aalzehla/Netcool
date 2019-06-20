@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Identifying root cause events in the event list" />
+<meta name="abstract" content="In a virtualized environment, Tivoli Netcool/OMNIbus can correlate events to determine which events are the root cause of other, symptom events. In the event list, you can identify the root cause event behind symptom events if this feature is enabled on your system." />
+<meta name="Description" content="In a virtualized environment, Tivoli Netcool/OMNIbus can correlate events to determine which events are the root cause of other, symptom events. In the event list, you can identify the root cause event behind symptom events if this feature is enabled on your system." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_identifyrootcauseevent" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>Identifying root cause events in the event list</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_identifyrootcauseevent">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Identifying root cause events in the event list</h1>
+<div class="body taskbody"><p class="shortdesc">In a virtualized environment, <span class="keyword">Tivoli Netcool/OMNIbus</span> can correlate events to determine which events are the
+root cause of other, symptom events. In the event list, you can identify
+the root cause event behind symptom events if this feature is enabled
+on your system.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>Make sure that the <span class="ph uicontrol">CauseType</span> field and
+the <span class="ph uicontrol">ParentIdentifier</span> field are added to your
+view. Optionally, the <span class="ph uicontrol">ParentServerSerial</span> field
+can also be added. Symptom events have a <span class="ph uicontrol">CauseType</span> value of <span class="keyword option">Symptom</span>.</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>By default, symptom events have a Warning severity level,
+whereas root cause events have a Critical severity level.</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection"></p><div class="li step"><span class="ph cmd">To identify the root cause of a symptom event, in the event
+list right-click a single symptom event and click <span class="ph uicontrol">Show
+Root Cause</span>.</span> If you select more than one symptom
+event, only the root cause event of the first event in the selection
+is shown. <p class="p">A new event list opens, displaying
+the root cause event. The value of the <span class="ph uicontrol">CauseType</span> field is <span class="keyword option">RootCause</span>.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="You can use the event list to monitor and manage alerts. An alert is created when the ObjectServer receives an event, alarm, message, or data item. Each alert is made up of columns (or fields) of information that are held in a row in the ObjectServer alerts.status table.">Monitoring and managing events in the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

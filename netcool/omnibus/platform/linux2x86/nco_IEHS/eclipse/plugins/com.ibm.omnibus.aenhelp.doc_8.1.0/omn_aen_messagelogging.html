@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Accelerated event notification message logging" />
+<meta name="abstract" content="The Accelerated Event Notification client logs its internal messages to disk." />
+<meta name="Description" content="The Accelerated Event Notification client logs its internal messages to disk." />
+<meta name="DC.subject" content="Accelerated Event Notification client, message logging, message logs, Accelerated Event Notification client" />
+<meta name="keywords" content="Accelerated Event Notification client, message logging, message logs, Accelerated Event Notification client" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_monitoringfasttrackevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_aen_messagelogging" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_aen_monitoringfasttrackevnts.html" />
+<title>Accelerated event notification message logging</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_aen_messagelogging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Accelerated event notification message logging</h1>
+<div class="body conbody"><p class="shortdesc">The Accelerated Event Notification client logs its internal
+messages to disk.</p>
+<p class="p">This information is stored in a rolling log with a root file name
+of <span class="ph filepath">nco_aen_system.log</span> within the <span class="ph filepath">NCHOME/omnibus/log</span> directory.</p>
+<p class="p"></p>
+<div class="p">You can modify the accelerated event notification properties file
+to configure logging properties. The location of this file is :<ul class="ul"><li class="li">UNIX: <span class="ph filepath"><var class="keyword varname">userhome</var>/.netcool/nco_aen_settings/aen.properties</span></li>
+<li class="li">Windows: <span class="ph filepath"><var class="keyword varname">userhome</var>\.netcool\nco_aen_settings\aen.properties</span><p class="p">The
+variable <var class="keyword varname">userhome</var> represents your home directory.</p>
+</li>
+</ul>
+</div>
+<p class="p">The following table describes the logging properties that you can
+modify.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Accelerated event notification logging properties</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d674e61">Property</th>
+<th class="entry" valign="bottom" width="75%" id="d674e63">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d674e61 "><span class="keyword parmname parmname">message.level</span></td>
+<td class="entry" valign="top" width="75%" headers="d674e63 ">Sets the message logging level. The options
+are <span class="keyword option">SEVERE</span> (the default), <span class="keyword option">WARNING</span>,
+and <span class="keyword option">INFO</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d674e61 "><span class="keyword parmname parmname">log.file.max.size</span></td>
+<td class="entry" valign="top" width="75%" headers="d674e63 ">Specify the maximum file size before rollover
+occurs, and the next file is written to. The default size is <span class="keyword option">10000</span> bytes.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d674e61 "><span class="keyword parmname parmname">log.file.max.count</span></td>
+<td class="entry" valign="top" width="75%" headers="d674e63 ">Sets the number of rollover files. The default
+is <span class="keyword option">4</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d674e61 "><span class="keyword parmname parmname">log.file.name</span></td>
+<td class="entry" valign="top" width="75%" headers="d674e63 ">Specifies the logging file name. The default
+is <span class="keyword option">nco_aen_system.log</span>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_aen_monitoringfasttrackevnts.html" title="Tivoli Netcool/OMNIbus can handle millions of events a day, with all events being treated with equal importance. However, operators might have key systems or events that have tightly-controlled latency requirements. To accommodate such requirements, the Accelerated Event Notification (AEN) application provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption.">Monitoring accelerated events</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

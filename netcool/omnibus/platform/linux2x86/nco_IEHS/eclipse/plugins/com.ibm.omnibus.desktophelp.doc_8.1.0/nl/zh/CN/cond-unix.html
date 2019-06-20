@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="执行器" />
+<meta name="abstract" content="将 Conductor 用作 Tivoli Netcool/OMNIbus 的桌面入口点。 可以使用 Conductor 来启动其他使您能够查看和管理警报的桌面工具或客户机应用程序。 您还可以更改密码，并可访问系统管理员定义用于管理事件列表中警报的工具。" />
+<meta name="description" content="将 Conductor 用作 Tivoli Netcool/OMNIbus 的桌面入口点。 可以使用 Conductor 来启动其他使您能够查看和管理警报的桌面工具或客户机应用程序。 您还可以更改密码，并可访问系统管理员定义用于管理事件列表中警报的工具。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_abtpersonallibrary.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_automaticallyopenevntlstconfig.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_workingwithlocalsysdirectories.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringservercomminfo.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringproperties.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_conductorwindowUNIX" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>执行器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_conductorwindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">执行器</h1>
+<div class="body refbody"><p class="shortdesc">将 Conductor 用作 <span class="keyword">Tivoli Netcool/OMNIbus</span> 的桌面入口点。
+可以使用 Conductor 来启动其他使您能够查看和管理警报的桌面工具或客户机应用程序。 您还可以更改密码，并可访问系统管理员定义用于管理事件列表中警报的工具。</p>
+<div class="section"><div class="p" id="netom_conductorwindowUNIX__netom_conductorwindow_description">“<span class="keyword wintitle">Conductor</span>”窗口包含以下区域：<ul class="ul"><li class="li"><a class="xref" href="#netom_conductorwindowUNIX__netom_conductor_buttonbar">按钮栏</a></li>
+<li class="li"><a class="xref" href="#netom_conductorwindowUNIX__netom_conductor_personallibrary">个人库</a></li>
+<li class="li"><a class="xref" href="#netom_conductorwindowUNIX__netom_conductor_statusbar">状态栏</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_conductorwindowUNIX__netom_conductor_buttonbar"><h2 class="title sectiontitle">按钮栏</h2><div class="p">Conductor 按钮栏包含一个可配置按钮和六个预配置按钮。
+这些按钮表示已安装的所有桌面工具，且这些按钮是否可用将取决于您的访问特权。 下表中描述了按钮栏中的各个按钮。 <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. Conductor 按钮</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d16570e42">按钮</th>
+<th class="entry" valign="bottom" width="80%" id="d16570e44">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 ">可配置按钮（最左侧按钮）</td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">只要您启动了 Conductor，就可使用可配置按钮来自动启动定制事件列表配置。 该按钮需要用户定制，并显示为虚线矩形（带有 <span class="ph uicontrol">none</span> 标签），如果该按钮尚未链接到事件列表配置，那么该矩形充当一个占位符。 要配置此按钮，您必须从个人库或“<span class="keyword wintitle">目录浏览器</span>”窗口为事件列表配置文件选择一个图标，然后删除此按钮上的图标。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 "><span class="ph uicontrol">过滤器构建器</span></td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">单击<span class="ph uicontrol">过滤器构建器</span>以启动装入了缺省过滤器的过滤器构建器。 您可以使用过滤器构建器来创建新的过滤器或编辑现有的过滤器。 </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 "><span class="ph uicontrol">视图构建器</span></td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">单击<span class="ph uicontrol">视图构建器</span>以启动装入了缺省视图的视图构建器。 您可以使用视图构建器来创建新的视图或编辑现有的视图。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 "><span class="ph uicontrol">浏览器</span></td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">单击<span class="ph uicontrol">浏览器</span>可打开允许您浏览文件系统的目录浏览器实用程序，并查找过滤器文件、视图文件以及事件列表配置文件，您可以将这些文件添加到常用的 <span class="keyword">Tivoli Netcool/OMNIbus</span> 文件的个人库中。 </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 "><span class="ph uicontrol">事件列表</span></td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">单击<span class="ph uicontrol">事件列表</span>可启动带有缺省配置的事件列表；即带有缺省视图和缺省过滤器。 如果已经从 Conductor 启动了事件列表，那么此按钮不可用，以防止启动多个事件列表。 </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 "><span class="ph uicontrol">接口</span></td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">单击<span class="ph uicontrol">接口</span>以启动服务器编辑器，其用于设置通信详细信息以使 <span class="keyword">Tivoli Netcool/OMNIbus</span> 服务器组件可以相互通信。 </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d16570e42 "><span class="ph uicontrol">属性</span></td>
+<td class="entry" valign="top" width="80%" headers="d16570e44 ">单击<span class="ph uicontrol">属性</span>可启动属性编辑器，其可以用于编辑 ObjectServer、代理服务器、进程代理程序、数据库初始化实用程序（<span class="keyword cmdname">nco_dbinit</span>）、探测器和网关的属性文件中的配置信息。 </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p class="p">要从 Conductor 运行桌面工具，请单击相关按钮。 工具将会自动启动；您不必输入用户名和密码。</p>
+</div>
+<div class="section" id="netom_conductorwindowUNIX__netom_conductor_personallibrary"><h2 class="title sectiontitle">个人库</h2><p class="p">个人库提供了一个易于访问的位置，可以从该位置打开保存在 <span class="ph filepath">.omnibus</span> 目录中的常用 <span class="keyword">Tivoli Netcool/OMNIbus</span> 文件。 其中包括事件列表配置文件（<span class="ph filepath">.elc</span>）、视图文件（<span class="ph filepath">.elv</span>）和过滤器文件（<span class="ph filepath">.elf</span>）。 可以双击个人库中的图标以打开关联的应用程序。 </p>
+<p class="p">个人库还包含表示首选项文件的 <span class="ph uicontrol">prefs</span> 图标。 双击此图标可指定 Conductor、事件列表和警报通知的全局首选项。 </p>
+</div>
+<div class="section" id="netom_conductorwindowUNIX__netom_conductor_statusbar"><h2 class="title sectiontitle">状态栏</h2><div class="p">状态栏显示：<ul class="ul"><li class="li">状态消息</li>
+<li class="li">用于登录当前会话的用户名</li>
+<li class="li">您当前所连接到的 ObjectServer，以及这是主（<samp class="ph tt">PRI</samp>）服务器，还是备份（<samp class="ph tt">BAK</samp>）服务器</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_usr_abtpersonallibrary.html" title="特定服务器上的每个 UNIX 用户都有一个 .omnibus 目录，个人库充当此目录的图形浏览器。 您可从 UNIX Conductor 中定制个人库，以包含经常使用的视图、过滤器和事件列表配置。">关于个人库</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="可以保存为“事件列表”监视器框窗口上的所有监视器框定义的过滤器、视图以及其他事件配置。 该信息保存在事件列表配置（.elc）文件中。">处理事件列表配置</a></div>
+<div><a class="link" href="omn_usr_automaticallyopenevntlstconfig.html" title="您可以将事件列表配置文件（.elc）配置为只要启动 UNIX Conductor 就自动打开。 按此方法每次仅可打开一个事件列表配置。">启动时自动打开事件列表配置</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterunix.html" title="使用 UNIX 过滤器构建器可构建事件列表数据的过滤器。">在 UNIX 上创建或编辑过滤器</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="使用视图构建器可定义事件列表内显示哪些列。">在 UNIX 上创建或编辑视图</a></div>
+<div><a class="link" href="omn_usr_workingwithlocalsysdirectories.html" title="Tivoli Netcool/OMNIbus提供了一种目录浏览器实用程序，该实用程序与任何 UNIX 文件系统浏览器的操作方法相似。">处理本地系统目录</a></div>
+<div><a class="link" href="omn_usr_el_workingwithevents.html" title="要处理事件列表内的事件，必须先选择事件。">处理事件</a></div>
+<div><a class="link" href="omn_usr_configuringservercomminfo.html" title="必须维护 Tivoli Netcool/OMNIbus 服务器组件的服务器通信信息。 可以使用服务器编辑器来创建和修改服务器组件的通信详细信息，测试服务器活动，以及添加备份（或故障转移）服务器和侦听器。">配置服务器通信信息</a></div>
+<div><a class="link" href="omn_usr_configuringproperties.html" title="您可以编辑以下各项的属性文件中所含的信息：ObjectServer、代理服务器、数据库初始化实用程序（nco_dbinit）、Confpack 实用程序（nco_confpack）、Netcool/OMNIbus Administrator（nco_config）、探测器和网关。属性文件具有 .props 扩展名。">配置属性</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="从 UNIX Conductor 可以设置 Conductor 窗口、事件列表以及事件通知的全局首选项。">设置 UNIX Conductor 的全局首选项</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

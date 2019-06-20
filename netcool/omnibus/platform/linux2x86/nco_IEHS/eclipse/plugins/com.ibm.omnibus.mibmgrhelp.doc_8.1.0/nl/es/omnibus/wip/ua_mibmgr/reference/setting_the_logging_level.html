@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Establecimiento del nivel de registro cronológico" />
+<meta name="abstract" content="Puede cambiar el nivel de registro cronológico para proporcionar archivos de registro o de rastreo más detallados para facilitar la depuración de MIB Manager. La información adicional que se proporciona aumentando los niveles de registro cronológico puede ayudarle en la depuración de problemas específicos al analizar las MIB." />
+<meta name="Description" content="Puede cambiar el nivel de registro cronológico para proporcionar archivos de registro o de rastreo más detallados para facilitar la depuración de MIB Manager. La información adicional que se proporciona aumentando los niveles de registro cronológico puede ayudarle en la depuración de problemas específicos al analizar las MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="es-es" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versión 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Establecimiento del nivel de registro cronológico</h1>
+<div class="body refbody"><p class="shortdesc">Puede cambiar el nivel de registro cronológico para proporcionar archivos
+de registro o de rastreo más detallados para facilitar la depuración de <span class="keyword">MIB Manager</span>. La
+información adicional que se proporciona aumentando los niveles de registro cronológico
+puede ayudarle en la depuración de problemas específicos al analizar las MIB.</p>
+<div class="section"><p class="p">Para cambiar el nivel de registro
+cronológico, pulse <span class="ph menucascade"><span class="ph uicontrol">Editar</span> &gt; <span class="ph uicontrol">Depurar</span></span> en
+la barra de menú de la ventana principal. Los archivos de registro tienen seis niveles de
+mensaje por los que se puede pasar para aumentar el nivel del detalle que se captura: ninguno,
+error, aviso, info, depuración y detalle.</p>
+<p class="p">En la tabla siguiente se proporciona una
+descripción breve de cada nivel de registro cronológico:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabla 1. Lista de niveles de registro cronológico
+con su descripción asociada</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3945e36">Nivel de registro</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3945e38">Descripción</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">ninguno</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Especifica un nivel de registro en el que no se da salida
+a mensajes de depuración. </p>
+<p class="p">Se mejora el rendimiento de la aplicación
+pero no se muestran mensajes de aviso ni de error durante el análisis.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">error</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Especifica un nivel de registro en el que sólo se registran
+los errores que afectan a los resultados.</p>
+<p class="p">Esto incluye los errores
+identificados por <span class="keyword">MIB Manager</span>
+que harían que se mostraran datos incorrectos en la ventana principal.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">aviso</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Especifica un nivel de registro en el que se registran
+mensajes de aviso y de error.</p>
+<p class="p">Un aviso indica una condición que
+podría originar datos erróneos y, por tanto, se debe verificar. Sin embargo,
+la condición no causará que se corrompan los datos.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Especifica un nivel de registro en el que se registran mensajes
+informativos, de aviso y críticos.</p>
+<p class="p">Los mensajes informativos contienen
+detalles relativos al progreso general de las tareas. Por ejemplo, proporcionan
+el texto completo de los objetos a medida que se analizan.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">depuración</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><div class="p">Especifica un nivel de registro en el que se registran
+todos los mensajes. <div class="note note"><span class="notetitle">Nota:</span> Ejecute <span class="keyword">MIB Manager</span> en la modalidad de
+depuración sólo cuando intente resolver una condición de error. El volumen
+de datos que se produce al analizar sólo un número moderado de MIB llenará
+rápidamente su sistema de archivos.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">detalle</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Especifica un nivel de registro en el que se registran todos los
+mensajes de información.</p>
+<p class="p">Un mensaje detallado incluye el estado de las
+variables, matrices y hashes a medida que cambian el valor y el estado.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Utilice las preferencias de registro cronológico para especificar el directorio de archivos de registro de MIB Manager y establecer el nivel de mensaje predeterminado.">Establecimiento de las preferencias de registro cronológico</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Soporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

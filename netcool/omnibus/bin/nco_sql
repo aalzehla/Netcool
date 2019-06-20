@@ -1,0 +1,184 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2005. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# SQL Session to the Object Server or Process Agent
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export OMNIHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+#
+# help function
+#
+help () {
+	echo "usage: `basename $1` [options]"
+	echo "where options can be:"
+	echo "-nosecure		  Don't use secure login (default on OMNIBus 3.4)"
+	echo "-secure			  Use secure login (default on OMNIBus 3.5+)"
+	echo "-server <server name>	  Object Server Name (default is 'NCOMS')"
+	echo "-user <username>	  User to connect as (default is your username)"
+	echo "-password <password>	  Server password (no default)"
+	echo "-networktimeout <timeout> Server network timeout (default is ${OMNITIMEOUT})"
+	echo "-input <inputfile>	  SQL input (default is standard input)"
+	echo "-help			  Print help text"
+	echo
+	exit 0
+}
+
+#
+# Set defaults etc
+#
+OMNISERVER="${NCO_SERVER:-NCOMS}"
+OMNIUSER=`$WHOAMI`
+OMNIPASSWD=""
+OMNITIMEOUT=0
+INPUTFILEARG=""
+
+if [ "$OMNIRELEASE_MINOR" -gt 4 -o "$OMNIRELEASE_MAJOR" -gt 3 ]; then
+    SECURE=y
+else
+    SECURE=n
+fi
+
+#
+# Parse command line args.
+#
+while [ $# -gt 0 ]; do
+    case "$1" in
+	-nosecure)
+	    SECURE=n
+	    ;;
+	-secure)
+	    SECURE=y
+	    ;;
+	-networktimeout)
+            if [ $# -lt 2 ]; then
+                err "$1 option requires a timeout value"
+            fi
+            shift
+            OMNITIMEOUT=$1
+            ;;
+        -s*|-S)
+            if [ $# -lt 2 ]; then
+                err "$1 option requires a server name"
+            fi
+            shift
+            OMNISERVER="$1"
+            ;;
+	-u*|-U)
+            if [ $# -lt 2 ]; then
+                err "$1 option requires a user name"
+            fi
+            shift
+            OMNIUSER="$1"
+            ;;
+	-p*|-P)  
+            if [ $# -lt 2 ]; then
+                err "$1 option requires a password"
+            fi
+            shift
+	    OMNIPASSWD="-P $1"
+	    TOKENPASSWD="$1"
+	    TOKENPASSWDOPTION="-password"
+	    ;;
+	-input|-i)
+	    if [ $# -lt 2 ]; then
+	        err "$1 option requires an input file"
+	    fi
+	    shift
+	    INPUTFILEARG="-i $1"
+	    ;;
+	-h*|-H|-\?)
+	    help $0 1>&2
+	    ;;
+	*)
+	    err "unknown option $1"
+    esac
+    shift
+done
+
+#
+# What program are we attempting to run ?
+#
+PROGRAM=`basename $0`
+
+#
+# Check for execute permission
+#
+if [ ! -x $COMMON_ARCH_BIN_DIR/isql ]; then
+	err "Command interpreter not installed for $ARCH"
+fi
+
+#
+# Check the timeout value. If we have a timeout value that is non-zero,
+# we need to prepare the ISQL command arguments.
+#
+if [ $OMNITIMEOUT -lt 0 ]; then
+	err "Specified network timeout is too low."
+fi
+
+if [ $OMNITIMEOUT -ne 0 ]; then
+	OMNITIMEOUT_ARG="-t$OMNITIMEOUT -l$OMNITIMEOUT"
+else
+	OMNITIMEOUT_ARG=""
+fi
+
+if [ ! -f $NCHOME/etc/security/fips.conf ]; then
+#
+# If we're running the 'secure' nco_ssql, then get a login token
+#
+if [ "$SECURE" = "y" ]; then
+	if [ ! -x $ARCH_BIN_DIR/nco_get_login_token ]; then
+		err "Secure SQL not installed for $ARCH"
+	fi
+
+	if [ -z "$TOKENPASSWDOPTION" ]; then
+		LOGINTOKEN=`$ARCH_BIN_DIR/nco_get_login_token -server $OMNISERVER -username "$OMNIUSER" -networktimeout $OMNITIMEOUT`
+	else
+		LOGINTOKEN=`$ARCH_BIN_DIR/nco_get_login_token -server $OMNISERVER -username "$OMNIUSER" -password "$TOKENPASSWD" -networktimeout $OMNITIMEOUT`
+	fi
+	if [ -z "$LOGINTOKEN" ]; then
+		err "Failed to get login token"
+	fi
+	OMNIUSER="token-login"
+	OMNIPASSWD="-P $LOGINTOKEN"
+fi
+fi
+#
+# Run isql
+#
+if [ -f $NCHOME/etc/interfaces.$ARCH ]; then
+	INTERFACES=$NCHOME/etc/interfaces.$ARCH
+else
+	INTERFACES=$NCHOME/etc/interfaces
+fi
+SYBASE=$NCHOME/platform/$ARCH export SYBASE
+exec $COMMON_ARCH_BIN_DIR/isql -S$OMNISERVER -U$OMNIUSER $OMNIPASSWD -I$INTERFACES $OMNITIMEOUT_ARG $INPUTFILEARG

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="تحديد تفضيلات التصدير" />
+<meta name="abstract" content="يقوم هذا القسم بشرح كيفية تحديد القواعد الخاصة بك لتفضيلات تصدير الملفات." />
+<meta name="Description" content="يقوم هذا القسم بشرح كيفية تحديد القواعد الخاصة بك لتفضيلات تصدير الملفات." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">تحديد تفضيلات التصدير</h1>
+<div class="body refbody"><p class="shortdesc">يقوم هذا القسم بشرح كيفية تحديد القواعد الخاصة بك لتفضيلات تصدير الملفات.</p>
+<div class="section"><p class="p">لتحديد تفضيلات الدليل، اضغط على <img class="image" src="../gifs/global_preferences.gif" alt="شارة التفضيلات" /> <span class="ph uicontrol">التفضيلات</span>، أو من  القائمة اضغط <span class="ph menucascade"><span class="ph uicontrol">ملف</span> &gt; <span class="ph uicontrol">تفضيلات</span></span>، ثم من الجزء الأيمن بنافذة <span class="keyword wintitle">التفضيلات</span>، اضغط <span class="ph uicontrol">تصدير</span>.</p>
+</div>
+<div class="section"><ul class="ul"><li class="li">في مجال <span class="ph uicontrol">تضمين مسار</span>، حدد مكان القواعد التي تم تركيبها مع مجموعات برامج  قواعد Netcool Include Library (NCiL)  (اذا تم تركيبهم).
+يكون هذا الاختيار مطلوبا فقط اذا كنت تقوم بتصدير البيانات بنسق ملف Netcool Include Library وعندما يجب أن يشير مسار الدليل الى القواعد التي تم تضمينها. كنتيجة لذلك، لا يجب تحرير ملفات القواعد الجديدة يدويا. القيمة المفترضة هى <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/probes/<var class="keyword varname">arch</var></span>.</li>
+<li class="li">في مجال <span class="ph uicontrol">نسق ملف التصدير المفترض</span>، حدد نسق  Windows/DOS (CRLF) أو نسق Unix (LF) لملف المخرجات. تسمح لك هذه الخاصية بتكوين القواعد على جهاز Windows
+ونسخها الى جهاز UNIX بدون تشغيل وظيفة مثل <samp class="ph codeph">dos2unix</samp>. <div class="note note"><span class="notetitle">ملاحظة:</span> ينطبق هذا الاختيار على كل ملفات المخرجات ولا يقتصر على ملفات القواعد. القيمة المفترضة هي نسق Unix.</div>
+</li>
+<li class="li">في مجال <span class="ph uicontrol">أنواع التنبيه</span>، حدد اختيارات الكشف المسقط التي يتم عرضها عند تحرير مجال <samp class="ph codeph">@Type</samp> لملف تعقب المشاكل في مشاهدة
+<span class="keyword wintitle">التفاصيل</span>.</li>
+</ul>
+<p class="p">تكون الاختيارات التالية متاحة فقط اذا تم تحديد نسق تصدير NCKL مسبقا:</p>
+<ul class="ul"><li class="li">اذا تم تحديد مربع الاختيار <span class="ph uicontrol">تضمين وصف varbind</span>، سيتم اضافة وصف  varbind كتعقيب.
+يتم اتاحة القيمة المفترضة.</li>
+<li class="li">اذا تم تحديد مربع الاختيار <span class="ph uicontrol">احتساب قيمة أفضل الى @AlertKey</span>، سيتم تكوين القيمة <samp class="ph codeph">@AlertKey</samp> من عنصر varbind الرئيسي. يتم اتاحة القيمة المفترضة.</li>
+<li class="li">اذا تم تحديد مربع الاختيار <span class="ph uicontrol">تحديد @Agent مرة واحدة للمؤسسة</span>، يتم تحديد مجال <samp class="ph codeph">@Agent</samp> لكل مؤسسة. يعتمد مجال <samp class="ph codeph">@Agent</samp> على أسماء وحدات برامج MIB التي يتم تشغيلها لملف القواعد. يتم اتاحة القيمة المفترضة.</li>
+<li class="li">اذا تم تحديد مربع الاختيار <span class="ph uicontrol">اضافة قالب @Class</span>، سيتم تحديد المجال <samp class="ph codeph">@Class</samp>. اذا تم تعليم مربع الاختيار <span class="ph uicontrol">اضافة قالب
+@Class</span>، سيتم تحديد المجال <samp class="ph codeph">@Class</samp> بالقيمة 300. يتم اتاحة القيمة المفترضة.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="يمكنك توصيف العديد من تفضيلات MIB Manager الشاملة من نافذة Preferences.">توصيف التفضيلات الشاملة</a></div>
+</div>
+<div class="relinfo reltasks"><strong>المهام المتعلقة</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="كيفية ارسال بيانات SNMP MIB من MIB Manager الى تنسيقات متنوعة.">تصدير بيانات MIB</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="User Defined Signal Details" />
+<meta name="abstract" content="Use this window to set up a new user-defined signal or edit the details of an existing user-defined signal." />
+<meta name="Description" content="Use this window to set up a new user-defined signal or edit the details of an existing user-defined signal." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedituserdefsignl.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_exampleuserdefsignltrigg.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_userdefinedsignaldetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>User Defined Signal Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_userdefinedsignaldetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">User Defined Signal Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new user-defined signal or edit the
+details of an existing user-defined signal.</p>
+<div class="section"><div class="p">Complete this window as follows:<dl class="dl" id="netom_userdefinedsignaldetailswindow__netom_userdefinedsignaldetailsfields"><dt class="dt dlterm">Signal Name</dt>
+<dd class="dd">Type a unique name for the signal. If you are editing a signal, you cannot
+change the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Comment</dt>
+<dd class="dd">Type a text comment for the signal. For example, you can add a comment
+to state which trigger fires when this signal is raised.</dd>
+<dt class="dt dlterm">Parameters</dt>
+<dd class="dd">This area displays the parameters that comprise the user-defined signal.</dd>
+<dd class="dd">The order in which the parameters appear must match the order that they
+appear in the RAISE SIGNAL command for the trigger. You can use the up and
+down arrows to the right of the list box to change the order of any selected
+parameter. You can also click <span class="ph uicontrol">Remove parameter</span> to the
+right of the list box to remove any selected parameter from the list.</dd>
+<dd class="dd">To create a parameter, use the <span class="ph uicontrol">Name</span> and <span class="ph uicontrol">Data
+Type</span> fields, and the <span class="ph uicontrol">Add parameter to the list </span> button. </dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a name for the parameter being created. Parameter names must be unique
+within the signal.</dd>
+<dt class="dt dlterm">Data Type</dt>
+<dd class="dd">Select the type of data the parameter can pass into the signal. The data
+type can be any valid ObjectServer data type except VARCHAR or INCR. </dd>
+<dt class="dt dlterm">Data Length</dt>
+<dd class="dd">For <span class="ph uicontrol">Char</span> data types only, type the parameter length.</dd>
+<dt class="dt dlterm">Add parameter to the list</dt>
+<dd class="dd">After completing the <span class="ph uicontrol">Name</span>, <span class="ph uicontrol">Data Type</span>,
+and, where necessary, <span class="ph uicontrol">Data Length</span> fields, click this
+button to add the parameter to the parameter list.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_userdefinedsignaldetailswindow__netom_userdefinedsignaldetails_saving_closing"><h2 class="title sectiontitle">Saving
+your user-defined signals</h2><div class="p">After creating or editing a user-defined
+signal, you can save or cancel the changes made by clicking the relevant button
+as follows:<dl class="dl" id="netom_userdefinedsignaldetailswindow__netom_userdefinedsignaldetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the user-defined signal and close the window.
+New user-defined signals are added to the <span class="keyword wintitle">User Defined Signals</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingedituserdefsignl.html" title="Unlike system signals, which are predefined and cannot be configured, user-defined signals must be explicitly created or deleted.">Creating and editing user-defined signals</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_exampleuserdefsignltrigg.html" title="This example shows a user-defined signal called illegal_delete, and the DETECT_AN_ILLEGAL_DELETE database trigger in which it is used. The database trigger uses the signal to trap deletes that occur outside of standard office hours.">Example: User-defined signal and trigger</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

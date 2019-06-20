@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Adding new services or processes (nco_pa_addentry)" />
+<meta name="abstract" content="You can run the nco_pa_addentry utility to add new services or processes while the process agent is running." />
+<meta name="Description" content="You can run the nco_pa_addentry utility to add new services or processes while the process agent is running." />
+<meta name="DC.subject" content="process control, nco_pa_addentry, process control, adding services, adding processes" />
+<meta name="keywords" content="process control, nco_pa_addentry, process control, adding services, adding processes" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_startingservprocncopastart.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_host_resolution.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_addingservprocncopaaddetry" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Adding new services or processes (nco_pa_addentry)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_addingservprocncopaaddetry">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Adding new services or processes (nco_pa_addentry)</h1>
+<div class="body refbody"><p class="shortdesc">You can run the <span class="keyword cmdname">nco_pa_addentry</span> utility
+to add new services or processes while the process agent is running.</p>
+<div class="section"><div class="p">Use this utility to:<ul class="ul"><li class="li">Add new services to a running process agent.</li>
+<li class="li">Start a <dfn class="term">fire-and-forget</dfn> process. Such processes start
+automatically and cannot be altered. When setting up a fire-and-forget
+process, define the process as unmanaged if you want to ensure that
+it runs only once. You can do this by specifying the <span class="keyword option">-unmanaged</span> command-line option when running the <span class="keyword cmdname">nco_pa_addentry</span> utility.</li>
+<li class="li">Add a new managed process to a service.</li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> The new service or process is not added
+to the process agent configuration file unless you choose to update
+the configuration file when using Netcool/OMNIbus Administrator.</div>
+<p class="p">To add a service or process to a running process agent, enter
+the following command. The square brackets depict optional entries.</p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pa_addentry [-process <var class="keyword varname">string</var> | -service <var class="keyword varname">string</var>] <var class="keyword varname">command_line_options</var></kbd></p>
+<p class="p">In this command, <var class="keyword varname">command_line_options</var> represents one or more command-line options that you can specify
+for the service or process, or for the <span class="keyword cmdname">nco_pa_addentry</span> utility.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Command-line options for nco_pa_addentry</h2><p class="p">Command-line options for the <span class="keyword cmdname">nco_pa_addentry</span> utility
+are described in the following table.</p>
+<div class="note important"><span class="importanttitle">Important:</span> To
+ensure that the process or service is properly created, all relevant
+command-line options must be explicitly specified with an assigned <var class="keyword varname">string</var> value. This criterion also applies to any default
+settings that you might want to apply.</div>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Command-line
+options for nco_pa_addentry</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d17318e94">Command-line option</th>
+<th class="entry" valign="bottom" width="60%" id="d17318e96">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-alert_msg </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the message to send to the UNIX syslog or the Windows Event Viewer if the process exits. <p class="p">On UNIX, enclose the <var class="keyword varname">string</var> value in single quotation marks if the text contains
+spaces. On Windows, enclose
+the <var class="keyword varname">string</var> value in double quotation marks if the
+text contains spaces.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-auto</span><p class="p"><span class="keyword option">-nonauto</span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">If <span class="keyword option">-auto</span> is specified, the
+service or process is started as soon as the process agent is started.
+By default, the service must be started manually with the <span class="keyword cmdname">nco_pa_start</span> command. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-command </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the process command line. For example:<pre class="pre codeblock"><code>$NCHOME/omnibus/bin/nco_objserv -name NCOMS <br />-pa SFOSYS1_PA</code></pre>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-delay </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the time delay in seconds before the
+specified process is started.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-depend </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies a process on which the specified process
+depends.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Displays help on the command-line options and
+exits.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-host </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the host on which to run the process. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-managed</span><p class="p"><span class="keyword option">-unmanaged</span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">If <span class="keyword option">-managed</span> is specified, the
+process is restarted automatically if it exits. The default is <span class="keyword option">-managed</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-master</span><p class="p"><span class="keyword option">-nonmaster</span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">If <span class="keyword option">-master</span> is specified, the
+service type is set to master. The default is <span class="keyword option">-master</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-nosecure</span></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Connects to process agents in a non-secure mode
+that does not encrypt login information during transmission.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-pa_aware</span><p class="p"><span class="keyword option">-not_pa_aware</span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">If <span class="keyword option">-pa_aware</span> is specified,
+the <samp class="ph codeph">ProcessType</samp> is set to <span class="keyword option">PaPA_AWARE</span>. By default, the process is not PA aware.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-parentservice </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the service to which to add the process.<div class="note note"><span class="notetitle">Note:</span> When adding a process to a service, you <em class="ph i">must</em> define the parent
+service by using <span class="keyword option">-parentservice</span>.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-password </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the password to use when connecting
+to the process agent.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-process </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the name of the process to add.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-restart_msg </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the message to send to the UNIX syslog or the Windows Event Viewer if the process is restarted. <p class="p">On UNIX, enclose the <var class="keyword varname">string</var> value in single quotation marks if the text contains
+spaces. On Windows, enclose
+the <var class="keyword varname">string</var> value in double quotation marks if the
+text contains spaces.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-retrycount </span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the number of restart attempts to
+be made if the process exits in the time specified by the <span class="keyword cmdname">nco_pad</span> <span class="keyword option">-retrytime</span> command-line option.
+If set to <span class="keyword option">0</span>, there is no limit to the number of restart
+attempts. The default is <span class="keyword option">0</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-runas </span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the user ID to run the process as.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-server </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the name of the process agent. The
+default is <span class="keyword option">NCO_PA</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-service </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the name of the service to add.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-user </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Specifies the user name to use when connecting
+to the process agent. The default is the user that is running the
+command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d17318e94 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="60%" headers="d17318e96 ">Displays software version information and exits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="example"><h2 class="title sectiontitle">Example: Use nco_pa_addentry to add a fire-and-forget
+process (UNIX) on 32-bit operating
+systems</h2><ol class="ol"><li class="li">Enter the following command to add a fire-and-forget process named
+simnet1, which starts automatically and runs only once (as an unmanaged
+process):<p class="p"><kbd class="ph userinput">./nco_pa_addentry -server TEST_PA -process
+'simnet1' -command '$NCHOME/omnibus/probes/nco_p_simnet' -host 'owl'
+-retrycount 0 -unmanaged -restart_msg 'test' -alert_msg 'testalert'</kbd></p>
+</li>
+<li class="li">Run the <span class="keyword cmdname">nco_pa_status</span> utility to retrieve the
+status of services in the configuration:<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pa_status
+-server TEST_PA</kbd></p>
+<p class="p">Where TEST_PA is the process agent
+name.</p>
+</li>
+</ol>
+<p class="p">When the <span class="keyword cmdname">nco_pa_status</span> utility is run,
+the output does not show a <samp class="ph codeph">simnet1</samp> process definition
+as part of a service entry. However, the <span class="keyword cmdname">ps -ef</span> command shows the simnet1 process as running, although it does not
+automatically restart if it exits.</p>
+</div>
+<div class="example"><h2 class="title sectiontitle">Example: Use nco_pa_addentry to add a fire-and-forget
+process (Windows)</h2><ol class="ol"><li class="li">Enter the following command to add a fire-and-forget process named
+simnet1, which starts automatically and runs only once (as an unmanaged
+process):<p class="p"><kbd class="ph userinput">"%NCHOME%"\omnibus\bin\nco_pa_addentry -server
+TEST_PA -process simnet1 -command "%NCHOME%"\omnibus\probes\win32\nco_p_simnet
+-host owl -retrycount 0 -unmanaged -restart_msg "Probe restarted"
+-alert_msg "Probe stopped" -password secret</kbd></p>
+</li>
+<li class="li">Run the <span class="keyword cmdname">nco_pa_status</span> utility to retrieve the
+status of services in the configuration:<p class="p"><kbd class="ph userinput">"%NCHOME%"\omnibus\bin\nco_pa_status
+-server TEST_PA</kbd></p>
+<p class="p">Where TEST_PA is the process agent
+name.</p>
+</li>
+</ol>
+<p class="p">When the <span class="keyword cmdname">nco_pa_status</span> utility is run,
+the output does not show a <samp class="ph codeph">simnet1</samp> process definition
+as part of a service entry. However, the Windows Task Manager shows the simnet1 process
+as running, although it does not automatically restart if it exits.</p>
+</div>
+<div class="example"><h2 class="title sectiontitle">Example: Use nco_pa_addentry to add a managed process
+to a service (Solaris) on 64-bit operating systems</h2><ol class="ol"><li class="li">Enter the following command to add a process named simnet2 to
+a <samp class="ph tt">Core</samp> service:<p class="p"><kbd class="ph userinput">./nco_pa_addentry -server TEST_PA
+-process 'simnet2' -command '$NCHOME/omnibus/platform/solaris2/probes64/nco_p_simnet'
+-host 'owl' -retrycount 0 -managed -restart_msg 'test' -alert_msg
+'testalert' -parentservice 'Core'</kbd></p>
+</li>
+<li class="li">Run the <span class="keyword cmdname">nco_pa_status</span> utility to retrieve the
+status of services in the configuration:<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pa_status
+-server TEST_PA</kbd></p>
+<p class="p">Where TEST_PA is the process agent
+name.</p>
+</li>
+</ol>
+<p class="p">When <span class="keyword cmdname">nco_pa_status</span> is run, the output displays
+a simnet2 process with a status of <span class="keyword option">DEAD</span>, as part
+of the <samp class="ph codeph">Core</samp> service definition. The simnet2 process
+does not start automatically because it is part of a service. To run
+the process, use the <span class="keyword cmdname">nco_pa_start</span> utility.</p>
+</div>
+<div class="example"><h2 class="title sectiontitle">Example: Use nco_pa_addentry to add a managed process
+to a service (Windows)</h2><ol class="ol"><li class="li">Enter the following command to add a process named simnet2 to
+a <samp class="ph tt">Core</samp> service:<p class="p"><kbd class="ph userinput">"%NCHOME%"\omnibus\bin\nco_pa_addentry
+-server TEST_PA -process simnet2 -command "%NCHOME%"\omnibus\probes\win32\nco_p_simnet
+-host owl -retrycount 0 -managed -restart_msg "test" -alert_msg "testalert"
+-parentservice "Core"</kbd></p>
+</li>
+<li class="li">Run the <span class="keyword cmdname">nco_pa_status</span> utility to retrieve the
+status of services in the configuration:<p class="p"><kbd class="ph userinput">"%NCHOME%"\omnibus\bin\nco_pa_status
+-server TEST_PA</kbd></p>
+<p class="p">Where TEST_PA is the process agent
+name.</p>
+</li>
+</ol>
+<p class="p">When <span class="keyword cmdname">nco_pa_status</span> is run, the output displays
+a simnet2 process with a status of <span class="keyword option">DEAD</span>, as part
+of the <samp class="ph codeph">Core</samp> service definition. The simnet2 process
+does not start automatically because it is part of a service. To run
+the process, use the <span class="keyword cmdname">nco_pa_start</span> utility.</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_pa_host_resolution.html" title="Every external automation or process under the control of a process agent must have a specified host. The host is defined either in the process agent configuration file, as part of a process definition, or in the external automation in the ObjectServer.">Host name resolution at startup</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_startingservprocncopastart.html" title="You can run the nco_pa_start utility to start a service or process at any location in the process control system configuration.">Starting a service or process (nco_pa_start)</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

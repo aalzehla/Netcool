@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="モニター・ボックスの概要" />
+<meta name="abstract" content="「イベント・リスト」モニター・ボックス・ウィンドウ内のモニター・ボックスは、イベント・リストに表示するアラート・レコードおよび列を決めるために作成される、フィルターおよびビューの選択を表します。 モニター・ボックスは、それに関連付けられるフィルターの後で指定されます。" />
+<meta name="Description" content="「イベント・リスト」モニター・ボックス・ウィンドウ内のモニター・ボックスは、イベント・リストに表示するアラート・レコードおよび列を決めるために作成される、フィルターおよびビューの選択を表します。 モニター・ボックスは、それに関連付けられるフィルターの後で指定されます。" />
+<meta name="DC.subject" content="イベント・リスト, モニター・ボックスの概要, モニター・ボックス, 概要" />
+<meta name="keywords" content="イベント・リスト, モニター・ボックスの概要, モニター・ボックス, 概要" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefsunixevntist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefswinevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefswincond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitorboxoverview" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>モニター・ボックスの概要</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitorboxoverview">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">モニター・ボックスの概要</h1>
+<div class="body conbody"><p class="shortdesc">「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内のモニター・ボックスは、イベント・リストに表示するアラート・レコードおよび列を決めるために作成される、フィルターおよびビューの選択を表します。 モニター・ボックスは、それに関連付けられるフィルターの後で指定されます。</p>
+<p class="p">モニター・ボックスに表示する情報のタイプを決めるための設定を構成することができます。</p>
+<p class="p">UNIX におけるモニター・ボックスを、以下の図に示します。 この図では、モニター・ボックス用に複数の異なる設定が構成されています。</p>
+<div class="fig fignone"><span class="figcap">図 1. モニター・ボックス</span><div class="image"><img class="image" src="sc_omn_usr_monitorboxunix.gif" alt="この図は、UNIX コンダクター内のモニター・ボックスを示しています。" /></div></div>
+<p class="p">モニター・ボックスのコンポーネントは、以下のとおりです。</p>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> フィルター名ボタン</dt>
+<dd class="dd">このボタンは、このモニター・ボックスからアクセスできるイベント・リストに関連付けられているフィルターの名前を表示します。 フィルター・ビルダーを始動し、フィルターの詳細を表示または編集するには、このボタンをクリックします。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> 数</dt>
+<dd class="dd">この値は、そのフィルターと一致するアラートの総数を表します。</dd>
+<dt class="dt dlterm">最大</dt>
+<dd class="dd">設定として構成される場合、この値は<span class="ph uicontrol">「数」</span>と<span class="ph uicontrol">「メトリック」</span>の間に表示されます。
+この値は、フィルターと一致するアラートの中で最大の重大度を表します。</dd>
+<dt class="dt dlterm">最小</dt>
+<dd class="dd">設定として構成される場合、この値は<span class="ph uicontrol">「数」</span>と<span class="ph uicontrol">「メトリック」</span>の間に表示されます。
+この値は、フィルターと一致するアラートの中で最低の重大度を表します。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> メトリック</dt>
+<dd class="dd">この値は、フィルターと一致するアラートに適用される計算を表します。 派生値は、フィルターによって照会される <samp class="ph tt">alerts</samp> データベース表の中で選択されている列の、平均値、合計値、最低値、または最高値を示します。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> 分布インディケーター</dt>
+<dd class="dd">この領域は、ラーヴァ・ランプまたは棒グラフを使用して、フィルターと一致するアラートの重大度の分布を示します。 ラーヴァ・ランプのセグメントや棒グラフの棒に使用される色は、それぞれ異なる重大度レベルを識別するように事前に構成されます。 </dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span>「表示」ボタン (UNIX) または「...」ボタン (Windows)</dt>
+<dd class="dd">現在選択されているフィルターおよびビューと一致するアラートが含まれているイベント・リストを開くには、このボタンをクリックします。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span>「ビューの選択」ドロップダウン・リスト</dt>
+<dd class="dd">このドロップダウン・リストには、セットアップされているすべてのビューの名前が含まれており、現在そのイベント・リストに関連付けられているビューの名前が表示されます。 イベント・リストに表示する列の選択を変更するには、このドロップダウン・リストから別のビューを選択します。</dd>
+<dd class="dd">また、このリストを使用して X.733 ビューを選択することもできます。
+このビューでは、X.733 に対応したアラート情報がイベント・リストに表示されます。</dd>
+</dl>
+<div class="note tip"><span class="tiptitle">ヒント:</span> オプションで、モニター・ボックスの周囲に色の付いた境界線を表示することもできます。 境界線の色は、フィルターと一致するアラートの中で最高の重大度によって変わります。 </div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_settingprefsunixevntist.html" title="モニター・ボックスに表示する情報のタイプを構成し、イベント・リストの最新表示頻度を指定し、イベント・リストを最小化したときのアラート通知のオプションを設定できます。 イベント・リストのフラッシュやその他の設定項目も構成できます。">UNIX のイベント・リストの設定</a></div>
+<div><a class="link" href="omn_usr_el_settingprefswinevntlst.html" title="モニター・ボックスに表示する情報のタイプを構成し、イベント・リストの最新表示頻度を指定し、イベント・リストを最小化したときのアラート通知のオプションを設定できます。 イベント・リストのフラッシュやその他の設定項目も構成できます。">Windows のイベント・リストの設定</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="UNIX のコンダクターでは、「コンダクター」ウィンドウ、イベント・リスト、イベント通知のグローバル設定を構成できます。">UNIX のコンダクターのグローバル設定</a></div>
+<div><a class="link" href="omn_usr_settingglobalprefswincond.html" title="Windows のコンダクターでは、イベント・リストとアラート通知のグローバル設定を構成できます。">Windows のコンダクターのグローバル設定</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterunix.html" title="UNIX のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。">UNIX でのフィルターの作成または編集</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterwin.html" title="Windows のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。">Windows でのフィルターの作成または編集</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。">UNIX でのビューの作成または編集</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。">Windows でのビューの作成または編集</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

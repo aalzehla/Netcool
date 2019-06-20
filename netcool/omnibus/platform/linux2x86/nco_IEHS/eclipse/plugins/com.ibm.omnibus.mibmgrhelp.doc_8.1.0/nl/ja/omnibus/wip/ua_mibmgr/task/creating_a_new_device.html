@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="デバイスの作成および削除" />
+<meta name="abstract" content="MIB マネージャー・デバイスは、関連する MIB モジュールのグループ化、およびエクスポートに必要なすべてのオブジェクトの定義に使用されます。デバイスの作成、更新、削除は MIB マネージャー GUI で行えます。" />
+<meta name="Description" content="MIB マネージャー・デバイスは、関連する MIB モジュールのグループ化、およびエクスポートに必要なすべてのオブジェクトの定義に使用されます。デバイスの作成、更新、削除は MIB マネージャー GUI で行えます。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB マネージャー・デバイスの作成および削除。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">デバイスの作成および削除</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">MIB マネージャー</span>・デバイスは、関連する MIB モジュールのグループ化、およびエクスポートに必要なすべてのオブジェクトの定義に使用されます。デバイスの作成、更新、削除は <span class="keyword">MIB マネージャー</span> GUI で行えます。</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">このタスクについて</h2></div><p class="p"><span class="keyword">MIB マネージャー</span>・デバイスは、<span class="keyword wintitle">「デバイス」</span>ビューに表示されます。
+デバイスを<span class="keyword wintitle">「デバイス」</span>ツリーから選択して、デバイスの
+製造メーカー、型式番号、および OS バージョンを表示します。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><p class="li stepsection"><strong class="ph b">デバイスの作成</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">新規デバイスを作成するには、以下の手順を実行します。</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd"><span class="keyword wintitle">「MIB モジュール」</span>ビューで、
+1 つ以上の MIB モジュールを選択してから <img class="image" src="../gifs/create_device.gif" alt="デバイス作成アイコン" /> (デバイスの
+作成) をクリックします。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「製造メーカー」</span>フィールドで、ドロップダウン・リストから
+デバイスの製造メーカーを選択します。</span> <p class="p"><span class="ph uicontrol">「モデル」</span>フィールドおよび<span class="ph uicontrol">「OS バージョン」</span>フィールドに、使用可能なオプションが取り込まれます。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「モデル」</span>フィールドで、ドロップダウン・リストから
+オプションを選択します。</span> <p class="p">使用可能なモデルがない場合、モデルの記述名を
+入力します。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「OS バージョン」</span>フィールドで、ドロップダウン・リストから
+オプションを選択します。</span> <p class="p">使用可能な OS バージョンがない場合、
+OS バージョンの記述名を入力します。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「マップ済み MIB モジュール」</span>フィールドで、
+新規デバイスと関連付ける MIB モジュールを選択します。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「OK」</span>をクリックして、デバイスを作成します。</span> <p class="p">新規デバイスが<span class="keyword wintitle">「デバイス」</span>ビューに表示されます。</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">デバイスの更新</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">デバイスを更新するには、以下の手順を更新します。</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd"><span class="keyword wintitle">「デバイス」</span>ビューで、デバイスを選択してから、
+デバイスのサブノードを、OS バージョンが表示されるまで展開します。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">OS バージョンを選択してから、<img class="image" src="../gifs/Edit.gif" alt="「デバイスの編集」アイコン" /> (デバイスの
+編集) をクリックします。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「製造メーカー」</span>フィールドで、ドロップダウン・リストから
+デバイスの製造メーカーを選択します。</span> <p class="p"><span class="ph uicontrol">「モデル」</span>フィールドおよび<span class="ph uicontrol">「OS バージョン」</span>フィールドに、使用可能なオプションが取り込まれます。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「モデル」</span>フィールドで、ドロップダウン・リストから
+オプションを選択します。</span> <p class="p">使用可能なモデルがない場合、モデルの記述名を
+入力します。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「OS バージョン」</span>フィールドで、ドロップダウン・リストから
+オプションを選択します。</span> <p class="p">使用可能な OS バージョンがない場合、
+OS バージョンの記述名を入力します。</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「マップ済み MIB モジュール」</span>フィールドで、
+新規デバイスと関連付ける MIB モジュールを選択します。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">「OK」</span>をクリックして、デバイスの詳細を更新します。</span> <p class="p">更新されたデバイスの詳細が、<span class="keyword wintitle">「デバイス」</span>ビューに表示されます。</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">デバイスの削除</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd"><span class="keyword wintitle">「デバイス」</span>ビューで、デバイスを選択してから、
+<img class="image" src="../gifs/Delete.gif" alt="「デバイスの削除」アイコン" /> (デバイスの削除) をクリックします。</span> <p class="p">複数のデバイスを削除するには、
+Ctrl キーと Alt キーを同時に押したまま左マウス・ボタンを使用して
+エレメントを選択してから、<img class="image" src="../gifs/Delete.gif" alt="「デバイスの削除」アイコン" /> (デバイスの削除) をクリックします。</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。">Netcool MIB マネージャー の使用</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

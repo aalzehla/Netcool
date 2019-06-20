@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="頻繁に使用するファイルの個人用ライブラリーの保守" />
+<meta name="abstract" content="UNIX コンダクターの個人用ライブラリーからは、頻繁に使用するフィルター・ファイル、ビュー・ファイル、イベント・リスト構成ファイルを簡単に開くことができます。 個人用ライブラリーに Tivoli Netcool/OMNIbus ファイルを追加すれば、関連するアプリケーションを簡単に開けるようになります。不要になったファイルを削除することもできます。" />
+<meta name="Description" content="UNIX コンダクターの個人用ライブラリーからは、頻繁に使用するフィルター・ファイル、ビュー・ファイル、イベント・リスト構成ファイルを簡単に開くことができます。 個人用ライブラリーに Tivoli Netcool/OMNIbus ファイルを追加すれば、関連するアプリケーションを簡単に開けるようになります。不要になったファイルを削除することもできます。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringqckaccessfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_addingfilestopersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_creatingsymlinksinpersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startinganappfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_removingfilesfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_viewingfullcontentsofpersonallib.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_maintainingapersonallib" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringqckaccessfilters.html" />
+<title>頻繁に使用するファイルの個人用ライブラリーの保守</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_maintainingapersonallib">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">頻繁に使用するファイルの個人用ライブラリーの保守</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX コンダクターの個人用ライブラリーからは、頻繁に使用するフィルター・ファイル、ビュー・ファイル、イベント・リスト構成ファイルを簡単に開くことができます。 個人用ライブラリーに <span class="keyword">Tivoli Netcool/OMNIbus</span> ファイルを追加すれば、関連するアプリケーションを簡単に開けるようになります。不要になったファイルを削除することもできます。</p>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_addingfilestopersonallib.html">個人用ライブラリーへのファイルの追加</a></span><br />
+個人用ライブラリーをディレクトリー・ブラウザー・ユーティリティーと併せて使用して、頻繁に使用するファイルのライブラリーを構築することができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_creatingsymlinksinpersonallib.html">個人用ライブラリーのシンボリック・リンクの作成</a></span><br />
+ローカルの UNIX システム内のファイルへのシンボリック・リンクを個人用ライブラリーに作成することができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_startinganappfrompersonallib.html">個人用ライブラリーからのアプリケーションの開始</a></span><br />
+個人用ライブラリーから、フィルター・ビルダー、ビュー・ビルダー、イベント・リストを開始できます。 シンボリック・リンクに対応するファイルを操作することも可能です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_removingfilesfrompersonallib.html">個人用ライブラリーからのファイルの除去</a></span><br />
+個人用ライブラリーに入れておく必要がなくなったファイルがあれば、中央マウス・ボタンによるドラッグ・アンド・ドロップ技法によって、そのファイルを個人用ライブラリーからディレクトリー・ブラウザーに戻します。 個人用ライブラリーからファイルを削除することも可能です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_viewingfullcontentsofpersonallib.html">個人用ライブラリーのすべての内容の表示</a></span><br />
+個人用ライブラリーに保存されているものの、デフォルトでは表示されないファイルを表示するために、個人用ライブラリーの最新表示または更新を行うことができます。</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_configuringqckaccessfilters.html" title="UNIX コンダクターから、ローカルの UNIX システム・ディレクトリーの内容を表示して、フィルター・ファイル、ビュー・ファイル、およびイベント・リスト構成ファイルに簡単にアクセスし、アラートの管理に使用することができます。">UNIX でのフィルター、ビュー、およびイベント・リスト構成へのクイック・アクセスの構成</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

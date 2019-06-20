@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Setting the logging level" />
+<meta name="abstract" content="You can change the logging level to provide more detailed log or trace files to help with debugging MIB Manager. The extra information provided by increasing the logging levels can help you when debugging specific problems when parsing MIBs." />
+<meta name="Description" content="You can change the logging level to provide more detailed log or trace files to help with debugging MIB Manager. The extra information provided by increasing the logging levels can help you when debugging specific problems when parsing MIBs." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Setting the logging level</h1>
+<div class="body refbody"><p class="shortdesc">You can change the logging level to provide more detailed
+log or trace files to help with debugging <span class="keyword">MIB Manager</span>. The extra information provided by increasing the
+logging levels can help you when debugging specific problems when
+parsing MIBs.</p>
+<div class="section"><p class="p">To
+change the logging level, click <span class="ph menucascade"><span class="ph uicontrol">Edit</span> &gt; <span class="ph uicontrol">Debug</span></span> from the main window menu
+bar. Log files have six message levels that you can cycle through
+to increase the level of detail that is captured: none, error, warn,
+info, debug, and verbose.</p>
+<p class="p">The following table provides a brief
+description of each logging level:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. A list of logging
+levels with their associated description</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3945e36">Log level</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3945e38">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">none</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifies a log level in which no debug messages
+are output. </p>
+<p class="p">The performance of the application is improved
+but no warning or error messages are displayed during parsing.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">error</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifies a log level in which only errors
+which affect the results are logged.</p>
+<p class="p">This includes any error
+identified by <span class="keyword">MIB Manager</span> which would result in incorrect data being displayed
+in the main window.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">warn</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifies a log level in which warning and
+error messages are logged.</p>
+<p class="p">A warning indicates a condition that
+could result in erroneous data and therefore must be checked. However,
+the condition will not cause the data to be corrupted.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifies a log level in which informational,
+warning, and critical messages are logged.</p>
+<p class="p">Informational messages
+contain detail regarding overall task progress. For example, they
+provide the complete text for objects as they are being parsed.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">debug</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><div class="p">Specifies a log level in which all messages
+are logged. <div class="note note"><span class="notetitle">Note:</span> Only run <span class="keyword">MIB Manager</span> in debug mode when you are attempting to resolve
+and error condition. The volume of data produced while parsing only
+a moderate number of MIBs will quickly fill your file system.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">verbose</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">Specifies a log level in which all information
+messages are logged.</p>
+<p class="p">A verbose message includes the state of
+variables, arrays, and hashes as they change value and state.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Use the logging preferences to specify the MIB Manager log file directory, and to set the default message level.">Setting logging preferences</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

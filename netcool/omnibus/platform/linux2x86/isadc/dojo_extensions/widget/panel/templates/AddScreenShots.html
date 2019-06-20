@@ -1,0 +1,16 @@
+<div class="ibm-container">
+<!-- (C) COPYRIGHT International Business Machines Corp., 2011. All Rights Reserved * Licensed Materials - Property of IBM -->
+	<h2 class="ibm-first">${AddScreenShotsTitleID}</h2>
+	<div class="ibm-container-body">
+		<p>${AddScreenShotsIntroduction}</p>
+		<div class="editBoxAndImageName"> ${imageName}: 
+			<span dojoType="dijit.InlineEditBox" editor="dijit.form.TextBox" value="display.bmp"></span>
+		</div> 
+		<div class="imageName" align="right"> Delay in seconds: 
+			<input dojoType="dijit.form.NumberSpinner" id="NumberSpinner" value="3">
+		</div>
+		<div dojoattachpoint="takeScreenShotButton"> </div>
+		<div dojoattachpoint="selectedScreenShotsArea" class="selectedScreenShotsArea"></div>
+		<div dojoattachpoint="doneButtonArea"></div>
+	</div>
+</div>

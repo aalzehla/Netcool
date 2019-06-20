@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Shutting down Accelerated Event Notification clients" />
+<meta name="abstract" content="If you need to shut down the ObjectServer, you can remotely shut down the Accelerated Event Notification clients that are currently running. As part of shutting down, you can enter a brief message to users with relevant information." />
+<meta name="Description" content="If you need to shut down the ObjectServer, you can remotely shut down the Accelerated Event Notification clients that are currently running. As part of shutting down, you can enter a brief message to users with relevant information." />
+<meta name="DC.subject" content="accelerated event notification, shutting down clients" />
+<meta name="keywords" content="accelerated event notification, shutting down clients" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_aen_configuringchannels.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_aen_shuttingdownclients" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_aen_configuringchannels.html" />
+<title>Shutting down Accelerated Event Notification clients</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_aen_shuttingdownclients">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Shutting down Accelerated Event Notification clients</h1>
+<div class="body taskbody"><p class="shortdesc">If you need to shut down the ObjectServer, you can remotely
+shut down the Accelerated Event Notification clients that are currently
+running. As part of shutting down, you can enter a brief message to
+users with relevant information.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To
+shut down Accelerated Event Notification clients that are listening
+on one or more channels:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">System</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Channels</span>. </span> The <span class="keyword wintitle">Channels</span> pane
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="keyword wintitle">Channels</span> pane, select one
+or more channels that are associated with the shutdown action. You
+can use the Shift key for consecutive selections or the Ctrl key for
+non-consecutive selections.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the toolbar, click <span class="ph uicontrol">Shutdown Clients</span>.</span> The <span class="keyword wintitle">Send Shutdown Command</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Enter a text message in the <span class="ph uicontrol">Reason for Shutdown</span> field.</span> This field scrolls horizontally to allow for the entry of text.</li>
+<li class="li step stepexpand"><span class="ph cmd">Confirm or cancel your actions as follows:</span> <ul class="ul choices"><li class="li choice">Click <span class="ph uicontrol">OK</span> to initiate the shutdown action
+and then confirm that you want to shut down by clicking <span class="ph uicontrol">Yes</span>.<div class="note note"><span class="notetitle">Note:</span> If the <span class="ph uicontrol">Reason for Shutdown</span> field
+is blank, the clients will shut down, but no reason for the action
+is given in the message box.</div>
+</li>
+<li class="li choice">Click <span class="ph uicontrol">Cancel</span> to cancel the shutdown
+action.</li>
+</ul>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>After you confirm the shutdown action, any message that you
+entered is displayed in a message box on all relevant Accelerated
+Event Notification client screens. The message text word wraps at
+120 characters. After five seconds, an automatic sign-out and exit
+then occurs.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_aen_configuringchannels.html" title="When configuring accelerated event notification, you must use channels to define the type of event data to broadcast in the accelerated event notifications, and the recipients of this data. You can set up multiple channels with varied event data and recipients.">Configuring channels to broadcast event data</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

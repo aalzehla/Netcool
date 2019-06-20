@@ -1,0 +1,1094 @@
+<?xml version="1.0"?><MIB_MODULE thread="MibParser:Thread-29" name="HOST-RESOURCES-MIB" hashcode="MibParser:1699696673" sourcefile="Default Data">
+<IMPORTS>
+<IMPORT name="Counter" from="RFC1155-SMI"></IMPORT>
+<IMPORT name="DisplayString" from="RFC1213-MIB"></IMPORT>
+<IMPORT name="Gauge" from="RFC1155-SMI"></IMPORT>
+<IMPORT name="OBJECT-TYPE" from="RFC-1212"></IMPORT>
+<IMPORT name="TimeTicks" from="RFC1155-SMI"></IMPORT>
+<IMPORT name="mib-2" from="RFC1213-MIB"></IMPORT>
+</IMPORTS>
+<EXPORTS></EXPORTS>
+<TEXTUAL-CONVENTION name="Boolean" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="true"></ENUM>
+<ENUM index="2" value="false"></ENUM>
+</ENUMS>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="KBytes" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="ProductID" version="1">
+<SYNTAX type="OBJECT IDENTIFIER"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="DateAndTime" version="1">
+<SYNTAX MaxRange="11" type="OCTET STRING" MinRange="8"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="InternationalDisplayString" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrStorageEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrStorageIndex"></COLUMN>
+<COLUMN syntax="OBJECT IDENTIFIER" name="hrStorageType"></COLUMN>
+<COLUMN syntax="DisplayString" name="hrStorageDescr"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrStorageAllocationUnits"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrStorageSize"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrStorageUsed"></COLUMN>
+<COLUMN syntax="Counter" name="hrStorageAllocationFailures"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrDeviceEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrDeviceIndex"></COLUMN>
+<COLUMN syntax="OBJECT IDENTIFIER" name="hrDeviceType"></COLUMN>
+<COLUMN syntax="DisplayString" name="hrDeviceDescr"></COLUMN>
+<COLUMN syntax="ProductID" name="hrDeviceID"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrDeviceStatus"></COLUMN>
+<COLUMN syntax="Counter" name="hrDeviceErrors"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrProcessorEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="ProductID" name="hrProcessorFrwID"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrProcessorLoad"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrNetworkEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrNetworkIfIndex"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrPrinterEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrPrinterStatus"></COLUMN>
+<COLUMN syntax="OCTET STRING" name="hrPrinterDetectedErrorState"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrDiskStorageEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrDiskStorageAccess"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrDiskStorageMedia"></COLUMN>
+<COLUMN syntax="Boolean" name="hrDiskStorageRemoveble"></COLUMN>
+<COLUMN syntax="KBytes" name="hrDiskStorageCapacity"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrPartitionEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrPartitionIndex"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrPartitionLabel"></COLUMN>
+<COLUMN syntax="OCTET STRING" name="hrPartitionID"></COLUMN>
+<COLUMN syntax="KBytes" name="hrPartitionSize"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrPartitionFSIndex"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrFSEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrFSIndex"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrFSMountPoint"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrFSRemoteMountPoint"></COLUMN>
+<COLUMN syntax="OBJECT IDENTIFIER" name="hrFSType"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrFSAccess"></COLUMN>
+<COLUMN syntax="Boolean" name="hrFSBootable"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrFSStorageIndex"></COLUMN>
+<COLUMN syntax="DateAndTime" name="hrFSLastFullBackupDate"></COLUMN>
+<COLUMN syntax="DateAndTime" name="hrFSLastPartialBackupDate"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrSWRunEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrSWRunIndex"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrSWRunName"></COLUMN>
+<COLUMN syntax="ProductID" name="hrSWRunID"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrSWRunPath"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrSWRunParameters"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrSWRunType"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrSWRunStatus"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrSWRunPerfEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrSWRunPerfCPU"></COLUMN>
+<COLUMN syntax="KBytes" name="hrSWRunPerfMem"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="HrSWInstalledEntry" version="1">
+<SYNTAX type="SEQUENCE">
+<COLUMN syntax="INTEGER" name="hrSWInstalledIndex"></COLUMN>
+<COLUMN syntax="InternationalDisplayString" name="hrSWInstalledName"></COLUMN>
+<COLUMN syntax="ProductID" name="hrSWInstalledID"></COLUMN>
+<COLUMN syntax="INTEGER" name="hrSWInstalledType"></COLUMN>
+<COLUMN syntax="DateAndTime" name="hrSWInstalledDate"></COLUMN>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<MibObject OID="mib-2 25" name="host" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.1" name="hrSystem" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2" name="hrStorage" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3" name="hrDevice" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.4" name="hrSWRun" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.5" name="hrSWRunPerf" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.6" name="hrSWInstalled" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.1.1" name="hrSystemUptime" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">TimeTicks</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The amount of time since this host was last
+              initialized.  Note that this is different from
+              sysUpTime in MIB-II [3] because sysUpTime is the
+              uptime of the network management portion of the
+              system.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.1.2" name="hrSystemDate" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">DateAndTime</SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The host's notion of the local date and time of
+              day.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.1.3" name="hrSystemInitialLoadDevice" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The index of the hrDeviceEntry for the device from
+              which this host is configured to load its initial
+              operating system configuration.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.1.4" name="hrSystemInitialLoadParameters" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE (0..128))</SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>This object contains the parameters (e.g. a
+              pathname and parameter) supplied to the load device
+              when requesting the initial operating system
+              configuration from that device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.1.5" name="hrSystemNumUsers" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">Gauge</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The number of user sessions for which this host is
+              storing state information.  A session is a
+              collection of processes requiring a single act of
+              user authentication and possibly subject to
+              collective job control.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.1.6" name="hrSystemProcesses" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">Gauge</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The number of process contexts currently loaded or
+              running on this system.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.1.7" name="hrSystemMaxProcesses" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The maximum number of process contexts this system
+              can support.  If there is no fixed maximum, the
+              value should be zero.  On systems that have a fixed
+              maximum, this object can help diagnose failures
+              that occur when this maximum is reached.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.1" name="hrStorageTypes" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.1" name="hrStorageOther" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.2" name="hrStorageRam" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.3" name="hrStorageVirtualMemory" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.4" name="hrStorageFixedDisk" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.5" name="hrStorageRemovableDisk" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.6" name="hrStorageFloppyDisk" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.7" name="hrStorageCompactDisc" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.1.8" name="hrStorageRamDisk" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.2.2" name="hrMemorySize" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">KBytes</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The amount of physical main memory contained by
+              the host.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3" name="hrStorageTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrStorageEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of logical storage areas on
+              the host.
+
+              An entry shall be placed in the storage table for
+              each logical area of storage that is allocated and
+              has fixed resource limits.  The amount of storage
+              represented in an entity is the amount actually
+              usable by the requesting entity, and excludes loss
+              due to formatting or file system reference
+              information.
+
+              These entries are associated with logical storage
+              areas, as might be seen by an application, rather
+              than physical storage entities which are typically
+              seen by an operating system.  Storage such as tapes
+              and floppies without file systems on them are
+              typically not allocated in chunks by the operating
+              system to requesting applications, and therefore
+              shouldn't appear in this table.  Examples of valid
+              storage for this table include disk partitions,
+              file systems, ram (for some architectures this is
+              further segmented into regular memory, extended
+              memory, and so on), backing store for virtual
+              memory (`swap space').
+
+              This table is intended to be a useful diagnostic
+              for `out of memory' and `out of buffers' types of
+              failures.  In addition, it can be a useful
+              performance monitoring tool for tracking memory,
+              disk, or buffer usage.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1" name="hrStorageEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrStorageEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one logical storage area
+              on the host.  As an example, an instance of the
+              hrStorageType object might be named
+              hrStorageType.3</DESCRIPTION>
+<INDEX>hrStorageIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.1" name="hrStorageIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A unique value for each logical storage area
+              contained by the host.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.2" name="hrStorageType" type="OBJECT-TYPE" version="1">
+<SYNTAX type="OBJECT IDENTIFIER"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The type of storage represented by this entry.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.3" name="hrStorageDescr" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">DisplayString</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A description of the type and instance of the
+              storage described by this entry.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.4" name="hrStorageAllocationUnits" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The size, in bytes, of the data objects allocated
+               from this pool.  If this entry is monitoring
+               sectors, blocks, buffers, or packets, for example,
+               this number will commonly be greater than one.
+               Otherwise this number will typically be one.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.5" name="hrStorageSize" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The size of the storage represented by this entry,
+              in units of hrStorageAllocationUnits.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.6" name="hrStorageUsed" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The amount of the storage represented by this
+              entry that is allocated, in units of
+              hrStorageAllocationUnits.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.2.3.1.7" name="hrStorageAllocationFailures" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">Counter</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The number of requests for storage represented by
+              this entry that could not be honored due to not
+              enough storage.  It should be noted that as this
+              object has a SYNTAX of Counter, that it does not
+              have a defined initial value.  However, it is
+              recommended that this object be initialized to
+              zero.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.1" name="hrDeviceTypes" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.1" name="hrDeviceOther" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.2" name="hrDeviceUnknown" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.3" name="hrDeviceProcessor" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.4" name="hrDeviceNetwork" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.5" name="hrDevicePrinter" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.6" name="hrDeviceDiskStorage" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.10" name="hrDeviceVideo" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.11" name="hrDeviceAudio" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.12" name="hrDeviceCoprocessor" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.13" name="hrDeviceKeyboard" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.14" name="hrDeviceModem" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.15" name="hrDeviceParallelPort" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.16" name="hrDevicePointing" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.17" name="hrDeviceSerialPort" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.18" name="hrDeviceTape" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.19" name="hrDeviceClock" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.20" name="hrDeviceVolatileMemory" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.1.21" name="hrDeviceNonVolatileMemory" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.2" name="hrDeviceTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrDeviceEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of devices contained by the
+              host.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1" name="hrDeviceEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrDeviceEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one device contained by
+              the host.  As an example, an instance of the
+              hrDeviceType object might be named hrDeviceType.3</DESCRIPTION>
+<INDEX>hrDeviceIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1.1" name="hrDeviceIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A unique value for each device contained by the
+              host.  The value for each device must remain
+              constant at least from one re-initialization of the
+              agent to the next re-initialization.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1.2" name="hrDeviceType" type="OBJECT-TYPE" version="1">
+<SYNTAX type="OBJECT IDENTIFIER"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>An indication of the type of device.
+
+              If this value is `hrDeviceProcessor { hrDeviceTypes
+              3 }' then an entry exists in the hrProcessorTable
+              which corresponds to this device.
+
+              If this value is `hrDeviceNetwork { hrDeviceTypes 4
+              }', then an entry exists in the hrNetworkTable
+              which corresponds to this device.
+
+              If this value is `hrDevicePrinter { hrDeviceTypes 5
+              }', then an entry exists in the hrPrinterTable
+              which corresponds to this device.
+
+              If this value is `hrDeviceDiskStorage {
+              hrDeviceTypes 6 }', then an entry exists in the
+              hrDiskStorageTable which corresponds to this
+              device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1.3" name="hrDeviceDescr" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">DisplayString (SIZE (0..64))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A textual description of this device, including
+              the device's manufacturer and revision, and
+              optionally, its serial number.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1.4" name="hrDeviceID" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">ProductID</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The product ID for this device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1.5" name="hrDeviceStatus" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="unknown"></ENUM>
+<ENUM index="2" value="running"></ENUM>
+<ENUM index="3" value="warning"></ENUM>
+<ENUM index="4" value="testing"></ENUM>
+<ENUM index="5" value="down"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The current operational state of the device
+              described by this row of the table.  A value
+              unknown(1) indicates that the current state of the
+              device is unknown.  running(2) indicates that the
+              device is up and running and that no unusual error
+              conditions are known.  The warning(3) state
+              indicates that agent has been informed of an
+              unusual error condition by the operational software
+              (e.g., a disk device driver) but that the device is
+              still 'operational'.  An example would be high
+              number of soft errors on a disk.  A value of
+              testing(4), indicates that the device is not
+              available for use because it is in the testing
+              state.  The state of down(5) is used only when the
+              agent has been informed that the device is not
+              available for any use.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.2.1.6" name="hrDeviceErrors" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">Counter</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The number of errors detected on this device.  It
+               should be noted that as this object has a SYNTAX
+               of Counter, that it does not have a defined
+               initial value.  However, it is recommended that
+               this object be initialized to zero.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.3" name="hrProcessorTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrProcessorEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of processors contained by
+              the host.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDeviceProcessor'.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.3.1" name="hrProcessorEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrProcessorEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one processor contained
+              by the host.  The hrDeviceIndex in the index
+              represents the entry in the hrDeviceTable that
+              corresponds to the hrProcessorEntry.
+
+              As an example of how objects in this table are
+              named, an instance of the hrProcessorFrwID object
+              might be named hrProcessorFrwID.3</DESCRIPTION>
+<INDEX>hrDeviceIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.3.1.1" name="hrProcessorFrwID" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">ProductID</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The product ID of the firmware associated with the
+              processor.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.3.1.2" name="hrProcessorLoad" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="100" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The average, over the last minute, of the
+              percentage of time that this processor was not
+              idle.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.4" name="hrNetworkTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrNetworkEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of network devices
+              contained by the host.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDeviceNetwork'.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.4.1" name="hrNetworkEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrNetworkEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one network device
+              contained by the host.  The hrDeviceIndex in the
+              index represents the entry in the hrDeviceTable
+              that corresponds to the hrNetworkEntry.
+
+              As an example of how objects in this table are
+              named, an instance of the hrNetworkIfIndex object
+              might be named hrNetworkIfIndex.3</DESCRIPTION>
+<INDEX>hrDeviceIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.4.1.1" name="hrNetworkIfIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The value of ifIndex which corresponds to this
+              network device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.5" name="hrPrinterTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrPrinterEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of printers local to the
+              host.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDevicePrinter'.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.5.1" name="hrPrinterEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrPrinterEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one printer local to the
+              host.  The hrDeviceIndex in the index represents
+              the entry in the hrDeviceTable that corresponds to
+              the hrPrinterEntry.
+
+              As an example of how objects in this table are
+              named, an instance of the hrPrinterStatus object
+              might be named hrPrinterStatus.3</DESCRIPTION>
+<INDEX>hrDeviceIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.5.1.1" name="hrPrinterStatus" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="other"></ENUM>
+<ENUM index="2" value="unknown"></ENUM>
+<ENUM index="3" value="idle"></ENUM>
+<ENUM index="4" value="printing"></ENUM>
+<ENUM index="5" value="warmup"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The current status of this printer device.  When
+               in the idle(1), printing(2), or warmup(3) state,
+               the corresponding hrDeviceStatus should be
+               running(2) or warning(3).  When in the unknown
+               state, the corresponding hrDeviceStatus should be
+               unknown(1).</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.5.1.2" name="hrPrinterDetectedErrorState" type="OBJECT-TYPE" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>This object represents any error conditions
+               detected by the printer.  The error conditions are
+               encoded as bits in an octet string, with the
+               following definitions:
+
+                    Condition         Bit #    hrDeviceStatus
+
+                    lowPaper          0        warning(3)
+                    noPaper           1        down(5)
+                    lowToner          2        warning(3)
+                    noToner           3        down(5)
+                    doorOpen          4        down(5)
+                    jammed            5        down(5)
+                    offline           6        down(5)
+                    serviceRequested  7        warning(3)
+
+               If multiple conditions are currently detected and
+               the hrDeviceStatus would not otherwise be
+               unknown(1) or testing(4), the hrDeviceStatus shall
+               correspond to the worst state of those indicated,
+               where down(5) is worse than warning(3) which is
+               worse than running(2).
+
+               Bits are numbered starting with the most
+               significant bit of the first byte being bit 0, the
+               least significant bit of the first byte being bit
+               7, the most significant bit of the second byte
+               being bit 8, and so on.  A one bit encodes that
+               the condition was detected, while a zero bit
+               encodes that the condition was not detected.
+
+               This object is useful for alerting an operator to
+               specific warning or error conditions that may
+               occur, especially those requiring human
+               intervention.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.6" name="hrDiskStorageTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrDiskStorageEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of long-term storage
+              devices contained by the host.  In particular, disk
+              devices accessed remotely over a network are not
+              included here.
+
+              Note that this table is potentially sparse: a
+              (conceptual) entry exists only if the correspondent
+              value of the hrDeviceType object is
+              `hrDeviceDiskStorage'.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.6.1" name="hrDiskStorageEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrDiskStorageEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one long-term storage
+              device contained by the host.  The hrDeviceIndex in
+              the index represents the entry in the hrDeviceTable
+              that corresponds to the hrDiskStorageEntry. As an
+              example, an instance of the hrDiskStorageCapacity
+              object might be named hrDiskStorageCapacity.3</DESCRIPTION>
+<INDEX>hrDeviceIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.6.1.1" name="hrDiskStorageAccess" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="readWrite"></ENUM>
+<ENUM index="2" value="readOnly"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>An indication if this long-term storage device is
+              readable and writable or only readable.  This
+              should reflect the media type, any write-protect
+              mechanism, and any device configuration that
+              affects the entire device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.6.1.2" name="hrDiskStorageMedia" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="other"></ENUM>
+<ENUM index="2" value="unknown"></ENUM>
+<ENUM index="3" value="hardDisk"></ENUM>
+<ENUM index="4" value="floppyDisk"></ENUM>
+<ENUM index="5" value="opticalDiskROM"></ENUM>
+<ENUM index="6" value="opticalDiskWORM"></ENUM>
+<ENUM index="7" value="opticalDiskRW"></ENUM>
+<ENUM index="8" value="ramDisk"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>An indication of the type of media used in this
+              long-term storage device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.6.1.3" name="hrDiskStorageRemoveble" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">Boolean</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>Denotes whether or not the disk media may be
+               removed from the drive.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.6.1.4" name="hrDiskStorageCapacity" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">KBytes</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The total size for this long-term storage device.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.7" name="hrPartitionTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrPartitionEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of partitions for long-term
+              storage devices contained by the host.  In
+              particular, partitions accessed remotely over a
+              network are not included here.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.7.1" name="hrPartitionEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrPartitionEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one partition.  The
+              hrDeviceIndex in the index represents the entry in
+              the hrDeviceTable that corresponds to the
+              hrPartitionEntry.
+
+              As an example of how objects in this table are
+              named, an instance of the hrPartitionSize object
+              might be named hrPartitionSize.3.1</DESCRIPTION>
+<INDEX>hrDeviceIndex, hrPartitionIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.7.1.1" name="hrPartitionIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A unique value for each partition on this long-
+              term storage device.  The value for each long-term
+              storage device must remain constant at least from
+              one re-initialization of the agent to the next re-
+              initialization.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.7.1.2" name="hrPartitionLabel" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE (0..128))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A textual description of this partition.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.7.1.3" name="hrPartitionID" type="OBJECT-TYPE" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A descriptor which uniquely represents this
+              partition to the responsible operating system.  On
+              some systems, this might take on a binary
+              representation.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.7.1.4" name="hrPartitionSize" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">KBytes</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The size of this partition.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.7.1.5" name="hrPartitionFSIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The index of the file system mounted on this
+               partition.  If no file system is mounted on this
+               partition, then this value shall be zero.  Note
+               that multiple partitions may point to one file
+               system, denoting that that file system resides on
+               those partitions.  Multiple file systems may not
+               reside on one partition.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8" name="hrFSTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrFSEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of file systems local to
+               this host or remotely mounted from a file server.
+               File systems that are in only one user's
+               environment on a multi-user system will not be
+               included in this table.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1" name="hrFSEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrFSEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one file system local to
+               this host or remotely mounted from a file server.
+               File systems that are in only one user's
+               environment on a multi-user system will not be
+               included in this table.
+
+               As an example of how objects in this table are
+               named, an instance of the hrFSMountPoint object
+               might be named hrFSMountPoint.3</DESCRIPTION>
+<INDEX>hrFSIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.3.9" name="hrFSTypes" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.1" name="hrFSOther" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.2" name="hrFSUnknown" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.3" name="hrFSBerkeleyFFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.4" name="hrFSSys5FS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.5" name="hrFSFat" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.6" name="hrFSHPFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.7" name="hrFSHFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.8" name="hrFSMFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.9" name="hrFSNTFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.10" name="hrFSVNode" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.11" name="hrFSJournaled" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.12" name="hrFSiso9660" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.13" name="hrFSRockRidge" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.14" name="hrFSNFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.15" name="hrFSNetware" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.16" name="hrFSAFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.17" name="hrFSDFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.18" name="hrFSAppleshare" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.19" name="hrFSRFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.20" name="hrFSDGCFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.9.21" name="hrFSBFS" type="OBJECT IDENTIFIER"></MibObject>
+<MibObject OID="mib-2 25.3.8.1.1" name="hrFSIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A unique value for each file system local to this
+               host.  The value for each file system must remain
+               constant at least from one re-initialization of
+               the agent to the next re-initialization.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.2" name="hrFSMountPoint" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE(0..128))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The path name of the root of this file system.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.3" name="hrFSRemoteMountPoint" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE(0..128))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A description of the name and/or address of the
+               server that this file system is mounted from.
+               This may also include parameters such as the mount
+               point on the remote file system.  If this is not a
+               remote file system, this string should have a
+               length of zero.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.4" name="hrFSType" type="OBJECT-TYPE" version="1">
+<SYNTAX type="OBJECT IDENTIFIER"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The value of this object identifies the type of
+              this file system.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.5" name="hrFSAccess" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="readWrite"></ENUM>
+<ENUM index="2" value="readOnly"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>An indication if this file system is logically
+              configured by the operating system to be readable
+              and writable or only readable.  This does not
+              represent any local access-control policy, except
+              one that is applied to the file system as a whole.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.6" name="hrFSBootable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">Boolean</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A flag indicating whether this file system is
+              bootable.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.7" name="hrFSStorageIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="0"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The index of the hrStorageEntry that represents
+               information about this file system.  If there is
+               no such information available, then this value
+               shall be zero.  The relevant storage entry will be
+               useful in tracking the percent usage of this file
+               system and diagnosing errors that may occur when
+               it runs out of space.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.8" name="hrFSLastFullBackupDate" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">DateAndTime</SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The last date at which this complete file system
+              was copied to another storage device for backup.
+              This information is useful for ensuring that
+              backups are being performed regularly.
+
+              If this information is not known, then this
+              variable shall have the value corresponding to
+              January 1, year 0000, 00:00:00.0, which is encoded
+              as (hex)'00 00 01 01 00 00 00 00'.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.3.8.1.9" name="hrFSLastPartialBackupDate" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">DateAndTime</SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The last date at which a portion of this file
+              system was copied to another storage device for
+              backup.  This information is useful for ensuring
+              that backups are being performed regularly.
+
+              If this information is not known, then this
+              variable shall have the value corresponding to
+              January 1, year 0000, 00:00:00.0, which is encoded
+              as (hex)'00 00 01 01 00 00 00 00'.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.1" name="hrSWOSIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The value of the hrSWRunIndex for the
+               hrSWRunEntry that represents the primary operating
+               system running on this host.  This object is
+               useful for quickly and uniquely identifying that
+               primary operating system.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2" name="hrSWRunTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrSWRunEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of software running on the
+              host.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1" name="hrSWRunEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrSWRunEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for one piece of software
+              running on the host Note that because the installed
+              software table only contains information for
+              software stored locally on this host, not every
+              piece of running software will be found in the
+              installed software table.  This is true of software
+              that was loaded and run from a non-local source,
+              such as a network-mounted file system.
+
+              As an example of how objects in this table are
+              named, an instance of the hrSWRunName object might
+              be named hrSWRunName.1287</DESCRIPTION>
+<INDEX>hrSWRunIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.1" name="hrSWRunIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A unique value for each piece of software running
+              on the host.  Wherever possible, this should be the
+              system's native, unique identification number.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.2" name="hrSWRunName" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE (0..64))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A textual description of this running piece of
+              software, including the manufacturer, revision,
+              and the name by which it is commonly known.  If
+              this software was installed locally, this should be
+              the same string as used in the corresponding
+              hrSWInstalledName.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.3" name="hrSWRunID" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">ProductID</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The product ID of this running piece of software.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.4" name="hrSWRunPath" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE(0..128))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A description of the location on long-term storage
+              (e.g. a disk drive) from which this software was
+              loaded.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.5" name="hrSWRunParameters" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE(0..128))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A description of the parameters supplied to this
+              software when it was initially loaded.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.6" name="hrSWRunType" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="unknown"></ENUM>
+<ENUM index="2" value="operatingSystem"></ENUM>
+<ENUM index="3" value="deviceDriver"></ENUM>
+<ENUM index="4" value="application"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The type of this software.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.4.2.1.7" name="hrSWRunStatus" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="running"></ENUM>
+<ENUM index="2" value="runnable"></ENUM>
+<ENUM index="3" value="notRunnable"></ENUM>
+<ENUM index="4" value="invalid"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-write</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The status of this running piece of software.
+              Setting this value to invalid(4) shall cause this
+              software to stop running and to be unloaded.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.5.1" name="hrSWRunPerfTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrSWRunPerfEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of running software
+               performance metrics.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.5.1.1" name="hrSWRunPerfEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrSWRunPerfEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry containing software
+               performance metrics.  As an example, an instance
+               of the hrSWRunPerfCPU object might be named
+               hrSWRunPerfCPU.1287</DESCRIPTION>
+<INDEX>hrSWRunIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.5.1.1.1" name="hrSWRunPerfCPU" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The number of centi-seconds of the total system's
+               CPU resources consumed by this process.  Note that
+               on a multi-processor system, this value may
+               increment by more than one centi-second in one
+               centi-second of real (wall clock) time.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.5.1.1.2" name="hrSWRunPerfMem" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">KBytes</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The total amount of real system memory allocated
+               to this process.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.1" name="hrSWInstalledLastChange" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">TimeTicks</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The value of sysUpTime when an entry in the
+              hrSWInstalledTable was last added, renamed, or
+              deleted.  Because this table is likely to contain
+              many entries, polling of this object allows a
+              management station to determine when re-downloading
+              of the table might be useful.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.2" name="hrSWInstalledLastUpdateTime" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">TimeTicks</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The value of sysUpTime when the hrSWInstalledTable
+              was last completely updated.  Because caching of
+              this data will be a popular implementation
+              strategy, retrieval of this object allows a
+              management station to obtain a guarantee that no
+              data in this table is older than the indicated
+              time.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.3" name="hrSWInstalledTable" type="OBJECT-TYPE" version="1">
+<SYNTAX type="SEQUENCE OF">HrSWInstalledEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The (conceptual) table of software installed on
+              this host.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.3.1" name="hrSWInstalledEntry" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">HrSWInstalledEntry</SYNTAX>
+<ACCESS>not-accessible</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A (conceptual) entry for a piece of software
+              installed on this host.
+
+              As an example of how objects in this table are
+              named, an instance of the hrSWInstalledName object
+              might be named hrSWInstalledName.96</DESCRIPTION>
+<INDEX>hrSWInstalledIndex</INDEX>
+</MibObject>
+<MibObject OID="mib-2 25.6.3.1.1" name="hrSWInstalledIndex" type="OBJECT-TYPE" version="1">
+<SYNTAX MaxRange="2147483647" DisplayFormat="Decimal" type="INTEGER" MinRange="1"></SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A unique value for each piece of software
+              installed on the host.  This value shall be in the
+              range from 1 to the number of pieces of software
+              installed on the host.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.3.1.2" name="hrSWInstalledName" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">InternationalDisplayString (SIZE (0..64))</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>A textual description of this installed piece of
+              software, including the manufacturer, revision, the
+              name by which it is commonly known, and optionally,
+              its serial number.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.3.1.3" name="hrSWInstalledID" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">ProductID</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The product ID of this installed piece of
+              software.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.3.1.4" name="hrSWInstalledType" type="OBJECT-TYPE" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="unknown"></ENUM>
+<ENUM index="2" value="operatingSystem"></ENUM>
+<ENUM index="3" value="deviceDriver"></ENUM>
+<ENUM index="4" value="application"></ENUM>
+</ENUMS>
+</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The type of this software.</DESCRIPTION>
+</MibObject>
+<MibObject OID="mib-2 25.6.3.1.5" name="hrSWInstalledDate" type="OBJECT-TYPE" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">DateAndTime</SYNTAX>
+<ACCESS>read-only</ACCESS>
+<STATUS>mandatory</STATUS>
+<DESCRIPTION>The last-modification date of this application as
+              it would appear in a directory listing.</DESCRIPTION>
+</MibObject>
+</MIB_MODULE>

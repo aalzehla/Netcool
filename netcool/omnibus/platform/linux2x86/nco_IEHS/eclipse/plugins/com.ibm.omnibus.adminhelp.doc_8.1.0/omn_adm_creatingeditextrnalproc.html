@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing external procedures" />
+<meta name="abstract" content="You can create external procedures to run an executable program on a local or remote system." />
+<meta name="Description" content="You can create external procedures to run an executable program on a local or remote system." />
+<meta name="DC.subject" content="creating, external procedures, editing, procedures" />
+<meta name="keywords" content="creating, external procedures, editing, procedures" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringprocedures.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_specifyingdatatypescols.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_runningprocedures.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_usingpctrlmanageprocesses.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingeditextrnalproc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringprocedures.html" />
+<title>Creating and editing external procedures</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingeditextrnalproc">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing external procedures</h1>
+<div class="body taskbody"><p class="shortdesc">You can create external procedures to run an executable
+program on a local or remote system.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To create or edit an external procedure:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">Automation</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Procedures</span>. </span> The <span class="keyword wintitle">Procedures</span> pane
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To add an external procedure, click <span class="ph uicontrol">Add External
+Procedure</span> in the toolbar.</span> The <span class="keyword wintitle">External
+Procedure Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit an external procedure, select the external procedure
+to edit and then click <span class="ph uicontrol">Edit Procedure</span> in the
+toolbar.</span> The <span class="keyword wintitle">External Procedure Details</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the procedure. If you are editing a procedure,
+you cannot change the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Parameters</dt>
+<dd class="dd">This area displays the parameters that have been created for the procedure.
+These parameters can be base type variables, arrays of base type values, or
+rows of named tables.</dd>
+<dd class="dd">You can use the up and down arrows to the right of the list box to change
+the order of any selected parameter. You can also click <span class="ph uicontrol">Remove
+parameter</span> to the right of the list box to remove any selected
+parameter from the list. </dd>
+<dd class="dd">To create a parameter, use the <span class="ph uicontrol">In/Out</span>, <span class="ph uicontrol">Name</span>,
+and <span class="ph uicontrol">Data Type</span> fields, the <span class="ph uicontrol">Array</span> check
+box, and the <span class="ph uicontrol">Add parameter to the list </span> button.<dl class="dl"><dt class="dt dlterm">In/Out </dt>
+<dd class="dd">The <span class="ph uicontrol">in</span> mode is selected by default. You cannot
+change this value because external procedure parameters are always <samp class="ph tt">IN</samp> parameters.
+You can use an <samp class="ph tt">IN</samp> parameter in expressions to help calculate a value,
+but you cannot assign a value to the parameter. </dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a name for the parameter being created. Parameter names must be unique
+within the procedure. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Data Type</dt>
+<dd class="dd">Select the type of data that the parameter can pass into the procedure.
+The data type can be any valid ObjectServer data type except VARCHAR or INCR. </dd>
+<dt class="dt dlterm">Array</dt>
+<dd class="dd">Select this check box to pass an array of the selected data type into
+the procedure.</dd>
+<dt class="dt dlterm">Add parameter to the list</dt>
+<dd class="dd">After completing the <span class="ph uicontrol">In/Out</span>, <span class="ph uicontrol">Name</span>,
+and <span class="ph uicontrol">Data Type</span> fields, and the <span class="ph uicontrol">Array</span> check
+box, click this button to add the parameter to the parameter list.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">Executable</dt>
+<dd class="dd">Type the full path for the command to run. You can click <span class="ph uicontrol">Browse</span> to
+help locate and select the file.</dd>
+<dt class="dt dlterm">Arguments</dt>
+<dd class="dd">Type any command-line arguments for the command to run.</dd>
+<dt class="dt dlterm">Host</dt>
+<dd class="dd">Type the name of the host computer on which to run the procedure. The
+logged-in computer name is shown by default.</dd>
+<dt class="dt dlterm">User ID</dt>
+<dd class="dd">Specify the (UNIX) user ID under which to run the executable program.</dd>
+<dt class="dt dlterm">Group ID</dt>
+<dd class="dd">Specify the (UNIX) group ID under which to run the executable program.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the external procedure and close the window.
+New external procedures are added to the <span class="keyword wintitle">Procedures</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>After you create a procedure in the ObjectServer, you can
+run it from the SQL interactive interface (<span class="keyword cmdname">iSQL</span>),
+or run it in a trigger using the EXECUTE PROCEDURE command. <div class="note note"><span class="notetitle">Note:</span> To run an external procedure, you must have a process
+control agent daemon (<span class="keyword cmdname">nco_pad</span>) running on the host
+where the executable file is stored. </div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringprocedures.html" title="A procedure is an executable SQL object that can be called to perform common operations.">Configuring procedures</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_pa_usingpctrlmanageprocesses.html" title="The Tivoli Netcool/OMNIbus process control system performs two primary tasks. It manages local and remote processes, and runs external procedures that are specified in automations.">Using process control to manage processes and external procedures</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_sql_specifyingdatatypescols.html" title="Each column value in the ObjectServer has an associated data type. The data type determines how the ObjectServer processes the data in the column. For example, the plus operator (+) adds integer values or concatenates string values, but does not act on Boolean values.">Specifying data types for columns</a></div>
+<div><a class="link" href="omn_adm_sql_runningprocedures.html" title="After you create a procedure, you must run it using the EXECUTE PROCEDURE command for the actions in the procedure to occur. You can do this using the SQL interactive interface (nco_sql) or in a trigger or procedure.">EXECUTE PROCEDURE</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

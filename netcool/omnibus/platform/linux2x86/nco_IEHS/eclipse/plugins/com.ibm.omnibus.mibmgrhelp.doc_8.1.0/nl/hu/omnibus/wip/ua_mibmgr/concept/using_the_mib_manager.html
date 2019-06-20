@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Netcool MIB Manager használata" />
+<meta name="abstract" content="A MIB Manager eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja." />
+<meta name="Description" content="A MIB Manager eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>Netcool MIB Manager használata</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB Manager</span> használata</h1>
+<div class="body conbody"><p class="shortdesc">A <span class="keyword">MIB Manager</span> eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja.</p>
+<p class="p">A <span class="keyword">MIB Manager</span> alap MIB-ek és RFC MIB-ek készletét tartalmazza az <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs</span> könyvtárban.
+Ezek a MIB-ek további MIB-ek engedélyezéséhez és importálásához lettek megadva. A <span class="keyword">MIB Manager</span> automatikusan ezeket a kötegelt MIB-eket használja a függőségek
+feloldására az új MIB-ek importálása közben. A kötegelt MIB modulok
+a <span class="keyword wintitle">MIB Modulok</span> nézetben jelennek meg, a
+<span class="keyword">MIB Manager</span> első indításakor.</p>
+<p class="p">A <span class="keyword">MIB Manager</span> olyan XML adatfájlokat is tartalmaz, amelyek a kötegelt alap MIB-ek
+importálását ábrázolják. A <span class="keyword">MIB Manager</span> ezeket az XML fájlokat használja a MIB adatok tárolására, amelyeket a
+nyers szöveges MIB fájlokból importál.</p>
+<p class="p">Adja hozzá a MIB-eket ahhoz a könyvtárhoz, amely elérhető a
+kiszolgálóról, amelyből a <span class="keyword">MIB Manager</span> el lett indítva. Minden szabvány alapú MIB-t különálló könyvtárba kell telepíteni, melyet a keresési útvonalra helyezhet a függőség feloldás megkönnyítése érdekében. Alapértelmezésben
+az alap SNMP MIB-ek a <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> könyvtárban vannak telepítve,
+és az összes RFC MIB a <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span>
+könyvtárban van telepítve.</p>
+<div class="section"><h2 class="title sectiontitle">A <span class="keyword">Netcool MIB Manager</span> ablak</h2><p class="p">A <span class="keyword">MIB Manager</span> indításakor a következő elemek jelennek meg a kezdeti <span class="keyword">MIB Manager</span> ablakban: számos elem a <span class="keyword wintitle">MIB Manager</span> ablakban jelenik meg.
+A következő ábra ezeket az elemeket ábrázolja.</p>
+<div class="fig fignone"><span class="figcap">1. Ábra <span class="keyword">MIB Manager</span> kezdeti ablak</span><div class="image"><img class="image" src="../../images/cd_omn_mib_screen.gif" alt="A kezdeti MIB Manager ablakot ábrázoló kép" /></div></div>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> Eszköztár</dt>
+<dd class="dd">Hozzáférést biztosít a leggyakrabban használt <span class="keyword">MIB Manager</span> funkciókhoz.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> Perspektívák</dt>
+<dd class="dd">A MIB adatok a két perspektíva egyikében jeleníthetők meg, <span class="ph uicontrol">MIB
+Manager</span> és <span class="ph uicontrol">mib2rules</span>. A <span class="ph uicontrol">MIB
+Manager</span> nézet az alapértelmezett nézet. A <span class="ph uicontrol">mib2rules</span>
+perspektíva az Objektumazonosítókra (OID-k) fókuszál és olyan felhasználók számára
+kerül megadásra, akik ismerik a <span class="keyword cmdname">mib2rules</span> segédprogramot.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> <span class="keyword wintitle">Eszköz</span> nézet</dt>
+<dd class="dd">Ebben a nézetben hozhatja létre, frissítheti és törölheti a <span class="keyword">MIB Manager</span> eszközöket.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> <span class="keyword wintitle">Részletek</span> nézet
+és <span class="keyword wintitle">Konzol</span> nézet</dt>
+<dd class="dd">A <span class="keyword wintitle">Részletek</span> nézet a MIB elemek részleteit
+jeleníti meg. A <span class="keyword wintitle">Konzol</span> nézet a
+<span class="keyword">MIB Manager</span> által előállított összes naplóüzenetet megjeleníti,
+miközben az aktuális példány fut.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> <span class="keyword wintitle">MIB modulok</span></dt>
+<dd class="dd">Ebben a nézetben keresheti ki és törölheti a MIB modulokat és itt keresheti ki az adott MIB értékeket.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> <span class="keyword wintitle">OID fa</span> nézet</dt>
+<dd class="dd">Ez a nézet jeleníti meg az importált MIB modulokban lévő összes
+MIB objektumot.</dd>
+</dl>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">MIB modulok nézet</a></span><br />
+Az <span class="keyword wintitle">MIB modulok</span> nézet az összes importált MIB modult ábrázolja, és lehetővé teszi az MIB modulok keresését, törlését, és adott MIB értékek keresését.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">OID fa nézet</a></span><br />
+Az Objektumazonosító (OID) fa nézet az importált MIB modulokban található összes MIB objektumot ábrázolja.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">MIB adatok importálása</a></span><br />
+SNMP MIB adatok importálása az MIB Manager termékbe.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">MIB adatok exportálása</a></span><br />
+SNMP MIB adatok exportálása a <span class="keyword">MIB Manager</span> termékből különböző formátumokban.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">SNMP trapek szerkesztése</a></span><br />
+SNMP trapek szerkesztésének módja.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">SNMP trapek előállítása</a></span><br />
+SNMP trapek előállításának módja. Ez a funkcionalitás a <span class="keyword">MIB Manager</span> által előállított szabályfájlok tesztelésére is használható.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html">Eszközök létrehozása és törlése</a></span><br />
+A <span class="keyword">MIB Manager</span> eszközökkel lehet csoportosítani a társított MIB modulokat
+és meghatározni az exportáláshoz szükséges objektumokat. A <span class="keyword">MIB Manager</span> grafikus felületén eszközöket hozhat létre, frissíthet
+és törölhet.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="A Netcool MIB Manager egy IBM Eclipse alapú grafikus felületi alkalmazás, amely az Egyszerű hálózatkezelési protokoll (SNMP) felügyeleti információs alapfájlok (MIB) értelmezéséhez használhat, amelyekből Netcool szabályfájlokat állathat elő. A mib2rules segédprogram helyettesítőjének szánták.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Process Details" />
+<meta name="abstract" content="Use this window to create a new process or edit the details of an existing process that should be run by a process agent." />
+<meta name="Description" content="Use this window to create a new process or edit the details of an existing process that should be run by a process agent." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingeditprocs.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_processdetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Process Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_processdetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Process Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to create a new process or edit the details of
+an existing process that should be run by a process agent.</p>
+<div class="section">The <span class="keyword wintitle">Process Details</span> window contains the following
+areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_processdetailswindow__netom_processdetails_processsetuparea">Process setup area</a></li>
+<li class="li"><a class="xref" href="#netom_processdetailswindow__netom_processdetails_processtab">Process tab</a></li>
+<li class="li"><a class="xref" href="#netom_processdetailswindow__netom_processdetails_messagestab">Messages tab</a></li>
+</ul>
+</div>
+<div class="section" id="netom_processdetailswindow__netom_processdetails_processsetuparea"><h2 class="title sectiontitle">Process setup area</h2><div class="p">Complete
+this area as follows:<dl class="dl" id="netom_processdetailswindow__netom_processdetails_processsetupfields"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type the process name. This name must be unique per process agent. When
+editing a process, you cannot change the name.</dd>
+<dt class="dt dlterm">Command</dt>
+<dd class="dd">Type the command string that starts the process, as it would be entered
+on the command line. Use the full path for the command. For example, to configure
+an ObjectServer named NCOMS, with process agent SFOSYS1_PA, type:<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_objserv
+-name NCOMS -pa SFOSYS1_PA</kbd></p>
+</dd>
+<dt class="dt dlterm">Host</dt>
+<dd class="dd">Type the name of the host on which the process is run. Process control
+automatically resolves the name of the process agent, when required.</dd>
+<dt class="dt dlterm">Service</dt>
+<dd class="dd">Select the service under which this process will run. When editing a process,
+you cannot change the service.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_processdetailswindow__netom_processdetails_processtab"><h2 class="title sectiontitle">Process tab</h2><div class="p">Use
+this tab to specify additional details about the process. Complete this tab
+as follows:<dl class="dl" id="netom_processdetailswindow__netom_processdetails_processtabfields"><dt class="dt dlterm">Managed</dt>
+<dd class="dd">Select this check box if you want to the process to restart automatically
+if it fails.</dd>
+<dt class="dt dlterm">Run As ID</dt>
+<dd class="dd">Type the user ID under which the process is run. This value is typically
+0, which corresponds to the <samp class="ph tt">root</samp> user name.<div class="note note"><span class="notetitle">Note:</span> If the
+process agent is not running as <samp class="ph tt">root</samp>, this option is ignored, and
+the process is run as the user who is running the process agent.</div>
+</dd>
+<dt class="dt dlterm">Retry Count</dt>
+<dd class="dd">Specify the number of restart attempts to be made if the process exits
+within the time specified by the process agent <span class="keyword option">-retrytime</span> command-line
+option. If set to <samp class="ph tt">0</samp>, there is no limit to the number of restart attempts.
+The default is <samp class="ph tt">0</samp>.</dd>
+<dt class="dt dlterm">Process Type</dt>
+<dd class="dd">From this drop-down list, select <samp class="ph tt">PA Aware</samp> to make the process
+aware of process control and enable the use of all process control features,
+such as dependencies. Select <samp class="ph tt">Not PA Aware</samp> if the process can be managed
+by process control, but cannot use all process control features. </dd>
+<dt class="dt dlterm">Dependency</dt>
+<dd class="dd">Use this drop-down list to indicate whether the process has any dependencies.
+The option that you select here determines the remaining fields that are displayed:<ul class="ul"><li class="li">Select <samp class="ph tt">None</samp> to specify that the process has no dependency on
+any other process. No more fields are displayed.</li>
+<li class="li">Select <samp class="ph tt">Delay</samp> to indicate a time dependency for starting the process.
+An additional field titled <span class="ph uicontrol">Start delay</span> is displayed
+for you to define the time dependency.</li>
+<li class="li">Select <samp class="ph tt">Process</samp> to indicate a dependency on another process. An
+additional field titled <span class="ph uicontrol">Select Delay from</span> or <span class="ph uicontrol">Dependent
+Name</span> is displayed for you to specify a process.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Start delay</dt>
+<dd class="dd">Specify a time (in seconds) for starting the process. This time is measured
+from the start of the service.</dd>
+<dt class="dt dlterm">Select Delay from/Dependent Name</dt>
+<dd class="dd">Use this drop-down list to select another PA aware process on which the
+process being created or edited depends. The process being created or edited
+will not start until the process on which it depends is already running.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_processdetailswindow__netom_processdetails_messagestab"><h2 class="title sectiontitle">Messages tab</h2><div class="p">Use this tab to specify message details that should be sent to
+the UNIX syslog or the Windows Event Viewer when the process is restarted
+or exits. Complete this tab as follows:<dl class="dl" id="netom_processdetailswindow__netom_processdetails_messagestabfields"><dt class="dt dlterm">Restart</dt>
+<dd class="dd">Type the message to be sent to the UNIX syslog or the Windows Event Viewer
+if the process is restarted. For example: <kbd class="ph userinput">The ObjectServer has
+been restarted</kbd>.</dd>
+<dt class="dt dlterm">Alert</dt>
+<dd class="dd">Type the message to be sent to the UNIX syslog or the Windows Event Viewer
+if the process exits. For example: <kbd class="ph userinput">The ObjectServer has gone down</kbd>.</dd>
+<dd class="dd">When the process agent generates an alert or restart message, this message
+is passed to the syslog or Event Viewer. Tivoli Netcool/OMNIbus has a Syslog
+probe that can monitor these messages and convert them into ObjectServer alerts. </dd>
+<dd class="dd">The alert and restore messages are sent to the UNIX syslog or the Windows
+Event Viewer as warnings. The message is formatted as:<pre class="pre codeblock"><code><var class="keyword varname">HOSTNAME</var> : <var class="keyword varname">ALERT_OR_RESTART_MSG</var> : <var class="keyword varname">MSG</var></code></pre>
+The <var class="keyword varname">HOSTNAME</var> is the name of the
+host that has reported the problem. <var class="keyword varname">ALERT_OR_RESTORE_MSG</var> describes
+the type of message. <var class="keyword varname">MSG</var> is the text defined in the configuration
+file for that process.</dd>
+</dl>
+</div>
+<div class="p" id="netom_processdetailswindow__netom_processdetails_messagestabfields_description">You
+can use the expansion keywords described in the following table in the restart
+and alert entries that you specify in the <span class="ph uicontrol">Messages</span> tab.
+Expansion keywords act as variables and contain information about the process
+that has exited or restarted.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1.  Expansion keywords</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d81710e201">Expansion keyword</th>
+<th class="entry" valign="bottom" width="60%" id="d81710e203">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d81710e201 ">${NAME}</td>
+<td class="entry" valign="top" width="60%" headers="d81710e203 ">The name of the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d81710e201 ">${HOST}</td>
+<td class="entry" valign="top" width="60%" headers="d81710e203 ">The name of the host running the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d81710e201 ">${EUID}</td>
+<td class="entry" valign="top" width="60%" headers="d81710e203 ">The effective user ID under which the process is running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d81710e201 ">${COMMAND}</td>
+<td class="entry" valign="top" width="60%" headers="d81710e203 ">The command that defines the process.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="netom_processdetailswindow__netom_processdetails_saving_closing"><h2 class="title sectiontitle">Saving the process
+details</h2><div class="p">After creating or editing a process, you can save or cancel
+the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_processdetailswindow__netom_processdetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the process details and close the window. New
+processes are added to the <span class="keyword wintitle">Service/Process Details</span> pane.<div class="note tip"><span class="tiptitle">Tip:</span> Your configuration changes are not automatically saved to the process
+control configuration file. To update the file, click <span class="ph uicontrol">Write Process
+Agent Config File</span> in the toolbar. </div>
+</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_pa_creatingeditprocs.html" title="You can set up a process and configure it to run as part of a service.">Creating and editing processes</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

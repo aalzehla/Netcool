@@ -1,0 +1,165 @@
+#NCO_CONFIG3
+#
+# Netcool/OMNIbus Event List Configuration File 8.1.0
+#
+
+config_name = 'Default';
+config_columns = 4;
+views = {
+{
+view_name = 'Default';
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertKey, 'Key', 15, centre, left }
+{ Summary, 'Summary', 30, centre, left }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+num_fixed = 1;
+}
+sorting = {
+{ Serial, asc }
+}
+}
+{
+view_name = 'LastOccurrence';
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertKey, 'Key', 15, centre, left }
+{ Summary, 'Summary', 30, centre, left }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+num_fixed = 1;
+}
+sorting = {
+{ LastOccurrence, desc }
+{ Severity, desc }
+{ Node, asc }
+{ AlertKey, asc }
+}
+}
+{
+view_name = 'Severity';
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertKey, 'Key', 15, centre, left }
+{ Summary, 'Summary', 30, centre, left }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+num_fixed = 1;
+}
+sorting = {
+{ Severity, desc }
+{ Node, asc }
+{ AlertKey, asc }
+{ LastOccurrence, desc }
+}
+}
+{
+view_name = 'Node';
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertKey, 'Key', 15, centre, left }
+{ Summary, 'Summary', 30, centre, left }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+num_fixed = 1;
+}
+sorting = {
+{ Node, asc }
+{ AlertKey, asc }
+{ LastOccurrence, desc }
+}
+}
+{
+view_name = 'Summary';
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertKey, 'Key', 15, centre, left }
+{ Summary, 'Summary', 30, centre, left }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+num_fixed = 1;
+}
+sorting = {
+{ Summary, asc }
+{ Node, asc }
+{ AlertKey, asc }
+{ LastOccurrence, desc }
+}
+}
+{
+view_name = 'Management';
+columns = {
+{ OwnerGID, 'Group', 12, centre, left }
+{ OwnerUID, 'Owner', 15, centre, left }
+{ Severity, 'Severity', 10, centre, left }
+{ StateChange, 'Last Ammended', 18, centre, centre }
+{ LastOccurrence, 'Last Occurrence', 18, centre, centre }
+num_fixed = 1;
+}
+sorting = {
+{ Severity, desc }
+{ Flash, desc }
+{ Acknowledged, desc }
+}
+}
+}
+
+filters = {
+{
+filter_name = 'Default';
+filter_text = '';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'Critical';
+filter_text = 'Severity = 5';
+filter_metric = 'avg(Severity)';
+default = 'Node';
+windows = {
+none
+}
+}
+{
+filter_name = 'Not Assigned';
+filter_text = '( OwnerUID = 65534 ) and ( OwnerGID = 0 )';
+filter_metric = 'sum(Tally)';
+default = 'Summary';
+windows = {
+none
+}
+}
+{
+filter_name = 'Tally > 5';
+filter_text = 'Tally > 5';
+filter_metric = 'sum(Tally)';
+default = 'LastOccurrence';
+windows = {
+none
+}
+}
+{
+filter_name = 'Live Events';
+filter_text = 'Severity > 2';
+filter_metric = 'sum(Tally)';
+default = 'Severity';
+windows = {
+none
+}
+}
+{
+filter_name = 'Journal Entries';
+filter_text = 'Serial in ( (select Serial from journal) )';
+filter_metric = 'sum(Tally)';
+default = 'Management';
+windows = {
+none
+}
+}
+}
+
+# End of file

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Using the SQL interactive interface in GUI mode" />
+<meta name="abstract" content="You can use the SQL interactive interface to configure the ObjectServer by issuing SQL commands." />
+<meta name="Description" content="You can use the SQL interactive interface to configure the ObjectServer by issuing SQL commands." />
+<meta name="DC.subject" content="SQL interactive interface, GUI mode" />
+<meta name="keywords" content="SQL interactive interface, GUI mode" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingnetomadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingindexes.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditconversions.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_objservsql.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_usingsqlintinterfacegui" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_usingnetomadministrator.html" />
+<title>Using the SQL interactive interface in GUI mode</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_usingsqlintinterfacegui">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Using the SQL interactive interface in GUI mode</h1>
+<div class="body taskbody"><p class="shortdesc">You can use the SQL interactive interface to configure
+the ObjectServer by issuing SQL commands.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><div class="note note"><span class="notetitle">Note:</span> Only users that are members of a group
+granted the ISQL role can access an ObjectServer by using the SQL
+interactive interface. Only users that are members of a group granted
+the ISQLWrite role can update ObjectServer data by using the SQL interactive
+interface. </div>
+<p class="p">To open the SQL interactive interface in GUI
+mode:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">System</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">SQL</span>. </span> The <span class="keyword wintitle">SQL</span> pane
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm"><var class="keyword varname">SQL editor</var></dt>
+<dd class="dd">Use the text field and buttons in this area to issue commands. Type SQL
+in the text field, and use a semi-colon to separate multiple commands. You
+can use the SQL helper buttons and the additional buttons to facilitate the
+creation of SQL commands. </dd>
+<dd class="dd"><span class="ph">When typing SQL commands within the <span class="keyword">Tivoli Netcool/OMNIbus</span> SQL
+editor panels, you can type one or more characters and then press
+Ctrl+F1 to obtain a dialog box with a list of keywords that might
+match your entry. Select the required keyword and click <span class="ph uicontrol">OK</span> to
+complete your entry. If only one keyword matches your typed characters,
+the keyword is automatically completed for you. If you press Ctrl+F1
+after typing a database-related keyword, the dialog box provides a
+list of possible ObjectServer databases from which you can select.
+If you press Ctrl+F1 after typing a database name followed by a dot
+(for example: <kbd class="ph userinput">alerts.</kbd>), you can press Ctrl+F1
+again to view and select from a list of tables in the database.</span></dd>
+<dd class="dd">The following table describes the helper buttons.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. SQL interactive interface buttons</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="28.57142857142857%" id="d68846e73">Button</th>
+<th class="entry" valign="bottom" width="71.42857142857143%" id="d68846e75">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e534" src="bt_omn_adm_helpersql.gif" alt="This figure shows the SQL Commands helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e538">Click this
+button to select an SQL command from the pop-up menu. Based on the
+command that you select, complete the resulting window as follows:</span><ul class="ul" id="omn_adm_usingsqlintinterfacegui__d13079e540"><li class="li"><span class="ph uicontrol">Select</span>: Select the database and table on
+which to run the SELECT command. Then, choose the table columns to
+select.</li>
+<li class="li"><span class="ph uicontrol">Insert</span>: Select the database and table on
+which to run the INSERT command. Then, select the table columns in
+which to insert values. For each selected column, enter the value
+to insert. For insert statements, you must include the primary key.
+Primary keys are indicated with an asterisk (*).</li>
+<li class="li"><span class="ph uicontrol">Update</span>: Select the database and table on
+which to run the command. Then, select the table columns to update.
+For each selected column, enter the new value. For update statements,
+you must exclude the primary key. Primary keys are indicated with
+an asterisk (*).<div class="note note"><span class="notetitle">Note:</span> For inserts and updates to the alerts.status
+table, any existing conversions appear in the drop-down lists.</div>
+</li>
+<li class="li"><span class="ph uicontrol">Delete</span>: Select the table to delete.</li>
+<li class="li"><span class="ph uicontrol">Use</span>: Select the database to use.</li>
+<li class="li"><span class="ph uicontrol">Service</span>: Select a service name and a value.
+Values can be <span class="keyword option">Good</span>, <span class="keyword option">Marginal</span>, or <span class="keyword option">Bad</span>.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e578" src="bt_omn_adm_helpercolumn.gif" alt="This figure shows the Columns helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e582">Click this
+button to select a table column name to add to the command. The column
+name is substituted for the corresponding event list row value when
+the tool runs.</span> <span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e585">When prefaced
+with the @ symbol, the column name is substituted with the corresponding
+event list row value during execution. This can be used in an SQL
+query or restriction filter, such as: <samp class="ph codeph">RemoteNodeAlias = '@LocalNodeAlias'</samp></span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e591" src="bt_omn_adm_helperconversions.gif" alt="This figure shows the Conversions helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e595">Click
+this button to select from a list of available conversions.</span> <span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e598">Double-click to add the conversion.</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e721" src="bt_omn_adm_helperpencil.gif" alt="This figure shows the Clear SQL helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e725">Click this
+button to clear the entered SQL.</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e680" src="bt_omn_adm_helperquestionmrk.gif" alt="This figure shows the SQL Keywords helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e684">Click
+this button to bring up a list of keywords that complete the entered
+SQL.</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e688" src="bt_omn_adm_helperchecksql.gif" alt="This figure shows the Check SQL Syntax helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e692">Click
+this button to check the validity of the entered SQL syntax. </span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e696" src="bt_omn_adm_helperchecksqlfile.gif" alt="This figure shows the Check SQL File helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e700">Click
+this button to locate a file of type <span class="ph filepath">.sql</span> or <span class="ph filepath">.ed</span> and
+check the validity of its syntax. On completion, the results are displayed.
+(When you use an external editor to create or edit triggers and procedures,
+they are saved as <span class="ph filepath">.ed</span> files.)</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="28.57142857142857%" headers="d68846e73 "><div class="image"><img class="image" id="omn_adm_usingsqlintinterfacegui__d13079e713" src="bt_omn_adm_helperbus.gif" alt="This figure shows the SQL Submit helper button." /></div></td>
+<td class="entry" valign="top" width="71.42857142857143%" headers="d68846e75 "><span class="ph" id="omn_adm_usingsqlintinterfacegui__d13079e717">Click this
+button to submit the SQL commands.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dd class="dd">After you complete the SQL command, click <span class="ph uicontrol">Submit</span>. </dd>
+<dt class="dt dlterm">History</dt>
+<dd class="dd">This drop-down list provides a history of the SQL commands entered. You
+can select a previously-issued command from the list. You can also clear the
+list of previously-issued commands by right-clicking over the list and selecting <span class="ph uicontrol">Clear
+History</span>.</dd>
+<dt class="dt dlterm">Result View</dt>
+<dd class="dd">After issuing the command, a visual representation of the table on which
+you performed the SQL command is displayed in this tab.</dd>
+<dt class="dt dlterm">Console View</dt>
+<dd class="dd">A command history is displayed in this tab.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_usingnetomadministrator.html" title="The ObjectServer stores, manages, and processes alert and status data that is collected by external applications such as probes and gateways. You can use Netcool/OMNIbus Administrator to configure your ObjectServer objects and to configure process control.">Using Netcool/OMNIbus Administrator to configure ObjectServers</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_sql_objservsql.html" title="The ObjectServer provides an SQL interface for defining and manipulating relational database objects such as tables and views.">ObjectServer SQL</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingindexes.html" title="Use Netcool/OMNIbus Administrator to create indexes on columns of database tables.">Creating indexes</a></div>
+<div><a class="link" href="omn_adm_creatingeditconversions.html" title="Conversions are associated with the columns in the ObjectServer alerts.status table, and they map integer values for the columns to strings. The conversions that are configured in the Netcool/OMNIbus Administrator are used in the event list, to translate integer values into strings, for readability.">Creating and editing conversions</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

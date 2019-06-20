@@ -1,0 +1,106 @@
+##############################################################################
+# Netcool/OMNIbus Bi-directional ObjectServer Gateway 8.1.0
+#
+# Default property file.
+#
+# Ident: $Id: objserv_bi.props 1.1 2003/09/26 15:54:23 cappl Development $
+#
+# Revision History:
+#	1.0:	Initial revision.
+#
+# Notes:
+#
+##############################################################################
+
+##############################################################################
+#
+# Property Name				Default
+#
+# Common Netcool/OMNIbus Properties.
+#
+# MaxLogFileSize			: 1024
+# MessageLevel				: 'warn'
+# MessageLog				: '$OMNIHOME/log/NCO_GATE.log'
+# Name					: 'NCO_GATE'
+# PropsFile				: '$OMNIHOME/etc/NCO_GATE.props'
+# Help					: FALSE
+# UniqueLog				: FALSE
+# Version				: FALSE
+#
+# Common IPC Properties.
+#
+# Ipc.ClientOverrideSybase		: FALSE
+# Ipc.OpenClientDebug			: FALSE
+# Ipc.QueueSize				: 1024
+# Ipc.ServerOverrideSybase		: FALSE
+# Ipc.SingleThreaded			: FALSE
+# Ipc.StackSize				: 34816
+# Ipc.Timeout				: 60
+# Ipc.TruncateVendorLogFile		: TRUE
+# Ipc.VendorLogFileSize			: 1024
+# Connections				: 256
+#
+# Common Gateway Properties.
+#
+# Gate.CacheHashTblSize			: 5023
+# Gate.MapFile				: '$OMNIHOME/gates/objserv_bi/objserv_bi.map'
+# Gate.StartupCmdFile			: '$OMNIHOME/gates/objserv_bi/objserv_bi.startup.cmd'
+# Gate.Transfer.FailoverSyncRate	: 60
+# Gate.NGtkDebug			: TRUE
+# Gate.PAAware				: 0
+# Gate.PAAwareName			: ''
+#
+#
+# Bidirectional ObjectServer Gateway Properties.
+#
+# Gate.Mapper.Debug			: TRUE
+# Gate.Mapper.ForwardHistoricDetails	: FALSE
+# Gate.Mapper.ForwardHistoricJournals	: FALSE
+#
+# Gate.ObjectServerA.BufferSize		: 25
+# Gate.ObjectServerA.Debug		: TRUE
+# Gate.ObjectServerA.Server		: 'NCOMS'
+# Gate.ObjectServerA.Username		: 'root'
+# Gate.ObjectServerA.Password		: ''
+# Gate.ObjectServerA.DeleteIfNoDedup	: FALSE
+# Gate.ObjectServerA.StatusTableName	: 'alerts.status'
+# Gate.ObjectServerA.DetailsTableName	: 'alerts.details'
+# Gate.ObjectServerA.JournalTableName	: 'alerts.journal'
+# Gate.ObjectServerA.FailbackEnabled	: FALSE
+# Gate.ObjectServerA.FailbackTimeout	: 30
+# Gate.ObjectServerA.IducFlushRate	: 0
+# Gate.ObjectServerA.LogOSSql		: FALSE
+# Gate.ObjectServerA.ReconnectTimeout	: 30
+# Gate.ObjectServerA.RefreshCacheOnUpdate: FALSE
+# Gate.ObjectServerA.SAF		: FALSE
+# Gate.ObjectServerA.SAFFile		: '$OMNIHOME/var/objserv_bi/NCO_GATE_ObjectServerA.store'
+# Gate.ObjectServerA.TblReplicateDefFile: '$OMNIHOME/gates/objserv_bi/objserv_bi.objectservera.tblrep.def'
+#
+# Gate.ObjectServerB.BufferSize		: 25
+# Gate.ObjectServerB.Debug		: TRUE
+# Gate.ObjectServerB.Server		: 'NCOMS'
+# Gate.ObjectServerB.Username		: 'root'
+# Gate.ObjectServerB.Password		: ''
+# Gate.ObjectServerB.DeleteIfNoDedup	: FALSE
+# Gate.ObjectServerB.StatusTableName	: 'alerts.status'
+# Gate.ObjectServerB.DetailsTableName	: 'alerts.details'
+# Gate.ObjectServerB.JournalTableName	: 'alerts.journal'
+# Gate.ObjectServerB.FailbackEnabled	: FALSE
+# Gate.ObjectServerB.FailbackTimeout	: 30
+# Gate.ObjectServerB.IducFlushRate	: 0
+# Gate.ObjectServerB.LogOSSql		: FALSE
+# Gate.ObjectServerB.ReconnectTimeout	: 30
+# Gate.ObjectServerB.RefreshCacheOnUpdate: FALSE
+# Gate.ObjectServerB.SAF		: FALSE
+# Gate.ObjectServerB.SAFFile		: '$OMNIHOME/var/objserv_bi/NCO_GATE_ObjectServerB.store'
+# Gate.ObjectServerB.TblReplicateDefFile: '$OMNIHOME/gates/objserv_bi/objserv_bi.objectserverb.tblrep.def'
+#
+# Gate.Resync.Enable			: TRUE
+# Gate.Resync.Type			: 'NORMAL'
+# Gate.Resync.LockType			: 'PARTIAL'
+# Gate.Resync.BackoffRetryTime		: 60
+# Gate.Resync.Master			: ''
+# Gate.Resync.Preferred			: ''
+#
+#######################################################################
+

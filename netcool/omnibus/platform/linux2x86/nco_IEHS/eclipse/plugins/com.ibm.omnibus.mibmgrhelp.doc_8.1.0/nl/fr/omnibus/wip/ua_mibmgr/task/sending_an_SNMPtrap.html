@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Génération d'interceptions SNMP" />
+<meta name="abstract" content="Comment générer des interceptions SNMP. Vous pouvez également utiliser cette fonctionnalité pour tester les fichiers de règles générés par MIB Manager." />
+<meta name="Description" content="Comment générer des interceptions SNMP. Vous pouvez également utiliser cette fonctionnalité pour tester les fichiers de règles générés par MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="fr-fr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Génération d'interceptions SNMP</h1>
+<div class="body taskbody"><p class="shortdesc">Comment générer des interceptions SNMP. Vous pouvez également utiliser cette fonctionnalité pour tester les fichiers de règles générés par <span class="keyword">MIB Manager</span>.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procédure</h2></div><p class="li stepsection">Pour générer une interception SNMP :</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Cliquez sur <img class="image" src="../gifs/trap.gif" alt="Icône d'interception" /> <span class="ph uicontrol">Interception</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Adresse de destination</span>, indiquez le nom d'hôte ou l'adresse IP d'un ordinateur exécutant un service SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Port de destination</span>, indiquez le port UDP écouté par le service SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Communauté</span>, indiquez une chaîne valide pour le gestionnaire Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">En fonction du type d'interception que vous générez, une section <span class="ph uicontrol">Liaisons de variable</span> peut apparaître dans la fenêtre <span class="keyword wintitle">Générer une interception SNMP</span>. Les zones disponibles dans la section <span class="ph uicontrol">Liaisons de variable</span> dépendent également du type d'interception généré.</span> <p class="p">Survolez les noms de la zone <span class="ph uicontrol">Liaisons de variable</span> pour plus de détails sur la syntaxe de la valeur de la zone. Vous pouvez indiquer plusieurs valeurs, séparées par des virgules. Ces valeurs sont choisies de manière aléatoire pour générer l'interception.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Dans la zone <span class="ph uicontrol">Métrique récurrente</span>, indiquez le nombre d'interceptions (de 1 à 1000) qui peuvent être générées.</span> <p class="p">Si vous indiquez un nombre élevé, les interceptions se succèdent rapidement et peuvent provoquer une tempête d'alarme sur le gestionnaire de Trapd. Pour les valeurs supérieures à un (&gt; 1) et pour les valeurs qui sont spécifiées en tant que listes séparées par un point-virgule, <span class="keyword">MIB Manager</span> effectue une sélection aléatoire dans les listes spécifiées et génère des interceptions avec les valeurs arbitraires présentées comme des liaisons de variable (varbind).</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Cliquez sur <span class="ph uicontrol">Exécuter</span> pour générer l'interception.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Résultats</h2></div>La zone <span class="ph uicontrol">Résultat</span> dans la fenêtre <span class="keyword wintitle">Générer une interception SNMP</span> indique si l'interception a été envoyée avec succès.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Rubrique parent :</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Vous pouvez utiliser MIB Manager pour analyser des modules MIB et créer des fichiers de règles Netcool.">Utilisation de Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothèque</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

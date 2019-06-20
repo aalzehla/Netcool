@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="로깅 환경 설정 설정" />
+<meta name="abstract" content="로깅 환경 설정을 사용하여 MIB Manager 로그 파일 디렉토리를 지정하고 기본 메시지 레벨을 설정합니다." />
+<meta name="Description" content="로깅 환경 설정을 사용하여 MIB Manager 로그 파일 디렉토리를 지정하고 기본 메시지 레벨을 설정합니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/setting_the_logging_level.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="pref_logging" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="pref_logging">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">로깅 환경 설정 설정</h1>
+<div class="body refbody"><p class="shortdesc">로깅 환경 설정을 사용하여 <span class="keyword">MIB Manager</span> 로그 파일 디렉토리를 지정하고 기본 메시지 레벨을
+설정합니다. </p>
+<div class="section"><p class="p">디렉토리 환경 설정을 설정하려면, <img class="image" src="../gifs/global_preferences.gif" alt="환경 설정 아이콘" /> <span class="ph uicontrol">환경 설정</span>을 클릭하거나 기본 메뉴에서
+<span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">환경 설정</span></span>을 클릭한 후
+<span class="keyword wintitle">환경 설정</span> 창의 왼쪽 분할창에서 <span class="ph uicontrol">로깅</span>을 클릭하십시오. </p>
+</div>
+<div class="section"><ul class="ul"><li class="li"><span class="ph uicontrol">로그 디렉토리</span> 필드에서 애플리케이션 로그 파일이 기록되는 위치를
+지정하십시오. 기본 위치는 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>입니다. </li>
+<li class="li"><span class="ph uicontrol">기본 메시지 레벨</span> 필드에서 애플리케이션의 기본 메시지 레벨을 지정하십시오.
+또한 <span class="ph uicontrol">편집</span> 메뉴를 사용하여 기본 메시지 로깅 레벨을 변경할 수도 있습니다.
+메시지 레벨은 <span class="ph uicontrol">편집</span> 메뉴를 사용하여 변경하는 경우가 아니면 애플리케이션이 처음 시작될 때부터
+애플리케이션이 종료할 때까지 유효합니다. <div class="note note"><span class="notetitle">참고:</span> <span class="ph uicontrol">기본 메시지 레벨</span> 필드에서
+메시지 레벨을 변경해도 애플리케이션의 현재 메시지 레벨은 변경되지 않습니다. 애플리케이션이 처음(기본 메시지 레벨)
+시작될 때 초기에 설정된 메시지 레벨에만 적용됩니다. 대형 로그 파일이 생성되지 않도록 하기 위해
+기본 메시지 레벨을 <kbd class="ph userinput">경고</kbd>로 설정하십시오. </div>
+</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/setting_the_logging_level.html">로깅 레벨 설정</a></span><br />
+로깅 레벨을 변경하여
+<span class="keyword">MIB Manager</span>를 디버깅하는 데 유용한 자세한 로그 또는 추적 파일을 제공할 수 있습니다. 로깅 레벨을 올려 제공되는 기타 정보는 MIB 구문 분석 시 특정 문제점을
+디버깅할 때 도움이 될 수 있습니다. </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="환경 설정 창에서 여러 MIB Manager 글로벌 환경 설정을 구성할 수 있습니다.">글로벌 환경 설정 구성</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

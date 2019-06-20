@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="יבוא נתונים של MIB" />
+<meta name="abstract" content="כיצד לייבא נתונים של SNMP MIB לתוך MIB Manager." />
+<meta name="description" content="כיצד לייבא נתונים של SNMP MIB לתוך MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>יבוא נתונים של MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">יבוא נתונים של MIB</h1>
+<div class="body taskbody"><p class="shortdesc">כיצד לייבא נתונים של SNMP MIB לתוך MIB Manager.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">לפני שתתחילו</h2></div>בחלון <span class="keyword wintitle">העדפות</span>, ציינו מיקומים עבור רכיבי MIB המשמשים בקביעות את רכיבי ה-MIB של הספקים. ודאו שרכיבי ה-MIB שלכם ממוקמים במדריכים הספציפיים לספקים, ושכל מספרי הציוד המשויכים ממוקמים בתת-מדריכים. כמו כן, ודאו שהמדריכים אינם מכילים קובצי תמליל שאינם של MIB. מרבית רכיבי ה-MIB מותקנים במדריך <span class="ph filepath">$NCHOME/omnibus/platform/<var class="keyword varname">arch</var>/mibmanager/workspace/mibs/base</span> של MIB Manager, וכל הרכיבים של RFC MIB מותקנים ב-<span class="ph filepath">$NCHOME/omnibus/platform/<var class="keyword varname">arch</var>/mibmanager/workspace/mibs/rfc</span>.<p class="p">רכיבי ה-MIB שאתם מייבאים עשויים להיות תלויים ברכיבי MIB אחרים. כדי לוודא ש-MIB Manager יוכל לחפש אחר רכיבים תלויים  של MIB במהלך ביצוע הייבוא, הגדירו את נתיב החיפוש למיקומם של קובצי ה-MIB התלויים.</p>
+</div>
+<p class="li stepsection">כדי לייבא נתוני MIB:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">לחצו על <img class="image" src="../gifs/import.gif" alt="איקון של יבוא MIB" /> <span class="ph uicontrol">יבוא</span> או, מהתפריט,
+לחצו על <span class="ph menucascade"><span class="ph uicontrol">קובץ</span> &gt; <span class="ph uicontrol">יבוא</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">בשדה <span class="ph uicontrol">מדריך</span>, ציינו את מיקום המודולים של MIB שאותם ברצונכם לייבא.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">כדי לגרום ל-MIB Manager לנתח את כל רכיבי ה-MIB הנמצאים בתת-מדריכים זמינים, בחרו בתיבת הסימון <span class="ph uicontrol">מעבר אל תת-מדריכים</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">לחצו על <span class="ph uicontrol">יבוא</span>.</span> <p class="p">החלון <span class="keyword wintitle">סטאטוס יבוא</span> מוצג במהלך ניתוח המודולים של MIB.
+צידו השמאלי של חלון זה מציג את מספר סוגי האובייקטים השונים של MIB כאשר המערכת מאתרת כל אחד מהם במהלך הניתוח של קובצי MIB המיובאים.</p>
+  לאחר ניתוח רכיבי ה-MIB‏, MIB Manager סוקר כל מודול MIB ומנתח את כל אובייקטי ה-MIB שהוא מאתר.
+לאחר הניתוח של כל האובייקטים, MIB Manager סוקר כל MIB ומעבד את הצהרות הייבוא לאיתור מודולים כלשהם של MIB שמתבצעת אליהם הפניה.
+אם לא ניתן לאתר מודולים כלשהם של MIB שמתבצעת אליהם הפניה במודולים של
+MIB שיובאו קודם לכן, MIB Manager מחפש את המדריכים שצוינו בנתיב החיפוש. צידו הימני של החלון <span class="keyword wintitle">סטאטוס יבוא</span> מציג איקונים להצגת הסטאטוס של הצהרות הייבוא שאותרו ברכיבי ה-MIB, כמתואר בטבלה שלהלן:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="איקונים המוצגים בחלון סטאטוס יבוא ומשמעותם." class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="right"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d31034e92">איקון</th>
+<th class="entry" valign="bottom" id="d31034e94">תיאור</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d31034e92 "><img class="image" src="../gifs/question_mark.gif" alt="סימן שאלה" /></td>
+<td class="entry" valign="top" headers="d31034e94 ">מציין שהצהרת הייבוא לא פוענחה.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d31034e92 "><img class="image" src="../gifs/tick.gif" alt="סימן ביקורת" /></td>
+<td class="entry" valign="top" headers="d31034e94 ">מציין שהצהרת הייבוא פוענחה.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d31034e92 "><img class="image" src="../gifs/cross.gif" alt="צולב" /></td>
+<td class="entry" valign="top" headers="d31034e94 ">מציין שלא ניתן לפענח את המודול של MIB שמתבצעת אליו הפניה בהצהרת הייבוא.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">ניתן להרחיב את העץ של הצהרות הייבוא כדי להציג את המודולים של
+MIB המשתמשים בהצהרות הייבוא כדי להפנות אל מודולים אחרים של MIB.</p>
+
+<p class="p">הביטוי <span class="ph uicontrol">הייבוא הושלם</span> מוצג בחלקה העליון של מסגרת הסטאטוס לאחר העיבוד של כל קובצי ה-MIB שיובאו. תוכלו להציג את כל הודעות הסטאטוס שהופקו במהלך הייבוא על-ידי לחיצה על <span class="ph uicontrol">הצגת היסטוריית סטאטוס</span> ובאמצעות הרשימה הנפתחת <span class="ph uicontrol">תצוגה</span> לבחירת אפשרות סינון.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">לחצו על <span class="ph uicontrol">ביטול</span> כדי לסגור את החלון <span class="keyword wintitle">סטאטוס יבוא</span>.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">תוצאות</h2></div><p class="p">הרענון של התצוגה <span class="keyword wintitle">מודולים של MIB</span> מתבצע באופן אוטומטי להצגת שמות המודולים החדשים של MIB שיובאו. הרענון של התצוגה <span class="keyword wintitle">עץ OID</span> מתבצע באופן אוטומטי להצגת כל אובייקטי ה-MIB החדשים שיובאו. כדי לבנות מחדש את העץ, MIB Manager מחפש את צומתי האב של העץ (<span class="ph filepath">iso</span>‏, <span class="ph filepath">ccitt</span> ו-<span class="ph filepath">joint-iso-ccitt</span>)
+באופן רקורסיבי לאיתור צומתי בן עד שהוא מאתר צומת בן שלא שויכו אליו בנים. אם המערכת אינה מזהה שגיאות כלשהן, עץ MIB המאוכלס במלואו מוצג בתצוגה <span class="keyword wintitle">עץ OID</span>, המכילה את האובייקטים שנותחו.</p>
+<p class="p">לחיצה על אובייקט כלשהו בתצוגה <span class="keyword wintitle">עץ OID</span> מציגה באופן אוטומטי את האובייקט בתצוגה <span class="keyword wintitle">מודולים של MIB</span>. התצוגה <span class="keyword wintitle">פרטים</span> מציגה מידע מפורט אודות האובייקט שנבחר.</p>
+<p class="p">המודולים של MIB שיובאו מאוחסנים בקובץ Xml המייצג את המבנה של אותו מודול MIB. קובצי ה-Xml ממוקמים במדריך <span class="ph filepath">workspace/data</span>.</p>
+<p class="p">אם המערכת מזהה הצהרות יבוא שלא פוענחו, פנו לספק האחראי ל-MIB או לרכיבי ה-MIB החסרים, הוסיפו את הקובץ או הקבצים החסרים לנתיב החיפוש וחזרו על פעולת הייבוא.</p>
+<div class="p"><div class="note note"><span class="notetitle">הערה:</span> <p class="p">לעיתים הספקים מציינים שמות אובייקטים כפולים, או שהם מציינים שם אובייקט הזהה לשם של אובייקט שצוין ב-RFC.</p>
+
+<p class="p">לדוגמה, אובייקט בשם <samp class="ph codeph">system</samp> מוגדר במודול SNMPv2-MI'
+עם OID‏ 1.3.6.1.2.1.1 ואובייקט אחר בשם <samp class="ph codeph">system</samp> כבר מוגדר במודול WINDOWS-NT-PERFORMANCE, עם OID‏ 1.3.6.1.4.1.311.1.1.3.1.1.23.
+כמו כן, אובייקט בשם <samp class="ph codeph">sysDescr</samp> מוגדר בתור <samp class="ph codeph">system.1</samp> במודול SNMPv2-MIB ואובייקט אחר בשם <samp class="ph codeph">sysFileReadOperationsPerSec</samp> מוגדר בתור <samp class="ph codeph">system.1</samp> במודול WINDOWS-NT-PERFORMANCE.
+במקרה זה, לא ברור לאיזה אובייקט אב משויכים אובייקטי הבן.</p>
+
+<p class="p">בעת איתור אובייקט בעל שם אב כפול, MIB Manager מנסה לאתר את האב המוגדר באותו מודול של MIB. בדוגמה הקודמת, זהו WINDOWS-NT-PERFORMANCE. אם אף אחד מהאבות אינו מוגדר באותו מודול של MIB‏, MIB Manager בודק אם האב מוגדר במודולים אחרים של MIB שהאובייקט תלוי בהם.
+כמו כן, MIB Manager מזהה מודולים אחרים של MIB המפנים אל האב ובוחר בשם האב שמתבצעות אליו ההפניות הרבות ביותר. אולם, מצב זה עשוי להוביל לעץ MIB המאוכלס באופן שגוי ולרכיבי OID המחושבים באופן שגוי. לכן, כל פעם ש-MIB Manager מאתר שם אובייקט כפול, הוא רושם אזהרה ומתעד את הפעולות שבוצעו לפתרון הכפילות בקובץ של איתור באגים.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool.">שימוש ב-MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>תיעוד קשור</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="השתמשו בהעדפות המדריך כדי לציין את המדריכים המשמשים לאחסון קובצי MIB שיובאו, נתוני MIB, וקובצי כללים שיובאו.">הגדרת העדפות מדריך</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="מקטע זה מתאר כדי להגדיר את ההעדפות של MIB Manager המשמשות לחיפוש של קובצי MIB.">הגדרת העדפות חיפוש</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

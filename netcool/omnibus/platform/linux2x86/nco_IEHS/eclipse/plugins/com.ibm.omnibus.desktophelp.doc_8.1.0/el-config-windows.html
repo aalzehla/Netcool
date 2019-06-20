@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Event List Configuration" />
+<meta name="abstract" content="Use this window to create and maintain event list configurations that hold your filter and view definitions for the monitor boxes that appear within the Event List monitor box window. You can specify how many monitor box columns to use on the Event List monitor box window, specify the filters and views to include in the configuration, and specify the order in which filters and views should appear in event list pop-up menus." />
+<meta name="Description" content="Use this window to create and maintain event list configurations that hold your filter and view definitions for the monitor boxes that appear within the Event List monitor box window. You can specify how many monitor box columns to use on the Event List monitor box window, specify the filters and views to include in the configuration, and specify the order in which filters and views should appear in event list pop-up menus." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_creatingevntlstconfigwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistconfigurationwindowWIN" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Event List Configuration</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistconfigurationwindowWIN">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Event List Configuration</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to create and maintain event list configurations
+that hold your filter and view definitions for the monitor boxes that
+appear within the <span class="keyword wintitle">Event List</span> monitor box window.
+You can specify how many monitor box columns to use on the <span class="keyword wintitle">Event
+List</span> monitor box window, specify the filters and views
+to include in the configuration, and specify the order in which filters
+and views should appear in event list pop-up menus.</p>
+<div class="section"><div class="p">Complete this window as follows:<dl class="dl" id="netom_eventlistconfigurationwindowWIN__netom_eventlistconfigurationfieldsWIN"><dt class="dt dlterm">Name</dt>
+<dd class="dd">If you are creating a new event list configuration,
+type a unique name for the event list configuration.</dd>
+<dd class="dd"><div class="note tip"><span class="tiptitle">Tip:</span> Use the spin box in the toolbar to specify the
+number of monitor box columns that are allowed in the <span class="keyword wintitle">Event
+List</span> monitor box window.</div>
+</dd>
+<dt class="dt dlterm">Filters tab</dt>
+<dd class="dd">Click this tab to specify which filters are part of
+this event list configuration. The selected filters are displayed
+in the list on this tab. You can use the <span class="ph uicontrol">New</span> button
+to add a new filter to the event list configuration, the <span class="ph uicontrol">Open</span> button
+to load an existing filter into the event list configuration, or the <span class="ph uicontrol">Edit</span> button
+to edit an existing filter in the event list configuration. You can
+also use the <span class="ph uicontrol">Delete</span> button to remove a filter.<div class="note note"><span class="notetitle">Note:</span> The order in which filters appear in the tab determines
+the order in which the event list pop-up menus and drop-down lists
+display the filter lists. You can use the <span class="ph uicontrol">Top</span>, <span class="ph uicontrol">Up</span>, <span class="ph uicontrol">Down</span>,
+and <span class="ph uicontrol">Bottom</span> arrow buttons to change this order. </div>
+</dd>
+<dt class="dt dlterm">Views tab</dt>
+<dd class="dd">Click this tab to specify which views are part of
+this event list configuration. The selected views appear in the list
+on this tab. You can use the <span class="ph uicontrol">New</span> button to
+add a new view to the event list configuration, the <span class="ph uicontrol">Open</span> button
+to load an existing view into the event list configuration, or the <span class="ph uicontrol">Edit</span> button
+to edit an existing view in the event list configuration. You can
+also use the <span class="ph uicontrol">Delete</span> button to remove a view.<div class="note note"><span class="notetitle">Note:</span> The order in which views appear in the tab determines
+the order in which the event list pop-up menus and drop-down lists
+display the view lists. You can use the <span class="ph uicontrol">Top</span>, <span class="ph uicontrol">Up</span>, <span class="ph uicontrol">Down</span>,
+and <span class="ph uicontrol">Bottom</span> arrow buttons to change this order. </div>
+</dd>
+<dt class="dt dlterm">New</dt>
+<dd class="dd">To create a new filter or view, go to the toolbar and click this
+button to open the Filter Builder or View Builder. <div class="note attention"><span class="attentiontitle">Attention:</span> While
+within the Filter Builder or View Builder, if you specify a filter
+or view name that already exists in the event list configuration,
+the existing filter or view is replaced.</div>
+</dd>
+<dt class="dt dlterm">Open</dt>
+<dd class="dd">To load an existing filter or view into the event list configuration,
+go to the toolbar and click this button. From the resulting window,
+navigate to the location where the filter or view is stored, select
+it, and then click <span class="ph uicontrol">OK</span>. The filter or view is
+added to the relevant tab in the <span class="keyword wintitle">Event List Configuration</span> window. <div class="note tip"><span class="tiptitle">Tip:</span> Filters have a <span class="ph filepath">.elf</span> extension. Views
+have a <span class="ph filepath">.elv</span> extension.</div>
+</dd>
+<dt class="dt dlterm">Edit</dt>
+<dd class="dd">To edit a filter or view, select the relevant filter or view from
+the tab list, and then go to the toolbar and click this button to
+open the Filter Builder or View Builder for the selected filter or
+view. If you change the name of the filter or view to a name that
+does not exist in the event list configuration, a new filter or view
+is created. If you change the name to one that already exists, the
+new filter or view replaces the existing filter or view in the event
+list configuration. </dd>
+<dt class="dt dlterm">Delete</dt>
+<dd class="dd">To delete a filter or view from the event list configuration,
+select the relevant filter or view from the tab list, and then click
+this button to delete the selected filter or view. You are not prompted
+to confirm the deletion, so ensure that you have selected the appropriate
+filter or view before clicking <span class="ph uicontrol">Delete</span>. </dd>
+<dt class="dt dlterm">Top</dt>
+<dd class="dd">To move a filter or view to the top of the list, select the relevant
+filter or view from the adjacent list, and then click this button.</dd>
+<dt class="dt dlterm">Up</dt>
+<dd class="dd">To move a filter or view up one position in the list, select the
+relevant filter or view from the adjacent list, and then click this
+button.</dd>
+<dt class="dt dlterm">Down</dt>
+<dd class="dd">To move a filter or view down one position in the list, select
+the relevant filter or view from the adjacent list, and then click
+this button.</dd>
+<dt class="dt dlterm">Bottom</dt>
+<dd class="dd">To move a filter or view to the bottom of the list, select the
+relevant filter or view from the adjacent list, and then click this
+button.</dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the <span class="keyword wintitle">Event List Configuration</span> window,
+and apply the event list configuration to the current event list.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_creatingevntlstconfigwin.html" title="You can create or edit event list configurations that hold your filter and view definitions for the monitor boxes that appear within the Event List monitor box window.">Creating and editing event list configurations on Windows</a></div>
+<div><a class="link" href="omn_usr_fb_creatingeditfilterwin.html" title="Use the Windows Filter Builder to build filters for event list data.">Creating or editing a filter on Windows</a></div>
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="Use the View Builder to define which columns to display in the event list.">Creating or editing a view on Windows</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

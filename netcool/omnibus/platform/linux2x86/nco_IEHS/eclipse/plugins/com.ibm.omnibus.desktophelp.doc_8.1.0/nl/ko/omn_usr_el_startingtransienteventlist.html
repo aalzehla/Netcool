@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="명령행에서 임시 이벤트 목록 시작" />
+<meta name="abstract" content="UNIX 명령행에서 임시 이벤트 목록을 열려면 nco_elct 명령을 사용하고, Windows 명령행에서 임시 이벤트 목록을 열려면 NCOelct.exe 명령을 사용하십시오." />
+<meta name="Description" content="UNIX 명령행에서 임시 이벤트 목록을 열려면 nco_elct 명령을 사용하고, Windows 명령행에서 임시 이벤트 목록을 열려면 NCOelct.exe 명령을 사용하십시오." />
+<meta name="DC.subject" content="이벤트 목록, 임시, 임시 시작, 임시 이벤트 목록, 시작" />
+<meta name="keywords" content="이벤트 목록, 임시, 임시 시작, 임시 이벤트 목록, 시작" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopttransient.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_winevntlstcmdlineopttransient.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_startingtransienteventlist" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_runningtransientevntlsts.html" />
+<title>명령행에서 임시 이벤트 목록 시작</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_startingtransienteventlist">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">명령행에서 임시 이벤트 목록 시작</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX
+명령행에서 임시 이벤트 목록을 열려면 <span class="keyword cmdname">nco_elct</span> 명령을 사용하고,
+Windows
+명령행에서 임시 이벤트 목록을 열려면 <span class="keyword cmdname">NCOelct.exe</span> 명령을 사용하십시오.</p>
+<div class="section context">임시 이벤트 목록을 시작하려면 다음을 수행하십시오. </div>
+<div class="li step"><span class="ph cmd">운영 체제별로 적절한 조치를 수행하십시오. </span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="이 테이블의 각 행은 선택 항목에 대한 옵션을 설명합니다." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d200621e43-option" valign="bottom" align="left">옵션</th>
+<th id="d200621e43-desc" valign="bottom" align="left">설명</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d200621e43-option" id="d200621e45" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d200621e43-desc d200621e45" class="stentry chdesc" width="80%">명령 프롬프트에서 다음을 입력하십시오. <p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_elct <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d200621e43-option" id="d200621e56" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d200621e43-desc d200621e56" class="stentry chdesc" width="80%">명령 프롬프트에서 다음을 입력하십시오. <p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOelct.exe <var class="keyword varname">option</var></kbd></p>
+</td>
+</tr>
+</tbody></table>
+ 위의 표에 표시된 UNIX
+및 Windows
+명령에서 <var class="keyword varname">option</var>은 하나 이상의
+명령행 옵션을 표시합니다.</div>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">결과</h2></div><p class="p">이벤트 목록의 인스턴스(<span class="keyword cmdname">nco_event</span>)가 실행 중인 경우, <span class="keyword cmdname">nco_elct</span> 유틸리티가 새 이벤트 목록 창을 엽니다.
+<span class="keyword cmdname">nco_event</span>에 실행 중인 인스턴스가 없는 경우, <span class="keyword cmdname">nco_elct</span>
+유틸리티는 인스턴스를 시작하고 <span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창과
+명령행에 지정된 필터를 사용하는 이벤트 목록 창을 표시합니다.</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_unixevntlstcmdlineopttransient.html">임시 이벤트 목록에 대한 UNIX 명령행 옵션</a></span><br />
+<span class="keyword cmdname">nco_elct</span> 명령을 실행하여
+UNIX에서 임시 이벤트 목록을 시작하는
+경우 이벤트 목록을 사용자 정의하기 위해 다수의 명령행 옵션을 지정해야 합니다.
+<span class="ph filepath">$NCHOME/omnibus/bin</span> 디렉토리에서 이 명령을 실행할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_winevntlstcmdlineopttransient.html">임시 이벤트 목록에 대한 Windows 명령행 옵션</a></span><br />
+<span class="keyword cmdname">NCOelct.exe</span> 명령을 실행하여
+Windows에서 임시 이벤트 목록을 시작하는
+경우 이벤트 목록을 사용자 정의하기 위해 다수의 명령행 옵션을 지정해야 합니다.
+<span class="ph filepath">%NCHOME%\omnibus\desktop</span> 디렉토리에서 이 명령을 실행할 수 있습니다. </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_runningtransientevntlsts.html" title="명령행에서 직접, 스크립트에서 또는 이벤트 목록 도구의 일부로 사용자 정의된 임시 이벤트 목록을 실행할 수 있습니다.">명령행, 스크립트, 도구에서 임시 이벤트 목록 실행</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+##############################################################################
+# ADD THE FOLLOWING FIELDS TO THE MAPPING: StatusMap
+##############################################################################
+
+        'NormalisedAlarmName'           = '@NormalisedAlarmName',
+        'NormalisedAlarmGroup'          = '@NormalisedAlarmGroup',
+        'NormalisedAlarmCode'           = '@NormalisedAlarmCode',
+        'ScopeID'                       = '@ScopeID',
+        'SiteName'                      = '@SiteName',
+        'CauseWeight'                   = '@CauseWeight',
+        'ImpactWeight'                  = '@ImpactWeight',
+        'ParentIdentifier'              = '@ParentIdentifier',
+        'TTNumber'                      = '@TTNumber',
+	'QuietPeriod'			= '@QuietPeriod',
+
+##############################################################################
+
+##############################################################################
+# TABLES USED BY OOTB EVENT GROUPING - APPEND TO THE END OF THE FILE
+##############################################################################
+CREATE MAPPING MasterPropertiesMap
+(
+	'Name'			=	'@Name'			ON INSERT ONLY,
+	'CharValue'		=	'@CharValue',
+	'IntValue'		=	'@IntValue'
+);
+
+CREATE MAPPING MasterCorrelationSiteNameMap
+(
+	'SiteName'		=	'@SiteName'		ON INSERT ONLY,
+	'ScopeID'		=	'@ScopeID',
+	'Identifier'		=	'@Identifier'
+);
+
+CREATE MAPPING MasterCorrelationScopeIDMap
+(
+	'ScopeID'		=	'@ScopeID'		ON INSERT ONLY,
+	'LastOccurrence'	=	'@LastOccurrence',
+	'Identifier'		=	'@Identifier',
+	'ExpireTime'		=	'@ExpireTime'
+);
+
+CREATE MAPPING MasterCorrelationScopeAliasMap
+(
+	'ScopeAlias'		=	'@ScopeAlias'		ON INSERT ONLY,
+	'LastOccurrence'	=	'@LastOccurrence',
+	'Identifier'		=	'@Identifier',
+	'Label'			=	'@Label',
+	'ExpireTime'		=	'@ExpireTime'
+);
+
+CREATE MAPPING MasterCorrelationScopeAliasMembersMap
+(
+	'ScopeID'		=	'@ScopeID'		ON INSERT ONLY,
+	'ScopeAlias'		=	'@ScopeAlias'
+);
+

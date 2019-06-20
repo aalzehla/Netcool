@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Concepts et conception de MIB" />
+<meta name="abstract" content="Tous les modules MIB SNMP qui sont définis pour être utilisés par un périphérique spécifique constituent la base MIB de ce périphérique. Le terme MIB est souvent utilisé pour décrire une définition de module unique, cependant, cela est techniquement incorrect. En effet, MIB est la combinaison de tous les modules utilisés pour la gestion d'une unité spécifique, que cette unité se rapporte à du matériel ou du logiciel. Par conséquent, le nom plus précis pour chaque module défini par un fournisseur ou dans une RFC, est module MIB SNMP." />
+<meta name="Description" content="Tous les modules MIB SNMP qui sont définis pour être utilisés par un périphérique spécifique constituent la base MIB de ce périphérique. Le terme MIB est souvent utilisé pour décrire une définition de module unique, cependant, cela est techniquement incorrect. En effet, MIB est la combinaison de tous les modules utilisés pour la gestion d'une unité spécifique, que cette unité se rapporte à du matériel ou du logiciel. Par conséquent, le nom plus précis pour chaque module défini par un fournisseur ou dans une RFC, est module MIB SNMP." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibconcepts" />
+<meta name="DC.Language" content="fr-fr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>Concepts et conception de MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibconcepts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Concepts et conception de MIB</h1>
+<div class="body refbody"><p class="shortdesc">Tous les modules MIB SNMP qui sont définis pour être utilisés par un périphérique spécifique constituent la base MIB de ce périphérique. Le terme MIB est souvent utilisé pour décrire une définition de module unique, cependant, cela est techniquement incorrect.
+En effet, MIB est la combinaison de tous les modules utilisés pour la gestion d'une unité spécifique, que cette unité se rapporte à du matériel ou du logiciel. Par conséquent, le nom plus précis pour chaque module défini par un fournisseur ou dans une RFC, est module MIB SNMP.</p>
+<div class="section"><p class="p">Tous les modules MIB sont finalement des extensions du module racine. Tous les modules MIB publiés par chaque fournisseur sont des extensions de l'objet d'entreprise défini dans RFC1155-SMI. Par conséquent, tous les agents SNMP doivent prendre en charge RFC1155  et tous les modules MIB sont des extensions de RFC1155.</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__smi"><h2 class="title sectiontitle">Structure of Management Information (SMI)</h2><p class="p">Pour rendre la base SNMP MIB (Management Information Base) extensible, les éléments associés sont organisés en modules MIB qui forment une hiérarchie structurée.
+Chaque module MIB est défini à l'intérieur de la construction suivante :</p>
+<p class="p"><samp class="ph codeph">ModuleName
+DEFINITIONS ::= BEGIN END</samp></p>
+<p class="p">Les balises <samp class="ph codeph">BEGIN</samp> et <samp class="ph codeph">END</samp> dans le module permettent de définir plusieurs modules dans un fichier texte unique. Les compilateurs MIB doivent être en mesure de gérer n'importe quel nombre de modules définis dans un fichier unique, mais ne devraient pas avoir à le faire.</p>
+<p class="p">Il existe des conventions pour chaque objet défini dans le module. Par exemple, un nom de module doit commencer par un caractère alphabétique en majuscule et contenir uniquement des lettres, des chiffres, des tirets (-) ou des traits de soulignement (_). Un nom d'objet doit commencer par un caractère alphabétique en minuscule et doit contenir uniquement des lettres, des chiffres, des tirets ou des traits de soulignement. Les commentaires dans les modules MIB sont représentés par deux tirets  (--) consécutifs et le texte éventuel qui suit ce symbole, sur n'importe quelle ligne, peut être ignoré.</p>
+<p class="p">La conception modulaire, aisément extensible des MIB leur permet de prendre en charge toute nouvelle fonctionnalité ou tout nouvel appareil par l'ajout d'un module. Lorsqu'un module est écrit en tant qu'extension d'un autre module, il inclut une section <samp class="ph codeph">IMPORTS</samp> qui se trouve sous la ligne <samp class="ph codeph">DEFINITIONS</samp>.
+La section <samp class="ph codeph">IMPORTS</samp> définit les objets requis par les modules de niveau supérieur dans la hiérarchie MIB et les modules dans lesquels ils sont, à leur tour, définis.</p>
+<div class="p">La définition suivante est tirée de RFC1157 et indique plusieurs objets qui sont importés à partir de RFC1155. Cette section peut être considérée comme analogue à l'instruction <samp class="ph codeph">include</samp> dans un langage de programmation tel que C ou Perl ou même dans un fichier de règles Netcool. En outre, pour comprendre les objets dans le module MIB courant (RFC1157-SNMP), vous devez également tenir compte des objets dans le module MIB précédent (RFC1155-SMI). <pre class="pre codeblock"><code>RFC1157-SNMP DEFINITIONS ::= BEGIN IMPORTS ObjectName, ObjectSyntax, NetworkAddress, IpAddress, TimeTicks FROM RFC1155-SMI;</code></pre>
+</div>
+<p class="p">Les erreurs typographiques sont courantes dans l'indication de noms de MIB importées. Par exemple,
+RFC1212 peut être référencé en tant que module MIB au lieu du nom correct, RFC-1212. Si des erreurs d'analyse syntaxique sont mises en évidence par<span class="keyword">MIB Manager</span>, vous devez vérifier la section <samp class="ph codeph">IMPORTS</samp> afin de confirmer que les modules MIB sont correctement nommés. Certains modules MIB contiennent également une section <samp class="ph codeph">EXPORTS</samp> (qui se termine également par un point-virgule). Cette section informe le lecteur que l'auteur des MIB attend d'autres modules MIB pour utiliser les mêmes objets spécifiés. Pour nos objectifs, cette section est inutile et et elle peut être ignorée.</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_data"><h2 class="title sectiontitle">Types de données définis</h2><p class="p">Les modules MIB SNMP sont définis dans un format appelé ASN.13 (Abstract Syntax Notation 1). Cependant, SNMP n'utilise qu'une partie d'ASN.14. ASN.1 est défini dans ITU-T X.208 et dans la norme ISO 8824. Les portions d'ASN.1 qui s'appliquent à SNMP sont définies dans RFC1155. RFC1155 définit les types de données SNMP valides suivants :</p>
+<ul class="ul"><li class="li">Types primitifs : INTEGER, OCTET STRING, OBJECT IDENTIFIER, NULL</li>
+<li class="li">Types constructeur : SEQUENCE et SEQUENCE OF</li>
+<li class="li">Types définis : NetworkAddress, IpAddress, Counter, Gauge, TimeTicks, Opaque</li>
+</ul>
+<p class="p">Un type défini est le mécanisme utilisé pour spécifier un format particulier pour les types primitifs ou constructeur. Les auteurs MIB peuvent définir d'autres types à l'aide de la construction TEXTUAL-CONVENTION.</p>
+<div class="p"><samp class="ph codeph">DisplayString</samp> est un bon exemple de type défini. Dans le module MIB SNMPv2-SMI-v1, la version v1 de <samp class="ph codeph">DisplayString</samp> contient la définition suivante :<pre class="pre codeblock"><code>DisplayString ::= OCTET STRING (0..255)</code></pre>
+</div>
+<div class="p">Dans le module MIB SNMPv2-TC, la version v2 de <samp class="ph codeph">DisplayString</samp> contient la définition suivante : <pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION DISPLAY-HINT "255a" STATUS current DESCRIPTION "Représente des informations textuelles extraites du jeu de caractères ASCII NVT, tels qu'elles sont définies dans les pages 4, 10-11 de RFC 854. Pour récapituler RFC 854, le répertoire NVT ASCII 
+spécifie : - l'utilisation des code caractères 0 à 127 (décimal) - caractères graphiques 
+(32 à 126) sont interprétés en tant que US ASCII - NUL, LF, CR, BEL, BS, HT, VT et FF ont 
+des significations spéciales dans RFC 854 - les 25 autres codes n'ont pas 
+d'interprétation standard - la séquence 'CR LF' signifie un retour à la ligne - la séquence 'CR NUL' signifie 
+un retour chariot - le code 'LF' non précédé du code 'CR' signifie un déplacement dans la même colonne sur 
+la ligne suivante. - la séquence 'CR x' pour tout x autre que LF ou NUL n'est pas admise. 
+(Il est à noter que cela signifie également qu'une chaîne peut se terminer par 'CR LF' ou 'CR NUL', 
+mais pas par CR.) Tout objet défini à l'aide de cette syntaxe ne doit pas comporter plus de 255 caractères." SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+L'exemple ci-dessus montre qu'une chaîne <samp class="ph codeph">DisplayString</samp> est une chaîne OCTET STRING de 0 à 255 caractères de long. Notez que chaque DESCRIPTOR OBJECT qui correspond à un type d'objet dans une base MIB Internet standard doit être une chaîne unique, mnémonique et imprimable.</div>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_objects"><h2 class="title sectiontitle">Définition d'objets</h2><p class="p">Une erreur courante faite lors de l'écriture des modules MIB consiste à créer un nom d'objet qui n'est pas unique. On prétend que l'instruction RFC1155 signifie que seuls les objets au sein d'un module MIB unique doivent être uniques. Comme traité précédemment, la base MIB est l'ensemble complet des modules qui, lorsqu'ils sont combinés, sont utilisés pour gérer une unité particulière. Par conséquent, tous les objets définis dans n'importe quel module MIB doit être unique, non seulement dans son propre module, mais aussi dans n'importe quel autre nom d'objet de tout module importé et de tout module que ces modules peuvent importer. Un mécanisme courant pour s'assurer que les noms d'objet sont uniques consiste à ajouter au début de tous les noms de module le symbole boursier de la société ou le nom abrégé de l'entreprise.</p>
+<p class="p">Lorsque les objets sont définis, ils sont mappés dans une hiérarchie numérique qui ressemble à une arborescence  maximale. Chaque fois qu'un objet est défini, il est défini en tant que feuille d'un objet parent. Les trois objets racine suivants sont définis dans l'arbre MIB SNMP :</p>
+<ul class="ul"><li class="li"><samp class="ph codeph">ccitt</samp> (noeud racine zéro)</li>
+<li class="li"><samp class="ph codeph">iso</samp> (noeud racine 1)</li>
+<li class="li"><samp class="ph codeph">joint-iso-ccitt</samp> (noeud racine 2)</li>
+</ul>
+<div class="p">Tous les autres noeuds de l'arborescence MIB sont les enfants de l'un de ces trois noeuds racines. Par exemple, RFC1155-SMI définit les objets suivants : <pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } directory OBJECT IDENTIFIER ::=
+ { internet 1 } mgmt OBJECT IDENTIFIER ::= { internet 2 } experimental OBJECT IDENTIFIER
+ ::= { internet 3 } private OBJECT IDENTIFIER ::= { internet 4 } enterprises OBJECT 
+IDENTIFIER ::= { private 1 }</code></pre>
+</div>
+<p class="p">Ces définitions indiquent le nom de l'objet, les types d'objet associé, le nom parent de chaque objet (ou la liste ordonnée des parents) et le nombre de feuilles de cet enfant vers ce parent (ou parents). Graphiquement, ces éléments constituent une forme hiérarchique.</p>
+<p class="p">Vous pouvez naviguer dans la vue d'<span class="keyword wintitle">arborescence MIB</span> en développant et en réduisant les noeuds dans l'arborescence MIB. Les branches du niveau supérieur de l'arborescence MIB contiennent les noms des modules MIB, et dans chaque branche de module MIB se trouvent les autres éléments qui composent la base MIB. Comme des modules supplémentaires sont ajoutés à la base MIB, des objets supplémentaires sont ajoutés à l'arborescence MIB. Chaque objet peut être désigné par son nom d'objet ou par son identificateur d'objet. La méthode la plus précise consiste à se référer à son ID objet. Son ID objet (OID) est défini comme son numéro et chacun de ses numéros d'ancêtre remontant vers le noeud racine concaténé à un point (.) qui sépare chacun d'eux.
+L'ID objet de l'objet entreprise (noeud ou feuille) est 1.3.6.1.4.1.</p>
+<p class="p">De nombreux fournisseurs ne garantissent pas que leurs noms d'objet sont universellement uniques ; par conséquent, il est possible que deux fournisseurs disposent d'un objet partageant le même nom. Cela rend l'utilisation du nom d'objet pour identifier un objet un peu ambiguë.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Rubrique parent :</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="Cette section fournit des informations supplémentaires sur l'architecture SNMP (Simple Network Management Protocol), la base d'informations de gestion SNMP (MIB) et certains concepts MIB supplémentaires.">A propos de SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothèque</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

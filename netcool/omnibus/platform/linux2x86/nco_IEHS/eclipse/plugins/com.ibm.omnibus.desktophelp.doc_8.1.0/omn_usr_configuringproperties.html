@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring properties" />
+<meta name="abstract" content="You can edit the information contained in the properties files for ObjectServers, proxy servers, the database initialization utility (nco_dbinit), the Confpack utility (nco_confpack), Netcool/OMNIbus Administrator (nco_config), probes, and gateways. A properties file has a .props extension." />
+<meta name="Description" content="You can edit the information contained in the properties files for ObjectServers, proxy servers, the database initialization utility (nco_dbinit), the Confpack utility (nco_confpack), Netcool/OMNIbus Administrator (nco_config), probes, and gateways. A properties file has a .props extension." />
+<meta name="DC.subject" content="properties, configuring, properties files, editing" />
+<meta name="keywords" content="properties, configuring, properties files, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringproperties" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>Configuring properties</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringproperties">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring properties</h1>
+<div class="body taskbody"><p class="shortdesc">You can edit the information contained in the properties
+files for ObjectServers, proxy servers, the database initialization
+utility (<span class="keyword cmdname">nco_dbinit</span>), the Confpack utility (<span class="keyword cmdname">nco_confpack</span>), Netcool/OMNIbus Administrator
+(nco_config), probes, and gateways. A properties file has a <span class="ph filepath">.props</span> extension.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To
+edit properties:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Perform either of the following actions:</span> <ul class="ul choices"><li class="li choice">From the <span class="keyword wintitle">Conductor</span> window on UNIX, click <span class="ph uicontrol">Properties</span> in
+the button bar. </li>
+<li class="li choice">From the <span class="ph uicontrol">Conductor</span> menu on Windows, click <span class="ph uicontrol">Properties</span>. <p class="p">The <span class="keyword wintitle">Properties
+Editor</span> window opens.</p>
+</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm">Type</dt>
+<dd class="dd">On UNIX, select either of the following options:<ul class="ul"><li class="li">Select <span class="ph uicontrol">Generic</span> to edit the properties files of
+components other than probes. The <span class="ph uicontrol">File</span> drop-down list
+becomes populated with these files.</li>
+<li class="li">Select <span class="ph uicontrol">Probe</span> to edit probe properties files. The <span class="ph uicontrol">File</span> drop-down
+list becomes populated with these files.</li>
+</ul>
+</dd>
+<dd class="dd">On Windows, select any of the following options:<ul class="ul"><li class="li">Select <span class="ph uicontrol">ObjectServer</span> to edit the properties files
+of components such as ObjectServers and proxy servers. The <span class="ph uicontrol">Name</span> drop-down
+list becomes populated with these files. These files are typically stored
+in the <span class="ph filepath">%NCHOME%\omnibus\etc</span> directory.</li>
+<li class="li">Select <span class="ph uicontrol">Probe</span> to edit probe properties files. The <span class="ph uicontrol">Name</span> drop-down
+list becomes populated with these files. These files are typically stored
+in the <span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> directory.</li>
+<li class="li">Select <span class="ph uicontrol">Server</span> to add a new properties file. These
+files are saved to the <span class="ph filepath">%NCHOME%\omnibus\ini</span> directory.
+The <span class="ph uicontrol">Name</span> drop-down list becomes populated with the
+text <samp class="ph codeph">&lt;New File&gt;</samp>.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">File (UNIX)/Name
+(Windows)</dt>
+<dd class="dd">Select the properties file that you want to edit from this drop-down list.
+This list is populated based on your selection from the <span class="ph uicontrol">Type</span> drop-down
+list. The default values are: <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit.props</span>: Properties file to be read when
+database initialization starts (You run <span class="keyword cmdname">nco_dbinit</span> to initialize
+the database.)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY.props</span>: Proxy server properties file (A
+proxy server can be used to reduce the number of probe connections to an ObjectServer.)</li>
+<li class="li"><span class="ph filepath">nco_confpack.props</span>: Confpack properties file (<span class="keyword cmdname">nco_confpack</span> is
+used for importing and exporting ObjectServer configurations.)</li>
+<li class="li"><span class="ph filepath">nco_config.props</span>: <span class="keyword">Netcool/OMNIbus
+Administrator </span> properties file</li>
+<li class="li"><span class="ph filepath">NCOMS.props</span>: ObjectServer properties file</li>
+</ul>
+</dd>
+<dd class="dd">On Windows, the <span class="ph filepath">.props</span> file extension is not shown,
+and the property list is automatically populated with the available properties
+when you select a file in the <span class="ph uicontrol">Name</span> list.</dd>
+<dt class="dt dlterm">Open (UNIX only)</dt>
+<dd class="dd">On UNIX, after selecting the type and file name, click this button to
+open the properties file.</dd>
+<dt class="dt dlterm"><em class="ph i">Property list</em></dt>
+<dd class="dd">This matrix shows details of any properties that you have added to the
+properties file. You can select a property in this list if you want to change
+it. There is a default set of properties that are already defined for probe
+properties files and these cannot be removed. These properties are shown in
+gray in the property list. </dd>
+<dt class="dt dlterm">Name</dt>
+<dd class="dd">This field shows the name of the property that you have selected for editing
+from the property list. You cannot change the name of existing properties.
+On Windows, you can also use the drop-down list to select the property to
+edit. </dd>
+<dd class="dd">If you want to add a new property to the selected properties file, type
+the name of the property here. </dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, type the name of a new property
+here.</dd>
+<dt class="dt dlterm">Value</dt>
+<dd class="dd">If you are working with an existing, selected properties file, edit the
+value of the selected property, or type the value for the new property that
+you are adding.</dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, type the value of a new property.</dd>
+<dt class="dt dlterm">Add/Update</dt>
+<dd class="dd">This button changes depending on whether you are adding or editing an
+existing property. If you enter a new property name and value, click <span class="ph uicontrol">Add</span> to
+add the value to the property list. If you change the value of a property
+that is selected in the property list, click <span class="ph uicontrol">Update</span> to
+update the value in the property list.</dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, click <span class="ph uicontrol">Add</span> to
+add the new property.</dd>
+<dt class="dt dlterm">Remove</dt>
+<dd class="dd">Click this button to remove the selected property from the properties
+file. The button is unavailable if you select a default property.</dd>
+<dt class="dt dlterm">Save</dt>
+<dd class="dd">Click this button to save the changes to the properties file.</dd>
+<dd class="dd">If you selected <span class="keyword option">Server</span> from the <span class="ph uicontrol">Type</span> list
+in order to create a new properties file, click <span class="ph uicontrol">Save</span> after
+adding a new property to the property list. From the <span class="keyword wintitle">Save New Properties</span> window,
+type a name for the properties file, but omit the <span class="ph filepath">.props</span> extension;
+this is automatically added for you. Click <span class="ph uicontrol">Save</span> to
+save the file to the <span class="ph filepath">%NCHOME%\omnibus\ini</span> directory.
+The properties file name is shown in the <span class="ph uicontrol">Name</span> field
+that is adjacent to the <span class="ph uicontrol">Type</span> field, and you can continue
+to add properties to this file. Note that you will be required to edit this
+file in order to add quotation marks to string values that you specify for
+the properties.</dd>
+</dl>
+<dl class="dl"><dt class="dt dlterm">Close (UNIX)</dt>
+<dd class="dd">Click this button to either close this window after saving your changes,
+or to close this window without saving your changes.</dd>
+<dt class="dt dlterm">OK (Windows)</dt>
+<dd class="dd">Click this button to close this window after saving your changes.</dd>
+<dt class="dt dlterm">Cancel (Windows)</dt>
+<dd class="dd">Click this button to close this window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="You can configure properties for Tivoli Netcool/OMNIbus components, and communication information for the server components from the UNIX and Windows Conductors. On Windows, you can perform these two functions in a combined task within a settings window. On UNIX, you can also change the date format in event lists.">Configuring properties, server communication, and settings</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_startingconductor.html" title="The Conductor provides single sign-on access to all the Tivoli Netcool/OMNIbus desktop tools that you can use to view and manage alerts.">Starting the Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

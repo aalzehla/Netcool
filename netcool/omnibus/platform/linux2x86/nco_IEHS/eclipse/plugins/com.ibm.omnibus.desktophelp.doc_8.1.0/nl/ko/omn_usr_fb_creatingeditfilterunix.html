@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX에서 필터 작성 또는 편집" />
+<meta name="abstract" content="UNIX 필터 빌더를 사용하면 이벤트 목록 데이터의 필터를 빌드할 수 있습니다." />
+<meta name="Description" content="UNIX 필터 빌더를 사용하면 이벤트 목록 데이터의 필터를 빌드할 수 있습니다." />
+<meta name="DC.subject" content="필터, 작성, 편집" />
+<meta name="keywords" content="필터, 작성, 편집" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_creatingeditfilterunix" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_settingupfiltersevntlst.html" />
+<title>UNIX에서 필터 작성 또는 편집</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_creatingeditfilterunix">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX에서
+필터 작성 또는 편집</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX 필터 빌더를 사용하면 이벤트 목록 데이터의 필터를 빌드할 수 있습니다. </p>
+<div class="section context">필터를 작성 또는 편집하려면 다음을 수행하십시오. </div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">필터 빌더를 시작하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">다음과 같이 필터 설정 영역을 완료하십시오. </span> <dl class="dl"><dt class="dt dlterm">이름</dt>
+<dd class="dd">필터를 새로 작성할 경우 현재 이름을 필터의 고유 이름으로 겹쳐쓰기합니다.
+이 이름은 이벤트 목록 메뉴에서 필터를 선택하기 위해 사용됩니다.
+기존 필터를 편집할 경우 이 필드에 항목을 작성할 필요가 없습니다.</dd>
+<dt class="dt dlterm">편집 가능</dt>
+<dd class="dd">해당 관리자 권한이 있는 경우 기타 사용자가 이 필터를 편집하도록 허용하려면
+이 선택란을 체크하고 필터가 수정되지 못하게 하려면 이 선택란을 체크하지 마십시오.
+<div class="note restriction"><span class="restrictiontitle">제한사항:</span> 이 설정은 필터가
+이벤트 목록 구성(<span class="ph filepath">.elc</span> 파일)의 일부로 저장된 경우에만 적용됩니다. </div>
+</dd>
+</dl>
+
+<p class="p">이제 조건, 논리 및 하위 조회 필터 요소의 조합을 사용하여 필터를 빌드할 수
+있습니다. 또한 필터 지표를 정의하고 요소를 복사, 붙여넣기 및 삭제할 수도 있습니다.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">다음과 같이 조건 요소를 작성하십시오. </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">단추 막대에서 <span class="ph uicontrol">조건</span>을 클릭하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd">요소 정의 영역에서 다음과 같이 필드를 완료하십시오. </span> <dl class="dl"><dt class="dt dlterm">표현식 유형</dt>
+<dd class="dd">이 목록에서 다음 옵션 중 하나를 선택하십시오. <ul class="ul"><li class="li"><span class="keyword option">단순</span>: 조건 요소의 단순 표현식을 사용하려면 이 옵션을 선택하십시오.</li>
+<li class="li"><span class="keyword option">복합</span>: 두 개의 데이터베이스 컬럼 또는 두 개의 표현식을 비교할 수 있는
+복합 표현식을 사용하려면 이 옵션을 선택하십시오.</li>
+<li class="li"><span class="keyword option">자유 형식</span>: ObjectServer SQL의 고급 기능 사용을 허용하는 표현식을 지정하려면
+이 옵션을 선택하십시오. </li>
+</ul>
+</dd>
+<dt class="dt dlterm">컬럼</dt>
+<dd class="dd">이 목록에서 비교에 사용하려는 데이터베이스 컬럼을 선택하십시오. </dd>
+<dd class="dd">목록에는 alerts.status 데이터베이스 테이블의 열 이름이 기본 값으로 포함됩니다. 필터 빌더는
+사용 가능한 컬럼을 자동으로 판별하며,
+이 목록은 상황에 따라 다릅니다. <div class="note note"><span class="notetitle">참고:</span> <span class="ph uicontrol">표현식 유형</span> 목록에서 <span class="keyword option">자유 형식</span> 옵션을 선택한 경우 <span class="ph uicontrol">컬럼</span> 목록이 표시되지 않습니다. </div>
+</dd>
+<dt class="dt dlterm">연산자</dt>
+<dd class="dd">이 목록에서 비교 연산자를 선택하십시오. </dd>
+<dd class="dd">사용 가능한 비교의 범위는 <span class="ph uicontrol">컬럼</span> 드롭
+다운 목록의 선택사항에 따라 결정됩니다. 특정 컬럼에 대해 사용
+불가능한 비교도 있습니다.
+예를 들어, 숫자 컬럼(예: 심각도)에 대한 LIKE 연산 수행은 가능하지 않습니다.
+<div class="note note"><span class="notetitle">참고:</span> <span class="ph uicontrol">표현식 유형</span> 목록에서 <span class="keyword option">자유 형식</span> 옵션을 선택한 경우
+<span class="ph uicontrol">연산자</span> 목록이 표시되지 않습니다. </div>
+</dd>
+<dt class="dt dlterm"><em class="ph i">값 데이터 유형 필드</em></dt>
+<dd class="dd">여기에 표시되는 필드는
+<span class="ph uicontrol">표현식 유형</span> 목록에서 선택한 옵션에 따라 다릅니다. </dd>
+<dd class="dd"><span class="ph uicontrol">표현식 유형</span>이 <span class="keyword option">단순</span>인 경우
+표시되는 값 필드는
+<span class="ph uicontrol">컬럼</span> 목록에서 선택된 데이터베이스 컬럼이 문자열, 정수 또는 시간 중 어느 유형인지에 따라 결정됩니다. </dd>
+<dd class="dd"><span class="ph uicontrol">표현식 유형</span>이 <span class="keyword option">복합</span> 또는 <span class="keyword option">자유 형식</span>인 경우
+<span class="ph uicontrol">편집</span> 단추가
+<span class="keyword wintitle">필터 SQL 편집</span> 창에서 SQL을 직접 편집할 수 있게 하기 위해 제공됩니다. <span class="ph uicontrol">확인</span>을 클릭하여
+저장하고 필터 빌더로 돌아가면 SQL 표현식이 자동으로 구문 분석되고 그래픽 디스플레이
+영역의 조건 요소에 추가됩니다.
+<span class="keyword wintitle">필터 SQL 편집</span> 창에 올바르지 않은 SQL 텍스트를 입력하는
+경우 창을 종료하기 전에 구문을 정정해야 합니다.</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필요한 경우 다음과 같이 논리의 <samp class="ph codeph">AND</samp> 또는 <samp class="ph codeph">OR</samp> 요소를
+삽입하여 다중 조건을 구성하십시오.</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">그래픽 디스플레이 영역에서 논리 비교를 작성하려는 기존 요소를 선택하십시오.</span> 조건 요소, 다른 논리 요소 또는 요소 없음에 대한 논리 비교를 작성할 수 있습니다.</li>
+<li class="li substep substepexpand"><span class="ph cmd">단추 막대에서 <span class="ph uicontrol">선행 논리적</span> 또는 <span class="ph uicontrol">후미 논리적</span> 중 하나를 클릭하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd">요소 정의 영역에서 적절한 옵션을 선택하십시오. </span> <dl class="dl"><dt class="dt dlterm">논리적 AND</dt>
+<dd class="dd">AND 연산자를 필터 정의에 추가하려면 이 옵션을 선택하십시오. 이것은 기본 옵션입니다.</dd>
+<dt class="dt dlterm">논리적 OR</dt>
+<dd class="dd">OR 연산자를 필터 정의에 추가하려면 이 옵션을 선택하십시오. </dd>
+</dl>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">단추 막대에서 <span class="ph uicontrol">조건</span>을 클릭하여 다른 조건 브랜치를 추가하십시오.</span></li>
+</ol>
+ <p class="p">다음 표는 조건 또는 논리 요소 중 하나를 선택한 다음 논리 단추 중 하나를 클릭하는
+경우에 어떤 결과가 발생하는지를 표시합니다. </p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">표 1. 선행 논리적 및 후미 논리적 단추를 사용하여 얻은 결과</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d207801e229">요소</th>
+<th class="entry" valign="top" width="40%" id="d207801e231">선행 논리적 단추가 사용됨</th>
+<th class="entry" valign="top" width="40%" id="d207801e233">후미 논리적 단추가 사용됨</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d207801e229 ">조건 요소</td>
+<td class="entry" valign="top" width="40%" headers="d207801e231 ">논리 요소를 조건 요소 상위의 하위로 작성합니다.
+조건 요소는 논리 요소의 하위가 됩니다. </td>
+<td class="entry" valign="top" width="40%" headers="d207801e233 "><span class="ph uicontrol">후미 논리적</span> 단추는 조건 요소가 하위를 포함할 수
+없으므로 사용 불가능합니다.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d207801e229 ">논리 요소</td>
+<td class="entry" valign="top" width="40%" headers="d207801e231 ">논리 요소를 논리 요소 상위의 하위로 작성합니다.
+조건 요소는 논리 요소의 하위가 됩니다. </td>
+<td class="entry" valign="top" width="40%" headers="d207801e233 ">논리 요소는 기존 논리 요소의 하위로 추가됩니다.
+삽입 위치에 이미 두 개의 하위가 있는 경우 이 단추는 사용하지 않습니다. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d207801e229 ">요소를 선택하지 않음</td>
+<td class="entry" valign="top" width="40%" headers="d207801e231 ">단일 논리 요소를 작성합니다. </td>
+<td class="entry" valign="top" width="40%" headers="d207801e233 ">단일 논리 요소를 작성합니다. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필요한 경우 다음과 같이 조건을 부정하십시오. </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">그래픽 디스플레이 영역에서 조건 요소를 선택하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd">단추 막대에서 <span class="ph uicontrol">부정</span>을 클릭하십시오. </span> <p class="p">부정 요소는 항상 트리에서 현재 삽입 위치 <em class="ph i">앞에</em> 삽입되고 하나의
+상위와 하나의 하위만 포함할 수 있습니다. </p>
+
+<div class="note note"><span class="notetitle">참고:</span> 기존 부정 논리 요소 앞에 부정 논리 요소를 삽입하는 것은 가능하지
+않습니다.
+그러나 필터 편집 시 트리의 절을 삭제하여 두 개의 부정 요소를 하나씩 제거할 수 있습니다.
+이 중 하나를 삭제하여 올바른 필터를 작성해야 합니다.</div>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필요한 경우 다음과 같이 하위 조회 요소를 작성하십시오. </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">단추 막대에서 <span class="ph uicontrol">하위 조회</span>를 클릭하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd">요소 정의 영역에서 다음과 같이 필드를 완료하십시오. </span> <dl class="dl"><dt class="dt dlterm">컬럼</dt>
+<dd class="dd">이 목록에서 검색에 사용할 데이터베이스 컬럼을 선택하십시오. </dd>
+<dt class="dt dlterm">연산자</dt>
+<dd class="dd">목록에서 다음 옵션 중 하나를 선택하십시오. <ul class="ul"><li class="li"><span class="keyword option">속함</span>: 컬럼의 내용을 검색하려면 이 옵션을 사용하십시오.</li>
+<li class="li"><span class="keyword option">속하지 않음</span>: 내용이 없는 필드를 검색하려면 이 옵션을 사용하십시오.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">선택</dt>
+<dd class="dd">목록 빌드 시 속함 또는 속하지 않음 작업을 수행할 때 대조용으로 사용할 컬럼을
+선택하십시오.
+이 목록의 옵션은 <span class="ph uicontrol">원본</span> 목록에서 선택되는 옵션에 따라
+판별됩니다. </dd>
+<dt class="dt dlterm">원본</dt>
+<dd class="dd">정보를 얻을 데이터베이스 테이블을 선택하십시오. 이는
+alerts.details, alerts.journal 또는 alerts.status가 될 수 있습니다. </dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필요한 경우 다음과 같이 필터 지표를 설정하십시오. </span> <dl class="dl"><dt class="dt dlterm">지표</dt>
+<dd class="dd">첫 번째 목록을 사용하여 사용할 측정법을 선택하십시오. <ul class="ul"><li class="li">필터와 일치하는 모든 경보에 대해 선택된 필드의 평균 값을 리턴하려면
+<strong class="ph b">평균</strong>을 선택하십시오.</li>
+<li class="li">필터와 일치하는 모든 경보의 수를 리턴하려면 <strong class="ph b">수</strong>를 선택하십시오.
+선택된 필드는 이 계산에 사용되지 않습니다. </li>
+<li class="li">필터와 일치하는 모든 경보에 대해 선택된 필드의 합계를 리턴하려면
+<strong class="ph b">합계</strong>를 선택하십시오.</li>
+<li class="li">필터와 일치하는 경보에서 선택된 필드의 가장 낮은 값을 리턴하려면
+<strong class="ph b">최소</strong>를 선택하십시오.</li>
+<li class="li">필터와 일치하는 경보에서 선택된 필드의 가장 높은 값을 리턴하려면
+<strong class="ph b">최대</strong>를 선택하십시오.</li>
+</ul>
+</dd>
+<dd class="dd">두 번째 목록을 사용하여 측정법이 적용되는 필드를 선택하십시오.
+경보에서 정수 및 시간 필드만 지표 계산에 사용 가능합니다. <div class="note tip"><span class="tiptitle">팁:</span> 지표 값은
+<span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창의 모니터 상자에 표시됩니다. </div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필요한 경우 다음과 같이 요소를 복사하고 붙여넣으십시오. </span><ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">그래픽 디스플레이 영역에서 복사할 요소를 선택하고
+<span class="ph menucascade"><span class="ph uicontrol">편집</span> &gt; <span class="ph uicontrol">복사</span></span>를 선택하십시오. </span></li>
+<li class="li substep"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">편집</span> &gt; <span class="ph uicontrol">붙여넣기</span></span>를 선택하여 필터의 다른 곳에 요소를 붙여넣으십시오. </span> 필터 빌더는 현재 선택되어 있는 요소에 대한 요소를 삽입하려고 시도합니다.</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필요한 경우 다음과 같이 단일 요소 또는 상위 요소 및 관련 하위를 삭제하십시오.</span><ul class="ul choices"><li class="li choice">그래픽 디스플레이 영역에서 삭제할 단일 요소를 선택한 다음
+단추 막대에서 <span class="ph uicontrol">요소 삭제</span>를 클릭하거나
+<span class="ph menucascade"><span class="ph uicontrol">편집</span> &gt; <span class="ph uicontrol">잘라내기</span></span>를 선택하십시오. <p class="p">필터
+요소 삭제 시 필터 빌더는 필터에 하위 요소를 링크하려고 시도합니다.
+이 조치는 두 개의 하위가 있는 논리 요소 또는 하위가 있는 하위 조회를 제거하려고
+시도하는 경우 작동하지 않습니다.</p>
+</li>
+<li class="li choice">그래픽 디스플레이 영역에서 삭제할 상위 요소를 선택하고 단추 막대에서
+<span class="ph uicontrol">트리 삭제</span>를 클릭하십시오. 이 조치로 현재 선택된 요소와 모든 하위
+요소가 제거됩니다.</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">필터 정의 후 다음과 같이 필터를 저장하거나 변경을 취소하십시오.</span> <dl class="dl"><dt class="dt dlterm">적용</dt>
+<dd class="dd">변경사항을 저장하지 않고 필터에 적용하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">닫기</dt>
+<dd class="dd">창을 닫고 변경사항을 버리려면 이 단추를 클릭하십시오. </dd>
+</dl>
+
+<div class="p">필터는 <span class="ph filepath">.elf</span> 파일 확장자로 저장해야 합니다.
+<div class="note note"><span class="notetitle">참고:</span> UNIX에서
+필터 빌더가 컨덕터에서 실행 중인 경우 <span class="ph uicontrol">적용</span> 단추가 표시되지 않습니다.
+이 경우에는 UNIX
+필터 빌더에서 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">저장</span></span> 또는 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">다른 이름으로 저장</span></span>을
+선택하여 필터를 모두 저장해야 합니다. </div>
+</div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_fb_settingupfiltersevntlst.html" title="필터는 모니터 상자 및 이벤트 목록에 사용자 정의 경보 정보를 표시하기 위해 ObjectServer alerts 데이터베이스 테이블에서 실행할 수 있는 SQL 조회를 빌드하는 데 사용됩니다.">이벤트 목록 데이터에 대한 필터 설정</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_fb_startingfilterbuilder.html" title="필터 빌더는 필터를 구성하는 SQL 문을 빌드 및 테스트할 수 있는 그래픽 인터페이스를 제공합니다.">필터 빌더 시작</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

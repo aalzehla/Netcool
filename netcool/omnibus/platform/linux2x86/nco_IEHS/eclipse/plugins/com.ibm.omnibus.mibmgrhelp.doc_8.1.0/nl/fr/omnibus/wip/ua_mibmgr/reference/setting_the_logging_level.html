@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr-fr" lang="fr-fr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Définition du niveau de consignation" />
+<meta name="abstract" content="Vous pouvez modifier le niveau de consignation afin de fournir des fichiers journaux ou des fichiers de trace plus détaillés pour vous aider à déboguer MIB Manager. Les informations supplémentaires fournies par l'augmentation des niveaux de consignation peuvent vous aider lors du débogage de problèmes spécifiques pendant l'analyse syntaxique des fichiers MIB." />
+<meta name="Description" content="Vous pouvez modifier le niveau de consignation afin de fournir des fichiers journaux ou des fichiers de trace plus détaillés pour vous aider à déboguer MIB Manager. Les informations supplémentaires fournies par l'augmentation des niveaux de consignation peuvent vous aider lors du débogage de problèmes spécifiques pendant l'analyse syntaxique des fichiers MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="fr-fr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Définition du niveau de consignation</h1>
+<div class="body refbody"><p class="shortdesc">Vous pouvez modifier le niveau de consignation afin de fournir des fichiers journaux ou des fichiers de trace plus détaillés pour vous aider à déboguer <span class="keyword">MIB Manager</span>. Les informations supplémentaires fournies par l'augmentation des niveaux de consignation peuvent vous aider lors du débogage de problèmes spécifiques pendant l'analyse syntaxique des fichiers MIB.</p>
+<div class="section"><p class="p">Pour modifier le niveau de consignation, cliquez sur <span class="ph menucascade"><span class="ph uicontrol">Editer</span> &gt; <span class="ph uicontrol">Déboguer</span></span> dans la barre de menus de la fenêtre principale. Les fichiers journaux ont six niveaux de message que vous pouvez utiliser pour augmenter le niveau de détail capturé : aucun, erreur, avertissement, info, débogage et prolixe.</p>
+<p class="p">Le tableau suivant donne une brève description de chaque niveau de consignation :</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tableau 1. Liste des niveaux de consignation avec la description associée</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3942e36">Niveau de consignation</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3942e38">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3942e36 ">Aucune</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3942e38 "><p class="p">Indique un niveau de consignation dans lequel aucun message de débogage n'est généré. </p>
+<p class="p">Les performances de l'application sont améliorées, mais aucun message d'avertissement ou d'erreur n'est affiché lors de l'analyse syntaxique.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3942e36 ">erreur</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3942e38 "><p class="p">Indique un niveau de consignation dans lequel seules les erreurs qui affectent les résultats sont consignées.</p>
+<p class="p">Ceci inclut toute erreur identifiée par <span class="keyword">MIB Manager</span> qui entraînerait l'affichage de données incorrectes dans la fenêtre principale.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3942e36 ">avertissement</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3942e38 "><p class="p">Indique un niveau de consignation dans lequel des messages d'avertissement et d'erreur sont consignés.</p>
+<p class="p">Un avertissement indique une condition qui pourrait conduire à des données erronées et qui doit donc être vérifiée. Toutefois, cette condition ne cause pas de détérioration des données.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3942e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3942e38 "><p class="p">Indique un niveau de consignation dans lequel des messages d'information, d'avertissement et critiques sont consignés.</p>
+<p class="p">Les messages d'information contiennent des détails concernant la progression globale de la tâche. Par exemple, ils fournissent le texte complet pour des objets en cours d'analyse.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3942e36 ">débogage</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3942e38 "><div class="p">Indique un niveau de consignation dans lequel tous les messages sont consignés. <div class="note note"><span class="notetitle">Remarque :</span> Exécutez <span class="keyword">MIB Manager</span> uniquement en mode débogage lorsque vous essayez de résoudre une condition d'erreur. Le volume de données produites lors de l'analyse syntaxique d'un nombre modéré de MIB remplit rapidement votre système de fichiers.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3942e36 ">prolixe</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3942e38 "><p class="p">Indique un niveau de consignation dans lequel tous les messages d'information sont consignés.</p>
+<p class="p">Un message en mode prolixe inclut l'état des variables, des tableaux et des hachages au fur et à mesure que leurs valeurs et leur état changent.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Rubrique parent :</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Utilisez les préférences de consignation pour spécifier le répertoire du fichier journal MIB Manager et pour définir le niveau de message par défaut.">Définition de préférences de journalisation</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothèque</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

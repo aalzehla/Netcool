@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Event List monitor box" />
+<meta name="abstract" content="Use this window to view one or more categories of alert information, as configured by your system administrator. Each alert category is depicted by a monitor box, which represents a filter and view that have been created for the event list. Filters enable you to display a subset of alerts based on specific criteria. Views enable you to choose which alert fields to display." />
+<meta name="Description" content="Use this window to view one or more categories of alert information, as configured by your system administrator. Each alert category is depicted by a monitor box, which represents a filter and view that have been created for the event list. Filters enable you to display a subset of alerts based on specific criteria. Views enable you to choose which alert fields to display." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_indicatingeventinmaint.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_escalatingdeescalating.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_addingeventstotasklist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitorboxoverview.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistmonitorboxwindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Event List monitor box</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistmonitorboxwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Event List monitor box</h1>
+<div class="body refbody"><p class="shortdesc">Use this
+window to view one or more categories of alert information, as configured
+by your system administrator. Each alert category is depicted by a <dfn class="term">monitor
+box</dfn>, which represents a filter and view that have been created for
+the event list. Filters enable you to display a subset of alerts based on
+specific criteria. Views enable you to choose which alert fields to display.</p>
+<div class="section"><div class="p">The <span class="keyword wintitle">Event List</span> monitor box window contains
+the following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea">Monitor box area</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar">Status bar</a></li>
+</ul>
+</div>
+<div class="note tip" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorboxwindow_note"><span class="tiptitle">Tip:</span> The title
+bar of the <span class="keyword wintitle">Event List</span> monitor box window displays the
+current event list configuration name. </div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea"><h2 class="title sectiontitle">Monitor box
+area</h2><div class="p">This area displays the monitor boxes, which represent specific
+filters and a selection of views that can be applied to an associated event
+list. The monitor boxes that appear on your system may differ, depending on
+how your system administrator has configured your system. The default <span class="keyword wintitle">Event
+List</span> monitor box window contains the following filter definitions
+for individual monitor boxes:<dl class="dl" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_defaultmonitorboxes"><dt class="dt dlterm">Last 10 Min.</dt>
+<dd class="dd">This filter displays all alerts except ProbeWatch, TSMWatch, and ConnectionWatch
+alerts. The results are identical to those for the <span class="ph uicontrol">Default</span> filter,
+except that the <span class="ph uicontrol">Last 10 Min.</span> filter only displays alerts
+that occurred in the last 10 minutes.</dd>
+<dt class="dt dlterm">In Maintenance</dt>
+<dd class="dd">This filter displays alerts that have been indicated as being "in maintenance"
+by the operator. </dd>
+<dt class="dt dlterm">Escalated</dt>
+<dd class="dd">This filter displays alerts that have been escalated by the operator. </dd>
+<dt class="dt dlterm">Information</dt>
+<dd class="dd">This filter displays alerts that have been identified as Information alerts.
+Information alerts are:<ul class="ul"><li class="li">Alerts that have been designated as Information alerts by probes</li>
+<li class="li">Alerts that are not ProbeWatch, TSMWatch, or ConnectionWatch alerts</li>
+<li class="li">Alerts for which an escalation level has been set </li>
+</ul>
+</dd>
+<dt class="dt dlterm">Task List</dt>
+<dd class="dd">This filter displays alerts that have been added to the operator's task
+list. </dd>
+<dt class="dt dlterm">Netcool® Status</dt>
+<dd class="dd">This filter displays only ProbeWatch, TSMWatch, and ConnectionWatch alerts.</dd>
+<dt class="dt dlterm">Default</dt>
+<dd class="dd">This filter displays all alerts except ProbeWatch, TSMWatch, and ConnectionWatch
+alerts.</dd>
+<dt class="dt dlterm">All Events</dt>
+<dd class="dd">This filter displays all alerts.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar"><h2 class="title sectiontitle">Status bar</h2><div class="p">The
+status bar displays:<ul class="ul"><li class="li">The status message</li>
+<li class="li">The current user name used to log into the session</li>
+<li class="li">The ObjectServer to which you are currently connected and whether it is
+the primary (<samp class="ph tt">PRI</samp>) or backup (<samp class="ph tt">BAK</samp>) server</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_usr_el_monitorboxoverview.html" title="A monitor box on the Event List monitor box window represents a filter and a selection of views that are created to determine which alert records and columns are displayed in an event list. A monitor box is named after its associated filter.">Monitor box overview</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="You can save the filter, view, and other event configurations that are defined for all the monitor boxes on the Event List monitor box window. This information is saved within an event list configuration (.elc) file.">Working with event list configurations</a></div>
+<div><a class="link" href="omn_usr_el_indicatingeventinmaint.html" title="If the problem that caused an event is being dealt with, you can indicate that the event is &#34;in maintenance&#34;, in the event list. The Maintenance priority works in conjunction with the Maintenance event list filter.">Indicating that an event is "in maintenance"</a></div>
+<div><a class="link" href="omn_usr_el_escalatingdeescalating.html" title="You can escalate events in the event list if, for example, you need to call attention to the events so that different levels of support staff can manage them. Escalating and de-escalating events works in conjunction with the Escalated event list filter.">Escalating and de-escalating events</a></div>
+<div><a class="link" href="omn_usr_el_addingeventstotasklist.html" title="You can use the task list to identify events that require special attention. Adding events to the task list works in conjunction with the Task List event list filter.">Adding events to the task list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

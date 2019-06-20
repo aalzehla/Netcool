@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Depicting severity using text color on UNIX" />
+<meta name="abstract" content="By default, the severity of an event in the event list is indicated by the background color of its row. On UNIX operating systems only, you can configure the event list to use a single background color, and instead use the alert text color to depict severity." />
+<meta name="Description" content="By default, the severity of an event in the event list is indicated by the background color of its row. On UNIX operating systems only, you can configure the event list to use a single background color, and instead use the alert text color to depict severity." />
+<meta name="DC.subject" content="event lists, depicting severity, severity by text color" />
+<meta name="keywords" content="event lists, depicting severity, severity by text color" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_depictingsevbytextcolor" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>Depicting severity using text color on UNIX</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_depictingsevbytextcolor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Depicting severity using text color on UNIX</h1>
+<div class="body taskbody"><p class="shortdesc">By default, the severity of an event in the event list
+is indicated by the background color of its row. On UNIX operating systems only, you can configure
+the event list to use a single background color, and instead use the
+alert text color to depict severity. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To depict severity using text color:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Back up the event list resource definition file <span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</span>,
+where <var class="keyword varname">arch</var> is your operating system. </span> This
+step is advisable in case you need to revert to the original file.</li>
+<li class="li step stepexpand"><span class="ph cmd">Edit the <span class="ph filepath">NCOEvent</span> file by adding the
+following X resource lines to define the background and text colors
+for the event list:</span> <pre class="pre codeblock"><code>NCOEvent*inverseVideo:True
+
+NCOEvent*clearColour: Black
+NCOEvent*indetColour: Black
+NCOEvent*warnColour: Black
+NCOEvent*minorColour: Black
+NCOEvent*majorColour: Black
+NCOEvent*critColour: Black
+
+NCOEvent*ackClearColour: Black
+NCOEvent*ackIndetColour: Black
+NCOEvent*ackWarnColour: Black
+NCOEvent*ackMinorColour: Black
+NCOEvent*ackMajorColour: Black
+NCOEvent*ackCritColour: Black
+
+NCOEvent*clearTextColour: green3
+NCOEvent*indetTextColour: DarkOrchid2
+NCOEvent*warnTextColour: SteelBlue1
+NCOEvent*minorTextColour: yellow1
+NCOEvent*majorTextColour: #ffffb432294a
+NCOEvent*critTextColour: red1
+
+NCOEvent*ackClearTextColour: #008000
+NCOEvent*ackIndetTextColour: DarkOrchid4
+NCOEvent*ackWarnTextColour: SteelBlue3
+NCOEvent*ackMinorTextColour: yellow3
+NCOEvent*ackMajorTextColour: #b5ab63bd0000
+NCOEvent*ackCritTextColour: red3</code></pre>
+<div class="note tip"><span class="tiptitle">Tip:</span> In this
+sample text, the background color is set to <samp class="ph codeph">Black</samp>,
+but you can specify another color with a good contrast to the text
+colors specified. If you want to use a different set of colors to
+depict severity, you might find it useful to verify the selection
+of colors that are available for use. These colors are listed in the
+file <span class="ph filepath">/usr/openwin/lib/rgb.txt</span>.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save your changes to the file.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">To ensure that the defined color settings are loaded into
+your environment, set the XAPPLRESDIR environment variable to the
+location where the updated resource definition file <span class="ph filepath">NCOEvent</span> is
+stored. </span> <p class="p">This location is:</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/</span></p>
+<p class="p">Where <var class="keyword varname">arch</var> is
+your operating system directory.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> Set the XAPPLRESDIR
+environment variable in the <span class="ph filepath">.login</span> or <span class="ph filepath">.profile</span> initialization
+file for your shell to make your color settings permanent.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Merge the colors with the system colors by entering the
+following command:</span> <p class="p"><kbd class="ph userinput">/usr/openwin/bin/xrdb
+-merge $NCHOME/omnibus/desktop/app-defaults/<var class="keyword varname">arch</var>/NCOEvent</kbd></p>
+<p class="p">Where <var class="keyword varname">arch</var> is
+your operating system directory.</p>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The new colors become available when you open an event list.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="You can customize the appearance of the event list.">Customizing the appearance of the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

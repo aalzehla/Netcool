@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="About the personal library" />
+<meta name="abstract" content="Each UNIX user on a particular server has a .omnibus directory, and the personal library acts as a graphical browser for that directory. From the UNIX Conductor, you can customize your personal library to include views, filters, and event list configurations that you use frequently." />
+<meta name="Description" content="Each UNIX user on a particular server has a .omnibus directory, and the personal library acts as a graphical browser for that directory. From the UNIX Conductor, you can customize your personal library to include views, filters, and event list configurations that you use frequently." />
+<meta name="DC.subject" content="personal library, overview, prefs icon, ELC files, ELF files, ELV files, files, ELC, ELF, ELV" />
+<meta name="keywords" content="personal library, overview, prefs icon, ELC files, ELF files, ELV files, files, ELC, ELF, ELV" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringqckaccessfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_settingglobalprefsunixcond.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_removingfilesfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startinganappfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_viewingfullcontentsofpersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_creatingsymlinksinpersonallib.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_abtpersonallibrary" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringqckaccessfilters.html" />
+<title>About the personal library</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_abtpersonallibrary">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">About the personal library</h1>
+<div class="body conbody"><p class="shortdesc">Each UNIX user on
+a particular server has a <span class="ph filepath">.omnibus</span> directory,
+and the personal library acts as a graphical browser for that directory.
+From the UNIX Conductor, you
+can customize your personal library to include views, filters, and
+event list configurations that you use frequently.</p>
+<p class="p">By default, the personal library also contains a <span class="ph uicontrol">prefs</span> icon
+that you can use to set global preferences for the <span class="keyword">Tivoli Netcool/OMNIbus</span> desktop. </p>
+<p class="p">A number of icons are used to represent the different file types
+in the personal library. These icons are described in the following
+table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Personal library icons</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d15468e65">Icon example</th>
+<th class="entry" valign="bottom" width="80%" id="d15468e67">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d15468e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibprefs.gif" alt="This figure shows a representation of the prefs icon in the personal library area of the UNIX Conductor." /></div><p class="p"><span class="ph uicontrol">prefs</span></p>
+</td>
+<td class="entry" valign="top" width="80%" headers="d15468e67 ">This icon represents the repository of your <span class="keyword">Tivoli Netcool/OMNIbus</span> desktop
+preferences. When you change your tool preferences, the changes are
+made in this file. </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d15468e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibelc.gif" alt="This figure shows a representation of the .elc icon in the personal library area of the UNIX Conductor." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d15468e67 ">This icon represents an event list configuration. Event list
+configurations are stored as <span class="ph filepath">.elc</span> files.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d15468e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibelf.gif" alt="This figure shows a representation of the .elf icon in the personal library area of the UNIX Conductor." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d15468e67 ">This icon represents an event list filter. Filters are stored
+as <span class="ph filepath">.elf</span> files.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d15468e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibelv.gif" alt="This figure shows a representation of the .elv icon in the personal library area of the UNIX Conductor." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d15468e67 ">This icon represents an event list view. Views are stored as <span class="ph filepath">.elv</span> files.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d15468e65 "><div class="image"><img class="image" src="icn_omn_usr_personallibsymlink.gif" alt="This figure shows a representation of a symbolic link icon in the personal library area of the UNIX Conductor." /></div></td>
+<td class="entry" valign="top" width="80%" headers="d15468e67 ">The event list configuration, filter, and view icons may appear
+covered by a chain link. This indicates that a symbolic link to the
+file has been created in the personal library. The icon to the left
+shows an example of a linked filter file.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_configuringqckaccessfilters.html" title="From the UNIX Conductor, you can view the contents of your local UNIX system directories, and easily access filter files, view files, and event list configuration files for use in the management of alerts.">Configuring quick access to filters, views, and event list configurations on UNIX</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_settingglobalprefsunixcond.html" title="From the UNIX Conductor, you can set global preferences for the Conductor window, event list, and event notifications.">Setting global preferences for the UNIX Conductor</a></div>
+<div><a class="link" href="omn_usr_removingfilesfrompersonallib.html" title="If you no longer require a file to be in the personal library, you can move it from the personal library back into the directory browser by using the drag-and-drop technique with the middle mouse button. You can also delete files from the personal library.">Removing files from the personal library</a></div>
+<div><a class="link" href="omn_usr_startinganappfrompersonallib.html" title="You can start the Filter Builder, View Builder, and event list from your personal library. You can also work with files that are represented by symbolic links.">Starting an application from the personal library</a></div>
+<div><a class="link" href="omn_usr_viewingfullcontentsofpersonallib.html" title="On occasion, you might want to refresh or update the personal library to show certain files that are currently held in this location, but which are, by default, not shown.">Viewing the full contents of the personal library</a></div>
+<div><a class="link" href="omn_usr_creatingsymlinksinpersonallib.html" title="You can create a symbolic link in your personal library, to a file in your local UNIX system.">Creating symbolic links in the personal library</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

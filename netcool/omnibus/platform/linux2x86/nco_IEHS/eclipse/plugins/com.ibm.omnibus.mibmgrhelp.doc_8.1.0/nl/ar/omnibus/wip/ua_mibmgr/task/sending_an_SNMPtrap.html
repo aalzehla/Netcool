@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="تكوين ملفات تعقب مشاكل SNMP" />
+<meta name="abstract" content="كيف يتم تكوين ملفات تعقب مشاكل SNMP. كما يمكن استخدام هذه الوظيفة لاختبار القواعد التى يتم تكوينها بواسطة MIB Manager." />
+<meta name="Description" content="كيف يتم تكوين ملفات تعقب مشاكل SNMP. كما يمكن استخدام هذه الوظيفة لاختبار القواعد التى يتم تكوينها بواسطة MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">تكوين ملفات تعقب مشاكل SNMP</h1>
+<div class="body taskbody"><p class="shortdesc">كيف يتم تكوين ملفات تعقب مشاكل SNMP. كما يمكن استخدام هذه الوظيفة
+لاختبار القواعد التى يتم تكوينها بواسطة <span class="keyword">MIB Manager</span>.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">اجراء</h2></div><p class="li stepsection">لتكوين ملف تعقب مشاكل SNMP:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">اضغط على <img class="image" src="../gifs/trap.gif" alt="شارة ملف تعقب المشاكل" /> <span class="ph uicontrol">ملف تعقب المشاكل</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">العنوان المستهدف</span>، حدد اسم النظام الرئيسي أو عنوان IP لحاسب يقوم بتشغيل خدمة SNMP Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">المنفذ المستهدف</span>، حدد منفذ UDP الذي تقوم خدمة  SNMP Trapd بالانصات اليه.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">المجموعة</span>، حدد مجموعة حروف صحيحة الى Trapd Manager.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">وفقا لنوع ملف تعقب المشاكل الذي تقوم بتكوينه، يمكن أن يكون قسم <span class="ph uicontrol">عمليات ربط المتغيرات</span> مرئيا في نافذة
+<span class="keyword wintitle">تكوين ملف تعقب مشاكل SNMP</span>. تعتمد أيضا المجالات المتاحة في قسم  <span class="ph uicontrol">عمليات ربط المتغيرات</span> على نوع ملف تعقب المشاكل الذي يتم تكوينه.</span> <p class="p">قم بامرار المؤشر على مجال <span class="ph uicontrol">عمليات ربط المتغيرات</span> لعرض أسماء تفاصيل صيغة قيمة المجال. يمكنك تحديد قيم متعددة، مفصولة بفاصلات. سيتم اختيار هذه القيم عشوائيا لبناء ملف تعقب مشاكل.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">تكرار القياس</span>، حدد عدد ملفات تعقب المشاكل (من 1 الى 1000) التي يمكن تكوينها.</span> <p class="p">اذا قمت بتحديد عدد كبير، سيتم تكوين ملفات تعقب المشاكل بطريقة متتالية سريعة ويمكن أن يؤدي الى تنبيهات متكررة في Trapd Manager. بالنسبة الى القيم أكبر من واحد  (&gt; 1)، وللقيم المحددة بكشوف مفصولة بالفاصلة المنقوطة،
+يقوم <span class="keyword">MIB Manager</span> عشوائيا بالتحديد من الكشوف المحددة ويقوم بتكوين
+صفحات شرطية بالقيم الاعتباطية المقدمة كما varbinds.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">اضغط <span class="ph uicontrol">تنفيذ</span> لتكوين ملف تعقب المشاكل.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">النتائج</h2></div>سيقوم مجال <span class="ph uicontrol">النتيجة</span> في نافذة <span class="keyword wintitle">تكوين ملف تعقب مشاكل SNMP </span> بالاشارة الى ما اذا كان ملف تعقب المشاكل تم ارساله بنجاح.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="يمكنك استخدام MIB Manager لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool.">استخدام Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

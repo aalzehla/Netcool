@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Tivoli Netcool/OMNIbus MIB Manager" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus MIB Manager הוא יישום המבוסס על IBM Eclipse שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP), שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות mib2rules." />
+<meta name="description" content="Tivoli Netcool/OMNIbus MIB Manager הוא יישום המבוסס על IBM Eclipse שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP), שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות mib2rules." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/about_devices.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="the_mib_manager" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>MIB Manager מנתח קובצי SNMP MIB ומפיק קובצי כללים. הוא מחליף את תוכנית השירות mib2rules.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="the_mib_manager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1"><span class="keyword">Tivoli Netcool/OMNIbus</span> MIB
+Manager</h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> MIB
+Manager הוא יישום המבוסס על IBM® Eclipse
+שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP),
+שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות <span class="keyword cmdname">mib2rules</span>.</p>
+<div class="section"><div class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> MIB
+Manager הוא בעל התכונות הבאות:<ul class="ul"><li class="li">הוא מייבא קובצי SNMP MIB ומפענח יחסי תלות של MIB כדי לבנות עץ מזהה אובייקטים (OID).</li>
+<li class="li">הוא יכול לייצא חלק מהאובייקטים של SNMP שיובאו או את כולם לקובצי הכללים של Netcool
+ולמבני קבצים אחרות.</li>
+<li class="li">הוא כולל את רכיבי ה-MIB הבסיסיים וכן את רכיבי ה-RFC MIB הנפוצים ביותר בשימוש על-ידי קובצי MIB אחרים.</li>
+<li class="li">הוא כולל הגדרות התקן המאפשרות קיבוץ ממורכז התקן של מודולים של MIB שיובאו.</li>
+<li class="li">הוא יכול לסנן ולבצע חיפוש במודולים של MIB ובעץ ה-OID באמצעות שם אובייקט או OID.</li>
+<li class="li">הוא יכול להפיק לכידות SNMP לשליחה לבדיקת SNMP‏ (<span class="ph filepath">nco_p_mttrapd</span>)
+או לסוכני SNMP אחרים.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html">הפעלת MIB Manager</a></span><br />
+ניתן להפעיל את MIB Manager משורת הפקודה. הוא לא אמור לרוץ תחת בקרת תהליך או בתור שירות של Windows.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html">Tivoli Netcool/OMNIbus MIB Manager</a></span><br />
+<span class="keyword">Tivoli Netcool/OMNIbus</span> MIB
+Manager הוא יישום המבוסס על IBM Eclipse
+שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP),
+שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות <span class="keyword cmdname">mib2rules</span>.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html">שימוש ב-MIB Manager</a></span><br />
+ניתן להשתמש ב-MIB Manager לניתוח מודולים של MIB וליצירת קובצי כללים של Netcool.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/about_devices.html">שימוש בהתקנים של MIB Manager</a></span><br />
+התקן של MIB Manager משמש לקיבוץ מודולים משויכים של MIB ולהגדרת כל האובייקטים הדרושים לייצוא.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html">קביעת תצורה של העדפות גלובליות</a></span><br />
+ניתן לקבוע תצורה של מספר העדפות גלובליות של MIB Manager מחלון <span class="keyword wintitle">העדפות</span>.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html">אודות SNMP</a></span><br />
+מקטע זה מספק מידע נוסף אודות הארכיטקטורה של
+Simple Network Management Protocol ‏(SNMP), בסיס המידע הניהולי של SNMP‏ (MIB), ומושגים נוספים בנושא MIB.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Tivoli Netcool/OMNIbus MIB Manager הוא יישום המבוסס על IBM Eclipse שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP), שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות mib2rules.">Tivoli Netcool/OMNIbus MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

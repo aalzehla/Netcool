@@ -1,0 +1,175 @@
+#!/bin/sh
+
+START_NCO="Y"
+
+# Simple error message function
+err() {
+	echo -e "$@" 1>&2
+	exit 1
+}
+
+# Check OS
+if [ `uname -s` != Linux ]; then
+	err "This script can only be run on Linux 2.x"
+fi
+REDHAT_TYPE=
+VERSION=
+LINUX_FULL=
+INSTALL_TYPE=
+if [ -f /etc/redhat-release ]; then
+	REDHAT_TYPE=`cat /etc/redhat-release | awk '{print $3}'`
+	VERSION=`cat /etc/redhat-release | sed -e 's/.*release//' | awk '{print $1}'`
+	LINUX_FULL=`head -n 1 /etc/redhat-release | sed -e 's/ *(.*)$//'`
+	STARTUP_KEEP="REDHAT"; STARTUP_REMOVE="SUSE"
+elif [ -f /etc/SuSE-release ]; then
+	VERSION=`cat /etc/SuSE-release | grep "VERSION" | awk '{print $3}'`
+	LINUX_FULL=`head -n 1 /etc/SuSE-release | sed -e 's/ *(.*)$//'`
+	STARTUP_KEEP="SUSE"; STARTUP_REMOVE="REDHAT"
+else
+	err "This script can only be run on RedHat or SuSE Linux"
+fi
+
+# Check version
+MAJOR=`echo $VERSION | awk -F . '{print $1}'`
+MINOR=`echo $VERSION | awk -F . '{print $2}'`
+if [ "$REDHAT_TYPE" != "" ]; then
+	if [ "$REDHAT_TYPE" != "Enterprise" ]; then
+		if [ "$MAJOR" -lt 5 ]; then
+			err "This script can only be run on RedHat Linux 5.2 or above"
+		fi
+		if [ "$MAJOR" -eq 5 ] && [ "$MINOR" -lt 2 ]; then
+			err "This script can only be run on RedHat Linux 5.2 or above"
+		fi
+	fi
+else
+	if [ "$MAJOR" -lt 9 ]; then
+		err "This script can only be run on SuSE Linux 9 or above"
+	fi
+fi
+
+ECHO='/bin/echo -e'
+
+# Check for root user
+if [ `/usr/bin/whoami` != root ]; then
+	err "This script can only be run as root"
+fi
+
+# Simple YN function
+f_YN(){
+    YN=""
+    until [ "$YN" != "" ] ; do
+        $ECHO "$1 (y/n)? \c"
+        if [ "$2" != "" ] ; then
+            $ECHO "[$2] \c"
+        fi
+
+	read YN
+
+        case "$YN" in
+            "")                YN=$2;;
+            [Yy]|[Yy][Ee][Ss]) YN="y";;
+            [Nn]|[Nn][Oo])     YN="n";;
+            *)                 YN="";;
+        esac
+    done
+}
+
+#######################################
+f_ANSWER(){
+#######################################
+
+    $ECHO "$1 \c"
+    if [ "$2" != "" ] ; then
+        $ECHO "[$2]\c"
+    fi
+    $ECHO ": \c"
+
+    read ANSWER
+
+    if [ "$ANSWER" = "" ] ; then
+        ANSWER=$2
+    fi
+}
+
+f_NCHOME ()
+{
+	# Make a guess based on the binary path
+	DIRNAME=`dirname $1`
+	GUESS=`cd $DIRNAME/../../.. && pwd`
+
+	# If NCHOME is not set, use guess
+	if [ -z "$NCHOME" ]; then
+		# Prompt for NCHOME
+		f_ANSWER "Enter value for \$NCHOME" "$GUESS"
+		NCHOME="$ANSWER"
+	fi
+
+	# Check that NCHOME exists
+	if [ ! -d "$NCHOME" ]; then
+		err "Cannot access \$NCHOME directory: $NCHOME"
+	fi
+}
+
+# Get NCHOME, if not already set, based on the binary path
+f_NCHOME $0
+OMNIHOME="$NCHOME/omnibus"
+NETCOOL_LICENSE_FILE="${NETCOOL_LICENSE_FILE:-27000@localhost}"
+cd $OMNIHOME/install/startup
+
+
+# Check files
+if [ ! -f linux2x86/etc/rc.d/init.d/nco ]; then
+	
+	err "$LINUX_FULL startup script missing !"
+fi
+
+# Check that chkconfig is executable (for use later)
+if [ ! -x /sbin/chkconfig ]; then
+	err "/sbin/chkconfig is not executable !"
+fi
+
+# Confirm
+$ECHO "This script copies a startup script into the /etc/init.d directory to enable"
+$ECHO "you to automatically start and stop Netcool/OMNIbus processes."
+$ECHO
+$ECHO "It does this by:"
+$ECHO "\tCopying linux2x86/etc/rc.d/init.d/nco to /etc/init.d/nco"
+$ECHO "\tRunning \"/sbin/chkconfig --add nco\""
+$ECHO
+f_YN "Do you wish to continue" y
+if [ "$YN" = "n" ]; then
+	$ECHO "No scripts installed"
+	exit 0
+fi
+
+if [ "$START_NCO" = "Y" ]; then
+
+	# Prompt for Process Agent settings
+	f_ANSWER "Name of the Process Agent Daemon" "NCO_PA"
+	PROCESSAGENT="$ANSWER"
+	f_YN "Should $PROCESSAGENT run in secure mode" y
+	SECURE=$YN
+	if [ "$SECURE" = "y" ]; then
+		SECURE="Y"
+	fi
+
+	# Prompt for Licensing settings
+	f_ANSWER "Enter value for environment variable NETCOOL_LICENSE_FILE\nif required" "$NETCOOL_LICENSE_FILE"
+	NETCOOL_LICENSE_FILE="$ANSWER"
+else
+	PROCESSAGENT=NCO_PA
+	# secure is not required, but set to a value for consistency
+	SECURE=Y
+fi
+
+# Copy file into the appropriate directory
+cat linux2x86/etc/rc.d/init.d/nco | sed -e "/###[ 	]*$STARTUP_REMOVE ONLY/,/###[ 	]*END $STARTUP_REMOVE ONLY/d" -e "/###[ 	]*$STARTUP_KEEP ONLY/d" -e "/###[ 	]*END $STARTUP_KEEP ONLY/d" -e "s#__NCHOME__#$NCHOME#" -e "s#__OMNIHOME__#$OMNIHOME#" -e "s#__PROCESSAGENT__#$PROCESSAGENT#" -e "s#__SECURE__#$SECURE#" -e "s#__NETCOOL_LICENSE_FILE__#$NETCOOL_LICENSE_FILE#" > /etc/init.d/nco
+chown root /etc/init.d/nco || err "Failed to set ownership on /etc/init.d/nco"
+chgrp sys /etc/init.d/nco || err "Failed to set group on /etc/init.d/nco"
+chmod 750 /etc/init.d/nco || err "Failed to set permissions on /etc/init.d/nco"
+
+/sbin/chkconfig --add nco > /dev/null
+
+# Complete
+echo "Scripts installed."
+exit 0

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Viewing services in the event list" />
+<meta name="abstract" content="If you have IBM Tivoli Composite Application Manager for Internet Service Monitoring installed, you can view and manipulate service alerts from Internet service monitors." />
+<meta name="Description" content="If you have IBM Tivoli Composite Application Manager for Internet Service Monitoring installed, you can view and manipulate service alerts from Internet service monitors." />
+<meta name="DC.subject" content="event lists, Internet service monitors, service alerts, viewing services" />
+<meta name="keywords" content="event lists, Internet service monitors, service alerts, viewing services" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_netcoolismineventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_viewingservicesinevntlst" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_netcoolismineventlist.html" />
+<title>Viewing services in the event list</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_viewingservicesinevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Viewing services in the event list</h1>
+<div class="body taskbody"><p class="shortdesc">If you have <span class="keyword">IBM Tivoli Composite Application
+Manager for Internet Service Monitoring</span> installed,
+you can view and manipulate service alerts from Internet service monitors.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To view services information, perform any of the following actions:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ul class="ul steps-unordered"><li class="li step"><span class="ph cmd">From the Conductor, open the event list. </span> When <span class="keyword">Composite Application
+Manager for Internet Service Monitoring</span> is
+installed, the <span class="keyword wintitle">Services</span> window opens automatically whenever
+you access the monitor box window from the Conductor. </li>
+<li class="li step"><span class="ph cmd">From the <span class="keyword wintitle">Event List</span> monitor box window, click <span class="ph menucascade"><span class="ph uicontrol">Window</span> &gt; <span class="ph uicontrol">Services</span></span>.</span></li>
+<li class="li step"><span class="ph cmd">From the event list, click <span class="ph uicontrol">Show Services Window</span> in
+the toolbar.</span></li>
+</ul>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><p class="p">The <span class="keyword wintitle">Services</span> window opens.</p>
+<div class="p">Each row in the <span class="keyword wintitle">Services</span> window
+indicates a different service with the following information:<dl class="dl" id="omn_usr_el_viewingservicesinevntlst__d9198e19"><dt class="dt dlterm"><em class="ph i">Colored symbols</em></dt>
+<dd class="dd">The colored symbols to the left of each row indicate the status of the
+last alert that the ObjectServer received from that service. The symbols are
+color-coded, as follows:<ul class="ul"><li class="li">Red: The service level agreement is not being met.</li>
+<li class="li">Amber: There are some problems with the service.</li>
+<li class="li">Green: There are no problems with the service.</li>
+<li class="li">Black: The status of the service is unknown.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Service</dt>
+<dd class="dd">This column shows the name of the service that is being monitored.</dd>
+<dt class="dt dlterm">Last Change</dt>
+<dd class="dd">This column shows the last date and time when the service status changed.</dd>
+<dt class="dt dlterm">Last Good</dt>
+<dd class="dd">This column shows the last date and time when the service was good.</dd>
+<dt class="dt dlterm">Last Bad</dt>
+<dd class="dd">This column shows the last date and time when the service was bad.</dd>
+<dt class="dt dlterm">Last Marginal</dt>
+<dd class="dd">This column shows the last date and time when the service was marginal.</dd>
+<dt class="dt dlterm">Last Reported</dt>
+<dd class="dd">This column shows the last date and time when a report was generated for
+the service.</dd>
+</dl>
+</div>
+<p class="p">Double-click
+any row to open an event list window that contains a list of alerts for that
+service type. You can manipulate the service alerts in the event list in the
+same way as alerts that are received from probes.</p>
+<p class="p">Click <span class="ph uicontrol">Close</span> to
+close the <span class="keyword wintitle">Services</span> window.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_netcoolismineventlist.html" title="IBM Tivoli Composite Application Manager for Internet Service Monitoring works in conjunction with the rest of the Tivoli Netcool/OMNIbus product suite. Events generated by both monitors and probes can be forwarded to the same ObjectServer and you can manipulate these events using the same desktop.">Internet service monitors in the event list</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+<div><a class="link" href="omn_usr_startingconductor.html" title="The Conductor provides single sign-on access to all the Tivoli Netcool/OMNIbus desktop tools that you can use to view and manage alerts.">Starting the Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

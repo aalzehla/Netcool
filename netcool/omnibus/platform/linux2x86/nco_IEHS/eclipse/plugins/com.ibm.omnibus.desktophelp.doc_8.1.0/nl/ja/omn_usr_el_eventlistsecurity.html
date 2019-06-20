@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="イベント・リスト・セキュリティー" />
+<meta name="abstract" content="すべての Tivoli Netcool/OMNIbus ユーザーが、1 つ以上のユーザー・グループ に所属します。 各グループには、そのグループの権限を決定する 1 つ以上のロール が割り当てられます。 ユーザーがアクセスできるデスクトップ・ツール、およびユーザーがデスクトップ・ツールを使用して実行できる操作は、そのユーザーが所属するグループ、およびそのグループに割り当てられているロールによって異なります。" />
+<meta name="Description" content="すべての Tivoli Netcool/OMNIbus ユーザーが、1 つ以上のユーザー・グループ に所属します。 各グループには、そのグループの権限を決定する 1 つ以上のロール が割り当てられます。 ユーザーがアクセスできるデスクトップ・ツール、およびユーザーがデスクトップ・ツールを使用して実行できる操作は、そのユーザーが所属するグループ、およびそのグループに割り当てられているロールによって異なります。" />
+<meta name="DC.subject" content="イベント・リスト, セキュリティー, AlertSecurityModel プロパティー, ObjectServer プロパティー" />
+<meta name="keywords" content="イベント・リスト, セキュリティー, AlertSecurityModel プロパティー, ObjectServer プロパティー" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_sec_implementingauth.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_assigningownrshptoevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_acknowledgingdeack.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_eventlistsecurity" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_managingevents.html" />
+<title>イベント・リスト・セキュリティー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_eventlistsecurity">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リスト・セキュリティー</h1>
+<div class="body conbody"><p class="shortdesc">すべての <span class="keyword">Tivoli Netcool/OMNIbus</span> ユーザーが、1 つ以上のユーザー・<dfn class="term">グループ</dfn> に所属します。 各グループには、そのグループの権限を決定する 1 つ以上の<dfn class="term">ロール</dfn> が割り当てられます。 ユーザーがアクセスできるデスクトップ・ツール、およびユーザーがデスクトップ・ツールを使用して実行できる操作は、そのユーザーが所属するグループ、およびそのグループに割り当てられているロールによって異なります。</p>
+<p class="p">Normal グループ、Administrator グループ、および System グループは、イベント・リストのグループ行レベルのセキュリティーを提供します。 
+イベント・リストにおいてグループ行レベルのセキュリティーが適用されるかどうかは、<span class="keyword parmname parmname">AlertSecurityModel</span> ObjectServer プロパティーによって決まります。</p>
+<p class="p">デフォルトでは、<span class="keyword parmname parmname">AlertSecurityModel</span> プロパティーは使用不可に設定されており、グループ行レベルのセキュリティーは適用されません。 この場合には、以下のようになります。</p>
+<ul class="ul"><li class="li">Normal グループのメンバーは、そのメンバー、または <samp class="ph tt">nobody</samp> ユーザーに割り当てられた行を変更することができます。 ObjectServer からアラートを受信した場合、そのアラートはデフォルトでは <samp class="ph tt">nobody</samp> ユーザーに割り当てられます。</li>
+<li class="li">Administrator グループのメンバーは、そのメンバー、<samp class="ph tt">nobody</samp> ユーザー、または Normal グループのメンバーに割り当てられた行を変更することができます。</li>
+</ul>
+<p class="p"><span class="keyword parmname parmname">AlertSecurityModel</span> プロパティーが使用可能に設定されている場合、行を変更できるのは、その行を所有するグループ内のユーザーのみです。 この場合、Normal または Administrator グループのメンバーは、所属するグループに割り当てられている行を変更することができます。</p>
+<p class="p">System グループのメンバーは、常にどの行でも変更することができます。</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_managingevents.html" title="イベント・リストを使用して、イベントを管理します。">イベント・リストを使用したイベントの管理</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_con_sec_implementingauth.html" title="ObjectServer 内のオブジェクトおよびデータへのアクセスは、アクセス権によって制御されます。 1 つ以上の権限をロールに結合することにより、迅速かつ効果的にアクセスを管理することができます。">グループおよびロールを使用した許可の実装</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_assigningownrshptoevents.html" title="プローブからイベントが到着する際に、イベントの所有権が特定のユーザーに割り当てられていない場合、そのイベントは nobody ユーザーによって所有されます。 適切な特権を持つユーザーは、 問題ライフ・サイクルを通してイベントの所有権を取得するか、または イベントを特定のユーザーかグループに割り当てることができます。">イベントへの所有権の割り当て</a></div>
+<div><a class="link" href="omn_usr_el_acknowledgingdeack.html" title="権限が与えられている場合にのみ、イベント・リストのイベントを確認および確認解除することができます。">イベントの確認と確認解除</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

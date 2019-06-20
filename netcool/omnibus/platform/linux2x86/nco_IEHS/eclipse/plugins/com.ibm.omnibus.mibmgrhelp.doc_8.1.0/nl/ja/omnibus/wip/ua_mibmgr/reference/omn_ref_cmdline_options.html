@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB マネージャー コマンド行オプション" />
+<meta name="abstract" content="MIB マネージャー には、MIB データのインポートおよびルール・ファイルのエクスポートに使用できるコマンド行ユーティリティーが備わっています。コマンドを手動で発行したり、あるいはプログラムで呼び出したりすることができます。" />
+<meta name="Description" content="MIB マネージャー には、MIB データのインポートおよびルール・ファイルのエクスポートに使用できるコマンド行ユーティリティーが備わっています。コマンドを手動で発行したり、あるいはプログラムで呼び出したりすることができます。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>MIB マネージャー コマンド行オプション。</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">MIB マネージャー</span> コマンド行オプション</h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">MIB マネージャー</span> には、MIB データのインポートおよびルール・ファイルのエクスポートに使用できるコマンド行ユーティリティーが備わっています。コマンドを手動で発行したり、あるいはプログラムで呼び出したりすることができます。</p>
+<div class="section"><div class="p">コマンド行ユーティリティーを開始するには、以下のコマンドを使用します。<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[options]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%¥omnibus¥bin¥nco_mibmanager_batch
+[options]</samp><p class="p">Windows オペレーティング・システムでは、<span class="keyword">MIB マネージャー</span>からの出力は、新規コンソールに表示されます。</p>
+</li>
+</ul>
+</div>
+<p class="p">次の表で、使用可能なコマンド行オプションについて説明します。オプション <span class="keyword option">-exportmibs</span>、<span class="keyword option">-exportobjects</span>、および <span class="keyword option">-exportoids</span> は、Java パターン・エンジンと一致する正規表現を解析することができます。</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> ディレクトリーを指定する際には、絶対ディレクトリー・パスを使用してください。例えば、次のように入力します。<kbd class="ph userinput">nco_mibmanager_batch -importdir "C:¥anydir¥mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. <span class="keyword">MIB マネージャー</span> コマンド行オプション</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d633e84">コマンド行オプション</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d633e86">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、以前に <span class="keyword">MIB マネージャー</span> グラフィカル・ユーティリティーを使用していた場合に、初めて <span class="keyword">MIB マネージャー</span> コマンド行ユーティリティーを実行するときに使用します。このオプションを使用しない場合、エラーが表示されます。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、生成されたルール・ファイルのエクスポート先となるディレクトリーを指定するのに使用します。ディレクトリー・パスは二重引用符 (") で囲みます。<p class="p">例:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、エクスポート対象とする MIB の名前を指定するのに使用します。正規表現を使用して、複数の MIB を指定できます。<p class="p">例えば、以下のコマンドは、「RMON-MIB」という名前の MIB からオブジェクトをエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">以下のコマンドは、名前に「MON」が含まれているすべての MIB からオブジェクトをエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、エクスポートされたファイルが、既存のエクスポート・ディレクトリー内の新しいディレクトリーに書き込まれることを指定するのに使用します。
+新しいサブディレクトリーには、自動的にタイム・スタンプを使用して名前が付けられます。このオプションを使用すると、確実に、既存のルール・ファイルは上書きされなくなります。<p class="p">例: </p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、エクスポート対象とする MIB オブジェクトの名前を指定するのに使用します。正規表現を使用して、複数のオブジェクトを指定できます。<p class="p">例えば、以下のコマンドは、「coldStart」という名前のオブジェクトをすべてエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">以下のコマンドは、名前が「cold」で始まるオブジェクトをすべてエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportoids</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、エクスポート対象とする OID を指定するのに使用します。
+正規表現を使用して、複数の OID を指定できます。<p class="p">例えば、以下のコマンドは、OID 「1.3.6.1.6.3.1.1.5.1」を持つオブジェクトをすべてエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportoids 1.3.6.1.6.3.1.1.5.1
+-filetype csv</samp></p>
+<p class="p">以下のコマンドは、 OID が「1.3.6.1.6.3.1.1.5」で始まるオブジェクトをすべてエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">以下のコマンドは、「1.3.6.1.6.3.1.1.5.1」または「1.3.6.1.6.3.1.1.5.2」という OID を持つオブジェクトをすべてエクスポートします。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、エクスポートされる MIB オブジェクトのタイプを指定するのに使用します。このオプションには、以下の値を指定できます。<ul class="ul"><li class="li"><span class="keyword option">ALL</span>: すべての MIB オブジェクトがエクスポートされます。</li>
+<li class="li"><span class="keyword option">TRAPS</span>: トラップのみがエクスポートされます。</li>
+<li class="li"><span class="keyword option">OBJECTS</span>: オブジェクトのみがエクスポートされます。</li>
+</ul>
+<p class="p">例:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、生成されたファイルがエクスポートされるファイル・フォーマットを指定するのに使用します。このオプションは、エクスポート操作には必須です。<div class="p">使用可能なパラメーターは以下のとおりです。<ul class="ul"><li class="li"><span class="keyword option">csv</span>: すべてのオブジェクト・データは CSV ファイルに書き込まれます。</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>: すべてのトラップ・データおよび関連付けられた変数バインディング・オブジェクト・データが単一の CSV ファイルに書き込まれます。</li>
+<li class="li"><span class="keyword option">html_with_frames</span>: 公開に適した Web ページを作成します。</li>
+<li class="li"><span class="keyword option">html_without_frames</span>: 出力用に選択されたすべてのオブジェクトのリストが含まれている <span class="ph filepath">oids.html</span> という名前の単一ファイルを作成します。</li>
+<li class="li"><span class="keyword option">lookup</span>: すべての指定値を、あらゆるルール・ファイルへの取り込みに適したタブ区切りリストで出力します。</li>
+<li class="li"><span class="keyword option">ncil</span>: 各エンタープライズ用に別個の組み込みファイルを作成し、汎用トラップ用に単一ファイルを生成します。</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>: Netcool Knowledge Library V1.1 での使用に適したファイルを作成します。</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>: Netcool Knowledge Library V3.x での使用に適したファイルを作成します。</li>
+<li class="li"><span class="keyword option">standalone</span>: 選択されたすべてのトラップが含まれている単一ルール・ファイルを作成します。</li>
+<li class="li"><span class="keyword option">text</span>: 各 OID 用に別個のテキスト・ファイルを作成します。</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>: <span class="ph filepath">.mdl</span> ファイルおよび <span class="ph filepath">trapcnfg</span> ファイルを作成します。</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、コマンド行オプションに関するヘルプ情報を表示するのに使用します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、MIB ファイルのインポート元であるディレクトリーを指定するのに使用します。ディレクトリー・パスは二重引用符 (") で囲みます。<p class="p">例:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、インポートする MIB ファイルの検索時に <span class="keyword">MIB マネージャー</span> がサブディレクトリーを全探索することを指定するのに使用します。<p class="p">例:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、メッセージ・ロギングのレベルを指定するのに使用します。
+このオプションには、以下の値を指定できます。<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>: エラー・メッセージのみがログに記録されます。</li>
+<li class="li"><span class="keyword option">WARN</span>: 警告メッセージとエラー・メッセージがログに記録されます。</li>
+<li class="li"><span class="keyword option">INFO</span>: 通知メッセージ、警告メッセージ、および重大メッセージがログに記録されます。</li>
+<li class="li"><span class="keyword option">DEBUG</span>: すべてのメッセージがログに記録されます。</li>
+<li class="li"><span class="keyword option">VERBOSE</span>: 詳細メッセージに、変数、配列、およびハッシュの値と状態の変化に合わせてその状態が入れられます。</li>
+<li class="li"><span class="keyword option">NONE</span>: メッセージはログに記録されません。</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-messagelog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、メッセージ・ログ・ファイル <span class="ph filepath">mibmanager.log</span> の書き込み先となるディレクトリーを指定するのに使用します。ディレクトリー・パスは二重引用符 (") で囲みます。<p class="p">デフォルトは <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span> です。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e84 "><span class="keyword option">-searchpath</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e86 ">このオプションは、<span class="keyword">MIB マネージャー</span>が MIB 依存関係を解決するために検索できるディレクトリーのセミコロン区切りのリストを指定するのに使用します。ディレクトリー・パスは二重引用符 (") で囲みます。<p class="p">例:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -importdir "/home/user/mibs" -searchpath
+"/home/user/mib_dependencies"</samp></p>
+<p class="p">以下のコマンドでは、依存関係について 3 つの指定されたディレクトリーが検索されます。</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -importdir "/home/user/mibs" -searchpath
+"/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="MIB マネージャー GUI は、コマンド行から始動します。プロセス制御の下で、または Windows サービスとして実行されるようには設計されていません。">MIB マネージャーの始動</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

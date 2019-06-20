@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="أنواع عناصر MIB" />
+<meta name="abstract" content="يوضح هذا الموضوع أنواع العناصر التي تم تعريفها في SNMP v1 and v2." />
+<meta name="Description" content="يوضح هذا الموضوع أنواع العناصر التي تم تعريفها في SNMP v1 and v2." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>أنواع عناصر MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">أنواع عناصر MIB</h1>
+<div class="body refbody"><p class="shortdesc">يوضح هذا الموضوع أنواع العناصر التي تم تعريفها في SNMP v1
+and v2.</p>
+<div class="section"><p class="p">يمكنك ايجاد معلومات العنصر التي تم توضيحها في الأقسام التالية بتحديد وحدة برامج في مشاهدة <span class="keyword wintitle">MIB Modules</span> ثم البحث عن <kbd class="ph userinput">ifIndex</kbd> في المجال <span class="ph uicontrol">بحث</span> لمشاهدة <span class="keyword wintitle">تسلسل OID</span>. اضغط على العنصر <samp class="ph codeph">ifIndex</samp> في التسلسل الهرمي <span class="keyword wintitle">تسلسل OID</span> لمشاهدة معلومات العنصر ومعلومات المصطلح النصي في مشاهدة <span class="keyword wintitle">التفاصيل</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p">يتم تعريف <samp class="ph codeph">OBJECT IDENTIFIER</samp> بواسطة SNMP v1 ويعد كتلة البناء الرئيسية بتسلسل MIB.
+تكون أكواد تعريف العنصر مناظرة لعناوين الفصول في الكتاب - حيث لا تحتوي على بيانات حقيقية، لكن تقدم فكرة عن نوع المحتويات المتضمنة بواسطة العناصر الفرعية الخاصة بها.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p">يتم تعريف <samp class="ph codeph">OBJECT-TYPE</samp> بواسطة SNMP v1 ويتم استخدامه كحاوية لفرز المعلومات عن الجهاز الذي يتم ادارته أو بعض القيم التي يتم قياسها بالجهاز.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p">يعد <samp class="ph codeph">TEXTUAL-CONVENTION</samp> (TC)
+تعريف لنوع العنصر لكن ليس عنصر فعلي. في مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span>، يمكنك تحديد <span class="ph uicontrol">المفاهيم النصية</span> من الكشف <span class="ph uicontrol">مشاهدة</span> لمشاهدة المفاهيم النصية التي تم اجراء تحليل لغوي لها وعرضها في تسلسل MIB. حدد اسم TC في تسلسل MIB لعرض التعريف الخاص به في مشاهدة <span class="keyword wintitle">التفاصيل</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE و SNMP v2 NOTIFICATION TYPE</h2><div class="p">يعد
+SNMP v1 TRAP-TYPE و v2 NOTIFICATION-TYPE آليات الى SNMP لتكوين أحداث مستقلة الى SNMP Manager. لا يتم تعريف ملفات تعقب المشاكل SNMP في النسخة
+v1 كعناصر في تسلسل MIB. لا يكون لعنصر TRAP-TYPE عنصر رئيسي تم تعريفه بالنسق OBJECT IDENTIFIER. بدلا من ذلك، يقوم تعريف ملف تعقب المشاكل بتحديد المؤسسة التي تم تعريف الملف لها.
+فيما يلي عنصر TRAP-TYPE:<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "يتم تكوين حدث BGP المؤسس عندما يقوم BGP FSM 
+بالدخول فى حالة ESTABLISHED." ::= 1 </code></pre>
+</div>
+<p class="p">يقوم القسم <samp class="ph codeph">ENTERPRISE</samp> بتعريف العنصر الرئيسي بملف تعقب المشاكل. لكن، يمكن تعريف عنصر تسلسل MIB مع <samp class="ph codeph">bgp</samp> على أنه العنصر الرئيسي وتعريفه كرقم فرعي 1. في الواقع، يتم تعريف <samp class="ph codeph">bgpVersion</samp> على أنه <samp class="ph codeph">{ bgp 1}</samp> في وحدة البرامج RFC1269-MIB. لذلك، يكون من غير الممكن اضافة ملف تعقب مشاكل بالنسخة v1 الى تسلسل MIB كعنصر فرعي باستخدام <samp class="ph codeph">ENTERPRISE</samp> كالعنصر الرئيسي.</p>
+<p class="p">يقوم SNMP v2 بتغيير التعريف بالنسبة الى TRAP-TYPE الى NOTIFICATION-TYPE ويحدد أن ملف تعقب المشاكل v2 الجديد يتم تعريفه مثل عناصر MIB الأخرى، مع رقم رئيسي وفرعي مما يجعل هذا مشكلة بالنسبة لملفات تعقب المشاكل بالنسخة v1 فقط. يقوم RFC1155
+Section 4.1 بتعريف أن استخدام الصفر (0) كرقم فرعي يعد غير صحيح، ويتم حجز للاستخدام المستقبلي. يقوم SNMP v2 باستخدام هذا الصفر من خلال السماح للموردين باضافة ملفات تعقب المشاكل ذات النسخة v1 الخاصة بهم الى v2 MIB، من خلال اضافة صفر الى اسم المؤسسة ثم اضافة  رقم ملف تعقب المشاكل بعد الصفر. لذلك، أسفل v2 يكون من المناسب تعريف كود تعريف العنصر بصفر كرقم فرعي للمشروع ثم اضافة ملفات تعقب المشاكل ذات النسخة v1 كملفات فرعية لهذا الصفر. </p>
+<p class="p">يؤدي هذا المصطلح لحدوث خطأ عام أخر بواسطة مؤلفي MIB. يوضح القسم 4 من RFC1155 ما يلي:</p>
+<p class="p"><span class="q">"يتكون تعريف نوع العنصر من خمس مجالات: OBJECT: ------- اسم نصي، OBJECT DESCRIPTOR، لنوع العنصر، مع OBJECT IDENTIFIER المناظر.  الصيغة: صيغة الملخص لنوع العنصر. يجب أن يتم حل هذا الى نسخة ASN.1 النوع ObjectSyntax (المعرف بأسفل). التعريف: وصف نصي لمعنى نوع العنصر. يجب أن يقوم الاعداد بالتأكد من أن النسخة الخاصة بهم من العنصر تقابل هذا التعريف حيث أن MIB هذا خاص بالاستخدام في بيئات التشغيل ذات موردين متعددين. كما يعد من المهم أن يكون للعناصر معاني متسقة خلال كل الأجهزة.
+امكانية التوصل: أي من قراءة-فقط أو قراءة-كتابة أو كتابة-فقط أو لا يمكن التوصل.
+الحالة: أي من أساسي أو اختياري أو غير مستخدم.  قد تحدد المذكرات المستقبلية مجالات أخرى للعناصر التي تقوم بتعريفها. "</span></p>
+<div class="p">وفقا لهذه القاعدة، يجب أن يكون لكل العناصر كلا من اسم عنصر ورقم عنصر. بعض وحدات برامج MIB الخاصة بالمورد، وأيضا بعض RFC تقوم بتعريف
+NOTIFICATION-TYPE مع عنصر رئيسي بالرقم صفر لكن بدون اسم عنصر لهذا الصفر. في المثال التالي، لا يعد تعريف العنصر صحيح لغويا حيث لا يوجد اسم عنصر معرف للرقم الفرعي صفر للعنصر <samp class="ph codeph">adslAtucTraps</samp>. يتعرف <span class="keyword">MIB Manager</span> على تفضيلات بعض مؤلفى MIB لاستخدام مثل هذه الطرق
+كمسار مختصر، والسماح باضافة العنصر بدون اسم العنصر. بالاضافة الى ذلك، لتسهيل اضافة الصفحات الشرطية v1 الى تسلسل
+MIB، يقوم <span class="keyword">MIB Manager</span> آليا باضافة عنصر صفر كفرع من
+عنصر مشروع v1 (لاحظ أن v1 MIB لا يمكنه استخدام صفر فى
+ما يخصه من OID)، ويقوم بتخصيص عنصر الصفر هذا كصفحة شرطية حيث اسم المشروع
+واضافة الصفحة الشرطية أسفل هذا العنصر الجديد فى تسلسل MIB. على سبيل المثال، سينتج عن استخدام <samp class="ph codeph">bgp</samp> العناصر الفرعية المتفرعة لملفات تعقب المشاكل التالية: <samp class="ph codeph">{ bgp bgpTraps(0)
+1 }).</samp> <pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Varbinds</h2><p class="p">العناصر التي يتم نقلها باستخدام ملف تعقب المشاكل للنسخة v1 أو الاعلام للنسخة v2 تعرف على أنها varbinds. تحتوي Varbinds على معلومات اضافية عن الحدث الذي تم تسجيله. في ملف تعقب المشاكل v1،
+يتم تحديد بنود الى varbinds في قسم VARIABLES وفي الاعلام للنسخة v2 يتم عرض varbinds في قسم OBJECTS. سيكون لها نفس الاستخدام في كل نسخ SNMP. ترتيب عرض varbinds في الكشف يكون ضروري لأن PDU (SNMP Packet) يقوم بتكويد القيم المرفقة بنفس ترتيب عرضها في MIB.</p>
+<p class="p">على سبيل المثال، في قسم OBJECTS تم تحديد الثلاثة varbinds التاليين: <samp class="ph codeph">ifIndex</samp> و <samp class="ph codeph">ifAdminStatus</samp> و <samp class="ph codeph">ifOperStatus</samp>. لذلك، يعد <samp class="ph codeph">ifIndex</samp> أول varbind يتم تكويده، و <samp class="ph codeph">ifAdminStatus</samp> هو الثاني، و <samp class="ph codeph">ifOperStatus</samp> هو الثالث. من خلال التحقق من IF-MIB تم ايجاد أنه تم تعريف نوع عنصر <samp class="ph codeph">ifIndex</samp> على أنه <samp class="ph codeph">InterfaceIndex</samp>. وحيث أنه لا يعد نوع ASN.1 أولي صحيح الى SNMP، فانه يجب أن يكون مفهوم نصي. وبالبحث خلال المفاهيم النصية، تم ايجاد أنه تم حل <samp class="ph codeph">InterfaceIndex</samp> الى Integer32 (رقم صحيح ذو 32 بت) بالفعل. وبالتالي، عندما يصل PDU
+الى <span class="keyword">MIB Manager</span>، يصبح أول varbind رقما صحيحا. لتحديد معنى هذا الرقم الصحيح،
+يجب على <span class="keyword">MIB Manager</span> الاشارة الى وحدة برامج IF-MIB، والبحث عن <samp class="ph codeph">ifIndex</samp>،
+وقراءة معلومات العنصر المرفق. وبالتحقق من varbind الثاني، تم ايجاد نوع رقم صحيح تم عده: </p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- اجهاز لامرار حزم البرامج down(2)، 
+testing(3) -- في بعض أنماط الاختبار }</code></pre>
+<p class="p">عند فك تكويد varbind من حزمة برامج SNMP، ستكون القيمة الخاصة به رقم صحيح، ويجب ترجمة القيمة الخاصة به بناءا على البنود التي توجد في الكشف الذي تم تعداده هذا. عندما يتم استخدام <span class="keyword">MIB Manager</span> لتكوين ملف قواعد، سوف يتم تكوين جدول للبحث لربط الرقم الصحيح المعدود
+آليا بالتمثيل النصى الخاص
+به. يعد varbind الثالث نوع تم عده أيضا بنفس القيم. لذلك، اذا كان <samp class="ph codeph">ifAdminStatus</samp> هو
+1 (up) و <samp class="ph codeph">ifOperStatus</samp> هو 2 (down)، سيكون سبب تكوين الحدث معروفا وسيمكن الاستمرار في محاولة تحديد سبب انقطاع الخدمة هذا.</p>
+<p class="p">يتم تقديم Varbinds للمستخدم في rulesfile على أنه <samp class="ph codeph">$1</samp> و <samp class="ph codeph">$2</samp> و <samp class="ph codeph">$3</samp> وهكذا، مع كل رقم يمثل رقم varbind. يقوم <span class="keyword">MIB Manager</span> بتكوين العناصر بناءا على عناصر varbind ويستخدم هذه العناصر
+لتحديد المتغيرات فى جدول التفاصيل. على سبيل المثال، العناصر التى يتم استخدامها
+فى جدول التفاصيل قد تكون $ifIndex = $1، الذى سوف يكون رقم صحيح،
+$ifAdminStatus = $2، الذى سوف يكون شيء من هذا القبيل حتى
+(1)، و $ifOperStatus = $3، الذى سوف يبدو كما أقل (3).
+أية تغييرات يتم اجرائها على محددات العنصر سيتم تحديدها آليا في ملف القواعد، باستخدام المفاهيم التي تم تحديدها بواسطة Netcool Knowledge Library (NCKL).</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">الجداول</h2><p class="p">تمثل الجداول ما يكافئ متجه متعدد الأبعاد ذو صفوف وأعمدة بيانات. يتم تعريف عنصر الجدول على انه
+SEQUENCE OF لعنصر ادخال. عندئذ يتم تعريف عنصر الادخال على انه
+SEQUENCE لعناصر OBJECT-TYPE. في بعض الأحيان، يمكن أن يقوم المورد بتصميم نظام غير عادي، على سبيل المثال، أداة التوجيه isco 10k.
+يحتفظ هذا الجهاز بجدول داخلي لشروط التنبيه ويقوم بتكوين ملف تعقب مشاكل أو اعلام عند تغيير الجدول. عندئذ يجب أن تقوم باصدار طلب
+SNMP GET على محتويات الجدول لتحديد الحالة الحالية للتنبيهات الفعالة للجهاز. وهذا يجعل الحصول على التنبيهات بواسطة SNMP Manager أكثر صعوبة، لكن غير مستحيلة، اذا كان موجه  النظام يتوافر لديه الأدوات للتوافق.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OCTET STRING</h2><p class="p">يعد الثماني هيكل بيانات يتكون من ثماني بت (تعرف عادة باسم بايت). مجموعة حروف OCTET STRING، تعد متجه من البايت (أو مجموعة من البايت). لا يشير المصطلح OCTET STRING الى أن كل البايت في مجموع ة الحروف تعد أبجدية عددية.
+يمكن أن تكون أيضا حروف ثنائية ويتم استخدامها على انها bitmasks.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="يقدم هذا القسم معلومات اضافية عن أسلوب بناء Simple Network Management Protocol (SNMP)، و management information base (MIB) الى SNMP وبعض مفاهيم MIB الاضافية.">نبذة عن SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

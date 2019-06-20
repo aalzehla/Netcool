@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="イベント・リスト内のイベントのモニターおよび管理" />
+<meta name="abstract" content="イベント・リストを使用して、アラートをモニターおよび管理できます。 アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。" />
+<meta name="Description" content="イベント・リストを使用して、アラートをモニターおよび管理できます。 アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_performingcollectiveacts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_netcoolismineventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringsaeinevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringpredictiveevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringtaddmevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_identifyrootcauseevent.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringmanagevnts" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>イベント・リスト内のイベントのモニターおよび管理</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringmanagevnts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リスト内のイベントのモニターおよび管理</h1>
+<div class="body conbody"><p class="shortdesc">イベント・リストを使用して、アラートをモニターおよび管理できます。
+アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。</p>
+<p class="p">イベント・リストに表示されるアラート情報は、フィルターおよびビューの使用によって決定されます。 <dfn class="term">フィルター</dfn> を使用すると、特定の基準に基づいてアラートのサブセットを表示することができます。 <dfn class="term">ビュー</dfn>を使用すると、表示するアラート・フィールドを選択することができます。 </p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_startingeventlist.html">イベント・リストの開始</a></span><br />
+イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。
+イベント・リストは、コンダクター、コマンド行、または Windows の<span class="ph uicontrol">「スタート」</span>メニューから開始できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_managingevents.html">イベント・リストを使用したイベントの管理</a></span><br />
+イベント・リストを使用して、イベントを管理します。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_performingcollectiveacts.html">イベント・リストの集合アクションの実行</a></span><br />
+「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウでは、
+各モニター・ボックスはフィルターおよびビューの特定の構成に一致するイベントを含むイベント・リストを表します。 各イベント・リストに個別にアクセスして、イベントを管理することができます。 すべてのイベント・リストにおいて、いくつかの集合アクションを
+実行することもできます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_workingwithevntlstconfigs.html">イベント・リスト構成の操作</a></span><br />
+「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (<span class="ph filepath">.elc</span>) ファイルになります。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_netcoolismineventlist.html">イベント・リスト内のインターネット・サービス・モニター</a></span><br />
+<span class="keyword">IBM Tivoli Composite Application
+Manager for Internet Service Monitoring</span> は、その他の <span class="keyword">Tivoli Netcool/OMNIbus</span> 製品スイートと連動して作業を行います。 モニターとプローブの両方で生成されたイベントは、同じ ObjectServer に転送されます。
+これらのイベントの操作は、同じデスクトップを使用して行うことができます。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringsaeinevntlst.html">イベント・リスト内のサービスに影響を与えるイベントのモニター</a></span><br />
+<span class="ph">サービスに影響を与えるイベント (SAE) とは、重要なカスタマー・サービスが 1 つ以上のネットワーク・イベントによって影響を受けていることをオペレーターに警告するためのアラートです。 サービスに影響を与えるイベントは <span class="keyword">IBM Tivoli Network Manager IP
+Edition</span> 内で生成されます。</span></li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringpredictiveevents.html">イベント・リスト内の予測イベントのモニター</a></span><br />
+予測イベントは、近い将来に発生する可能性があるしきい値違反の予測を表します。 予測イベントは、他のイベントと異なり、<span class="keyword">Tivoli Netcool/OMNIbus</span> に転送されます。予測イベントは、まだ発生していないが、近い将来に発生する可能性が高い現象、障害、または状態を表すからです。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_monitoringtaddmevents.html">イベント・リストでの TADDM イベントのモニター</a></span><br />
+<span class="keyword">TADDM</span> イベントは、IT 環境で構成変更が検出された場合に、<span class="keyword">IBM
+Tivoli Application Dependency Discovery Manager</span> 内で生成されます。 システムがこの機能をサポートするように構成されている場合は、<span class="keyword">Tivoli Netcool/OMNIbus</span> イベント・リストから <span class="keyword">TADDM</span> イベントをモニターすることができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_identifyrootcauseevent.html">イベント・リスト内の根本原因イベントの識別</a></span><br />
+仮想環境で、<span class="keyword">Tivoli Netcool/OMNIbus</span> は、イベントを相関させて、どのイベントが他の症状イベントの
+根本原因であるかを判別できます。 イベント・リスト内で、
+症状イベントの背景にある根本原因イベントを識別できます (システム内で
+この機能が使用可能になっている場合)。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_runningtransientevntlsts.html">コマンド行、スクリプト、およびツールからの一時的イベント・リストの実行</a></span><br />
+カスタマイズした一時的イベント・リストは、コマンド行からや、スクリプトの中で、またはイベント・リスト・ツールの一部として直接実行することができます。</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

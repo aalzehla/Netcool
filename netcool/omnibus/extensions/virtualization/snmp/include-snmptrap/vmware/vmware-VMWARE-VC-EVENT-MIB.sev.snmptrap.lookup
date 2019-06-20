@@ -1,0 +1,66 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-VC-EVENT-MIB
+#
+###############################################################################
+#
+# Entries in a Severity lookup table have the following format:
+#
+# {<"EventId">,<"severity">,<"type">,<"expiretime">}
+#
+# <"EventId"> is defined in the Rules File.  In some cases it is necessary to
+# add a modifier to the EventId to further clarify the condition.
+#
+# Valid values for <severity> are:
+#   0 - clear
+#   1 - indeterminate
+#   2 - warning
+#   3 - minor
+#   4 - major
+#   5 - critical
+#   d - discard
+#
+# Valid values for <type> are:
+#   1 - problem
+#   2 - resolution, NOTE: resolution alarms MUST have a <severity> of 1.
+#   11 - more severe
+#   12 - less severe
+#   13 - information
+#
+# <expiretime> is the number of seconds the event will remain in the
+# ObjectServer before being automatically cleared. Alarms which should not
+# expire MUST have <expiretime> set to 0 (zero).
+#
+###############################################################################
+
+table vmware-VMWARE-VC-EVENT-MIB_sev =
+{
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdAlarm","1","0","0"},
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdDiagnostic","3","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdAlarmInfo","3","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdAlarmInfo_Green","1","2","0"},
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdAlarmInfo_Yellow","3","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdAlarmInfo_Red","5","1","0"},
+    {"SNMPTRAP-vmware-VMWARE-VC-EVENT-MIB-vpxdAlarmInfo_Gray","2","1","0"}
+}
+default = {"Unknown","Unknown","Unknown"}
+

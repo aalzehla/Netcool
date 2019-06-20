@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="配置服务器通信信息" />
+<meta name="abstract" content="必须维护 Tivoli Netcool/OMNIbus 服务器组件的服务器通信信息。 可以使用服务器编辑器来创建和修改服务器组件的通信详细信息，测试服务器活动，以及添加备份（或故障转移）服务器和侦听器。" />
+<meta name="description" content="必须维护 Tivoli Netcool/OMNIbus 服务器组件的服务器通信信息。 可以使用服务器编辑器来创建和修改服务器组件的通信详细信息，测试服务器活动，以及添加备份（或故障转移）服务器和侦听器。" />
+<meta name="DC.subject" content="服务器通信信息, 配置, 服务器编辑器" />
+<meta name="keywords" content="服务器通信信息, 配置, 服务器编辑器" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_ipv6_configurationunix.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringservercomminfo" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>配置服务器通信信息</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringservercomminfo">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">配置服务器通信信息</h1>
+<div class="body taskbody"><p class="shortdesc">必须维护 <span class="keyword">Tivoli Netcool/OMNIbus</span> 服务器组件的服务器通信信息。 可以使用服务器编辑器来创建和修改服务器组件的通信详细信息，测试服务器活动，以及添加备份（或故障转移）服务器和侦听器。 </p>
+<div class="section context">要配置服务器通信信息：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">为操作系统执行相应的操作：</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="表格中的每行提供一个可选取的选项。" class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d125805e29-option">操作系统</th>
+<th valign="bottom" align="left" id="d125805e29-desc">操作</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d125805e29-option" id="d125805e36" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d125805e29-desc d125805e36" class="stentry chdesc" width="80%">执行以下任一操作：<ul class="ul"><li class="li">单击 UNIX Conductor 上的<span class="ph uicontrol">界面</span>按钮。</li>
+<li class="li">在命令行上输入 <kbd class="ph userinput">$NCHOME/omnibus/bin/nco_xigen</kbd>。</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d125805e29-option" id="d125805e56" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d125805e29-desc d125805e56" class="stentry chdesc" width="80%">执行以下任一操作：<ul class="ul"><li class="li">单击 <span class="ph menucascade"><span class="ph uicontrol">开始</span> &gt; <span class="ph uicontrol">程序</span> &gt; <span class="ph uicontrol">Netcool Suite</span> &gt; <span class="ph uicontrol">系统实用程序</span> &gt; <span class="ph uicontrol">服务器编辑器</span></span>。 </li>
+<li class="li">通过右键单击桌面托盘内的总线图标打开 <span class="ph uicontrol">Conductor</span> 菜单，然后单击<span class="ph uicontrol">服务器</span>。</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ 将打开服务器编辑器。</li>
+<li class="li step stepexpand"><span class="ph cmd">如下所示完成此窗口：</span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">服务器列表</em></dt>
+<dd class="dd">服务器列表显示现有的服务器组件及其设置：<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">此列显示为此工作站定义的每个服务器的名称。 缺省服务器名称为：<ul class="ul"><li class="li">NCOMS：ObjectServer 的缺省名称</li>
+<li class="li">NCO_PROXY：代理服务器的缺省名称</li>
+<li class="li">NCO_GATE：网关的缺省名称</li>
+<li class="li">NCO_PA：进程代理程序的缺省名称</li>
+</ul>
+</dd>
+<dd class="dd">在 Windows 上，服务器的主机工作站必须具有<dfn class="term">侦听器</dfn>项，主机工作站和任何其他连接到服务器的工作站必须具有<dfn class="term">客户机</dfn>项。</dd>
+<dd class="dd">备份 ObjectServer 在服务器编辑器中显示在主控 ObjectServer 之下。 要隐藏备份 ObjectServer 列表，请双击主控 ObjectServer 名称或服务器图标。 备份 ObjectServer 将被隐藏，服务器图标中将显示 <em class="ph i">C</em> 字母。 再次双击可显示备份 ObjectServer。 服务器图标返回到正常状态。 </dd>
+<dt class="dt dlterm">主机名</dt>
+<dd class="dd">此列显示安装了服务器组件的工作站的主机名或 IP 地址。<div class="note note"><span class="notetitle">注：</span> 安装后，对于（UNIX 上的）所有服务器，主机都将设置为 <samp class="ph tt">omnihost</samp>。 您必须将其更改为服务器主机工作站的名称。 在 Windows 上，缺省值为主机名。</div>
+</dd>
+<dt class="dt dlterm">端口</dt>
+<dd class="dd">此列显示服务器组件侦听未加密连接的端口。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">在 UNIX 上，
+此列显示服务器组件侦听加密连接的端口。 在 UNIX 系统上，可定义服务器组件的标准端口和/或 SSL 端口。</dd>
+<dd class="dd">在 Windows 上，此列对加密连接显示<samp class="ph tt">是</samp>。 在 Windows 系统上，加密和未加密连接使用相同的端口号。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">服务器项字段</dt>
+<dd class="dd">使用服务器项字段可输入或编辑每个服务器组件的详细信息。 如果您要编辑现有服务器组件的详细情况，您必须首先在服务器列表中选择相应的行，以便在服务器项字段中显示详细情况。 <dl class="dl"><dt class="dt dlterm">名称</dt>
+<dd class="dd">输入新服务器组件的名称或编辑现有组件的名称。 在 Windows 上，您也可以使用下拉列表选择名称。 为组件命名时使用以下后缀：_PROXY（代理服务器）、_GATE（网关）和 _PA（进程代理程序）。<div class="note note"><span class="notetitle">注：</span> 服务器项的名称必须包含不超过 29 个大写字母，且不能以整数开头。</div>
+</dd>
+<dt class="dt dlterm">主机</dt>
+<dd class="dd">输入或编辑安装了服务器组件的工作站的主机名或 IP 地址。 （对于 UNIX 上的新服务器组件，缺省情况下名称将设置为 <samp class="ph tt">omnihost</samp>，并且必须更改为实际的主机名或 IP 地址。）</dd>
+<dd class="dd">如果输入 IP 地址，那么可以指定 IPv4 或 IPv6 地址。
+For example:<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">端口</dt>
+<dd class="dd">在 UNIX 上，
+要让使用未加密连接的客户机能够连接到服务器上，请在此字段中输入有效的、未使用过的端口号。 要禁用未加密连接，请勿设置此端口。</dd>
+<dd class="dd">在 Windows 上，在此字段中输入有效的、未使用过的端口号。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">在 UNIX 上，
+要让使用加密连接的客户机能够连接到服务器上，请在此字段中输入有效的、未使用过的端口号。 要禁用加密连接，请勿设置此端口。 </dd>
+<dd class="dd">在 Windows 上，选此复选框表示端口接受从客户机发出的使用 SSL 的加密连接。 <div class="note note"><span class="notetitle">注：</span> 在 UNIX 系统上，服务器组件可能具有已定义的标准端口或/和 SSL 端口。 在 Windows 系统上，两种连接使用相同的端口号。</div>
+</dd>
+<dt class="dt dlterm">侦听器（仅限 Windows）</dt>
+<dd class="dd">如果这是服务器主机工作站上的侦听器项，请选此复选框。 如果这是客户机项，请清除<span class="ph uicontrol">侦听器</span>复选框。</dd>
+<dt class="dt dlterm">添加</dt>
+<dd class="dd">单击此按钮可向服务器列表添加新的（且唯一的）服务器详细信息。</dd>
+<dt class="dt dlterm">除去/更新</dt>
+<dd class="dd">此按钮将根据您是否对当前选定的服务器组件做出了更改而发生变化。 如果要从服务器列表除去当前选定的服务器组件，请单击<span class="ph uicontrol">除去</span>。 单击<span class="ph uicontrol">更新</span>可使用现有服务器组件的更新详细信息来刷新服务器列表。</dd>
+<dt class="dt dlterm">测试</dt>
+<dd class="dd">单击此按钮可测试您是否能连接到在服务器列表中选择的服务器。 服务器编辑器将尝试连接指定主机和端口上的服务器。 测试命令的结果将在窗口中显示。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">优先级字段</dt>
+<dd class="dd">服务器优先级字段可使您能够提高或降低已配置为故障转移系统的服务器组件的优先级。 例如，假设名为 NCOMS_PRI 的 ObjectServer 是使用名为 NCOMS_BAK 的备份配置的。 通过使用<span class="ph uicontrol">提高</span>或<span class="ph uicontrol">降低</span>按钮，您可提高 NCOMS_BAK 的优先级使之成为主控 ObjectServer，并降低 NCOMS_PRI 的优先级使之成为备份 ObjectServer。<dl class="dl"><dt class="dt dlterm">提高</dt>
+<dd class="dd">单击此按钮可将所选服务器组件的优先级提高一级。</dd>
+<dt class="dt dlterm">降低</dt>
+<dd class="dd">单击此按钮可将所选服务器组件的优先级降低一级。</dd>
+<dt class="dt dlterm">生成全部（限 UNIX）</dt>
+<dd class="dd">单击此按钮可为所有 UNIX 操作系统生成接口文件。 当你应用更改（使用<span class="ph uicontrol">应用</span>按钮）时，这将生成名为 <span class="ph filepath">$NCHOME/etc/interfaces.<var class="keyword varname">arch</var></span> 的接口文件，其中 <span class="ph filepath"><var class="keyword varname">arch</var></span> 代表各个 UNIX 平台名称；如，<span class="ph filepath">interfaces.hpux11</span> 和 <span class="ph filepath">interfaces.solaris2</span>。</dd>
+<dt class="dt dlterm">显示组（仅限 Windows） </dt>
+<dd class="dd">在 Windows 上，选此复选框可在服务器列表中按名称对每个服务器分组，同时在客户机项后标识备份服务器和侦听器。</dd>
+</dl>
+</dd>
+</dl>
+
+<dl class="dl"><dt class="dt dlterm">应用（仅限 UNIX）</dt>
+<dd class="dd">单击此按钮对接口文件应用更改。
+任何向服务器列表添加、从服务器列表除去或被编辑的服务器组件将保存到此文件中。</dd>
+<dt class="dt dlterm">确定（仅限 Windows）</dt>
+<dd class="dd">单击此按钮可保存更改并关闭本窗口。</dd>
+<dt class="dt dlterm">关闭（仅限 UNIX）/取消（仅限 Windows）</dt>
+<dd class="dd">单击此按钮可在使用<span class="ph uicontrol">应用</span>按钮保存更改后关闭窗口，或不保存更改就关闭窗口。</dd>
+<dt class="dt dlterm">导入（仅限 UNIX）</dt>
+<dd class="dd">单击此按钮可导入通信详细情况。 </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="可以从 UNIX 和 Windows Conductor 来配置 Tivoli Netcool/OMNIbus 组件的属性以及服务器组件的通信信息。在 Windows 上，可以在设置窗口内的组合任务中执行这两个功能。在 UNIX 上，还可以更改事件列表内的日期格式。">配置属性、服务器通信和设置</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_con_ipv6_configurationunix.html" title="Tivoli Netcool/OMNIbus 提供对 IPv4 和 IPv6 的支持。 这些组件可在仅支持 IPv4、仅支持 IPv6，或支持 IPv4 和 IPv6 双配置的网络上运行和共存。">IPv6 配置</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

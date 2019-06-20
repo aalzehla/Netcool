@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Задание уровня записи в журнал" />
+<meta name="abstract" content="Уровень записи в журнал можно изменить для создания более подробных файлов журналов или трассировок, что помогает при отладке MIB Manager. Дополнительная информация, предоставляемая при увеличении уровня записи в журнал, может помочь в отладке конкретных ошибок при синтаксическом анализе MIB." />
+<meta name="Description" content="Уровень записи в журнал можно изменить для создания более подробных файлов журналов или трассировок, что помогает при отладке MIB Manager. Дополнительная информация, предоставляемая при увеличении уровня записи в журнал, может помочь в отладке конкретных ошибок при синтаксическом анализе MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Задание уровня записи в журнал</h1>
+<div class="body refbody"><p class="shortdesc">Уровень записи в журнал можно изменить для создания более подробных файлов журналов или трассировок, что помогает при отладке <span class="keyword">MIB Manager</span>. Дополнительная информация, предоставляемая при увеличении уровня записи в журнал, может помочь в отладке конкретных ошибок при синтаксическом анализе MIB.</p>
+<div class="section"><p class="p">Для изменения уровня записи в журнал выберите на панели меню главного окна пункт <span class="ph menucascade"><span class="ph uicontrol">Изменить</span> &gt; <span class="ph uicontrol">Отладка</span></span>. Для файлов журналов есть шесть уровней сообщений, которые можно использовать для последовательного повышения уровня захватываемых подробностей: none (нет), error (ошибка), warn (предупреждение),
+info (информация), debug (отладка) и verbose (подробный).</p>
+<p class="p">В следующей таблице предоставлено краткое описание каждого уровня записи в журнал:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Табл. 1. Список уровней записи в журнал со связанными описаниями.</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3944e36">Уровень журнала</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3944e38">Описание</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">none</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Задает уровень записи в журнал, при котором никакие отладочные сообщения не выводятся. </p>
+<p class="p">Производительность прикладной программы повышается, но при синтаксическом анализе никакие сообщения с предупреждениями или ошибками не выводятся.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">error</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Задает уровень записи в журнал, при котором в журнал заносятся только записи об ошибках, влияющих на результаты.</p>
+<p class="p">Сюда относятся все ошибки, обнаруженные <span class="keyword">MIB Manager</span>, которые могут привести к выводу в главном окне неправильных данных.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">warn</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Задает уровень записи в журнал, при котором записываются сообщения об ошибках и предупреждения.</p>
+<p class="p">Предупреждение обозначает возникновение условий, которые могут привести к ошибочным данным и поэтому должны быть проверены. Однако эти условия не приводят к повреждению данных.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Задает уровень записи в журнал, при котором в журнал записываются информационные, предупреждающие и критические сообщения.</p>
+<p class="p">Информационные сообщения содержат подробности об общем ходе выполнения задачи. Например, в этих сообщениях приводится полный текст для объектов, создающийся при их синтаксическом анализе.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">debug</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><div class="p">Задает уровень записи в журнал, при котором записываются все сообщения. <div class="note note"><span class="notetitle">Прим.:</span> Запускайте <span class="keyword">MIB Manager</span> в режиме debug только при необходимости разобраться с условиями возникновения ошибок. Объем данных, производимых при синтаксическом анализе даже умеренного числа MIB быстро заполнит всю вашу файловую систему.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3944e36 ">verbose</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3944e38 "><p class="p">Задает уровень записи в журнал, при котором записываются все информационные сообщения.</p>
+<p class="p">Сообщение verbose включает в себя состояние переменных, массивов и хешей при всяком изменении значения или состояния.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Используйте предпочтения записи в журнал для указания каталога файлов журналов MIB Manager и задания уровня сообщений по умолчанию.">Задание предпочтений записи в журнал</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

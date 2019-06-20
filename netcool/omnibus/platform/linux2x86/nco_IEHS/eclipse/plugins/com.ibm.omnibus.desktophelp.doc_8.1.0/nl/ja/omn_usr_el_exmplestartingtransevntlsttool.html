@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="例: ツールからの一時的イベント・リストの開始" />
+<meta name="abstract" content="これらの例では、UNIX および Windows 上でツールから一時的イベント・リストを実行する方法を示します。" />
+<meta name="Description" content="これらの例では、UNIX および Windows 上でツールから一時的イベント・リストを実行する方法を示します。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_runningtransientevntlsts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_exmplestartingtransevntlsttool" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_runningtransientevntlsts.html" />
+<title>例: ツールからの一時的イベント・リストの開始</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_exmplestartingtransevntlsttool">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">例: ツールからの一時的イベント・リストの開始</h1>
+<div class="body refbody"><p class="shortdesc">これらの例では、UNIX および Windows 上でツールから一時的イベント・リストを実行する方法を示します。</p>
+<div class="section"><div class="note tip"><span class="tiptitle">ヒント:</span> デュアル・サーバー・デスクトップ (DSD) 構成では、
+以下のコマンド例に示される %server 値の代わりに %desktopserver 内部値が使用されます。 これにより、ObjectServer
+が正しいクライアントにメッセージを送信することが保証されます。</div>
+</div>
+<div class="example"><h2 class="title sectiontitle">例: UNIX の nco_elct コマンド</h2><p class="p">以下の例では、
+<span class="keyword">Tivoli Netcool/OMNIbus</span> に付属して出荷される「関連する FE ノードの表示」ツールにおける <span class="keyword cmdname">nco_elct</span> ユーティリティーの使用方法を
+示します。</p>
+<pre class="pre codeblock"><code>$NCHOME/omnibus/bin/nco_elct -server "%server" -username "%username" <br />-password "%password" -vfile "$NCHOME/omnibus/desktop/default.elv" <br />-ftext "( RemoteNodeAlias != '' and RemoteNodeAlias = '@LocalNodeAlias' ) <br />or ( LocalNodeAlias != '' and LocalNodeAlias = '@RemoteNodeAlias') <br />or Node = '@RemoteNodeAlias' or RemoteNodeAlias = '@Node'"</code></pre>
+</div>
+<div class="example"><h2 class="title sectiontitle">例: Windows の NCOelct コマンド</h2><p class="p">以下の例では、<span class="keyword">Tivoli Netcool/OMNIbus</span> に付属して出荷される「関連する FE ノードの表示 (Windows)」ツールにおける <span class="keyword cmdname">NCOelct.exe</span> ユーティリティーの使用方法を示します。</p>
+<pre class="pre codeblock"><code>"$(NCHOME)/omnibus/desktop/NCOelct.exe" -server "%server" -username "%username" <br />-password "%password" -vfile "$(NCHOME)/omnibus/ini/default.elv" <br />-elf "$(NCHOME)/omnibus/ini/tool.elf" -params "( RemoteNodeAlias != ¥¥'¥¥' <br />and RemoteNodeAlias = ¥¥'@LocalNodeAlias¥¥' ) <br />or ( LocalNodeAlias != ¥¥'¥¥' and LocalNodeAlias = ¥¥'@RemoteNodeAlias¥¥') <br />or Node = ¥¥'@RemoteNodeAlias¥¥' or RemoteNodeAlias = ¥¥'@Node¥¥'"</code></pre>
+<p class="p"><span class="ph filepath">tool.elf</span> ファイルは前の <span class="keyword cmdname">NCOelct</span> コマンドで参照され、
+以下の内容を持ちます。</p>
+<pre class="pre codeblock"><code>filter_name = 'ToolFilter';
+filter_text = '@FilterText';
+filter_metric = 'avg(Severity)';
+# End of file</code></pre>
+<p class="p">Windows の NCHOME 環境変数は、ツール内では通常使用 (%NCHOME%) とは異なる表現になります。 この違いは、変数が Windows オペレーティング・システムではなく組み込みツール・パーサーによって解釈されて解決されるために生じます。</p>
+<p class="p">イベント・リストからツールを実行する場合、
+<span class="ph filepath">tool.elf</span> ファイル内で、<span class="keyword option">-params</span> オプションに続く全ストリングにより
+@FilterText プレースホルダーが置き換えられます。
+@LocalNodeAlias、@RemoteNodeAlias、および @Node プレースホルダーは、
+<span class="keyword option">-params</span> ストリング内において現在イベント・リストで選択されているイベントの値で
+置き換えられます。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_runningtransientevntlsts.html" title="カスタマイズした一時的イベント・リストは、コマンド行からや、スクリプトの中で、またはイベント・リスト・ツールの一部として直接実行することができます。">コマンド行、スクリプト、およびツールからの一時的イベント・リストの実行</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

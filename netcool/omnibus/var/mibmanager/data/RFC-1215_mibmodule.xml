@@ -1,0 +1,62 @@
+<?xml version="1.0"?><MIB_MODULE thread="MibParser:Thread-28" name="RFC-1215" hashcode="MibParser:321706196" sourcefile="Default Data">
+<IMPORTS>
+<IMPORT name="ObjectName" from="RFC1155-SMI"></IMPORT>
+<IMPORT name="snmp" from="RFC1213-MIB"></IMPORT>
+</IMPORTS>
+<EXPORTS></EXPORTS>
+<MibObject OID="snmp" name="coldStart" trapNumber="0" type="TRAP-TYPE">
+<ENTERPRISE>snmp</ENTERPRISE>
+<DESCRIPTION>A coldStart trap signifies that the sending
+                  protocol entity is reinitializing itself such
+                  that the agent's configuration or the rotocol
+                  entity implementation may be altered.</DESCRIPTION>
+</MibObject>
+<MibObject OID="snmp" name="warmStart" trapNumber="1" type="TRAP-TYPE">
+<ENTERPRISE>snmp</ENTERPRISE>
+<DESCRIPTION>A warmStart trap signifies that the sending
+                  protocol entity is reinitializing itself such
+                  that neither the agent configuration nor the
+                  protocol entity implementation is altered.</DESCRIPTION>
+</MibObject>
+<MibObject OID="snmp" name="linkDown" trapNumber="2" type="TRAP-TYPE">
+<ENTERPRISE>snmp</ENTERPRISE>
+<DESCRIPTION>A linkDown trap signifies that the sending
+                  protocol entity recognizes a failure in one of
+                  the communication links represented in the
+                  agent's configuration.</DESCRIPTION>
+<VARIABLES>
+<VARIABLE name="ifIndex"></VARIABLE>
+</VARIABLES>
+</MibObject>
+<MibObject OID="snmp" name="linkUp" trapNumber="3" type="TRAP-TYPE">
+<ENTERPRISE>snmp</ENTERPRISE>
+<DESCRIPTION>A linkUp trap signifies that the sending
+                  protocol entity recognizes that one of the
+                  communication links represented in the agent's
+                  configuration has come up.</DESCRIPTION>
+<VARIABLES>
+<VARIABLE name="ifIndex"></VARIABLE>
+</VARIABLES>
+</MibObject>
+<MibObject OID="snmp" name="authenticationFailure" trapNumber="4" type="TRAP-TYPE">
+<ENTERPRISE>snmp</ENTERPRISE>
+<DESCRIPTION>An authenticationFailure trap signifies that
+                  the sending protocol entity is the addressee
+                  of a protocol message that is not properly
+                  authenticated.  While implementations of the
+                  SNMP must be capable of generating this trap,
+                  they must also be capable of suppressing the
+                  emission of such traps via an implementation-
+                  specific mechanism.</DESCRIPTION>
+</MibObject>
+<MibObject OID="snmp" name="egpNeighborLoss" trapNumber="5" type="TRAP-TYPE">
+<ENTERPRISE>snmp</ENTERPRISE>
+<DESCRIPTION>An egpNeighborLoss trap signifies that an EGP
+                  neighbor for whom the sending protocol entity
+                  was an EGP peer has been marked down and the
+                  peer relationship no longer obtains.</DESCRIPTION>
+<VARIABLES>
+<VARIABLE name="egpNeighAddr"></VARIABLE>
+</VARIABLES>
+</MibObject>
+</MIB_MODULE>

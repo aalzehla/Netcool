@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="SQL commands, variable expressions, and helper buttons in tools, automations, and transient event lists" />
+<meta name="abstract" content="You can use a number of SQL commands, variable expressions, and helper buttons to retrieve information from a running event list, the current event, or the operating system environment. You can use these expressions when creating a tool, trigger, or SQL procedure, or in parameters passed to a transient event list." />
+<meta name="Description" content="You can use a number of SQL commands, variable expressions, and helper buttons to retrieve information from a running event list, the current event, or the operating system environment. You can use these expressions when creating a tool, trigger, or SQL procedure, or in parameters passed to a transient event list." />
+<meta name="DC.subject" content="SQL commands, helper buttons, SQL helper buttons" />
+<meta name="keywords" content="SQL commands, helper buttons, SQL helper buttons" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittools.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditdbasetrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditsignaltrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedittemptrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditsqlproc.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_sqlcmdsvariableexp" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>SQL commands, variable expressions, and helper buttons in tools, automations, and transient event lists</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_sqlcmdsvariableexp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SQL commands, variable expressions, and helper buttons in tools,
+automations, and transient event lists</h1>
+<div class="body refbody"><p class="shortdesc">You can use a number of SQL commands, variable expressions,
+and helper buttons to retrieve information from a running event list,
+the current event, or the operating system environment. You can use
+these expressions when creating a tool, trigger, or SQL procedure,
+or in parameters passed to a transient event list.</p>
+<div class="section"><p class="p">The following table lists the SQL commands, variable expressions,
+and helper buttons.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. SQL commands, variable
+expressions, and helper buttons in tools, triggers, procedures, and
+the transient event list</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="16.666666666666664%" id="d70662e31">Command/variable expression</th>
+<th class="entry" valign="bottom" width="16.666666666666664%" id="d70662e33">Button</th>
+<th class="entry" valign="bottom" width="66.66666666666666%" id="d70662e35">Usage</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">select_<var class="keyword varname">command</var> <p class="p">insert_<var class="keyword varname">command</var></p>
+<p class="p">update_<var class="keyword varname">command</var></p>
+<p class="p">delete_<var class="keyword varname">command</var></p>
+<p class="p">use_<var class="keyword varname">command</var></p>
+<p class="p">service_<var class="keyword varname">command</var></p>
+</td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helpersql.gif" alt="This figure shows the SQL Commands helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click this
+button to select an SQL command from the pop-up menu. Based on the
+command that you select, complete the resulting window as follows:</span><ul class="ul"><li class="li"><span class="ph uicontrol">Select</span>: Select the database and table on
+which to run the SELECT command. Then, choose the table columns to
+select.</li>
+<li class="li"><span class="ph uicontrol">Insert</span>: Select the database and table on
+which to run the INSERT command. Then, select the table columns in
+which to insert values. For each selected column, enter the value
+to insert. For insert statements, you must include the primary key.
+Primary keys are indicated with an asterisk (*).</li>
+<li class="li"><span class="ph uicontrol">Update</span>: Select the database and table on
+which to run the command. Then, select the table columns to update.
+For each selected column, enter the new value. For update statements,
+you must exclude the primary key. Primary keys are indicated with
+an asterisk (*).<div class="note note"><span class="notetitle">Note:</span> For inserts and updates to the alerts.status
+table, any existing conversions appear in the drop-down lists.</div>
+</li>
+<li class="li"><span class="ph uicontrol">Delete</span>: Select the table to delete.</li>
+<li class="li"><span class="ph uicontrol">Use</span>: Select the database to use.</li>
+<li class="li"><span class="ph uicontrol">Service</span>: Select a service name and a value.
+Values can be <span class="keyword option">Good</span>, <span class="keyword option">Marginal</span>, or <span class="keyword option">Bad</span>.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 "><var class="keyword varname">column_name</var><p class="p"><var class="keyword varname">@column_name</var></p>
+</td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helpercolumn.gif" alt="This figure shows the Columns helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click this
+button to select a table column name to add to the command. The column
+name is substituted for the corresponding event list row value when
+the tool runs.</span><p class="p"><span class="ph">When prefaced
+with the @ symbol, the column name is substituted with the corresponding
+event list row value during execution. This can be used in an SQL
+query or restriction filter, such as: <samp class="ph codeph">RemoteNodeAlias = '@LocalNodeAlias'</samp></span></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 "><var class="keyword varname">conversion_name</var></td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helperconversions.gif" alt="This figure shows the Conversions helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click
+this button to select from a list of available conversions.</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">N/A</td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helperquestionmrk.gif" alt="This figure shows the SQL Keywords helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click
+this button to bring up a list of keywords that complete the entered
+SQL.</span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">N/A</td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helperchecksql.gif" alt="This figure shows the Check SQL Syntax helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click
+this button to check the validity of the entered SQL syntax. </span></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">%<var class="keyword varname">internal_value</var></td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helpersqlkeywrds.gif" alt="This figure shows the Internal Values helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click
+this button to select from a list of internal values known to the
+current instance of the event list. For example, to run the transient
+event list and specify the ObjectServer to connect to using the <span class="keyword option">-server</span> command-line
+option, specify: <br /><kbd class="ph userinput">-server "%server"</kbd></span><div class="p">The following internal values are
+available for tools and as a parameter to the transient event list:<ul class="sl simple"><li class="sli"><span class="ph uicontrol">%display</span>: The current display running
+the application (UNIX only).</li>
+<li class="sli"><span class="ph uicontrol">%password</span>: The password of the user running
+the application.</li>
+<li class="sli"><span class="ph uicontrol">%encrypted_password</span>: The encrypted password
+of the user running the application (UNIX only). In FIPS 140–2 mode,
+the password is passed as plain text when used in tools, but is hidden
+when specified as a parameter from the command line.</li>
+<li class="sli"><span class="ph uicontrol">%server</span>: The name of the ObjectServer
+to which the tool is currently connected.</li>
+<li class="sli"><span class="ph uicontrol">%desktopserver</span>: The name of the desktop
+ObjectServer to which the tool is currently connected.</li>
+<li class="sli"><span class="ph uicontrol">%uid</span>: The ObjectServer user identifier
+of the user running the application.</li>
+<li class="sli"><span class="ph uicontrol">%username</span>: The ObjectServer user name
+of the user running the application. </li>
+</ul>
+</div>
+<div class="p">The following internal
+value is available for procedures and triggers: <ul class="sl simple"><li class="sli"><span class="ph uicontrol">%user</span>: Used to specify user variables
+and access information about connected users. </li>
+</ul>
+</div>
+<div class="p">The following internal
+value is available for triggers only:<ul class="sl simple"><li class="sli"><span class="ph uicontrol">%trigger</span>: Used to specify trigger variables
+and access information about the current and previous executions of
+triggers. </li>
+</ul>
+</div>
+<div class="p">The following internal
+value is additionally available for signal triggers only:<ul class="sl simple"><li class="sli"><span class="ph uicontrol">%signal</span>: Used to specify signal variables
+and access information about signals raised.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">$prompt.<br /><var class="keyword varname">prompt_name</var></td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 "><div class="image"><img class="image" src="bt_omn_adm_helperprompt.gif" alt="This figure shows the Prompts helper button." /></div></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 "><span class="ph">Click this
+button to select the name of the prompt to use when querying the user.
+For example, to run the transient event list and prompt the user to
+enter their password using the Password prompt, specify: <kbd class="ph userinput">-password
+$prompt.Password</kbd></span><p class="p">You
+can use prompts in tools and as a parameter to the transient event
+list.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">$selected_rows.<br /><var class="keyword varname">column_name</var></td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 ">N/A</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 ">List of values of <var class="keyword varname">column_name</var> for
+all selected alerts. For example:<p class="p"><samp class="ph codeph">update alerts.status set
+TaskList = 0 where Serial in ($selected_rows.serial)</samp></p>
+<p class="p">Do
+not use this syntax if you select the <span class="ph uicontrol">Execute for each
+selected row</span> check box. Instead, select the check box
+if the change is different for each alert.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="16.666666666666664%" headers="d70662e31 ">$(<var class="keyword varname">environment_<br />variable</var>)</td>
+<td class="entry" valign="top" width="16.666666666666664%" headers="d70662e33 ">N/A</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d70662e35 ">Indicates an environment variable. For example,
+when you run a transient event list, you can specify the filter file
+by using the <span class="keyword option">-elf</span> command-line option, such as:<p class="p"><kbd class="ph userinput">-elf
+"$(NCHOME)/omnibus/ini/tool.elf</kbd></p>
+<p class="p">To run the tool
+on Windows, enclose the
+environment variable, such as $(NCHOME), in double quotation marks.
+If there is a space in the path name, it will not be interpreted correctly.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="note tip"><span class="tiptitle">Tip:</span> <ul class="ul"><li class="li"><span class="ph">When typing SQL commands within the <span class="keyword">Tivoli Netcool/OMNIbus</span> SQL
+editor panels, you can type one or more characters and then press
+Ctrl+F1 to obtain a dialog box with a list of keywords that might
+match your entry. Select the required keyword and click <span class="ph uicontrol">OK</span> to
+complete your entry. If only one keyword matches your typed characters,
+the keyword is automatically completed for you. If you press Ctrl+F1
+after typing a database-related keyword, the dialog box provides a
+list of possible ObjectServer databases from which you can select.
+If you press Ctrl+F1 after typing a database name followed by a dot
+(for example: <kbd class="ph userinput">alerts.</kbd>), you can press Ctrl+F1
+again to view and select from a list of tables in the database.</span></li>
+<li class="li">You can click the <span class="ph uicontrol">To Clipboard</span> button to
+copy the command in a text format to the clipboard.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingedittools.html" title="When you create a tool, it is added to the tools database. The tools that appear in the Tools pane are links to entries in this database.">Creating and editing tools</a></div>
+<div><a class="link" href="omn_adm_creatingeditdbasetrigg.html" title="A database trigger fires when a triggering database modification occurs. For example, you can create a trigger to perform an action each time an insert takes place on the alerts.status table.">Creating and editing database triggers</a></div>
+<div><a class="link" href="omn_adm_creatingeditsignaltrigg.html" title="Signal triggers fire when a system or user-defined signal is raised. System signals are raised spontaneously by the ObjectServer when it detects changes to the system. User-defined signals are explicitly created, raised, and dropped.">Creating and editing signal triggers</a></div>
+<div><a class="link" href="omn_adm_creatingedittemptrigg.html" title="Temporal triggers fire repeatedly based on a specified frequency.">Creating and editing temporal triggers</a></div>
+<div><a class="link" href="omn_adm_creatingeditsqlproc.html" title="SQL procedures have the following major components: parameters, local variable declarations, and the procedure body.">Creating and editing SQL procedures</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

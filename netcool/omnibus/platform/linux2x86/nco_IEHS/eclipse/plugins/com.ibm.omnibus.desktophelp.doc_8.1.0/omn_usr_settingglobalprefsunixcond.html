@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Setting global preferences for the UNIX Conductor" />
+<meta name="abstract" content="From the UNIX Conductor, you can set global preferences for the Conductor window, event list, and event notifications." />
+<meta name="Description" content="From the UNIX Conductor, you can set global preferences for the Conductor window, event list, and event notifications." />
+<meta name="DC.subject" content="global preferences, setting, Conductor" />
+<meta name="keywords" content="global preferences, setting, Conductor" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_abtpersonallibrary.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_settingglobalprefsunixcond" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>Setting global preferences for the UNIX Conductor</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_settingglobalprefsunixcond">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Setting global preferences for the UNIX Conductor</h1>
+<div class="body taskbody"><p class="shortdesc">From the UNIX Conductor,
+you can set global preferences for the <span class="keyword wintitle">Conductor</span> window,
+event list, and event notifications.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To set global preferences:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the <span class="keyword wintitle">Conductor</span> window on UNIX, double-click the <span class="ph uicontrol">prefs</span> icon
+in the personal library. </span> The <span class="keyword wintitle">Preferences</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Conductor</span> tab, configure
+global settings for the Conductor. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Timed Directory Update</dt>
+<dd class="dd">Select this check box to indicate that the Conductor directory information
+should be updated at regular intervals. In the adjacent field, enter a value
+(in seconds) for the update interval. Clear this check box if you prefer to
+await notification of updates from the ObjectServer.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Event List</span> tab, configure
+global settings for the event list. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Show Count</dt>
+<dd class="dd">Select this check box to display the number of alerts that match
+the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Highest Severity</dt>
+<dd class="dd">Select this check box to display the highest severity among the
+alerts that match the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Lowest Severity</dt>
+<dd class="dd">Select this check box to display the lowest severity among the
+alerts that match the filter on monitor boxes.</dd>
+<dt class="dt dlterm">Show Metric</dt>
+<dd class="dd">Select this check box to display the selected filter metric value
+on monitor boxes. </dd>
+<dt class="dt dlterm">Show Lavalamp</dt>
+<dd class="dd">Click this option to display the distribution indicator as a horizontal
+bar on monitor boxes.</dd>
+<dt class="dt dlterm">Show Histogram</dt>
+<dd class="dd">Click this option to display the distribution indicator as a bar
+graph on monitor boxes.</dd>
+<dt class="dt dlterm">Show Event List Colors</dt>
+<dd class="dd">Select this check box to use color to depict the severity of alerts
+in the event list. Clear this check box to use a grey background for
+all event list rows. </dd>
+<dt class="dt dlterm">Sort Information Details</dt>
+<dd class="dd">Select this check box to sort the detail fields in the <span class="keyword wintitle">Event
+Information</span> window alphabetically by name of field. When
+this check box is clear, the detail fields are displayed in an order
+determined by the ObjectServer. </dd>
+<dt class="dt dlterm">Timed Refresh</dt>
+<dd class="dd">Use these fields to indicate whether alert information should
+be updated at a specified time interval, or whether you prefer to
+await notification of updates from the ObjectServer. To specify an
+update frequency, select the <span class="ph uicontrol">Timed Refresh</span> check
+box and then enter a time (in seconds) in the adjacent field.</dd>
+<dd class="dd">All the latest data from the ObjectServer will be sent to the
+event list at the specified frequency.<div class="note tip"><span class="tiptitle">Tip:</span> Timed Refresh
+forces the event list to reload all its data at a set interval. Do
+not set the refresh to a low value (for example, less than 60 seconds)
+because this has an impact on ObjectServer performance and network
+traffic.</div>
+<div class="note note"><span class="notetitle">Note:</span> If your system administrator has
+set the <span class="keyword parmname parmname">AllowTimedRefresh</span> ObjectServer property
+to <samp class="ph tt">FALSE</samp>, refresh timers are disabled and updates occur based
+on notification from the ObjectServer.</div>
+</dd>
+<dt class="dt dlterm">Enable Flashing</dt>
+<dd class="dd">Select this check box to enable event list flashing. Use the <span class="ph uicontrol">Fast/Slow</span> slider
+to indicate how quickly the event list flashes. Use the <span class="ph uicontrol">Bright/Dark</span> slider
+to indicate the degree of brightness of the flashing.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Notification</span> tab, configure
+global settings for alert notifications. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Notify When Iconised</dt>
+<dd class="dd">Select this check box to receive notification of new, changed,
+or deleted alerts when the event list is minimized. Notification is
+received only on desktop environments that display an icon when the
+event list is minimized. Use the <span class="ph uicontrol">When</span> and <span class="ph uicontrol">How</span> options
+to set the notification method.</dd>
+<dt class="dt dlterm">When</dt>
+<dd class="dd">Select each check box to receive notification as follows:<ul class="ul"><li class="li">Select <span class="ph uicontrol">New</span> to receive a notification when
+a new alert is added to the event list.</li>
+<li class="li">Select <span class="ph uicontrol">Change</span> to receive a notification
+when an existing alert changes in the event list.</li>
+<li class="li">Select <span class="ph uicontrol">Delete</span> to receive a notification
+when an existing alert is deleted from the event list.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">How</dt>
+<dd class="dd">Select each check box to indicate how a notification should occur:<ul class="ul"><li class="li">Select <span class="ph uicontrol">Ring Bell</span> to sound the workstation
+or terminal bell once.</li>
+<li class="li">Select <span class="ph uicontrol">Alert Icon</span> to flash an exclamation
+mark over the event list icon (UNIX),
+or flash the minimized event list (Windows).</li>
+<li class="li">Select <span class="ph uicontrol">Open Window</span> to open the event list
+on the screen. If you use a window manager with interactive placement,
+the event list opens as the active window.</li>
+<li class="li">Select <span class="ph uicontrol">Run External Command</span> to run a command.
+If you select this check box, you must type the command name. This
+function must be used only for simple desktop notification, and is
+not designed for handling paging applications. </li>
+</ul>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Apply, save, or cancel your changes as follows:</span> <dl class="dl"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to apply changes without saving them. This button
+enables you to test how your changes affect the desktop. </dd>
+<dt class="dt dlterm">Save</dt>
+<dd class="dd">Click this button to save any changes made to your preferences. <div class="note tip"><span class="tiptitle">Tip:</span> To view any changes made to preferences in the event list,
+you must close and reopen any open event lists.</div>
+</dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+<dt class="dt dlterm">Undo</dt>
+<dd class="dd">Click this button to undo any changes that you have made to each
+of the tabs. </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="You can use the Conductor to manage the Tivoli Netcool/OMNIbus desktop tools (or client applications).">Accessing the desktop tools</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_usr_abtpersonallibrary.html" title="Each UNIX user on a particular server has a .omnibus directory, and the personal library acts as a graphical browser for that directory. From the UNIX Conductor, you can customize your personal library to include views, filters, and event list configurations that you use frequently.">About the personal library</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_startingconductor.html" title="The Conductor provides single sign-on access to all the Tivoli Netcool/OMNIbus desktop tools that you can use to view and manage alerts.">Starting the Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

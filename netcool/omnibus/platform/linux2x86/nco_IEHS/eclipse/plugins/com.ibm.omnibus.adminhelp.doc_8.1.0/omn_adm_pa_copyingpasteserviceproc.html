@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Copying and pasting a service or process between process agent hosts" />
+<meta name="abstract" content="You can copy and paste a selected service and its related processes, or a selected process, either within a process agent, or from one process agent to another." />
+<meta name="Description" content="You can copy and paste a selected service and its related processes, or a selected process, either within a process agent, or from one process agent to another." />
+<meta name="DC.subject" content="copying, processes, process control, copying processes, pasting, pasting processes, services, copying services, pasting services" />
+<meta name="keywords" content="copying, processes, process control, copying processes, pasting, pasting processes, services, copying services, pasting services" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_usingnetomadminunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_connectingtopa.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_copyingpasteserviceproc" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_usingnetomadminunix.html" />
+<title>Copying and pasting a service or process between process agent hosts</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_copyingpasteserviceproc">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Copying and pasting a service or process between process agent
+hosts</h1>
+<div class="body taskbody"><p class="shortdesc">You can copy and paste a selected service and its related
+processes, or a selected process, either within a process agent, or
+from one process agent to another.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To copy and paste a service or process:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph">Perform any of the following actions
+from Netcool/OMNIbus Administrator:</span></span> <ul class="ul choices"><li class="li choice"><span class="ph">If you are connected to the process
+agent and the <span class="keyword wintitle">Service/Process Details</span> pane is
+open, go to the next step.</span></li>
+<li class="li choice"><span class="ph">If not already connected,
+connect to the process agent. On successful connection, the <span class="keyword wintitle">Service/Process
+Details</span> pane opens.</span></li>
+<li class="li choice"><span class="ph">If you are connected to the
+process agent, but the <span class="keyword wintitle">Service/Process Details</span> pane
+is not currently on display, click the <span class="ph uicontrol">Status</span> icon
+in the Configuration window for the process agent, to view this pane.</span></li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="keyword wintitle">Service/Process Details</span> pane
+of the process agent from which you want to copy a service or process,
+select the relevant service or process, and then click <span class="ph uicontrol">Copy</span> in
+the toolbar.</span> The selected service and its related
+processes are copied to the clipboard, or the selected process is
+copied to the clipboard.</li>
+<li class="li step stepexpand"><span class="ph cmd">To paste the contents of the clipboard within the same
+process agent, click <span class="ph uicontrol">Paste</span> in the toolbar of
+the current <span class="keyword wintitle">Service/Process Details</span> pane.</span> <p class="p">To paste the contents of the clipboard to another connected
+process agent, access the <span class="keyword wintitle">Service/Process Details</span> pane
+for that process agent, and then click <span class="ph uicontrol">Paste</span> in
+the toolbar.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If you copied a process, the <span class="keyword wintitle">Process Details</span> pane
+opens. Process names must be unique per process agent, so rename the
+process if necessary, and make any other required changes. Click <span class="ph uicontrol">OK</span> to
+close this window and paste the process details to the <span class="keyword wintitle">Service/Process
+Details</span> pane. Alternatively, click <span class="ph uicontrol">Cancel</span> to
+cancel the paste operation.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">If you copied a service, the <span class="keyword wintitle">Process Agent Consistency
+Checker</span> wizard opens. Service names must be unique within
+the process control network, and process names must be unique per
+process agent, so renaming is required. Perform the following actions:</span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Next</span> to proceed to the
+next page, and amend the service or process details as required. You
+can specify a new name for the service by overwriting its name. To
+amend the details of each process, double-click the process entry
+to obtain the <span class="keyword wintitle">Process Details</span> window, and then
+make the relevant changes. You can additionally specify whether to
+include or exclude a process in the paste action. On UNIX, click within the <span class="ph uicontrol">Include in
+Paste</span> cell to toggle between the <span class="ph uicontrol">true</span> and <span class="ph uicontrol">false</span> options.
+On Windows, right-click
+over the process entry and then select or deselect the <span class="ph uicontrol">Include
+in Paste</span> option in the pop-up menu.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Next</span> to view a summary
+of the service and processes to be pasted.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Finish</span> to close the wizard
+and paste the details to the <span class="keyword wintitle">Service/Process Details</span> pane.
+You can also click <span class="ph uicontrol">Cancel</span> to cancel the paste
+operation.</span></li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_usingnetomadminunix.html" title="Netcool/OMNIbus Administrator provides a visual interface from which you can manage process control. You can use Netcool/OMNIbus Administrator to view and manage process agents, processes, and services on your Tivoli Netcool/OMNIbus hosts.">Using Netcool/OMNIbus Administrator to manage process control</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+<div><a class="link" href="omn_adm_pa_connectingtopa.html" title="Before you can connect to a process agent by using Netcool/OMNIbus Administrator, you must ensure that the process agent has started.">Connecting to a process agent</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

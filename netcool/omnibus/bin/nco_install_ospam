@@ -1,0 +1,295 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2004. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Netcool/OMNIbus ObjectServer Pluggable Authentication Module Installation Script.
+#
+# $ProjectRevision: null $
+#
+
+##############################################################################
+# Find and source the contents of the common script 'nco_common'.
+##############################################################################
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+##############################################################################
+# Define some useful script functions,
+##############################################################################
+f_TITLE()
+{
+	$ECHO \\n\\n\\t\\t Netcool/OMNIbus 8.1.0 ObjectServer PAM Installation\\n
+}
+
+f_64BITMOD() {
+        if [ -f ${OMNIHOME}/platform/${ARCH}/module64/pam/omnibus_os/libpam_omnibus_os.${SO_EXT} ]
+        then
+                SUF=64
+        fi
+}
+
+f_INITIALISE()
+{
+	#
+	# Determine what the shared library extension is for the platform that
+	# we are running on.
+	#
+	case ${ARCH} in
+	solaris2)
+		SO_EXT="so"
+		SO_GRP="sys"
+		;;
+	aix5)
+		SO_EXT="so"
+		SO_GRP="security"
+		;;
+	hpux11)
+		SO_EXT="1"
+		SO_GRP="sys"
+		;;
+	hpux11hpia)
+		SO_EXT="so"
+		SO_GRP="sys"
+		;;
+	linux2x86)
+		SO_EXT="so"
+		SO_GRP="root"
+		;;
+        linux2s390)
+                SO_EXT="so"
+                SO_GRP="root"
+                ;;
+	hpux10|aix4)
+		err "PAM is not supported on the '${ARCH}' architecture - installation aborted."
+		;;
+	*)
+		err "Unknown architecture detected '${ARCH}' - installation aborted."
+	esac
+
+	#
+	# Construct the names of the three source files that we are going to
+	# install. 
+	#
+	f_64BITMOD
+	SRC_PAM_CONF="${OMNIHOME}/platform/${ARCH}/module${SUF}/pam/omnibus_os/pam.conf"
+	SRC_NCPAM_CONF="${OMNIHOME}/platform/${ARCH}/module${SUF}/pam/omnibus_os/pam_omnibus_os.conf"
+	SRC_NCPAM_LIB="`ls -1 ${OMNIHOME}/platform/${ARCH}/module${SUF}/pam/omnibus_os/libpam_omnibus_os.${SO_EXT}* 2> /dev/null | sort -r | head -1`"
+	if [ -z "${SRC_NCPAM_LIB}" ];
+	then
+		SRC_NCPAM_LIB="${OMNIHOME}/platform/${ARCH}/module${SUF}/pam/omnibus_os/libpam_omnibus_os.${SO_EXT}"
+	else
+		SO_EXT=`basename ${SRC_NCPAM_LIB} | ${SED} -e 's/libpam_omnibus_os.//g'`
+	fi
+
+	#
+	# Define the value of the temporary file and the PAM application ID.
+	#
+	PAM_APPID="nco_objserv"
+	TMPFILE="/tmp/pam.conf.${$}"
+}
+
+f_CHECKUSER()
+{
+	#
+	# This scripts needs to running as 'root' as it will need to update
+	# a system file in /etc and change file owners and permissions.
+	#
+	if [ "`${WHOAMI}`" != "root" ]; 
+	then
+		$ECHO "This installation script requires root privileges."
+		$ECHO "Please run this script as root in order to continue.\n"
+		exit 0
+	fi
+}
+
+f_CHECKFILE()
+{
+	#
+	# Ensure that the specified file exists.
+	#
+	if [ ! -f "${1}" ];
+	then
+		err "Failed to find source file '${1}'. Installation aborted."
+	fi
+}
+
+f_CHECKFILES()
+{
+	#
+	# Check and ensure that all of the files that we require exists in
+	# the installation.
+	#
+	f_CHECKFILE ${SRC_PAM_CONF}
+	f_CHECKFILE ${SRC_NCPAM_CONF}
+	f_CHECKFILE ${SRC_NCPAM_LIB}
+}
+
+f_GENTPAMCONF()
+{
+	#
+	# Generate the update entries that we wish to make to the system
+	# PAM configuration file.
+	#
+	${RM} ${TMPFILE} 2> /dev/null
+
+	${ECHO}	"\n#\n# PAM Configuration for the Netcool/OMNIbus ObjectServer.\n#" > ${TMPFILE}
+
+	if [ -d "/etc/pam.d" ];
+	then
+		${GREP} -v '^#' ${SRC_PAM_CONF} | ${SED} -e "s#${PAM_APPID}[ 	]*##g" -e "s#__OMNIHOME__#${OMNIHOME}#g" -e "s#__ARCH__#${ARCH}#g" -e "s#__SOEXT__#${SO_EXT}#g" >> ${TMPFILE}
+	else
+		${GREP} -v '^#' ${SRC_PAM_CONF} | ${SED} -e "s#__OMNIHOME__#${OMNIHOME}#g" -e "s#__ARCH__#${ARCH}#g" -e "s#__SOEXT__#${SO_EXT}#g" >> ${TMPFILE}
+	fi
+}
+
+f_INSTALL()
+{
+	#
+	# Step 1: Ensure that the PAM module has the right ownership and 
+	# permissions.
+	#
+	chown root ${SRC_NCPAM_LIB}
+	chgrp ${SO_GRP} ${SRC_NCPAM_LIB}
+	chmod 0655 ${SRC_NCPAM_LIB}
+
+	#
+	# Step 2: Get the name of the authentication ObjectServer and then
+	# copy in the PAM configuration file.
+	#
+	${RM} ${OMNIHOME}/etc/pam_omnibus_os.conf 2> /dev/null
+	${CP} ${SRC_NCPAM_CONF} ${OMNIHOME}/etc/pam_omnibus_os.conf
+
+	if [ "${AUTH_OSNAME}" != "NCOMS" ];
+	then
+		${ECHO} "Server : ${AUTH_OSNAME}" >> ${OMNIHOME}/etc/pam_omnibus_os.conf
+	fi
+
+	#
+	# Step 3: Add the necessary entries to the system PAM file.
+	#
+	if [ -d "/etc/pam.d" ];
+	then
+		${RM} /etc/pam.d/${PAM_APPID} 2> /dev/null
+		${CP} ${TMPFILE} /etc/pam.d/${PAM_APPID}
+	else
+		if [ -f "/etc/pam.conf" ];
+		then
+			${CAT} ${TMPFILE} >> /etc/pam.conf
+		else
+			${CP} ${TMPFILE} /etc/pam.conf
+		fi
+	fi
+
+	#
+	# Step 4: Installation complete. Remind the user that PAM now needs to
+	# be enabled in the ObjectServer's property file.
+	#
+	${ECHO} "\nInstallation complete.\n"
+	${ECHO} "NOTE: You now need to enable the use of PAM by the ObjectServer itself by"
+	${ECHO} "setting or adding the property 'Sec.UsePam : TRUE' to the ObjectServers"
+	${ECHO} "properties file.\n"
+}
+
+f_GETINSTALLCONFIRM()
+{
+	#
+	# We are ready to setup the module.
+	#
+	${ECHO} "\nReady to install and setup the PAM module.\n"
+
+	#
+	# Get the name of the authentication server.
+	#
+	f_ANSWER "What is the name of the authentication server?" NCOMS
+	AUTH_OSNAME=${ANSWER}
+	${ECHO}
+
+	#
+	# Does the user want to see the 'pam.conf' file additions.
+	#
+	if [ -d "/etc/pam.d" ];
+	then
+		f_YN "Do you wish to view the updates to be added to /etc/pam.d?" y
+	else
+		f_YN "Do you wish to view the updates to be made to /etc/pam.conf?" y
+	fi
+	if [ "$YN" = "y" ];
+	then
+		${ECHO}
+		more ${TMPFILE}
+	fi
+
+	${ECHO}
+
+	#
+	# Does the user wish the installation to proceed?
+	#
+	f_YN "Do you wish to install these changes?" y
+	if [ "$YN" = "y" ];
+	then
+		f_INSTALL
+	fi
+}
+
+f_CLEANUP()
+{
+	${RM} ${TMPFILE} 2> /dev/null
+}
+
+f_usage ()
+{
+	${ECHO} "usage: nco_install_ospam [options]"
+	${ECHO} "where options can be:"
+	${ECHO} "\t-help\t\tPrint this help text."
+	${ECHO} "\t-version\tDisplay the script version."
+	exit 0
+}
+
+##############################################################################
+# The main script execution point. First we process any arguments passwed to
+# the script.
+##############################################################################
+while [ $# -gt 0 ];
+do
+        case "$1" in
+        	-h*|-H|-\?)
+			f_usage
+			;;
+       	 	-v*|-V) 
+			echo "Netcool/OMNIbus 8.1.0 ObjectServer PAM Installation Utility"
+			exit 0
+			;;
+        	*) 
+			err "Unknown option $1"
+			;;
+        esac
+	shift
+done
+
+#
+# Do the main installation components.
+#
+f_TITLE
+f_INITIALISE
+f_CHECKUSER
+f_CHECKFILES
+f_GENTPAMCONF
+f_GETINSTALLCONFIRM
+f_CLEANUP
+
+exit 0

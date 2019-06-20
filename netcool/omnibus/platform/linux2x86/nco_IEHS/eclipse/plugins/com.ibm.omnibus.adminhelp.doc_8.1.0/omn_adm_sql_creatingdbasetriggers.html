@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CREATE TRIGGER (database trigger)" />
+<meta name="abstract" content="Use the CREATE TRIGGER command to create database triggers that fire when a modification or attempted modification to an ObjectServer table occurs (or when a modification or attempted modification to a view affects a base table)." />
+<meta name="Description" content="Use the CREATE TRIGGER command to create database triggers that fire when a modification or attempted modification to an ObjectServer table occurs (or when a modification or attempted modification to a view affects a base table)." />
+<meta name="DC.subject" content="creating, database triggers, CREATE TRIGGER" />
+<meta name="keywords" content="creating, database triggers, CREATE TRIGGER" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_creatingdbasetriggers" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Creating database triggers (CREATE TRIGGER command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_creatingdbasetriggers">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">CREATE TRIGGER (database trigger)</h1>
+<div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">CREATE TRIGGER</samp> command to create
+database triggers that fire when a modification or attempted modification
+to an ObjectServer table occurs (or when a modification or attempted
+modification to a view affects a base table).</p>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>CREATE [ OR REPLACE ] TRIGGER <var class="keyword varname">trigger_name</var>
+ GROUP <var class="keyword varname">group_name</var>
+ [ DEBUG { TRUE | <u class="ph u">FALSE</u> } ]
+ [ ENABLED { <u class="ph u">TRUE</u> | FALSE } ]
+ PRIORITY <var class="keyword varname">integer</var>
+ [ COMMENT '<var class="keyword varname">comment_string</var>' ]
+ <strong class="ph b">{ BEFORE | AFTER }</strong> <strong class="ph b">{ INSERT | UPDATE | DELETE | REINSERT } 
+ ON <var class="keyword varname">database_name</var>.<var class="keyword varname">table_name</var></strong>
+ <span class="ph uicontrol">FOR EACH { ROW | STATEMENT }</span>
+ [ WHEN <var class="keyword varname">condition</var> ]
+ [ DECLARE <var class="keyword varname">variable_declaration</var> ]
+ BEGIN
+ <var class="keyword varname">  trigger_action</var>
+END;</code></pre>
+</div>
+<div class="section"><p class="p">If there is a possibility
+that a trigger already exists with the same name as the one that you
+want to create, use the optional OR REPLACE keywords. If the trigger
+exists, it is replaced by the one that you are creating. If the trigger
+does not exist, a new one is created.</p>
+<p class="p">The <var class="keyword varname">trigger_name</var> value
+must be unique within the ObjectServer and comply with the ObjectServer
+naming conventions.</p>
+<p class="p">The <var class="keyword varname">group_name</var> value
+can be any trigger group already created by using the CREATE TRIGGER
+GROUP command.</p>
+<p class="p">If DEBUG is set to <samp class="ph tt">TRUE</samp>, debugging information
+is sent to the ObjectServer message log, if the message level is set
+to <span class="keyword option">debug</span>.</p>
+<p class="p">If ENABLED is set to <samp class="ph tt">TRUE</samp>,
+the trigger fires when the associated incident occurs. Otherwise,
+the trigger does not fire when the incident occurs.</p>
+<p class="p">The PRIORITY
+of a trigger determines the order in which the ObjectServer fires
+triggers when more than one trigger is associated with the same incident.
+The priority can be in the range of 1 to 20. The lower the number,
+the higher the priority, so a trigger with a priority of 2 is fired
+before a trigger with a priority of 3. If more than one trigger of
+the same priority is fired because of the same incident, the order
+in which these triggers fire is undetermined.</p>
+<p class="p">Use the optional
+COMMENT keyword to add a comment (<var class="keyword varname">comment_string</var>)
+for the trigger.</p>
+</div>
+<div class="section"><p class="p">The BEFORE or AFTER timing keyword specifies whether the
+trigger runs before or after the database modification that caused
+the trigger to fire occurs. For example, you can create a BEFORE trigger
+that evaluates the name of the user before a row in the alerts.status
+table is deleted. In the trigger, you can detect whether the user
+is allowed to delete from the alerts.status table, and if not, prevent
+the database modification from taking place. With an AFTER trigger,
+the database modification always takes place.</p>
+<p class="p">The <var class="keyword varname">database_name</var>.<var class="keyword varname">table_name</var> is
+the name of the database and table affected by the trigger action.</p>
+<p class="p">A
+database trigger fires at one of the following levels:</p>
+<ul class="ul"><li class="li">FOR EACH ROW (known as a <dfn class="term">row-level trigger</dfn>): Row-level
+triggers fire once for each row returned as a result of the database
+modification.</li>
+<li class="li">FOR EACH STATEMENT (known as a <dfn class="term">statement-level trigger</dfn>):
+Statement-level triggers fire once for each database modification.</li>
+</ul>
+<div class="note note"><span class="notetitle">Note:</span> Only row-level triggers can be defined to fire
+on inserts and reinserts.</div>
+<div class="note note"><span class="notetitle">Note:</span> BEFORE statement-level
+triggers always fire before <samp class="ph codeph">BEFORE</samp> row-level triggers,
+and AFTER statement-level triggers always fire after <samp class="ph codeph">AFTER</samp> row-level
+triggers, regardless of trigger priority.</div>
+</div>
+<div class="section"><p class="p">Use the optional WHEN clause
+to test for a particular <var class="keyword varname">condition</var> before the trigger
+action runs. If the condition is not met, the trigger action does
+not run.</p>
+<p class="p">You can optionally declare local trigger variables
+for use in the body of the trigger. These variables are declared and
+used in the same way as procedure variables. However, trigger variables
+are static, so they maintain their value between the times when the
+trigger runs.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">A database signal is raised as a
+result of the following SQL statement:</p>
+<pre class="pre codeblock"><code>DELETE FROM alerts.status WHERE Severity = 5;</code></pre>
+<p class="p">When
+this statement runs, the ObjectServer deletes all the rows in the
+alerts.status table with a severity of 5. If there are 20 rows in
+the table with this severity and the level is set to FOR EACH ROW,
+20 rows are deleted and the trigger is raised 20 times. If the <samp class="ph codeph">level</samp> is
+set to FOR EACH STATEMENT, the trigger is raised once.</p>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

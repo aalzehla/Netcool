@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="使用本端系統目錄" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus 提供一個目錄瀏覽器公用程式，其運作方式類似於任何 UNIX 檔案系統瀏覽器。" />
+<meta name="description" content="Tivoli Netcool/OMNIbus 提供一個目錄瀏覽器公用程式，其運作方式類似於任何 UNIX 檔案系統瀏覽器。" />
+<meta name="DC.subject" content="目錄瀏覽器, 檢視, 本端系統目錄" />
+<meta name="keywords" content="目錄瀏覽器, 檢視, 本端系統目錄" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringqckaccessfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_addingfilestopersonallib.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_workingwithlocalsysdirectories" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringqckaccessfilters.html" />
+<title>使用本端系統目錄</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_workingwithlocalsysdirectories">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">使用本端系統目錄</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> 提供一個目錄瀏覽器公用程式，其運作方式類似於任何 UNIX 檔案系統瀏覽器。</p>
+<div class="section context"><p class="p">您可以使用此目錄瀏覽器，以檢視本端 UNIX 系統目錄的內容，以及在目錄瀏覽器與個人檔案庫 (用於保留常用檔案) 之間移動及複製視圖檔案、過濾器檔案及事件清單配置檔案。 您也可以使用瀏覽器直接開啟視圖、過濾器及事件清單配置。 </p>
+<p class="p">若要檢視本端 UNIX 系統目錄的內容並使用 <span class="keyword">Tivoli Netcool/OMNIbus</span> 檔案：</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">從「管理者」中，按一下按鈕列中的<span class="ph uicontrol">瀏覽器</span>。 </span> 即會開啟「<span class="keyword wintitle">目錄瀏覽器</span>」視窗。 </li>
+<li class="li step stepexpand"><span class="ph cmd">如下所示完成此視窗：</span> <dl class="dl"><dt class="dt dlterm">目錄</dt>
+<dd class="dd">此欄位顯示現行目錄的完整路徑名稱。 若要變更目錄，請執行下列任一個動作：<ul class="ul"><li class="li">在欄位中輸入完整目錄路徑，然後按 Enter 鍵。</li>
+<li class="li">按兩下目錄顯示區域中的任何目錄圖示。</li>
+</ul>
+</dd>
+<dt class="dt dlterm"><em class="ph i">目錄顯示區域</em></dt>
+<dd class="dd">此區域會顯示現行目錄中存在的子目錄。
+會以含有兩個句點 (<span class="ph uicontrol">..</span>) 的圖示來說明上層目錄，而這代表目錄名稱。 若要移至現行目錄上方的目錄，請按兩下上層目錄圖示。</dd>
+<dd class="dd">您可以從目錄瀏覽器的此區域將檔案拖放至「管理者」中的個人檔案庫：<ul class="ul"><li class="li">使用滑鼠的中鍵來移動檔案。 (這相當於使用 <span class="keyword cmdname">mv</span> 指令。)</li>
+<li class="li">同時使用 Ctrl 鍵及滑鼠的中鍵以複製檔案。
+(這相當於使用 <span class="keyword cmdname">cp</span> 指令。)</li>
+</ul>
+<div class="note note"><span class="notetitle">註：</span> 除了那些代表目錄的圖示之外，您可以拖放所有圖示。</div>
+</dd>
+<dd class="dd">您可以同樣地將個人檔案庫中的所有圖示 (除了<span class="ph uicontrol">喜好設定</span>圖示之外) 拖放至此目錄顯示區域。</dd>
+<dd class="dd">您也可以透過按兩下相關圖示，來直接開啟視圖、過濾器及事件清單配置。 按兩下 <span class="ph filepath">.elf</span> 圖示，以在「過濾器建置器」內開啟已定義的過濾器。 按兩下 <span class="ph filepath">.elv</span> 圖示，以在「視圖建置器」內開啟已定義的視圖。 按兩下 <span class="ph filepath">.elc</span> 圖示，以在「<span class="keyword wintitle">事件清單</span>」監視器框視窗內開啟已定義的事件清單配置。 </dd>
+<dt class="dt dlterm">重新整理</dt>
+<dd class="dd">按一下此按鈕，以重新整理目錄瀏覽器的內容。</dd>
+<dt class="dt dlterm">關閉</dt>
+<dd class="dd">按一下此按鈕，以關閉此視窗。</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_configuringqckaccessfilters.html" title="從「UNIX 管理者」中，您可以檢視本端 UNIX 系統目錄的內容，且可以輕鬆地存取過濾器檔案、視圖檔案及事件清單配置檔，以便在管理警示時使用。">在 UNIX 上配置過濾器、視圖及事件清單配置的快速存取</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_addingfilestopersonallib.html" title="您可以將個人檔案庫與目錄瀏覽器公用程式一起使用，以建置常用檔案的檔案庫。">將檔案新增至個人檔案庫</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

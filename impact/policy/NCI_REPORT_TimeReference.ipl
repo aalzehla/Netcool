@@ -1,0 +1,45 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+function insertTimeReference(serial) {
+
+log(3, "ReportManager: insertTimeReference sDate=" + sDate);
+log(3, "ReportManager: insertTimeReference eDate=" + eDate);
+ format = "yyyy-MM-dd HH:mm:ss";
+ newSDate = LocalTime(ParseDate(sDate, format));
+ newEDate = LocalTime(ParseDate(eDate, format));
+ log(3, "ReportManager: insertTimeReference set reporting period: "+"Start Date: "+sDate+"End Date: "+eDate);
+
+ theType = "REPORT_TimeReference";
+ BatchDelete(theType, "", NULL);
+
+ newOn = NewObject();
+ newOn["STARTTIME"] = newSDate;
+ newOn["ENDTIME"] = newEDate;
+ log(3, "ReportManager: newOn=" + newOn);
+ log(3, "reportManager: newOn class=" + ClassOf(newOn));
+
+ AddDataItem(theType, newOn);
+ log(3, "ReportManager: successfully add new dataItem to type "+ theType + newOn);
+
+filter = "starttime = '" + newSDate + "' and endtime = '" + newEDate + "'";
+ons = GetByFilter(theType, filter, false);
+
+if (Length(ons) > 0) {
+ newOn = ons[0];
+}
+
+ log(3, "ReportManager: serial=" + newOn["serial"]);
+serial = newOn["serial"];
+ }
+
+serial = NULL;
+insertTimeReference(serial);

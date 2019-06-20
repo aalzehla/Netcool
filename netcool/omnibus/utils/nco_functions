@@ -1,0 +1,295 @@
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1994, 2004. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+################################################################################
+#         Name: nco_functions
+#         Date: Thu May  7 18:42:11 BST 1998 (thumper)
+################################################################################
+#
+#	This file is designed to be sourced from shell scripts to provide some
+#	useful functions for the Netcool/OMNIbus environment.
+#
+################################################################################
+# MODIFICATION HISTORY
+# --------------------
+#
+SCRIPT_VERSION=1
+SCRIPT_REVISION=4
+################################################################################
+# Initialisations
+# ---------------
+#
+PROGRAM=`basename $0`
+DIRNAME=`dirname $0`
+################################################################################
+#
+# error message function. For fatal errors, will exit.
+#
+#	Usage:
+#	err <message>
+#
+err () {
+        echo "$PROGRAM: $@" 1>&2
+	sleep 2
+        exit 1
+}
+
+#
+# nco_set_ARCH:
+# Will set the environment variable ARCH. It is not exported.
+#
+nco_set_ARCH () {
+	case `uname -s` in
+		SunOS)
+			if [ `uname -r | sed 's/\(..\).*/\1/'` = "4." ]; then
+				ARCH=sunos4
+			else
+				case `uname -p` in
+					i386)
+						ARCH=solaris2x86
+						;;
+					sparc)
+						ARCH=solaris2
+						;;
+				esac
+			fi
+		;;
+		AIX)
+			case `uname -v` in
+				3)
+					ARCH=aix3
+					;;
+				4)
+					ARCH=aix4
+					;;
+				5)
+					ARCH=aix5
+					;;
+				*)
+					err "Unsupported version of AIX"
+			esac
+		;;
+		HP-UX)
+			if [ `uname -r | sed 's/...\(.\).*/\1/'` = "9" ]; then
+				ARCH=hpux9
+			else
+				if [ `uname -r | sed 's/..\(..\).*/\1/'` = "10" ]; then
+					ARCH=hpux10
+				elif [ `uname -r | sed 's/..\(..\).*/\1/'` = "11" ]; then
+					ARCH=hpux11
+				else
+					err "Unsupported version of HP-UX"
+				fi
+			fi
+		;;
+		Linux)
+			ARCH=`uname -m`
+			case $ARCH in
+			i*86|x86*)
+                        	ARCH=linux2x86
+                        	;;
+                	s390*)
+                        	ARCH=linux2s390
+                        	;;
+                	*)
+                        	err "Unsupported version of Linux"
+                        	;;
+                	esac
+		;;
+		*)
+			err "Unknown architecture"
+	esac
+}
+
+#
+# nco_get_PATH:
+# Will set the path for various programs dependant upon the architecture.
+#
+nco_get_PATH () {
+	case `uname -s` in
+		SunOS)
+			if [ `uname -r | sed 's/\(..\).*/\1/'` = "4." ]; then
+				ARCH=sunos4
+                                XTERM="/usr/openwin/bin/xterm"
+                                XHOST="/usr/openwin/bin/xhost"
+                                TOUCH="/bin/touch"
+                                NETSTAT="/bin/netstat"
+                                GREP="/bin/grep"
+                                WHAT="/usr/ccs/bin/what"
+				AWK="/usr/bin/nawk"
+				SED="/usr/bin/sed"
+				PING="/usr/etc/ping"
+				ECHO="/bin/5bin/echo"
+				TELNET="/bin/telnet"
+				SLEEP="/usr/bin/sleep"
+			else
+				case `uname -p` in
+					i386)
+						ARCH=solaris2x86
+                                                XTERM="/usr/openwin/bin/xterm"
+                                                XHOST="/usr/openwin/bin/xhost"
+                                                TOUCH="/bin/touch"
+                                                NETSTAT="/bin/netstat"
+                                                GREP="/bin/grep"
+                                                WHAT="/usr/ccs/bin/what"
+						AWK="/usr/bin/nawk"
+						SED="/usr/bin/sed"
+						PING="/usr/sbin/ping"
+						ECHO="/bin/echo"
+						TELNET="/bin/telnet"
+						SLEEP="/usr/bin/sleep"
+						;;
+					sparc)
+						ARCH=solaris2
+                                                XTERM="/usr/openwin/bin/xterm"
+                                                XHOST="/usr/openwin/bin/xhost"
+                                                TOUCH="/bin/touch"
+                                                NETSTAT="/bin/netstat"
+                                                GREP="/bin/grep"
+                                                WHAT="/usr/ccs/bin/what"
+						AWK="/usr/bin/nawk"
+						SED="/usr/bin/sed"
+						PING="/usr/sbin/ping"
+						ECHO="/bin/echo"
+						TELNET="/bin/telnet"
+						SLEEP="/usr/bin/sleep"
+						;;
+				esac
+			fi
+		;;
+		AIX)
+			case `uname -v` in
+				3)
+					ARCH=aix3
+                                        XTERM="/usr/bin/X11/xterm"
+                                        XHOST="/usr/bin/X11/xhost"
+                                        TOUCH="/bin/touch"
+                                        NETSTAT="/usr/sbin/netstat"
+                                        GREP="/bin/grep"
+                                        WHAT="/bin/what"
+					AWK="/usr/bin/awk"
+					SED="/usr/bin/sed"
+					PING="/usr/sbin/ping"
+					ECHO="/bin/echo"
+					TELNET="/bin/telnet"
+					SLEEP="/bin/sleep"
+					;;
+				4)
+					ARCH=aix4
+                                        XTERM="/usr/bin/X11/xterm"
+                                        XHOST="/usr/bin/X11/xhost"
+                                        TOUCH="/bin/touch"
+                                        NETSTAT="/usr/sbin/netstat"
+                                        GREP="/bin/grep"
+                                        WHAT="/bin/what"
+					AWK="/usr/bin/awk"
+					SED="/usr/bin/sed"
+					PING="/usr/sbin/ping"
+					ECHO="/bin/echo"
+					TELNET="/bin/telnet"
+					SLEEP="/bin/sleep"
+					;;
+				5)
+					ARCH=aix5
+                                        XTERM="/usr/bin/X11/xterm"
+                                        XHOST="/usr/bin/X11/xhost"
+                                        TOUCH="/bin/touch"
+                                        NETSTAT="/usr/sbin/netstat"
+                                        GREP="/bin/grep"
+                                        WHAT="/bin/what"
+					AWK="/usr/bin/awk"
+					SED="/usr/bin/sed"
+					PING="/usr/sbin/ping"
+					ECHO="/bin/echo"
+					TELNET="/bin/telnet"
+					SLEEP="/bin/sleep"
+					;;
+			esac
+		;;
+		HP-UX)
+			if [ `uname -r | sed 's/...\(.\).*/\1/'` = "9" ]; then
+				ARCH=hpux9
+                                XTERM="/usr/bin/X11/xterm"
+                                XHOST="/usr/bin/X11/xhost"
+                                TOUCH="/bin/touch"
+                                NETSTAT="/usr/bin/netstat"
+                                GREP="/bin/grep"
+                                WHAT="/usr/bin/what"
+				AWK="/usr/bin/awk"
+				SED="/bin/sed"
+				PING="/etc/ping"
+				ECHO="/bin/echo"
+				TELNET="/usr/bin/telnet"
+				SLEEP="/bin/sleep"
+			elif [ `uname -r | sed 's/..\(..\).*/\1/'` = "10" ]; then
+				ARCH=hpux10
+                                XTERM="/usr/bin/X11/xterm"
+                                XHOST="/usr/bin/X11/xhost"
+                                TOUCH="/usr/bin/touch"
+                                NETSTAT="/usr/bin/netstat"
+                                GREP="/usr/bin/grep"
+                                WHAT="/bin/what"
+				AWK="/bin/awk"
+				SED="/bin/sed"
+				PING="/usr/sbin/ping"
+				ECHO="/bin/echo"
+				TELNET="/bin/telnet"
+				SLEEP="/bin/sleep"
+			else
+				ARCH=hpux11
+                                XTERM="/usr/bin/X11/xterm"
+                                XHOST="/usr/bin/X11/xhost"
+                                TOUCH="/usr/bin/touch"
+                                NETSTAT="/usr/bin/netstat"
+                                GREP="/usr/bin/grep"
+                                WHAT="/bin/what"
+				AWK="/bin/awk"
+				SED="/bin/sed"
+				PING="/usr/sbin/ping"
+				ECHO="/bin/echo"
+				TELNET="/bin/telnet"
+				SLEEP="/bin/sleep"
+			fi
+		;;
+		Linux)
+			ARCH=linux2x86
+			XTERM="/usr/X11R6/bin/xterm"
+			XHOST="/usr/X11R6/bin/xhost"
+			TOUCH="/bin/touch"
+			NETSTAT="/bin/netstat"
+			GREP="/bin/grep"
+			WHAT="/bin/what"
+			AWK="/usr/bin/awk"
+			SED="/usr/bin/sed"
+			PING="/bin/ping"
+			ECHO="/bin/echo"
+			TELNET="/usr/bin/telnet"
+			SLEEP="/bin/sleep"
+		;;
+	esac
+}
+
+#
+# nco_set_OMNIHOME:
+# Will set the environment variable OMNIHOME. It is not exported.
+# It will not override OMNIHOME if it is already set.
+#
+nco_set_OMNIHOME () {
+	OLDARCHVALUE="${ARCH}"
+	nco_set_ARCH
+	if [ "$ARCH" = "solaris2" -o "$ARCH" = "solaris2x86" -o "$ARCH" = "hpux10" -o "$ARCH" = "hpux11" -o "$ARCH" = "linux2x86" ]; then
+        	OMNIHOME="${OMNIHOME:-/opt/netcool/omnibus}"
+	else
+        	OMNIHOME="${OMNIHOME:-/usr/netcool/omnibus}"
+	fi
+	ARCH="${OLDARCHVALUE}"
+}

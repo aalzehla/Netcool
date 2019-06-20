@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="使用群組及角色實作授權" />
+<meta name="abstract" content="許可權會控制對 ObjectServer 中物件及資料的存取。 透過將一項以上的許可權結合至角色，您可以快速且有效地管理存取。" />
+<meta name="description" content="許可權會控制對 ObjectServer 中物件及資料的存取。 透過將一項以上的許可權結合至角色，您可以快速且有效地管理存取。" />
+<meta name="DC.subject" content="授權" />
+<meta name="keywords" content="授權" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="xF1040928" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>使用群組及角色實作授權</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="xF1040928">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">使用群組及角色實作授權</h1>
+<div class="body conbody"><p class="shortdesc">許可權會控制對 ObjectServer 中物件及資料的存取。
+透過將一項以上的許可權結合至<dfn class="term">角色</dfn>，您可以快速且有效地管理存取。 </p>
+<p class="p">每個使用者都會指派給一或多個<dfn class="term">群組</dfn>。 您可以透過將一個以上角色授與該群組，來為每一個群組指派許可權，以對資料庫物件執行動作。您可以建立邏輯分組 (例如超級使用者或系統管理者)、實體分組 (例如倫敦或紐約 NOC) 或任何其他分組，以簡化安全設定。</p>
+<p class="p">例如，建立自動化需要瞭解 <span class="keyword">Tivoli Netcool/OMNIbus</span> 作業及配置特定 ObjectServer 的方法。 通常，您不想讓所有使用者都建立或修改自動化。
+一個解決方案是建立名為 AutoAdmin 的角色，其具有建立及修改觸發程式群組、檔案、SQL 與外部程序及信號的許可權。 然後，您可將該角色授與要建立及更新自動化的管理者群組。 </p>
+<p class="p"><span class="ph filepath">security.sql</span> Script 包含適用於不同類別使用者 (例如操作員及管理者) 的預設群組及角色。
+您也可以使用此 Script 作為建立自己的群組及角色的範本。</p>
+<p class="p">使用 <span class="keyword">Netcool/OMNIbus Administrator</span> 或 ObjectServer SQL 可以配置使用者、群組及角色。</p>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

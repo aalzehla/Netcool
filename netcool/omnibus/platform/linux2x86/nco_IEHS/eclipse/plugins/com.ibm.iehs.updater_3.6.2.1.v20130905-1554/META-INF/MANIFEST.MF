@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Updater Plug-in
+Bundle-SymbolicName: com.ibm.iehs.updater;singleton:=true
+Bundle-Version: 3.6.2.1
+Bundle-Activator: com.ibm.iehs.updater.WebUpdaterPlugin
+Bundle-Vendor: IBM
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.help.base,
+ org.eclipse.help.webapp,
+ org.eclipse.core.runtime,
+ org.eclipse.update.core,
+ org.eclipse.update.configurator,
+ org.eclipse.equinox.http.registry,
+ org.eclipse.equinox.jsp.jasper.registry
+Eclipse-LazyStart: true
+Import-Package: javax.servlet;version="2.4.0",
+ javax.servlet.http;version="2.4.0",
+ org.osgi.service.http;version="1.2.0"
+Bundle-ClassPath: updater.jar

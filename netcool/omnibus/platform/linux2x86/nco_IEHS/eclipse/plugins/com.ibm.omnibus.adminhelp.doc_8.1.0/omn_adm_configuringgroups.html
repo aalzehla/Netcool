@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Configuring groups" />
+<meta name="abstract" content="Use groups to organize Tivoli Netcool/OMNIbus users into units with common functional goals. All members of a group have the permissions assigned to the group roles." />
+<meta name="Description" content="Use groups to organize Tivoli Netcool/OMNIbus users into units with common functional goals. All members of a group have the permissions assigned to the group roles." />
+<meta name="DC.subject" content="groups, configuring, default" />
+<meta name="keywords" content="groups, configuring, default" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_managingauthorizatn.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditgroups.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletinggroups.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringroles.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringusers.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_configuringgroups" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_managingauthorizatn.html" />
+<title>Configuring groups</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_configuringgroups">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring groups</h1>
+<div class="body conbody"><p class="shortdesc">Use groups to organize <span class="keyword">Tivoli Netcool/OMNIbus</span> users into units with common functional goals. All members
+of a group have the permissions assigned to the group roles.</p>
+<p class="p"><span class="keyword">Tivoli Netcool/OMNIbus</span> provides
+a number of default groups. You can also create custom groups. The
+default groups are described in the following table. </p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Default groups</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="33.33333333333333%" id="d425e37">Group name</th>
+<th class="entry" valign="bottom" width="66.66666666666666%" id="d425e39">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">Probe</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This group is assigned the CatalogUser,
+AlertsUser, AlertsProbe, and RegisterProbe roles.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">Gateway</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This group is assigned the CatalogUser, AlertsUser,
+and AlertsGateway roles.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">ISQL</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This group is assigned the ISQL role.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">ISQLWrite</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This group is assigned the ISQLWrite role.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">Public</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This group is assigned the Public role. All
+users are members of this group.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">Normal</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This group is assigned the CatalogUser,
+AlertsUser, ChannelUser, and RegistryReader roles. This group cannot
+be deleted or renamed. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">Administrator</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This
+group is assigned the CatalogUser, AlertsUser, ToolsAdmin, DesktopAdmin,
+ChannelUser, ChannelAdmin, RegistryAdmin, and OSLCAdmin roles. This
+group cannot be deleted or renamed. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d425e37 ">System</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d425e39 ">This
+group is assigned the CatalogUser, AlertsUser, ToolsAdmin, DesktopAdmin,
+AlertsProbe, AlertsGateway, DatabaseAdmin, AutoAdmin, SecurityAdmin,
+ISQL, ISQLWrite, SuperUser, ChannelUser, ChannelAdmin, OSLCAdmin,
+and RegistryAdmin roles. This group cannot be deleted or renamed. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingeditgroups.html">Creating and editing groups</a></span><br />
+</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_deletinggroups.html">Deleting groups</a></span><br />
+You cannot delete the Normal, Administrator, and System
+groups.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_managingauthorizatn.html" title="Authorization is the verification of the rights to view and modify information.">Managing authorization with users, groups, roles, and restriction filters</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_configuringroles.html" title="Roles are collections of permissions that you can assign to users and groups.">Configuring roles</a></div>
+<div><a class="link" href="omn_adm_configuringusers.html" title="You can create and modify Tivoli Netcool/OMNIbus users, and organize these users into groups. You can assign roles to the user groups, to control access to ObjectServer objects.">Configuring users</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

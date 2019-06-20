@@ -1,0 +1,52 @@
+#######################################################################
+#
+#       Licensed Materials - Property of IBM
+#
+#       5724O4800
+#
+#       (C) Copyright IBM Corp. 1994, 2014. All Rights Reserved
+#
+#       US Government Users Restricted Rights - Use, duplication
+#       or disclosure restricted by GSA ADP Schedule Contract
+#       with IBM Corp.
+#
+#######################################################################
+#
+# AdminGroupName: 'ncoadmin' 			# STRING (Administration Group Name (UNIX))
+# ApiCheck: FALSE 				# BOOLEAN (Enable Sybase API checking)
+# Authenticate: 'UNIX' 				# STRING (Authentication system. (UNIX|KERBEROS|PAM|HPTCB|none))
+# ConfigFile: '$OMNIHOME/etc/nco_pa.conf' 	# STRING (The name of the configuration file)
+# Connections: 30 				# INTEGER (Maximum number of connections permitted)
+# DnsHostname: '' 				# STRING (Overide hostname for DNS environments)
+# Help: FALSE 					# BOOLEAN (Display this help message text)
+# KillProcessGroup: FALSE 			# BOOLEAN (Kill processes belonging to the process group (UNIX))
+# MaxLogFileSize: 1024 				# INTEGER (Maximum log file size in kbytes)
+# MessageLog: '$OMNIHOME/log/NCO_PA.log' 	# STRING (Path to the message log file)
+# MessagePoolSize: 45568 			# INTEGER (Number of messages available to server)
+# MessageLevel: 'warn'				# STRING (Message reporting level)
+# Name: 'NCO_PA'				# STRING (Name that server is to use)
+# NewLog: FALSE					# BOOLEAN (Start a new log file)
+# NoAutoStart: TRUE				# BOOLEAN (Do not start auto-start services on start)
+# NoConfig: FALSE				# BOOLEAN (Server does not read any config file)
+# NoDaemon: TRUE 				# BOOLEAN (Do not fork to daemon process (UNIX))
+# OldTimeStamp: FALSE 				# BOOLEAN (Use legacy timestamp in message log)
+# Password: ''					# STRING (Password for logging in to another PAD)
+# PidFile: './var/nco_pa.pid' 			# STRING (Filename for pid storage relative to $OMNIHOME (UNIX))
+# PidMessagePoolSize: 50 			# INTEGER (Size of signal handling message pool (UNIX))
+# Props.CheckNames: TRUE			# BOOLEAN (Cause program to abort if any property is not understood at the time it is read)
+# PropsFile: '$OMNIHOME/etc/nco_pa.props' 	# STRING (Path to the properties file)
+# RedirectFile: '/dev/null' 			# STRING (File to redirect stderr/stdout to (UNIX))
+# RetryTime: 5					# INTEGER (Failed process start retry time-out)
+# RogueTimeout: 30				# INTEGER (Allowed time in seconds for process shutdown)
+# SecureMode: FALSE				# BOOLEAN (Secure mode)
+# StackSize: 307200				# INTEGER (Size of the thread stack)
+# TicketDir: '$OMNIHOME/var/tkts' 		# STRING (Directory for kerberos tickets (UNIX))
+# TraceEventQueue: FALSE 			# BOOLEAN (Enable the tracing of event queue activity)
+# TraceMessageQueue: FALSE 			# BOOLEAN (Enable the tracing of message queue)
+# TraceMutexLocks: FALSE 			# BOOLEAN (Enable the tracing of mutex locks)
+# TraceNetLibrary: FALSE 			# BOOLEAN (Enable the net library tracing)
+# User: ''					# STRING (User for logging in to another PAD)
+# Version: FALSE				# BOOLEAN (Display servers version details)
+# WalkHostTable: FALSE 				# BOOLEAN (Walk the hosts table to verify all aliases (UNIX))
+
+# End of File

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="使用Netcool MIB Manager" />
+<meta name="abstract" content="可以使用 MIB 管理器 来解析 MIB 模块并创建 Netcool 规则文件。" />
+<meta name="Description" content="可以使用 MIB 管理器 来解析 MIB 模块并创建 Netcool 规则文件。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>使用Netcool MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">使用<span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body conbody"><p class="shortdesc">可以使用 <span class="keyword">MIB 管理器</span> 来解析 MIB 模块并创建 Netcool 规则文件。</p>
+<p class="p"><span class="keyword">MIB 管理器</span> 包含一组基本 MIB 和 RFC MIB，它们位于 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs</span> 目录中。
+提供这些 MIB 是为了使您能够导入其他 MIB。<span class="keyword">MIB 管理器</span> 在导入新 MIB 时会自动使用这些绑定的 MIB 来解析依赖关系。首次启动 <span class="keyword">MIB 管理器</span> 可在“<span class="keyword wintitle">MIB 模块</span>”视图中看见捆绑的 MIB 模块。</p>
+<p class="p"><span class="keyword">MIB 管理器</span> 还包含表示导入捆绑的基本 MIB 的 XML 数据文件。<span class="keyword">MIB 管理器</span> 使用这些 XML 文件存储它从原始文本 MIB 文件导入的 MIB 数据。</p>
+<p class="p">请将 MIB 添加到可从启动 <span class="keyword">MIB 管理器</span> 的机器访问的目录中。所有基于标准的 MIB 都必须安装在一个单独的目录中，可将该目录放置在搜索路径中以便解析依赖关系。
+缺省情况下，基本 SNMP MIB 安装在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> 目录中，所有 RFC MIB 都安装在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> 目录中。</p>
+<div class="section"><h2 class="title sectiontitle"><span class="keyword">Netcool MIB Manager</span> 窗口</h2><p class="p">当您启动 <span class="keyword">MIB 管理器</span> 时，在初始 <span class="keyword">MIB 管理器</span> 窗口中将显示以下元素：有多个元素显示在初始“<span class="keyword wintitle">MIB
+Manager</span>”窗口中。下图显示了这些元素。</p>
+<div class="fig fignone"><span class="figcap">图 1. <span class="keyword">MIB 管理器</span> 初始窗口</span><div class="image"><img class="image" src="../../images/cd_omn_mib_screen.gif" alt="显示初始 MIB 管理器 窗口的图像" /></div></div>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> 工具栏</dt>
+<dd class="dd">提供对最常用的 <span class="keyword">MIB 管理器</span> 功能的访问权。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> 透视图</dt>
+<dd class="dd">可在两个透视图中的一个（<span class="ph uicontrol">MIB 管理器</span>或 <span class="ph uicontrol">mib2rules</span>）内查看 MIB 数据。<span class="ph uicontrol">MIB 管理器</span>透视图是缺省透视图。<span class="ph uicontrol">mib2rules</span> 透视图专用于对象标识 (OID)，是为熟悉 <span class="keyword cmdname">mib2rules</span> 实用程序的用户提供的。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> “<span class="keyword wintitle">设备</span>”视图</dt>
+<dd class="dd">使用此视图可创建、更新和删除 <span class="keyword">MIB 管理器</span> 设备。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> “<span class="keyword wintitle">详细信息</span>”视图和“<span class="keyword wintitle">控制台</span>”视图</dt>
+<dd class="dd">“<span class="keyword wintitle">详细信息</span>”视图显示了所选 MIB 元素的详细信息。
+“<span class="keyword wintitle">控制台</span>”视图显示 <span class="keyword">MIB 管理器</span> 在当前实例正在运行时生成的所有日志消息。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> “<span class="keyword wintitle">MIB 模块</span>”</dt>
+<dd class="dd">使用此视图可搜索和删除 MIB 模块，以及搜索特定的 MIB 值。</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> “<span class="keyword wintitle">OID 树</span>”视图</dt>
+<dd class="dd">此视图以树形方式显示所导入的 IBM 模块中的所有 MIB 对象。</dd>
+</dl>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">“MIB 模块”视图</a></span><br />
+“<span class="keyword wintitle">MIB 模块</span>”视图显示了所有已导入的 MIB 模块，并允许您搜索 MIB 模块、删除 MIB 模块，以及搜索特定的 MIB 值。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">OID 树形视图</a></span><br />
+对象标识 (OID) 树形视图显示了位于导入的 MIB 模块中的所有 MIB 对象。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">导入 MIB 数据</a></span><br />
+如何将 SNMP MIB 数据导入 MIB 管理器。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">导出 MIB 数据</a></span><br />
+如何将 SNMP MIB 数据从 <span class="keyword">MIB 管理器</span> 导出为各种格式。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">编辑 SNMP 陷阱</a></span><br />
+如何编辑 SNMP 陷阱。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">生成 SNMP 陷阱</a></span><br />
+如何生成 SNMP 陷阱。此功能也可用于测试 <span class="keyword">MIB 管理器</span> 生成的规则文件。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html">创建和删除设备</a></span><br />
+<span class="keyword">MIB 管理器</span> 设备用于对关联的 MIB 模块进行分组以及定义导出所需的所有对象。您可以在 <span class="keyword">MIB 管理器</span> GUI 中创建、更新和删除设备。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager 是一个基于 IBM Eclipse 的 GUI 应用程序，可用于解析简单网络管理协议 (SNMP) 管理信息库 (MIB) 文件，根据这些文件可生成 Netcool 规则文件。它用于取代 mib2rules 实用程序。">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

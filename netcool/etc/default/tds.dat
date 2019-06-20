@@ -1,0 +1,150 @@
+;
+; Licensed Materials - Property of IBM 
+;
+; 5724O4800 
+;
+; (C) Copyright IBM Corp. 2007. All Rights Reserved 
+;
+; US Government Users Restricted Rights - Use, duplication or disclosure 
+; restricted by GSA ADP Schedule Contract with IBM Corp. 
+;
+; Flat-file database converting TDS names to ICU names for encodings and 
+; languages.
+;
+; Each entry is:
+;
+; <default icu name> [, <icu alias>]... = <default tds name> [, <tds alias>]...
+; 
+; When a TDS application starts it needs to advertise the encoding
+; it is running in using TDS conventions for compatibility. It asks ICU 
+; for the encoding and language it is running, and looks it up on the left
+; hand side of the '='. The default TDS name will be used. If no entry 
+; matches the ICU name then the ICU name itself will be used.
+;
+; For languages, first <language>_<territory> will be looked up. If this
+; fails, <language> will be looked up. If this also fails, "default" will
+; be used.
+;
+; When an TDS application accepts a connection from a TDS client, the
+; TDS encoding and language of the client will be looked up on the right
+; hand side of the '='.  Any strings in the TDS datastream will be 
+; converted to the ICU encoding in the first column.
+;
+; TDS encodings and languages are limited to 30 characters.
+;
+[encodings]
+ISO-8859-1, ISO_8859-1:1987, ANSI_X3.4-1968 = iso_1
+ISO-8859-2, ISO_8859-2:1987 = iso88592
+ISO-8859-3, ISO_8859-3:1988 = iso88593
+ISO-8859-4, ISO_8859-4:1988 = iso88594
+ISO-8859-5, ISO_8859-5:1988, ibm-1124_P100-1996, ibm-1129_P100-1997 = iso88595
+ISO-8859-6, ISO_8859-6:1987 = iso88596
+ISO-8859-7, ISO_8859-7:1987 = iso88597
+ISO-8859-8, ISO_8859-8:1988 = iso88598
+ISO-8859-9, ISO_8859-9:1989 = iso88599
+ISO-8859-10 = iso10
+ISO-8859-13 = iso13
+ISO-8859-14 = iso14
+ISO-8859-15 = iso15
+macce =  mac_ee
+mac = mac, mac_euro
+maccy = mac_cyr
+mactr = macturk
+Big5 = big5, cp950
+Big5-HKSCS, ibm-5471_P100-2006 = big5hk
+EUC-CN = eucgb
+ibm-954_P101-2007, Extended_UNIX_Code_Packed_Format_for_Japanese = eucjis, deckanji
+EUC-KR = cp949
+EUC-TW, ibm-964_P110-1999 = euccns
+hp-roman8 = roman8, roman9
+cp939 = cp939, cp939yen, cp5039, cp5039yen
+ibm-932, ibm-942_P12A-1999 = cp932
+IBM-874 = cp874ibm
+ms932 = cp932ms
+MS874 = cp874
+TIS-620, windows-874-2000 = tis620
+Shift_JIS = sjis
+cp930 = cp930, cp930yen
+cp871 = cp871v1
+GB18030, GBK = gb18030
+GB2312 = eucgb
+greek8 = greek8
+UTF-8 = utf8
+KOI8-R = koi8
+cp037 = cp037
+CP273 = cp273
+cp277 = cp277
+cp278 = cp278
+CP280 = cp280
+windows-284 = cp284
+windows-285 = cp285
+windows-290 = cp290
+windows-297 = cp297
+windows-420 = cp420
+windows-424 = cp424
+windows-437 = cp437
+windows-500 = cp500
+windows-737 = cp737
+windows-775 = cp775
+windows-850 = cp850
+windows-852 = cp852
+windows-855 = cp855
+ibm-856_P100-1995 = cp856
+windows-857 = cp857
+windows-858 = cp858
+windows-860 = cp860
+windows-861 = cp861
+windows-862 = cp862
+windows-863 = cp863
+windows-864 = cp864
+windows-865 = cp865
+windows-866 = cp866
+windows-869 = cp869
+windows-870 = cp870
+windows-875 = cp875
+windows-921 = cp921
+ibm-922_P100-1999 = cp922
+windows-923 = cp923
+windows-933 = cp933
+windows-935 = cp935
+windows-936 = cp936
+windows-937 = cp937
+windows-949 = cp949
+windows-1006 = cp1006
+windows-1026 = cp1026
+windows-1047 = cp1047
+windows-1140 = cp1140
+windows-1141 = cp1141
+windows-1142 = cp1142
+windows-1143 = cp1143
+windows-1144 = cp1144
+windows-1145 = cp1145
+windows-1146 = cp1146
+windows-1147 = cp1147
+windows-1148 = cp1148
+windows-1149 = cp1149
+windows-1250 = cp1250
+windows-1251 = cp1251
+windows-1251 = cp1251
+windows-1252 = cp1252
+windows-1253 = cp1253
+windows-1254 = cp1254
+windows-1255 = cp1255
+windows-1256 = cp1256
+windows-1257 = cp1257
+windows-1258 = cp1258
+KZ-1048 = kz1048
+
+[languages]
+en, zh_TW, zh_HK = us_english
+zh, chinese = chinese
+de, german, deutsch = german
+fr, french = french
+ja, japanese = japanese
+ko, korean = korean
+pl, polish = polish
+pt, portuguese = portuguese
+es, spanish = spanish
+th, thai = thai
+default = us_english
+

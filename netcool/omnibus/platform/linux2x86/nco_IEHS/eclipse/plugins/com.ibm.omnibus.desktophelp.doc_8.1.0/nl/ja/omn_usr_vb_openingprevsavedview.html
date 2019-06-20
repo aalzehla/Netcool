@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="ビューを開く" />
+<meta name="abstract" content="保存されているビューを開いて、ビュー定義を表示したり編集したりできます。" />
+<meta name="Description" content="保存されているビューを開いて、ビュー定義を表示したり編集したりできます。" />
+<meta name="DC.subject" content="ビュー, 開く" />
+<meta name="keywords" content="ビュー, 開く" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_startingviewbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_vb_openingprevsavedview" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_vb_settingupviewsevntlsts.html" />
+<title>ビューを開く</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_vb_openingprevsavedview">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ビューを開く</h1>
+<div class="body taskbody"><p class="shortdesc">保存されているビューを開いて、ビュー定義を表示したり編集したりできます。</p>
+<div class="section context">ビューを開くには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">ビュー・ビルダーを開始します。 </span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「開く」</span></span>を選択します。 </span> 「<span class="keyword wintitle">ビューを開く</span>」ウィンドウが表示されます。 このウィンドウには、フィルター、ビュー、イベント・リスト構成を保存する操作と開く操作が関連付けられています。 したがって、すべてのフィールドが現在のアクションに該当するとは限りません。 </li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e901"><!-- --></a>フィルター</dt>
+<dd class="dd">このフィールドを使用して、開くファイルのタイプに関する検索照会を指定します。 このフィールドは、<span class="ph uicontrol">「フィルター」</span>ボタンおよび<span class="ph uicontrol">「ファイル」</span>リストと一緒になって動作します。
+<span class="ph uicontrol">「フィルター」</span>フィールドに現行ディレクトリー・パスとファイル・タイプを入力し、次に<span class="ph uicontrol">「フィルター」</span>をクリックします。 <span class="ph uicontrol">「ファイル」</span>リストに一致したファイルがすべて表示されます。</dd>
+<dd class="dd">例えば、<span class="ph filepath">/myfiles/filters</span> ディレクトリー内のすべてのフィルター・ファイルを表示するには、<kbd class="ph userinput">/myfiles/filters/*.elf</kbd> を入力し、<span class="ph uicontrol">「フィルター」</span>をクリックして、一致するすべてのファイルを表示します。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e932"><!-- --></a>ディレクトリー</dt>
+<dd class="dd">このリストには、現行ディレクトリー内のすべてのサブディレクトリーが表示されます。
+このディレクトリーを最新表示するには、「.」エントリーをダブルクリックします。 このディレクトリー・ツリーを 1 つのディレクトリーずつ上に移動するには、「..」エントリーをダブルクリックします。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e937"><!-- --></a>ファイル</dt>
+<dd class="dd">このリストには、現行ディレクトリー内のファイルが表示されます。これらのファイルは、<span class="ph uicontrol">「フィルター」</span>フィールドでの選択に一致しています。 開くファイルの名前を選択します。 既存のファイルを選択して、それを上書きすることもできます。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e945"><!-- --></a>選択</dt>
+<dd class="dd">保存または開こうとしているファイルのパスと名前がここに表示されます。 パスとファイル名を編集して別のファイルを開いたり、別のロケーションにファイルを保存したり、別のファイル名を使用してファイルを保存したりできます。</dd>
+<dd class="dd">ビューを保存する場合は、ファイル名に <span class="ph filepath">.elv</span> 拡張子を使用します。 フィルターを保存する場合は、ファイル名に <span class="ph filepath">.elf</span> 拡張子を使用します。 イベント・リスト構成を保存する場合は、ファイル名に <span class="ph filepath">.elc</span> 拡張子を使用します。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e961"><!-- --></a>既存ファイルのバックアップ (UNIX のみ) </dt>
+<dd class="dd">保存しようとしているファイルの名前がすでに存在している場合は、このチェック・ボックスを使用して既存のビュー・ファイルのバックアップを作成します。 このチェック・ボックスが表示されるのは、フィルター、ビュー、またはイベント・リスト構成を保存する場合だけです。 </dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e969"><!-- --></a>OK</dt>
+<dd class="dd">このボタンをクリックして、ファイルを開くか、または保存します。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e974"><!-- --></a>フィルター</dt>
+<dd class="dd">このボタンは、<span class="ph uicontrol">「フィルター」</span>フィールドおよび<span class="ph uicontrol">「ファイル」</span>フィールドと一緒になって動作します。 このボタンをクリックして、<span class="ph uicontrol">「フィルター」</span>フィールドでの選択に基づき、現行ディレクトリー内のファイルを表示します。 ファイルが<span class="ph uicontrol">「ファイル」</span>リストに表示されます。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_openingprevsavedview__d11423e991"><!-- --></a>キャンセル</dt>
+<dd class="dd">このボタンをクリックして、ファイルを開かずに、または保存せずにこのウィンドウを閉じます。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div>ビュー・ビルダーでビューが開きます。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_vb_settingupviewsevntlsts.html" title="ビューでは、イベント・リストに表示される列の選択およびこれらの列内の情報のフォーマットが定義されます。">イベント・リストのビュー設定</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_vb_startingviewbuilder.html" title="ビュー・ビルダーには、ビューを構成するためのインターフェースが用意されています。">ビュー・ビルダーの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-VC-EVENT-MIB
+#
+###############################################################################
+
+log(DEBUG, "<<<<< Entering... vmware-VMWARE-VC-EVENT-MIB.user.include.snmptrap.rules >>>>>")
+
+switch($specific-trap)
+{
+	case "201": ### vpxdAlarm
+	
+	case "202": ### vpxdDiagnostic
+	
+	case "203": ### vpxdAlarmInfo
+	
+    default:
+}
+
+log(DEBUG, "<<<<< Leaving... vmware-VMWARE-VC-EVENT-MIB.user.include.snmptrap.rules >>>>>")
+

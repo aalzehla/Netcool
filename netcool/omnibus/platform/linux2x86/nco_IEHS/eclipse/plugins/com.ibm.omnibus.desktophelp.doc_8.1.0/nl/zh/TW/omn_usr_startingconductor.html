@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="啟動管理者" />
+<meta name="abstract" content="「管理者」會提供對所有 Tivoli Netcool/OMNIbus 桌面工具的單一登入存取，您可以使用這些工具來檢視及管理警示。" />
+<meta name="description" content="「管理者」會提供對所有 Tivoli Netcool/OMNIbus 桌面工具的單一登入存取，您可以使用這些工具來檢視及管理警示。" />
+<meta name="DC.subject" content="管理者, 啟動" />
+<meta name="keywords" content="管理者, 啟動" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_startingconductor" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>啟動管理者</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_startingconductor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">啟動管理者</h1>
+<div class="body taskbody"><p class="shortdesc">「管理者」會提供對所有 <span class="keyword">Tivoli Netcool/OMNIbus</span> 桌面工具的單一登入存取，您可以使用這些工具來檢視及管理警示。</p>
+<div class="section context"><p class="p">若要使用桌面工具，您必須透過使用有效的鑑別認證，連接到執行中的 ObjectServer。</p>
+<div class="note tip"><span class="tiptitle">提示：</span> 或者，您可以從 UNIX 中的指令行或從 Windows <span class="ph uicontrol">開始</span>功能表，個別啟動桌面工具。然而，每次您以此方法啟動桌面工具時，都需要輸入使用者名稱及密碼，以進行鑑別並連接到選取的 ObjectServer。</div>
+<p class="p">若要啟動「管理者」：</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">針對作業系統執行適當的動作：</span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="表格中的每個橫列提供一個可選取的選項。" class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d218714e41-option" valign="bottom" align="left">選項</th>
+<th id="d218714e41-desc" valign="bottom" align="left">敘述</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d218714e41-option" id="d218714e43" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d218714e41-desc d218714e43" class="stentry chdesc" width="80%">從命令提示字元中，輸入：<kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd> </td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d218714e41-option" id="d218714e52" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d218714e41-desc d218714e52" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">從 Windows <span class="ph uicontrol">開始</span>功能表中，按一下 <span class="ph uicontrol">Netcool 管理者</span>。</li>
+<li class="li">從命令提示字元中，輸入：<p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOConductor.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ 即會開啟「管理者」的「<span class="keyword wintitle">登入</span>」視窗。</li>
+<li class="li step stepexpand"><span class="ph cmd">如下所示完成此視窗：</span> <dl class="dl"><dt class="dt dlterm">使用者名稱</dt>
+<dd class="dd">輸入您的使用者名稱。</dd>
+<dt class="dt dlterm">密碼</dt>
+<dd class="dd">輸入您的密碼。 會在您輸入文字的位置顯示星號 (*) 字元。<div class="note note"><span class="notetitle">註：</span> 如果是針對外部鑑別來源（而不是 ObjectServer）驗證您的使用者名稱及密碼，請檢查此來源是否支援多位元組字元。如果不支援多位元組字元，您必須使用 ASCII 字元指定使用者名稱及密碼。</div>
+</dd>
+<dt class="dt dlterm">伺服器</dt>
+<dd class="dd">ObjectServer 名稱預設為 NCOMS（Netcool/OMNIbus 主要伺服器）。 如果已針對您的環境配置多個 ObjectServer，則所有可用的 ObjectServer 都會顯示在此下拉清單中。選取您要連接至的 ObjectServer。</dd>
+<dt class="dt dlterm">確定</dt>
+<dd class="dd">按一下此按鈕，以鑑別您的登入詳細資料。<div class="note note"><span class="notetitle">註：</span> 允許您嘗試登入三次。 每次嘗試時，都會清除<span class="ph uicontrol">密碼</span>欄位。 如果您在第三次嘗試中仍無法正確登入，程式即會終止。</div>
+</dd>
+<dt class="dt dlterm">取消</dt>
+<dd class="dd">按一下此按鈕，以取消登入嘗試。</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">結果</h2></div><div class="p">在成功登入時：<ul class="ul"><li class="li">「UNIX 管理者」以一個視窗開啟。</li>
+<li class="li">「Windows 管理者」會在 Windows 系統匣中呈現為匯流排圖示。用滑鼠右鍵按一下此圖示，以檢視 Windows <span class="ph uicontrol">管理者</span>功能表。<p class="p">您可以針對每個執行中的 ObjectServer 啟動「管理者」。 在 Windows 上，每個「管理者」都會在系統匣中配置一個圖示。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="您可以使用「管理者」，以管理 Tivoli Netcool/OMNIbus 桌面工具 (或用戶端應用程式)。">存取桌面工具</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

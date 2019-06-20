@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX에서 보기 작성 또는 편집" />
+<meta name="abstract" content="보기 빌더를 사용하면 이벤트 목록에 표시할 컬럼을 정의할 수 있습니다." />
+<meta name="Description" content="보기 빌더를 사용하면 이벤트 목록에 표시할 컬럼을 정의할 수 있습니다." />
+<meta name="DC.subject" content="보기, 작성, 편집" />
+<meta name="keywords" content="보기, 작성, 편집" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_startingviewbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_vb_creatingeditingviewunix" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_vb_settingupviewsevntlsts.html" />
+<title>UNIX에서 보기 작성 또는 편집</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_vb_creatingeditingviewunix">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX에서
+보기 작성 또는 편집</h1>
+<div class="body taskbody"><p class="shortdesc">보기 빌더를 사용하면 이벤트 목록에 표시할 컬럼을 정의할 수 있습니다.</p>
+<div class="section context">보기를 작성 또는 편집하려면 다음을 수행하십시오. </div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">보기 빌더를 시작하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">다음과 같이 보기 설정 영역을 완료하십시오. </span> <dl class="dl"><dt class="dt dlterm">보기 이름</dt>
+<dd class="dd">보기를 새로 작성할 경우 현재 이름을 보기의 고유 이름으로 겹쳐쓰기합니다.
+이 이름은 이벤트 목록에 사용됩니다. 기존 보기를 편집할 경우 이 필드에 항목을 작성할 필요가 없습니다.</dd>
+<dt class="dt dlterm">편집 가능</dt>
+<dd class="dd">해당 관리자 권한이 있는 경우 기타 사용자가 이 보기를 편집하도록 허용하려면
+이 선택란을 체크하고 보기가 수정되지 못하게 하려면 이 선택란을 체크하지 마십시오.
+<div class="note restriction"><span class="restrictiontitle">제한사항:</span> 이 설정은 보기가 이벤트
+목록 구성(<span class="ph filepath">.elc</span> 파일)의 일부로 저장된 경우에만 적용됩니다. </div>
+</dd>
+</dl>
+
+<p class="p">이제 포함할 컬럼을 선택하고 이벤트 목록에서 해당 순서 및 형식을 지정하여
+보기를 정의할 수 있습니다.
+또한 이벤트 목록에서 행의 정렬 순서 및 우선순위를 구성하고 표시된 행의 수를 제한할 수도 있습니다.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">컬럼 표시</span> 영역에서 다음과 같이 컬럼을 추가, 제거 및
+재배치하십시오. </span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">이벤트 목록 행렬</em></dt>
+<dd class="dd">이 행렬은 이벤트 목록 보기에 표시하기 위해 선택되는 모든 컬럼과 해당 컬럼이
+표시되는 순서를 표시합니다.
+실제 컬럼 이름은 맨 위에 표시되고 아래의 행은 각 컬럼의 데이터 유형을
+표시합니다.
+행에서 <samp class="ph tt">더미</samp>는 문자열 컬럼을 식별하는 데 사용되고
+숫자 <samp class="ph tt">1</samp>은 정수 컬럼을, <samp class="ph tt">01/01/70 01:00:01</samp>은
+시간 컬럼을 각각 식별합니다. </dd>
+<dd class="dd">이벤트 목록 행렬은 <span class="ph uicontrol">제거</span>, <span class="ph uicontrol">첫 번째</span>,
+<span class="ph uicontrol">왼쪽</span>, <span class="ph uicontrol">오른쪽</span> 및 <span class="ph uicontrol">마지막</span>
+단추와 연계하여 사용됩니다.
+이 행렬에서 임의의 컬럼에 대해 조치를 수행하려면 먼저 해당 컬럼과 연관되어 있는 셀을
+클릭하십시오.
+이 방법으로 컬럼을 선택하면 해당 컬럼에 대해 현재 정의되어 있는 세부사항도
+<span class="ph uicontrol">컬럼 세부사항</span> 영역에 표시됩니다.</dd>
+<dt class="dt dlterm"><em class="ph i">사용 가능 컬럼 목록</em></dt>
+<dd class="dd"><span class="ph uicontrol">컬럼 세부사항</span> 영역에 인접한 이 목록은
+이벤트 목록에 더 추가될 수 있는 컬럼을 모두 표시합니다. 사용 가능
+컬럼 목록은 <span class="ph uicontrol">추가</span> 단추와 연계하여 사용됩니다. </dd>
+<dd class="dd">이벤트 목록에 추가하려는 컬럼을 선택하십시오. <div class="note tip"><span class="tiptitle">팁:</span> 이 목록의 컬럼 이름은
+알파벳순으로 표시됩니다. </div>
+</dd>
+<dt class="dt dlterm">추가</dt>
+<dd class="dd">사용 가능 컬럼 목록에 현재 선택되어 있는 컬럼을 이벤트 목록에 추가하려면 이 단추를
+클릭하십시오. 컬럼은 이벤트 목록 행렬의 가장 오른쪽 항목으로 추가됩니다.
+<div class="note tip"><span class="tiptitle">팁:</span> 끌어놓기 기법을 사용하여 컬럼을 추가할 수 있습니다.
+사용 가능 컬럼 목록에서 추가하려는 컬럼을 선택하십시오.
+이 컬럼에서 마우스 가운데 단추를 누른 상태로 커서를 이벤트 목록 행렬 안에
+끌어놓으십시오. 컬럼을 놓을 수 있는 영역 안에 들어오면 커서가 변경되어
+녹색 틱이 표시됩니다. 마우스 단추를 해제하십시오. 컬럼은 이벤트 목록 행렬의 가장 오른쪽 항목으로 추가됩니다.</div>
+</dd>
+<dt class="dt dlterm">제거</dt>
+<dd class="dd">이벤트 목록 행렬에서 현재 선택된 컬럼을 사용 가능 컬럼 목록으로 다시
+이동하려면 이 단추를 클릭하십시오.
+이 컬럼은 더 이상 이벤트 목록에 표시되지 않습니다.
+<div class="note tip"><span class="tiptitle">팁:</span> 끌어놓기
+기법을 사용하여 컬럼을 제거할 수 있습니다.
+이벤트 목록 행렬에서 제거하려는 컬럼의 셀을 선택하십시오.
+이 셀에서 마우스 가운데 단추를 누른 상태로 커서를 사용 가능 컬럼 목록 안에
+끌어놓으십시오. 컬럼을 놓을 수 있는 영역 안에 들어오면 커서가 변경되어
+녹색 틱이 표시됩니다. 마우스 단추를 해제하십시오. 컬럼이 사용 가능 컬럼 목록에
+추가됩니다. </div>
+</dd>
+<dt class="dt dlterm">처음</dt>
+<dd class="dd">이벤트 목록 행렬에서 현재 선택된 컬럼을
+이벤트 목록의 첫 번째(가장 왼쪽) 컬럼으로 위치를 변경하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">왼쪽</dt>
+<dd class="dd">이벤트 목록 행렬에서 현재 선택된 컬럼을 왼쪽으로 한 위치 이동하려면
+이 단추를 클릭하십시오.</dd>
+<dt class="dt dlterm">오른쪽</dt>
+<dd class="dd">이벤트 목록 행렬에서 현재 선택된 컬럼을 오른쪽으로 한 위치 이동하려면
+이 단추를 클릭하십시오.</dd>
+<dt class="dt dlterm">마지막</dt>
+<dd class="dd">이벤트 목록 행렬에서 현재 선택된 컬럼을 이벤트 목록의 마지막(가장 오른쪽)
+컬럼으로 위치를 변경하려면 이 단추를 클릭하십시오.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">컬럼 표시</span> 영역에서 다음과 같이 컬럼을 형식화하십시오.</span> <dl class="dl"><dt class="dt dlterm">컬럼 세부사항</dt>
+<dd class="dd">이 영역을 사용하여 이벤트 목록 행렬에서 현재 선택되어 있는 컬럼을 포맷하십시오.
+<dl class="dl"><dt class="dt dlterm">컬럼/정렬</dt>
+<dd class="dd">시스템 정의된 컬럼 이름은 <span class="ph uicontrol">컬럼</span> 필드에 읽기 전용 값으로 표시됩니다.
+인접 <span class="ph uicontrol">정렬</span> 목록에서
+<span class="keyword option">왼쪽</span>, <span class="keyword option">가운데</span> 또는 <span class="keyword option">오른쪽</span>을 선택하여
+이벤트 목록의 컬럼 데이터 맞추기를 설정하십시오.</dd>
+<dt class="dt dlterm">제목/정렬</dt>
+<dd class="dd">컬럼이 시스템 정의된 이름 이외의 다른 제목으로 표시되게 하려면
+<span class="ph uicontrol">제목</span> 필드에 이 제목을 입력하십시오.
+인접 <span class="ph uicontrol">정렬</span> 목록에서 왼쪽, 가운데 또는
+오른쪽을 선택하여 이벤트 목록의 컬럼 제목 맞추기를 설정하십시오. </dd>
+<dt class="dt dlterm">너비</dt>
+<dd class="dd">이벤트 목록의 컬럼 너비를 설정하려면 슬라이더 상자를 왼쪽 또는 오른쪽으로
+끌어놓으십시오. </dd>
+</dl>
+</dd>
+<dt class="dt dlterm">고정 컬럼</dt>
+<dd class="dd">이벤트 목록의 왼쪽 측면에 다수의 고정 컬럼을 둘 수 있습니다.
+보기의 컬럼을 가로 스크롤하더라도 고정 컬럼이 화면 밖으로 이동하지 않습니다.
+이 슬라이더를 사용하여 보기에서 총 컬럼 수보다 최대 하나 더 적게 수정하십시오.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">컬럼 정렬</span> 영역에서 다음과 같이 이벤트 목록 컬럼의 정렬 순서 및 정렬 우선순위를 지정하십시오.</span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e196"><!-- --></a><em class="ph i">사용 가능 정렬 목록</em></dt>
+<dd class="dd">이 목록(왼쪽)은 이벤트 데이터를 정렬할 수 있는 사용 가능 컬럼을 모두
+표시합니다. 사용 가능 정렬 목록은 <span class="ph uicontrol">추가</span> 단추와 연계하여
+사용됩니다. </dd>
+<dd class="dd">이벤트 목록 행을 정렬할 컬럼을 선택하십시오. <div class="note tip"><span class="tiptitle">팁:</span> 이 목록의 컬럼 이름은
+알파벳순으로 표시됩니다. </div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e209"><!-- --></a>추가</dt>
+<dd class="dd">사용 가능 정렬 목록에서 선택된 컬럼을 인접 정렬 순서 정의 목록에 추가하려면
+이 단추를 클릭하십시오.
+컬럼이 정렬 목록의 맨 아래에 추가됩니다.
+<div class="note tip"><span class="tiptitle">팁:</span> 끌어놓기 기법을 사용하여 컬럼을 추가할 수 있습니다.
+사용 가능 정렬 목록에서 정렬 순서 정의 목록에 추가하려는 컬럼을 선택하십시오.
+이 컬럼 이름에서 마우스 가운데 단추를 누른 상태로 커서를 정렬 순서 정의 목록
+안에 끌어놓으십시오. 컬럼을 놓을 수 있는 영역 안에 들어오면 커서가 변경되어
+녹색 틱이 표시됩니다. 마우스 단추를 해제하십시오. 컬럼이 정렬 순서 정의
+목록의 맨 아래에 추가됩니다.</div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e216"><!-- --></a><em class="ph i">정렬 순서 정의 목록</em></dt>
+<dd class="dd">이 목록(오른쪽)은 이벤트 데이터를 정렬하기 위해 사용될 컬럼을 모두
+표시합니다.
+이 목록을 사용하여 이벤트 데이터의 정렬 정의를 다음과 같이 지정하십시오.
+<ul class="ul"><li class="li">각 컬럼의 정렬 순서를 정의하십시오. 목록의 각 컬럼 이름 왼쪽으로 화살표가
+표시됩니다. 기본적으로 이 화살표는 위쪽을 향하고 컬럼이 영문자 오름차순으로
+정렬됨을 표시합니다. 내림차순으로 변경하려면 화살표를 두 번 클릭하십시오.
+정렬 방향을 변경하기 위해 선택한 컬럼 이름에서 마우스 오른쪽 단추를 클릭한 다음 팝업 메뉴에서
+<span class="ph uicontrol">변경</span>을 선택할 수도 있습니다.</li>
+<li class="li">모든 컬럼의 정렬 우선순위를 정의하십시오. 정렬 목록의 맨 위에 있는
+필드는 정렬 시 최고 우선순위를 갖습니다.
+첫 번째 필드에 다수 항목의 동일한 값이 포함된 경우
+목록의 두 번째 필드가 해당 항목을 정렬하는 데 사용됩니다.
+컬럼의 정렬 우선순위를 높이거나 낮추려면 컬럼 이름을 선택한 다음
+아래에 설명한 대로 <span class="ph uicontrol">맨 위</span>, <span class="ph uicontrol">위로</span>,
+<span class="ph uicontrol">아래로</span> 및 <span class="ph uicontrol">맨 아래</span> 단추를
+사용하십시오. </li>
+</ul>
+</dd>
+<dd class="dd">또한 <span class="ph uicontrol">제거</span> 단추와 연계하여 정렬 순서 정의 목록을 사용할
+수도 있습니다. </dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e247"><!-- --></a>제거</dt>
+<dd class="dd">정렬 순서 정의 목록에서 현재 선택된 정렬 컬럼을 사용 가능 정렬 목록으로
+다시 옮기려면 이 단추를 클릭하십시오. 또한 선택한 컬럼 이름에서 마우스 오른쪽 단추를 클릭한
+다음 팝업 메뉴에서 <span class="ph uicontrol">제거</span>를 선택할 수도 있습니다.
+<div class="note tip"><span class="tiptitle">팁:</span> 끌어놓기
+기법을 사용하여 컬럼을 제거할 수 있습니다.
+정렬 순서 정의 목록에서 제거하려는 컬럼을 선택하십시오.
+이 컬럼 이름에서 마우스 가운데 단추를 누른 상태로 커서를 사용 가능 정렬 목록
+안에 끌어놓으십시오. 컬럼을 놓을 수 있는 영역 안에 들어오면 커서가 변경되어
+녹색 틱이 표시됩니다. 마우스 단추를 해제하십시오. 컬럼이 사용 가능 정렬 목록에
+추가됩니다. </div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e257"><!-- --></a>맨 위</dt>
+<dd class="dd">선택한 컬럼을 목록의 맨 위로 이동하려면 이 단추를 클릭하십시오.
+또한 선택한 컬럼 이름에서 마우스 오른쪽 단추를 클릭한
+다음 팝업 메뉴에서 <span class="ph uicontrol">맨 위</span>를 클릭할 수도 있습니다.</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e265"><!-- --></a>위로</dt>
+<dd class="dd">선택한 컬럼을 목록의 한 위치 위로 이동하려면 이 단추를 클릭하십시오.
+또한 선택한 컬럼 이름에서 마우스 오른쪽 단추를 클릭한
+다음 팝업 메뉴에서 <span class="ph uicontrol">위로</span>를 클릭할 수도 있습니다.</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e273"><!-- --></a>아래로</dt>
+<dd class="dd">선택한 컬럼을 목록의 한 위치 아래로 이동하려면 이 단추를 클릭하십시오.
+또한 선택한 컬럼 이름에서 마우스 오른쪽 단추를 클릭한
+다음 팝업 메뉴에서 <span class="ph uicontrol">아래로</span>를 클릭할 수도 있습니다.</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewunix__d10685e281"><!-- --></a>맨 아래</dt>
+<dd class="dd">선택한 컬럼을 목록의 맨 아래로 이동하려면 이 단추를 클릭하십시오.
+또한 선택한 컬럼 이름에서 마우스 오른쪽 단추를 클릭한
+다음 팝업 메뉴에서 <span class="ph uicontrol">맨 아래</span>를 클릭할 수도 있습니다.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">행 제한</span> 영역에서 다음과 같이 이벤트 목록의 디스플레이 행 수를
+제한하십시오.</span> <dl class="dl"><dt class="dt dlterm">행 제한[1-100]</dt>
+<dd class="dd">이벤트 목록에 표시되는 행 수를 1에서 100 사이로 제한하려면 이 선택란을 선택하십시오. <span class="ph uicontrol">최소</span>, <span class="ph uicontrol">최대</span>
+및 <span class="ph uicontrol">기본값</span> 필드가 사용 가능합니다. <div class="note note"><span class="notetitle">참고:</span> <span class="ph uicontrol">행
+제한[1-100]</span> 선택란을 체크하고 구성을 <span class="ph filepath">.elv</span>
+파일로 저장하면 <span class="ph filepath">.elv</span> 파일은
+Netcool/OMNIbus V3.6과 호환되지 않습니다. </div>
+</dd>
+<dt class="dt dlterm">최소값</dt>
+<dd class="dd">표시할 최소 행 수를 입력하거나 화살표를 사용하여 값을 늘리거나 줄이십시오.</dd>
+<dt class="dt dlterm">최대값</dt>
+<dd class="dd">표시할 최대 행 수를 입력하거나 화살표를 사용하여 값을 늘리거나 줄이십시오.</dd>
+<dt class="dt dlterm">기본값</dt>
+<dd class="dd">표시할 기본 행 수를 입력하거나 화살표를 사용하여 값을 늘리거나 줄이십시오.</dd>
+<dt class="dt dlterm">이벤트 목록에서 설정</dt>
+<dd class="dd">이벤트 목록 사용자가 이벤트 목록 보기에 표시할 이벤트 수를 선택할 수 있게
+하려면 이 선택란을 선택하십시오.
+이 선택란을 체크하는 경우 사용자가 이벤트 목록 제어를 사용해서 선택하여 볼 수 있는
+이벤트 수가 보기 빌더에 지정된 <span class="ph uicontrol">최소</span> 및 <span class="ph uicontrol">최대</span>
+값에 의해 제한됩니다. 이 선택란을 지우는 경우 표시되는 이벤트 수는
+항상 지정된 <span class="ph uicontrol">기본</span>값이 됩니다. </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">보기 정의 후 다음과 같이 보기를 저장하거나 변경을 취소하십시오.</span> <dl class="dl"><dt class="dt dlterm">적용</dt>
+<dd class="dd">변경사항을 저장하지 않고 보기에 적용하려면 이 단추를 클릭하십시오. </dd>
+<dt class="dt dlterm">닫기</dt>
+<dd class="dd">창을 닫고 변경사항을 버리려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">결과</h2></div><p class="p">보기는
+<span class="ph filepath">.elv</span> 파일 확장자로 저장해야 합니다.</p>
+<div class="note note"><span class="notetitle">참고:</span> 컨덕터에서 UNIX 보기 빌더를
+실행할 때는 <span class="ph uicontrol">적용</span> 단추가 표시되지 않습니다.
+이 경우에는 UNIX
+보기 빌더에서 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">저장</span></span> 또는 <span class="ph menucascade"><span class="ph uicontrol">파일</span> &gt; <span class="ph uicontrol">다른 이름으로 저장</span></span>을
+선택하여 보기를 모두 저장해야 합니다. </div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_vb_settingupviewsevntlsts.html" title="보기는 이벤트 목록에 표시되는 컬럼의 선택사항과 이 컬럼 안에 있는 정보의 포맷팅을 정의합니다.">이벤트 목록에 대한 보기 설정</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_vb_startingviewbuilder.html" title="보기 빌더는 보기를 구성할 수 있는 인터페이스를 제공합니다.">보기 빌더 시작</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

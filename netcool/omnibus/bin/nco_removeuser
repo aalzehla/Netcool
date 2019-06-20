@@ -1,0 +1,126 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1998, 2007. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Add a user
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+#
+# Set defaults etc
+#
+# Object server name
+OMNISERVER="${NCO_SERVER:-NCOMS}"
+
+# Object server password for root user
+OSPASS=
+
+export NCHOME OMNIHOME OMNISERVER OSPASS
+
+#
+# error message function
+#
+err () {
+        echo "`basename $0`: $@" 1>&2
+        exit 1
+}
+
+#
+# help function
+#
+help () {
+	echo
+	echo "usage: `basename $1` UID" 1>&2
+	echo "    or `basename $1` -help" 1>&2
+	echo
+	exit 0
+}
+
+#
+# Check args
+#
+if [ $# -ne 1 -o "$1" = "-help" ]; then
+	help $0
+fi
+
+#
+# Check for execute permission
+#
+if [ ! -x $COMMON_ARCH_BIN_DIR/isql ]; then
+        err "Command interpreter not installed for $ARCH"
+fi
+
+#
+# Run isql - This has the root password here !
+#
+if [ -f $NCHOME/etc/interfaces.$ARCH ]; then
+        INTERFACES=$NCHOME/etc/interfaces.$ARCH
+else
+        INTERFACES=$NCHOME/etc/interfaces
+fi
+SYBASE=$NCHOME/platform/$ARCH export SYBASE
+
+echo "Using Object server $OMNISERVER" 1>&2 
+echo
+
+#
+# Get the user's name from the provided UID
+#
+USERSTR=`$COMMON_ARCH_BIN_DIR/isql -S$OMNISERVER -Uroot -P$OSPASS -I$INTERFACES -b <<EOF
+select UserName from security.users where UserID = $1;
+go
+EOF`
+USERNAME=`$ECHO $USERSTR | $AWK '{print $1;}'`
+# Check we have a row
+if [ "$USERNAME" = "(0" ]; then
+    err "Invalid UID: $1"
+fi
+
+#
+# Reassign the user's alerts to 'nobody' and drop the user
+#
+$COMMON_ARCH_BIN_DIR/isql -S$OMNISERVER -Uroot -P$OSPASS -I$INTERFACES <<EOF >removeuser.log 2>&1
+update alerts.status set OwnerUID=65534 where OwnerUID=$1;
+go
+delete from alerts.conversions via 'OwnerUID$1';
+go
+drop user '$USERNAME';
+go
+EOF
+
+# Display information about deleted/altered records
+
+cat removeuser.log | sed 's/(//g' | $AWK '{if (NR == 1)
+{printf("Reassigned %s alerts to nobody\n",$1)}
+else if (NR == 2)
+{printf("%s records deleted from conversions\n",$1)}
+else
+{printf("1 user deleted\n")}
+}'

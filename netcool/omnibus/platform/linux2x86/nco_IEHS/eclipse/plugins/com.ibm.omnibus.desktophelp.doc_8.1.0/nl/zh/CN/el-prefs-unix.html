@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="事件列表首选项" />
+<meta name="abstract" content="使用此窗口可为事件列表配置首选项。" />
+<meta name="description" content="使用此窗口可为事件列表配置首选项。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_settingprefsunixevntist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitorboxoverview.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistpreferenceswindowUNIX" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>事件列表首选项</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistpreferenceswindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">事件列表首选项</h1>
+<div class="body refbody"><p class="shortdesc">使用此窗口可为事件列表配置首选项。</p>
+<div class="section"><span class="keyword wintitle">事件列表首选项</span>窗口包含以下选项卡：<ul class="ul"><li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_monitorstabUNIX">“监视器”选项卡</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_refreshtabUNIX">“刷新”选项卡</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_notificationtabUNIX">“通知”选项卡</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_flashingtabUNIX">“闪烁”选项卡</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_misctabUNIX">“其他”选项卡</a></li>
+</ul>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_monitorstabUNIX"><h2 class="title sectiontitle">“监视器”选项卡</h2><div class="p">使用此选项卡可指定“<span class="keyword wintitle">事件列表</span>”监视器框窗口中监视器框显示的信息类型。 请按以下步骤完成<span class="ph uicontrol">监视器</span>选项卡：<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_monitorfields"><dt class="dt dlterm">显示计数</dt>
+<dd class="dd">选中此复选框可显示与监视器框上过滤器匹配的警报的数量。</dd>
+<dt class="dt dlterm">显示最高严重性</dt>
+<dd class="dd">选中此复选框可显示与监视器框上过滤器匹配的警报中最高的严重性。</dd>
+<dt class="dt dlterm">显示最低严重性</dt>
+<dd class="dd">选中此复选框可显示与监视器框上过滤器匹配的警报中最低的严重性。</dd>
+<dt class="dt dlterm">显示度量</dt>
+<dd class="dd">选中此复选框可显示监视器框上选定的过滤器度量值。 </dd>
+<dt class="dt dlterm">显示严重性边界</dt>
+<dd class="dd">选中此复选框可在监视器框周围显示彩色边框。 边框颜色会根据与过滤器匹配的警报中最高的严重性的变化而发生更改。</dd>
+<dt class="dt dlterm">显示指示灯</dt>
+<dd class="dd">单击此选项可将分布指示器显示为监视器框上的水平栏。</dd>
+<dt class="dt dlterm">显示矩形图</dt>
+<dd class="dd">单击此选项可将分布指示器显示为监视器框上的条形图。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_refreshtabUNIX"><h2 class="title sectiontitle">“刷新”选项卡</h2><div class="p">使用此选项卡可为事件列表配置更新时间间隔。 请按以下步骤完成<span class="ph uicontrol">刷新</span>选项卡：<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_refreshfields"><dt class="dt dlterm">定时刷新</dt>
+<dd class="dd">使用这些字段可表明是否应该以指定的时间间隔更新警报信息，或者您是否愿意等待来自 ObjectServer 的更新通知。 要指定更新频率，请选中<span class="ph uicontrol">定时刷新</span>复选框，然后在相邻字段中输入时间（以秒为单位）。</dd>
+<dd class="dd">来自 ObjectServer 的所有最新数据都将以指定的频率发送到事件列表。<div class="note tip"><span class="tiptitle">提示：</span> “定时刷新”强制事件列表以设定的时间间隔重新装入其所有数据。 不要将刷新率设置得过低（例如，少于 60 秒），因为这会对 ObjectServer 性能和网络流量产生影响。</div>
+<div class="note note"><span class="notetitle">注：</span> 如果您的系统管理员已将 <span class="keyword parmname parmname">AllowTimedRefresh</span> ObjectServer 属性设置为 <samp class="ph tt">FALSE</samp>，那么将禁用刷新计时器，并将根据来自 ObjectServer 的通知来进行更新。</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_notificationtabUNIX"><h2 class="title sectiontitle">“通知”选项卡</h2><div class="p">当事件列表最小化时，使用该选项卡可配置警报通知的首选项。 请按以下步骤完成<span class="ph uicontrol">通知</span>选项卡：<dl class="dl"><dt class="dt dlterm">缩为图标时通知</dt>
+<dd class="dd">选中此复选框可在事件列表最小化时接收到新的、已更改或已删除警报的通知。 只能在事件列表最小化时显示图标的桌面环境上收到通知。 使用<span class="ph uicontrol">时间</span>和<span class="ph uicontrol">方式</span>选项可设置通知的方法。</dd>
+<dt class="dt dlterm">何时</dt>
+<dd class="dd">选中每个复选框将按如下所示接收通知：<ul class="ul"><li class="li">选择<span class="ph uicontrol">新建时接收</span>可在将新警报添加到事件列表时接收通知。</li>
+<li class="li">选择<span class="ph uicontrol">更改时接收</span>可在事件列表中现有警报发生更改时接收通知。</li>
+<li class="li">选择<span class="ph uicontrol">删除时接收</span>可在从事件列表中删除现有警报时接收通知。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">如何</dt>
+<dd class="dd">选中每个复选框可指明发出通知的方式：<ul class="ul"><li class="li">选择<span class="ph uicontrol">响铃</span>可拉响一次工作站或终端的铃。</li>
+<li class="li">选择<span class="ph uicontrol">警报图标</span>可在事件列表图标上闪烁叹号（UNIX），或者让最小化的事件列表闪烁（Windows）。</li>
+<li class="li">选择<span class="ph uicontrol">打开窗口</span>可在屏幕上打开事件列表。 如果通过交互式布局来使用窗口管理器，事件列表将打开为活动窗口。</li>
+<li class="li">选择<span class="ph uicontrol">运行外部命令</span>可运行命令。
+如果您选中此复选框，那么必须输入命令名。 该功能只能用于简单桌面通知，并不是为处理页面调度应用程序而设计的。 </li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_flashingtabUNIX"><h2 class="title sectiontitle">“闪烁”选项卡</h2><div class="p">使用此选项卡可在接收到新警报时指定关于闪烁的事件列表首选项。 请按以下步骤完成<span class="ph uicontrol">闪烁</span>选项卡：<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_flashingfields"><dt class="dt dlterm">启用闪烁</dt>
+<dd class="dd">选中此复选框可启用事件列表闪烁。 使用<span class="ph uicontrol">快/慢</span>滑块可指明事件列表的闪烁快慢程度。 使用<span class="ph uicontrol">明/暗</span>滑块可指明闪烁的亮度。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistpreferences_misctabUNIX"><h2 class="title sectiontitle">“其他”选项卡</h2><div class="p">使用此选项卡可设置其他事件列表首选项。 请按以下步骤完成 <span class="ph uicontrol">其他</span>选项卡：<dl class="dl" id="netom_eventlistpreferenceswindowUNIX__netom_eventlistprefsunix_miscfields"><dt class="dt dlterm">显示事件列表颜色</dt>
+<dd class="dd">选中此复选框可使用颜色来描述事件列表中警报的严重性。 清除此复选框可对所有事件列表行显示灰色背景。 </dd>
+<dt class="dt dlterm">显示分发摘要</dt>
+<dd class="dd">选中此复选框可在事件列表中显示分布摘要栏。 该栏显示与每个严重性颜色相匹配的警报的数量。 </dd>
+<dt class="dt dlterm">显示工具栏</dt>
+<dd class="dd">选中此复选框可在事件列表中显示工具栏。 </dd>
+<dt class="dt dlterm">缺省情况下“跳转”按钮开启</dt>
+<dd class="dd">缺省情况下，选中此复选框可对所有事件列表启用“跳转到顶部”功能。 只要添加了新事件，“跳转到顶部”功能就使事件列表滚动到顶部，且该功能还帮助您快速复审更新的事件。 <div class="note tip"><span class="tiptitle">提示：</span> 还可以对单个事件列表启用“跳转到顶部”功能，以便您可以自动查看对事件列表的更新，或者您可以对单个事件列表禁用此功能。 </div>
+</dd>
+<dt class="dt dlterm">排序详细信息</dt>
+<dd class="dd">选中此复选框可在<span class="keyword wintitle">事件信息</span>窗口中按字段名称的字母顺序对详细信息字段进行排序。 清除了此复选框时，按照 ObjectServer 确定的顺序显示详细信息字段。 </dd>
+</dl>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">应用和保存首选项设置</h2><dl class="dl" id="netom_eventlistpreferenceswindowUNIX__d1022e845"><dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1022e846"><!-- --></a>应用</dt>
+<dd class="dd">单击该按钮可应用更改，但不会保存更改。 该按钮使您可以测试更改如何影响桌面。 </dd>
+<dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1022e851"><!-- --></a>保存</dt>
+<dd class="dd">单击该按钮以保存对首选项所作的任何更改。 <div class="note tip"><span class="tiptitle">提示：</span> 要在事件列表中查看对首选项的任何更改，您必须关闭任何已打开的事件列表，然后将其重新打开。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1022e858"><!-- --></a>关闭</dt>
+<dd class="dd">单击该按钮可关闭窗口，而不保存更改。</dd>
+<dt class="dt dlterm"><a name="netom_eventlistpreferenceswindowUNIX__d1022e863"><!-- --></a>撤销</dt>
+<dd class="dd">单击该按钮可撤销对每个选项卡所作的任何更改。 </dd>
+</dl>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_usr_el_monitorboxoverview.html" title="事件列表监视器框窗口上的监视器框将显示过滤器和所选的视图，创建过滤器和视图的目的在于确定要显示事件列表中的哪些警报记录和列。 监视器框将以其关联的过滤器命名。">监视器框概述</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_settingprefsunixevntist.html" title="可以配置在监视器框上应显示何种类型的信息，指定应以何种频率刷新事件列表，以及在最小化事件列表时设置警报通知的选项。 也可以设置事件列表的闪烁和其他首选项。">设置 UNIX 事件列表的首选项</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="設定記載層次" />
+<meta name="abstract" content="您可以變更記載層次以提供更詳細的日誌或追蹤檔案，來協助對 MIB Manager 進行除錯。透過遞增記載層次提供的額外資訊可協助您在剖析 MIB 時除錯特定問題。" />
+<meta name="Description" content="您可以變更記載層次以提供更詳細的日誌或追蹤檔案，來協助對 MIB Manager 進行除錯。透過遞增記載層次提供的額外資訊可協助您在剖析 MIB 時除錯特定問題。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">設定記載層次</h1>
+<div class="body refbody"><p class="shortdesc">您可以變更記載層次以提供更詳細的日誌或追蹤檔案，來協助對 <span class="keyword">MIB Manager</span> 進行除錯。透過遞增記載層次提供的額外資訊可協助您在剖析 MIB 時除錯特定問題。</p>
+<div class="section"><p class="p">若要變更記載層次，請從主視窗功能表列中按一下<span class="ph menucascade"><span class="ph uicontrol">編輯</span> &gt; <span class="ph uicontrol">除錯</span></span>。日誌檔具有六個訊息層次，您可以輪流選取來增加擷取的詳細程度：無、錯誤、警告、參考資訊、除錯及詳細。</p>
+<p class="p">下表提供每個記載層次的簡要說明：</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 記載層次及其關聯說明的清單</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3945e36">日誌層次</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3945e38">說明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">無</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">指定不會輸出任何除錯訊息的記載層次。</p>
+<p class="p">增進了應用程式效能，但在剖析期間，未顯示任何警告或錯誤訊息。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">錯誤</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">指定只會記載影響結果之錯誤的記載層次。</p>
+<p class="p">這包括由
+identified by <span class="keyword">MIB Manager</span> 識別的任何錯誤，它們會導致在主視窗中顯示不正確的資料。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">警告</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">指定會記載警告及錯誤訊息的記載層次。</p>
+<p class="p">警告指出會導致產生錯誤資料，因此必須加以檢查的狀況。然而，該狀況不會導致資料毀損。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">參考資訊</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">指定會記載參考資訊、警告及重要訊息的記載層次。</p>
+<p class="p">參考訊息包含有關整體作業進度的明細。例如，它們在剖析物件時提供物件的完整文字。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">除錯</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><div class="p">指定會記載所有訊息的記載層次。<div class="note note"><span class="notetitle">註：</span> 當您嘗試解決錯誤狀況時，請只以除錯模式執行 <span class="keyword">MIB Manager</span>。僅在剖析中等數目的 MIB 時產生的資料量，將快速填入檔案系統。</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3945e36 ">詳細</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3945e38 "><p class="p">指定會記載所有參考訊息的記載層次。</p>
+<p class="p">詳細訊息包含變數、陣列以及雜湊在變更值和狀態時的狀態。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="使用記載喜好設定來指定 MIB Manager 日誌檔目錄，以及設定預設訊息層次。">設定記載喜好設定</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

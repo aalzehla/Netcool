@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="OID 樹狀結構視圖" />
+<meta name="abstract" content="「物件 ID (OID) 樹狀結構」視圖會呈現所有位於匯入 MIB 模組中的 MIB 物件。" />
+<meta name="Description" content="「物件 ID (OID) 樹狀結構」視圖會呈現所有位於匯入 MIB 模組中的 MIB 物件。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="oidtree" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>OID 樹狀結構視圖</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="oidtree">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">OID 樹狀結構視圖</h1>
+<div class="body refbody"><p class="shortdesc">「物件 ID (OID) 樹狀結構」視圖會呈現所有位於匯入 MIB 模組中的 MIB 物件。</p>
+<div class="section"><div class="p">您可以從<span class="ph uicontrol">視圖</span>下拉清單中選取下列其中一個選項，來過濾「<span class="keyword wintitle">OID
+樹狀結構</span>」視圖中的資料：<ul class="ul"><li class="li"><span class="ph uicontrol">全部(A)</span></li>
+<li class="li"><span class="ph uicontrol">設陷/通知</span></li>
+<li class="li"><span class="ph uicontrol">物件</span></li>
+<li class="li"><span class="ph uicontrol">模組</span></li>
+</ul>
+</div>
+<p class="p">若要搜尋「<span class="keyword wintitle">OID 樹狀結構</span>」視圖中的特定值，請在<span class="ph uicontrol">搜尋</span>欄位中輸入文字，然後按 <span class="ph uicontrol">Enter</span> 或按一下 <img class="image" src="../gifs/find.gif" alt="搜尋圖示" />（搜尋）。</p>
+<p class="p"><span class="keyword">MIB Manager</span> 從所選項目開始搜尋，或者如果目前沒有選取任何項目，則從清單中的第一個項目開始搜尋。若要從清單中尋找下一相符項，請繼續按一下 <img class="image" src="../gifs/find.gif" alt="搜尋圖示" />（搜尋）。</p>
+<p class="p">當找到一個項目時，系統會將它自動強調顯示並顯示在「<span class="keyword wintitle">OID 樹狀結構</span>」視圖中。</p>
+<p class="p">在<span class="ph uicontrol">搜尋</span>欄位中指定有效的正規表示式或輸入純文字，來代表完整或局部的物件名稱或 OID。顯示在每個分支節點上的號碼是該特定物件之 OID 的最後一位數。</p>
+<p class="p">下表列出「<span class="keyword wintitle">OID 樹狀結構</span>」視圖圖示並說明每個圖示代表的物件。</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 「<span class="keyword wintitle">OID 樹狀結構</span>」視圖圖示及其代表的關聯物件</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="29.145728643216078%" id="d5876e83">圖示</th>
+<th class="entry" valign="top" width="70.85427135678391%" id="d5876e85">表示法</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "> <div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="物件 ID 圖示" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">OBJECT IDENTIFIER, OBJECT-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="代理程式功能" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">AGENT-CAPABILITIES</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="模組相符性圖示" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">MODULE-COMPLIANCE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "> <div class="image"><img class="image" src="../gifs/module_identity.gif" alt="模組身分" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">MODULE, MODULE-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "> <div class="image"><img class="image" src="../gifs/obj_group.gif" alt="物件群組" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">OBJECT-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "> <div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="通知群組" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">NOTIFICATION-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="設陷類型" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">TRAP-TYPE（v1 設陷）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="通知類型" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">NOTIFICATION-TYPE（v2 設陷）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="一般物件類型" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">Generic OBJECT-TYPE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="計數器" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="計數器&#xA;32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">COUNTER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="計數器&#xA;64" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">COUNTER64</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="量規" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">GAUGE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="量規&#xA;32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">GAUGE32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="整數" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">INTEGER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="整數&#xA;32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">INTEGER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP 位址" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">IpAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="網址" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">NetworkAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="八進位字串" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">OCTET STRING</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="順序表格" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">SEQUENCE（表格）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="順序表格項目" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">SEQUENCE（項目，表格列）</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="時間計數" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">TIMETICKS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e83 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="文字使用慣例" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e85 ">TEXTUAL-CONVENTION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。">使用 Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

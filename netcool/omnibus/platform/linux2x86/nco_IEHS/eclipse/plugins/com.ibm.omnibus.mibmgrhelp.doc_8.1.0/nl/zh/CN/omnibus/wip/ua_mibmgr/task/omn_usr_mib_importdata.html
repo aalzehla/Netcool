@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="导入 MIB 数据" />
+<meta name="abstract" content="如何将 SNMP MIB 数据导入 MIB 管理器。" />
+<meta name="Description" content="如何将 SNMP MIB 数据导入 MIB 管理器。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>导入 MIB 数据</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">导入 MIB 数据</h1>
+<div class="body taskbody"><p class="shortdesc">如何将 SNMP MIB 数据导入 MIB 管理器。</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">开始之前</h2></div><p class="p">在“<span class="keyword wintitle">首选项</span>”窗口中，指定供应商 MIB 常用的 MIB 的位置。请确保您的 MIB 位于特定于供应商的目录中且任何关联的设备号都位于子目录中。另请确保这些目录中不包含任何非 MIB 文本文件。大部分 MIB 安装在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> 目录中，所有 RFC MIB 安装在 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> 目录中。</p>
+<p class="p">The
+您所导入的 MIB 可能依赖于其他 MIB。为确保 <span class="keyword">MIB 管理器</span> 能在执行导入时搜索相关 MIB，请将搜索路径设置为相关 MIB 文件的位置。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">过程</h2></div><p class="li stepsection">要导入 MIB 数据：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">单击 <img class="image" src="../gifs/import.gif" alt="“MIB 导入”图标" /> <span class="ph uicontrol">导入</span>，或在菜单中单击<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">导入</span></span>。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目录</span>字段中，指定要导入的 MIB 模块的位置。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">要使 <span class="keyword">MIB 管理器</span> 解析在可用子目录中找到的所有 MIB，请选中<span class="ph uicontrol">遍历子目录</span>复选框。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">单击<span class="ph uicontrol">导入</span>。</span> <p class="p">解析 MIB 模块时，将显示“<span class="keyword wintitle">导入状态</span>”窗口。此窗口的左侧将显示解析导入的 MIB 文件时发现的各种 NIB 对象类型的数量。</p>
+  在解析 MIB 后，<span class="keyword">MIB 管理器</span> 会复查每个 MIB 模块，并解析它找到的所有 MIB 对象。在解析所有对象后，<span class="keyword">MIB 管理器</span> 会复查每个 MIB，并处理导入语句以找到所有引用的 MIB 模块。如果有任何引用的 MIB 模块在先前导入的 MIB 模块中找不到，<span class="keyword">MIB 管理器</span> 会搜索在搜索路径中指定的目录。“<span class="keyword wintitle">导入状态</span>”窗口右侧将显示图标以表示在导入的 MIB 中找到的所有导入语句的状态，如下表中所示：
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="“导入状态”窗口中显示的图标及其含义" class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8207e106">图标</th>
+<th class="entry" valign="bottom" id="d8207e108">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8207e106 "><img class="image" src="../gifs/question_mark.gif" alt="问号" /></td>
+<td class="entry" valign="top" headers="d8207e108 ">表示未解析该导入语句。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8207e106 "><img class="image" src="../gifs/tick.gif" alt="勾选标记" /></td>
+<td class="entry" valign="top" headers="d8207e108 ">表示已解析该导入语句。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8207e106 "><img class="image" src="../gifs/cross.gif" alt="叉" /></td>
+<td class="entry" valign="top" headers="d8207e108 ">表示无法解析该导入语句中引用的 MIB 模块。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">您可以展开导入语句树以显示哪些 MIB 模块正在使用导入语句来引用其他 MIB 模块。</p>
+
+<p class="p">当所有的 MIB 文件都处理完毕时，状态框顶部将显示<span class="ph uicontrol">导入完成</span>。您可以查看导入期间生成的所有状态消息，方法是单击<span class="ph uicontrol">查看状态历史记录</span>并使用<span class="ph uicontrol">视图</span>下拉列表来选择过滤器选项。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">单击<span class="ph uicontrol">退出</span>以关闭“<span class="keyword wintitle">导入状态</span>”窗口。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">结果</h2></div><p class="p">“<span class="keyword wintitle">MIB 模块</span>”视图将自动刷新以显示新导入的 MIB 模块的名称。“<span class="keyword wintitle">OID 树</span>”视图会自动刷新以显示所有新导入的 MIB 对象。为了重新构建树，<span class="keyword">MIB 管理器</span> 会递归地在树的父节点（<span class="ph filepath">iso</span>、<span class="ph filepath">ccitt</span> 和 <span class="ph filepath">joint-iso-ccitt</span>）中搜索子节点，直到找到没有关联的子代的子节点。如果未检测到任何错误，“<span class="keyword wintitle">OID 树</span>”视图中将显示完整填充的 MIB 树，其中包含已解析的对象。</p>
+<p class="p">单击“<span class="keyword wintitle">OID 树</span>”视图中的对象将自动在“<span class="keyword wintitle">MIB 模块</span>”视图中显示该对象。“<span class="keyword wintitle">详细信息</span>”视图将显示有关所选对象的详细信息。</p>
+<p class="p">导入的 MIB 模块存储在表示该 MIB 模块结构的 XML 文件中。这些 XML 文件位于 <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span> 目录中。</p>
+<p class="p">如果检测到未解析的导入语句，请与负责缺失的 MIB 的供应商联系，向搜索路径添加缺失的文件，然后再次导入。</p>
+<div class="p"><div class="note note"><span class="notetitle">注：</span> <p class="p">供应商有时候会指定重复的对象名，或指定与 RFC 中指定的对象名相同的对象名。</p>
+
+<p class="p">例如，模块 SNMPv2-MI' 中定义了名为 名为 <samp class="ph codeph">system</samp> 且 OID 为 1.3.6.1.2.1.1 的对象，在模型 WINDOWS-NT-PERFORMANCE 中定义了另一个名为 <samp class="ph codeph">system</samp> 但 OID 为 1.3.6.1.4.1.311.1.1.3.1.1.23 的对象。并且，在模块 SNMPv2-MIB 中将名为 <samp class="ph codeph">sysDescr</samp> 的对象定义为 <samp class="ph codeph">system.1</samp>，并在模块 WINDOWS-NT-PERFORMANCE 中将名为 <samp class="ph codeph">sysFileReadOperationsPerSec</samp> 的对象定义为 <samp class="ph codeph">system.1</samp>。在此情况下，子对象与哪个父对象关联不清楚。</p>
+
+<p class="p">找到具有重复父级的对象时，<span class="keyword">MIB 管理器</span> 会尝试查找同一 MIB 模块中定义的该父级。在上例中，该父级为 WINDOWS-NT-PERFORMANCE。如果在同一 MIB 模块中未定义这两个父级，那么 <span class="keyword">MIB 管理器</span> 将进行搜索以确定是否在对象所依赖的其他 MIB 模块中定义了该父级。<span class="keyword">MIB 管理器</span> 还将确定引用该父级的其他 MIB 模块并选择最常引用的父级名称。但是，这可能导致对 MIB 树的填充和计算出的 OID 不正确。因此，<span class="keyword">MIB 管理器</span> 每次找到重复的对象名时，都会在日志中记录一个警告，并在调试文件中记录为解决重复而采取的操作。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="可以使用 MIB 管理器 来解析 MIB 模块并创建 Netcool 规则文件。">使用Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>相关参考</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="使用目录首选项可指定用于存储导入的 MIB、MIB 数据以及导出的规则文件的目录。">设置目录首选项</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="本节描述了如何定义用于搜索 MIB 文件的 MIB 管理器 首选项。">设置搜索首选项</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

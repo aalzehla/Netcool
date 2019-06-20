@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="在 Windows 上创建或编辑过滤器" />
+<meta name="abstract" content="使用 Windows 过滤器构建器可构建事件列表数据的过滤器。" />
+<meta name="description" content="使用 Windows 过滤器构建器可构建事件列表数据的过滤器。" />
+<meta name="DC.subject" content="过滤器, 创建, 编辑" />
+<meta name="keywords" content="过滤器, 创建, 编辑" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_creatingeditfilterwin" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_settingupfiltersevntlst.html" />
+<title>在 Windows 上创建或编辑过滤器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_creatingeditfilterwin">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">在 Windows 上创建或编辑过滤器</h1>
+<div class="body taskbody"><p class="shortdesc">使用 Windows 过滤器构建器可构建事件列表数据的过滤器。</p>
+<div class="section context">要创建或编辑过滤器：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">启动过滤器构建器。 </span></li>
+<li class="li step stepexpand"><span class="ph cmd">按以下方法完成过滤器设置区域：</span> <dl class="dl"><dt class="dt dlterm">名称</dt>
+<dd class="dd">如果要创建新过滤器，请使用唯一的过滤器名称覆盖当前名称。 该名称用于在事件列表菜单中选择过滤器。 如果要编辑现有过滤器，那么您无需在此字段中输入任何内容。</dd>
+<dt class="dt dlterm">可编辑</dt>
+<dd class="dd">如果您有相应的管理员许可权，请选择此复选框以允许其他用户编辑此过滤器，或清除该复选框以防过滤器被修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 仅当过滤器保存为事件列表配置（<span class="ph filepath">.elc</span> 文件）的一部分时，此设置才适用。</div>
+</dd>
+</dl>
+
+<p class="p">现在可以通过使用条件、逻辑以及子查询过滤器元素的组合来构建过滤器。 也可以定义过滤器度量，以及复制、粘贴和删除元素。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">按以下方法创建条件元素：</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">从按钮栏单击<span class="ph uicontrol">条件</span>。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">按以下方法从元素定义区域完成字段：</span> <dl class="dl"><dt class="dt dlterm">类型</dt>
+<dd class="dd">从此列表的以下选项中任选一项：<ul class="ul"><li class="li"><span class="keyword option">简单</span>：选此选项可在条件元素中使用简单表达式。 </li>
+<li class="li"><span class="keyword option">复杂</span>：选此选项可使用能够对两个数据库列或两个表达式进行比较的复杂表达式。 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">列</dt>
+<dd class="dd">从此列表中选择要在比较中使用的数据库列。</dd>
+<dd class="dd">缺省情况下，列表包含 alerts.status 数据库表中的列名称。 过滤器构建器自动确定哪些列可用。 某些情况下此列表会有所不同。 </dd>
+<dt class="dt dlterm">运算符</dt>
+<dd class="dd">从列表中选择一个比较运算符。</dd>
+<dd class="dd">比较的可用范围取决于您在<span class="ph uicontrol">列</span>下拉列表中所作的选择。 某些比较对特定列不可用。 例如，无法对如“严重性”这样的数字列执行 LIKE 操作。 </dd>
+<dt class="dt dlterm">值</dt>
+<dd class="dd">显示在这里的字段取决于在<span class="ph uicontrol">类型</span>、<span class="ph uicontrol">列</span>和<span class="ph uicontrol">运算符</span>列表中选择的选项。</dd>
+<dd class="dd">当<span class="ph uicontrol">表达式类型</span>为<span class="ph uicontrol">简单</span>时，显示的值字段取决于<span class="ph uicontrol">列</span>列表中选择的数据库列的类型是字符串、整数还是时间。 </dd>
+<dd class="dd">当<span class="ph uicontrol">类型</span>为<span class="ph uicontrol">复杂</span>时，将提供<span class="ph uicontrol">编辑</span>按钮让您能够在“<span class="keyword wintitle">过滤器 SQL 编辑</span>”窗口中直接编辑 SQL。 单击<span class="ph uicontrol">确定</span>以保存并
+返回到过滤器构建器时，将自动对 SQL 表达式进行语法分析并将其添加到图形显示区域的条件元素中。 如果您在<span class="keyword wintitle">过滤器 SQL 编辑</span>窗口中输入了无效的 SQL 文本，退出窗口前将需要您更正语法。 </dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果需要，可按以下方法通过插入逻辑 <samp class="ph codeph">AND</samp> 或 <samp class="ph codeph">OR</samp> 元素来构造多个条件： </span><ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">从图形显示区域选择希望为其创建逻辑比较的现有元素： </span> 可以创建与条件元素、另一个逻辑元素的比较或创建没有元素的比较。 </li>
+<li class="li substep"><span class="ph cmd">选择 <span class="ph uicontrol">And</span> 条件按钮或 <span class="ph uicontrol">Or</span> 条件按钮。</span></li>
+<li class="li substep"><span class="ph cmd">更改新条件上的条件属性。</span></li>
+<li class="li substep"><span class="ph cmd">单击<span class="ph uicontrol">应用</span>按钮以保存更改。</span></li>
+</ol>
+ <p class="p">下表显示当您选择了条件或逻辑元素，然后单击某个逻辑按钮时会发生的事件。</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 使用“前导逻辑”和“结尾逻辑”按钮所取得的结果</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d200222e199">元素</th>
+<th class="entry" valign="top" width="40%" id="d200222e201">使用“前导逻辑”按钮</th>
+<th class="entry" valign="top" width="40%" id="d200222e203">使用“结尾逻辑”按钮</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d200222e199 ">条件元素</td>
+<td class="entry" valign="top" width="40%" headers="d200222e201 ">创建逻辑元素，将其作为条件元素的父元素的子元素。 条件元素变成逻辑元素的子元素。</td>
+<td class="entry" valign="top" width="40%" headers="d200222e203 "><span class="ph uicontrol">结尾逻辑</span>按钮不可用，因为条件元素不能有子元素。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d200222e199 ">逻辑元素</td>
+<td class="entry" valign="top" width="40%" headers="d200222e201 ">创建逻辑元素，将其作为逻辑元素的父元素的子元素。 条件元素变成逻辑元素的子元素。</td>
+<td class="entry" valign="top" width="40%" headers="d200222e203 ">添加逻辑元素，将其作为现有逻辑元素的子元素。 如果插入点已有两个子元素，将禁用此按钮。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d200222e199 ">未选择元素</td>
+<td class="entry" valign="top" width="40%" headers="d200222e201 ">创建单个逻辑元素。</td>
+<td class="entry" valign="top" width="40%" headers="d200222e203 ">创建单个逻辑元素。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果需要，可按以下方法对条件求反： </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">从图形显示区域选择条件元素。 </span></li>
+<li class="li substep substepexpand"><span class="ph cmd">从按钮栏单击<span class="ph uicontrol">求反</span>。 </span> <p class="p">求反元素始终插入到树中当前插入点<em class="ph i">之前</em>，且只能有一个父元素和一个子元素。</p>
+
+<div class="note note"><span class="notetitle">注：</span> 不可能在现有求反逻辑元素之前插入求反逻辑元素。 但是，当编辑过滤器时，可能会删除树的一部分，这样会使两个求反元素前后相连。 必须删除其中一个求反元素以创建有效的过滤器。</div>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果需要，可按以下方法创建子查询元素：</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">从按钮栏单击<span class="ph uicontrol">子查询</span>。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">按以下方法从元素定义区域完成字段：</span> <dl class="dl"><dt class="dt dlterm">列</dt>
+<dd class="dd">从此列表中选择要在搜索中使用的数据库列。</dd>
+<dt class="dt dlterm">运算符</dt>
+<dd class="dd">从此列表的以下选项中任选一项：<ul class="ul"><li class="li"><span class="keyword option">In</span>：使用此选项可搜索列中内容。</li>
+<li class="li"><span class="keyword option">Not In</span>：选择此选项可搜索不在列中的字段内容。 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">选择</dt>
+<dd class="dd">选择构建列表时要用的列，将对其执行 In 或 Not In 操作。 此列表中的选项取决于在 <span class="ph uicontrol">From</span> 列表中选择的选项。</dd>
+<dt class="dt dlterm">从</dt>
+<dd class="dd">选择要从中产生信息的数据库表。 可以是 alerts.details、alerts.journal 或 alerts.status。</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果需要，可按以下方法设置过滤器度量：</span> <dl class="dl"><dt class="dt dlterm">度量</dt>
+<dd class="dd">使用第一个列表选择要使用的度量：<ul class="ul"><li class="li">选择<span class="ph uicontrol">平均</span>可返回所有与过滤器匹配的警报的选定字段平均值。</li>
+<li class="li">选择<span class="ph uicontrol">计数</span>可返回所有与过滤器匹配的警报的计数。 选定字段不用于此计算。</li>
+<li class="li">选择<span class="ph uicontrol">总数</span>可返回所有与过滤器匹配的警报的所选字段总和。</li>
+<li class="li">选择<span class="ph uicontrol">最小值</span>可返回与过滤器匹配的警报中所选字段的最低值。</li>
+<li class="li">选择<span class="ph uicontrol">最大值</span>可返回与过滤器匹配的警报中所选字段的最高值。</li>
+</ul>
+</dd>
+<dd class="dd">使用第二个列表选择要应用度量的字段。
+警报中只有整数和时间字段可用于度量计算。<div class="note tip"><span class="tiptitle">提示：</span> 将在“<span class="keyword wintitle">事件列表</span>”监视器框窗口的监视器框中显示度量值。</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">如果需要，可按以下方法复制和粘贴元素： </span><ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">从图形显示区域选择要复制的元素，然后选择<span class="ph menucascade"><span class="ph uicontrol">编辑</span> &gt; <span class="ph uicontrol">复制</span></span>。</span></li>
+<li class="li substep"><span class="ph cmd">通过选择<span class="ph menucascade"><span class="ph uicontrol">编辑</span> &gt; <span class="ph uicontrol">粘贴</span></span>将元素从别处粘贴至过滤器。 </span> 过滤器构建器尝试插入与当前选定元素相关的元素。</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">可删除单个元素，或删除父元素以及其子元素，方法如下： </span><ul class="ul choices"><li class="li choice">从图形显示区域选择要删除的单个元素，然后单击按钮栏内的<span class="ph uicontrol">删除元素</span>，或选择<span class="ph menucascade"><span class="ph uicontrol">编辑</span> &gt; <span class="ph uicontrol">剪切</span></span>。 <p class="p">当删除过滤器元素时，过滤器构建器尝试将子元素链接至过滤器。 如果尝试除去带有两个子元素的逻辑元素，或带有子代的子查询，这将不起作用。</p>
+</li>
+<li class="li choice">从图形显示区域选择要删除的父元素，然后单击按钮栏内的<span class="ph uicontrol">删除树</span>。 此操作将除去当前选定元素和所有子元素。</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">定义过滤器后，按以下方法保存过滤器或取消更改：</span> <dl class="dl"><dt class="dt dlterm">应用</dt>
+<dd class="dd">点击此按钮可向过滤器应用更改，但不保存更改。</dd>
+<dt class="dt dlterm">关闭</dt>
+<dd class="dd">单击此按钮可关闭窗口并废弃更改。</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_fb_settingupfiltersevntlst.html" title="过滤器用来构建可在 ObjectServer 警报数据库表上运行的 SQL 查询，以便在监视器框和事件列表中显示定制警报信息。">为事件列表数据设置过滤器</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_fb_startingfilterbuilder.html" title="过滤器构建器提供了图形界面，可在其中构建和测试组成过滤器的 SQL 语句。">启动过滤器构建器</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

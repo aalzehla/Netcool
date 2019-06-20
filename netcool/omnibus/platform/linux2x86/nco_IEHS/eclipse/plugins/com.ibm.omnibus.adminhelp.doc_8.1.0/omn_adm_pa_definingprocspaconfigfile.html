@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Defining processes in the process agent configuration file" />
+<meta name="abstract" content="Within the process agent configuration file, you must define the list of processes that should be run by the process agents." />
+<meta name="Description" content="Within the process agent configuration file, you must define the list of processes that should be run by the process agents." />
+<meta name="DC.subject" content="process control, defining processes" />
+<meta name="keywords" content="process control, defining processes" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_host_resolution.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_definingprocspaconfigfile" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Defining processes in the process agent configuration file</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_definingprocspaconfigfile">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Defining processes in the process agent configuration file</h1>
+<div class="body refbody"><p class="shortdesc">Within the process agent configuration file, you must define
+the list of processes that should be run by the process agents.</p>
+<div class="example"><h2 class="title sectiontitle">Process definition example</h2><p class="p">An example process
+definition in the <span class="ph filepath">$NCHOME/omnibus/etc/nco_pa.conf</span> configuration
+file is as follows:</p>
+<pre class="pre codeblock"><code>nco_process 'ObjectServer'
+{
+Command '$NCHOME/omnibus/bin/nco_objserv -name NCOMS -pa SFOSYS1_PA' run as 0
+Host			=		'sfosys1'
+Managed			=		True
+RestartMsg		=		'${NAME} running as ${EUID} has been restored on ${HOST}.'
+AlertMsg		=		'${NAME} running as ${EUID} has died on ${HOST}.'
+RetryCount		=		0
+ProcessType		=		PaPA_AWARE
+}</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Process definition description</h2><p class="p">The following
+table uses the preceding example to describe the process definition
+information that is contained in the configuration file.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Process definition description</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="20%" id="d18876e37">Configuration information</th>
+<th class="entry" valign="bottom" width="80%" id="d18876e39">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">nco_process 'ObjectServer'</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">Defines the name of the process. This example
+is for an ObjectServer.<div class="note note"><span class="notetitle">Note:</span> Process names must be unique
+for this process agent. If you use the same process name more than
+once, all, except for the first process definition, are ignored, and
+a warning message is generated.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">Command</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">The command string that starts the process,
+as it would be entered on the command line. Use the full path for
+the command. For example, to configure an ObjectServer named NCOMS,
+enter:<p class="p"><kbd class="ph userinput">'$NCHOME/omnibus/bin/nco_objserv -name NCOMS -pa
+SFOSYS1_PA' run as 0</kbd></p>
+<p class="p">Or enter:</p>
+<p class="p"><kbd class="ph userinput">'$NCHOME/omnibus/bin/nco_objserv
+-name NCOMS -pa SFOSYS1_PA' run as 'root'</kbd></p>
+<div class="p">In this
+example:<ul class="ul"><li class="li">The <span class="keyword option">-pa</span> option specifies the process agent that
+the ObjectServer uses to run external automations. In this example,
+the process agent name is specified as SFOSYS1_PA.</li>
+<li class="li">The <samp class="ph tt">run as</samp> option instructs the host computer to run
+the ObjectServer as the specified user. On UNIX, you can either enter the user ID (typically <kbd class="ph userinput">0</kbd>),
+or enter the user name enclosed in single quotation marks (typically <kbd class="ph userinput">root</kbd>).
+When a user name is entered, the process agent looks up the user ID
+to use. If the process agent is not running as <samp class="ph tt">root</samp>, the <samp class="ph tt">run
+as</samp> option is ignored, and the process is run as the user who
+is running the process agent.<p class="p">On Windows,
+all processes are run under the same user account as the process agent;
+always set the <samp class="ph tt">run as</samp> option to <kbd class="ph userinput">0</kbd>.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> On Windows, you
+can use %NCHOME%, $NCHOME, or the expanded form of the environment
+variable, in the path for the command. It is also acceptable to use
+slashes (/), backslashes (\), or double backslashes (\\) as separators.</div>
+</li>
+</ul>
+</div>
+<div class="p">You can set the following additional process attributes
+by adding them to the beginning of the command string:<ul class="ul"><li class="li"><samp class="ph codeph">CWD</samp>: Set the current working directory to the
+value specified.<p class="p">On Windows,
+you can specify the directory in any of these formats: MS-DOS format
+(for example, <span class="ph filepath">C:\temp</span>), UNIX format (for example, <span class="ph filepath">/temp/<var class="keyword varname">mydir</var></span>),
+and UNC format (for example, <span class="ph filepath">\\<var class="keyword varname">server</var>\<var class="keyword varname">share</var>\<var class="keyword varname">mydir</var></span>).
+Both single and double backslashes can also be used as separators. </p>
+<p class="p">When you run the process agent from the command line on UNIX and Windows, the working directory for all child
+processes is the directory from which the process agent was started.
+When you run the process agent as a UNIX daemon,
+the working directory for all child processes is <span class="ph filepath">$NCHOME/omnibus</span>.
+When you run the process agent as a Windows service,
+the default working directory for the process agent and for any child
+processes that are spawned by the process agent is <span class="ph filepath">%NCHOME%\omnibus\log</span>.</p>
+</li>
+<li class="li"><samp class="ph codeph">SETGID</samp>: Set the group ID of the process to the
+value specified. This is a UNIX-specific attribute.</li>
+<li class="li"><samp class="ph codeph">UMASK</samp>: Set the umask of the process to the value
+specified. This is a UNIX-specific attribute.</li>
+</ul>
+</div>
+<p class="p">The format for specifying each of these attributes is
+as follows:</p>
+<p class="p"><samp class="ph codeph">Command '[CWD=<var class="keyword varname">directory_path</var>]<var class="keyword varname">commandpath</var> <var class="keyword varname">options</var>'
+run as <var class="keyword varname">user</var></samp></p>
+<p class="p"><samp class="ph codeph">Command '[SETGID=<var class="keyword varname">groupID</var>]<var class="keyword varname">commandpath</var> <var class="keyword varname">options</var>'
+run as <var class="keyword varname">user</var></samp></p>
+<p class="p"><samp class="ph codeph">Command '[UMASK=<var class="keyword varname">permission</var>]<var class="keyword varname">commandpath</var> <var class="keyword varname">options</var>'
+run as <var class="keyword varname">user</var></samp></p>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> You must specify
+the attributes as shown, in square brackets, without spaces.</div>
+</div>
+<p class="p"><strong class="ph b">Examples (UNIX):</strong></p>
+<p class="p"><samp class="ph codeph">Command '[CWD=/opt/netcool/]$NCHOME/omnibus/bin/nco_objserv
+-name NCOMS2 -pa NCO_PA' run as 1253</samp></p>
+<p class="p"><samp class="ph codeph">Command
+'[SETGID=ncoadmin]$NCHOME/omnibus/bin/nco_objserv -name NCOMS2 -pa
+NCO_PA' run as 1253</samp></p>
+<p class="p"><samp class="ph codeph">Command
+'[UMASK=u=rwx,g=rx,o=rx]$NCHOME/omnibus/bin/nco_objserv -name NCOMS2
+-pa NCO_PA' run as 1253</samp></p>
+<div class="note tip"><span class="tiptitle">Tip:</span> In
+the preceding example with the UMASK setting, write permissions are
+assigned to the current user, but removed for all other users. You
+can alternatively specify this as <samp class="ph codeph">[UMASK=022]</samp>.</div>
+<p class="p"><samp class="ph codeph">Command '[UMASK=077]$NCHOME/omnibus/bin/nco_objserv
+-name NCOMS2 -pa NCO_PA' run as 1253</samp></p>
+<p class="p">You
+can specify one or more of the attributes within the command string.
+For example:</p>
+<p class="p"><samp class="ph codeph">Command '[CWD=/tmp][SETGID=ncoadmin][UMASK=u=rwx,g=,o=]$NCHOME/omnibus/bin/nco_objserv
+-name NCOMS2 -pa NCO_PA' run as 1253</samp></p>
+<p class="p"><strong class="ph b">Example
+(Windows):</strong></p>
+<p class="p"><samp class="ph codeph">Command '[CWD=C:\temp]%NCHOME%\omnibus\bin\nco_objserv
+-name NCOMS2 -pa NCO_PA' run as 0</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">Host</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">The name of the host on which the process should
+be run. Process control automatically resolves the name of the process
+agent when required.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">Managed</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">Can have either of these values:<ul class="ul"><li class="li"><span class="keyword option">True</span>: The process is restarted automatically
+if it exits.</li>
+<li class="li"><span class="keyword option">False</span>: The process is not monitored by the process
+agent or restarted automatically if it exits.<p class="p">The status of an unmanaged
+process might be reported incorrectly by <span class="keyword cmdname">nco_pa_status</span> or <span class="keyword cmdname">nco_config</span>.
+For example, the returned status might be <samp class="ph codeph">DEAD</samp> when
+the process is running correctly. This is not an error and it happens
+because the process agent starts unmanaged processes but does not
+monitor them.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">RestartMsg</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">Contains the message to be sent to the UNIX syslog or the Windows Event Viewer if the process is restarted.
+For example, <samp class="ph msgph">The ObjectServer has been restarted.</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">AlertMsg</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">Contains the message to be sent to the UNIX syslog or the Windows Event Viewer if the process exits.
+For example, <samp class="ph msgph">The ObjectServer has gone down.</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">RetryCount</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">Specifies the number of restart attempts to
+be made if the process exits in the time specified by the <span class="keyword cmdname">nco_pad</span> <span class="keyword option">-retrytime</span> command-line
+option. If set to 0, there is no limit to the number of restart attempts.
+The default is <span class="keyword option">0</span>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d18876e37 "><samp class="ph codeph">ProcessType</samp></td>
+<td class="entry" valign="top" width="80%" headers="d18876e39 ">Can have the value <span class="keyword option">PaPA_AWARE</span> for
+PA aware processes and <span class="keyword option">PaNOT_PA_AWARE</span> for processes
+that are not PA aware. </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Expansion keywords</h2><p class="p">You can include expansion
+keywords in the <samp class="ph codeph">RestartMsg</samp> and <samp class="ph codeph">AlertMsg</samp> entries
+in the configuration file. Expansion keywords act as variables and
+contain information about the process that has restarted.</p>
+<p class="p">The
+expansion keywords are shown in the following table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 2. Expansion
+keywords</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d18876e365">Expansion keyword</th>
+<th class="entry" valign="bottom" id="d18876e367">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d18876e365 ">${NAME}</td>
+<td class="entry" valign="top" headers="d18876e367 ">The name of the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d18876e365 ">${HOST}</td>
+<td class="entry" valign="top" headers="d18876e367 ">The name of the host running the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d18876e365 ">${EUID}</td>
+<td class="entry" valign="top" headers="d18876e367 ">The effective user ID under which the process
+is running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d18876e365 ">${COMMAND}</td>
+<td class="entry" valign="top" headers="d18876e367 ">The command that defines the process.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Alert and restart syslog or Event Viewer messages</h2><p class="p">When
+an alert or restart message is generated by the process agent daemon
+nco_pad, it is passed to the UNIX syslog
+or the Windows Event Viewer. <span class="keyword">Tivoli Netcool/OMNIbus</span> has
+a Syslog probe that can monitor these messages and convert them into
+ObjectServer alerts. For more information about the Syslog probe,
+refer to the probe documentation that is available on the Tivoli® Network Management Information
+Center at <a class="xref" href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank" title="(Opens in a new tab or window)">http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp</a>. </p>
+<p class="p">The alert and restart messages are
+sent to the UNIX syslog or
+the Windows Event Viewer
+as warnings. The message is formatted as: </p>
+<pre class="pre msgblock"><code><var class="keyword varname">HOSTNAME : ALERT_OR_RESTART_MSG : MSG</var></code></pre>
+<p class="p">The <var class="keyword varname">HOSTNAME</var> is
+the name of the host that has reported the problem. <var class="keyword varname">ALERT_OR_RESTORE_MSG</var> describes
+the type of message. <var class="keyword varname">MSG</var> is the text that is defined
+in the configuration file for that process.</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_pa_host_resolution.html" title="Every external automation or process under the control of a process agent must have a specified host. The host is defined either in the process agent configuration file, as part of a process definition, or in the external automation in the ObjectServer.">Host name resolution at startup</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

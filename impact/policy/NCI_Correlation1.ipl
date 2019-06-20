@@ -1,0 +1,18 @@
+Log ("Policy to correlate ITM events");
+DataType="omni";
+Filter="Summary='ITM host is offline'";
+CountOnly="false";
+log("executing statment before if statement");
+alerts=GetByFilter(DataType, Filter, CountOnly);
+If(Length(alerts) >= 1)
+{ 
+    Log("serial number of alert extracted is:" + alerts[0].Serial);
+    Log("executing the log statment under if statement");
+    EventContainer.ExtendedAttr="Child";
+    EventContainer.Summary=EventContainer.Summary + "suppressed with parent serial id:" + alerts[0].Serial;
+    summary=summary + EvenContainer.Summary;
+    ReturnEvent(EventContainer);
+}
+//ReturnEvent(EventContainer); 
+Log("Summary is:" + summary); 
+Log("Policy Exeuction ends here"); 

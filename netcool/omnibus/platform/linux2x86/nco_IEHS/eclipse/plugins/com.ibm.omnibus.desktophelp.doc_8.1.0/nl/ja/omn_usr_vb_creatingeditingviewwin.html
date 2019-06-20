@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Windows でのビューの作成または編集" />
+<meta name="abstract" content="ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。" />
+<meta name="Description" content="ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。" />
+<meta name="DC.subject" content="ビュー, 作成, 編集" />
+<meta name="keywords" content="ビュー, 作成, 編集" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_startingviewbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_vb_creatingeditingviewwin" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_vb_settingupviewsevntlsts.html" />
+<title>Windows でのビューの作成または編集</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_vb_creatingeditingviewwin">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Windows でのビューの作成または編集</h1>
+<div class="body taskbody"><p class="shortdesc">ビュー・ビルダーを使用して、イベント・リストにどの列を表示するかを定義します。</p>
+<div class="section context">ビューを作成または編集するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">ビュー・ビルダーを開始します。 </span></li>
+<li class="li step stepexpand"><span class="ph cmd">ビュー・セットアップ域で以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">名前</dt>
+<dd class="dd">新規ビューを作成する場合は、現在の名前をビューの固有の名前で上書きします。 この名前はイベント・リストで使用されています。 既存のビューを編集する場合は、このフィールドに入力する必要はありません。</dd>
+<dt class="dt dlterm">編集可能</dt>
+<dd class="dd">適切な管理者権限を持っている場合は、このチェック・ボックスを選択して他のユーザーによるこのビューの編集を許可するか、またはチェック・ボックスをクリアしてビューが変更されないように保護します。<div class="note restriction"><span class="restrictiontitle">制約事項:</span> この設定は、ビューがイベント・リスト構成 (<span class="ph filepath">.elc</span> ファイル) の一部として保存されている場合にのみ適用されます。</div>
+</dd>
+</dl>
+
+<p class="p">ビューを定義するために、どの列を組み込むのかを選択し、イベント・リストでの列の順序や形式を指定できます。
+イベント・リストの行のソート順や優先順位を構成したり、表示する行数を制限したりすることも可能です。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「列の表示」</span>領域から、以下のように列の追加、削除、位置変更、形式設定を行います。</span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewwin__d11068e53"><!-- --></a>使用可能なフィールド</dt>
+<dd class="dd">このリストには、イベント・リストにまだ追加できるすべての列が表示されます。 このリスト内の列名は、アルファベット順に表示されます。 <span class="ph uicontrol">「使用可能なフィールド」</span>リストは、イベント・リストに追加するために選択した列が含まれている<span class="ph uicontrol">「イベント・リストのビュー」</span>リストに関連して使用されます。</dd>
+<dd class="dd">以下の表で説明されているボタンを使用して、列を 2 つのリスト間で移動します。<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="omn_usr_vb_creatingeditingviewwin__d11068e66" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 列選択ボタン</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d242025e85">ボタン</th>
+<th class="entry" valign="top" width="80%" id="d242025e87">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e85 "><div class="image"><img class="image" src="bt_omn_vb_right.gif" alt="この図は、Windows ビュー・ビルダー内の「右方」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e87 ">このボタンをクリックして、選択された列を、左方の使用可能なフィールドのリストから、右方のリストへ移動します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e85 "><div class="image"><img class="image" src="bt_omn_vb_rightfar.gif" alt="この図は、Windows ビュー・ビルダー内の「右端」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e87 ">このボタンをクリックして、すべての列を、左方の使用可能なフィールドのリストから、右方のリストへ移動します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e85 "><div class="image"><img class="image" src="bt_omn_vb_left.gif" alt="この図は、Windows ビュー・ビルダー内の「左方」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e87 ">このボタンをクリックして、選択された列を、右方のリストから、左方の使用可能なフィールドのリストへ移動します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e85 "><div class="image"><img class="image" src="bt_omn_vb_leftfar.gif" alt="この図は、Windows ビュー・ビルダー内の「左端」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e87 ">このボタンをクリックして、すべての列を、右方のリストから、左方の使用可能なフィールドのリストへ移動します。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewwin__d11068e107"><!-- --></a>イベント・リストのビュー</dt>
+<dd class="dd">このリストは、イベント・リスト・ビューに表示されるように選択されたすべての列、およびそれらの列の表示順序を示します。 </dd>
+<dd class="dd">列の順序を変更するには、以下の表で説明されているボタンを使用します。 <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 2. 列順序ボタン</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d242025e133">ボタン</th>
+<th class="entry" valign="top" width="80%" id="d242025e135">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e133 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「一番上へ」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e135 ">このボタンをクリックして、選択された列を、リストの一番上へ移動して、イベント・リスト内で表示される最初の列にします。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e133 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「上へ」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e135 ">このボタンをクリックして、選択された列を、リスト内で 1 つ上へ (またはイベント・リスト内で 1 ポジション左方に) 移動します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e133 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「下へ」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e135 ">このボタンをクリックして、選択された列を、リスト内で 1 つ下へ (またはイベント・リスト内で 1 ポジション右方に) 移動します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e133 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「最後」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e135 ">このボタンをクリックして、選択された列を、リストの一番下へ移動して、イベント・リスト内で表示される最後の列にします。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm">フィールド名/行末揃え</dt>
+<dd class="dd"><span class="ph uicontrol">「イベント・リストのビュー」</span>リストで列を選択すると、システム定義の列名が<span class="ph uicontrol">「フィールド名」</span>フィールドに読み取り専用値として表示されます。 隣接した<span class="ph uicontrol">「行末揃え」</span>リストから、「左方」、「中心」、または「右方」を選択して、イベント・リスト内の列データの位置合わせを設定します。</dd>
+<dt class="dt dlterm">列の表題</dt>
+<dd class="dd"><span class="ph uicontrol">「イベント・リストのビュー」</span>リストで選択された列を、システム定義名以外の別タイトルで表示する必要がある場合は、そのタイトルを<span class="ph uicontrol">「列の表題」</span>フィールドに入力します。
+隣接した<span class="ph uicontrol">「行末揃え」</span>リストから、「左方」、「中心」、または「右方」を選択して、イベント・リスト内の列タイトルの位置合わせを設定します。</dd>
+<dt class="dt dlterm">列の幅</dt>
+<dd class="dd">イベント・リスト内の列の幅を指定します。 </dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「列のソート」</span>領域から、以下のようにイベント・リストの列のソート順とソート優先順位を指定します。</span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewwin__d11068e194"><!-- --></a>使用可能なソート・フィールド</dt>
+<dd class="dd">このリストには、イベント・データのソートに使用できるすべての使用可能な列が表示されます。 このリスト内の列名は、アルファベット順に表示されます。 <span class="ph uicontrol">「使用可能なソート・フィールド」</span>リストは、<span class="ph uicontrol">「ソート順」</span>リストに関連して使用されます。</dd>
+<dd class="dd">前述の「<cite class="cite">列選択ボタン</cite>」表で説明されたボタンを使用して、列を、2 つのリスト間で移動します。</dd>
+<dt class="dt dlterm"><a name="omn_usr_vb_creatingeditingviewwin__d11068e210"><!-- --></a>ソート順</dt>
+<dd class="dd">このリストは、イベント・データをソートするための列を示します。 このリストを使用して、イベント・データのソート定義を以下のように指定します。 <ul class="ul"><li class="li">ソート順を列ごとに定義する。矢印が、リスト内の各列名の左方に表示されます。 デフォルトでは、この矢印は上方向を指し、列がアルファベットの昇順でソートされることを示しています。 降順に変更するには、矢印をダブルクリックします。 ソート方向を変更する場合、選択された列名上で右クリックして、ポップアップ・メニューから<span class="ph uicontrol">「変更」</span>を選択することもできます。</li>
+<li class="li">すべての列に対するソート優先順位を定義する。ソート・リストの最上部のフィールドが、ソート時における最も高い優先順位を持ちます。 リストに 2 番目のフィールドを追加する場合、1 番目のフィールドにいくつかの項目について同じ値が含まれているときは、それらの項目のソートに 2 番目のフィールドが使用されます。 列のソート優先順位を上げる、または下げるには、以下の表で説明されているように、矢印ボタンを使用します。<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 3. 列ソート順ボタン</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d242025e241">ボタン</th>
+<th class="entry" valign="top" width="80%" id="d242025e243">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e241 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「一番上へ」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e243 ">このボタンをクリックして、選択された列をリストの一番上へ移動します。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e241 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「上へ」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e243 ">このボタンをクリックして、選択された列をリスト内で 1 つ上へ移動します。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e241 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「下へ」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e243 ">このボタンをクリックして、選択された列をリスト内で 1 つ下へ移動します。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d242025e241 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="この図は、Windows ビュー・ビルダー、または「チャネル列詳細」ウィンドウ内の「最後」ボタンを示しています。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d242025e243 ">このボタンをクリックして、選択された列をリストの一番下へ移動します。 </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「行の制限」</span>領域から、以下のようにイベント・リストに表示する行数を制限します。</span> <dl class="dl"><dt class="dt dlterm">行の制限 [1-100]</dt>
+<dd class="dd">イベント・リスト内に表示される行の数を 1 から 100 までの範囲で制限する場合は、このチェック・ボックスを選択します。 <span class="ph uicontrol">「最小」</span>、<span class="ph uicontrol">「最大」</span>、および<span class="ph uicontrol">「デフォルト」</span>フィールドが使用可能になります。<div class="note note"><span class="notetitle">注:</span> <span class="ph uicontrol">「行の制限 [1-100]」</span>チェック・ボックスを選択し、構成を <span class="ph filepath">.elv</span> ファイルとして保存した場合、<span class="ph filepath">.elv</span> ファイルは、Netcool/OMNIbus V3.6 とは互換性がありません。</div>
+</dd>
+<dt class="dt dlterm">最小</dt>
+<dd class="dd">表示される行の最小数を入力するか、矢印を使用して、値を増減します。</dd>
+<dt class="dt dlterm">最大</dt>
+<dd class="dd">表示される行の最大数を入力するか、矢印を使用して、値を増減します。</dd>
+<dt class="dt dlterm">デフォルト</dt>
+<dd class="dd">表示される行のデフォルト数を入力するか、矢印を使用して、値を増減します。</dd>
+<dt class="dt dlterm">イベント・リストから設定</dt>
+<dd class="dd">イベント・リスト・ユーザーによる、イベント・リスト・ビュー内に表示するイベント数の選択を可能にする場合は、このチェック・ボックスを選択します。
+このチェック・ボックスを選択した場合、ユーザーがイベント・リスト制御を使用して表示を選択できるイベントの数は、ビュー・ビルダーで指定された<span class="ph uicontrol">「最小」</span>および<span class="ph uicontrol">「最大」</span>値によって制約されます。 このチェック・ボックスがクリアされている場合、表示されるイベントの数は、常に、指定されている<span class="ph uicontrol">「デフォルト」</span>値となります。</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">ビューを定義した後、以下のようにビューを保存するか、変更をキャンセルします。</span> <dl class="dl"><dt class="dt dlterm">適用</dt>
+<dd class="dd">このボタンをクリックして、変更内容を保存せずにビューに適用します。 </dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして、ウィンドウを閉じ、変更内容を廃棄します。</dd>
+</dl>
+
+<p class="p">ビューは、<span class="ph filepath">.elv</span> ファイル拡張子を付けて保存する必要があります。 <span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「保存」</span></span>または<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「別名保存」</span></span>をクリックします。</p>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_vb_settingupviewsevntlsts.html" title="ビューでは、イベント・リストに表示される列の選択およびこれらの列内の情報のフォーマットが定義されます。">イベント・リストのビュー設定</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_vb_startingviewbuilder.html" title="ビュー・ビルダーには、ビューを構成するためのインターフェースが用意されています。">ビュー・ビルダーの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

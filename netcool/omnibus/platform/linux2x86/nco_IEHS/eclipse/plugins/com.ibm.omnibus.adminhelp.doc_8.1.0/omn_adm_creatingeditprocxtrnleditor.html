@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing procedures in an external editor" />
+<meta name="abstract" content="After you configure an external editor to use for creating or editing procedures, use the editor to create or edit an SQL or external procedure." />
+<meta name="Description" content="After you configure an external editor to use for creating or editing procedures, use the editor to create or edit an SQL or external procedure." />
+<meta name="DC.subject" content="procedures, creating in external editors, editing in external editors" />
+<meta name="keywords" content="procedures, creating in external editors, editing in external editors" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingxtrnleditorforprocs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringextrnleditorproc.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_creatingexternalprocs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_creatingsqlprocedures.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingsqlintinterfacegui.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingeditprocxtrnleditor" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_usingxtrnleditorforprocs.html" />
+<title>Creating and editing procedures in an external editor</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingeditprocxtrnleditor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing procedures in an external editor</h1>
+<div class="body taskbody"><p class="shortdesc">After you configure an external editor to use for creating
+or editing procedures, use the editor to create or edit an SQL or
+external procedure.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection">To create or edit a procedure select the <span class="ph uicontrol">Automation</span> menu button from the Netcool/OMNIbus Administrator window
+and click <span class="ph uicontrol">Procedures</span>. Then, proceed as follows:</p><ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd">To create a procedure:</span> <ol class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">In the <span class="keyword wintitle">Procedures</span> pane, ensure
+that no row is selected. Then, click <span class="ph uicontrol">Edit in External Editor</span>.</span> <div class="note tip"><span class="tiptitle">Tip:</span> You can deselect a row by pressing
+Ctrl and then clicking the row.</div>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Procedure Template</span> list
+in the <span class="keyword wintitle">Select Procedure Type</span> dialog box, select
+the procedure template.</span> If you select <span class="ph uicontrol">SQL</span> or <span class="ph uicontrol">External</span>, the external
+editor opens with standard syntax for that procedure type. If you
+select <span class="ph uicontrol">&lt;blank&gt;</span>, the external editor opens
+with no text shown.</li>
+<li class="li substep substepexpand"><span class="ph cmd">Complete the syntax for the procedure.</span> If
+you are using a template, replace the <var class="keyword varname">procedure_name</var> variable with a real value. Additionally, for an external procedure,
+replace the <var class="keyword varname">executableName</var>, <var class="keyword varname">hostName</var>, <var class="keyword varname">userID</var>, and <var class="keyword varname">groupID</var> variables
+with real values. Add procedure-specific statements and other declarations,
+as required. The template might include comments (preceded by --)
+for the placement of text. </li>
+<li class="li substep substepexpand"><span class="ph cmd">Save your entries.</span> If the procedure
+contains syntax errors, you are prompted to reload the contents of
+the external editor.</li>
+<li class="li substep substepexpand"><span class="ph cmd">Close the external editor.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a procedure:</span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">Select a procedure and click <span class="ph uicontrol">Edit in External
+Editor</span>.</span> The external editor opens, with
+the procedure syntax displayed.</li>
+<li class="li substep"><span class="ph cmd">Edit the procedure syntax and save your changes.</span> If the procedure contains syntax errors, you are prompted
+to reload the contents of the external editor.</li>
+<li class="li substep"><span class="ph cmd">Close the external editor.</span></li>
+</ol>
+</li>
+</ul>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The SQL that you enter in an external editor is saved to the
+ObjectServer as a <span class="ph filepath">.ed</span> file. </div>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div>You can check the validity of the syntax in <span class="ph filepath">.ed</span> and other <span class="ph filepath">.sql</span> files from the SQL interactive
+interface, in GUI mode.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_usingxtrnleditorforprocs.html" title="From Netcool/OMNIbus Administrator, you can configure an external text editor and then use it to create or edit procedures.">Using an external editor to create and edit procedures</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_configuringextrnleditorproc.html" title="If required, you can create and edit procedures from an external text editor of your choice. You must first configure which editor you want to use.">Configuring an external editor for procedures</a></div>
+<div><a class="link" href="omn_adm_usingsqlintinterfacegui.html" title="You can use the SQL interactive interface to configure the ObjectServer by issuing SQL commands.">Using the SQL interactive interface in GUI mode</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_sql_creatingexternalprocs.html" title="Use the CREATE PROCEDURE command to create external procedures.">CREATE PROCEDURE (external procedures)</a></div>
+<div><a class="link" href="omn_adm_sql_creatingsqlprocedures.html" title="Use the CREATE PROCEDURE command to create SQL procedures.">CREATE PROCEDURE (SQL procedures)</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

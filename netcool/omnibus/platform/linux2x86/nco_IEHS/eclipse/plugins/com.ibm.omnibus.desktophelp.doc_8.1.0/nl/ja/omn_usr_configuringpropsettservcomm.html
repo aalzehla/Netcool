@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="プロパティー、サーバー通信、および設定の構成" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus コンポーネントのプロパティー、および UNIX コンダクターと Windows コンダクターのサーバー・コンポーネントの通信情報を構成することができます。 Windows の場合は、設定ウィンドウ内でこれら 2 つの機能を結合タスクとして実行することができます。 UNIX の場合は、イベント・リストの日付形式を変更することもできます。" />
+<meta name="Description" content="Tivoli Netcool/OMNIbus コンポーネントのプロパティー、および UNIX コンダクターと Windows コンダクターのサーバー・コンポーネントの通信情報を構成することができます。 Windows の場合は、設定ウィンドウ内でこれら 2 つの機能を結合タスクとして実行することができます。 UNIX の場合は、イベント・リストの日付形式を変更することもできます。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringproperties.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringservercomminfo.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringnetomsettingswin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_changingdateunixevntlst.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringpropsettservcomm" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>プロパティー、サーバー通信、および設定の構成</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringpropsettservcomm">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">プロパティー、サーバー通信、および設定の構成</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> コンポーネントのプロパティー、および UNIX コンダクターと Windows コンダクターのサーバー・コンポーネントの通信情報を構成することができます。 Windows の場合は、設定ウィンドウ内でこれら 2 つの機能を結合タスクとして実行することができます。 UNIX の場合は、イベント・リストの日付形式を変更することもできます。</p>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_configuringproperties.html">プロパティーの構成</a></span><br />
+ObjectServer、プロキシー・サーバー、データベース初期化ユーティリティー (<span class="keyword cmdname">nco_dbinit</span>)、Confpack ユーティリティー (<span class="keyword cmdname">nco_confpack</span>)、Netcool/OMNIbus Administrator (nco_config)、プローブ、およびゲートウェイのプロパティー・ファイルに含まれる情報を編集できます。 プロパティー・ファイルの拡張子は <span class="ph filepath">.props</span> です。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_configuringservercomminfo.html">サーバー通信情報の構成</a></span><br />
+<span class="keyword">Tivoli Netcool/OMNIbus</span> サーバー・コンポーネントのサーバー通信情報を保守する必要があります。 サーバー・エディターを使用して、サーバー・コンポーネント、サーバー・アクティビティーのテスト、およびバックアップ (または、フェイルオーバー) サーバーおよびリスナーの追加に関する通信の詳細を作成して変更することができます。 </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_configuringnetomsettingswin.html">Windows での Tivoli Netcool/OMNIbus 設定の構成</a></span><br />
+Windows 上の <span class="keyword">Tivoli Netcool/OMNIbus</span> のプロパティーおよびサーバー通信情報を単一のタスクで構成することができます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_changingdateunixevntlst.html">UNIX におけるイベント・リストの日付形式の変更</a></span><br />
+イベント・リストの日付形式は、NCO_TIME 環境変数によって
+定義されます。 デフォルトの形式は mm/dd/yy hh:mm:ss です (例えば、11/12/03 20:13:36)。 この形式は POSIX strptime 関数によって決定されます。 </li>
+</ul>
+</div></div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

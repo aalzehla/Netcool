@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="he-il" xml:lang="he-il" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="אודות SNMP" />
+<meta name="abstract" content="מקטע זה מספק מידע נוסף אודות הארכיטקטורה של Simple Network Management Protocol ‏(SNMP), בסיס המידע הניהולי של SNMP‏ (MIB), ומושגים נוספים בנושא MIB." />
+<meta name="description" content="מקטע זה מספק מידע נוסף אודות הארכיטקטורה של Simple Network Management Protocol ‏(SNMP), בסיס המידע הניהולי של SNMP‏ (MIB), ומושגים נוספים בנושא MIB." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="he-il" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>אודות SNMP</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, מהדורה 7.4</strong><br /><hr align="right" /></span>
+<h1 class="title topictitle1">אודות SNMP</h1>
+<div class="body refbody"><p class="shortdesc">מקטע זה מספק מידע נוסף אודות הארכיטקטורה של
+Simple Network Management Protocol ‏(SNMP), בסיס המידע הניהולי של SNMP‏ (MIB), ומושגים נוספים בנושא MIB.</p>
+<div class="section"><p class="p">בארכיטקטורת SNMP, רכיב מנהל מנהל סוכן. הסוכן הוא תוכנה שרצה ביישום או בהתקן הרשת ומגיבה לבקשות מידע (פקודות Set ו-Get), ולאחר מכן מפיקה הודעות אוטונומיות הנקראות לכידות. המנהל הוא תוכנה המקבלת את הלכידות ומספקת מנגנון לקבלת מידע (פעולת Get) או לשינוי ערכים (פעולת SET) של אובייקטי SNMP מהתקן הרשת.</p>
+<p class="p">לקבלת לכידות אוטונומיות, המנהל מריץ יישום המאזין ביציאת לכידות ה-SNMP ב-TCP/IP  (יציאה 162). פעולות קבלת המידע ושינוי הערכים SNMP משתמשות ביציאה 161. יישום זה נקרא בדרך כלל Trapd או 'Daemon לכידה' (Trap Daemon). 'Daemon לכידה' הוא תהליך שרץ ברקע ומטפל בשירותים שבמחשב. יישום
+Netcool Trapd נקרא בדיקת SNMP‏ (<span class="ph filepath">nco_p_mttrapd</span>,
+כאשר <span class="ph filepath">mt</span> הוא קיצור של 'מרובה תהליכונים')
+וממוקם בתמדריך <span class="ph filepath">$OMNIHOME/probes/</span>.
+קובצי הכללים המופקים על-ידי MIB Manager מיועדים לשימושה של בדיקת SNMP.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">אבטחה</h2><p class="p">אבטחה בסיסית ב-SNMP v1 ו-v2 מסופקת באמצעות מחרוזות קהילה (Community Strings). מחרוזות קהילה הן סיסמאות של תמליל רגיל הנשלחות עם כל הבקשות. קיימות מחרוזות קהילה נפרדות לגישת קריאה בלבד ולגישת כתיבה בלבד. על MIB Manager לדעת את מחרוזות הקהילה המוגדרות בהתקן לפני שיוכל לבצע בקשות כלשהן (קריאה בלבד עבור בקשה לקבלת מידע, וכתיבה וקריאה עבור בקשת שינוי), ולכידות והודעות של SNMP נשלחות אל MIB Manager עם מחרוזת קהילה מוגדרת מראש.</p>
+<p class="p">כל התקני הרשת התומכים ב-SNMP כוללים מנגנון להגדרת מחרוזת הקהילה. סיסמת ברירת המחדל התקנית המיועדת לקריאה בלבד היא ציבורית, וסיסמת ברירת המחדל התקנית המיועדת לקריאה-כתיבה היא פרטית. אם לא הוגדרו מחרוזות קהילה בהתקן, בדרך כלל תהיה זו אחת מסיסמאות אלה. מטעמי אבטחה, יש לשנות את סיסמאות ברירת המחדל בהקדם האפשרי.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">מידע נוסף</h2><div class="p">להלן ספרים המסייעים להבין טוב יותר את המסגרת של SNMP ואת רכיבי ה-MIB‏:<ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP (Third Edition)</cite> מאת
+Mark Miller ‏(Wiley, 1999)‏</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite> מאת David Perkins ו-Evan
+McGinnis ‏(Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">לדיון מקיף בנושא ASN.1 ו-Basic Encoding Rules‏ (BER) המשמשים לקידוד נתוני SNMP למנות המועברות ברשת שלProtocol Data Unit‏ (PDU), עיינו בספר הבא:</p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management
+Standards</cite> מאת William Stallings ‏(Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">עיצוב MIB ומושגים בנושא MIB</a></span><br />
+כל המודולים של SNMP MIB המוגדרים לשימושו של התקן ספציפי מרכיבים את ה-MIB עבור אותו התקן. המונח MIB משמש לעיתים קרובות לתיאור הגדרה של מודול יחיד, עם זאת, מצב זה שגוי מבחינה טכנית.
+למעשה, ה-MIB הוא השילוב של כל המודולים המשמשים לניהול של התקן ספציפי, בין אם הוא קשור לחומרה או לתוכנה. לכן, השם המדויק יותר של כל מודול המוגדר על-ידי ספק או ב-RFC הוא מודול SNMP MIB.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">סוגי אובייטים של MIB</a></span><br />
+נושא זה מתאר את סוגי האובייקטים המוגדרים ב-SNMP v1 ו-v2.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">מבנים חוקיים של אובייקטי MIB</a></span><br />
+נושא זה מתאר את מבני האובייקטים החוקיים של MIB.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>נושא אב:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Tivoli Netcool/OMNIbus MIB Manager הוא יישום המבוסס על IBM Eclipse שיכול לשמש אתכם בניתוח קבצים של בסיס מידע ניהולי (MIB) של פרוטוקול ניהול רשת פשוט (Simple Network Management‏,SNMP), שמהם תוכלו להפיק קובצי כללים של Netcool. הוא אמור להחליף את תוכנית השירות mib2rules.">Tivoli Netcool/OMNIbus MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ספריה</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">תמיכה</a> |</span>
+<br />
+<span class="runningfooter">עודכן לאחרונה: נובמבר 2012</span><br /></div>
+</body>
+</html>

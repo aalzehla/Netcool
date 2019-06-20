@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Опции командной строки MIB Manager" />
+<meta name="abstract" content="В MIB Manager есть утилита командной строки, при помощи которой можно импортировать данные MIB и файлы правил экспорта. Вы можете вводить команды вручную или можете вызывать их программным образом." />
+<meta name="Description" content="В MIB Manager есть утилита командной строки, при помощи которой можно импортировать данные MIB и файлы правил экспорта. Вы можете вводить команды вручную или можете вызывать их программным образом." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>Опции командной строки MIB Manager.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Опции командной строки <span class="keyword">MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc">В <span class="keyword">MIB Manager</span> есть утилита командной строки, при помощи которой можно импортировать данные MIB и файлы правил экспорта. Вы можете вводить команды вручную или можете вызывать их программным образом.</p>
+<div class="section"><div class="p">Чтобы запустить утилиту командной строки, введите следующую команду:<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[опции]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[опции]</samp><p class="p">В операционных системах Windows выходная информация из <span class="keyword">MIB Manager</span> появляется на новой консоли. </p>
+</li>
+</ul>
+</div>
+<p class="p">В следующей таблице описаны все доступные опции командной строки. Опции <span class="keyword option">-exportmibs</span>, <span class="keyword option">-exportobjects</span> и <span class="keyword option">-exportoids</span> позволяют анализировать регулярные выражения, соответствующие механизму шаблонов Java. </p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> Указывая каталоги, используйте полные пути каталогов.
+Например: <kbd class="ph userinput">nco_mibmanager_batch
+-importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Табл. 1. Опции командной строки <span class="keyword">MIB Manager</span></span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d632e86">Опция командной строки</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d632e88">Описание</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию при первом запуске утилиты командной строки <span class="keyword">MIB Manager</span>, если вы ранее использовали графическую утилиту <span class="keyword">MIB Manager</span>. Если вы не укажете эту опцию, появится ошибка.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-exportdir</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать каталог, в который экспортируются сгенерированные файлы правил.
+Заключите путь каталога в двойные кавычки (").<p class="p">Примеры:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать имя экспортируемого объекта MIB.
+Можно использовать регулярные выражения, чтобы задать несколько MIB.<p class="p">Например, показанная ниже команда экспортирует объекты из MIB <span class="q">"RMON-MIB"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">Показанная ниже команда экспортирует объекты из всех MIB, имена которых содержат строку <span class="q">"MON"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы указать, что экспортированные файлы записываются в новый каталог в существующем каталоге экспорта.
+Новому подкаталогу автоматически присваивается имя с временной меткой. Используйте эту опцию, чтобы не допустить перезаписи существующих файлов правил. <p class="p">Например:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать имя объекта MIB, который нужно экспортировать.
+Можно использовать регулярные выражения, чтобы задать несколько объектов.<p class="p">Например, показанная ниже команда экспортирует все объекты с именами <span class="q">"coldStart"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">Показанная ниже команда экспортирует все объекты, имена которых начинаются с <span class="q">"cold"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-exportoids</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать OID, который нужно экспортировать.
+Можно использовать регулярные выражения, чтобы задать несколько OID.<p class="p">Например, показанная ниже команда экспортирует все объекты с OID <span class="q">"1.3.6.1.6.3.1.1.5.1"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1 -filetype csv</samp></p>
+<p class="p">Следующая команда экспортирует все объекты, у которых OID начинается с <span class="q">"1.3.6.1.6.3.1.1.5"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">Следующая команда экспортирует все объекты с OID <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> или <span class="q">"1.3.6.1.6.3.1.1.5.2"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы указать, к какому типу должны относиться экспортируемые объекты MIB.
+Эта опция принимает следующие значения:<ul class="ul"><li class="li"><span class="keyword option">ALL</span>: Экспортируются все объекты MIB.</li>
+<li class="li"><span class="keyword option">TRAPS</span>: Экспортируются только прерывания.</li>
+<li class="li"><span class="keyword option">OBJECTS</span>: Экспортируются только объекты.</li>
+</ul>
+<p class="p">Примеры:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать формат файлов, в которые будут экспортироваться сгенерированные файлы. Эта опция необходима для операций экспорта.
+<div class="p">Доступные параметры:<ul class="ul"><li class="li"><span class="keyword option">csv</span>: Все данные объектов записываются в CSV-файлы.</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>: Все данные прерываний и связанные данные объектов привязок переменных записываются в один файл CSV. </li>
+<li class="li"><span class="keyword option">html_with_frames</span>: Создается веб-страницы, подходящая для публикации.</li>
+<li class="li"><span class="keyword option">html_without_frames</span>: Создается один файл <span class="ph filepath">oids.html</span>, содержащий список всех объектов, выбранных для вывода.</li>
+<li class="li"><span class="keyword option">lookup</span>: Выводит все указанные значения в виде списка, разделенного табуляторами и подходящего для включения в любой файл правил.</li>
+<li class="li"><span class="keyword option">ncil</span>: Создается отдельный файл включения для каждого предприятия, и генерируется один файл для общих прерываний.</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>: Создаются файлы, подходящие для использования в сочетании с Netcool Knowledge Library V1.1.</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>: Создаются файлы, подходящие для использования в сочетании с Netcool Knowledge Library V3.</li>
+<li class="li"><span class="keyword option">standalone</span>: Создается один файл правил, содержащий все выбранные прерывания. </li>
+<li class="li"><span class="keyword option">text</span>: Создается отдельный текстовый файл для каждого OID.</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>: Создаются файлы <span class="ph filepath">.mdl</span> и <span class="ph filepath">trapcnfg</span>.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы увидеть справочную информацию об опциях командной строки.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-importdir</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать каталог, из которого импортируются файлы MIB. Заключите путь каталога в двойные кавычки (").<p class="p">Примеры:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы указать, что <span class="keyword">MIB Manager</span> производит просмотр в подкаталогах, когда ищет файлы MIB для импорта. <p class="p">Примеры:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать уровень записи сообщений в журнал.
+Эта опция принимает следующие значения:<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>: В журнал записываются только сообщения об ошибках.</li>
+<li class="li"><span class="keyword option">WARN</span>: В журнал записываются сообщения с предупреждениями и сообщения об ошибках.</li>
+<li class="li"><span class="keyword option">INFO</span>: В журнал записываются информационные, предупреждающие и критические сообщения.</li>
+<li class="li"><span class="keyword option">DEBUG</span>: В журнал записываются все сообщения.</li>
+<li class="li"><span class="keyword option">VERBOSE</span>: Подробное сообщение включает в себя состояние переменных, массивов и хешей при всяком изменении значения или состояния.</li>
+<li class="li"><span class="keyword option">NONE</span>: В журнал не записывается никаких сообщений.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-messagelog</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать каталог, в который записывается файл журнала сообщений, <span class="ph filepath">mibmanager.log</span>. Заключите путь каталога в двойные кавычки (").<p class="p">Значение по умолчанию - <span class="ph filepath"><var class="keyword varname">ДОМАШНИЙ_КАТАЛОГ_NC</var>/omnibus/log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d632e86 "><span class="keyword option">-searchpath</span> <var class="keyword varname">строка</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d632e88 ">Используйте эту опцию, чтобы задать разделенный точками с запятой список каталогов, в которых <span class="keyword">MIB Manager</span> может производить поиск для разрешения зависимостей MIB. Заключите путь каталога в двойные кавычки (").<p class="p">Примеры:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies"</samp></p>
+<p class="p">Приведенная ниже команды производит поиск зависимостей в трех указанных каталогах:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="Запустите графический пользовательский интерфейс MIB Manager из командной строки. Он не рассчитан на запуск под управлением процесса или в качестве службы Windows.">Запуск MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

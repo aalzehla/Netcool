@@ -1,0 +1,102 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2010. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# nco_osreport script - runs command line nco_osreport program
+#
+#######################################
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+        echo "Cannot find nco_common" 1>&2
+        exit 1
+fi
+. $NCO_COMMON
+#
+# Need to unset the XPG_SUS_ENV var because 
+# it effects how the JDBC connection is 
+# established in AIX.
+#
+if [ "$SYSTEM" = "AIX" ]
+then
+	unset XPG_SUS_ENV
+fi
+
+#
+# Set defaults
+#
+OMNIUSER=`$WHOAMI`
+OMNIPASSWD=""
+
+#
+# Remove password from commandline if necessary, use environment instead
+#
+
+ARGUMENTS=""
+while [ ${#} -gt 0 ]
+do
+	case "$1" in
+	-[pP][aA][sS][sS][wW][oO][rR][dD]*)
+		if [ ${#} -lt 2 ]; then
+			err "$1 option requires a value"
+		fi
+		shift
+		OMNIPASSWD="$1"
+		;;
+	*)
+		ARGUMENTS="$ARGUMENTS \"$1\""
+		;;
+	esac
+	shift
+done
+
+export OMNIUSER
+export OMNIPASSWD
+
+#
+# Check nco_common found the JRE
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+
+JAVA="\"${NCO_JRE_64_32}/bin/java\""
+
+#
+# Set classpath and property for the JDBC driver
+#
+CLASSPATH=$OMNIHOME/java/jars/OSReport.jar:$CLASSPATH
+CLASSPATH=$OMNIHOME/java/jars/utility.jar:$CLASSPATH
+START_CLASS=com.ibm.tivoli.omnibus.osreport.CommandLine
+
+if [ -f "$OMNIHOME/java/jars/jconn3.jar" ]
+then
+	CLASSPATH=$OMNIHOME/java/jars/jconn3.jar:$CLASSPATH
+	JDBC_PROP="-Djdbc.drivers=com.sybase.jdbc3.jdbc.SybDriver"
+else
+	CLASSPATH=$OMNIHOME/java/jars/jconn2.jar:$CLASSPATH
+	JDBC_PROP="-Djdbc.drivers=com.sybase.jdbc2.jdbc.SybDriver"
+fi
+
+export CLASSPATH
+
+
+#
+# Run OSReport
+#
+eval exec $JAVA $JDBC_PROP $START_CLASS $ARGUMENTS

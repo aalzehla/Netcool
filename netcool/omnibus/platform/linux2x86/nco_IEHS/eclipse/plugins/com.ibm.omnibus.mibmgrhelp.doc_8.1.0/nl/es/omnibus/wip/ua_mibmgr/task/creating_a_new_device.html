@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creación y supresión de dispositivos" />
+<meta name="abstract" content="Los dispositivos de MIB Manager se utilizan para agrupar módulos MIB asociados y definir todos los objetos requeridos para la exportación. Puede crear, actualizar y suprimir dispositivos en la interfaz gráfica de usuario de MIB Manager." />
+<meta name="Description" content="Los dispositivos de MIB Manager se utilizan para agrupar módulos MIB asociados y definir todos los objetos requeridos para la exportación. Puede crear, actualizar y suprimir dispositivos en la interfaz gráfica de usuario de MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="es-es" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Creación y supresión de dispositivos de MIB Manager.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versión 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creación y supresión de dispositivos</h1>
+<div class="body taskbody"><p class="shortdesc">Los dispositivos de
+<span class="keyword">MIB Manager</span>
+se utilizan para agrupar módulos MIB asociados y definir todos los objetos requeridos para la exportación. Puede crear,
+actualizar y suprimir dispositivos en la interfaz gráfica de usuario de
+<span class="keyword">MIB Manager</span>.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Acerca de esta tarea</h2></div><p class="p">Los dispositivos de <span class="keyword">MIB Manager</span> se muestran en la vista <span class="keyword wintitle">Dispositivo</span>.
+Seleccione un dispositivo del árbol <span class="keyword wintitle">Dispositivo</span> para visualizar el
+fabricante, el número de modelo y la versión del sistema operativo del dispositivo.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedimiento</h2></div><p class="li stepsection"><strong class="ph b">Creación de un dispositivo</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">Para crear un nuevo dispositivo:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">En la vista <span class="keyword wintitle">Módulos MIB</span>, seleccione
+como mínimo un módulo MIB y, a continuación, pulse <img class="image" src="../gifs/create_device.gif" alt="icono Crear Dispositivo" /> (Crear
+dispositivo).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Fabricante</span>, seleccione
+un fabricante de dispositivos de la lista desplegable.</span> <p class="p">Los campos <span class="ph uicontrol">Modelo</span> y <span class="ph uicontrol">Versión de
+sistema operativo</span> se rellenan con las opciones disponibles.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Modelo</span>, seleccione una opción
+de la lista desplegable.</span> <p class="p">Si no hay modelos disponibles, indique
+un nombre de modelo descriptivo.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Versión de sistema operativo</span>, seleccione
+una opción de la lista desplegable.</span> <p class="p">Si no hay versiones de sistema operativo disponibles,
+indique un nombre de versión de sistema operativo descriptivo.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Módulos MIB correlacionados</span>,
+seleccione los módulos MIB que desea asociar con el nuevo dispositivo.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Pulse <span class="ph uicontrol">Aceptar</span> para crear el dispositivo.</span> <p class="p">El nuevo dispositivo se muestra en la vista <span class="keyword wintitle">Dispositivo</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Actualización de un dispositivo</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">Para actualizar un dispositivo:</span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">En la vista <span class="keyword wintitle">Dispositivo</span>, seleccione un dispositivo
+y expanda sus subnodos hasta que se visualice la versión de sistema operativo.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Seleccione la versión de sistema operativo y, a continuación, pulse <img class="image" src="../gifs/Edit.gif" alt="icono Editar dispositivo" /> (Editar dispositivo).</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Fabricante</span>, seleccione
+un fabricante de dispositivos de la lista desplegable.</span> <p class="p">Los campos <span class="ph uicontrol">Modelo</span> y <span class="ph uicontrol">Versión de
+sistema operativo</span> se rellenan con las opciones disponibles.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Modelo</span>, seleccione una opción
+de la lista desplegable.</span> <p class="p">Si no hay modelos disponibles, indique
+un nombre de modelo descriptivo.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Versión de sistema operativo</span>, seleccione
+una opción de la lista desplegable.</span> <p class="p">Si no hay versiones de sistema operativo disponibles,
+indique un nombre de versión de sistema operativo descriptivo.</p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Módulos MIB correlacionados</span>,
+seleccione los módulos MIB que desea asociar con el nuevo dispositivo.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Pulse <span class="ph uicontrol">Aceptar</span> para actualizar los detalles del dispositivo.</span> <p class="p">Los detalles del dispositivo actualizado se visualizarán en la vista <span class="keyword wintitle">Dispositivo</span>.</p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">Supresión de un dispositivo</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd">En la vista <span class="keyword wintitle">Dispositivo</span>, seleccione
+el dispositivo y pulse <img class="image" src="../gifs/Delete.gif" alt="icono Suprimir dispositivo" /> (Suprimir dispositivo). </span> <p class="p">Para suprimir varios dispositivos, mantenga pulsadas las teclas
+Control+Alt, seleccione los elementos con el botón izquierdo
+del ratón y, a continuación, pulse <img class="image" src="../gifs/Delete.gif" alt="icono Suprimir dispositivo" /> (Suprimir dispositivo).</p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Puede utilizar MIB Manager para analizar módulos MIB y crear archivos de reglas de Netcool.">Utilización de Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Soporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

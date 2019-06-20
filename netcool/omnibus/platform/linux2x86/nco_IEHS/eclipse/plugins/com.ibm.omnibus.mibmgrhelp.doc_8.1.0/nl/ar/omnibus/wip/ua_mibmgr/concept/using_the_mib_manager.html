@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="استخدام Netcool MIB Manager" />
+<meta name="abstract" content="يمكنك استخدام MIB Manager لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool." />
+<meta name="Description" content="يمكنك استخدام MIB Manager لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="usingthemibmanager" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>استخدام Netcool MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="usingthemibmanager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">استخدام <span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body conbody"><p class="shortdesc">يمكنك استخدام <span class="keyword">MIB Manager</span> لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool.</p>
+<p class="p"><span class="keyword">MIB Manager</span> يتضمن مجموعة من  MIBs و RFC MIBs الأساسية، فى الدليل <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs</span>.
+يتم تقديم MIBs لتتمكن من استقبال MIBs اضافية. <span class="keyword">MIB Manager</span> يستخدم MIBs المجمعة آليا لحل الارتباطات أثناء استقبال
+MIBs جديدة. وحدات برامج MIB المجمعة
+تكون مرئية فى مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span> عندما تقوم ببدء
+<span class="keyword">MIB Manager</span> للمرة الأولى.</p>
+<p class="p"><span class="keyword">MIB Manager</span> يتضمن أيضا ملفات بيانات XML التى تمثل استقبال
+لحزم برامج MIBs الأساسية. يقوم <span class="keyword">MIB Manager</span> باستخدام ملفات XML لتخزين بيانات MIB التى يقوم باستقبالها
+من ملفات MIB للنص الصريح.</p>
+<p class="p">قم باضافة واحدات MIBs الخاصة بك الى الدليل الذى يمكن التوصل له من وحدة الخدمة
+التى تم بدء <span class="keyword">MIB Manager</span> منها. يجب تركيب MIBs القياسي في دليل منفصل يمكن أن يتم وضعه في مسار البحث لتحليل الارتباط بسهولة. بصفة افتراضية، يتم تركيب SNMP MIBs الأساسية فى الدليل
+<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span>،
+ويتم تركيب كل RFC MIBs فى الدليل <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span>.</p>
+<div class="section"><h2 class="title sectiontitle">نافذة <span class="keyword">Netcool MIB Manager</span></h2><p class="p">عندما تقوم ببدء <span class="keyword">MIB Manager</span>، يتم عرض العناصر التالية فى نافذة <span class="keyword">MIB Manager</span> المبدئية: يتم عرض عناصر متعددة فى نافذة <span class="keyword wintitle">MIB
+Manager</span> المبدئية. الشكل التالي يعرض هذه العناصر.</p>
+<div class="fig fignone"><span class="figcap">شكل 1. نافذة <span class="keyword">MIB Manager</span> المبدئية</span><div class="image"><img class="image" src="../../images/cd_omn_mib_screen.gif" alt="صورة تعرض نافذة MIB Manager المبدئية" /></div></div>
+<dl class="dl"><dt class="dt dlterm"><span class="keyword calloutlabel"> 1 </span> خط الأدوات</dt>
+<dd class="dd">يوفر امكانية التوصل الى أكثر وظائف <span class="keyword">MIB Manager</span> استخداما.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 2 </span> المشاهدات الرئيسية</dt>
+<dd class="dd">يمكنك مشاهدة بيانات MIB فى مشاهدة رئيسية أو أكثر، <span class="ph uicontrol">MIB
+Manager</span> أو <span class="ph uicontrol">mib2rules</span>. تعد  مشاهدة <span class="ph uicontrol">MIB Manager</span> هي المشاهدة الرئيسية المفترضة. تركز المشاهدة الرئيسية <span class="ph uicontrol">mib2rules</span> على
+أكواد تعريف العناصر (OIDs) ويتم تقديمها للمستخدمين
+الذين هم على دراية بوظيفة <span class="keyword cmdname">mib2rules</span>.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 3 </span> مشاهدة <span class="keyword wintitle">الجهاز</span></dt>
+<dd class="dd">قم باستخدام هذه المشاهدة لتكوين وتحديث وحذف أجهزة <span class="keyword">MIB Manager</span>.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 4 </span> مشاهدة <span class="keyword wintitle">التفاصيل</span>
+ومشاهدة <span class="keyword wintitle">شاشة التحكم الرئيسية</span></dt>
+<dd class="dd">تعرض مشاهدة <span class="keyword wintitle">التفاصيل</span> تفاصيل عناصر
+MIB المحددة. تعرض مشاهدة <span class="keyword wintitle">شاشة التحكم الرئيسية</span> كل رسائل السجل
+التى يتم تكونها بواسطة <span class="keyword">MIB Manager</span> بينما تكون النسخة الحالية قيد التشغيل.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 5 </span> <span class="keyword wintitle">وحدات برامج MIB</span></dt>
+<dd class="dd">قم باستخدام هذه المشاهدة للبحث عن وحذف وحدات برامج MIB، وللبحث عن قيم
+MIB محددة.</dd>
+<dt class="dt dlterm"><span class="keyword calloutlabel"> 6 </span> مشاهدة <span class="keyword wintitle">تسلسل OID</span></dt>
+<dd class="dd">تقدم هذه المشاهدة توضيح لكل عناصر MIB الموجودة فى وحدات برامج
+MIB التى تم استقبالها.</dd>
+</dl>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_mibtree_view.html">مشاهدة وحدات برامج MIB</a></span><br />
+تقدم مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span> تمثيل لكل وحدات برامج  MIB التي تم استقبالها وتسمح لك بالبحث عن وحدات برامج MIB، وحذف وحدات برامج
+MIB والبحث عن قيم MIB محددة.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/the_oidtree_view.html">مشاهدة تسلسل OID</a></span><br />
+تقدم مشاهدة تسلسل كود تعريف العنصر (OID) تمثيل لكل عناصر  MIB التي توجد في وحدات برامج MIB التي تم استقبالها.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_importdata.html">استقبال بيانات MIB</a></span><br />
+كيف يتم استقبال ملفات تعقب مشاكل SNMP في MIB Manager.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html">تصدير بيانات MIB</a></span><br />
+كيفية ارسال بيانات SNMP MIB من <span class="keyword">MIB Manager</span> الى تنسيقات متنوعة.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/editing_SNMP_traps.html">تحرير ملفات تعقب مشاكل SNMP</a></span><br />
+كيف يتم تحرير ملفات تعقب مشاكل SNMP.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/sending_an_SNMPtrap.html">تكوين ملفات تعقب مشاكل SNMP</a></span><br />
+كيف يتم تكوين ملفات تعقب مشاكل SNMP. كما يمكن استخدام هذه الوظيفة
+لاختبار القواعد التى يتم تكوينها بواسطة <span class="keyword">MIB Manager</span>.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/creating_a_new_device.html">تكوين وحذف الأجهزة</a></span><br />
+يتم استخدام جهاز <span class="keyword">MIB Manager</span> لجمع وحدات برامج MIB المجمعة ولتعريف كل العناصر اللازمة
+للارسال. يمكنك تكوين وتحديث وحذف
+الأجهزة فى <span class="keyword">MIB Manager</span> GUI.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager هو تطبيق IBM Eclipse-based GUI يمكنك استخدامه لاجراء تحليل لغوى على ملفات قاعدة معلومات الادارة (MIB) والتى تخص Simple Network Management Protocol (SNMP)، والتى يمكنك من خلالها تكوين ملفات قواعد Netcool. فهو مقصود كاستبدال لوظيفة mib2rules.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

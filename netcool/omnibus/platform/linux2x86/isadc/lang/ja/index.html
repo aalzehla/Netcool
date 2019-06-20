@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-jp" id="ibm-popup">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' /> 
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/"/> 
+<link rel="SHORTCUT ICON" href="http://www.ibm.com/favicon.ico"/> 
+<meta name="DC.Publisher" content="IBM Corporation"/> 
+<meta name="DC.Rights" content="© Copyright IBM Corp. 2010, 2011"/> 
+<meta name="Keywords" content="IBM Support Assistant Data Collector、ISA、ISADC、問題判別"/> 
+<meta name="DC.Date" scheme="iso8601" content="2011-02-18"/> 
+<meta name="Source" content="v16 テンプレート生成プログラム、テンプレート 16.29"/> 
+<meta name="Security" content="Public"/> 
+<meta name="Abstract" content="IBM Support Assistant Data Collector は、ソフトウェア問題の判別に必要なファイルの収集を自動化します。"/> 
+<meta name="IBM.Effective" scheme="W3CDTF" content="2010-12-01"/> 
+<meta name="DC.Subject" scheme="IBM_SubjectTaxonomy" content="SSLLVC,SSQU2D"/> 
+<meta name="Owner" content="James McVea/Raleigh/IBM"/> 
+<meta name="DC.Language" scheme="rfc1766" content="ja-JP"/> 
+<meta name="IBM.Country" content="JP"/> 
+<meta name="Robots" content="noindex,follow"/>  
+<meta name="DC.Type" scheme="IBM_ContentClassTaxonomy" content="CT757"/> 
+<meta name="Description" content="IBM Support Assistant Data Collector は、ソフトウェア問題の判別に必要なファイルの収集を自動化します。"/>
+<meta content="sid=1004" name="IBM.PageAttributes" />
+
+<title>IBM Support Assistant Data Collector
+</title>
+
+<!-- BEGIN: style sheet links -->
+	<!-- ibm.com style -->
+<link href="../../ibm_com/css/common/v16/css/all.css" media="all" rel="stylesheet" title="www" type="text/css"/>
+<link href="../../ibm_com/css/common/v16/css/screen.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="../../ibm_com/css/common/v16/css/screen-uas.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="../../ibm_com/css/common/v16/css/us/en/screen-fonts.css" media="screen,projection" rel="stylesheet" title="www" type="text/css"/>
+<link href="../../ibm_com/css/common/v16/css/handheld.css" media="handheld" rel="stylesheet" title="www" type="text/css"/>
+<link href="../../ibm_com/css/common/v16/css/print.css" media="print" rel="stylesheet" title="www" type="text/css"/>
+<link href="../../ibm_com/css/common/v16/css/popup.css" media="screen" rel="stylesheet" title="www" type="text/css"/>
+
+	<!-- Dojo style -->
+<link href="../../dojo/dojo/resources/dojo.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo/dijit/themes/dijit.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo/dijit/themes/claro/claro.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo/dojox/image/resources/image.css" rel="stylesheet" type="text/css" />
+	
+	<!-- ISA style -->
+
+<link href="../../css/isadc.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo_extensions/widget/view/css/mainweb.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo_extensions/widget/inputDialog/css/inputdialog.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo_extensions/widget/panel/css/panels.css" rel="stylesheet" type="text/css" />
+<link href="../../dojo_extensions/widget/customTasks/css/UploadInterface.css" rel="stylesheet" type="text/css" />
+
+<!-- END: style sheet links -->
+
+
+<!-- BEGIN: JavaScript -->
+    <!-- ibm.com scripts -->	
+     
+<script src="../../ibm_com/js/common/js/ibmcommon.js"  type="text/javascript">// </script> 
+<script src="../../ibm_com/js/common/js/dynamicnav.js" type="text/javascript">// </script>
+<script src="../../ibm_com/js/common/js/stats.js"      type="text/javascript">// </script>
+   
+<!-- <script src="ibm_com/js/support/legal.js" type="text/javascript">//</script> --> 
+
+<!-- Message for specific browser, who don't support local file protocol -->
+<script type="text/javascript">
+	if (location.protocol === 'file:') {
+		var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+		if (is_chrome === true) {
+		var message_supported_browser_chrome='このブラウザーで、ローカル・ファイル・システムから  ISA データ収集を実行することはできません。' +
+    			  'サポートされるブラウザーを使用して、ローカル・ファイル・システムから ISA データ収集を実行してください' + 
+    			  '詳細は、リリース・ノートを参照してください。';
+    		
+    	    alert(message_supported_browser_chrome);
+		}
+
+	}
+	var is_zLinux = navigator.userAgent.toLowerCase().indexOf('linux s390x') > -1;
+	if (is_zLinux === true) {
+	var message_supported_browser_s390='このシステムのブラウザーで ISA データ収集を実行することはできません。IBM System z 上の Linux の ' +
+  			  'ISA Data Collector は、コンソール・モードでのみサポートされます。' + 
+  			  '詳細は、リリース・ノートを参照してください。';
+		alert(message_supported_browser_s390);
+	}
+</script>
+
+
+		 
+	<!-- Load up the Dojo scripts and ISA scripts -->
+<script src="../../dojo/dojo/dojo.js" 
+	type="text/javascript"
+	djConfig="isDebug: false,
+		parseOnLoad: true,
+		locale:'ja-ja',
+		modulePaths: {
+			widgets: '../../dojo_extensions/widget'
+		}">
+</script>
+
+<!-- ISA Web Collector Java scripts go here -->
+<script type="text/javascript" src="../../dojo/dojo/isadc_files.js"></script> 
+<script src="../../js/readProductFiles.js" type="text/javascript"> // </script>
+<script src="../../js/_isadc.js" type="text/javascript"> // </script>
+<script src="../../js/utils.js" type="text/javascript"> // </script>
+<script src="../../js/PluginDetect.js" type="text/javascript"> // </script>
+
+<script type="text/javascript">    
+	dojo.require("dojo.parser");    
+</script> 
+
+<script type="text/javascript">
+	dojo.addOnLoad(function() {  
+		// located in _isadc.js for brevity
+		onLoad();    
+	});		
+	
+	//On unload, make sure we publish an event to be captured
+	dojo.addOnUnload(function(){
+	  
+	  dojo.publish("CollectionBrowserClosed",[{'closed':true}]);
+	});
+	
+</script>
+
+<!-- END: JavaScript -->
+
+</head>
+
+<!-- Body starts here -->
+<body id="ibm-com" class="claro" style="min-width:800px">
+
+<div id="ibm-top">
+
+<!-- MASTHEAD_BEGIN -->
+<div id="ibm-masthead" role="banner">
+<div id="ibm-logo"><img alt="IBM®" height="26" src="../../ibm_com/images/v16/t/ibm-logo-small.gif" width="54"/></div>
+<div id="ibm-site-name"> </div>
+<div id="ibm-universal-nav">
+<ul><li id="ibm-unav-home" class="ibm-first"><a href="http://www.ibm.com/us/en/" target="__blank">ホーム</a></li><li id="ibm-unav-solutions"><a href="http://www.ibm.com/businesssolutions/us/en/" target="__blank">ビジネス・ソリューション</a></li><li id="ibm-unav-services"><a href="http://www.ibm.com/technologyservices/us/en/" target="__blank">IT サービス</a></li><li id="ibm-unav-products"><a href="http://www.ibm.com/products/us/en/" target="__blank">製品</a>
+	<ol>
+		<li></li>
+	</ol>
+	</li>
+	<li id="ibm-unav-support"><a href="http://www.ibm.com/support/us/en/" target="__blank">サポート &amp; ダウンロード</a></li><li id="ibm-unav-myibm"><a href="http://www.ibm.com/account/us/en/" target="__blank">My IBM</a></li></ul>
+</div>
+
+<h1>IBM Support Assistant Data Collector
+</h1>
+</div>
+<!-- MASTHEAD_END -->
+
+
+<!-- BEGIN: main content -->
+<div id="ibm-content-main" role="main">
+<a name="maincontent"> </a>
+	<div id="stackContainerViewDiv" style="width:750px;height:515px;margin:0px auto;">
+		<!-- This is the applet div -->
+		<div id="appletDiv">		
+		</div>
+	</div>
+
+<!-- END: main content -->
+
+<div id="runtimeDialogDiv"> </div>
+
+</div>
+
+<!--  FOOTER_BEGIN -->
+<div id="ibm-footer" style="font-size:1.2em" role="contentinfo">
+	<ul>
+		<li  class="ibm-first"><a href="http://www.ibm.com/legal/jp/ja/" target="__blank">利用条件</a></li>
+		<li><a href="http://www.ibm.com/privacy/jp/ja/" target="__blank">プライバシー</a></li>
+	</ul>
+</div>
+<!-- FOOTER_END -->
+</div>
+
+</body>
+</html>

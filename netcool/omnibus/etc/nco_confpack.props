@@ -1,0 +1,59 @@
+#######################################################################
+#
+#       Licensed Materials - Property of IBM
+#
+#       5724O4800
+#
+#       (C) Copyright IBM Corp. 1994, 2007. All Rights Reserved
+#
+#       US Government Users Restricted Rights - Use, duplication
+#       or disclosure restricted by GSA ADP Schedule Contract
+#       with IBM Corp.
+#
+#
+# Ident: $Id: confpack.props 1.0 2004/02/26 09:38:14 bfreitas Development $
+#
+#######################################################################
+#
+# This properties file can be used instead of the command line 
+# option for nco_confpack.  Each of the properties need to be 
+# on their own line.  String values will need to be enclosed by
+# single quotes, and boolean values need to be either TRUE or 
+# FALSE.  A line will be commented out when a hash mark (#) is 
+# the first character.  However, the first character of a line
+# is the only place that a comment is allowed.
+# 
+# FLEX lm license is removed in OMNIbus7.2
+
+# Netcool Omnibus installation directory
+# omni.home:				'/opt/netcool/omnibus'
+
+# The Netcool user that will be used for a specific server
+# objectserver.<server>.user:		'root'
+
+# The password for a Netcool user for a specific server
+# objectserver.<server>.password:	''
+
+# The list file name 
+# confpack.list.name:			''
+
+# The package name 
+# confpack.package.name:		''
+
+# A comma separated list of servers
+# confpack.omnibus.servers:		''
+
+# The name of alternate server name to go into the package
+# confpack.export.rename:		''
+
+# A boolean flag to enable/disable the warning message
+# confpack.import.nowarn:		FALSE
+
+# A boolean flag to enable/disable the forced overwrite of external files
+# confpack.import.force:		FALSE
+
+# The name of server to import from a package
+# confpack.import.from:			''
+
+# The name of file with selective import items
+# confpack.import.select:		''

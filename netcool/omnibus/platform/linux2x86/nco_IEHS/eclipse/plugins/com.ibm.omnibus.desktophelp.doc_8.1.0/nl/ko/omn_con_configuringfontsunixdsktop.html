@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX 데스크탑의 글꼴 구성" />
+<meta name="abstract" content="사용자 로케일에서 UNIX 데스크탑을 보려면 사용자 로케일 인코딩으로 텍스트를 표시하기 위해 필요한 글꼴을 구성해야 할 수 있습니다." />
+<meta name="Description" content="사용자 로케일에서 UNIX 데스크탑을 보려면 사용자 로케일 인코딩으로 텍스트를 표시하기 위해 필요한 글꼴을 구성해야 할 수 있습니다." />
+<meta name="DC.subject" content="다국어 지원, 글꼴 구성" />
+<meta name="keywords" content="다국어 지원, 글꼴 구성" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsunixdsktop" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>UNIX 데스크탑의 글꼴 구성</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsunixdsktop">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX 데스크탑의 글꼴 구성</h1>
+<div class="body taskbody"><p class="shortdesc">사용자 로케일에서 UNIX 데스크탑을 보려면 사용자 로케일 인코딩으로
+텍스트를 표시하기 위해 필요한 글꼴을 구성해야 할 수 있습니다.</p>
+<div class="section context"><p class="p">Tivoli® Netcool/OMNIbus
+설치에는 UNIX 데스크탑 애플리케이션의
+사용자 인터페이스 요소에 대한 정의(예: 창 크기, 글꼴 선택사항, 색상, 창 제목의
+문자열 값, 메뉴, 단추, 아이콘, 필드 레이블 및 메시지 문자열에 대한 정의)가
+있는 자원 파일이 포함됩니다. </p>
+<p class="p">영어, 프랑스어, 독일어, 일본어, 한국어,
+러시아어, 스페인어, 중국어 및 대만어 로케일에 대해 자원 파일 변환을
+사용할 수 있습니다. 또한 ISO-8859-1 문자 세트를 사용하는 로케일은 영어 설정
+상태에서 글꼴을 올바르게 표시할 수 있습니다. 다른 문자 세트는 글꼴 구성이 필요할 수 있습니다. </p>
+<p class="p">자원
+파일은 다음 위치에 저장됩니다. </p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+<p class="p">여기서 <var class="keyword varname">arch</var>는
+운영 체제 디렉토리이고 <var class="keyword varname">locale_name</var>은 전체 로케일 이름(예:
+en_GB.ISO8859-1)입니다. 일부 로케일 이름은 축약 이름이 있는 기호 링크일 수 있습니다.</p>
+<div class="p">자원 파일은 다음과 같습니다. <ul class="ul"><li class="li"><span class="ph filepath">NCO</span>: 컨덕터, 연관된 필터 빌더, 보기 빌더에 대한 정의</li>
+<li class="li"><span class="ph filepath">NCOBanner</span>: 컨덕터 스플래시 화면에 대한 정의 </li>
+<li class="li"><span class="ph filepath">NCOELCT</span>: 임시 이벤트 목록에 대한 정의 </li>
+<li class="li"><span class="ph filepath">NCOEvent</span>: <span class="keyword wintitle">이벤트 목록</span>
+모니터 상자 창, 이벤트 목록 및 <span class="keyword wintitle">로그인</span> 창과 같이 연관된 창,
+필터 빌더 및 보기 빌더에 대한 정의</li>
+<li class="li"><span class="ph filepath">NCOHelp</span>: 온라인 도움말에 관련된 정의로,
+이 파일에는 정의가 없을 수도 있습니다. </li>
+<li class="li"><span class="ph filepath">NCOMessage</span>: 도구에 대해 사용할 수 있는 메시징 대화 상자에 대한
+정의 </li>
+<li class="li"><span class="ph filepath">NCOXigen</span>: 서버 편집기에 대한 정의 </li>
+<li class="li"><span class="ph filepath">NCOXprops</span>: 특성 편집기에 대한 정의 </li>
+</ul>
+</div>
+<p class="p">Tivoli Netcool/OMNIbus 설치
+패키지에 로케일이 포함되지 않은 경우, en_US.ISO8859-1 로케일의 자원 파일이 기본값으로 사용됩니다.
+설치 패키지에 제공되지 않은 다른 로케일을 사용하도록 설치를 구성할 수 있습니다.
+로케일이 ISO-8859-1이 아닌 다른 문자 세트 인코딩을 사용하는 경우
+자원 파일 문자를 로케일에 맞는 문자로 정확하게 렌더링할 수 있는
+글꼴을 정의하는지 추가 확인해야 합니다. </p>
+<p class="p">다른 로케일과 글꼴 세트를 구성하려면 다음을 수행하십시오. </p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">다음 명령을 실행하여 지원되는 모든 로케일을 표시하십시오. </span> <p class="p"><kbd class="ph userinput">locale -a</kbd></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">LC_ALL 환경 변수를 다음 로케일 중 하나로 설정하십시오. </span></li>
+<li class="li step stepexpand" id="omn_con_configuringfontsunixdsktop__omn_intnzn_step"><span class="ph cmd">다음 명령을 실행하여 문자 인코딩을 표시하십시오. </span> <p class="p"><kbd class="ph userinput">locale charmap</kbd></p>
+
+<p class="p">나중에 필요하므로 인코딩을 기록해 두십시오. </p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">로컬화된 자원 파일 세트를 올바르게 렌더링하는 글꼴로 작성하려면
+<span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></span> 디렉토리로 이동하십시오.
+여기서 <var class="keyword varname">arch</var>는 운영 체제 디렉토리를 표시합니다.
+인코딩에 대해 적합한 글꼴을 포함하는 로케일에서 자원 파일 세트를 복사한 후
+복사된 파일을 사용자 정의해야 합니다. 예를 들어,
+아랍어 로케일(ar)의 파일을 작성하려면 로케일 이름으로 디렉토리를
+작성하고 en_US.ISO8859-1 로케일의 자원 파일을 복사하십시오. </span> <p class="p"><kbd class="ph userinput">cd
+$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var></kbd></p>
+
+<p class="p"><kbd class="ph userinput">mkdir
+ar</kbd></p>
+
+<p class="p"><kbd class="ph userinput">cd ar</kbd></p>
+
+<p class="p"><kbd class="ph userinput">cp -r ../en_US.ISO8859-1/*
+.</kbd></p>
+
+<p class="p">자원 파일(접두어 NCO가 붙은), 이미지 서브디렉토리 및 기본 이벤트
+목록 구성 파일이 <span class="ph filepath">ar</span> 디렉토리로 복사됩니다.
+이제 사용자 시스템에 있는 적합한 글꼴 세트(자원 파일의
+애플리케이션 글꼴과 일치하는)를 찾아보아야 합니다.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">명령행에서 운영 체제에 적절한 명령을 입력하십시오. </span> <table cellpadding="4" cellspacing="0" summary="" border="1" class="simpletable"><tr class="sthead"><th valign="bottom" align="left" id="d1876e163" class="stentry" width="25%">운영 체제</th>
+<th valign="bottom" align="left" id="d1876e165" class="stentry" width="75%">명령</th>
+</tr>
+<tr class="strow"><td valign="top" headers="d1876e163" class="stentry">AIX®</td>
+<td valign="top" headers="d1876e165" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1876e163" class="stentry">HP-UX</td>
+<td valign="top" headers="d1876e165" class="stentry"><kbd class="ph userinput">/usr/bin/X11/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1876e163" class="stentry">Linux(Red Hat)</td>
+<td valign="top" headers="d1876e165" class="stentry"><kbd class="ph userinput">/usr/X11R6/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+<tr class="strow"><td valign="top" headers="d1876e163" class="stentry">Solaris</td>
+<td valign="top" headers="d1876e165" class="stentry"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts -fn "<var class="keyword varname">font_name</var>"</kbd></td>
+</tr>
+</table>
+
+<p class="p"></p>
+
+<p class="p">이 명령에서, <var class="keyword varname">font_name</var>은 <a class="xref" href="#omn_con_configuringfontsunixdsktop__omn_intnzn_step">3</a>단계에서
+출력된 문자 인코딩입니다. 별표(*)를 사용하여 와일드카드로 이 값을 지정하십시오. 쉘이 텍스트의
+별표를 해석하지 않도록 하기 위해 이 값을 따옴표로 묶어야 합니다.
+예: </p>
+
+<p class="p"><kbd class="ph userinput">/usr/openwin/bin/xlsfonts
+-fn "*-iso8859-6"</kbd></p>
+ 일치하는 글꼴의 목록이 표시됩니다.</li>
+<li class="li step stepexpand"><span class="ph cmd">이 글꼴을 각각 미리보고 적합한지 판별하십시오.
+글꼴마다 다음 명령을 입력하십시오. </span> <p class="p"><kbd class="ph userinput">xfd -fn <var class="keyword varname">font_name</var></kbd></p>
+
+<p class="p"><var class="keyword varname">font_name</var>은 이전 단계에서 리턴된 일치하는 글꼴 이름 중 하나입니다. </p>
+ 글꼴의 전체 이름과 셀마다 하나의 문자를 포함하는 격자를 표시하는
+창이 열립니다. 모든 문자를 보려면 <span class="ph uicontrol">다음 페이지</span> 및 <span class="ph uicontrol">이전
+페이지</span> 단추를 사용해야 할 수도 있습니다. 적합한 글꼴을 식별한 경우
+자원 파일에 글꼴 세트를 추가할 수 있습니다. </li>
+<li class="li step stepexpand"><span class="ph cmd">이름이 <span class="ph filepath">NCO</span>인 자원 파일을 각각 열고
+글꼴을 변경하십시오. </span> 예를 들어, 이벤트 목록 자원의 경우
+<samp class="ph codeph">NCOEvent*fontList</samp>, <samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp>, <samp class="ph codeph">*view_builder*display_matrix.labelFont</samp> 및 <samp class="ph codeph">NCOEvent*info_matrix.labelFont</samp>를
+로케일에 필요한 모든 글꼴을 포함하는 글꼴 세트로 설정해야 합니다.
+<p class="p">UNIX 글꼴 이름 양식은 다음과 같습니다. </p>
+
+<pre class="pre codeblock"><code>-foundry-font family-weight-slant-set width-serif-pixels-points-hres-vres-spacing-average <br />width-character set-encoding</code></pre>
+와일드카드를 사용하여 글꼴 이름을 지정할 수 있습니다. 예를 들어, 이벤트 목록의 기본 글꼴은
+다음과 같습니다. <pre class="pre codeblock"><code>-adobe-helvetica-bold-r-normal--12-*-75-75-*-*-iso*-*</code></pre>
+
+<p class="p">아랍어의 경우 다음으로 바꿀 수 있습니다. </p>
+
+<pre class="pre codeblock"><code>-dt-interface user-bold-r-normal-m serif-14-140-75-75-p-188-iso8859-6</code></pre>
+
+<p class="p"></p>
+EUC 문자 세트를 사용할 때, 한 번에 여러 글꼴이 필요합니다.
+예를 들어, EUCJIS(일본어)에서는 iso8859-1, jisx0201.1976-0, jisx0208.1983-0 및
+jisx0212.1990-0 글꼴이 필요합니다. 와일드카드를 포함하는 하나 이상의 글꼴 이름으로
+이와 같은 글꼴 세트를 지정할 수 있습니다. (글꼴 세트 내의 글꼴은 세미콜론으로 구분되며
+글꼴 세트는 콜론으로 종료됩니다.)</li>
+<li class="li step stepexpand"><span class="ph cmd">필요하면 다음과 같이 자원의 다른 설정을 변경하십시오. </span> <ul class="ul"><li class="li">창의 기본 너비(픽셀)를 지정하십시오. 사용하는 글꼴을 수용하도록 이 값을
+조정하고 창의 텍스트 레이블이 적절하게 표시되는지 확인해야 합니다.</li>
+<li class="li">창 제목(<samp class="ph codeph">*.title</samp>), 단추 레이블(<samp class="ph codeph">*.labelString</samp>),
+메시지(<samp class="ph codeph">*.messageString</samp>) 및 기타 텍스트 요소의 문자열 값을
+변환된 텍스트로 바꾸십시오. 변환된 텍스트가 사용자 로케일의 문자 인코딩을
+사용하는지 확인하십시오. </li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">파일에 변경사항을 저장하십시오. </span> 이제 올바른 로케일 및 글꼴을 사용하여
+Tivoli Netcool/OMNIbus를 실행할 수 있습니다. </li>
+</ol>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

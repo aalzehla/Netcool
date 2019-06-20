@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Service Details" />
+<meta name="abstract" content="Use this window to create a new service or edit the details of an existing service." />
+<meta name="Description" content="Use this window to create a new service or edit the details of an existing service." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingeditservs.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_servicedetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Service Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_servicedetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Service Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to create a new service or edit the details of
+an existing service.</p>
+<div class="section"><div class="p">Complete this window as follows:<dl class="dl" id="netom_servicedetailswindow__netom_servicedetailsfields"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Enter the service name. This name must be unique within the process control
+network. When editing a service, you cannot change the name.</dd>
+<dt class="dt dlterm">Auto Start Service</dt>
+<dd class="dd">Select this check box to specify that the service should start automatically
+as soon as the process agent has started. Clear this check box if you want
+to start the service manually by using the <span class="keyword cmdname">nco_pa_start</span> command.</dd>
+<dt class="dt dlterm">Master Service</dt>
+<dd class="dd">Select this check box to indicate that this is a master service. A master
+service is started before other services and is handled as the master service
+upon which other services depend.</dd>
+<dd class="dd">If you define multiple services as master within the same process control
+configuration file, the master services start in the order in which they appear
+in the configuration file.</dd>
+<dt class="dt dlterm">Processes and their order within the configuration file</dt>
+<dd class="dd">This list is shown only when editing a service, and shows the processes
+that are defined to run as part of the service. The order in which the processes
+are displayed indicates their order in the configuration file. You can use
+the arrow buttons to change the process order.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_servicedetailswindow__netom_servicedetails_saving_closing"><h2 class="title sectiontitle">Saving the service
+details</h2><div class="p">After creating or editing a service, you can save or cancel
+the changes made by clicking the relevant button as follows:<dl class="dl" id="netom_servicedetailswindow__netom_servicedetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the service details and close the window. New
+services are added to the <span class="keyword wintitle">Service/Process Details</span> pane.<div class="note tip"><span class="tiptitle">Tip:</span> Your configuration changes are not automatically saved to the process
+control configuration file. To update the file, click <span class="ph uicontrol">Write Process
+Agent Config file</span> in the toolbar.</div>
+</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_pa_creatingeditservs.html" title="You can set up a Tivoli Netcool/OMNIbus service and configure it to start either automatically or manually.">Creating and editing services</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB 对象类型" />
+<meta name="abstract" content="本主题描述了 SNMP v1 和 v2 中定义的对象类型。" />
+<meta name="Description" content="本主题描述了 SNMP v1 和 v2 中定义的对象类型。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB 对象类型</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB 对象类型</h1>
+<div class="body refbody"><p class="shortdesc">本主题描述了 SNMP v1 和 v2 中定义的对象类型。</p>
+<div class="section"><p class="p">在“<span class="keyword wintitle">MIB 模块</span>”视图中选择模块，然后在“<span class="keyword wintitle">OID 树</span>”视图中的<span class="ph uicontrol">搜索</span>字段中搜索 <kbd class="ph userinput">ifIndex</kbd>，这样可找到下列几节中所述的对象信息。单击“<span class="keyword wintitle">OID 树</span>”层次结构中的 <samp class="ph codeph">ifIndex</samp> 对象，以在“<span class="keyword wintitle">详细信息</span>”视图中查看对象信息和文本约定信息。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p"><samp class="ph codeph">OBJECT IDENTIFIER</samp> 由 SNMP v1 定义，它是 MIB 树的主构建块。对象标识与书籍中的章节标题类似，它们不包含任何实际数据，但是告诉您它们的后代传达何种内容。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p"><samp class="ph codeph">OBJECT-TYPE</samp> 由 SNMP v1 定义，用作存储受管设备相关信息的容器，或者用作存储设备的特定测量值的容器。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p"><samp class="ph codeph">TEXTUAL-CONVENTION</samp> (TC) 是对象类型的定义，但不是实际对象。在“<span class="keyword wintitle">MIB 模块</span>”视图中，您可以从<span class="ph uicontrol">视图</span>列表中选择<span class="ph uicontrol">文本约定</span>以查看 MIB 树中显示的已解析的文本约定。在 MIB 树中选择一个 TC 名称可在“<span class="keyword wintitle">详细信息</span>”视图中显示其定义。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE 和 SNMP v2 NOTIFICATION TYPE</h2><div class="p">SNMP v1 TRAP-TYPE 和 v2 NOTIFICATION-TYPE 是用于向 SNMP 管理器生成自主事件的 SNMP 机制。v1 中的 SNMP 陷阱不定义为 MIB 树中的对象。TRAP-TYPE 对象没有 OBJECT IDENTIFIER 格式的已定义父级。陷阱定义指定了所定义的陷阱所针对的企业。以下是一个典型的 TRAP-TYPE 对象：<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM 
+enters the ESTABLISHED state." ::= 1 </code></pre>
+</div>
+<p class="p"><samp class="ph codeph">ENTERPRISE</samp> 部分定义哪个对象是陷阱的父级。但是，可以使用 <samp class="ph codeph">bgp</samp> 将 MIB 树对象定义为父级，并将自己定义为编号为 1 的子级。事实上，<samp class="ph codeph">bgpVersion</samp> 在 RFC1269-MIB 模块中定义为 <samp class="ph codeph">{ bgp 1}</samp>。因此，可以向 MIB 树添加 v1 陷阱作为叶子，该叶子使用 <samp class="ph codeph">ENTERPRISE</samp> 作为父级。</p>
+<p class="p">SNMP v2 将 TRAP-TYPE 的定义更改为 NOTIFICATION-TYPE，并指定应该像定义其他 MIB 对象那样定义此新 v2 陷阱，至于父级编号和子级编号，只有 v1 陷阱才存在此问题。RFC1155 4.1 节定义了使用零 (0) 作为子级编号是无效的，因为该编号已保留供将来使用。SNMP v2 允许供应商向 v2 MIB 添加自己的 v1 陷阱，向企业名称中添加零，然后在零后面添加陷阱编号，以此使用零。
+因此，应该在 v2 下定义一个包含零的对象标识作为企业的子级，然后将 v1 陷阱添加为该零的子级。</p>
+<p class="p">这约定使 MIB 作者犯了另一个常见的错误。RFC1155 第 4 节有以下叙述：</p>
+<p class="p"><span class="q">“An
+object type definition consists of five fields: OBJECT: ------- A
+textual name, termed  the OBJECT DESCRIPTOR, for the object type,
+along with its corresponding OBJECT IDENTIFIER.  Syntax: The abstract
+syntax for the object type. This must resolve to an instance of the
+ASN.1  type ObjectSyntax (defined below). Definition: A textual description
+of the semantics of the  object type. Implementations should ensure
+that their instance of the object fulfills this  definition since
+this MIB is intended for use in multi-vendor environments. As such
+it is  vital that objects have consistent meaning across all machines.
+Access: One of read-only,  read-write, write-only, or not-accessible.
+Status: One of mandatory, optional, or obsolete.  Future memos may
+also specify other fields for the objects which they define.”</span></p>
+<div class="p">根据此规则，所有对象都必须具有对象名和对象编号。某些供应商的 MIB 模块乃至某些 RFC 所定义的 NOTIFICATION-TYPE，具有父级零，但是该父级零没有对象名。在以下示例中，对象定义在语法上其实不正确，因为没有为子编号为零的 <samp class="ph codeph">adslAtucTraps</samp> 对象定义任何对象名。<span class="keyword">MIB 管理器</span> 会识别某些 MIB 作者的首选项以使用此类方法作为快捷方式，从而允许在没有对象名的情况下添加对象。此外，为了便于将 v1 陷阱添加到 MIB 树中，<span class="keyword">MIB 管理器</span> 会自动添加对象零作为 v1 企业对象的子级（请注意，v1 MIB 的 OID 中不能使用零），将对象零指定为企业名称所在的陷阱，并在 MIB 树中的此新对象下添加该陷阱。例如，使用 <samp class="ph codeph">bgp</samp> 将生成以下陷阱祖代：<samp class="ph codeph">{ bgp bgpTraps(0)
+1 })</samp>。<pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, 
+adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute 
+interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Varbind</h2><p class="p">随 v1 陷阱或 v2 通知传送的对象称为 varbind。Varbind 包含关于所报告事件的附加信息。在 v1 陷阱中，varbind 在 VARIABLES 段中逐项列出；而在 v2 通知中，varbind 在 OBJECTS 段中列出。它们在所有 SNMP 版本中的用途相同。varbind 在列表中的显示顺序很重要，因为 PDU（SNMP 包）将按 varbind 在 MIB 中的列示顺序对关联的值进行编码。</p>
+<p class="p">例如，在 OBJECTS 段中指定了以下三个 varbind：<samp class="ph codeph">ifIndex</samp>、<samp class="ph codeph">ifAdminStatus</samp> 和 <samp class="ph codeph">ifOperStatus</samp>。 因此，<samp class="ph codeph">ifIndex</samp> 是以第一个编码的 varbind，<samp class="ph codeph">ifAdminStatus</samp> 是第二个，<samp class="ph codeph">ifOperStatus</samp> 是第三个。通过检查 IF-MIB，我们发现 <samp class="ph codeph">ifIndex</samp> 对象类型定义为 <samp class="ph codeph">InterfaceIndex</samp>。因为这不是对 SNMP 有效的原语 ASN.1 类型，所以它必须为文本约定。通过搜索文本约定，我们发现 <samp class="ph codeph">InterfaceIndex</samp> 实际解析为 Integer32（32 位整数）。因此，当 PDU 到达 <span class="keyword">MIB 管理器</span> 时，第一个 varbind 将为整数。为了确定该整数的含义，<span class="keyword">MIB 管理器</span> 必须引用 IF-MIB 模块，查找 <samp class="ph codeph">ifIndex</samp>，然后读取关联的对象信息。通过检查第二个 varbind，我们发现一个枚举整数类型：</p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">从 SNMP 包对该 varbind 进行解码后，其值将为一个整数，然后必须根据此枚举列表中的项对其值进行解释。当 <span class="keyword">MIB 管理器</span> 用于创建规则文件时，它将创建一个查找表来自动链接枚举整数及其文本表示形式。第三个 varbind 也是一个枚举类型，并且值相同。因此，如果 <samp class="ph codeph">ifAdminStatus</samp> 是 1（已启动）而 <samp class="ph codeph">ifOperStatus</samp> 是 2（已关闭），那么我们就知道事件的生成原因而能够继续尝试确定此结果的原因。</p>
+<p class="p">将在规则文件中以 <samp class="ph codeph">$1</samp>、<samp class="ph codeph">$2</samp>、<samp class="ph codeph">$3</samp>（以此类推）的形式向用户呈现 varbind，每个数字表示一个 varbind 编号。<span class="keyword">MIB 管理器</span> 将根据 varbind 元素来创建元素，然后使用这些元素来设置详细信息表中的变量。例如，详细信息表中使用的元素可能为 ifIndex = $1（它将为一个整数）、$ifAdminStatus = $2（它将为诸如“已启动”(1) 等内容”和 $ifOperStatus = $3（它将为诸如“已关闭”(3) 等内容）。将使用 Netcool Knowledge Library (NCKL) 所设置的约定将已对对象设置所作的任何更改自动设置到规则文件中。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">表</h2><p class="p">表等同于包含数据行和数据列的多维数组。表对象定义为 Entry 对象的 SEQUENCE。而 Entry 对象定义为 OBJECT-TYPE 对象的 SEQUENCE。有时候，供应商设计的系统不常见，例如 Cisco 10k 路由器。此设备保留了一张警报条件内部表，当该表发生更改时，它会生成陷阱和通知。因此，必须发出 SNMP GET 请求来获取该表的内容，从而确定该设置上的活动警报的当前状态。这略微增加了 SNMP 管理器获取警报的难度，但是只要管理员有相应的工具，也并非无法实现。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">八位元字符串</h2><p class="p">八位元是由八个位（通常称为 1 个字节）组成的数据构造。而八位元字符串是字节数组（或字节字符串）。术语“八位元字符串”并不暗示该字符串中的所有字节都是字母数字。它们也可能是用作位掩码的二进制字符。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="本节提供了关于简单网络管理协议 (SNMP) 体系结构、SNMP 管理信息库 (MIB) 以及其他一些 MIB 概要的附加信息。">关于 SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

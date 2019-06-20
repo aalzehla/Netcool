@@ -1,0 +1,46 @@
+<div id="collectionExecutionID">
+<!-- (C) COPYRIGHT International Business Machines Corp., 2011. All Rights Reserved * Licensed Materials - Property of IBM -->
+<div id="mainView" dojotype="dijit.layout.BorderContainer" class="dijitBorderContainer" 
+	 design="sidebar" style="height: 500px;border:0px none;left:0px;visibility:hidden" gutters="false">
+	
+  
+  <div dojoType="dijit.layout.ContentPane" region="top" class="CollectionAreaTopClass" id="CollectionAreaTopID" style="padding:0px;overflow:hidden;">
+    <div dojoType="widgets.panel.AppActionPanel" id="appActionPanel" style="margin-right:10px"></div>
+    <!-- div id="MenuBarViewID" class="MenuBarClass"> FIXME</div-->
+  </div>
+
+<div dojoType="dijit.layout.ContentPane" region="center" class="CollectionAreaCenterClass" id="CollectionAreaCenterID" style="padding:0px;">
+      <div dojotype="dijit.layout.BorderContainer" id="BorderContainer0"
+	    design="headline" style="border: 0px none;" gutters="false">
+	    
+      <div dojotype="dijit.layout.ContentPane" region="top" align="left" style="overflow:hidden;height:65px;padding:5px;margin:0px 10px 5px 0px;left:0px;border:1px solid #CCCCCC"> 
+        <div id="msgAreaViewDiv" aria-live="polite"></div>
+        <div id="statusAreaViewDiv" class="StatusAreaClass"> </div>
+      </div>
+      
+      <div dojotype="dijit.layout.ContentPane" region="center" align="left" style="padding:5px;height:335px;margin:0px 10px 5px 0px;left:0px;border:1px solid #CCCCCC"> 
+        <div id="scriptSelectionViewDiv" class="ScriptSelectionClass"> </div>
+        <div id="inputDialogViewDiv" class="InputDialogClass"> </div>
+        <div id="collectionCompletedViewDiv" class="CollectionCompletedClass">  </div>
+        <div id="collectionTransferDiv" class="CollectionTransferClass"> </div>
+      </div>
+  </div>
+</div>
+
+<!-- removed for tech preview
+<div dojoType="dijit.layout.ContentPane" region="right" class="CollectionAreaRightClass" id="CollectionAreaRightID" style="width:170px;padding:0px;overflow:hidden">
+<div id="collectorSummaryViewDiv"></div> <br/>
+<div id="symptomDescriptionViewDiv"></div> <br />
+<div id="optionalActionsViewDiv"></div>
+</div>
+-->
+  
+<div align="left" dojoType="dijit.layout.ContentPane" region="bottom"  class="CollectionAreaBottomClass" id="CollectionAreaBottomID" style="padding:0px;overflow:hidden">
+   <div id="completedInputDialogViewDiv"> </div>
+   <div id="collectionControlViewDiv"> </div>   
+</div>
+</div>
+<!-- DO NOT REMOVE - CBRuler is used to "measure" pixel width of dynamically created comboboxes in task dialogs -->
+<span id="CBRuler" style="visibility:hidden;white-space:nowrap"></span>
+</div>
+	

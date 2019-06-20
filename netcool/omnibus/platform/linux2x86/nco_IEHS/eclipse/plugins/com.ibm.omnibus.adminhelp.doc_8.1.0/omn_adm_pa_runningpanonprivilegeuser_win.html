@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Running the process agent as a non-privileged user (Windows)" />
+<meta name="abstract" content="Use this procedure to set up a process agent to run as a non-privileged user on Windows." />
+<meta name="Description" content="Use this procedure to set up a process agent to run as a non-privileged user on Windows." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_processagentsecurity.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_runningpanonprivilegeuser_win" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_processagentsecurity.html" />
+<title>Running the process agent as a non-privileged user (Windows)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_runningpanonprivilegeuser_win">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Running the process agent as a non-privileged user (Windows)</h1>
+<div class="body taskbody"><p class="shortdesc">Use this procedure to set up a process agent to run as
+a non-privileged user on Windows.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><p class="li stepsection"><p class="p">To set up a process agent to run as a non-privileged
+user on Windows:</p>
+</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">As an Administrator, install the process agent as a Windows
+service. For more information, see <a class="xref" href="../../install/reference/omn_con_winexampleservicepa.html#omn_con_winexampleservicepa" title="This example shows how to install, run, and uninstall the process agent as a Windows service.">Example: Installing and running the process agent as a service</a>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the Windows Control Panel, double-click <span class="ph uicontrol">Administrative Tools</span> and then <span class="ph uicontrol">Services</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">In the Services Details window, select the new process
+agent service, and from the toolbar, click <span class="ph menucascade"><span class="ph uicontrol">Action(s)</span> &gt; <span class="ph uicontrol">Properties</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click the <span class="ph uicontrol">Log On</span> tab, and change
+the <span class="ph uicontrol">Log on as:</span> radio button selection from <span class="ph uicontrol">Local System account</span> to <span class="ph uicontrol">This account:</span>, and then select the local <samp class="ph tt">netcool</samp> user.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span> <div class="note note"><span class="notetitle">Note:</span> You may
+need to restart the service if the service was previously auto-started
+as a privileged user.</div>
+<p class="p">The process agent will run as the local
+user <samp class="ph tt">netcool</samp>, and the ObjectServer external action permissions
+are now limited to the <samp class="ph tt">netcool</samp> user privileges on the host
+system.</p>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_processagentsecurity.html" title="If the process agent is running as a privileged or super user on the host machine, it is possible for a Netcool/OMNIbus Administrator to configure external actions which are then executed on the host system as a privileged user. For example, as the root user (UNIX) or as the Local System User (Windows). This presents a potential security risk. Therefore, the process agent must be run as a non-privileged user.">Process agent security considerations</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

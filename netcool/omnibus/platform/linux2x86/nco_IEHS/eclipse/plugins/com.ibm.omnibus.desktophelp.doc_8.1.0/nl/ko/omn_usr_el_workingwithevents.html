@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="이벤트에 대한 작업" />
+<meta name="abstract" content="이벤트 목록의 이벤트를 조작하려면 맨 먼저 해당 이벤트를 선택해야 합니다." />
+<meta name="Description" content="이벤트 목록의 이벤트를 조작하려면 맨 먼저 해당 이벤트를 선택해야 합니다." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_managingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_selectingdeselecting.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_acknowledgingdeack.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_prioritizingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_assigningownrshptoevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_refreshinganevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_freezinganevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_resolvingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_deletingevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_displayingeventinfoinfull.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_addingeventstotasklist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_viewingrelatedevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_restrictingnumrows.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_maintainingjournal.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_searchingforevntlstdata.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_automaticallyviewingupdates.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_copyingdatafromevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_changingeventinfodisplayed.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_printingcontentsevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_usingtoolsmanageevents.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_workingwithevents" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_managingevents.html" />
+<title>이벤트에 대한 작업</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_workingwithevents">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">이벤트에 대한 작업</h1>
+<div class="body taskbody"><p class="shortdesc">이벤트 목록의 이벤트를 조작하려면 맨 먼저 해당 이벤트를 선택해야 합니다.</p>
+<div class="section context">이벤트 목록을 사용하여 다음 태스크를 수행할 수 있습니다. </div>
+<ul class="ul steps-unordered"><li class="li step"><span class="ph cmd">하나 이상의 선택된 이벤트 수신확인, 수신확인 취소, 우선순위 선정, 삭제 및 분석</span></li>
+<li class="li step"><span class="ph cmd">하나 이상의 선택된 이벤트에 소유권 지정</span></li>
+<li class="li step"><span class="ph cmd">이벤트 목록 새로 고치기, 보류 및 인쇄</span></li>
+<li class="li step"><span class="ph cmd">이벤트 목록에서 특정 이벤트 검색</span></li>
+<li class="li step"><span class="ph cmd">필터 및 보기 적용</span></li>
+<li class="li step"><span class="ph cmd">필터 빌더 시작 및 필터 편집 또는 보기 빌더 시작 및 보기 편집</span></li>
+<li class="li step"><span class="ph cmd">표시된 행 수 제한</span></li>
+</ul>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_selectingdeselecting.html">이벤트 선택 및 선택 취소</a></span><br />
+이벤트 목록에서 하나 이상의 이벤트에 대해 작업하려면 먼저 이벤트를 선택해야 합니다.
+그런 다음 <span class="ph uicontrol">경보</span> 메뉴의 옵션을 사용하여
+이벤트를 조작할 수 있습니다. 선택된 이벤트 목록에서 하나 이상의 이벤트를
+선택 취소할 수도 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_acknowledgingdeack.html">이벤트 수신확인 및 수신확인 취소</a></span><br />
+해당 작업을 수행할 권한이 있는 경우에만 이벤트 목록에서 수신확인 및
+수신확인 취소할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_prioritizingevents.html">이벤트 우선순위 지정</a></span><br />
+이벤트의 우선순위는 이벤트 목록에서 이벤트의 심각도 변경, 에스컬레이션 또는 에스컬레이션 취소,
+삭제, 숨겨짐, "유지보수"로 표시하는 방법을 통해
+우선순위를 선정할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_assigningownrshptoevents.html">이벤트에 소유권 지정</a></span><br />
+프로브에서 이벤트가 도착하면 해당 이벤트는 소유권이 특정 사용자에게 지정되지 않은 경우 <samp class="ph tt">nobody</samp> 사용자에 의해 소유됩니다. 적절한 권한이 있는 사용자는 문제점 수명 주기를 통해
+이벤트의 소유권을 가져가거나 이벤트를 특정 사용자 또는 그룹에 지정할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_refreshinganevntlst.html">이벤트 목록 새로 고치기</a></span><br />
+이벤트 목록은 일정한 간격으로 자동으로 새로 고쳐져 들어오는 경보를 모두 표시합니다.
+현재 시점에 최근의 이벤트를 모두 보기 위해 구성된 간격 사이에 이벤트 목록을
+새로 고치도록 선택할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_freezinganevntlst.html">이벤트 목록 보류</a></span><br />
+ObjectServer의 업데이트가 표시되지 않도록 열린 이벤트 목록을 보류할 수
+있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_resolvingevents.html">이벤트 분석</a></span><br />
+이벤트 목록에서 이벤트의 클래스에 따라 판별되는 알려진 분석의 목록을 표시할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_deletingevents.html">이벤트 삭제</a></span><br />
+해당 작업을 수행할 권한이 있는 경우에만 이벤트를 삭제할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_displayingeventinfoinfull.html">전체 이벤트 정보 표시</a></span><br />
+이벤트 목록에서 선택된 모든 이벤트의 전체 세부사항을 볼 수
+있습니다. alerts.status, alerts.details 및 alerts.journal 데이터베이스
+테이블에 저장되는 이벤트 정보가 표시됩니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_addingeventstotasklist.html">태스크 목록에 이벤트 추가</a></span><br />
+태스크 목록을 사용하여 특별한 주의를 요하는 이벤트를 식별할 수 있습니다.
+태스크 목록에 이벤트를 추가하는 기능은 태스크 목록 이벤트 목록 필터와 연계하여 작동합니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_viewingrelatedevents.html">관련 이벤트 보기</a></span><br />
+이벤트 목록은 네트워크에서 관련 이벤트를 찾는 데 도움이 될 수 있는 도구를 포함합니다.
+선택한 이벤트에 관련되는 다양한 이벤트 유형을 볼 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_restrictingnumrows.html">표시되는 행 수 제한</a></span><br />
+시스템 관리자는 이벤트 목록에서 볼 수 있는 행 수를 제한할 수 있고
+정의된 범위 내에서 표시되는 행 수를 변경할 수 있게 합니다.
+이 권한은 보기 빌더에서 구성됩니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_maintainingjournal.html">이벤트에 대한 저널 유지보수</a></span><br />
+<span class="keyword">Tivoli Netcool/OMNIbus</span>는 이벤트 히스토리 정보를 입력 및 저장할 수 있는 저널 기능을 제공합니다.
+이벤트 목록에 있는 모든 이벤트에 대한 저널을 유지보수할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_searchingforevntlstdata.html">이벤트 목록 데이터 검색</a></span><br />
+여러 방법으로 이벤트 목록 데이터를 검색할 수 있습니다. 검색할 특정 텍스트를 입력하고, 필터링 기능을 사용하여 데이터 발생과 일치하는 것을 신속하게 찾고, 심각도에 따라 이벤트 목록 데이터를 필터링할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_automaticallyviewingupdates.html">이벤트 목록의 업데이트 자동 보기</a></span><br />
+업데이트가 일어날 때 이벤트 목록의 스크롤 정도를 제어할 수 있습니다.
+맨 위로 이동 기능은 업데이트된 이벤트를 빨리 검토하는 데 도움이 될 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_copyingdatafromevntlst.html">이벤트 목록에서 데이터 복사</a></span><br />
+기타 애플리케이션에 사용하기 위해 이벤트 목록의 이벤트 데이터를 클립보드로
+복사할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_changingeventinfodisplayed.html">표시되는 이벤트 정보 변경</a></span><br />
+이벤트 목록 보기를 편집하거나 다른 보기를 선택하여 현재 이벤트 목록 안에
+표시되는 컬럼을 변경할 수 있습니다.
+또한 현재 이벤트 목록에 사용되는 필터 기준을 편집하거나 이벤트 목록에 대해 다른 필터를 선택할
+수도 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_printingcontentsevntlst.html">이벤트 목록의 내용 인쇄</a></span><br />
+이벤트 목록의 현재 보기를 인쇄할 수 있습니다. UNIX
+및 Windows에
+다양한 인쇄 옵션이 사용 가능합니다. UNIX에서 결과물의 포맷팅을 제어할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_usingtoolsmanageevents.html">도구를 사용한 이벤트 관리</a></span><br />
+시스템 관리자는 이벤트 목록의 이벤트를 조작하기 위해 사용할 도구를 정의하고
+이 도구를 <span class="keyword">Tivoli Netcool/OMNIbus</span> 데스크탑 메뉴에 추가할 수 있습니다. 이러한 도구를 사용하여 ObjectServer에 대한 SQL 명령을
+실행하고 외부 명령(예: 로컬 애플리케이션 배치 파일 또는 스크립트)을 실행할 수 있습니다.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_managingevents.html" title="이벤트 목록을 사용하면 이벤트를 관리할 수 있습니다.">이벤트 목록을 사용한 이벤트 관리</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

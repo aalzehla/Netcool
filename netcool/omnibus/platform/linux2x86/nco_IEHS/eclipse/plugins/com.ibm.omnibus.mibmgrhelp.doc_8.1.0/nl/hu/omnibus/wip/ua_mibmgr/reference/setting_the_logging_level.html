@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Naplózási szint beállítása" />
+<meta name="abstract" content="Módosíthatja a naplózási szintet, hogy részletesebb napló- vagy nyomkövetési fájlokat biztosítson, így segítve a hibakeresést a MIB Managerben. A naplózási szintek növelése által szolgáltatott többlet információk segíthetnek adott problémák hibakeresésekor az MIB-k értelmezése során." />
+<meta name="Description" content="Módosíthatja a naplózási szintet, hogy részletesebb napló- vagy nyomkövetési fájlokat biztosítson, így segítve a hibakeresést a MIB Managerben. A naplózási szintek növelése által szolgáltatott többlet információk segíthetnek adott problémák hibakeresésekor az MIB-k értelmezése során." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Naplózási szint beállítása</h1>
+<div class="body refbody"><p class="shortdesc">Módosíthatja a naplózási szintet, hogy részletesebb napló- vagy nyomkövetési
+fájlokat biztosítson, így segítve a hibakeresést a <span class="keyword">MIB Manager</span>ben. A naplózási szintek növelése által szolgáltatott többlet információk segíthetnek adott problémák hibakeresésekor az MIB-k értelmezése során.</p>
+<div class="section"><p class="p">A naplózási szint módosításához kattintson a fő ablak menüsorának <span class="ph menucascade"><span class="ph uicontrol">Szerkesztés</span> &gt; <span class="ph uicontrol">Hibakeresés</span></span> menüpontjára. A naplófájloknak hat üzenetszintjük van, melyeken végighaladhat az elfogott részletek szintjének növelése érdekében: nincs, hiba, figyelmeztetés, info, hibakeresés és részletes.</p>
+<p class="p">Az alábbi táblázat az egyes naplózási szintek rövid leírását tartalmazza:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">1. Táblázat Naplózási szintek listája a hozzájuk tartozó leírással</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3941e36">Naplózási szint</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3941e38">Leírás</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3941e36 ">nincs</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3941e38 "><p class="p">Olyan naplózási szint, ahol nincsenek kimenő hibakeresési üzenetek. </p>
+<p class="p">Az alkalmazás teljesítményét ez növeli, de sem figyelmeztető sem hibaüzenetek nem jelennek meg az értelmezés során.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3941e36 ">hiba</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3941e38 "><p class="p">Olyan naplózási szint, amely csak az eredményeket befolyásoló hibákat naplózza.</p>
+<p class="p">Ebbe
+beletartoznak a <span class="keyword">MIB Manager</span> által azonosított hibák, amelyek helytelen adatok megjelenését eredményeznék a fő ablakban.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3941e36 ">figyelmeztetés</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3941e38 "><p class="p">Olyan naplózási szint, amely a figyelmeztető és hibaüzeneteket naplózza.</p>
+<p class="p">A figyelmeztetés olyan helyzet, mely hibás adatokat eredményezhet, ezért ellenőrizni kell. Nem okozza azonban az adatok sérülését.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3941e36 ">info</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3941e38 "><p class="p">Olyan naplózási szint, amely az információs, a figyelmeztető és kritikus üzeneteket naplózza.</p>
+<p class="p">Az információs üzenetek az átfogó feladat előrehaladás részleteit tartalmazzák. Például az objektumok teljes szövegét az értelmezés során.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3941e36 ">hibakeresés</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3941e38 "><div class="p">Olyan naplózási szint, amely az összes üzenetet naplózza. <div class="note note"><span class="notetitle">Megjegyzés:</span> Csak akkor futtassa a
+<span class="keyword">MIB Manager</span>t hibakeresési üzemmódban, ha hibahelyzetet próbál meg feloldani. Az előállítok adatok mennyisége, csupán kisszámú MIB-k értelmezésekor, gyorsan telerakja a fájlrendszert.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3941e36 ">részletes</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3941e38 "><p class="p">Olyan naplózási szint, amely az összes információs üzenetet naplózza.</p>
+<p class="p">A részletes üzenet a változók, tömbök és kivonatok állapotát tartalmazza, azok értékének és állapotának változásával.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="A naplózási beállításokkal adhatja meg a MIB Manager naplófájl könyvtárát, és állíthatja be az alapértelmezett üzenetszintet.">Naplózási beállítások megadása</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

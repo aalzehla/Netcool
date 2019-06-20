@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="變更 UNIX 上事件清單中的日期格式" />
+<meta name="abstract" content="事件清單中的日期格式由 NCO_TIME 環境變數定義。 預設格式為 mm/dd/yy hh:mm:ss；例如，11/12/03 20:13:36。 此格式由 POSIX strptime 函數決定。" />
+<meta name="description" content="事件清單中的日期格式由 NCO_TIME 環境變數定義。 預設格式為 mm/dd/yy hh:mm:ss；例如，11/12/03 20:13:36。 此格式由 POSIX strptime 函數決定。" />
+<meta name="DC.subject" content="事件清單, 日期格式, 在事件清單中變更, 變更, 事件清單日期格式" />
+<meta name="keywords" content="事件清單, 日期格式, 在事件清單中變更, 變更, 事件清單日期格式" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_changingdateunixevntlst" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>變更 UNIX 上事件清單中的日期格式</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_changingdateunixevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">變更 UNIX 上事件清單中的日期格式</h1>
+<div class="body taskbody"><p class="shortdesc">事件清單中的日期格式由 NCO_TIME 環境變數定義。 預設格式為 mm/dd/yy hh:mm:ss；例如，11/12/03 20:13:36。 此格式由 POSIX strptime 函數決定。 </p>
+<div class="section context"><p class="p">若要使用 csh 設定預設格式，請輸入下列指令： </p>
+<p class="p"><kbd class="ph userinput">setenv NCO_TIME %m/%d/%y %H:%M:%S</kbd></p>
+<p class="p">若要使用 ksh 或 sh 設定預設格式，請輸入下列指令：</p>
+<p class="p"><kbd class="ph userinput">NCO_TIME=%m/%d/%y %H:%M:%S;export NCO_TIME</kbd></p>
+<p class="p">如需可用的轉換指定元詳細資料，請參閱 strptime 的<samp class="ph tt">線上指令說明</samp>頁面。</p>
+<div class="note note"><span class="notetitle">註：</span> 變更事件清單中的日期格式不會影響警示時間戳記。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="您可以從「UNIX 管理者」及「Windows 管理者」配置 Tivoli Netcool/OMNIbus 元件的內容，以及伺服器元件的通訊資訊。在 Windows 上，您可以在設定視窗內的合併作業中執行這兩項功能。在 UNIX 上，您也可以變更事件清單中的日期格式。">配置內容、伺服器通訊及設定</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

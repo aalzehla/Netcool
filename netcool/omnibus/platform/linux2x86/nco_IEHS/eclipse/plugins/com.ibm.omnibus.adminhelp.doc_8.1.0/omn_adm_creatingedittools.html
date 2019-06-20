@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing tools" />
+<meta name="abstract" content="When you create a tool, it is added to the tools database. The tools that appear in the Tools pane are links to entries in this database." />
+<meta name="Description" content="When you create a tool, it is added to the tools database. The tools that appear in the Tools pane are links to entries in this database." />
+<meta name="DC.subject" content="creating, tools, editing" />
+<meta name="keywords" content="creating, tools, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringtools.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_addingtoolssubmenus.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditprompts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_ref_sqlcmdsvariableexp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingedittools" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringtools.html" />
+<title>Creating and editing tools</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingedittools">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing tools</h1>
+<div class="body taskbody"><p class="shortdesc">When you create a tool, it is added to the tools database.
+The tools that appear in the <span class="keyword wintitle">Tools</span> pane are links
+to entries in this database.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To create or edit a tool:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">Menu</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Tools</span>. </span> The <span class="keyword wintitle">Tools</span> pane
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To add a tool, click <span class="ph uicontrol">Add Tool</span> in
+the toolbar.</span> The <span class="keyword wintitle">Tool Details</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a tool, select the tool to edit and then click <span class="ph uicontrol">Edit
+Tool</span> in the toolbar.</span> The <span class="keyword wintitle">Tool
+Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Define the tool as follows: </span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type a unique name for the tool. If you are editing a tool, you
+cannot change the name.</dd>
+<dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to activate the tool on the system and make
+it available for operators to use. Clear this check box to create
+the tool without activating it at the present time, or to make the
+tool unavailable.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">SQL</span> tab, enter any SQL
+commands that should run on the ObjectServer when the tool is selected
+for use. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to specify that the SQL commands entered
+must run when the tool is used.</dd>
+<dt class="dt dlterm">Execute for each selected row</dt>
+<dd class="dd">Select this check box to specify that the SQL commands must run
+once for each row in an event list row selection.</dd>
+<dt class="dt dlterm">SQL Commands</dt>
+<dd class="dd">Type the SQL commands that must run when the tool is used. </dd>
+<dd class="dd">You can use the SQL helper buttons shown to the right of this
+field to construct the SQL commands. <div class="note tip"><span class="tiptitle">Tip:</span> You can include
+a prompt in an SQL statement so that when the tool runs, it calls
+up a prompt window or a pop-up menu for users to enter or select information.</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Executable</span> tab, enter any
+external commands that should run when the tool is selected for use.
+Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Enabled</dt>
+<dd class="dd">Select this check box to specify that the executable commands
+entered must run when the tool is used.</dd>
+<dt class="dt dlterm">Execute for each selected row</dt>
+<dd class="dd">Select this check box to specify that the executable commands
+must run once for each row in an event list row selection.</dd>
+<dt class="dt dlterm">Redirect output</dt>
+<dd class="dd">Select this check box to specify that output must be echoed through
+a read-only window when the commands are run. Clear this check box
+to discard the output.</dd>
+<dt class="dt dlterm">Redirect errors</dt>
+<dd class="dd">Select this check box to specify that any error messages must
+be echoed through a read-only window when the commands are run. Clear
+this check box to discard the error messages.</dd>
+<dt class="dt dlterm">Executable Commands</dt>
+<dd class="dd">Type the commands that must run when this tool is used.</dd>
+<dd class="dd">You can use the SQL helper buttons shown to the right of this
+field to construct the executable commands. <div class="note tip"><span class="tiptitle">Tip:</span> You can
+include a prompt in an external command so that when the tool runs,
+it calls up a prompt window or a pop-up menu for users to enter or
+select information.</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Journal</span> tab, specify journal
+settings that should apply when the tool is selected for use. Complete
+the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Force Journal Entry</dt>
+<dd class="dd">Select this check box to force users to enter journal text before
+running the tool. This text is appended to the journal of the selected
+alert or alerts when the tool is used.</dd>
+<dt class="dt dlterm">Execute for each selected row</dt>
+<dd class="dd">Select this check box to enter journal information once for each
+row in an event list row selection. </dd>
+<dt class="dt dlterm">Journal Entry</dt>
+<dd class="dd">Type the text for the journal entry.</dd>
+<dd class="dd">You can use the helper buttons shown to the right of this field
+to construct the journal text. <div class="note tip"><span class="tiptitle">Tip:</span> You can include a
+prompt in a journal entry so that when the tool runs, it calls up
+a prompt window or a pop-up menu for users to enter or select information.</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Access</span> tab, specify alert
+classes to which the tool applies, and the groups of users permitted
+to use the tool. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Class Access</dt>
+<dd class="dd">Select the alert classes for which the tool can be used. To select
+all alert classes, click <span class="ph uicontrol">Tick All</span> to the immediate
+right of this list. To clear all your selections, click <span class="ph uicontrol">Tick
+None</span> to the immediate right of this list. You can also
+individually select each check box required. </dd>
+<dt class="dt dlterm">Group Access</dt>
+<dd class="dd">Select the user groups that can use this tool. To select all groups,
+click <span class="ph uicontrol">Tick All</span> to the immediate right of this
+list. To clear all your selections, click <span class="ph uicontrol">Tick None</span> to
+the immediate right of this list. You can also individually select
+each check box required.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Platform</span> tab, specify the
+operating system platforms on which the tool will be available. Complete
+the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Available Platforms</dt>
+<dd class="dd">Select the check boxes for the operating systems on which the
+tool will be available. To select all operating systems, click <span class="ph uicontrol">Tick
+All</span> to the right of this list. To clear all your selections,
+click <span class="ph uicontrol">Tick None</span> to the right of this list.<div class="note important"><span class="importanttitle">Important:</span> You <em class="ph i">must</em> always specify the operating systems
+on which the tool can be used. The tool is only available on platforms
+that are selected.</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Description</span> tab, enter
+an optional text description for this tool. This can be useful to
+anyone who is trying to understand how the tool works.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the tool details and close the window.
+New tools are added to the <span class="keyword wintitle">Tools</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div><p class="p">The tools shown within the <span class="keyword wintitle">Tools</span> pane
+can be added to the event list and Conductor desktop menus to help with alert
+management. </p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringtools.html" title="Tools help operators to manage alerts in the event list. You can create tools that operators can use to run SQL commands on the ObjectServer, or run external commands that start a local application, batch file, or script.">Configuring tools</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_addingtoolssubmenus.html" title="You can add tools, submenus, and separators as menu items in a desktop menu.">Adding tools, submenus, and separators to a menu</a></div>
+<div><a class="link" href="omn_adm_creatingeditprompts.html" title="You can create prompts to use with tools.">Creating and editing prompts</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_ref_sqlcmdsvariableexp.html" title="You can use a number of SQL commands, variable expressions, and helper buttons to retrieve information from a running event list, the current event, or the operating system environment. You can use these expressions when creating a tool, trigger, or SQL procedure, or in parameters passed to a transient event list.">SQL commands, variable expressions, and helper buttons in tools, automations, and transient event lists</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

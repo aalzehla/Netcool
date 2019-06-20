@@ -1,0 +1,38 @@
+===============================================================================
+This file contains changes to the triggers that configure the integration with 
+the IBM Operations Analytics - Log Analysis product. The changes in this file 
+are only for use with the Network Manager Insight Pack.
+
+After you apply this file, the triggers prevent events from being forwarded to
+IBM Operations Analytics - Log Analysis until the events are enriched by data
+from the Network Manager product. (To enrich events, Network Manager populates
+the NmosObjInst column of the ObjectServer alerts.status table during event
+processing; the Insight Pack requires that the NmosObjInst column be populated.)
+A publish trigger runs every 5 seconds. If the events are not enriched 20 seconds
+after the trigger has run, the events are forwarded to IBM Operations 
+Analytics - Log Analysis without NmosObjInst data.
+
+The triggers have been modified in fixpack 5 to send re-inserted rows as updates.
+This allows the insight pack to differentiate between new events and modifications
+to existing events and prevents double counting of modified events in reports.
+-----------------------------------------------------------------------------
+
+You can apply the file using the nco_sql utility on UNIX or the isql utility on 
+Windows, for example:
+
+$OMNIHOME/bin/nco_sql -user userid -root password < $OMNIHOME/extensions/scala/scala_configuration_itnm.sql
+
+
+NOTE: 
+
+The file must be applied to version 8.1 fixpack 2 and above of the ObjectServer
+only. If you are upgrading from a 7.4 release ObjectServer you must run the
+update74fp3to81.sql script before this file.
+If you are upgrading to 8.1 fixpack 5, you must re-run the file below to apply the
+latest version of the triggers. Warnings about duplicated objects can be ignored in this case.
+-------------------------------------------------------------------------------
+
+Files
+-----
+scala_configuration_itnm.sql - This modifies, creates and enables triggers and adds a
+column to alerts.status.

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Configuring signals" />
+<meta name="abstract" content="Signals are occurrences within the ObjectServer that can be detected and acted upon. Signals are part of the automation subsystem." />
+<meta name="Description" content="Signals are occurrences within the ObjectServer that can be detected and acted upon. Signals are part of the automation subsystem." />
+<meta name="DC.subject" content="signals, configuring" />
+<meta name="keywords" content="signals, configuring" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringautomations.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingedituserdefsignl.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_exampleuserdefsignltrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletinguserdefsignl.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditsignaltrigg.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_configuringsignals" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringautomations.html" />
+<title>Configuring signals</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_configuringsignals">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring signals</h1>
+<div class="body conbody"><p class="shortdesc">Signals are occurrences within the ObjectServer that can
+be detected and acted upon. Signals are part of the automation subsystem.</p>
+<div class="p">The types of signals are as follows:<ul class="ul"><li class="li">System signals</li>
+<li class="li">User-defined signals</li>
+</ul>
+</div>
+<p class="p">An ObjectServer automatically raises system signals when certain
+changes in the system occur; for example, during system startup or
+a connection failure. You cannot create or modify these signals. You
+can attach triggers to system signals to create automatic responses
+to incidents in the ObjectServer.</p>
+<p class="p">User-defined signals are defined by you. You can use Netcool/OMNIbus Administrator
+to create your own user-defined signals.</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingedituserdefsignl.html">Creating and editing user-defined signals</a></span><br />
+Unlike system signals, which are predefined and cannot
+be configured, user-defined signals must be explicitly created or
+deleted.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_exampleuserdefsignltrigg.html">Example: User-defined signal and trigger</a></span><br />
+This example shows a user-defined signal called <samp class="ph codeph">illegal_delete</samp>,
+and the <samp class="ph codeph">DETECT_AN_ILLEGAL_DELETE</samp> database trigger
+in which it is used. The database trigger uses the signal to trap
+deletes that occur outside of standard office hours.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_deletinguserdefsignl.html">Deleting user-defined signals</a></span><br />
+You cannot delete a user-defined signal if it is being
+used by a signal trigger.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringautomations.html" title="You can use automation to detect changes in the ObjectServer and to run automated responses to these changes. This enables the ObjectServer to process alerts without requiring an operator to take action.">Configuring automations</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingeditsignaltrigg.html" title="Signal triggers fire when a system or user-defined signal is raised. System signals are raised spontaneously by the ObjectServer when it detects changes to the system. User-defined signals are explicitly created, raised, and dropped.">Creating and editing signal triggers</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

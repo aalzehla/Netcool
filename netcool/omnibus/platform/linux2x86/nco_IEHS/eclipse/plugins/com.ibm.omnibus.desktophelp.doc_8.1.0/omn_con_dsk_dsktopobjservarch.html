@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Desktop ObjectServer architecture" />
+<meta name="abstract" content="You can use a desktop ObjectServer architecture to improve the performance of an ObjectServer that frequently experiences heavy loads." />
+<meta name="Description" content="You can use a desktop ObjectServer architecture to improve the performance of an ObjectServer that frequently experiences heavy loads." />
+<meta name="DC.subject" content="desktop ObjectServer, overview, ObjectServer, desktop ObjectServer architecture, architecture overview" />
+<meta name="keywords" content="desktop ObjectServer, overview, ObjectServer, desktop ObjectServer architecture, architecture overview" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="CEGICIEA" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Desktop ObjectServer architecture</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="CEGICIEA">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Desktop ObjectServer architecture</h1>
+<div class="body conbody"><p class="shortdesc">You can use a desktop ObjectServer architecture to improve
+the performance of an ObjectServer that frequently experiences heavy
+loads. </p>
+<p class="p">The desktop ObjectServer architecture:</p>
+<ul class="ul"><li class="li">Reduces the workload of the central ObjectServer by shifting the
+load to specialized desktop ObjectServers</li>
+<li class="li">Improves desktop responsiveness; that is, the time between a desktop
+operator's action and its reflection in the desktop GUI</li>
+<li class="li">Reduces the likelihood of the desktop GUI freezing</li>
+<li class="li">Improves the end-to-end latency times in heavily-loaded, standard
+ObjectServer configurations</li>
+<li class="li">Maintains high data integrity and consistency by simultaneously
+updating the master ObjectServer</li>
+</ul>
+<p class="p">The desktop ObjectServer architecture consists of a master ObjectServer
+and one or more desktop ObjectServers that share the duties normally
+performed by a single ObjectServer. Dual server desktops (DSDs) connect
+to a single, master ObjectServer when writing data, but read and display
+alert data from desktop ObjectServers. The main functionality of the
+DSD is the same as a standard desktop; for operators, the DSD behaves
+identically to a standard desktop.</p>
+<p class="p">The desktop ObjectServer architecture is shown in the following
+figure.</p>
+<div class="fig fignone"><span class="figcap">Figure 1. Example
+dual server desktop architecture</span><div class="image"><img class="image" src="cd_omn_adm_dualserverdesktop.gif" alt="This figure shows a master ObjectServer that uses two unidirectional gateways to forward event data to two desktop ObjectServers. IDUC connections are used to send the event data to two dual server desktops, which in turn use SQL connections to write data to the master ObjectServer." /></div></div>
+<p class="p">The DSD connects simultaneously to the desktop ObjectServer and
+the master ObjectServer. Any operator actions (for example, tools
+or journal actions) that are performed in the DSD are sent directly
+to the master ObjectServer through a one-way SQL connection.</p>
+<p class="p">Alerts in the master ObjectServer are sent to the DSD through the
+desktop ObjectServer. This is achieved by using a unidirectional ObjectServer
+Gateway from the master ObjectServer to the desktop ObjectServer,
+and an IDUC connection from the desktop ObjectServer to the DSD.</p>
+<p class="p">If dual-write mode is enabled, updates are also sent to the desktop
+ObjectServer through another one-way SQL connection, as shown in the
+following figure. </p>
+<div class="fig fignone"><span class="figcap">Figure 2. Example
+dual server desktop architecture with dual-write mode enabled</span><div class="image"><img class="image" src="cd_omn_adm_dsddualwrite.gif" alt="This figure shows the dual server desktop architecture with dual-write mode enabled." /></div></div>
+</div>
+<!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

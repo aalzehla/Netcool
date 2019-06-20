@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru-ru" lang="ru-ru">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Задание предпочтений экспорта" />
+<meta name="abstract" content="В этом разделе описывается, как задать предпочтения экспорта файла правил." />
+<meta name="Description" content="В этом разделе описывается, как задать предпочтения экспорта файла правил." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-04-02" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="export_preferences" />
+<meta name="DC.Language" content="ru-ru" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="export_preferences">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus, Версия 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Задание предпочтений экспорта</h1>
+<div class="body refbody"><p class="shortdesc">В этом разделе описывается, как задать предпочтения экспорта файла правил.</p>
+<div class="section"><p class="p">Для задания предпочтений каталогов щелкните по значку  <img class="image" src="../gifs/global_preferences.gif" alt="Значок Предпочтения" /> <span class="ph uicontrol">Предпочтения</span> или выберите пункт главного меню <span class="ph menucascade"><span class="ph uicontrol">Файл</span> &gt; <span class="ph uicontrol">Предпочтения</span></span>, а затем на левой панели окна <span class="keyword wintitle">Предпочтения</span> щелкните по заголовку <span class="ph uicontrol">Экспорт</span>.</p>
+</div>
+<div class="section"><ul class="ul"><li class="li">В поле <span class="ph uicontrol">Путь включения</span> укажите положение правил, установленных с пакетами файлов правил Netcool Include Library (NCiL) (если они были установлены).
+Эта опция требуется только в том случае, если данные экспортируются в формате файлов Netcool Include Library и путь каталога должен указывать на включенные в пакет правила. В результате новые файлы правил не нужно изменять вручную. Значение по умолчанию - <span class="ph filepath"><var class="keyword varname">ДОМАШНИЙ_КАТАЛОГ_NC</var>/omnibus/probes/<var class="keyword varname">архитектура</var></span>.</li>
+<li class="li">В поле <span class="ph uicontrol">Формат файлов экспорта по умолчанию</span> выберите для файла вывода или формат Windows/DOS (CRLF), или формат Unix (LF). Это свойство позволяет создавать правила на компьютере Windows и затем копировать их на компьютер UNIX, не запуская специальную утилиту, такую как <samp class="ph codeph">dos2unix</samp>. <div class="note note"><span class="notetitle">Прим.:</span> Этот выбор применяется ко всем файлам вывода и не ограничен только файлами правил. Значение по умолчанию - формат Unix.</div>
+</li>
+<li class="li">В поле <span class="ph uicontrol">Типы оповещений</span> укажите опции выпадающих списков, показываемых при редактировании поля прерываний <samp class="ph codeph">@Type</samp> в представлении <span class="keyword wintitle">Подробности</span>.</li>
+</ul>
+<p class="p">Следующие опции доступны только в том случае, если ранее был выбран формат экспорта NCKL:</p>
+<ul class="ul"><li class="li">Если включен переключатель <span class="ph uicontrol">Включить описания varbind</span>, описания varbind добавляются как документация комментариев.
+Значение по умолчанию - enabled.</li>
+<li class="li">Если включен переключатель <span class="ph uicontrol">Вычислять лучшее значение для @AlertKey</span>, значение <samp class="ph codeph">@AlertKey</samp> генерируется из родительского объекта varbind. Значение по умолчанию - enabled.</li>
+<li class="li">Если включен переключатель <span class="ph uicontrol">Задать @Agent для каждого предприятия</span>, поле <samp class="ph codeph">@Agent</samp> задается для каждого предприятия. Поле <samp class="ph codeph">@Agent</samp> основано на именах модулей MIB, обрабатываемых для файла правил. Значение по умолчанию - enabled.</li>
+<li class="li">Если включен переключатель <span class="ph uicontrol">Добавить шаблон @Class</span>, задается поле <samp class="ph codeph">@Class</samp>. Если включен переключатель <span class="ph uicontrol">Добавить шаблон @Class</span>, в поле <samp class="ph codeph">@Class</samp> задается значение 300. Значение по умолчанию - enabled.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>На уровень выше:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" title="Сконфигурировать некоторые глобальные предпочтения MIB Manager можно в окне Предпочтения.">Конфигурирование глобальных предпочтений</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Задачи, связанные с данной</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/omn_usr_mib_exportdata.html" title="Как экспортировать данные SNMP MIB из MIB Manager в различных форматах.">Экспорт данных MIB</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Библиотека</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Поддержка</a> |</span>
+<br />
+</div>
+</body>
+</html>

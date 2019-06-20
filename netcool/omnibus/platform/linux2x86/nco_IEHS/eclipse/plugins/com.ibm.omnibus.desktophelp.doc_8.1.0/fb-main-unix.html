@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Filter Builder" />
+<meta name="abstract" content="Use this window to define SQL queries (or WHERE clauses) for filtering alerts in the event list. You can use the Filter Builder to set up and maintain these filters for your event data." />
+<meta name="Description" content="Use this window to define SQL queries (or WHERE clauses) for filtering alerts in the event list. You can use the Filter Builder to set up and maintain these filters for your event data." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_specifyingopsforfiltconds.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_specifyingcompvalfiltconds.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_filterbuilderwindowUNIX" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Filter Builder</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_filterbuilderwindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Filter Builder</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to define SQL queries (or WHERE clauses)
+for filtering alerts in the event list. You can use the Filter Builder
+to set up and maintain these filters for your event data.</p>
+<div class="section"><div class="p" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_descriptionUNIX">The Filter
+Builder contains the following areas:<ul class="ul"><li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_filtersetupareaUNIX">Filter setup area</a> (top
+panel)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_buttonbarUNIX">Button bar</a> (panel
+below the filter setup area)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_graphicaldisplayareaUNIX">Graphical display area</a> (top
+left panel below the button bar)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_elementdefinitionareaUNIX">Element definition area</a> (top
+right panel below the button bar)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_SQLdisplayareaUNIX">SQL display area</a> (bottom
+left panel)</li>
+<li class="li"><a class="xref" href="#netom_filterbuilderwindowUNIX__netom_filterbuilder_metricareaUNIX">Metric area</a> (bottom
+right panel)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_filtersetupareaUNIX"><h2 class="title sectiontitle">Filter
+setup area</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_filtersetupareadescriptionUNIX">Use
+this area to define a name and to set permissions for the filter.</span></p>
+<p class="p">Complete
+this area as follows:</p>
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_filtersetupfieldsUNIX"><dt class="dt dlterm">Name</dt>
+<dd class="dd">If you are creating a new filter, overwrite the current name with
+a unique name for the filter. This name is used to select the filter
+in event list menus. If you are editing an existing filter, you do
+not need to make an entry in this field.</dd>
+<dt class="dt dlterm">Editable</dt>
+<dd class="dd">If you have the relevant administrator permissions, select this
+check box to allow other users to edit this filter, or clear the check
+box to protect the filter from modification.<div class="note restriction"><span class="restrictiontitle">Restriction:</span> This setting applies only if the filter is saved
+as part of an event list configuration (<span class="ph filepath">.elc</span> file).</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_buttonbarUNIX"><h2 class="title sectiontitle">Button bar</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_buttonbardescriptionUNIX">Use these
+buttons to define filter elements.</span></p>
+<p class="p">Complete this area as
+follows:</p>
+<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_buttonbarfieldsUNIX"><dt class="dt dlterm">Condition</dt>
+<dd class="dd">Click this button to create a condition element. Condition elements
+allow you to make comparisons between fields and values. The <span class="ph uicontrol">Condition</span> button
+creates the WHERE clause and allows value specification; for example: <samp class="ph codeph">where
+Node = 'link1'</samp></dd>
+<dt class="dt dlterm">Negate</dt>
+<dd class="dd">Click this button to insert a logical NOT operator in front of
+the element that is currently selected.</dd>
+<dt class="dt dlterm">Leading Logical</dt>
+<dd class="dd">Click this button to insert a logical element in front of the
+element that is currently selected. You can use logical elements to
+combine two elements for more complex comparisons.</dd>
+<dt class="dt dlterm">Trailing Logical</dt>
+<dd class="dd">Click this button to insert a logical element after the element
+that is currently selected.</dd>
+<dt class="dt dlterm">Sub Query</dt>
+<dd class="dd">Click this button to create a query within a condition. Subqueries
+are more complex conditions that you can use to match a value with
+the results of another SELECT statement.</dd>
+<dt class="dt dlterm">Delete Element</dt>
+<dd class="dd">Click this button to delete the element that is currently selected.</dd>
+<dt class="dt dlterm">Delete Tree</dt>
+<dd class="dd">Click this button to delete the current element and all of its
+child elements.</dd>
+<dt class="dt dlterm">Edit SQL</dt>
+<dd class="dd">Click this button to open the <span class="keyword wintitle">Filter SQL Edit</span> window
+to edit the SQL directly. When you click <span class="ph uicontrol">OK</span> to
+save and return to the Filter Builder, the SQL expression is automatically
+parsed and added to the condition element in the graphical display
+area. If you enter invalid SQL text in the <span class="keyword wintitle">Filter SQL Edit</span> window,
+you are required to correct the syntax before exiting the window.</dd>
+</dl>
+<div class="p">When you click any of these buttons:<ul class="ul"><li class="li">A graphical representation is displayed in the graphical display
+area in the top left panel below the button bar.</li>
+<li class="li">The SQL syntax is displayed in the SQL display area in the bottom
+left list box.</li>
+<li class="li">Element-specific fields appear in the element definition area
+in the right panel.</li>
+</ul>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> The availability of these buttons depends on the element
+that is currently selected, and the operations that are valid with
+the element.</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_graphicaldisplayareaUNIX"><h2 class="title sectiontitle">Graphical
+display area</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_graphicaldisplayareadescriptionUNIX">This
+area displays the element definitions for the current filter in a
+graphical tree structure that shows how the elements relate. You can
+add elements to the tree by using the buttons in the button bar. The
+element that is currently selected is shown with a red border around
+it. Editing is relative to the current element. When you select an
+element within this area, its details are shown and can be edited
+in the element definition area.</span></p>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_elementdefinitionareaUNIX"><h2 class="title sectiontitle">Element
+definition area</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_elementdefinitionareadescriptionUNIX">This
+area displays the details of the element that is currently selected,
+and enables you to specify a different set of values. Your selections
+are reflected in the graphical display area and the SQL display area.</span></p>
+<div class="p">If
+you clicked the <span class="ph uicontrol">Condition</span> button to create
+a condition element, complete the fields as follows:<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_conditionfieldsUNIX"><dt class="dt dlterm">Expression Type</dt>
+<dd class="dd">Select one of the following options from this list:<ul class="ul"><li class="li"><span class="keyword option">Simple</span>: Select this option to use simple expressions
+in the condition element. </li>
+<li class="li"><span class="keyword option">Complex</span>: Select this option to use complex expressions
+that allow two database columns or two expressions to be compared. </li>
+<li class="li"><span class="keyword option">FreeForm</span>: Select this option to specify expressions
+that allow the use of the advanced features of the ObjectServer SQL.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Column</dt>
+<dd class="dd">From this list, select a database column that you want to use
+in the comparison.</dd>
+<dd class="dd">By default, the list contains the names of the columns in the
+alerts.status database table. The Filter Builder automatically determines
+which columns are available. There are situations where this list
+will be different. <div class="note note"><span class="notetitle">Note:</span> The <span class="ph uicontrol">Column</span> list is not displayed
+if you selected the <span class="keyword option">FreeForm</span> option from the <span class="ph uicontrol">Expression
+Type</span> list.</div>
+</dd>
+<dt class="dt dlterm">Operator</dt>
+<dd class="dd">Select a comparison operator from this list.</dd>
+<dd class="dd">The range of comparisons available is determined by your selection
+from the <span class="ph uicontrol">Column</span> drop-down list. Some comparisons
+are unavailable for certain columns. For example, it is not possible
+to have a LIKE operation on a numeric column such as Severity. <div class="note note"><span class="notetitle">Note:</span> The <span class="ph uicontrol">Operator</span> list is not displayed
+if you selected the <span class="keyword option">FreeForm</span> option from the <span class="ph uicontrol">Expression
+Type</span> list.</div>
+</dd>
+<dt class="dt dlterm"><em class="ph i">Value data type fields</em></dt>
+<dd class="dd">The fields that appear here are dependent on the option that you
+selected in the <span class="ph uicontrol">Expression Type</span> list.</dd>
+<dd class="dd">If the <span class="ph uicontrol">Expression Type</span> is <span class="keyword option">Simple</span>,
+then the value fields that appear depend on whether the database column
+selected in the <span class="ph uicontrol">Column</span> list is of type string,
+integer, or time. </dd>
+<dd class="dd">If the <span class="ph uicontrol">Expression Type</span> is <span class="keyword option">Complex</span> or <span class="keyword option">FreeForm</span>,
+then an <span class="ph uicontrol">Edit</span> button is provided to allow you
+to edit the SQL directly within the <span class="keyword wintitle">Filter SQL Edit</span> window.
+When you click <span class="ph uicontrol">OK</span> to save and return to the
+Filter Builder, the SQL expression is automatically parsed and added
+to the condition element in the graphical display area. If you enter
+invalid SQL text in the <span class="keyword wintitle">Filter SQL Edit</span> window,
+you are required to correct the syntax before exiting the window.</dd>
+</dl>
+</div>
+<div class="p">If you clicked the <span class="ph uicontrol">Leading Logical</span> or <span class="ph uicontrol">Trailing
+Logical</span> button to create a logical element, complete the
+fields as follows:<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_logicalfieldsUNIX"><dt class="dt dlterm">Logical AND</dt>
+<dd class="dd">Select this option to add an AND operator to a filter definition.
+This is the default option.</dd>
+<dt class="dt dlterm">Logical OR</dt>
+<dd class="dd">Select this option to add an OR operator to a filter definition.</dd>
+</dl>
+</div>
+<div class="p">If you clicked the <span class="ph uicontrol">Sub Query</span> button
+to create a subquery element, complete the fields as follows:<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_subqueryfieldsUNIX"><dt class="dt dlterm">Column</dt>
+<dd class="dd">From this list, select the database column to be used in the search.</dd>
+<dt class="dt dlterm">Operator</dt>
+<dd class="dd">Select either of the following options from the list:<ul class="ul"><li class="li"><span class="keyword option">In</span>: Use this option to search for the contents
+of the column.</li>
+<li class="li"><span class="keyword option">Not In</span>: Use this option to search for the absence
+of the contents of the field. </li>
+</ul>
+</dd>
+<dt class="dt dlterm">Select</dt>
+<dd class="dd">Select the column to be used when building the list, against which
+the In or Not In operation is to be performed. The options in this
+list are determined by the option that is selected in the <span class="ph uicontrol">from</span> list.</dd>
+<dt class="dt dlterm">from</dt>
+<dd class="dd">Select the database table from which to derive the information.
+This can be alerts.details, alerts.journal, or alerts.status.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_SQLdisplayareaUNIX"><h2 class="title sectiontitle">SQL display
+area</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_SQLdisplayareadescriptionUNIX">The SQL
+display area shows the SQL as you build the filter. You can click <span class="ph uicontrol">Edit
+SQL</span> in the button bar to edit the SQL directly within
+a <span class="keyword wintitle">Filter SQL Edit</span> window.</span></p>
+<p class="p">Type the filter query
+by using valid SQL syntax, and click <span class="ph uicontrol">OK</span> to save your
+entry and return to the Filter Builder. The Filter Builder attempts to parse
+the SQL text and build a filter tree. If the SQL is invalid, an error message
+is displayed, and you must correct the errors in the <span class="keyword wintitle">Filter SQL
+Edit</span> window before you can continue.</p>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_metricareaUNIX"><h2 class="title sectiontitle">Metric area</h2><p class="p"><span class="ph" id="netom_filterbuilderwindowUNIX__netom_filterbuilderwindow_metricareadescriptionUNIX">Use the metric
+buttons to apply a measurement to the filter so that it calculates
+a useful figure. For example, a <samp class="ph tt">Sum of Tally</samp> metric gives
+the total number of deduplicated alerts in the ObjectServer.</span></p>
+<div class="p">Complete
+this area as follows:<dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_metricfieldsUNIX"><dt class="dt dlterm">Metric</dt>
+<dd class="dd">Use the first list to choose the measurement to be used:<ul class="ul"><li class="li">Select <strong class="ph b">Average</strong> to return the average value of the selected
+field for all alerts that match the filter.</li>
+<li class="li">Select <strong class="ph b">Count</strong> to return a count of all the alerts that match
+the filter. The selected field is not used for this calculation.</li>
+<li class="li">Select <strong class="ph b">Sum</strong> to return the sum of the selected field for
+all alerts that match the filter.</li>
+<li class="li">Select <strong class="ph b">Minimum</strong> to return the lowest value of the selected
+field in alerts that match the filter.</li>
+<li class="li">Select <strong class="ph b">Maximum</strong> to return the highest value of the selected
+field in alerts that match the filter.</li>
+</ul>
+</dd>
+<dd class="dd">Use the second list to select a field to which the measurement
+is applied. Only the integer and time fields in an alert are available
+for the metric calculation.<div class="note tip"><span class="tiptitle">Tip:</span> The metric value will
+be displayed in monitor boxes in the <span class="keyword wintitle">Event List</span> monitor
+box window.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_applying_saving_closingUNIX"><h2 class="title sectiontitle">Applying
+and saving your filter settings</h2><div class="p">After defining or modifying
+the filter settings, you can apply, save, or cancel changes made by
+clicking the relevant button as follows: <dl class="dl" id="netom_filterbuilderwindowUNIX__netom_filterbuilder_applyclosebuttonsUNIX"><dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to apply changes to the filter without saving
+it. </dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close the window and discard the changes.</dd>
+</dl>
+</div>
+<div class="p">You must save filters with a <span class="ph filepath">.elf</span> file
+extension. <div class="note note"><span class="notetitle">Note:</span> On UNIX,
+when the Filter Builder is run from the Conductor, the <span class="ph uicontrol">Apply</span> button
+does not appear. In this case, you must save all filters by selecting <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save</span></span> or <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Save As</span></span> from
+the UNIX Filter Builder.</div>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_fb_creatingeditfilterunix.html" title="Use the UNIX Filter Builder to build filters for event list data.">Creating or editing a filter on UNIX</a></div>
+<div><a class="link" href="omn_usr_fb_specifyingopsforfiltconds.html" title="When defining simple or complex conditions within the Filter Builder, you use operators to define comparisons.">Specifying operators for filter conditions</a></div>
+<div><a class="link" href="omn_usr_fb_specifyingcompvalfiltconds.html" title="When defining simple or complex conditions within the Filter Builder, you are required to select a database column to be used in the comparison, a comparison operator, and one or more comparison values.">Specifying comparison values for filter conditions</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

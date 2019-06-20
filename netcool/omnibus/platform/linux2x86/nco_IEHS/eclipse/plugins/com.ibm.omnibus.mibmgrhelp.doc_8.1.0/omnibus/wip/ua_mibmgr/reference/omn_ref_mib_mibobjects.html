@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB object types" />
+<meta name="abstract" content="This topic describes the object types defined in SNMP v1 and v2." />
+<meta name="Description" content="This topic describes the object types defined in SNMP v1 and v2." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB object types</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB object types</h1>
+<div class="body refbody"><p class="shortdesc">This topic describes the object types defined in SNMP v1
+and v2.</p>
+<div class="section"><p class="p">You can locate the object information described in the
+following sections by selecting a module in the <span class="keyword wintitle">MIB Modules</span> view
+and then searching for <kbd class="ph userinput">ifIndex</kbd> in the <span class="ph uicontrol">Search</span> field
+of the <span class="keyword wintitle">OID Tree</span> view. Click on the <samp class="ph codeph">ifIndex</samp> object
+in the <span class="keyword wintitle">OID Tree</span> hierarchy to see object information
+and textual convention information in the <span class="keyword wintitle">Details</span> view.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p">The <samp class="ph codeph">OBJECT IDENTIFIER</samp> is
+defined by SNMP v1 and is the main building block of the MIB tree.
+Object identifiers are analogous to a chapter heading in a book -
+they contain no real data but do give you an idea of what kind of
+content is relayed by their descendents.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p">The <samp class="ph codeph">OBJECT-TYPE</samp> is
+defined by SNMP v1 and is used as a container for storing information
+about the managed device, or some measured value on the device.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p">The <samp class="ph codeph">TEXTUAL-CONVENTION</samp> (TC)
+is a definition of a type of object but is not an actual object. In
+the <span class="keyword wintitle">MIB Modules</span> view, you can select <span class="ph uicontrol">Textual
+Conventions</span> from the <span class="ph uicontrol">View</span> list
+to see the parsed textual conventions displayed in the MIB tree. Select
+a TC name in the MIB tree to display its definition in the <span class="keyword wintitle">Details</span> view.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE and SNMP v2 NOTIFICATION TYPE</h2><div class="p">The
+SNMP v1 TRAP-TYPE and v2 NOTIFICATION-TYPE are the SNMP mechanism
+for generating autonomous events to the SNMP manager. SNMP traps in
+v1 are not defined as objects within the MIB tree. A TRAP-TYPE object
+does not have a defined parent in the OBJECT IDENTIFIER format. Instead,
+a trap definition specifies an enterprise for which a trap is defined.
+The following is a typical TRAP-TYPE object:<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM 
+enters the ESTABLISHED state." ::= 1 </code></pre>
+</div>
+<p class="p">The <samp class="ph codeph">ENTERPRISE</samp> section
+defines which object is the parent of the trap. However, it is possible
+for a MIB tree object to be defined with <samp class="ph codeph">bgp</samp> as the
+parent and it is defined as child number 1. In fact, <samp class="ph codeph">bgpVersion</samp> is
+defined as <samp class="ph codeph">{ bgp 1}</samp> in the RFC1269-MIB module. Therefore,
+it is impossible to add a v1 trap to the MIB tree as a leaf using
+the <samp class="ph codeph">ENTERPRISE</samp> as the parent.</p>
+<p class="p">SNMP v2 changes
+the definition for TRAP-TYPE to NOTIFICATION-TYPE and specifies that
+this new v2 trap be defined like other MIB objects, with a parent
+and child number making this only a problem for v1 traps. RFC1155
+Section 4.1 defines that using zero (0) as a child number is invalid,
+and reserved for future use. SNMP v2 makes use of that zero by allowing
+vendors to add their v1 traps to a v2 MIB, by adding a zero to the
+enterprise name and then adding the trap number after the zero. Therefore,
+under v2 it is appropriate to define an object identifier with a zero
+as a child of the enterprise and then add the v1 traps as children
+of that zero. </p>
+<p class="p">This convention has caused another common mistake
+made by MIB authors. Section 4 of RFC1155 states the following:</p>
+<p class="p"><span class="q">"An
+object type definition consists of five fields: OBJECT: ------- A
+textual name, termed  the OBJECT DESCRIPTOR, for the object type,
+along with its corresponding OBJECT IDENTIFIER.  Syntax: The abstract
+syntax for the object type. This must resolve to an instance of the
+ASN.1  type ObjectSyntax (defined below). Definition: A textual description
+of the semantics of the  object type. Implementations should ensure
+that their instance of the object fulfills this  definition since
+this MIB is intended for use in multi-vendor environments. As such
+it is  vital that objects have consistent meaning across all machines.
+Access: One of read-only,  read-write, write-only, or not-accessible.
+Status: One of mandatory, optional, or obsolete.  Future memos may
+also specify other fields for the objects which they define."</span></p>
+<div class="p">According
+to this rule, all objects must have both an object name and an object
+number. Some vendor's MIB modules, and even some RFCs, defined a NOTIFICATION-TYPE
+with a parent of zero but without an object name for that zero. In
+the following example, the object definition is not actually syntactically
+correct as there is no object name defined for child number zero of
+the <samp class="ph codeph">adslAtucTraps</samp> object. <span class="keyword">MIB Manager</span> recognizes the preference of some MIB authors to
+use such methods as a shortcut, and allow the object to be added without
+an object name. Additionally, to facilitate adding v1 traps to the
+MIB tree, <span class="keyword">MIB Manager</span> automatically adds an object zero as a child of
+the v1 enterprise object (note that a v1 MIB cannot use a zero in
+its OID), assign that object zero as Traps where is the enterprise
+name and add the trap below this new object in the MIB tree. For example,
+using <samp class="ph codeph">bgp</samp> would result in the following traps ancestors: <samp class="ph codeph">{
+bgp bgpTraps(0) 1 }).</samp> <pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, 
+adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute 
+interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Varbinds</h2><p class="p">Objects that are transmitted with
+the v1 trap or v2 notification are known as varbinds. Varbinds contain
+additional information about the reported event. In a v1 trap, the
+varbinds are itemized in the VARIABLES section and in a v2 notification
+the varbinds are listed in the OBJECTS section. They have the same
+use in all versions of SNMP. The order in which the varbinds appear
+in the list is important because the PDU (SNMP Packet) encodes the
+associated values in the same order in which they are listed in the
+MIB.</p>
+<p class="p">For example, in the OBJECTS section the following three
+varbinds have been specified: <samp class="ph codeph">ifIndex</samp>, <samp class="ph codeph">ifAdminStatus</samp>,
+and <samp class="ph codeph">ifOperStatus</samp>. Therefore, <samp class="ph codeph">ifIndex</samp> is
+the first varbind to be encoded, <samp class="ph codeph">ifAdminStatus</samp> is
+the second, and <samp class="ph codeph">ifOperStatus</samp> is encoded third. Checking
+the IF-MIB we find that the <samp class="ph codeph">ifIndex</samp> object type is
+defined as <samp class="ph codeph">InterfaceIndex</samp>. Since this is not a valid
+primitive ASN.1 type for SNMP, it must be a textual convention. Searching
+through the textual conventions, we find that <samp class="ph codeph">InterfaceIndex</samp> actually
+resolves to an Integer32 (32 bit integer). Therefore, when the PDU
+arrives at <span class="keyword">MIB Manager</span>, the first varbind will be an integer. To determine
+what that integer means, <span class="keyword">MIB Manager</span> must reference the IF-MIB module, look up <samp class="ph codeph">ifIndex</samp>,
+and read the associated object information. Checking the second varbind,
+we find an enumerated integer type: </p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">When the varbind is
+decoded from the SNMP packet, its value will be an integer, the value
+of which must be interpreted based on the items in this enumerated
+list. When <span class="keyword">MIB Manager</span> is used to create a rules file, it will create a
+lookup table to automatically link the enumerated integer with its
+textual representation. The third varbind is also an enumerated type
+with the same values. Therefore, if the <samp class="ph codeph">ifAdminStatus</samp> is
+1 (up) and the <samp class="ph codeph">ifOperStatus</samp> is 2 (down), we know
+why the event was generated and can proceed to attempt to determine
+the cause of this outage.</p>
+<p class="p">Varbinds are presented to the user
+in a rulesfile as <samp class="ph codeph">$1</samp>, <samp class="ph codeph">$2</samp>, <samp class="ph codeph">$3</samp>,
+and so on, with each number representing a varbind number. <span class="keyword">MIB Manager</span> creates elements based on the varbind elements and
+uses these to set variables in the details table. For example, the
+elements used in the details table might be $ifIndex = $1, which will
+be an integer, $ifAdminStatus = $2, which will be something like up
+(1), and $ifOperStatus = $3, which will be something like down (3).
+Any changes made to the object settings are automatically set in the
+rules file, using the conventions set by the Netcool Knowledge Library
+(NCKL).</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Tables</h2><p class="p">Tables represent the equivalent of
+a multidimensional array with rows and columns of data. The table
+object is defined as a SEQUENCE OF an Entry object. The Entry object
+is then defined as a SEQUENCE of OBJECT-TYPE objects. Occasionally,
+a vendor designs an unusual system, for example the Cisco 10k router.
+This device maintains an internal table of alarm conditions and generates
+a trap or notification when the table changes. You must then issue
+an SNMP GET request on the contents of the table to determine the
+current status of the active alarms on the device. This makes obtaining
+the alarms by the SNMP manager a bit more difficult, but not impossible
+if the administrator has the tools to comply.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OCTET STRING</h2><p class="p">An octet is a data construct
+consisting of eight bits (commonly known as a byte). An OCTET STRING
+then, is an array of bytes (or a string of bytes). The term OCTET
+STRING does not imply that all of the bytes in the string are alphanumeric.
+They can also be binary characters and are used as bitmasks.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="This section provides additional information about the Simple Network Management Protocol (SNMP) architecture, the SNMP management information base (MIB), and some additional MIB concepts.">About SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

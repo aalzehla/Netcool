@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="拡張検索の技法" />
+<meta name="abstract" content="引用符、ワイルドカード、ブール演算子を使用した拡張検索を実行すれば、より絞り込んだ検索結果を返すことができます。" />
+<meta name="description" content="引用符、ワイルドカード、ブール演算子を使用した拡張検索を実行すれば、より絞り込んだ検索結果を返すことができます。" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="ja-jp" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>拡張検索の技法</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">拡張検索の技法</h1>
+<div class="body"><p class="shortdesc">引用符、ワイルドカード、ブール演算子を使用した拡張検索を実行すれば、より絞り込んだ検索結果を返すことができます。</p>
+<ul class="ul"><li class="li">インフォメーション・センター内で検索する場合は、語または句を二重引用符で囲むことで、その語または句を正確なストリングとして指定できます。<p class="p">例えば、<span class="ph uicontrol">「検索」</span>フィールドに <kbd class="ph userinput">"log file"</kbd> と入力した場合は、<em class="ph i">log file</em> というストリングのすべての出現例を検索することになります。二重引用符を入力しなければ、<em class="ph i">log</em> という語と <em class="ph i">file</em> という語の両方のインスタンスが含まれているトピックが返されます。</p>
+</li>
+<li class="li">検索でアスタリスク (*) や疑問符 (?) などのワイルドカードを使用して、検索の範囲を広げることもできます。<ul class="ul"><li class="li">検索照会で複数の不明文字または可変文字に対応させる場合は、アスタリスク (*) を使用します。例えば、<kbd class="ph userinput">par*</kbd> と入力すると、<em class="ph i">partly</em>、<em class="ph i">participate</em>、<em class="ph i">partial</em> など、<em class="ph i">par</em> で始まる語が含まれているトピックが返されます。<div class="note note"><span class="notetitle">注:</span>  検索ストリングには 1 つの制限があります。アスタリスクを組み込んだ検索語を使用する場合は、アスタリスクの前に少なくとも 3 つの文字を入れる必要があります。同様に、ワイルドカードのない検索語は最低 3 文字で構成されていなければなりません。</div>
+</li>
+<li class="li">検索照会で 1 つの文字に対応させる場合は、疑問符 (?) を使用します。
+例えば、<kbd class="ph userinput">par?</kbd> と入力すると、<em class="ph i">part</em> が含まれているトピックは返されますが、<em class="ph i">partial</em> または <em class="ph i">partly</em> が含まれているトピックは返されません。</li>
+</ul>
+</li>
+<li class="li">ブール演算子 AND、OR、NOT を使用すれば、より具体的な照会を実行できます。以下は例です。<dl class="dl"><dt class="dt dlterm">database AND "log file"</dt>
+<dd class="dd"><em class="ph i">database</em> という語と <em class="ph i">log file</em> という句の両方が含まれているトピックに検索結果を絞り込みます。</dd>
+<dt class="dt dlterm">database OR "log file"</dt>
+<dd class="dd"><em class="ph i">database</em> という語または <em class="ph i">log file</em> という句のいずれかが含まれているトピックに検索結果を拡張します。</dd>
+<dt class="dt dlterm">database NOT "log file"</dt>
+<dd class="dd"><em class="ph i">database</em> という語が含まれていて <em class="ph i">log file</em> という句が含まれていないトピックに検索結果を絞り込みます。</dd>
+<dt class="dt dlterm">database OR "data base" NOT "log file"</dt>
+<dd class="dd"><em class="ph i">database</em> という語または <em class="ph i">data base</em> という句が含まれていて <em class="ph i">log file</em> という句が含まれていないトピックを検索します。</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="iehs36_searching.html" title="インフォメーション・センターに含まれているすべてのトピックを対象にした検索や、個々のトピックまたはトピックの集合を対象にした検索を実行できます。あるいは、情報のサブセットだけを検索するために、検索の範囲を作成することも可能です。「検索結果」ビューには最大で 500 件の結果を表示できます。関連性に基づいて結果をソートすることも可能です。">インフォメーション・センターの検索</a></div>
+</div>
+</div></body>
+</html>

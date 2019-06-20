@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- (C) COPYRIGHT International Business Machines Corp., 2004-2005. All Rights Reserved * Licensed Materials - Property of IBM -->
+
+<project name="System Collector" default="autopdmain" >
+
+    <property name="system.collector.base.dir" location="${basedir}/../.."/>
+
+    <taskdef file="${autopdrootdir}/properties/autopdtaskdef.properties" loaderref="ISA"/>
+
+    <!-- Targets shared among multiple scripts are in the XML documents *-sharedtargets.xml. -->
+    <import file="${basedir}/system-sharedtargets.xml"/>
+
+    <import>
+        <javaresource name="scripts/sharedtargets.xml"/>
+    </import>
+
+    <import>
+        <javaresource name="scripts/sharedelements/sharedelements-sharedtargets.xml"/>
+    </import>
+
+    <property name="autopdProblem" value="Environment_Collector" />
+    <property name="autopdProblem_nlsbundle" value="properties/System/autopd"/>	
+
+    <target name="autopdmain" description="This is AutoPD main to control running steps"  
+            depends="load_sharedelements_tasks,
+            set_problem_type_with_nls_bundle,
+            setup_autopd_v2, 
+            validate_os,
+            setupsystemcollector,
+            environmentset-win,
+            unix.getconf-aix.hpux.linux,
+            collectuser-aix,
+            collectuser-sun,
+            collectdmesg-sun,
+            collectuser-linux,
+            collectdmesg-linux.hpux,
+            collectuser-hp,
+            ftp_message_shared,
+            ftp_collected_information_shared" >
+
+    </target>
+
+</project>

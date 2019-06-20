@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de-de" lang="de-de">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool MIB Manager" />
+<meta name="abstract" content="Bei Netcool MIB Manager handelt es sich um eine Eclipse-basierte IBM GUI-Anwendung, die Sie zum Parsen von SNMP-MIB-Dateien (MIB = Management Information Base) verwenden können, aus denen Sie Netcool-Regeldateien generieren können. Die Anwendung dient als Ersatz für das Dienstprogramm mib2rules." />
+<meta name="Description" content="Bei Netcool MIB Manager handelt es sich um eine Eclipse-basierte IBM GUI-Anwendung, die Sie zum Parsen von SNMP-MIB-Dateien (MIB = Management Information Base) verwenden können, aus denen Sie Netcool-Regeldateien generieren können. Die Anwendung dient als Ersatz für das Dienstprogramm mib2rules." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="the_mib_manager" />
+<meta name="DC.Language" content="de-de" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<title>MIB Manager parst SNMP-MIB-Dateien und generiert Regeldateien. Die Komponente ersetzt das Dienstprogramm mib2rules.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="the_mib_manager">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc">Bei <span class="keyword">Netcool MIB Manager</span> handelt es sich um eine Eclipse-basierte IBM®
+GUI-Anwendung, die Sie zum Parsen von SNMP-MIB-Dateien (MIB = Management Information Base) verwenden können, aus denen
+Sie Netcool-Regeldateien generieren können. Die Anwendung dient als Ersatz für das Dienstprogramm <span class="keyword cmdname">mib2rules</span>.</p>
+<div class="section"><p class="p"><span class="keyword">Tivoli
+Netcool/OMNIbus</span>
+beinhaltet auch ein <span class="keyword">Netcool MIB Manager</span>-Befehlszeilendienstprogramm (<span class="keyword cmdname">nco_mibmanager_batch</span>), mit dem Sie
+Befehle manuell oder programmgesteuert ausgeben können. </p>
+<div class="p"><span class="keyword">Netcool MIB Manager</span> umfasst folgende Features:<ul class="ul"><li class="li">Importieren von SNMP-MIB-Dateien und Auflösen von MIB-Abhängigkeiten zum Aufbauen einer OID-Baumstruktur.</li>
+<li class="li">Exportieren eines Teils der oder aller importierten SNMP-Objekte in Netcool-Regeldateien und weitere Dateiformate.</li>
+<li class="li">Enthält die Basis-MIBs und RFC-MIBs, die häufig von anderen MIB-Dateien benötigt werden.</li>
+<li class="li">Enthält Gerätedefinitionen, die eine gerätebezogene Gruppierung der importierten MIB-Module ermöglichen.</li>
+<li class="li">Filtern und Suchen von MIB-Modulen und der OID-Baumstruktur nach Objektname oder OID.</li>
+<li class="li">Generieren von SNMP-Traps zum Senden an den SNMP-Test (<span class="ph filepath">nco_p_mttrapd</span>) oder
+an andere SNMP-Agenten.</li>
+<li class="li">Eine Befehlszeilenschnittstelle ist enthalten, mit deren Hilfe Sie MIB-Daten importieren und Regeldateien
+exportieren können. Sie können Befehle manuell ausgeben oder programmgesteuert aufrufen. </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html">MIB Manager starten</a></span><br />
+Starten Sie die <span class="keyword">MIB Manager</span>-GUI über die Befehlszeile. Die Komponente ist nicht
+dafür vorgesehen, innerhalb einer Prozesssteuerung oder als Windows-Dienst ausgeführt zu werden.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html">Netcool MIB Manager verwenden</a></span><br />
+Sie können <span class="keyword">MIB Manager</span>
+für das Parsing von MIB-Modulen und die Erstellung von
+Netcool-Regeldateien verwenden.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html">Globale Benutzervorgaben konfigurieren</a></span><br />
+Über das Fenster <span class="keyword wintitle strongwintitle">Benutzervorgaben</span>
+können Sie mehrere globale <span class="keyword">MIB Manager</span>-Benutzervorgaben konfigurieren.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html">Informationen zu SNMP</a></span><br />
+Dieser Abschnitt enthält zusätzliche Informationen
+zur SNMP-Architektur, zur Management Information Base (MIB) von SNMP sowie
+zu weiteren MIB-Konzepten.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Bibliothek</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Unterstützung</a> |</span>
+<br />
+</div>
+</body>
+</html>

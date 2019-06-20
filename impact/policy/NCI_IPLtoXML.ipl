@@ -1,0 +1,615 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/**********************************************************************
+//////// IPLtoXML version 5.1 Documentation for new wrapper functions /////////
+
+Instead of building the IPL objects line by line, assigning XMLElementType 
+values for each object, etc., these new functions can be used. The old method 
+still works, and the output for both should be the same.
+
+The IPL code for these new functions are towards the bottom of the policy if 
+you are interested.
+
+newDocument(document)
+
+document This variable will become the new xml document object
+
+example
+IPL: newDocument(REM_Album);
+
+
+function newSubElement(parentelement, childelement, type)
+
+parentelement The element to nest the newly created childelement in
+
+childelement This variable will become the new xml element of type type
+
+type The type of xml element to create
+
+example
+IPL: newDocument(document);
+IPL: newSubElement(document, myElement, "Honda");
+XML: <Honda/>
+
+
+function newElement(element, type)
+
+element This variable will become the new xml element of type type
+
+type The type of xml element to create
+
+example
+IPL: newElement(myElement, "Honda");
+XML: <Honda/>
+
+Comment: REPLACED WITH NEWSUBELEMENT
+
+
+function addElement(dore, element)
+
+dore The xml document or element object to add element to
+
+element The xml element object that will be added to dore
+
+example
+IPL: newElement(myCars, "Cars");
+IPL: newElement(myForester, "Subaru");
+IPL: addElement(myCars, myForester);
+XML: <Cars><Subaru/></Cars>
+
+Comment: REPLACED WITH NEWSUBELEMENT
+
+
+function newSubElement(parentElement, childElement, childElementType)
+
+parentElement The existing XML document object or element object
+childElement The object name for the XML element object to be created and added to the parentElement
+childElementType The XML element type for the childElement
+
+exampe
+IPL: newElement(myCars, "Cars");
+IPL: newSubElement(myCars, myForester, "Subaru");
+XML: <Cars><Subaru/></Cars>
+
+comment: this does the work of newElement and addElement in one command and should cut down on coding mistakes
+
+
+function newAttributeObject(attributeObject, attribute, value)
+
+attributeObject This variable will become the new xml attribute object
+
+attribute The name of the attribute
+
+value The value for the attribute
+
+example
+IPL: newAttributeObject(carYear, "year", 2003);
+XML: year="2003"
+
+comments
+The idea behind making attributes IPL objects is that they can then be reused and added to multiple elements in your code. If you don't like the idea of having to first make an attribute object then check out the addAttribute function.
+
+
+function addAttributeObject(element, attribute)
+
+element the xml element to which the attribute will be added
+
+attribute The xml attribute object that will be added to element
+
+example
+IPL: newElement(myForester, "Subaru");
+IPL: newAttribute(carYear, "year", 2003);
+IPL: addAttributeObject(myForester, carYear);
+XML: <Subaru year="2003"/>
+
+
+function addAttribute(element, attribute, value)
+
+element The element to add the attribute to
+
+attribute The string name of the attribute to add
+
+value The value of the attribute
+
+example
+IPL: newElement(myForester, "Subaru");
+IPL: addQuickAttribute(myForester, "year", 2003);
+XML: <Subaru year="2003"/>
+
+comment
+Use addAttribute when you don't want to bother to create the attribute object
+
+
+function addOrgNodeAttributes(element, OrgNode)
+
+element The element to add the attributes to
+
+OrgNode An IPL object whose fields you want to add to element as attributes. The object could have come from a lookup or could have been built using newobject();
+
+example
+IPL: newElement(myForester, "Subaru");
+IPL: og=newobject();
+IPL: og.color="blue"
+IPL: og.doors=4;
+IPL: og.turbo="no :("
+IPL: addOrgNodeAttributes(myForester, og);
+XML: <Subaru color="blue" doors="4" turbo="no :("/>
+
+
+function setContent(element, content)
+
+element The xml element object to add the content to
+
+content The text string to add to element as content
+
+example
+IPL: newElement(myForester, "Subaru");
+IPL: setContent(myForester, "Extra Car");
+XML: <Subaru>Extra Car</Subaru>
+
+
+function appendContent(element, content)
+
+element The xml element object to append the content to
+
+content The text string to append to the existing content
+
+example
+IPL: newElement(myForester, "Subaru");
+IPL: setContent(myForester, "Extra Car");
+IPL: appendContent(myForester, " driven by Dad");
+XML: <Subaru>Extra Car driven by Dad</Subaru>
+
+
+function addCommentToElement(element, comment)
+
+element The xml element object to add the xml comment to
+
+comment The text string that will become the XML comment. XML remarking code (<!-- -->) will be added by the code.
+
+example
+IPL: newElement(myForester, "Subaru");
+IPL: addCommentToElement(myForester, "mom drives the element");
+XML: <Subaru><!-- mom drives the element --></Subaru>
+
+
+function generateXML(xmlPiece, XML)
+
+xmlPiece Either an entire xml document object or just one xml element
+
+XML The variable to hold the XML string generted from xmlPiece
+
+example
+IPL: STACK=NewJavaObject("java.util.Stack", {}); // a STACK is required for the IPLtoXML conversion
+IPL: newElement(myForester, "Subaru");
+IPL: addCommentToElement(myForester, "mom drives the element");
+IPL: generateXML(myForester, Output);
+Value of Output variable: <?xml version="1.0" encoding="UTF-8"?><Subaru><!-- mom drives the element --></Subaru>
+
+******************************************************************************/
+
+/***********************************************************************
+//////////////Supporting Functions////////////////////////////////////
+***********************************************************************/
+
+function getObjFields(IPLObject, fieldList){
+fieldList=keys(IPLObject);
+JavaCall("java.util.Arrays", null, "sort", { fieldList });
+//log("Fields of the object are: " + fieldList);
+
+}
+
+
+
+function replaceEntities(x){
+x=replace(x, "&", "&amp;");
+x=replace(x, "<", "&lt;");
+x=replace(x, ">", "&gt;");
+x=replace(x, "'", "&apos;");
+x=replace(x, "\"", "&quot;");
+}
+
+
+function returnEntities(x){
+x=replace(x, "&amp;", "&");
+x=replace(x, "&lt;", "<");
+x=replace(x, "&gt;", ">");
+x=replace(x, "&apos;", "'");
+x=replace(x, "&quot;", "\"");
+
+}
+
+
+function getObjAttributes(IPLObject, attributeList){
+count=0;
+attributeList={};
+while (count < length(IPLObject.IPLXMLfieldList)){
+
+f=IPLObject.IPLXMLfieldList[count];
+//log("field " + f + " is a: " + classof(IPLObject[f]));
+
+bugWorkAround=strip( classof(IPLObject[f]), ";");
+
+if( bugWorkAround != "Object" && bugWorkAround != "BindingsVarGetSettable" ) {
+
+//log(objSubs[count] + " === " + classof(methodObj[f]));
+
+attributeList=attributeList + f;
+}
+
+count = count + 1;
+}
+
+//remove non-attribute Fields
+attributeList=attributeList - "XMLElementType";
+attributeList=attributeList - "XMLElementContent";
+attributeList=attributeList - "XMLElementComment";
+attributeList=attributeList - "XMLSubElementOrder";
+attributeList=attributeList - "XMLSubName";
+attributeList=attributeList - "XMLSubCount";
+attributeList=attributeList - "WAAPI_OUTPUT";
+attributeList=attributeList - "NGFAPI_OUTPUT";
+attributeList=attributeList - "IPLXMLfieldList";
+attributeList=attributeList - "IPLXMLelementList";
+attributeList=attributeList - "IPLXMLsubElementCount";
+
+//log("attributes for object are: " + attributeList);
+}
+
+function addAttributesToXML(IPLObject, XMLObject) {
+count=0;
+while (count < length(IPLObject.attributeList)){
+f=IPLObject.attributeList[count];
+
+replaceEntities(IPLObject[f]);
+
+XMLObject.text=XMLObject.text + " " + IPLObject.attributeList[count] + "=\"" + IPLObject[f] + "\"";
+
+//leave core IPL alone
+returnEntities(IPLObject[f]);
+
+count = count + 1;
+}
+}
+
+
+function addElementsToXML(IPLObject, XMLObject){
+
+count=0;
+while(count < length(IPLObject.IPLXMLelementList)){
+
+//log("pulling an element to work on");
+childObject=IPLObject.IPLXMLelementList[0];
+IPLObject.IPLXMLelementList = IPLObject.IPLXMLelementList - childObject;
+
+//log("saving IPLObject of type " + IPLObject.XMLElementType + " to the STACK");
+JavaCall(null, STACK, "push", { IPLObject });
+
+//log("running recursion on child element of type " + childObject.XMLElementType);
+RecursionOnObject(childObject, XMLObject);
+
+
+//log("current element is a " + IPLObject.XMLElementType);
+//log("retrieving parent element");
+IPLObject=JavaCall(null, STACK, "pop", {} );
+//log("IPLObject is now a " + IPLObject.XMLElementType);
+
+
+if( length(IPLObject.IPLXMLelementList) > 0){
+count=0;
+}
+else{
+count=count + 1;
+XMLObject.text= XMLObject.text + "</" + IPLObject.XMLElementType + ">";
+}
+}
+}
+
+
+function getObjElements(IPLObject, elementList){
+
+count=0;
+elementList={};
+while (count < length(IPLObject.IPLXMLfieldList)){
+
+f=IPLObject.IPLXMLfieldList[count];
+//log("field " + f + " is a: " + classof(IPLObject[f]));
+bugWorkAround=strip( classof(IPLObject[f]), ";");
+
+if( bugWorkAround == "BindingsVarGetSettable" ) {
+elementList=elementList + IPLObject[f];
+}
+
+count=count+1;
+}
+
+
+//log("elements for object are: " + elementList);
+IPLObject.IPLXMLsubElementCount=length(elementList);
+}
+
+
+function RecursionOnObject(IPLObject, XMLObject){
+
+//log("START OF RECURSION FUNCTION ON ELEMENT OF TYPE " + IPLObject.XMLElementType);
+
+if(IPLObject.XMLElementType == NULL){
+log("ERROR the object doesn't have a defined XMLElementType");
+//log("XML to this point is:\n" + XMLObject.text);
+//log("Exiting policy");
+Exit();
+}
+
+//opening the XML tag for this object
+XMLObject.text= XMLObject.text + "<" + IPLObject.XMLElementType;
+//log("object element type is: " + IPLObject.XMLElementType);
+
+//starting to deal with attributes and nested elements
+getObjFields(IPLObject, IPLObject.IPLXMLfieldList);
+//log("Fields for the object are: " + IPLObject.IPLXMLfieldList);
+
+//handling xml attributes
+getObjAttributes(IPLObject, IPLObject.attributeList);
+//log("attributes for object are: " + IPLObject.attributeList);
+
+if (length(IPLObject.attributeList) > 0){
+addAttributesToXML(IPLObject, XMLObject);
+}
+
+//grabbing elements
+getObjElements(IPLObject, IPLObject.IPLXMLelementList);
+//log("elements for object are: " + IPLObject.IPLXMLelementList);
+
+if (IPLObject.IPLXMLsubElementCount == 0 and IPLObject.XMLElementContent == NULL){
+
+XMLObject.text=XMLObject.text + "/>";
+}
+else{
+XMLObject.text=XMLObject.text + ">";
+}
+
+//handling comments
+if (IPLObject.XMLElementComment != NULL){
+//we have some comment to add to element
+XMLObject.text=XMLObject.text + "<!-- " + IPLObject.XMLElementComment + " -->";
+
+}
+
+//handling content
+if (IPLObject.XMLElementContent != NULL){
+//we have some content to add to element
+
+replaceEntities(IPLObject.XMLElementContent);
+
+XMLObject.text=XMLObject.text + IPLObject.XMLElementContent;
+
+}
+
+//handling nested elements
+
+if(length(IPLObject.IPLXMLelementList) > 0){
+addElementsToXML(IPLObject, XMLObject);
+}
+
+else{
+// I have no nested elements so maybe close my tag
+//tag has been closed already IF subElementCount=0 and XMLELementContent==NULL
+if(IPLObject.IPLXMLsubElementCount != 0 or IPLObject.XMLElementContent != NULL){
+XMLObject.text= XMLObject.text + "</" + IPLObject.XMLElementType + ">";
+}
+}
+}
+
+
+function handle_v2Document(IPLObject, XMLObject) {
+//log("handling v2 Document");
+
+//first add in any comments
+if (IPLObject.XMLElementComments != NULL){
+XMLObject.text=XMLObject.text + IPLObject.XMLElementComments;
+}
+
+//now get a list of all fields
+getObjFields(IPLObject, IPLObject.IPLXMLfieldList);
+
+//now get a list of all of the child elements
+getObjElements(IPLObject, IPLObject.IPLXMLelementList);
+
+//recurse on those children
+count=0;
+while (count < length (IPLObject.IPLXMLelementList)){
+RecursionOnObject(IPLObject.IPLXMLelementList[count], XMLObject);
+count=count+1;
+}
+}
+
+
+function GenerateXMLFromObject(IPLObject, returnedXMLString){
+
+//generate an XML object to push between functions
+XMLObject=newobject();
+XMLObject.text="<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+
+//run the functions on the object
+//log("XMLElementType is: " + IPLObject.XMLElementType);
+
+if (IPLObject.XMLElementType != "IPLXMLDOCUMENT"){
+RecursionOnObject(IPLObject, XMLObject);
+}
+else{
+handle_v2Document(IPLObject, XMLObject);
+}
+
+
+//populate the returned string
+returnedXMLString=XMLObject.text;
+
+}
+
+
+/***************************************************************
+///////// IPltoXML v2.1 Wrapper Functions ////////////////////
+///////// Call these from your policy ////////////////////
+***************************************************************/
+function newDocument(document){
+document=newobject();
+document.XMLSubName="ele";
+document.XMLSubCount=0;
+document.XMLElementType="IPLXMLDOCUMENT";
+}
+
+
+function newElement(element, type){
+if((type != NULL) and (type != "")){
+element=newobject();
+element.XMLElementType=type;
+element.XMLSubName="ele";
+element.XMLSubCount=0;
+}
+else{
+log("can't create element without a value for type");
+log("type: " + type);
+}
+}
+
+
+function addElement(dore, element){
+if ((dore != NULL) AND (element != NULL)){
+dore.XMLSubCount = dore.XMLSubCount + 1;
+objName=dore.XMLSubName + dore.XMLSubCount;
+dore[objName]=element;
+}
+else{
+log("can't add element to dore-- passed dore or element does not exist");
+log("dore: " + dore);
+log("element: " + element);
+}
+
+}
+
+
+function newAttributeObject(attributeObject, attribute, value){
+if((attribute != NULL) and (attribute != "")){
+attributeObject=newobject();
+attributeObject[attribute]=value;
+}
+else{
+log("can't create attribute object with given attribute");
+log("attribute: " + attribute);
+}
+}
+
+
+function addAttributeObject(element, attribute){
+if((element != NULL) and (attribute != NULL)) {
+n=keys(attribute);
+//log(n);
+m=n[0];
+element[m]=attribute[m];
+}
+else{
+log("can't add attribute object-- element or attribute does not exist");\
+log("element: " + element);
+log("attribute: " + attribute);
+}
+
+}
+
+
+function addAttribute(element, attribute, value){
+if((element != NULL) and (attribute != NULL) and (attribute != "")){
+element[attribute]=value;
+}
+else{
+log("can't add attribute-- passed element or attribute doesn't exist");
+log("element: " + element);
+log("attribute: " + attribute);
+}
+}
+
+
+function addOrgNodeAttributes(element, OrgNode){
+
+if((element != NULL) and (OrgNode != NULL)){
+n=keys(OrgNode);
+count=0;
+while (count < length(n)){
+m=n[count];
+element[m]=OrgNode[m];
+count = count + 1;
+}
+}
+else{
+log("can't add OrgNode Attributes-- element or OrgNode is null");
+log("element: " + element);
+log("OrgNode: " + OrgNode);
+}
+
+}
+
+
+function setContent(element, content){
+if((element != NULL) and (content != NULL)){
+element.XMLElementContent=content;
+}
+else{
+log("can't add content to element-- element or content is null");
+log("element: " + element);
+log("content: " + content);
+}
+}
+
+
+function appendContent(element, content){
+if((element != NULL) and (content != NULL)){
+element.XMLElementContent = element.XMLElementContent + content;
+}
+else{
+log("can't append content to element-- element or content is null");
+log("element: " + element);
+log("content: " + content);
+}
+}
+
+
+function addCommentToElement(element, comment){
+//<!-- and --> will be added by the code
+if((element != NULL) and (comment !=NULL)){
+element.XMLElementComment=comment;
+}
+else{
+log("can't add comment to element-- element or comment is null");
+log("element: " + element);
+log("comment: " + comment);
+}
+}
+
+
+function newSubElement(parentElement, childElement, childElementType){
+newElement(childElement, childElementType);
+addElement(parentElement, childElement);
+}
+
+
+function generateXML(xmlPiece, XML){
+if(xmlPiece != NULL){
+if (STACK!=NULL){
+GenerateXMLFromObject(xmlPiece, XML);
+}
+else{
+log("no STACK variable defined");
+}
+}
+else{
+log("can't create XML-- xmlPiece is null");
+}
+}

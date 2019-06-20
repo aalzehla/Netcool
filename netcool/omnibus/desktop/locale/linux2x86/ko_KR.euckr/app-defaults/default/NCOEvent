@@ -1,0 +1,2924 @@
+
+
+! ****************************************************************************
+! Main event list resource set.
+! ****************************************************************************
+NCOEvent*foreground: White
+NCOEvent*background: Slate Grey
+NCOEvent*fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*XmText.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*XmTextField.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*XmLabel.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*main_status_line.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*main_user_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*main_server_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*sub_status_line.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*sub_clock.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*sub_user_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+NCOEvent*sub_server_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-ksc*-*:large
+
+NCOEvent*print_fsb.width:400
+
+! Tool tip background colours
+NCOEvent*xrtGearBackground: wheat
+NCOEvent*xrtGearFontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+
+NCOEvent*xrtBackgroundColor: "Slate Grey"
+NCOEvent*xrtForegroundColor: "white"
+NCOEvent*xrtAxisFont: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+
+NCOEvent*XmToggleButton.selectColor: red
+NCOEvent*XmToggleButton.fillOnSelect: True
+NCOEvent*XmToggleButtonGadget.selectColor: red
+NCOEvent*XmToggleButtonGadget.fillOnSelect: True
+NCOEvent*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+NCOEvent*XmTextField.background: CadetBlue
+NCOEvent*XmText.background: CadetBlue
+NCOEvent*XmXrtIntField.background: CadetBlue
+
+NCOEvent*main_status_line.background: Slate Grey
+NCOEvent*main_user_field.background: Slate Grey
+NCOEvent*main_server_field.background: Slate Grey
+NCOEvent*sub_status_line.background: Slate Grey
+NCOEvent*sub_clock.background: Slate Grey
+NCOEvent*sub_user_field.background: Slate Grey
+NCOEvent*sub_server_field.background: Slate Grey
+
+NCOEvent*output_text.background: Slate Grey
+
+NCOEvent*error_dialog_popup.title: 오류
+NCOEvent*warning_dialog_popup.title: 경고
+
+NCOEvent*new_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+NCOEvent*new_question_dialog.messageString: 새 구성을 작성하면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+NCOEvent*new_question_dialog.okLabelString: 예
+NCOEvent*new_question_dialog.cancelLabelString: 아니오
+NCOEvent*new_question_dialog.helpLabelString: 도움말
+
+NCOEvent*open_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+NCOEvent*open_question_dialog.messageString: 새 구성을 열면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+NCOEvent*open_question_dialog.okLabelString: 예
+NCOEvent*open_question_dialog.cancelLabelString: 아니오
+NCOEvent*open_question_dialog.helpLabelString: 도움말
+
+NCOEvent*exit_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+NCOEvent*exit_question_dialog.messageString: 이 애플리케이션을 종료하면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+NCOEvent*exit_question_dialog.okLabelString: 예
+NCOEvent*exit_question_dialog.cancelLabelString: 아니오
+NCOEvent*exit_question_dialog.helpLabelString: 도움말
+
+NCOEvent*view_drop_help_dialog_popup.title: 보기 제거 사이트 도움말
+NCOEvent*view_drop_help_dialog.messageString: 여기서 보기 파일을 제거할 수 있습니다.\n보기를 제거하면 보기가 현재 구성에 추가됩니다.\n\n확인을 눌러 제거하거나 조작을 취소하십시오. \n
+
+NCOEvent*filter_drop_help_dialog_popup.title: 필터 제거 사이트 도움말
+NCOEvent*filter_drop_help_dialog.messageString: 여기서 필터 파일을 제거할 수 있습니다.\n보기를 제거하면 필터가 현재 구성에 추가됩니다.\n\n확인을 눌러 제거하거나 조작을 취소하십시오. \n
+
+NCOEvent*matrix_drop_help_dialog_popup.title: 제거 사이트 도움말
+NCOEvent*matrix_drop_help_dialog.messageString: 여기서 보기, 필터 또는 구성 파일을 제거할 수 있습니다.\n보기 또는 필터를 제거하면 현재 구성에 추가되고\n현재 보기 또는 필터로 설정됩니다.\n구성 파일을 제거하면 다음 두 가지 결과 중 하나가 발생합니다.\n\n1. 데이터를 복사하면 구성 데이터가 현재 구성에 추가됩니다.\n2. 현재 데이터를 이동하면 현재 구성이 변경됩니다. \n\n확인을 눌러 제거하거나 조작을 취소하십시오. \n
+
+! Need to set foreground of colour labels
+NCOEvent*unack_crit_label.foreground:  black
+NCOEvent*unack_major_label.foreground: black
+NCOEvent*unack_minor_label.foreground: black
+NCOEvent*unack_warn_label.foreground:  black
+NCOEvent*unack_indet_label.foreground: black
+NCOEvent*unack_clear_label.foreground: black
+NCOEvent*unack_close_label.foreground: black
+NCOEvent*ack_crit_label.foreground:  White
+NCOEvent*ack_major_label.foreground: White
+NCOEvent*ack_minor_label.foreground: White
+NCOEvent*ack_warn_label.foreground:  White
+NCOEvent*ack_indet_label.foreground: White
+NCOEvent*ack_clear_label.foreground: White
+NCOEvent*ack_close_label.foreground: White
+
+! Journal editor dialogs
+
+NCOEvent*jnext_q_dialog_popup.title: 변경사항을 취소하시겠습니까?
+NCOEvent*jnext_q_dialog.messageString: 다음 항목으로 이동하면 수정된 저널 세부사항이 손실됩니다.\n계속하시겠습니까?
+NCOEvent*jnext_q_dialog.okLabelString: 예
+NCOEvent*jnext_q_dialog.cancelLabelString: 아니오
+NCOEvent*jnext_q_dialog.helpLabelString: 도움말
+
+NCOEvent*jprev_q_dialog_popup.title: 변경사항을 취소하시겠습니까?
+NCOEvent*jprev_q_dialog.messageString: 이전 항목으로 이동하면 수정된 저널 세부사항이 손실됩니다.\n계속하시겠습니까?
+NCOEvent*jprev_q_dialog.okLabelString: 예
+NCOEvent*jprev_q_dialog.cancelLabelString: 아니오
+NCOEvent*jprev_q_dialog.helpLabelString: 도움말
+
+NCOEvent*jclose_q_dialog_popup.title: 변경사항을 취소하시겠습니까?
+NCOEvent*jclose_q_dialog.messageString: 이 창을 닫으면 수정된 저널 세부사항이 손실됩니다.\n계속하시겠습니까?
+NCOEvent*jclose_q_dialog.okLabelString: 예
+NCOEvent*jclose_q_dialog.cancelLabelString: 아니오
+NCOEvent*jclose_q_dialog.helpLabelString: 도움말
+
+NCOEvent*extension_dialog_popup.title: 올바르지 않은 확장자를 사용하시겠습니까?
+NCOEvent*extension_dialog.messageString: 지정된 파일 이름에 .elc 확장자가 없습니다.\n이 파일 이름으로 데이터를 저장하시겠습니까?
+NCOEvent*extension_dialog.okLabelString: 예
+NCOEvent*extension_dialog.cancelLabelString: 아니오
+NCOEvent*extension_dialog.helpLabelString: 도움말
+
+! Set matrix resources
+
+NCOEvent*sub_matrix.gridType:	XmGRID_SHADOW_IN
+NCOEvent*sub_matrix.rows:           1
+NCOEvent*sub_matrix.columns:        1
+NCOEvent*sub_matrix.columnWidths:   10
+
+NCOEvent*sub_matrix.cellMarginWidth: 		0
+NCOEvent*sub_matrix.cellMarginHeight:		0
+NCOEvent*sub_matrix.cellShadowThickness: 	1
+NCOEvent*sub_matrix.cellShadowType:		XmSHADOW_OUT
+NCOEvent*sub_matrix.highlightColor:		black
+
+NCOEvent*sub_matrix.showArrows: False
+
+NCOEvent*sub_matrix.foreground: black
+NCOEvent*sub_matrix.rowLabelColor: White
+NCOEvent*sub_matrix.columnLabelColor: White
+NCOEvent*sub_matrix.selectedBackground: White
+NCOEvent*sub_matrix.selectedForeground: black
+
+NCOEvent*sub_matrix.allowColumnResize:   True
+
+NCOEvent*sub_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+
+!
+! This resource controls the scrolling while selecting in the event matrix
+! It also has a side effect that it will jump the event matrix back to the
+! selected row if the cursor leaves and then reenters the matrix window
+!
+NCOEvent*sub_matrix.selectScrollVisible: True
+
+NCOEvent*sub_matrix.translations:   #replace\n		Shift ~Ctrl<Btn1Down>: SelectCell(Match)\n		Ctrl ~Shift<Btn1Down>: SelectCell(AddSelect)\n		Shift Ctrl<Btn1Down>: ResizeColumns()\n		~Shift ~Ctrl<Btn1Down>(2): SelectCell(DClick)\n		~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n		<Btn2Down>:      ProcessDrag()\n		<Btn3Down>:      SelectCell(Menu)\n		<Key>osfUp:      SelectCell(Up)\n		<Key>osfDown:    SelectCell(Down)\n		<Key>space:      SelectCell(KeySelect)\n		<Key>Tab:	 TraverseNext()\n		Shift<Key>Tab:	 TraversePrev()\n		<FocusIn>:	 MatrixFocusIn()\n		<FocusOut>:	 MatrixFocusOut()
+NCOEvent*sub_matrix.clip.translations:   #replace\n		Shift ~Ctrl<Btn1Down>: SelectCell(Match)\n		Ctrl ~Shift<Btn1Down>: SelectCell(AddSelect)\n		Shift Ctrl<Btn1Down>: ResizeColumns()\n		~Shift ~Ctrl<Btn1Down>(2): SelectCell(DClick)\n		~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n		<Btn2Down>:      ProcessDrag()\n		<Btn3Down>:      SelectCell(Menu)\n		<Key>osfUp:      SelectCell(Up)\n		<Key>osfDown:    SelectCell(Down)\n		<Key>space:      SelectCell(KeySelect)\n		<Key>Tab:	 TraverseNext()\n		Shift<Key>Tab:	 TraversePrev()\n		<FocusIn>:	 MatrixFocusIn()\n		<FocusOut>:	 MatrixFocusOut()
+
+NCOEvent*config_list.translations:	#override\n		<Btn2Down>:     ConfigDragStart()
+
+NCOEvent*user_menu.numColumns: 4
+NCOEvent*user_menu.packing: XmPACK_COLUMN
+NCOEvent*user_menu.orientation: XmVERTICAL
+
+NCOEvent*no_user_button.labelString: [사용자 없음]
+
+! Defaults for monitor boxes
+NCOEvent*fs_number_label.labelString:   0
+NCOEvent*fs_highest_label.labelString:  0
+NCOEvent*fs_lowest_label.labelString:   0
+NCOEvent*fs_metric_label.labelString:   0
+
+!
+! Ident: $Id: Global.res 1.2 1997/02/20 14:36:47 adam Development $
+!
+
+
+*viewBuilderSortFontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+*view_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+
+*view_builder*vb_new_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+*view_builder*vb_new_question_dialog.messageString: 새 보기를 작성하면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+*view_builder*vb_new_question_dialog.okLabelString: 예
+*view_builder*vb_new_question_dialog.cancelLabelString: 아니오
+*view_builder*vb_new_question_dialog.helpLabelString: 도움말
+
+*view_builder*vb_open_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+*view_builder*vb_open_question_dialog.messageString: 새 보기를 열면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+*view_builder*vb_open_question_dialog.okLabelString: 예
+*view_builder*vb_open_question_dialog.cancelLabelString: 아니오
+*view_builder*vb_open_question_dialog.helpLabelString: 도움말
+
+*view_builder*vb_exit_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+*view_builder*vb_exit_question_dialog.messageString: 이 창을 닫으면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+*view_builder*vb_exit_question_dialog.okLabelString: 예
+*view_builder*vb_exit_question_dialog.cancelLabelString: 아니오
+*view_builder*vb_exit_question_dialog.helpLabelString: 도움말
+
+*view_builder*display_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+
+*view_builder*display_matrix.gridType:	XmGRID_SHADOW_IN
+*view_builder*display_matrix.height:         80
+*view_builder*display_matrix.rows:           2
+*view_builder*display_matrix.columns:        1
+*view_builder*display_matrix.columnWidths:   10
+
+*view_builder*display_matrix.cellMarginWidth: 		2
+*view_builder*display_matrix.cellMarginHeight: 		2
+*view_builder*display_matrix.cellShadowThickness:	1
+*view_builder*display_matrix.cellShadowType: 		XmSHADOW_OUT
+
+*view_builder*display_matrix.showArrows: True
+*view_builder*display_matrix.allowColumnResize: True
+
+*view_builder*display_matrix.foreground: black
+*view_builder*display_matrix.rowLabelColor: White
+*view_builder*display_matrix.columnLabelColor: White
+*view_builder*display_matrix.selectedBackground: White
+*view_builder*display_matrix.selectedForeground: black
+
+*view_builder*display_matrix.translations:   #replace\n			Shift Ctrl<Btn1Down>: ResizeColumns()\n                        <Btn1Down>:      SelectCell(select)\n                        <Btn2Down>:      SelectCell(drag)\n                        <Btn3Down>:      SelectCell(menu)
+*view_builder*display_matrix.traversalOn:	False
+
+*view_builder*display_column_list.translations:	#override\n			<Btn2Down>:      VbDpyDragStart()
+*view_builder*sort_column_list.translations:	#override\n			<Btn2Down>:      VbSortDragStart()
+
+*view_builder*display_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+
+*view_builder*vb_extension_dialog_popup.title: 올바르지 않은 확장자를 사용하시겠습니까?
+*view_builder*vb_extension_dialog.messageString: 지정한 파일 이름에 .elv 확장자가 없습니다.\n이 파일 이름으로 데이터를 저장하시겠습니까?
+*view_builder*vb_extension_dialog.okLabelString: 예
+*view_builder*vb_extension_dialog.cancelLabelString: 아니오
+*view_builder*vb_extension_dialog.helpLabelString: 도움말
+! Generated by X-Designer
+
+
+! view_builder
+*view_builder*view_builder.width: 500
+*view_builder*view_builder.title: 보기 빌더
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*view_builder*file_cascade_button.labelString: 파일(F)
+*view_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*view_builder*file_new_button.labelString: 새로 작성(N)
+*view_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*view_builder*file_open_button.labelString: 열기(O)...
+*view_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*view_builder*file_save_button.labelString: 저장(S)
+*view_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*view_builder*file_save_as_button.labelString: 다른 이름으로 저장(A)...
+*view_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*view_builder*file_close_button.labelString: 닫기(C)
+*view_builder*file_close_button.mnemonic: C
+
+! vb_mb
+
+! vb_apply_button
+*view_builder*vb_apply_button.labelString: 적용
+
+! vb_close_button
+*view_builder*vb_close_button.labelString: 닫기
+
+! vb_help_button
+*view_builder*vb_help_button.labelString: 도움말
+
+! form2
+
+! label1
+*view_builder*name_label.labelString: 보기 이름
+
+! name_field
+
+! view_editable_toggle
+*view_builder*view_editable_toggle.labelString: 편집 가능
+
+! frame2
+
+! dnd_target
+
+! disp_cols_form
+*view_builder*disp_cols_form.paneMinimum: 1
+
+! label2
+*view_builder*display_columns_label.labelString: 컬럼 표시
+
+! frame4
+
+! display_matrix
+
+! rowcol1
+
+! disp_add_button
+*view_builder*disp_add_button.labelString: 추가
+
+! disp_remove_button
+*view_builder*disp_remove_button.labelString: 제거
+
+! display_column_list
+
+! rowcol2
+
+! move_first_button
+*view_builder*move_first_button.labelString: 처음
+
+! move_left_button
+*view_builder*move_left_button.labelString: 왼쪽
+
+! move_right_button
+*view_builder*move_right_button.labelString: 오른쪽
+
+! move_last_button
+*view_builder*move_last_button.labelString: 마지막
+
+! aligner1
+
+! column_label
+*view_builder*column_label.labelString: 컬럼
+
+! column_field
+
+! title_label
+*view_builder*title_label.labelString: 제목
+
+! title_field
+
+! column_align_menu
+*view_builder*column_align_menu.labelString: 맞춤
+
+! label3
+
+! column_align_beginning
+*view_builder*column_align_beginning.labelString: 왼쪽
+
+! column_align_center
+*view_builder*column_align_center.labelString: 가운데
+
+! column_align_end
+*view_builder*column_align_end.labelString: 오른쪽
+
+! title_align_menu
+*view_builder*title_align_menu.labelString: 맞춤
+
+! label4
+
+! title_align_beginning
+*view_builder*title_align_beginning.labelString: 왼쪽
+
+! title_align_center
+*view_builder*title_align_center.labelString: 가운데
+
+! title_align_end
+*view_builder*title_align_end.labelString: 오른쪽
+
+! width_label
+*view_builder*width_label.labelString: 너비
+
+! width_scale
+
+! label5
+*view_builder*column_details_label.labelString: 컬럼 세부사항
+
+! label6
+*view_builder*num_fixed_label.labelString: 고정 컬럼
+
+! num_fixed_scale
+
+! sort_cols_form
+*view_builder*sort_cols_form.paneMinimum: 1
+
+! label7
+*view_builder*sort_columns_label.labelString: 컬럼 정렬
+
+! sort_column_list
+
+! rowcol3
+
+! sort_add_button
+*view_builder*sort_add_button.labelString: 추가
+
+! sort_remove_button
+*view_builder*sort_remove_button.labelString: 제거
+
+! sort_sw
+
+! sort_da
+
+! rowcol4
+
+! move_top_button
+*view_builder*move_top_button.labelString: 맨 위
+
+! move_up_button
+*view_builder*move_up_button.labelString: 위로
+
+! move_down_button
+*view_builder*move_down_button.labelString: 아래로
+
+! move_bottom_button
+*view_builder*move_bottom_button.labelString: 맨 아래
+
+! restrict_rows_rowcol
+
+! label16
+*view_builder*label16.labelString: 행 수 제한
+
+! restrict_rows_sub_rowcol
+
+! restrict_rows_toggle
+*view_builder*restrict_rows_toggle.labelString: 행 수 제한
+
+! min_label
+*view_builder*min_label.labelString: 최소값
+
+! restrict_rows_min_spin
+
+! max_label
+*view_builder*max_label.labelString: 최대값
+
+! restrict_rows_max_spin
+
+! default_label
+*view_builder*default_label.labelString: 기본값
+
+! restrict_rows_default_spin
+
+! restrict_rows_from_eventlist_toggle
+*view_builder*restrict_rows_from_eventlist_toggle.labelString: 이벤트 목록에서 설정
+
+
+! vb_sort_popup
+*view_builder*vb_sort_popup.menuPost: <Button3>
+
+! sp_change_button
+*view_builder*sp_change_button.labelString: 변경
+
+! sp_top_button
+*view_builder*sp_top_button.labelString: 맨 위
+
+! sp_up_button
+*view_builder*sp_up_button.labelString: 위로
+
+! sp_down_button
+*view_builder*sp_down_button.labelString: 아래로
+
+! sp_bottom_button
+*view_builder*sp_bottom_button.labelString: 맨 아래
+
+! sp_delete_button
+*view_builder*sp_delete_button.labelString: 제거
+
+! vb_display_popup
+*view_builder*vb_display_popup.menuPost: <Button3>
+
+! dp_first_button
+*view_builder*dp_first_button.labelString: 처음
+
+! dp_left_button
+*view_builder*dp_left_button.labelString: 왼쪽
+
+! dp_right_button
+*view_builder*dp_right_button.labelString: 오른쪽
+
+! dp_last_button
+*view_builder*dp_last_button.labelString: 마지막
+
+! dp_delete_button
+*view_builder*dp_delete_button.labelString: 제거
+
+
+! vb_save_dialog
+*view_builder*vb_save_dialog.title: 보기 저장...
+
+! vb_save_file_sb
+*view_builder*vb_save_file_sb.applyLabelString: 필터
+*view_builder*vb_save_file_sb.okLabelString: 확인
+*view_builder*vb_save_file_sb.cancelLabelString: 취소
+*view_builder*vb_save_file_sb.helpLabelString: 도움말
+*view_builder*vb_save_file_sb.selectionLabelString: 선택사항
+*view_builder*vb_save_file_sb.filterLabelString: 파일 필터
+*view_builder*vb_save_file_sb.fileListLabelString: 파일
+*view_builder*vb_save_file_sb.dirListLabelString: 디렉토리
+*view_builder*vb_save_file_sb.pattern: *.elv
+
+! label10
+*view_builder*vb_save_file_sb.FilterLabel.labelString: 파일 필터
+
+! save_backup_toggle
+*view_builder*save_backup_toggle.labelString: 기존 파일 백업
+
+
+! vb_open_dialog
+*view_builder*vb_open_dialog.title: 보기 열기...
+
+! vb_open_file_sb
+*view_builder*vb_open_file_sb.applyLabelString: 필터
+*view_builder*vb_open_file_sb.okLabelString: 확인
+*view_builder*vb_open_file_sb.cancelLabelString: 취소
+*view_builder*vb_open_file_sb.helpLabelString: 도움말
+*view_builder*vb_open_file_sb.selectionLabelString: 선택사항
+*view_builder*vb_open_file_sb.filterLabelString: 파일 필터
+*view_builder*vb_open_file_sb.fileListLabelString: 파일
+*view_builder*vb_open_file_sb.dirListLabelString: 디렉토리
+*view_builder*vb_open_file_sb.pattern: *.elv
+
+! label14
+*view_builder*vb_open_file_sb.FilterLabel.labelString: 파일 필터
+
+!
+! SCCS: @(#)Global.res (libfb) 3.5 01/15/97 14:08:49
+!
+
+
+*filter_builder*XmToggleButton.selectColor: red
+*filter_builder*XmToggleButton.fillOnSelect: True
+*filter_builder*XmToggleButtonGadget.selectColor: red
+*filter_builder*XmToggleButtonGadget.fillOnSelect: True
+*filter_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+*filter_builder*XmTextField.background: Cadet Blue
+*filter_builder*XmText.background: Cadet Blue
+
+*filter_builder*status_line.background: Slate Grey
+*filter_builder*user_field.background: Slate Grey
+*filter_builder*server_field.background: Slate Grey
+
+*filter_builder*int_conversions_combo*XmList*background: CadetBlue
+
+
+*filter_builder*string_editor.width: 80
+
+*filter_builder*fb_new_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+*filter_builder*fb_new_question_dialog.messageString: 새 필터를 작성하면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+*filter_builder*fb_new_question_dialog.okLabelString: 예
+*filter_builder*fb_new_question_dialog.cancelLabelString: 아니오
+*filter_builder*fb_new_question_dialog.helpLabelString: 도움말
+
+*filter_builder*fb_open_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+*filter_builder*fb_open_question_dialog.messageString: 새 필터를 열면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+*filter_builder*fb_open_question_dialog.okLabelString: 예
+*filter_builder*fb_open_question_dialog.cancelLabelString: 아니오
+*filter_builder*fb_open_question_dialog.helpLabelString: 도움말
+
+*filter_builder*fb_exit_question_dialog_popup.title: 변경사항을 취소하시겠습니까?
+*filter_builder*fb_exit_question_dialog.messageString: 이 창을 닫으면 수정된 정의가 손실됩니다.\n계속하시겠습니까?
+*filter_builder*fb_exit_question_dialog.okLabelString: 예
+*filter_builder*fb_exit_question_dialog.cancelLabelString: 아니오
+*filter_builder*fb_exit_question_dialog.helpLabelString: 도움말
+
+*filter_builder*fb_extension_dialog_popup.title: 올바르지 않은 확장자를 사용하시겠습니까?
+*filter_builder*fb_extension_dialog.messageString: 지정한 파일 이름에 .elf 확장자가 없습니다.\n이 파일 이름으로 데이터를 저장하시겠습니까?
+*filter_builder*fb_extension_dialog.okLabelString: 예
+*filter_builder*fb_extension_dialog.cancelLabelString: 아니오
+*filter_builder*fb_extension_dialog.helpLabelString: 도움말
+
+*filter_builder*component_button.translations: #override\n		<Btn2Down>:	FbDoNothing()
+
+! LIBFB_MSG0001
+NCOEvent*filter_builder.libfbPasteMismatch.messageString: 붙여넣기 조작에서 테이블 불일치
+! LIBFB_MSG0002
+NCOEvent*fb_edit_mb.libfbInvalidSQL.messageString: SQL 문이 올바르지 않습니다. 명령문을 확인하십시오.
+! LIBFB_MSG0003
+NCOEvent*fb_edit_mb.libfbInvalidComplex.messageString: 복합 표현식 명령문이 올바르지 않습니다. 명령문을 확인하십시오.
+! LIBFB_MSG0004
+NCOEvent*libfbInvalidLeftExpr.messageString: 왼쪽 표현식이 올바르지 않습니다. 지정된 리터럴의 데이터 유형 및\n사용된 컬럼 참조와 연관된 연산자를 점검하십시오.
+! Generated by X-Designer
+
+
+! fb_edit_dialog
+*filter_builder*fb_edit_dialog.title: SQL 필터 편집
+
+! fb_edit_mb
+
+! fb_edit_ok_button
+*filter_builder*fb_edit_ok_button.labelString: 확인
+
+! fb_edit_cancel_button
+*filter_builder*fb_edit_cancel_button.labelString: 취소
+
+! fb_edit_help_button
+*filter_builder*fb_edit_help_button.labelString: 도움말
+
+! fb_edit_text
+
+
+! filter_builder
+*filter_builder*filter_builder.width: 850
+*filter_builder*filter_builder.height: 700
+*filter_builder*filter_builder.title: 필터 빌더
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*filter_builder*file_cascade_button.labelString: 파일(F)
+*filter_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*filter_builder*file_new_button.labelString: 새로 작성(N)
+*filter_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*filter_builder*file_open_button.labelString: 열기(O)...
+*filter_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*filter_builder*file_save_button.labelString: 저장(S)
+*filter_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*filter_builder*file_save_as_button.labelString: 다른 이름으로 저장(A)...
+*filter_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*filter_builder*file_close_button.labelString: 닫기(C)
+*filter_builder*file_close_button.mnemonic: C
+
+! edit_cascade_button
+*filter_builder*edit_cascade_button.labelString: 편집(E)
+*filter_builder*edit_cascade_button.mnemonic: E
+
+! edit_menu
+
+! edit_cut_button
+*filter_builder*edit_cut_button.labelString: 잘라내기(T)
+*filter_builder*edit_cut_button.mnemonic: T
+*filter_builder*edit_cut_button.accelerator: Shift<Key>osfDelete
+*filter_builder*edit_cut_button.acceleratorText: Shift+Del
+
+! edit_copy_button
+*filter_builder*edit_copy_button.labelString: 복사(C)
+*filter_builder*edit_copy_button.mnemonic: C
+*filter_builder*edit_copy_button.accelerator: Ctrl<Key>osfInsert
+*filter_builder*edit_copy_button.acceleratorText: Ctrl+Insert
+
+! edit_paste_button
+*filter_builder*edit_paste_button.labelString: 붙여넣기(P)
+*filter_builder*edit_paste_button.mnemonic: P
+*filter_builder*edit_paste_button.accelerator: Shift<Key>osfInsert
+*filter_builder*edit_paste_button.acceleratorText: Shift+Ins
+
+! fb_mb
+
+! form2
+
+! label1
+*filter_builder*name_label.labelString: 필터 이름
+
+! name_field
+
+! filter_editable_toggle
+*filter_builder*filter_editable_toggle.labelString: 편집 가능
+
+! frame2
+
+! dnd_target
+
+! separator3
+
+! button_rc
+
+! rowcol4
+
+! predicate_button
+*filter_builder*predicate_button.labelString: 조건
+
+! negate_button
+*filter_builder*negate_button.labelString: 부정
+
+! leading_logical_button
+*filter_builder*leading_logical_button.labelString: 선행\n논리
+
+! trailing_logical_button
+*filter_builder*trailing_logical_button.labelString: 후미\n논리
+
+! subquery_button
+*filter_builder*subquery_button.labelString: 하위 조회
+
+! rowcol3
+
+! edit_delcomp_button
+*filter_builder*edit_delcomp_button.labelString: 요소\n삭제
+
+! edit_deltree_button
+*filter_builder*edit_deltree_button.labelString: 트리\n삭제
+
+! rowcol2
+
+! fb_edit_sql_button
+*filter_builder*fb_edit_sql_button.labelString: SQL\n편집...
+
+! separator6
+
+! main_sw
+*filter_builder*main_sw.height: 330
+
+! tree
+
+! separator5
+
+! sql_text
+
+! separator7
+
+! form
+
+! in_form
+
+! rowcol1
+
+! fb_in_value_add_button
+*filter_builder*form*fb_in_value_add_button.labelString: 추가
+
+! fb_in_value_remove_button
+*filter_builder*form*fb_in_value_remove_button.labelString: 제거
+
+! in_list
+
+! separator8
+
+! metric_form
+
+! metric_function_menu
+*filter_builder*metric_function_menu.labelString: 지표:
+
+! label2
+
+! metric_avg_button
+*filter_builder*metric_avg_button.labelString: 평균
+
+! metric_count_button
+*filter_builder*metric_count_button.labelString: 개수
+
+! metric_sum_button
+*filter_builder*metric_sum_button.labelString: 합계
+
+! metric_min_button
+*filter_builder*metric_min_button.labelString: 최소값
+
+! metric_max_button
+*filter_builder*metric_max_button.labelString: 최대값
+
+! metric_field_menu
+*filter_builder*metric_field_menu.labelString: -
+
+! label3
+
+! metric_field_button
+
+! fb_apply_button
+*filter_builder*fb_apply_button.labelString: 적용
+
+! fb_close_button
+*filter_builder*fb_close_button.labelString: 닫기
+
+! fb_help_button
+*filter_builder*fb_help_button.labelString: 도움말
+
+
+! fb_save_dialog
+*filter_builder*fb_save_dialog.title: 필터 저장...
+
+! fb_save_file_sb
+*filter_builder*fb_save_file_sb.applyLabelString: 필터
+*filter_builder*fb_save_file_sb.okLabelString: 확인
+*filter_builder*fb_save_file_sb.cancelLabelString: 취소
+*filter_builder*fb_save_file_sb.helpLabelString: 도움말
+*filter_builder*fb_save_file_sb.selectionLabelString: 선택사항
+*filter_builder*fb_save_file_sb.filterLabelString: 파일 필터
+*filter_builder*fb_save_file_sb.fileListLabelString: 파일
+*filter_builder*fb_save_file_sb.dirListLabelString: 디렉토리
+*filter_builder*fb_save_file_sb.pattern: *.elf
+
+! label6
+*filter_builder*fb_save_file_sb.FilterLabel.labelString: 파일 필터
+
+! save_backup_toggle
+*filter_builder*save_backup_toggle.labelString: 기존 파일 저장
+
+
+! fb_open_dialog
+*filter_builder*fb_open_dialog.title: 필터 열기...
+
+! fb_open_file_sb
+*filter_builder*fb_open_file_sb.applyLabelString: 필터
+*filter_builder*fb_open_file_sb.okLabelString: 확인
+*filter_builder*fb_open_file_sb.cancelLabelString: 취소
+*filter_builder*fb_open_file_sb.helpLabelString: 도움말
+*filter_builder*fb_open_file_sb.selectionLabelString: 선택사항
+*filter_builder*fb_open_file_sb.filterLabelString: 파일 필터
+*filter_builder*fb_open_file_sb.fileListLabelString: 파일
+*filter_builder*fb_open_file_sb.dirListLabelString: 디렉토리
+*filter_builder*fb_open_file_sb.pattern: *.elf
+
+! label10
+*filter_builder*fb_open_file_sb.FilterLabel.labelString: 파일 필터
+
+
+! predicate_component
+
+! predicate_type_menu
+*filter_builder*predicate_type_menu.labelString: 표현식 유형
+
+! label23
+
+! predicate_type_simple
+*filter_builder*predicate_type_simple.labelString: 단순
+
+! predicate_type_complex
+*filter_builder*predicate_type_complex.labelString: 복합
+
+! predicate_type_freeform
+*filter_builder*predicate_type_freeform.labelString: 자유 형식
+
+! predicate_field_menu
+*filter_builder*predicate_field_menu.labelString: 컬럼
+
+! label12
+
+! predicate_field_menu_button
+
+! predicate_op_menu
+*filter_builder*predicate_op_menu.labelString: 연산자
+
+! label13
+
+! predicate_op_menu_button
+
+! predicate_op_menu_rc
+
+! predicate_op_eq_button
+*filter_builder*predicate_op_eq_button.labelString: 같음
+
+! predicate_op_lt_button
+*filter_builder*predicate_op_lt_button.labelString: 미만
+
+! predicate_op_lte_button
+*filter_builder*predicate_op_lte_button.labelString: 이하
+
+! predicate_op_like_button
+*filter_builder*predicate_op_like_button.labelString: 유사
+
+! predicate_op_in_button
+*filter_builder*predicate_op_in_button.labelString: IN
+
+! predicate_op_ne_button
+*filter_builder*predicate_op_ne_button.labelString: 같지 않음
+
+! predicate_op_gt_button
+*filter_builder*predicate_op_gt_button.labelString: 초과
+
+! predicate_op_gte_button
+*filter_builder*predicate_op_gte_button.labelString: 이상
+
+! predicate_op_nlike_button
+*filter_builder*predicate_op_nlike_button.labelString: 유사하지 않음
+
+! predicate_op_nin_button
+*filter_builder*predicate_op_nin_button.labelString: !IN
+
+! logical_component
+
+! logical_and_toggle
+*filter_builder*logical_and_toggle.labelString: 논리 AND
+
+! logical_or_toggle
+*filter_builder*logical_or_toggle.labelString: 논리 OR
+
+! subquery_component
+
+! subquery_selection_menu
+*filter_builder*subquery_selection_menu.labelString: 컬럼
+
+! label14
+
+! subquery_selection_menu_button
+
+! subquery_op_menu
+*filter_builder*subquery_op_menu.labelString: 연산자
+
+! label15
+
+! subquery_op_menu_button
+
+! subquery_op_menu_rc
+
+! subquery_op_in_button
+*filter_builder*subquery_op_in_button.labelString: IN
+
+! subquery_op_nin_button
+*filter_builder*subquery_op_nin_button.labelString: !IN
+
+! subquery_field_menu
+*filter_builder*subquery_field_menu.labelString: 선택
+
+! label16
+
+! subquery_field_menu_button
+
+! subquery_table_menu
+*filter_builder*subquery_table_menu.labelString: 소스
+
+! label17
+
+! subquery_table_menu_button
+
+! subquery_table_menu_rc
+
+! subquery_status_table_button
+
+! subquery_details_table_button
+
+! subquery_journal_table_button
+
+! time_editor
+
+! te_type_menu
+
+! te_absolute_button
+*filter_builder*te_absolute_button.labelString: 절대
+
+! te_relative_button
+*filter_builder*te_relative_button.labelString: 상대
+
+! te_relative_field
+
+! te_absolute_form
+
+! label22
+*filter_builder*date_day_label.labelString: dd:
+
+! te_field1
+
+! te_up1
+
+! te_down1
+
+! label19
+*filter_builder*date_month_label.labelString: mm:
+
+! te_field2
+
+! te_up2
+
+! te_down2
+
+! label20
+*filter_builder*date_year_label.labelString: yyyy:
+
+! te_field3
+
+! te_up3
+
+! te_down3
+
+! label24
+*filter_builder*time_hour_label.labelString: hh:
+
+! te_field4
+
+! te_up4
+
+! te_down4
+
+! label26
+*filter_builder*time_minute_label.labelString: mm:
+
+! te_field5
+
+! te_up5
+
+! te_down5
+
+! label27
+*filter_builder*time_second_label.labelString: ss:
+
+! te_field6
+
+! te_up6
+
+! te_down6
+
+! int_editor
+
+! int_conversions_menu
+
+! int_conversions_combo
+
+! int_field
+*filter_builder*int_field.width: 80
+
+! int_inc_button
+
+! int_dec_button
+
+! exp_editor
+
+! complex_text_sb_h
+
+! complex_text_sb_v
+
+! complex_text_fld
+
+! complex_edit_btn
+*filter_builder*complex_edit_btn.labelString: 편집...
+
+! Generated by X-Designer
+
+
+! about_dialog
+NCOEvent*about_dialog.allowShellResize: false
+NCOEvent*about_dialog.title: 정보 ...
+
+! about_form
+NCOEvent*about_form.autoUnmanage: false
+
+! about_image
+
+! Generated by X-Designer
+
+
+! sdown_dialog
+NCOEvent*sdown_dialog.allowShellResize: true
+NCOEvent*sdown_dialog.title: 연결 실패
+
+! sdown_mb
+NCOEvent*sdown_mb.autoUnmanage: true
+NCOEvent*sdown_mb.dialogType: DIALOG_ERROR
+NCOEvent*sdown_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*sdown_mb.messageString: 연결하려는 서버가\n응답하지 않습니다.\n\n다른 서버 이름을 사용하여 다시 시도하십시오.
+NCOEvent*sdown_mb.okLabelString: 확인
+NCOEvent*sdown_mb.cancelLabelString: 취소
+NCOEvent*sdown_mb.helpLabelString: 도움말
+
+! button2
+NCOEvent*sdown_mb.Help.sensitive: false
+
+
+! fatal_dialog
+NCOEvent*fatal_dialog.allowShellResize: true
+NCOEvent*fatal_dialog.title: 로그인 실패
+
+! fatal_mb
+NCOEvent*fatal_mb.autoUnmanage: true
+NCOEvent*fatal_mb.dialogType: DIALOG_ERROR
+NCOEvent*fatal_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*fatal_mb.messageString: 제공한 사용자 이름 및/또는 비밀번호를\n인식할 수 없습니다. \n\n죄송합니다. 이미 잘못된 비밀번호를 3번 입력하셨습니다.
+NCOEvent*fatal_mb.okLabelString: 확인
+NCOEvent*fatal_mb.cancelLabelString: 취소
+NCOEvent*fatal_mb.helpLabelString: 도움말
+
+! button5
+NCOEvent*fatal_mb.Help.sensitive: false
+
+
+! attempt_dialog
+NCOEvent*attempt_dialog.allowShellResize: true
+NCOEvent*attempt_dialog.title: 로그인 실패
+
+! attempt_mb
+NCOEvent*attempt_mb.autoUnmanage: true
+NCOEvent*attempt_mb.dialogType: DIALOG_ERROR
+NCOEvent*attempt_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*attempt_mb.messageString: 제공한 사용자 이름 및/또는 비밀번호를\n인식할 수 없습니다. 다시 시도하십시오.
+NCOEvent*attempt_mb.okLabelString: 확인
+NCOEvent*attempt_mb.cancelLabelString: 취소
+NCOEvent*attempt_mb.helpLabelString: 도움말
+
+! button8
+NCOEvent*attempt_mb.Help.sensitive: false
+
+
+! login_dialog
+NCOEvent*login_dialog.allowShellResize: true
+NCOEvent*login_dialog.title: 로그인
+
+! login_mb
+NCOEvent*login_mb.autoUnmanage: false
+NCOEvent*login_mb.dialogType: DIALOG_TEMPLATE
+
+! login_ok_button
+NCOEvent*login_ok_button.labelString: 확인
+
+! login_cancel_button
+NCOEvent*login_cancel_button.labelString: 취소
+
+! login_help_button
+NCOEvent*login_help_button.sensitive: false
+NCOEvent*login_help_button.labelString: 도움말
+
+! login_mframe
+
+! login_mform
+
+! login_tframe
+NCOEvent*login_tframe.shadowType: SHADOW_OUT
+NCOEvent*login_tframe.marginHeight: 3
+NCOEvent*login_tframe.marginWidth: 3
+
+! login_big_label
+NCOEvent*login_big_label.labelString:  
+NCOEvent*login_big_label.alignment: ALIGNMENT_CENTER
+
+! login_msg
+NCOEvent*login_little_label.labelString: 계속하려면 사용자 이름 및\n비밀번호를 입력하십시오.
+
+! login_credentials
+
+! login_username_label
+NCOEvent*login_username_label.labelString: 사용자 이름
+
+! login_username_field
+NCOEvent*login_username_field.xrtGearResizeWidth: true
+
+! login_password_label
+NCOEvent*login_password_label.labelString: 비밀번호
+
+! login_password_field
+NCOEvent*login_password_field.xrtGearResizeWidth: true
+
+! login_sep
+
+! login_server_menu
+NCOEvent*login_server_menu.navigationType: TAB_GROUP
+NCOEvent*login_server_menu.labelString: 서버
+
+! login_server_label
+
+! login_server_cascade
+
+NCOEvent*OclMessage.MSG_00003.messageString: 경고:
+NCOEvent*OclMessage.MSG_00004.messageString: 오류:
+NCOEvent*OclMessage.MSG_00005.messageString: 치명적 오류:
+NCOEvent*OclMessage.MSG_00006.messageString: 올바른 사용자가 아닙니다.\n
+NCOEvent*OclMessage.MSG_00007.messageString: 클라이언트 오류 열기:
+NCOEvent*OclMessage.MSG_00008.messageString: 클라이언트 메시지 열기:
+NCOEvent*OclMessage.MSG_00009.messageString: 서버 메시지:
+NCOEvent*OclMessage.MSG_00010.messageString: 서버 컨텍스트를 할당하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00011.messageString: 서버 컨텍스트를 초기화하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00012.messageString: 클라이언트 메시지 콜백을 설정하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00013.messageString: 서버 메시지 콜백을 설정하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00014.messageString: 예상치 못한 서버 종료\n
+NCOEvent*OclMessage.MSG_00015.messageString: 연결 컨텍스트를 할당하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00016.messageString: 연결 특성 설정 실패: 사용자 이름\n
+NCOEvent*OclMessage.MSG_00017.messageString: 연결 특성 설정 실패: 비밀번호\n
+NCOEvent*OclMessage.MSG_00018.messageString: 연결 특성 설정 실패: 애플리케이션 이름\n
+NCOEvent*OclMessage.MSG_00019.messageString: 연결에 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00020.messageString: 연결을 끊는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00021.messageString: 연결 컨텍스트를 제거하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00022.messageString: 서버 컨텍스트를 종료하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00023.messageString: 서버 컨텍스트를 제거하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00024.messageString: 명령 컨텍스트를 할당하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00025.messageString: 명령을 처리하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00026.messageString: 명령을 보내는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00027.messageString: 명령을 중단하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00028.messageString: SQL 요청을 실행하는 데 실패했습니다. \n
+NCOEvent*OclMessage.MSG_00029.messageString: %1$s: 표시를 열 수 없습니다. \n
+NCOEvent*OclMessage.MSG_00030.messageString: 알 수 없는 옵션: %1$s\n
+NCOEvent*OclMessage.MSG_00031.messageString: 오브젝트 서버에 연결하는 데 실패했습니다. \n
+NCOEvent*OclMessage.MSG_00032.messageString: 경고: XKeysymDB의 경로를 수정할 수 없습니다!\n
+NCOEvent*OclMessage.MSG_00033.messageString: 서버 호스트 이름을 가져오는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00034.messageString: 데이터베이스 경보를 사용하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00035.messageString: 인터페이스 특성을 설정하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00036.messageString: 메시지 번호 디코딩: 계층 %1$ld, 오리진 %2$ld, 심각도 %3$ld, 번호 %4$ld\n
+NCOEvent*OclMessage.MSG_00037.messageString: 메시지 문자열: %1$s\n
+NCOEvent*OclMessage.MSG_00038.messageString: 운영 체제 오류: %1$s\n
+NCOEvent*OclMessage.MSG_00039.messageString: 메시지 번호 디코딩: 번호 %1$ld, 심각도 %2$ld, 상태 %3$ld, 라인 %4$ld\n
+NCOEvent*OclMessage.MSG_00040.messageString: 원본 서버 '%1$s'\n
+NCOEvent*OclMessage.MSG_00041.messageString: 프로시저 '%1$s'\n
+NCOEvent*OclMessage.MSG_00042.messageString: 메시지 문자열: %1$s\n
+NCOEvent*OclMessage.MSG_00043.messageString: ** 확장 진단 추적 시작 **\n
+NCOEvent*OclMessage.MSG_00044.messageString: ** 확장 진단 추적 종료 **\n
+NCOEvent*OclMessage.MSG_00045.messageString: 결과 처리 실패\n
+NCOEvent*OclMessage.MSG_00046.messageString: 예상치 못한 결과 리턴\n
+NCOEvent*OclMessage.MSG_00047.messageString: 컬럼 바인드 실패\n
+NCOEvent*OclMessage.MSG_00048.messageString: 행 페치 실패\n
+NCOEvent*OclMessage.MSG_00049.messageString: '%1$s' 필드가 '%2$s' 테이블에 없거나 필드 유형이 올바르지 않습니다.\n
+NCOEvent*OclMessage.MSG_00050.messageString: 실패:
+NCOEvent*OclMessage.MSG_00051.messageString: SelectCell()의 올바르지 않은 인수 수\n
+NCOEvent*OclMessage.MSG_00058.messageString: 필터="
+NCOEvent*OclMessage.MSG_00059.messageString: 보기="
+NCOEvent*OclMessage.MSG_00060.messageString: \ - 글로벌 보류
+NCOEvent*OclMessage.MSG_00061.messageString: \ - 보류
+NCOEvent*OclMessage.MSG_00062.messageString: 사용법: %1$s [옵션]\n\n옵션은 다음과 같습니다.\n
+NCOEvent*OclMessage.MSG_00063.messageString: \011-config(-elc) <name>\011초기 구성 파일\n
+NCOEvent*OclMessage.MSG_00066.messageString: 기본값
+NCOEvent*OclMessage.MSG_00067.messageString: \011-username <name>\011연결할 사용자 이름\n
+NCOEvent*OclMessage.MSG_00068.messageString: \011-password <name>\011연결하는 사용자의 비밀번호\n
+NCOEvent*OclMessage.MSG_00069.messageString: \011-server <name>\011연결할 오브젝트 서버\n
+NCOEvent*OclMessage.MSG_00070.messageString: \011-help\011\011이 도움말 텍스트 표시\n
+NCOEvent*OclMessage.MSG_00071.messageString: \011-version\011버전 정보 표시\n
+NCOEvent*OclMessage.MSG_00072.messageString: \011-nlw\011\011라이센스 만료 경고를 표시하지 않음\n
+NCOEvent*OclMessage.MSG_00073.messageString: \011-diagnostic\011확장된 진단 메시지 표시\n
+NCOEvent*OclMessage.MSG_00074.messageString: \n다음 '표준' X 옵션도 이해됩니다. \n
+NCOEvent*OclMessage.MSG_00075.messageString: \011-background 또는 -bg <color>\n
+NCOEvent*OclMessage.MSG_00077.messageString: \011-bordercolor 또는 -bd <color>\n
+NCOEvent*OclMessage.MSG_00079.messageString: \011-foreground 또는 -fg <color>\n
+NCOEvent*OclMessage.MSG_00076.messageString: \011-borderwidth 또는 -bw <n>\n
+NCOEvent*OclMessage.MSG_00078.messageString: \011-display <dpy>\n
+NCOEvent*OclMessage.MSG_00080.messageString: \011-font 또는 -fn <font>\n
+NCOEvent*OclMessage.MSG_00081.messageString: \011-geometry <geometry>\n
+NCOEvent*OclMessage.MSG_00082.messageString: \011-iconic\n
+NCOEvent*OclMessage.MSG_00083.messageString: \011-name <name>\n
+NCOEvent*OclMessage.MSG_00084.messageString: \011-reverse 또는 -rv\n
+NCOEvent*OclMessage.MSG_00085.messageString: \011-selectionTimeout\n
+NCOEvent*OclMessage.MSG_00086.messageString: \011-synchronous\n
+NCOEvent*OclMessage.MSG_00087.messageString: \011-title <name>\n
+NCOEvent*OclMessage.MSG_00088.messageString: \011-xrm <resource>\n
+NCOEvent*OclMessage.MSG_00089.messageString: \n표시된 경우를 제외하고 옵션을 가장 짧은 고유 약어로 지정할 수도 있습니다.\n\n
+NCOEvent*OclMessage.MSG_00090.messageString: \n%1$s - 버전 %2$s
+NCOEvent*OclMessage.MSG_00102.messageString: '%1$s'의 테이블 설명을 가져오는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00103.messageString: 
+NCOEvent*OclMessage.MSG_00104.messageString: 
+NCOEvent*OclMessage.MSG_00105.messageString: 
+NCOEvent*OclMessage.MSG_00106.messageString: 일련 번호 %1$d의 저널 항목
+NCOEvent*OclMessage.MSG_00108.messageString: 백업 파일을 작성하는 데 실패했습니다. \n
+NCOEvent*OclMessage.MSG_00109.messageString: 구성을 %1$s에 저장하는 데\n실패했습니다.\n
+NCOEvent*OclMessage.MSG_00110.messageString: %1$s에서 구성을 로드하는 데\n실패했습니다.\n
+NCOEvent*OclMessage.MSG_00112.messageString: \011-cmap\011\011개인용 색상 맵 사용(약어 없음)\n
+NCOEvent*OclMessage.MSG_00113.messageString: [없음]
+NCOEvent*OclMessage.MSG_00114.messageString: %1$s에서 정의를 필터하는 데\n실패했습니다.\n
+NCOEvent*OclMessage.MSG_00115.messageString: %1$s에서 정의를 표시하는 데\n실패했습니다.\n
+NCOEvent*OclMessage.MSG_00116.messageString: \ : 
+NCOEvent*OclMessage.MSG_00117.messageString: 준비.
+NCOEvent*OclMessage.MSG_00118.messageString: 구성이 저장되었습니다.
+NCOEvent*OclMessage.MSG_00119.messageString: 모든 표시가 새로 고침되었습니다.
+NCOEvent*OclMessage.MSG_00121.messageString: 모든 이벤트 창이 닫혔습니다.
+NCOEvent*OclMessage.MSG_00122.messageString: 새 창이 열렸습니다.
+NCOEvent*OclMessage.MSG_00127.messageString: \011-noauto\011\011시작 그룹의 도구를 시작하지 않음\n
+NCOEvent*OclMessage.MSG_00128.messageString: \011-directory <name>\011시작 디렉토리 설정\n
+NCOEvent*OclMessage.MSG_00135.messageString: 새 창을 여는 중...
+NCOEvent*OclMessage.MSG_00137.messageString: %1$s 구문분석 중 - %3$d 행, "%2$s"
+NCOEvent*OclMessage.MSG_00138.messageString: 환경 설정
+NCOEvent*OclMessage.MSG_00139.messageString: SQL 텍스트
+NCOEvent*OclMessage.MSG_00140.messageString: 변환 테이블을 빌드하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00141.messageString: 비주얼 테이블을 빌드하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00142.messageString: 클래스 테이블을 빌드하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00144.messageString: 환경 설정을 로드하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00145.messageString: 사용자 테이블을 빌드하는 데 실패했습니다.\n
+NCOEvent*OclMessage.MSG_00147.messageString: 이벤트 목록
+NCOEvent*OclMessage.MSG_00148.messageString: 환경 설정을 저장하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00149.messageString: pixmap을 작성하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00153.messageString: 도구 문자열
+NCOEvent*OclMessage.MSG_00154.messageString: "%1$s" 실행 중...
+NCOEvent*OclMessage.MSG_00155.messageString: "%1$s" 종결됨(읽기 오류)
+NCOEvent*OclMessage.MSG_00156.messageString: "%1$s" 종결됨(ioctl 오류)
+NCOEvent*OclMessage.MSG_00157.messageString: "%1$s" 완료됨
+NCOEvent*OclMessage.MSG_00159.messageString: 이벤트 목록 구성
+NCOEvent*OclMessage.MSG_00160.messageString: 보기 빌더
+NCOEvent*OclMessage.MSG_00161.messageString: 보기 데이터를 %1$s에 저장하는 데\n실패했습니다.\n
+NCOEvent*OclMessage.MSG_00164.messageString: 더미
+NCOEvent*OclMessage.MSG_00165.messageString: 개인용 라이브러리 디렉토리를 작성하는 데 실패했습니다: %1$s
+NCOEvent*OclMessage.MSG_00167.messageString: <내부>
+NCOEvent*OclMessage.MSG_00169.messageString: 필터 데이터를 %1$s에 저장하는 데\n실패했습니다.\n
+NCOEvent*OclMessage.MSG_00171.messageString: 종결되지 않은 문자열
+NCOEvent*OclMessage.MSG_00172.messageString: 올바르지 않은 문자
+NCOEvent*OclMessage.MSG_00175.messageString: 필터 빌더
+NCOEvent*OclMessage.MSG_00212.messageString: 이벤트 목록을 실행하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00232.messageString: 컨덕터
+NCOEvent*OclMessage.MSG_00233.messageString: 인터페이스
+NCOEvent*OclMessage.MSG_00234.messageString: 특성
+NCOEvent*OclMessage.MSG_00235.messageString: 브라우저
+NCOEvent*OclMessage.MSG_00240.messageString: 경고: X NLS 경로를 수정할 수 없습니다!\n
+NCOEvent*OclMessage.MSG_00246.messageString: 이벤트 목록 시작...
+NCOEvent*OclMessage.MSG_00247.messageString: 필터 빌더 시작...
+NCOEvent*OclMessage.MSG_00248.messageString: 보기 빌더 시작...
+NCOEvent*OclMessage.MSG_00249.messageString: 오브젝트 보기 시작...
+NCOEvent*OclMessage.MSG_00250.messageString: 맵 편집기 시작...
+NCOEvent*OclMessage.MSG_00256.messageString: 운영 체제 오류: %1$s
+NCOEvent*OclMessage.MSG_00257.messageString: %1$s 시스템 호출 실패: %2$s
+NCOEvent*OclMessage.MSG_00260.messageString: %1$s 디렉토리를 열 수 없습니다.
+NCOEvent*OclMessage.MSG_00274.messageString: 디렉토리 브라우저
+NCOEvent*OclMessage.MSG_00284.messageString: 인터페이스 파일을 여는 데 실패했습니다: %1$s
+NCOEvent*OclMessage.MSG_00285.messageString: 도움말
+NCOEvent*OclMessage.MSG_00293.messageString: \011-page <name>\011\011초기 도움말 페이지\n
+NCOEvent*OclMessage.MSG_00303.messageString: 닫기
+NCOEvent*OclMessage.MSG_00304.messageString: 없음
+NCOEvent*OclMessage.MSG_00310.messageString: 인터페이스 파일에 항목이 없음
+NCOEvent*OclMessage.MSG_00317.messageString: 내부 초기화 실패\n
+NCOEvent*OclMessage.MSG_00327.messageString: 백그라운드
+NCOEvent*OclMessage.MSG_00328.messageString: 어노테이션
+NCOEvent*OclMessage.MSG_00329.messageString: 오브젝트
+NCOEvent*OclMessage.MSG_00353.messageString: 격자
+NCOEvent*OclMessage.MSG_00354.messageString: 경보 정보를 검색하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00356.messageString: 이벤트 정보: 일련 번호 %1$d의 경보 상태
+NCOEvent*OclMessage.MSG_00357.messageString: 메모리 부족
+NCOEvent*OclMessage.MSG_00371.messageString: 기본 글꼴을 찾을 수 없음 !
+NCOEvent*OclMessage.MSG_00375.messageString: 검사 중: %1$s
+NCOEvent*OclMessage.MSG_00385.messageString: ___SEVERITY_%1$d___
+NCOEvent*OclMessage.MSG_00389.messageString: 이벤트 목록 실행 중...
+NCOEvent*OclMessage.MSG_00390.messageString: 응답 대기 중...
+NCOEvent*OclMessage.MSG_00397.messageString: 엔티티: %1$s
+NCOEvent*OclMessage.MSG_00404.messageString: 연결 특성 설정 실패: 호스트 이름\n
+NCOEvent*OclMessage.MSG_00405.messageString: 치명적 서버 통신 오류\n
+NCOEvent*OclMessage.MSG_00406.messageString: 서버가 알 수 없는 데이터 유형을 리턴했습니다 ---!
+NCOEvent*OclMessage.MSG_00407.messageString: 서버가 알 수 없는 데이터 유형을 리턴했습니다: %1$s.%2$s !
+NCOEvent*OclMessage.MSG_00412.messageString: 검색할 필드를 지정해야 합니다.
+NCOEvent*OclMessage.MSG_00413.messageString: 지정한 값이 올바른 정규식이 아닙니다.
+NCOEvent*OclMessage.MSG_00414.messageString: 일치하는 행을 찾는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00415.messageString: 오브젝트 서버에 (다시)연결하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00416.messageString: %1$d 일련 번호가 더 이상 존재하지 않습니다!
+NCOEvent*OclMessage.MSG_00420.messageString: 저널 항목에 텍스트가 없습니다.
+NCOEvent*OclMessage.MSG_00424.messageString: 저널에 경보가 지정되지 않았습니다.
+NCOEvent*OclMessage.MSG_00427.messageString: 이벤트 목록 내에서 경보를 찾는 데 실패했습니다. \n경보가 삭제되었습니다. 지정한 조작을 수행할 수 없습니다.
+NCOEvent*OclMessage.MSG_00428.messageString: 이벤트 목록 내에서 경보를 찾는 데 실패했습니다. \n경보가 삭제되었으므로 액세스할 수 없습니다.
+NCOEvent*OclMessage.MSG_00429.messageString: 지정된 경보를 검색하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00435.messageString: 비동기 메모리 풀을 설정하는 데 실패했습니다. \n
+NCOEvent*OclMessage.MSG_00440.messageString: '%1$s' 테이블에 예상되는 %2$d개의 컬럼이 없습니다.
+NCOEvent*OclMessage.MSG_00445.messageString: ___FLASH_SEV_%1$d___
+NCOEvent*OclMessage.MSG_00447.messageString: 기본 비주얼의 색상 맵에서 읽기/쓰기 색상 셀을 할당하는 데 실패했습니다.\n\011  이벤트 목록 플래시 기능이 사용 불가능합니다. 기본 비주얼을 PseudoColor로 설정하십시오.\n
+NCOEvent*OclMessage.MSG_00457.messageString: '%1$s' 형식을 사용하여 날짜를 문자열에서 UTC로 변환하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00458.messageString: 조치 ID %1$d의 조치 레코드를 찾는 데 실패했습니다. 도구를 실행할 수 없습니다.
+NCOEvent*OclMessage.MSG_00459.messageString: XSendClient()를 통해 연관된 하위 메뉴 팝업의 클라이언트 메시지를 생성하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00460.messageString: 셀을 선택하지 않았습니다.
+NCOEvent*OclMessage.MSG_00461.messageString: 클립보드 복사 조작 보류 중...
+NCOEvent*OclMessage.MSG_00462.messageString: 클립보드 복사 조작 완료.
+NCOEvent*OclMessage.MSG_00463.messageString: 창이 보류 해제되었지만 모두 보류 옵션이 글로벌로 설정되어 있으므로 창이 새로 고치기되지 않습니다.
+NCOEvent*OclMessage.MSG_00464.messageString: 끌어 놓기 조작에 대한 행이 올바르지 않습니다.
+NCOEvent*OclMessage.MSG_00467.messageString: 올바르지 않은 행입니다.
+NCOEvent*OclMessage.MSG_00468.messageString: 모두 보류 중에 시간 지정된 새로 고치기는 실행되지 않습니다.
+NCOEvent*OclMessage.MSG_00469.messageString: 시간 지정된 새로 고치기 진행 중...
+NCOEvent*OclMessage.MSG_00470.messageString: 보류 해제된 창이 업데이트되었습니다.
+NCOEvent*OclMessage.MSG_00471.messageString: 서버에 다시 연결 중 - 기다리십시오...
+NCOEvent*OclMessage.MSG_00472.messageString: 서버 연결이 끊겼습니다. 다시 연결하십시오.
+NCOEvent*OclMessage.MSG_00473.messageString: 창을 작성하는 데 실패했습니다!
+NCOEvent*OclMessage.MSG_00474.messageString: 경보 메뉴를 찾을 수 없으므로 동적 도구 서브시스템의 초기화에 실패했습니다.
+NCOEvent*OclMessage.MSG_00475.messageString: 동적 도구를 작성하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00476.messageString: LOCATE 요청에 필요한 창을 작성하는 데 실패했습니다!
+NCOEvent*OclMessage.MSG_00477.messageString: 새로 고치기 시간이 올바르지 않습니다.\n환경 설정이 저장되지 않았습니다.
+NCOEvent*OclMessage.MSG_00478.messageString: XSendClient()를 통해 계단식 배열 클라이언트 데이터 지우기에 대한 클라이언트 메시지를 생성하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00479.messageString: 첨부의 경보 메뉴 정의를 찾는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00480.messageString: 동적 도구 시스템에서 메뉴 ID %1$d을(를) 찾는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00481.messageString: 현재 선택한 클래스 목록에 대한 %1$d 메뉴의 메뉴 항목을 관리하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00482.messageString: 첨부의 하위 이벤트 목록 창 도구 메뉴 정의를 찾는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00483.messageString: 치명적인 메모리 할당 오류가 발생했습니다.
+NCOEvent*OclMessage.MSG_00484.messageString: 첨부의 기본 이벤트 목록 창 도구 메뉴 정의를 찾는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00485.messageString: 도구의 영향을 받는 행이 없습니다.
+NCOEvent*OclMessage.MSG_00486.messageString: %1$d개 행이 도구의 영향을 받습니다.
+NCOEvent*OclMessage.MSG_00487.messageString: 도구를 실행하는 데 실패했습니다. 동적 도구 오류 (%1$d/%2$d)\n[ %3$s ].
+NCOEvent*OclMessage.MSG_00488.messageString: 도구 실행이 사용자에 의해 중단되었습니다.
+NCOEvent*OclMessage.MSG_00489.messageString: 컨덕터 도구 메뉴를 찾을 수 없으므로 동적 도구 서브시스템의 초기화에 실패했습니다.
+NCOEvent*OclMessage.MSG_00490.messageString: 저널 대화 상자의 경보 메뉴를 팝업하는 데 실패했습니다. 도구 오류 (%1$d/%2$d)\n[ %3$s ].
+NCOEvent*OclMessage.MSG_00491.messageString: 연결된 오브젝트 서버의 릴리스 버전을 판별하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00495.messageString: 새로 고치기 시간이 올바르지 않습니다(최소값: 10초).\n\011\011환경 설정이 적용되지 않았습니다.
+NCOEvent*OclMessage.MSG_00497.messageString: 동적 도구가 성공적으로 실행되었습니다.
+NCOEvent*OclMessage.MSG_00498.messageString: 동적 도구 실행에 실패했습니다.
+NCOEvent*OclMessage.MSG_00499.messageString: 컨덕터가 연결된 오브젝트 서버 버전이 3.3임을\n발견했습니다. 3.4 데스크탑에서 지원되는 도구가\n이 오브젝트 서버에서는 지원되지 않습니다. \n\n애플리케이션이 종료됩니다.
+NCOEvent*OclMessage.MSG_00500.messageString: \011-masterserver <name>\011연결할 마스터 오브젝트 서버\n
+NCOEvent*OclMessage.MSG_00501.messageString: \011-dualwrite <1/0>\011이중 쓰기 플래그(1:이중 쓰기 모드, 0:단일 쓰기 모드)\n
+NCOEvent*OclMessage.MSG_00504.messageString: [PRI]
+NCOEvent*OclMessage.MSG_00505.messageString: [BAK]
+NCOEvent*OclMessage.MSG_00506.messageString: 기본 오브젝트 서버가 발견됨
+NCOEvent*OclMessage.MSG_00507.messageString: \n기본 오브젝트 서버에 다시 연결하려면 확인을 클릭하십시오. \n
+NCOEvent*OclMessage.MSG_00508.messageString: 오브젝트 서버 연결 오류 복구 진행 중...
+NCOEvent*OclMessage.MSG_00509.messageString: 기본 오브젝트 서버 오류 복구 완료.
+NCOEvent*OclMessage.MSG_00510.messageString: CS_SEC_CHALLENGE 설정 실패
+NCOEvent*OclMessage.MSG_00511.messageString: CS_CHALLENGE_CB 설정 실패
+NCOEvent*OclMessage.MSG_00512.messageString: \n기본 마스터 오브젝트 서버에 다시 연결 중입니다. \n오브젝트 서버 데이터가 재동기화되는 동안 기다리십시오. \n몇 분 정도 걸립니다...
+NCOEvent*OclMessage.MSG_00513.messageString: 마스터 오브젝트 서버 연결 오류 복구 진행 중...
+NCOEvent*OclMessage.MSG_00514.messageString: 기본 마스터 오브젝트 서버의 오류 복구가 완료되었습니다.
+NCOEvent*OclMessage.MSG_00515.messageString: \n기본 마스터 오브젝트 서버에 대한 재연결이 완료되었습니다.
+NCOEvent*OclMessage.MSG_00516.messageString: 원격 호스트 이름을 가져오는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00517.messageString: 연결 실패
+NCOEvent*OclMessage.MSG_00518.messageString: 이 필터를 삭제할 수 있는 권한이 없습니다.
+NCOEvent*OclMessage.MSG_00519.messageString: 이 보기를 삭제할 수 있는 권한이 없습니다.
+NCOEvent*OclMessage.MSG_00520.messageString: master.national 테이블 또는 명령행에 제공한\n마스터 서버 이름이 올바르지 않습니다. 종료한 후 다시 시도하십시오.
+NCOEvent*OclMessage.MSG_00521.messageString: 마스터 오브젝트 서버에 연결하는 데 실패했습니다. \n서버가 실행 중이며 제공한 사용자 이름 및 비밀번호가\n데스크탑과 마스터 오브젝트 서버에서 동일한지 확인하십시오.
+NCOEvent*OclMessage.MSG_00522.messageString: "%1$s" 보기에서 "%2$s" 매개변수가\n허용 값을 초과하므로 %3$d(으)로 제한됩니다.\n\n
+NCOEvent*OclMessage.MSG_00523.messageString: 창이 보류 상태이므로 새로 고칠 때까지 결과가 표시되지 않습니다.
+NCOEvent*OclMessage.MSG_00524.messageString: 창이 보류 해제되었으므로 이제 결과가 새로 고쳐집니다.
+NCOEvent*OclMessage.MSG_00525.messageString: 제공한 사용자 이름과 비밀번호 조합이\n올바르지 않습니다. 다시 연결하십시오.
+NCOEvent*OclMessage.MSG_00526.messageString: 연결이 끊겼습니다. 현재\n 오브젝트 서버에 대한 액세스가 거부되었을 수 있습니다. \n이 문제점이 계속되면 시스템 관리자에 문의하십시오.
+NCOEvent*OclMessage.MSG_00527.messageString: 제공한 사용자 이름과 비밀번호 조합이\n올바르지 않습니다.\n\n죄송합니다. 이미 잘못된 비밀번호를 3번 입력하셨습니다.
+NCOEvent*OclMessage.MSG_00528.messageString: 연결이 끊겼습니다. 현재\n 오브젝트 서버에 대한 액세스가 거부되었을 수 있습니다. \n\n죄송합니다. 이미 잘못된 비밀번호를 3번 입력하셨습니다.
+NCOEvent*OclMessage.MSG_00540.messageString: 행이 비어 있으므로 복사할 내용이 없습니다.
+NCOEvent*OclMessage.MSG_00541.messageString: sybase 연결 제한시간을 설정하는 데 실패했습니다. \n
+NCOEvent*OclMessage.MSG_00542.messageString: \011-networktimeout <seconds>\011사용자 조치 후 하드웨어 문제점으로 인해 실패한 네트워크 연결을 발견하는 데 소요되는 시간\n
+NCOEvent*OclMessage.MSG_00543.messageString: 마스터 오브젝트 서버에 (다시)연결하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00544.messageString: 네트워크 제한시간이 올바르지 않은 값으로 설정되었습니다. %1$d(으)로 복귀합니다.
+NCOEvent*OclMessage.MSG_00545.messageString: %1$s [PRI]
+NCOEvent*OclMessage.MSG_00546.messageString: %1$s [BAK]
+NCOEvent*OclMessage.MSG_00548.messageString: char_expansion_factor는 [%1$d-%2$d] 범위에 있어야 합니다. %3$d(으)로 복귀합니다.
+NCOEvent*OclMessage.MSG_00549.messageString: \011-char_expansion_factor [%1$d-%2$d]. 오브젝트 서버에서 데이터를 수신할 때 클라이언트가 각 문자에 대해 더 많은 바이트를 할당하도록 합니다. \n
+NCOEvent*OclMessage.MSG_00550.messageString: \n기본 마스터 오브젝트 서버에 다시 연결하려면 확인을 클릭하십시오. \n
+NCOEvent*OclMessage.MSG_00551.messageString: 오류 복구 스레드 파일 디스크립터에서 읽기 도중 오류 발생: %1$s
+NCOEvent*OclMessage.MSG_00600.messageString: 올바른 라이센스를 가져오는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00601.messageString: 정보:
+NCOEvent*OclMessage.MSG_00602.messageString: 환경 설정을 로드하는 데 실패했습니다.
+NCOEvent*OclMessage.MSG_00603.messageString: pixmap 파일 로드 실패: %1$s
+NCOEvent*OclMessage.MSG_00604.messageString: 도구 매개변수 대화 상자
+NCOEvent*OclMessage.MSG_00605.messageString: UTC 정수로 변환
+NCOEvent*OclMessage.MSG_00606.messageString: 명령행 비밀번호를 숨길 수 없습니다.
+NCOEvent*OclMessage.MSG_00607.messageString: \011-failbackpolltime <seconds>\011백업에 연결할 때 기본 ObjectServer 폴링을 시도하는 시간 간격\n
+NCOEvent*OclMessage.top_range_template.messageString: 맨 위 [%1$d-%2$d]
+NCOEvent*OclMessage.top_off_string.messageString: 맨 위 [ OFF ]
+NCOEvent*OclMessage.top_fixed_string.messageString: 맨 위 [ FIXED ]
+NCOEvent*OclMessage.restricted_range_template.messageString: 행 제한 [%1$d-%2$d]
+NCOEvent*OclMessage.liboclLookupOpen.messageString: 검색 파일(%1$s)을 열 수 없습니다.\n
+NCOEvent*OclMessage.liboclVersionFormat.messageString: %1$s V%2$s
+NCOEvent*OclMessage.liboclReleaseId.messageString: 릴리스 ID: %1$s\n
+NCOEvent*OclMessage.liboclLibraryRelease.messageString: Ocl 라이브러리 릴리스: %1$s\n
+NCOEvent*OclMessage.liboclCompileDate.messageString: 소프트웨어 컴파일 날짜: %1$s\n
+NCOEvent*OclMessage.liboclSybaseRelease.messageString: Sybase 라이브러리 릴리스: %1$s\n
+NCOEvent*OclMessage.liboclServerUsedataFailed.messageString: 서버 메시지 CB에서 사용자 데이터를 가져오는 데 실패했습니다.
+NCOEvent*OclMessage.liboclChallengeUserdataFailed.messageString: 질문 CB에서 사용자 데이터를 가져오는 데 실패했습니다.
+NCOEvent*OclMessage.liboclEventList.messageString: 이벤트 목록 정보
+NCOEvent*OclMessage.liboclBusyFailed.messageString: 오류: 사용 중인 메시지를 시작하는 데 실패했습니다.\n
+NCOEvent*OclMessage.liboclAsyncFailed.messageString: CS_ASYNC_NOTIFS 설정 실패
+NCOEvent*OclMessage.liboclPacketFailed.messageString: CS_PACKET_SIZE 설정 실패
+NCOEvent*OclMessage.liboclAddressHandle.messageString: IP 주소 핸들 작성. (%1$d:%2$s)
+NCOEvent*OclMessage.liboclIducConnection.messageString: IDUC 채널 연결 실패. connect(): %1$s
+NCOEvent*OclMessage.liboclBlockIduc.messageString: IDUC에서 블록 - 재동기화 중
+NCOEvent*OclMessage.liboclNotSet.messageString: %1$s 설정되지 않음\n
+NCOEvent*OclMessage.liboclDoesntContain.messageString: %1$s에 다음이 포함되지 않음:\n
+NCOEvent*OclMessage.liboclStartsWith.messageString: %1$s이(가) 다음 문자로 시작:\n
+NCOEvent*OclMessage.liboclPortInvalid.messageString: %2$s에서 '%1$s' 포트가 올바르지 않습니다. \n
+NCOEvent*OclMessage.liboclIducHostRedirect.messageString: SSH IDUC REDIRECT TO HOST '%1$s'\n
+NCOEvent*OclMessage.liboclIducPortRedirect.messageString: SSH IDUC REDIRECT TO PORT '%1$ld'\n
+NCOEvent*OclMessage.liboclHttpError.messageString: HTTP 오류 %1$3d - %2$s
+! DTOOLS_MSG001
+NCOEvent*OclMessage.DTOOLS_MSG001.messageString: 메모리 할당에 실패했습니다.
+! DTOOLS_MSG002
+NCOEvent*OclMessage.DTOOLS_MSG002.messageString: %1$s 테이블을 설명하는 데 실패했습니다. 오브젝트 서버에 테이블이 있는지 확인하십시오.
+! DTOOLS_MSG003
+NCOEvent*OclMessage.DTOOLS_MSG003.messageString: %1$s 테이블의 컬럼 수가 올바르지 않습니다. %2$d개의 컬럼이 있어야 합니다.
+! DTOOLS_MSG004
+NCOEvent*OclMessage.DTOOLS_MSG004.messageString: 시스템 테이블 %1$s에서 필수 필드 중 하나의 데이터 유형이 올바르지 않습니다.
+! DTOOLS_MSG005
+NCOEvent*OclMessage.DTOOLS_MSG005.messageString: %1$s 테이블의 테이블 데이터를 페치하는 데 사용되는 필드 디스크립터를 작성하는 데 실패했습니다.
+! DTOOLS_MSG006
+NCOEvent*OclMessage.DTOOLS_MSG006.messageString: %1$s 테이블에서 필수 데이터를 페치하는 SQL문을 실행하는 데 실패했습니다.
+! DTOOLS_MSG007
+NCOEvent*OclMessage.DTOOLS_MSG007.messageString: %1$d 메뉴의 팝업 메뉴가 이미 작성되어 있습니다.
+! DTOOLS_MSG008
+NCOEvent*OclMessage.DTOOLS_MSG008.messageString: %1$d 메뉴 정의 내에 정의된 테이블을 설명하는 데 실패했습니다.
+! DTOOLS_MSG009
+NCOEvent*OclMessage.DTOOLS_MSG009.messageString: %1$d 메뉴 정의 내에 정의된 필드 중 하나를 찾는 데 실패했습니다.
+! DTOOLS_MSG010
+NCOEvent*OclMessage.DTOOLS_MSG010.messageString: 조치에 사용된 프롬프트 정의 내에서 참조되는 지정된 메뉴 정의를 찾는 데 실패했습니다.
+! DTOOLS_MSG011
+NCOEvent*OclMessage.DTOOLS_MSG011.messageString: 동적 도구 서브시스템에서 알 수 없는 오류가 발생했습니다.
+! DTOOLS_MSG012
+NCOEvent*OclMessage.DTOOLS_MSG012.messageString: 유형 검색의 프롬프트 정의에 지정된 검색 파일을 여는 데 실패했습니다.
+! DTOOLS_MSG013
+NCOEvent*OclMessage.DTOOLS_MSG013.messageString: 조치의 프롬프트 참조가 길이 0으로 확장되었습니다.
+! DTOOLS_MSG014
+NCOEvent*OclMessage.DTOOLS_MSG014.messageString: 메뉴 항목 ID %1$d의 조치에서 참조된 프롬프트 정의를 찾는 데 실패했습니다.
+! DTOOLS_MSG015
+NCOEvent*OclMessage.DTOOLS_MSG015.messageString: 동적 도구 내에서 참조된 %1$d 조치를 찾는 데 실패했습니다.
+! DTOOLS_MSG016
+NCOEvent*OclMessage.DTOOLS_MSG016.messageString: 메뉴 항목이 하위 메뉴로 참조하는 %1$d 메뉴를 찾는 데 실패했습니다.
+! DTOOLS_MSG017
+NCOEvent*OclMessage.DTOOLS_MSG017.messageString: 도구에 대한 액세스 권한이 없습니다.
+! DTOOLS_MSG018
+NCOEvent*OclMessage.DTOOLS_MSG018.messageString: 연관된 팝업 메뉴 위지트 세트가 없는 팝업 메뉴에 대한 시도입니다.
+! DTOOLS_MSG019
+NCOEvent*OclMessage.DTOOLS_MSG019.messageString: 내부/외부/저널 중 %1$d 행에 구문분석 오류가 있습니다.
+! DTOOLS_MSG020
+NCOEvent*OclMessage.DTOOLS_MSG020.messageString: 조치 실행이 사용자에 의해 중단되었습니다.
+! DTOOLS_MSG021
+NCOEvent*OclMessage.DTOOLS_MSG021.messageString: 조치 내부 영향을 실행하는 데 실패했습니다.
+! DTOOLS_MSG022
+NCOEvent*OclMessage.DTOOLS_MSG022.messageString: 외부 영향의 스트림 방향 재지정에 대한 파이프 구조를 작성하는 데 실패했습니다.
+! DTOOLS_MSG023
+NCOEvent*OclMessage.DTOOLS_MSG023.messageString: 외부 영향을 시작하기 위해 프로세스를 fork하는 데 실패했습니다. \n[오류 번호: %1$d = %2$s]
+! DTOOLS_MSG024
+NCOEvent*OclMessage.DTOOLS_MSG024.messageString: 외부 영향을 실행하는 데 실패했습니다.
+! DTOOLS_MSG025
+NCOEvent*OclMessage.DTOOLS_MSG025.messageString: 저널 텍스트를 16,255개의 청크 세트로 나누는 데 실패했습니다.
+! DTOOLS_MSG026
+NCOEvent*OclMessage.DTOOLS_MSG026.messageString: 시스템 테이블 %1$s에서 필수 필드 중 하나를 찾는 데 실패했습니다.
+! DTOOLS_MSG027
+NCOEvent*OclMessage.DTOOLS_MSG027.messageString: 일반 동적 도구 오류가 발생했습니다.
+! DTOOLS_MSG028
+NCOEvent*OclMessage.DTOOLS_MSG028.messageString: 저널 항목을 실행하는 데 실패했습니다.
+! DTOOLS_MSG029
+NCOEvent*OclMessage.DTOOLS_MSG029.messageString: 다중 바이트 문자열로 변환하는 데 실패했습니다.
+! DTOOLS_MSG999
+NCOEvent*OclMessage.DTOOLS_MSG999.messageString: <알 수 없음>
+! Generated by X-Designer
+
+
+! output_window
+NCOEvent*output_window.allowShellResize: true
+NCOEvent*output_window.title: 도구 출력
+
+! output_mb
+NCOEvent*output_mb.autoUnmanage: false
+NCOEvent*output_mb.dialogType: DIALOG_TEMPLATE
+
+! output_sep
+
+! output_close_button
+NCOEvent*output_close_button.labelString: 강제 종료
+
+! output_mform
+
+! output_label
+NCOEvent*output_label.labelString: 출력
+NCOEvent*output_label.alignment: ALIGNMENT_CENTER
+
+! output_scrolltext
+
+! output_text
+NCOEvent*output_text.traversalOn: false
+NCOEvent*output_text.columns: 40
+NCOEvent*output_text.editable: false
+NCOEvent*output_text.cursorPositionVisible: false
+NCOEvent*output_text.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+NCOEvent*output_text.editMode: MULTI_LINE_EDIT
+NCOEvent*output_text.rows: 15
+
+
+! param_dialog
+NCOEvent*param_dialog.allowShellResize: true
+
+! param_mb
+NCOEvent*param_mb.dialogStyle: DIALOG_FULL_APPLICATION_MODAL
+NCOEvent*param_mb.autoUnmanage: false
+NCOEvent*param_mb.dialogType: DIALOG_TEMPLATE
+
+! param_ok_button
+NCOEvent*param_ok_button.labelString: 확인
+
+! param_cancel_button
+NCOEvent*param_cancel_button.labelString: 취소
+
+! param_help_button
+NCOEvent*param_help_button.labelString: 도움말
+
+! param_form
+NCOEvent*param_form.fractionBase: 3
+
+! label1
+NCOEvent*param_label.labelString: 아래에 필수 매개변수를 입력하십시오.
+
+! param_sep
+
+! ############################################################################
+! libOcl:Global.res - General library X resources.
+! ############################################################################
+
+! Msg.c: Message dialog related X resources.
+NCOEvent*info_dialog.okLabelString: 확인
+NCOEvent*error_dialog.okLabelString: 확인
+NCOEvent*warning_dialog.okLabelString: 확인
+
+NCOEvent*question_dialog.okLabelString: 확인
+NCOEvent*question_dialog.cancelLabelString: 취소
+
+NCOEvent*oclLocaleMsgWarning.messageString: 경고:
+NCOEvent*oclLocaleMsgError.messageString: 오류:
+NCOEvent*oclLocaleMsgFatal.messageString: 치명적 오류:
+
+NCOEvent*OclMessage.accelerator.messageString: Ctrl+%1$c
+
+! Info dialog overrides
+
+NCOEvent*info_form*background: CadetBlue
+NCOEvent*info_label_form*background: CadetBlue
+
+NCOEvent*info_dialog*XmDrawingArea.background: CadetBlue
+NCOEvent*info_dialog*XmScrollBar.background: CadetBlue
+
+NCOEvent*info_matrix.width:	500
+NCOEvent*info_matrix.gridType:	XmGRID_NONE
+NCOEvent*info_matrix.rows:           10
+NCOEvent*info_matrix.columns:        2
+NCOEvent*info_matrix.columnWidths:   20,256
+NCOEvent*info_matrix.columnAlignments:   alignment_end,alignment_beginning
+NCOEvent*info_matrix.fixedColumns: 1
+!NCOEvent*info_matrix.columnLabels:   Field,Value
+
+NCOEvent*info_matrix.cellMarginWidth: 		0
+NCOEvent*info_matrix.cellMarginHeight:		0
+NCOEvent*info_matrix.highlightColor:		black
+
+NCOEvent*info_matrix.showArrows: False
+
+NCOEvent*info_matrix.foreground: White
+NCOEvent*info_matrix.rowLabelColor: White
+NCOEvent*info_matrix.columnLabelColor: White
+NCOEvent*info_matrix.selectedBackground: White
+NCOEvent*info_matrix.selectedForeground: black
+NCOEvent*info_matrix.allowColumnResize:   True
+NCOEvent*info_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-ksc*-*:
+
+NCOEvent*info_matrix.selectScrollVisible: True
+
+NCOEvent*info_matrix.translations:   #replace\n                Shift Ctrl<Btn1Down>: ResizeColumns()\n                ~Ctrl Shift<Btn1Down>: ResizeColumns(RangeSelect)\n                ~Shift Ctrl<Btn1Down>: SelectCell(ToggleSelect)\n                ~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n                <Btn2Down>:      ProcessDrag()\n                <Btn3Down>:      SelectCell(Menu)
+NCOEvent*info_matrix.clip.translations:   #replace\n                Shift Ctrl<Btn1Down>: ResizeColumns()\n                ~Ctrl Shift<Btn1Down>: ResizeColumns(RangeSelect)\n                ~Shift Ctrl<Btn1Down>: SelectCell(ToggleSelect)\n                ~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n                <Btn2Down>:      ProcessDrag()\n                <Btn3Down>:      SelectCell(Menu)
+
+! Main window and sub-window toolbar resources to disable keyboard traversal.
+! The toolbar replicates menu options which can be accessed via the keyboard.
+! It makes no sense to allow travesal via the tab key through the toolbar
+! buttons, especially as the toggle buttons, which are XrtLabels do not
+! support tab traversal very well.
+NCOEvent*main_toolbar*traversalOn: False
+NCOEvent*sub_toolbar*traversalOn: False
+
+! Include the dynamic tool resources.
+NCOEvent*param_dialog*XmList*background: CadetBlue
+NCOEvent*param_dialog*XmXrtDateField.background: CadetBlue
+NCOEvent*param_dialog*XmXrtDateField.xrtFldEnterFormatList:DD-MM-YYYY hh:mm:ss,D-M-YYYY h:m:s
+NCOEvent*output_window*XmText.background: Black
+
+! XRT Combo Box drop down colour re-source.
+NCOEvent*XmXrtGearCombo*XmList*background:CadetBlue
+
+! HPUX11/HPUX 10.20 work-arounds. Due to the default font set specifications
+! used by CDE, the HPUX library is unable to convert the font set due to
+! missing charsets. This should be OK, but on HPUX 11 our application will
+! crash in the widget creation as the application has no fonts. This is not
+! good. We override these resources here in order to prevent this error 
+! from occurring. :)
+
+! ****************************************************************************
+! Alerts menu additional static menu item related resources.
+! ****************************************************************************
+NCOEvent*alerts_info_btn.labelString: 정보(I)
+NCOEvent*alerts_info_btn.mnemonic: I
+NCOEvent*alerts_info_btn.accelerator: Ctrl<Key>I
+NCOEvent*alerts_info_btn.acceleratorText: Ctrl+I
+
+NCOEvent*alerts_journal_btn.labelString: 저널(J)
+NCOEvent*alerts_journal_btn.mnemonic: J
+NCOEvent*alerts_journal_btn.accelerator: Ctrl<Key>J
+NCOEvent*alerts_journal_btn.acceleratorText: Ctrl+J
+
+NCOEvent*alerts_quickfilter_btn.labelString: 빠른 필터(F)
+NCOEvent*alerts_quickfilter_btn.mnemonic: F
+NCOEvent*alerts_quickfilter_btn.accelerator: Ctrl<Key>F
+NCOEvent*alerts_quickfilter_btn.acceleratorText: Ctrl+F
+
+NCOEvent*qfilter_menu_eq_btn.labelString: 같음(E)
+NCOEvent*qfilter_menu_eq_btn.mnemonic: E
+NCOEvent*qfilter_menu_eq_btn.accelerator: Ctrl<Key>E
+NCOEvent*qfilter_menu_eq_btn.acceleratorText: Ctrl+E
+
+NCOEvent*qfilter_menu_neq_btn.labelString: 같지 않음(N)
+NCOEvent*qfilter_menu_neq_btn.mnemonic: N
+NCOEvent*qfilter_menu_neq_btn.accelerator: Ctrl<Key>N
+NCOEvent*qfilter_menu_neq_btn.acceleratorText: Ctrl+N
+
+NCOEvent*qfilter_menu_gt_btn.labelString: 초과(G)
+NCOEvent*qfilter_menu_gt_btn.mnemonic: G
+NCOEvent*qfilter_menu_gt_btn.accelerator: Ctrl<Key>G
+NCOEvent*qfilter_menu_gt_btn.acceleratorText: Ctrl+G
+
+NCOEvent*qfilter_menu_gte_btn.labelString: 이상(Q)
+NCOEvent*qfilter_menu_gte_btn.mnemonic: Q
+NCOEvent*qfilter_menu_gte_btn.accelerator: Ctrl<Key>Q
+NCOEvent*qfilter_menu_gte_btn.acceleratorText: Ctrl+Q
+
+NCOEvent*qfilter_menu_lt_btn.labelString: 미만(L)
+NCOEvent*qfilter_menu_lt_btn.mnemonic: L
+NCOEvent*qfilter_menu_lt_btn.accelerator: Ctrl<Key>L
+NCOEvent*qfilter_menu_lt_btn.acceleratorText: Ctrl+L
+
+NCOEvent*qfilter_menu_lte_btn.labelString: 이하(H)
+NCOEvent*qfilter_menu_lte_btn.mnemonic: H
+NCOEvent*qfilter_menu_lte_btn.accelerator: Ctrl<Key>H
+NCOEvent*qfilter_menu_lte_btn.acceleratorText: Ctrl+H
+
+NCOEvent*qfilter_menu_like_btn.labelString: 유사(K)
+NCOEvent*qfilter_menu_like_btn.mnemonic: K
+NCOEvent*qfilter_menu_like_btn.accelerator: Ctrl<Key>K
+NCOEvent*qfilter_menu_like_btn.acceleratorText: Ctrl+K
+
+NCOEvent*qfilter_menu_nlike_btn.labelString: 유사하지 않음(T)
+NCOEvent*qfilter_menu_nlike_btn.mnemonic: T
+NCOEvent*qfilter_menu_nlike_btn.accelerator: Ctrl<Key>T
+NCOEvent*qfilter_menu_nlike_btn.acceleratorText: Ctrl+T
+
+NCOEvent*qfilter_menu_off_btn.labelString: 설정 해제(O)
+NCOEvent*qfilter_menu_off_btn.mnemonic: O
+NCOEvent*qfilter_menu_off_btn.accelerator: Ctrl<Key>O
+NCOEvent*qfilter_menu_off_btn.acceleratorText: Ctrl+O
+
+
+
+! NCOEVENT_MSG0001
+NCOEvent*main_status_line.readyString.messageString: 준비.
+! NCOEVENT_MSG0002
+NCOEvent*sub_status_line.rowsSelected.messageString: %1$d개 행이 선택되었습니다.
+! NCOEVENT_MSG0003
+NCOEvent*sub_status_line.noRowsSelected.messageString: 행이 선택되지 않았습니다.
+! NCOEVENT_MSG0004
+NCOEvent*sub_status_line.iducModifyStatus.messageString: %1$d개 행이 삽입되고 %2$d개 행이 업데이트되었으며, %3$d개 행이 삭제되었습니다.
+! NCOEVENT_MSG0005
+NCOEvent*sub_status_line.iducNoRowsModified.messageString: 수정된 행이 없습니다.
+! NCOEVENT_MSG0006
+NCOEvent*sub_status_line.rowsMatched.messageString: %1$d개 행이 일치합니다.
+! NCOEVENT_MSG0007
+NCOEvent*sub_status_line.noRowsMatched.messageString: 일치하는 행이 없습니다.
+! NCOEVENT_MSG0008
+NCOEvent*sub_status_line.windowIsFrozen.messageString: 창이 보류 상태이므로 새로 고칠 때까지 결과가 표시되지 않습니다.
+! NCOEVENT_MSG0009
+NCOEvent*sub_status_line.resultsRetrieveError.messageString: 결과 검색 오류
+! NCOEVENT_MSG0010
+NCOEvent*main_status_line.windowCreateFailed.messageString: 창을 작성하는 데 실패했습니다!
+! NCOEVENT_MSG0012
+NCOEvent*sub_status_line.noServices.messageString: 서비스가 정의되지 않았습니다.
+! NCOEVENT_MSG0013
+NCOEvent*sub_status_line.allRows.messageString: 모든 행이 선택되었습니다.
+NCOEvent*OclMessage.noFilterPermission.messageString: 이 필터를 수정할 수 있는 권한이 없습니다.
+NCOEvent*OclMessage.noViewPermission.messageString: 이 보기를 수정할 수 있는 권한이 없습니다.
+NCOEvent*OclMessage.readOnlyFilterExists.messageString: 이 이름의 읽기 전용 필터가 이미 있습니다.
+NCOEvent*OclMessage.readOnlyViewExists.messageString: 이 이름의 읽기 전용 보기가 이미 있습니다.
+NCOEvent*OclMessage.openTmpFailed.messageString: 임시 파일을 여는 데 실패했습니다!
+NCOEvent*OclMessage.openFailed.messageString: 파일을 여는 데 실패했습니다!
+NCOEvent*OclMessage.printLaunchFailed.messageString: 프린터 프로세스를 시작하는 데 실패했습니다.
+NCOEvent*OclMessage.journalRetrieveFailed.messageString: 저널 정보를 검색하는 데 실패했습니다.
+NCOEvent*OclMessage.pipeFailed.messageString: 파이프를 작성하는 데 실패했습니다. 파일 디스크립터가 부족할 수 있습니다.
+NCOEvent*OclMessage.masterFailbackSpawnFailed.messageString: 마스터 오류 복구 스레드를 생성하는 데 실패했습니다.
+NCOEvent*OclMessage.failebackSpawnFailed.messageString: 오류 복구 스레드를 생성하는 데 실패했습니다.
+NCOEvent*OclMessage.libnetcoolFaild.messageString: netcool 라이브러리를 초기화하는 데 실패했습니다.
+NCOEvent*OclMessage.resourceLoadFailed.messageString: 로케일 X 자원을 로드하는 데 실패했습니다.
+NCOEvent*OclMessage.services.messageString: 서비스
+NCOEvent*OclMessage.masterConnectFailed.messageString: 마스터 오브젝트 서버에 연결하는 데 실패했습니다. \n서버가 실행 중이며 제공한 사용자 이름 및 비밀번호가\n데스크탑과 마스터 오브젝트 서버에서 동일한지 확인하십시오.
+NCOEvent*OclMessage.service.messageString: 서비스
+NCOEvent*OclMessage.lastChange.messageString: 마지막 변경
+NCOEvent*OclMessage.lastGood.messageString: 마지막 양호
+NCOEvent*OclMessage.lastBad.messageString: 마지막 불량
+NCOEvent*OclMessage.lastMarginal.messageString: 마지막 한계
+NCOEvent*OclMessage.lastReported.messageString: 마지막 보고
+NCOEvent*OclMessage.error.messageString: <오류>
+NCOEvent*OclMessage.row.messageString: 행
+NCOEvent*OclMessage.printFailed.messageString: 인쇄 실패
+NCOEvent*OclMessage.uniquePanic.messageString: 실패! 고유 시스템 ID를 가져오는 데 실패했습니다! \n
+NCOEvent*OclMessage.fontlistFailed.messageString: 사용자 지정 글꼴의 글꼴 목록을 작성하는 데 실패했습니다. \n기본 글꼴이 사용됩니다.
+NCOEvent*OclMessage.uneditableConfig.messageString: \011-uneditable\011구성 편집을 허용하지 않음\n
+NCOEvent*OclMessage.sub_toolbar_refresh_button.messageString: 이벤트 새로 고치기
+NCOEvent*OclMessage.sub_toolbar_freeze_toggle.messageString: 보류[취소]
+NCOEvent*OclMessage.sub_toolbar_select_all_toggle.messageString: 모두 선택[취소]
+NCOEvent*OclMessage.sub_toolbar_print_button.messageString: 인쇄
+NCOEvent*OclMessage.sub_toolbar_filter_button.messageString: 필터 빌더
+NCOEvent*OclMessage.sub_toolbar_filter_option.messageString: 필터 변경
+NCOEvent*OclMessage.sub_toolbar_view_button.messageString: 보기 빌더
+NCOEvent*OclMessage.sub_toolbar_view_option.messageString: 보기 변경
+NCOEvent*OclMessage.sub_toolbar_service_tog.messageString: 서비스 보기
+NCOEvent*OclMessage.sub_toolbar_service_button.messageString: 서비스 창 표시
+NCOEvent*OclMessage.sub_toolbar_service_option.messageString: 서비스 변경
+NCOEvent*OclMessage.sub_toolbar_service_indicator.messageString: 서비스 상태
+NCOEvent*OclMessage.sub_toolbar_jump_button.messageString: 맨 위로 이동
+NCOEvent*OclMessage.sub_toolbar_top_label.messageString: 행을 맨 위로 제한 <n>
+NCOEvent*OclMessage.fs_name_button.messageString: 필터 빌더 실행
+NCOEvent*OclMessage.fs_view_button.messageString: 하위 이벤트 목록 표시
+NCOEvent*OclMessage.fs_view_menu.messageString: 사용 가능한 보기
+NCOEvent*OclMessage.toolbar_new_button.messageString: 새로 작성
+NCOEvent*OclMessage.toolbar_open_button.messageString: 열기
+NCOEvent*OclMessage.toolbar_save_button.messageString: 저장
+NCOEvent*OclMessage.toolbar_refresh_button.messageString: 창 새로 고치기
+NCOEvent*OclMessage.toolbar_freeze_toggle.messageString: 모든 표시 보류
+NCOEvent*OclMessage.toolbar_rownum.messageString: 행당 모니터 상자 수 변경
+NCOEvent*OclMessage.resync_all_text.messageString: 모든 로컬 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*OclMessage.resync_visuals_text.messageString: 모든 비주얼 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*OclMessage.resync_classes_text.messageString: 모든 클래스 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*OclMessage.resync_users_text.messageString: 모든 사용자 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*OclMessage.resync_groups_text.messageString: 모든 그룹 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*OclMessage.resync_menus_text.messageString: 모든 도구 메뉴를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*OclMessage.resync_services_text.messageString: 모든 서비스 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+
+
+! Generated by X-Designer
+
+
+! service_window
+NCOEvent*service_window.width: 700
+NCOEvent*service_window.height: 400
+NCOEvent*service_window.title: 서비스
+
+! service_mb
+
+! service_close_button
+NCOEvent*service_close_button.labelString: 닫기
+
+! service_help_button
+NCOEvent*service_help_button.labelString: 도움말
+
+! service_tree
+
+
+! print_file
+NCOEvent*print_file.title: 파일로 인쇄...
+
+! print_fsb
+NCOEvent*print_fsb.applyLabelString: 필터
+NCOEvent*print_fsb.okLabelString: 확인
+NCOEvent*print_fsb.cancelLabelString: 취소
+NCOEvent*print_fsb.helpLabelString: 도움말
+NCOEvent*print_fsb.selectionLabelString: 선택사항
+NCOEvent*print_fsb.filterLabelString: 필터
+NCOEvent*print_fsb.fileListLabelString: 파일
+NCOEvent*print_fsb.dirListLabelString: 디렉토리
+
+
+! resync_dialog
+NCOEvent*resync_dialog.title: 재동기화 여부 지정
+
+! resync_mb
+NCOEvent*resync_mb.messageString: %1$s 데이터를 오브젝트 서버와\n재동기화하시겠습니까?
+NCOEvent*resync_mb.okLabelString: 예
+NCOEvent*resync_mb.cancelLabelString: 아니오
+NCOEvent*resync_mb.helpLabelString: 도움말
+
+
+! print_dialog
+NCOEvent*print_dialog.title: 인쇄
+
+! print_mb
+
+! print_ok_button
+NCOEvent*print_ok_button.labelString: 확인
+
+! print_cancel_button
+NCOEvent*print_cancel_button.labelString: 취소
+
+! print_help_button
+NCOEvent*print_help_button.labelString: 도움말
+
+! frame1
+
+! radioBox1
+
+! print_printer_toggle
+NCOEvent*print_printer_toggle.labelString: 프린터
+
+! print_file_toggle
+NCOEvent*print_file_toggle.labelString: 파일
+
+! label7
+NCOEvent*printer_label.labelString: 프린터
+
+! print_printer_field
+NCOEvent*print_printer_field.value: lp
+
+! print_file_button
+NCOEvent*print_file_button.labelString: 파일
+
+! print_file_field
+
+! label8
+NCOEvent*output_label.labelString: 출력
+
+! frame2
+
+! radioBox2
+
+! print_all_toggle
+NCOEvent*print_all_toggle.labelString: 보기의 모든 경보
+
+! print_selection_toggle
+NCOEvent*print_selection_toggle.labelString: 선택된 경보
+
+! label9
+NCOEvent*selection_label.labelString: 선택사항
+
+! frame3
+
+! rowcol1
+
+! print_row_sep_toggle
+NCOEvent*print_row_sep_toggle.labelString: 행 구분 기호
+
+! print_row_num_toggle
+NCOEvent*print_row_num_toggle.labelString: 행 수
+
+! print_col_sep_toggle
+NCOEvent*print_col_sep_toggle.labelString: 컬럼 구분 기호
+
+! print_col_head_toggle
+NCOEvent*print_col_head_toggle.labelString: 컬럼 표제
+
+! label10
+NCOEvent*options_label.labelString: 옵션
+
+
+! alt_journal_dialog
+NCOEvent*alt_journal_dialog.title: 저널 항목
+
+! alt_journal_mb
+
+! alt_ok_button
+NCOEvent*alt_ok_button.labelString: 확인
+
+! alt_cancel_button
+NCOEvent*alt_cancel_button.labelString: 취소
+
+! alt_help_button
+NCOEvent*alt_help_button.labelString: 도움말
+
+! alt_text
+
+! alt_menu
+NCOEvent*alt_menu.labelString: ID
+
+! label11
+
+
+! panic_dialog
+NCOEvent*panic_dialog.title: 서버 장애
+
+! panic_mb
+
+! panic_connect_button
+NCOEvent*panic_connect_button.labelString: 연결
+
+! panic_exit_button
+NCOEvent*panic_exit_button.labelString: 종료
+
+! panic_help_button
+NCOEvent*panic_help_button.labelString: 도움말
+
+! label12
+NCOEvent*panic_little_label.labelString: 오브젝트 서버에 대한\n연결이 끊어졌습니다.\n\n다시 연결하거나, 다른 오브젝트 서버에 연결하거나\n이 애플리케이션을 종료할 수 있습니다. \n\n아래 필드에 입력하여 다른 사용자로 연결할 수 있습니다. \n
+
+! label13
+NCOEvent*panic_username_label.labelString: 사용자 이름
+
+! panic_username_field
+
+! label14
+NCOEvent*panic_password_label.labelString: 비밀번호
+
+! panic_password_field
+
+! panic_server_menu
+NCOEvent*panic_server_menu.labelString: 서버
+
+! label15
+
+
+! find_dialog
+NCOEvent*find_dialog.title: 찾기...
+
+! find_mb
+
+! find_find_button
+NCOEvent*find_find_button.labelString: 찾기
+
+! find_next_button
+NCOEvent*find_next_button.labelString: 다음
+
+! find_close_button
+NCOEvent*find_close_button.labelString: 닫기
+
+! find_help_button
+NCOEvent*find_help_button.labelString: 도움말
+
+! find_field_list
+
+! label16
+NCOEvent*find_value_label.labelString: 값
+
+! find_value_field
+
+! radioBox3
+
+! find_exact_toggle
+NCOEvent*find_exact_toggle.labelString: 정확하게 일치
+
+! find_regexp_toggle
+NCOEvent*find_regexp_toggle.labelString: 정규식
+
+! find_substring_toggle
+NCOEvent*find_substring_toggle.labelString: 하위 문자열
+
+! label17
+NCOEvent*label17.labelString: 옵션
+
+
+! prefs_dialog
+NCOEvent*prefs_dialog.title: 이벤트 목록 환경 설정
+
+! prefs_mb
+
+! prefs_apply_button
+NCOEvent*prefs_apply_button.labelString: 적용
+
+! prefs_save_button
+NCOEvent*prefs_save_button.labelString: 저장
+
+! prefs_close_button
+NCOEvent*prefs_close_button.labelString: 닫기
+
+! prefs_undo_button
+NCOEvent*prefs_undo_button.labelString: 실행 취소
+
+! prefs_help_button
+NCOEvent*prefs_help_button.labelString: 도움말
+
+! tab_manager
+
+! monitors_tab
+NCOEvent*monitors_tab.labelString: 모니터
+
+! refresh_tab
+NCOEvent*refresh_tab.labelString: 새로 고치기
+
+! notification_tab
+NCOEvent*notification_tab.labelString: 통지
+
+! flash_tab
+NCOEvent*flash_tab.labelString: 플래시
+
+! misc_tab
+NCOEvent*misc_tab.labelString: 기타
+
+! monitors_frame
+
+! prefs_fs_number_toggle
+NCOEvent*prefs_fs_number_toggle.labelString: 수 표시
+
+! prefs_fs_max_toggle
+NCOEvent*prefs_fs_max_toggle.labelString: 최상위 심각도 표시
+
+! prefs_fs_min_toggle
+NCOEvent*prefs_fs_min_toggle.labelString: 최하위 심각도 표시
+
+! prefs_fs_metric_toggle
+NCOEvent*prefs_fs_metric_toggle.labelString: 지표 표시
+
+! prefs_fs_sev_border_toggle
+NCOEvent*prefs_fs_sev_border_toggle.labelString: 심각도 경계 표시
+
+! rowcol9
+
+! prefs_fs_lavalamp_toggle
+NCOEvent*prefs_fs_lavalamp_toggle.labelString: 리바 램프 표시
+
+! prefs_fs_histogram_toggle
+NCOEvent*prefs_fs_histogram_toggle.labelString: 히스토그램 표시
+
+! refresh_frame
+
+! prefs_timed_refresh_toggle
+NCOEvent*prefs_timed_refresh_toggle.labelString: 시간 지정된 새로 고치기
+
+! prefs_refresh_time_field
+
+! notification_frame
+
+! prefs_notify_toggle
+NCOEvent*prefs_notify_toggle.labelString: 이벤트 변경 시 통지
+
+! separator9
+
+! prefs_when_label
+NCOEvent*prefs_when_label.labelString: 시기
+
+! prefs_notify_on_insert_toggle
+NCOEvent*prefs_notify_on_insert_toggle.labelString: 새로 작성
+
+! prefs_notify_on_update_toggle
+NCOEvent*prefs_notify_on_update_toggle.labelString: 변경
+
+! prefs_notify_on_delete_toggle
+NCOEvent*prefs_notify_on_delete_toggle.labelString: 삭제
+
+! separator10
+
+! prefs_how_label
+NCOEvent*prefs_how_label.labelString: 방법
+
+! prefs_notify_bell_toggle
+NCOEvent*prefs_notify_bell_toggle.labelString: 벨 울림
+
+! prefs_notify_icon_toggle
+NCOEvent*prefs_notify_icon_toggle.labelString: 경보 아이콘
+
+! prefs_notify_open_toggle
+NCOEvent*prefs_notify_open_toggle.labelString: 창 열기
+
+! prefs_notify_external_toggle
+NCOEvent*prefs_notify_external_toggle.labelString: 외부 명령 실행
+
+! prefs_notify_external_field
+
+! flash_frame
+
+! prefs_flash_enable_toggle
+NCOEvent*prefs_flash_enable_toggle.labelString: 플래시 사용
+
+! prefs_flash_time_gauge
+
+! prefs_fast_label
+NCOEvent*prefs_fast_label.labelString: 빠르게
+
+! prefs_slow_label
+NCOEvent*prefs_slow_label.labelString: 느리게
+
+! prefs_flash_brightness_gauge
+
+! prefs_bright_label
+NCOEvent*prefs_bright_label.labelString: 밝게
+
+! prefs_dark_label
+NCOEvent*prefs_dark_label.labelString: 어둡게
+
+! misc_frame
+
+! separator42
+
+! label20
+NCOEvent*label20.labelString: 정보 대화 상자
+
+! prefs_colours_toggle
+NCOEvent*prefs_colours_toggle.labelString: 색상 표시
+
+! prefs_summary_toggle
+NCOEvent*prefs_summary_toggle.labelString: 분배 요약 표시
+
+! prefs_toolbar_toggle
+NCOEvent*prefs_toolbar_toggle.labelString: 도구 모음 표시
+
+! prefs_enable_jump_btn
+NCOEvent*prefs_enable_jump_btn.labelString: 기본으로 이동 단추 설정
+
+! separator34
+
+! label18
+NCOEvent*label18.labelString: 이벤트 창
+
+! prefs_sort_info_toggle
+NCOEvent*prefs_sort_info_toggle.labelString: 정렬 정보 세부사항
+
+
+! filter_segment
+
+! fs_form
+
+! fs_name_button
+
+! rowcol2
+
+! _fs_number_label
+NCOEvent*_fs_number_label.labelString: 수:
+
+! _fs_highest_label
+NCOEvent*_fs_highest_label.labelString: 최상위:
+
+! _fs_lowest_label
+NCOEvent*_fs_lowest_label.labelString: 최하위:
+
+! _fs_metric_label
+NCOEvent*_fs_metric_label.labelString: 지표:
+
+! rowcol3
+
+! fs_number_label
+
+! fs_highest_label
+
+! fs_lowest_label
+
+! fs_metric_label
+
+! fs_lavalamp
+
+! bottom_separator
+
+! fs_view_button
+NCOEvent*fs_view_button.labelString: 보기
+
+! fs_view_menu
+
+! fs_chart
+
+
+! sub_window
+NCOEvent*sub_window.width: 680
+NCOEvent*sub_window.height: 350
+NCOEvent*sub_window.title: 이벤트 목록
+
+! sub_form
+
+! sub_menu_bar
+
+! sub_file_cascade_button
+NCOEvent*sub_file_cascade_button.labelString: 파일(F)
+NCOEvent*sub_file_cascade_button.mnemonic: F
+
+! sub_file_print_button
+NCOEvent*sub_file_print_button.labelString: 인쇄(P)...
+NCOEvent*sub_file_print_button.mnemonic: P
+NCOEvent*sub_file_print_button.accelerator: Ctrl<Key>P
+NCOEvent*sub_file_print_button.acceleratorText: Ctrl+P
+
+! sub_file_keep_filter_button
+NCOEvent*sub_file_keep_filter_button.labelString: 창 보존(K)
+NCOEvent*sub_file_keep_filter_button.mnemonic: K
+
+! sub_file_separator
+
+! sub_file_close_button
+NCOEvent*sub_file_close_button.labelString: 닫기(C)
+NCOEvent*sub_file_close_button.mnemonic: C
+
+! sub_edit_cascade_button
+NCOEvent*sub_edit_cascade_button.labelString: 편집(E)
+NCOEvent*sub_edit_cascade_button.mnemonic: E
+
+! sub_edit_select_all_button
+NCOEvent*sub_edit_select_all_button.labelString: 모두 선택
+NCOEvent*sub_edit_select_all_button.accelerator: Ctrl<Key>slash
+NCOEvent*sub_edit_select_all_button.acceleratorText: Ctrl+/
+
+! sub_edit_deselect_all_button
+NCOEvent*sub_edit_deselect_all_button.labelString: 모두 선택 취소
+NCOEvent*sub_edit_deselect_all_button.accelerator: Ctrl<Key>backslash
+NCOEvent*sub_edit_deselect_all_button.acceleratorText: Ctrl+\
+
+! sub_edit_filter_button
+NCOEvent*sub_edit_filter_button.labelString: 필터 편집(F)...
+NCOEvent*sub_edit_filter_button.mnemonic: F
+NCOEvent*sub_edit_filter_button.accelerator: Shift<Key>F
+NCOEvent*sub_edit_filter_button.acceleratorText: Shift+F
+
+! sub_edit_view_button
+NCOEvent*sub_edit_view_button.labelString: 보기 편집(V)...
+NCOEvent*sub_edit_view_button.mnemonic: V
+NCOEvent*sub_edit_view_button.accelerator: Shift<Key>V
+NCOEvent*sub_edit_view_button.acceleratorText: Shift+V
+
+! sub_edit_copy_button
+NCOEvent*sub_edit_copy_button.labelString: 클립보드로 복사(C)
+NCOEvent*sub_edit_copy_button.mnemonic: C
+NCOEvent*sub_edit_copy_button.accelerator: Ctrl<Key>C
+NCOEvent*sub_edit_copy_button.acceleratorText: Ctrl+C
+
+! sub_upd_cascade_button
+NCOEvent*sub_upd_cascade_button.labelString: 보기(V)
+NCOEvent*sub_upd_cascade_button.mnemonic: V
+
+! sub_upd_refresh_button
+NCOEvent*sub_upd_refresh_button.labelString: 새로 고치기(R)
+NCOEvent*sub_upd_refresh_button.mnemonic: R
+NCOEvent*sub_upd_refresh_button.accelerator: Ctrl<Key>R
+NCOEvent*sub_upd_refresh_button.acceleratorText: Ctrl+R
+
+! sub_upd_freeze_toggle
+NCOEvent*sub_upd_freeze_toggle.labelString: 보류(Z)
+NCOEvent*sub_upd_freeze_toggle.mnemonic: Z
+NCOEvent*sub_upd_freeze_toggle.accelerator: Ctrl<Key>Z
+NCOEvent*sub_upd_freeze_toggle.acceleratorText: Ctrl+Z
+
+! sub_upd_jump_toggle
+NCOEvent*sub_upd_jump_toggle.labelString: 맨 위로 이동(U)
+NCOEvent*sub_upd_jump_toggle.mnemonic: U
+NCOEvent*sub_upd_jump_toggle.accelerator: Ctrl<Key>U
+NCOEvent*sub_upd_jump_toggle.acceleratorText: Ctrl+U
+
+! sub_upd_find_button
+NCOEvent*sub_upd_find_button.labelString: 찾기(F)...
+NCOEvent*sub_upd_find_button.mnemonic: F
+NCOEvent*sub_upd_find_button.accelerator: Ctrl<Key>F
+NCOEvent*sub_upd_find_button.acceleratorText: Ctrl+F
+
+! sub_alerts_cascade_button
+NCOEvent*sub_alerts_cascade_button.labelString: 경보(A)
+NCOEvent*sub_alerts_cascade_button.mnemonic: A
+
+! sub_tools_cascade_button
+NCOEvent*sub_tools_cascade_button.labelString: 도구(T)
+NCOEvent*sub_tools_cascade_button.mnemonic: T
+
+! sub_help_cascade_button
+NCOEvent*sub_help_cascade_button.labelString: 도움말(H)
+NCOEvent*sub_help_cascade_button.mnemonic: H
+
+! sub_help_on_context_button
+NCOEvent*sub_help_on_context_button.labelString: 컨텍스트(C)
+NCOEvent*sub_help_on_context_button.mnemonic: C
+NCOEvent*sub_help_on_context_button.accelerator: Shift<Key>osfHelp
+NCOEvent*sub_help_on_context_button.acceleratorText: Shift+Help
+
+! sub_toolbar_form
+
+! sub_toolbar
+
+! sub_toolbar_refresh_button
+
+! sub_toolbar_freeze_toggle
+
+! sub_toolbar_select_all_toggle
+
+! sub_toolbar_print_button
+
+! sub_toolbar_forms
+
+! sub_toolbar_filter_form
+
+! separator17
+
+! sub_toolbar_filter_button
+
+! sub_toolbar_filter_option
+NCOEvent*sub_toolbar_filter_option.resizable: false
+NCOEvent*sub_toolbar_filter_option.labelString:  
+
+! label19
+
+! cascade9
+
+! sub_toolbar_filter_menu
+
+! sub_toolbar_view_form
+
+! separator18
+
+! sub_toolbar_view_button
+
+! sub_toolbar_view_option
+NCOEvent*sub_toolbar_view_option.resizable: false
+
+! label21
+
+! cascade11
+
+! sub_toolbar_view_menu
+
+! sub_toolbar_services_form
+
+! separator39
+
+! sub_toolbar_service_tog
+
+! sub_toolbar_service_button
+
+! sub_toolbar_service_option
+NCOEvent*sub_toolbar_service_option.resizable: false
+
+! label48
+
+! sub_toolbar_service_menu
+
+! frame6
+
+! sub_toolbar_service_indicator
+
+! separator40
+
+! sub_toolbar_jump_button
+
+! separator48
+
+! sub_toolbar_top_form
+
+! sub_toolbar_top_label
+NCOEvent*sub_toolbar_top_label.labelString: 맨 위 [1-300]
+
+! sub_toolbar_top_box
+
+! sub_matrix
+
+! sub_status_line
+
+! sub_clock
+NCOEvent*sub_clock.columns: 1
+NCOEvent*sub_clock.resizeWidth: true
+
+! sub_user_field
+NCOEvent*sub_user_field.columns: 1
+NCOEvent*sub_user_field.resizeWidth: true
+
+! sub_server_field
+NCOEvent*sub_server_field.columns: 1
+NCOEvent*sub_server_field.resizeWidth: true
+
+! form21
+
+! sub_summary_bar_form
+
+! sub_clear_summary_toggle
+NCOEvent*sub_clear_summary_toggle.labelString: 원활
+
+! sub_indeterminate_summary_toggle
+NCOEvent*sub_indeterminate_summary_toggle.labelString: 확인할 수 없음
+
+! sub_warning_summary_toggle
+NCOEvent*sub_warning_summary_toggle.labelString: 경고
+
+! sub_minor_summary_toggle
+NCOEvent*sub_minor_summary_toggle.labelString: 사소
+
+! sub_major_summary_toggle
+NCOEvent*sub_major_summary_toggle.labelString: 주요
+
+! sub_critical_summary_toggle
+NCOEvent*sub_critical_summary_toggle.labelString: 위험
+
+! sub_all_events_button
+NCOEvent*sub_all_events_button.labelString: 모든 이벤트
+
+
+! info_dialog
+NCOEvent*info_dialog.title: 이벤트 정보
+
+! info_mb
+
+! info_close_button
+NCOEvent*info_close_button.labelString: 닫기
+
+! info_prev_button
+NCOEvent*info_prev_button.labelString: 이전
+
+! info_next_button
+NCOEvent*info_next_button.labelString: 다음
+
+! info_help_button
+NCOEvent*info_help_button.labelString: 도움말
+
+! button24
+NCOEvent*button24.labelString: 경보 필드
+
+! button25
+NCOEvent*button25.labelString: 경보 세부사항
+
+! button26
+NCOEvent*button26.labelString: 저널
+
+! form23
+
+! info_matrix
+
+! info_full_text_fld
+
+! info_detail
+
+! info_journal_sw
+
+! info_journal
+
+! info_add_button
+NCOEvent*info_add_button.labelString: 저널에 추가...
+
+
+! view_load_dialog
+NCOEvent*view_load_dialog.title: 이벤트 목록 : 보기 로드
+
+! view_load_fsb
+NCOEvent*view_load_fsb.applyLabelString: 필터
+NCOEvent*view_load_fsb.okLabelString: 확인
+NCOEvent*view_load_fsb.cancelLabelString: 취소
+NCOEvent*view_load_fsb.helpLabelString: 도움말
+NCOEvent*view_load_fsb.selectionLabelString: 선택사항
+NCOEvent*view_load_fsb.filterLabelString: 파일 필터
+NCOEvent*view_load_fsb.fileListLabelString: 파일
+NCOEvent*view_load_fsb.dirListLabelString: 디렉토리
+NCOEvent*view_load_fsb.pattern: *.elv
+
+! button10
+
+! label29
+NCOEvent*view_load_fsb.FilterLabel.labelString: 파일 필터
+
+
+! filter_load_dialog
+NCOEvent*filter_load_dialog.title: 이벤트 목록 : 필터 로드
+
+! filter_load_fsb
+NCOEvent*filter_load_fsb.applyLabelString: 필터
+NCOEvent*filter_load_fsb.okLabelString: 확인
+NCOEvent*filter_load_fsb.cancelLabelString: 취소
+NCOEvent*filter_load_fsb.helpLabelString: 도움말
+NCOEvent*filter_load_fsb.selectionLabelString: 선택사항
+NCOEvent*filter_load_fsb.filterLabelString: 파일 필터
+NCOEvent*filter_load_fsb.fileListLabelString: 파일
+NCOEvent*filter_load_fsb.dirListLabelString: 디렉토리
+NCOEvent*filter_load_fsb.pattern: *.elf
+
+! button14
+
+! label33
+NCOEvent*filter_load_fsb.FilterLabel.labelString: 파일 필터
+
+
+! config_window
+NCOEvent*config_window.title: 이벤트 목록 구성
+
+! config_mb
+
+! config_close_button
+NCOEvent*config_close_button.labelString: 닫기
+
+! config_help_button
+NCOEvent*config_help_button.labelString: 도움말
+
+! label35
+NCOEvent*settings_label.labelString: 설정
+
+! label36
+NCOEvent*name_label.labelString: 이름
+
+! config_name_field
+
+! label37
+NCOEvent*columns_label.labelString: 컬럼
+
+! config_num_cols_scale
+
+! frame13
+
+! rowcol4
+
+! config_new_button
+NCOEvent*config_new_button.labelString: 새로...
+
+! config_edit_button
+NCOEvent*config_edit_button.labelString: 편집...
+
+! config_load_button
+NCOEvent*config_load_button.labelString: 로드...
+
+! config_delete_button
+NCOEvent*config_delete_button.labelString: 삭제
+
+! config_list
+
+! rowcol5
+
+! config_top_button
+NCOEvent*config_top_button.labelString: 맨 위
+
+! config_up_button
+NCOEvent*config_up_button.labelString: 위로
+
+! config_down_button
+NCOEvent*config_down_button.labelString: 아래로
+
+! config_bottom_button
+NCOEvent*config_bottom_button.labelString: 맨 아래
+
+! config_show_menu
+NCOEvent*config_show_menu.labelString: 편집
+
+! label38
+
+! config_show_filters_button
+NCOEvent*config_show_filters_button.labelString: 필터
+
+! config_show_views_button
+NCOEvent*config_show_views_button.labelString: 보기
+
+
+! main_window
+NCOEvent.width: 500
+NCOEvent.height: 340
+NCOEvent.title: 이벤트 목록
+
+! main_form
+
+! main_menu_bar
+
+! file_cascade_button
+NCOEvent*main_menu_bar.file_cascade_button.labelString: 파일(F)
+NCOEvent*main_menu_bar.file_cascade_button.mnemonic: F
+
+! file_new_button
+NCOEvent*main_menu_bar.XmMenuShell*file_new_button.labelString: 새로 작성(N)
+NCOEvent*main_menu_bar.XmMenuShell*file_new_button.mnemonic: N
+
+! file_open_button
+NCOEvent*main_menu_bar.XmMenuShell*file_open_button.labelString: 열기(O)...
+NCOEvent*main_menu_bar.XmMenuShell*file_open_button.mnemonic: O
+
+! file_save_button
+NCOEvent*main_menu_bar.XmMenuShell*file_save_button.labelString: 저장(S)
+NCOEvent*main_menu_bar.XmMenuShell*file_save_button.mnemonic: S
+
+! file_save_as_button
+NCOEvent*main_menu_bar.XmMenuShell*file_save_as_button.labelString: 다른 이름으로 저장(A)...
+NCOEvent*main_menu_bar.XmMenuShell*file_save_as_button.mnemonic: A
+
+! file_resync_cascade
+NCOEvent*main_menu_bar.XmMenuShell*file_resync_cascade.labelString: 재동기화(R)
+NCOEvent*main_menu_bar.XmMenuShell*file_resync_cascade.mnemonic: R
+
+! resync_all_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_all_btn.labelString: 모두...
+
+! resync_visuals_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_visuals_btn.labelString: 비주얼...
+
+! resync_classes_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_classes_btn.labelString: 클래스...
+
+! resync_users_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_users_btn.labelString: 사용자...
+
+! resync_groups_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_groups_btn.labelString: 그룹...
+
+! resync_menus_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_menus_btn.labelString: 메뉴...
+
+! resync_services_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_services_btn.labelString: 서비스...
+
+! file_exit_button
+NCOEvent*main_menu_bar.XmMenuShell*file_exit_button.labelString: 종료(X)
+NCOEvent*main_menu_bar.XmMenuShell*file_exit_button.mnemonic: X
+
+! update_cascade_button
+NCOEvent*main_menu_bar.update_cascade_button.labelString: 보기(V)
+NCOEvent*main_menu_bar.update_cascade_button.mnemonic: V
+
+! update_refresh_all_button
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.labelString: 모두 새로 고치기(R)
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.mnemonic: R
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.accelerator: Ctrl<Key>R
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.acceleratorText: Ctrl+R
+
+! update_freeze_all_toggle
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.labelString: 모두 보류(Z)
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.mnemonic: Z
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.accelerator: Ctrl<Key>Z
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.acceleratorText: Ctrl+Z
+
+! windows_cascade_button
+NCOEvent*main_menu_bar.windows_cascade_button.labelString: 창(W)
+NCOEvent*main_menu_bar.windows_cascade_button.mnemonic: W
+
+! windows_menu
+
+! windows_config_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.labelString: 구성(C)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.mnemonic: C
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.accelerator: Ctrl<Key>C
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.acceleratorText: Ctrl+C
+
+! windows_services_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.labelString: 서비스(S)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.mnemonic: S
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.accelerator: Ctrl<Key>S
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.acceleratorText: Ctrl+S
+
+! windows_prefs_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.labelString: 환경 설정(P)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.mnemonic: P
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.accelerator: Ctrl<Key>P
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.acceleratorText: Ctrl+P
+
+! windows_colours_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.labelString: 색상(O)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.mnemonic: O
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.accelerator: Ctrl<Key>O
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.acceleratorText: Ctrl+O
+
+! windows_close_all_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_close_all_button.labelString: 모든 이벤트 창 닫기
+
+! tools_cascade_button
+NCOEvent*main_menu_bar.tools_cascade_button.labelString: 도구(T)
+NCOEvent*main_menu_bar.tools_cascade_button.mnemonic: T
+
+! help_cascade_button
+NCOEvent*main_menu_bar.help_cascade_button.labelString: 도움말(H)
+NCOEvent*main_menu_bar.help_cascade_button.mnemonic: H
+
+! help_on_context_button
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.labelString: 컨텍스트(C)
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.mnemonic: C
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.accelerator: Shift<Key>osfHelp
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.acceleratorText: Shift+Help
+
+! help_on_version_button
+NCOEvent*main_menu_bar.XmMenuShell*help_on_version_button.labelString: 버전(V)
+NCOEvent*main_menu_bar.XmMenuShell*help_on_version_button.mnemonic: V
+
+! main_sw
+
+! main_rc
+
+! main_status_line
+
+! main_user_field
+NCOEvent*main_user_field.columns: 1
+NCOEvent*main_user_field.resizeWidth: true
+
+! main_server_field
+NCOEvent*main_server_field.columns: 1
+NCOEvent*main_server_field.resizeWidth: true
+
+! main_toolbar_form
+
+! main_toolbar
+
+! toolbar_new_button
+
+! toolbar_open_button
+
+! toolbar_save_button
+
+! toolbar_refresh_button
+
+! toolbar_freeze_toggle
+
+! toolbar_rownum_form
+
+! toolbar_rownum_frame
+
+! toolbar_rownum
+NCOEvent*toolbar_rownum.labelString: 20
+
+! form37
+
+! toolbar_rownum_inc
+
+! toolbar_rownum_dec
+
+
+! journal_dialog
+NCOEvent*journal_dialog.title: 저널
+
+! journal_mb
+
+! journal_ok_button
+NCOEvent*journal_ok_button.labelString: 확인
+
+! journal_apply_button
+NCOEvent*journal_apply_button.labelString: 적용
+
+! journal_close_button
+NCOEvent*journal_close_button.labelString: 닫기
+
+! journal_prev_button
+NCOEvent*journal_prev_button.labelString: 이전
+
+! journal_next_button
+NCOEvent*journal_next_button.labelString: 다음
+
+! journal_help_button
+NCOEvent*journal_help_button.labelString: 도움말
+
+! journal_entry_label
+NCOEvent*journal_entry_label.labelString: 저널 항목
+
+! journal_text
+NCOEvent*journal_textSW.journal_text.columns: 37
+NCOEvent*journal_textSW.journal_text.rows: 10
+
+! journal_edit_text
+NCOEvent*journal_edit_textSW.journal_edit_text.columns: 37
+NCOEvent*journal_edit_textSW.journal_edit_text.rows: 4
+
+! rowcol6
+
+! journal_apply_to_all_toggle
+NCOEvent*journal_apply_to_all_toggle.labelString: 모든 선택 항목에 적용
+
+
+! colours_dialog
+NCOEvent*colours_dialog.title: 이벤트 목록 색상
+
+! colours_mb
+
+! colours_close_button
+NCOEvent*colours_close_button.labelString: 닫기
+
+! rowcol7
+
+! colours_unassign_label
+NCOEvent*colours_unassign_label.labelString: 지정되지 않은 경보
+
+! colours_unack_label
+NCOEvent*colours_unack_label.labelString: 수신확인 취소된 경보
+
+! unack_crit_label
+NCOEvent*unack_crit_label.labelString: 위험
+
+! unack_major_label
+NCOEvent*unack_major_label.labelString: 주요
+
+! unack_minor_label
+NCOEvent*unack_minor_label.labelString: 사소
+
+! unack_warn_label
+NCOEvent*unack_warn_label.labelString: 경고
+
+! unack_indet_label
+NCOEvent*unack_indet_label.labelString: 확인할 수 없음
+
+! unack_clear_label
+NCOEvent*unack_clear_label.labelString: 원활
+
+! unack_close_label
+NCOEvent*unack_close_label.labelString: 닫힘
+
+! separator30
+
+! rowcol8
+
+! colours_assigned_label
+NCOEvent*colours_assigned_label.labelString: 지정된 경보
+
+! colours_ack_label
+NCOEvent*colours_ack_label.labelString: 수신확인된 경보
+
+! ack_crit_label
+NCOEvent*ack_crit_label.labelString: 위험
+
+! ack_major_label
+NCOEvent*ack_major_label.labelString: 주요
+
+! ack_minor_label
+NCOEvent*ack_minor_label.labelString: 사소
+
+! ack_warn_label
+NCOEvent*ack_warn_label.labelString: 경고
+
+! ack_indet_label
+NCOEvent*ack_indet_label.labelString: 확인할 수 없음
+
+! ack_clear_label
+NCOEvent*ack_clear_label.labelString: 원활
+
+! ack_close_label
+NCOEvent*ack_close_label.labelString: 닫힘
+
+
+! save_dialog
+NCOEvent*save_dialog.title: 구성 저장...
+
+! save_file_sb
+NCOEvent*save_file_sb.applyLabelString: 필터
+NCOEvent*save_file_sb.okLabelString: 확인
+NCOEvent*save_file_sb.cancelLabelString: 취소
+NCOEvent*save_file_sb.helpLabelString: 도움말
+NCOEvent*save_file_sb.selectionLabelString: 선택사항
+NCOEvent*save_file_sb.filterLabelString: 파일 필터
+NCOEvent*save_file_sb.fileListLabelString: 파일
+NCOEvent*save_file_sb.dirListLabelString: 디렉토리
+NCOEvent*save_file_sb.pattern: *.elc
+
+! button16
+NCOEvent*save_file_sb.Apply.labelString: 필터
+
+! button17
+NCOEvent*save_file_sb.Cancel.labelString: 취소
+
+! button18
+NCOEvent*save_file_sb.Help.labelString: 도움말
+
+! label39
+NCOEvent*save_file_sb.Items.labelString: 파일
+
+! button19
+NCOEvent*save_file_sb.OK.labelString: 확인
+
+! label40
+NCOEvent*save_file_sb.Selection.labelString: 선택사항
+
+! label41
+NCOEvent*save_file_sb.FilterLabel.labelString: 파일 필터
+
+! label42
+NCOEvent*save_file_sb.Dir.labelString: 디렉토리
+
+! save_backup_toggle
+NCOEvent*save_backup_toggle.labelString: 기존 파일 백업
+
+
+! open_dialog
+NCOEvent*open_dialog.title: 구성 열기...
+
+! open_file_sb
+NCOEvent*open_file_sb.applyLabelString: 필터
+NCOEvent*open_file_sb.okLabelString: 확인
+NCOEvent*open_file_sb.cancelLabelString: 취소
+NCOEvent*open_file_sb.helpLabelString: 도움말
+NCOEvent*open_file_sb.selectionLabelString: 선택사항
+NCOEvent*open_file_sb.filterLabelString: 파일 필터
+NCOEvent*open_file_sb.fileListLabelString: 파일
+NCOEvent*open_file_sb.dirListLabelString: 디렉토리
+NCOEvent*open_file_sb.pattern: *.elc
+
+! button21
+NCOEvent*open_file_sb.Cancel.labelString: 취소
+
+! button22
+NCOEvent*open_file_sb.Help.labelString: 도움말
+
+! label43
+NCOEvent*open_file_sb.Items.labelString: 파일
+
+! button23
+NCOEvent*open_file_sb.OK.labelString: 확인
+
+! label44
+NCOEvent*open_file_sb.Selection.labelString: 선택사항
+
+! label45
+NCOEvent*open_file_sb.FilterLabel.labelString: 파일 필터
+
+! label46
+NCOEvent*open_file_sb.Dir.labelString: 디렉토리
+
+
+! info_popup
+
+! info_popup_title
+
+! info_popup_copy_button
+NCOEvent*info_popup_copy_button.labelString: 클립보드로 복사
+

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="UNIX でのフィルターの作成または編集" />
+<meta name="abstract" content="UNIX のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。" />
+<meta name="Description" content="UNIX のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。" />
+<meta name="DC.subject" content="フィルター, 作成, 編集" />
+<meta name="keywords" content="フィルター, 作成, 編集" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_creatingeditfilterunix" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_settingupfiltersevntlst.html" />
+<title>UNIX でのフィルターの作成または編集</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_creatingeditfilterunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX でのフィルターの作成または編集</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。</p>
+<div class="section context">フィルターを作成または編集するには、以下のようにします。</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">フィルター・ビルダーを開始します。 </span></li>
+<li class="li step stepexpand"><span class="ph cmd">フィルター・セットアップ域で以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">名前</dt>
+<dd class="dd">新規フィルターを作成する場合は、現在の名前をフィルターの固有の名前で上書きします。 この名前は、イベント・リスト・メニューでフィルターを選択するために使用されます。 既存のフィルターを編集する場合は、このフィールドに入力する必要はありません。</dd>
+<dt class="dt dlterm">編集可能</dt>
+<dd class="dd">適切な管理者権限を持っている場合は、このチェック・ボックスを選択して他のユーザーによるこのフィルターの編集を許可するか、またはチェック・ボックスをクリアしてフィルターが変更されないように保護します。<div class="note restriction"><span class="restrictiontitle">制約事項:</span> この設定は、フィルターがイベント・リスト構成 (<span class="ph filepath">.elc</span> ファイル) の一部として保存されている場合にのみ適用されます。</div>
+</dd>
+</dl>
+
+<p class="p">条件、論理、およびサブ照会の各フィルター・エレメントの組み合わせによってフィルターを作成できます。 フィルター・メトリックを定義したり、エレメントのコピー、貼り付け、削除の操作を実行したりすることも可能です。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">以下のようにして条件エレメントを作成します。</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">ボタン・バーから<span class="ph uicontrol">「条件」</span>をクリックします。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">エレメント定義域の各フィールドに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">式のタイプ</dt>
+<dd class="dd">このリストから、以下のオプションのいずれかを選択します。<ul class="ul"><li class="li"><span class="keyword option">シンプル</span>: このオプションを選択すると、条件エレメントでシンプルな式を使用します。 </li>
+<li class="li"><span class="keyword option">複雑</span>: このオプションを選択すると、2 つのデータベース列、または 2 つの式の比較を可能にする複雑な式を使用します。 </li>
+<li class="li"><span class="keyword option">フリー・フォーム</span>: このオプションを選択すると、ObjectServer SQL の拡張機能を使用するための式を指定できます。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">列</dt>
+<dd class="dd">このリストから、比較で使用するデータベース列を選択します。</dd>
+<dd class="dd">デフォルトで、リストには、alerts.status データベース表内の列の名前が入っています。 フィルター・ビルダーは、どの列が使用可能であるかを自動的に判別します。 このリストが異なっている場合があります。 <div class="note note"><span class="notetitle">注:</span> <span class="ph uicontrol">「列」</span>リストは、<span class="ph uicontrol">「式のタイプ」</span>リストから「<span class="keyword option">フリー・フォーム</span>」オプションを選択した場合には表示されません。</div>
+</dd>
+<dt class="dt dlterm">演算子</dt>
+<dd class="dd">比較演算子をこのリストから選択します。</dd>
+<dd class="dd">使用可能な比較の範囲は、<span class="ph uicontrol">「列」</span>ドロップダウン・リストから選択した項目によって決まります。 特定の列には、使用不可の比較もあります。 例えば、LIKE 演算は、「重大度」などの数値列に使用することはできません。 <div class="note note"><span class="notetitle">注:</span> <span class="ph uicontrol">「演算子」</span>リストは、<span class="ph uicontrol">「式のタイプ」</span>リストから「<span class="keyword option">フリー・フォーム</span>」オプションを選択した場合には表示されません。</div>
+</dd>
+<dt class="dt dlterm"><em class="ph i">値のデータ・タイプ・フィールド</em></dt>
+<dd class="dd">ここに表示されるフィールドは、<span class="ph uicontrol">「式のタイプ」</span>リストで選択したオプションによって異なります。</dd>
+<dd class="dd"><span class="ph uicontrol">「式のタイプ」</span>が「<span class="keyword option">シンプル</span>」である場合には、表示される値フィールドは、<span class="ph uicontrol">「列」</span>リストで選択したデータベース列のタイプがストリング、整数、または時刻のいずれであるかによって異なります。 </dd>
+<dd class="dd"><span class="ph uicontrol">「式のタイプ」</span>が「<span class="keyword option">複雑</span>」または「<span class="keyword option">フリー・フォーム</span>」である場合には、「<span class="keyword wintitle">フィルター SQL の編集</span>」ウィンドウ内で SQL を直接編集できるように、<span class="ph uicontrol">「編集」</span>ボタンが用意されています。
+<span class="ph uicontrol">「OK」</span>をクリックして保存し、フィルター・ビルダーに戻ると、SQL 式は自動的に構文解析され、グラフィカル表示域内の条件エレメントに追加されます。 無効な SQL テキストを「<span class="keyword wintitle">フィルター SQL の編集</span>」ウィンドウに入力した場合、そのウィンドウを終了する前に、構文を訂正する必要があります。</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、論理エレメントの <samp class="ph codeph">AND</samp> または <samp class="ph codeph">OR</samp> を以下のように挿入して複数の条件を構成します。 </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">グラフィカル表示域から、論理比較を作成する既存のエレメントを選択します。 </span> 作成する論理比較の対象には、条件エレメントまたは別の論理エレメントを指定できます。対象のエレメントを省略することもできます。</li>
+<li class="li substep substepexpand"><span class="ph cmd">ボタン・バーから<span class="ph uicontrol">「先頭のロジック」</span>または<span class="ph uicontrol">「末尾のロジック」</span>のいずれかをクリックします。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">エレメント定義域から該当するオプションを選択します。</span> <dl class="dl"><dt class="dt dlterm">論理 AND</dt>
+<dd class="dd">このオプションを選択して、AND 演算子をフィルター定義に追加します。
+これはデフォルト・オプションです。</dd>
+<dt class="dt dlterm">論理 OR</dt>
+<dd class="dd">このオプションを選択して、OR 演算子をフィルター定義に追加します。</dd>
+</dl>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd">ボタン・バーから<span class="ph uicontrol">「条件」</span>をクリックして、別の条件ブランチを追加します。 </span></li>
+</ol>
+ <p class="p">条件エレメントまたは論理エレメントを選択してから、いずれかの論理ボタンをクリックしたときの動作を以下の表にまとめます。</p>
+
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 「先頭のロジック」ボタンと「末尾のロジック」ボタンで得られる結果</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d207800e229">エレメント</th>
+<th class="entry" valign="top" width="40%" id="d207800e231">「先頭のロジック」ボタンを使用</th>
+<th class="entry" valign="top" width="40%" id="d207800e233">「末尾のロジック」ボタンを使用</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d207800e229 ">条件エレメント</td>
+<td class="entry" valign="top" width="40%" headers="d207800e231 ">条件エレメントの親の子として論理エレメントが作成されます。 条件エレメントは論理エレメントの子になります。</td>
+<td class="entry" valign="top" width="40%" headers="d207800e233 ">条件エレメントに子を設定することはできないので、<span class="ph uicontrol">「末尾のロジック」</span>ボタンは使用不可になります。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d207800e229 ">論理エレメント</td>
+<td class="entry" valign="top" width="40%" headers="d207800e231 ">論理エレメントの親の子として論理エレメントが作成されます。 条件エレメントは論理エレメントの子になります。</td>
+<td class="entry" valign="top" width="40%" headers="d207800e233 ">既存の論理エレメントの子として論理エレメントが追加されます。 挿入ポイントに既に 2 つの子があれば、このボタンは無効になります。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d207800e229 ">エレメントを選択しない</td>
+<td class="entry" valign="top" width="40%" headers="d207800e231 ">1 つの論理エレメントが作成されます。</td>
+<td class="entry" valign="top" width="40%" headers="d207800e233 ">1 つの論理エレメントが作成されます。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、以下のように条件を否定します。 </span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">グラフィカル表示域から、条件エレメントを選択します。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">ボタン・バーから<span class="ph uicontrol">「否定」</span>をクリックします。 </span> <p class="p">否定エレメントは、常にツリー内の現在の挿入ポイントの<em class="ph i">前</em> に挿入されます。否定エレメントには、1 つの親と 1 つの子だけを設定できます。</p>
+
+<div class="note note"><span class="notetitle">注:</span> 既存の否定論理エレメントの前に否定論理エレメントを挿入することはできません。 ただし、フィルターを編集するときに、ツリー内の 1 つのセクションを削除した結果として、2 つの否定エレメントが連続して並ぶ可能性はあります。 有効なフィルターを作成するには、そのいずれかを削除しなければなりません。</div>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、以下のようにサブ照会エレメントを作成します。</span><ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">ボタン・バーから<span class="ph uicontrol">「サブ照会」</span>をクリックします。</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">エレメント定義域の各フィールドに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">列</dt>
+<dd class="dd">このリストから、検索に使用するデータベース列を選択します。</dd>
+<dt class="dt dlterm">演算子</dt>
+<dd class="dd">このリストから、以下のオプションのいずれかを選択します。<ul class="ul"><li class="li"><span class="keyword option">「以内」</span>: このオプションを使用して、列の内容を検索します。</li>
+<li class="li"><span class="keyword option">「以外」</span>: このオプションを使用して、フィールドに内容がないことを確認します。 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">選択</dt>
+<dd class="dd">「以内」または「以外」操作の実行対象リストの作成時に使用する列を選択します。 このリスト内のオプションは、<span class="ph uicontrol">「から」</span>リストで選択されたオプションによって決まります。</dd>
+<dt class="dt dlterm">から</dt>
+<dd class="dd">情報を導き出すデータベース表を選択します。
+このデータベース表は、alerts.details、alerts.journal、または alerts.status のいずれであってもかまいません。</dd>
+</dl>
+</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、以下のようにフィルター・メトリックを設定します。</span> <dl class="dl"><dt class="dt dlterm">メトリック</dt>
+<dd class="dd">1 番目のリストを使用して、用いる測定を選択します。<ul class="ul"><li class="li">「<strong class="ph b">平均</strong>」を選択して、フィルターと一致するすべてのアラート用に選択されているフィールドの平均値を戻します。</li>
+<li class="li">「<strong class="ph b">カウント</strong>」を選択して、フィルターと一致するすべてのアラートのカウントを戻します。 選択されたフィールドは、この計算に使用されません。</li>
+<li class="li">「<strong class="ph b">合計</strong>」を選択して、フィルターと一致するすべてのアラート用に選択されているフィールドの合計を戻します。</li>
+<li class="li">「<strong class="ph b">最小</strong>」を選択して、フィルターと一致するアラート内の選択済みフィールドの最小値を戻します。</li>
+<li class="li">「<strong class="ph b">最大</strong>」を選択して、フィルターと一致するすべてのアラート内の選択済みフィールドの最大値を戻します。</li>
+</ul>
+</dd>
+<dd class="dd">2 番目のリストを使用して、測定を適用するフィールドを選択します。 アラート内の整数と時刻のフィールドのみが、メトリック計算に使用可能です。<div class="note tip"><span class="tiptitle">ヒント:</span> メトリック値は、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内のモニター・ボックスに表示されます。</div>
+</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、以下のようにエレメントをコピーして貼り付けます。 </span><ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">グラフィカル表示域から、コピーするエレメントを選択し、<span class="ph menucascade"><span class="ph uicontrol">「編集」</span> &gt; <span class="ph uicontrol">「コピー」</span></span>を選択します。</span></li>
+<li class="li substep"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">「編集」</span> &gt; <span class="ph uicontrol">「貼り付け」</span></span>を選択して、フィルター内の任意の場所にエレメントを貼り付けます。 </span> フィルター・ビルダーは、現在選択されているエレメントの相対エレメントを挿入しようとします。</li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">必要に応じて、以下のように個々のエレメントを削除したり、親エレメントと子エレメントを一緒に削除したりします。 </span><ul class="ul choices"><li class="li choice">グラフィカル表示域から、削除する 1 つのエレメントを選択し、ボタン・バーの<span class="ph uicontrol">「エレメントの削除」</span>をクリックするか、<span class="ph menucascade"><span class="ph uicontrol">「編集」</span> &gt; <span class="ph uicontrol">「切り取り」</span></span>を選択します。 <p class="p">フィルター・エレメントを削除する場合は、フィルター・ビルダーが子エレメントをフィルターにリンクしようとします。 2 つの子がある論理エレメントや、子があるサブ照会を削除する場合は、この機能が動作しません。</p>
+</li>
+<li class="li choice">グラフィカル表示域から、削除する親エレメントを選択し、ボタン・バーの<span class="ph uicontrol">「ツリーの削除」</span>をクリックします。 現在選択されているエレメントとすべての子エレメントが削除されます。</li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">フィルターを定義した後、以下のようにフィルターを保存するか、変更をキャンセルします。</span> <dl class="dl"><dt class="dt dlterm">適用</dt>
+<dd class="dd">このボタンをクリックして、変更内容を保存せずにフィルターに適用します。 </dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして、ウィンドウを閉じ、変更内容を廃棄します。</dd>
+</dl>
+
+<div class="p">フィルターは、<span class="ph filepath">.elf</span> ファイル拡張子を付けて保存する必要があります。 <div class="note note"><span class="notetitle">注:</span> UNIX では、コンダクターからフィルター・ビルダーを実行すると、<span class="ph uicontrol">「適用」</span>ボタンが表示されません。 その場合にすべてのフィルターを保存するには、UNIX のフィルター・ビルダーから<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「保存」</span></span>または<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「別名保存」</span></span>を選択する必要があります。</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_fb_settingupfiltersevntlst.html" title="フィルターは、モニター・ボックスおよびイベント・リストにカスタム・アラート情報を表示するために、ObjectServer alerts データベース表上で実行することができる SQL 照会を構築するのに使用されます。">イベント・リスト・データのフィルターのセットアップ</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_fb_startingfilterbuilder.html" title="フィルター・ビルダーには、フィルターを構成する SQL ステートメントを作成してテストするためのグラフィカル・インターフェースが用意されています。">フィルター・ビルダーの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

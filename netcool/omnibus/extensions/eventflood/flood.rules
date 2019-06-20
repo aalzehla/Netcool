@@ -1,0 +1,241 @@
+##########################################################################
+#
+# This rules file fragment provides the probe with the functionality
+# to detect when the probe is the subject of an event flood or other
+# anomalous event rates.
+#
+# The file flood.config.rules should be edited to configure this
+# functionality.
+#
+############################################################################
+
+$now = getdate
+
+# Initialise array for first event processed
+if(match(event_rate_array["average_load"], ""))
+{
+   event_rate_array["average_load"] = $average_event_rate_time_window + "." + $average_event_rate_max_sample_size
+   event_rate_array["flood_detection_load"] = $flood_detection_time_window + "." + $flood_detection_max_sample_size
+   event_rate_array["anomaly_detection_load"] = $anomaly_detection_time_window + "." + $anomaly_detection_max_sample_size
+   event_rate_array["mode"] = "normal"
+
+   event_rate_array["probe_start_time"] = $now
+   event_rate_array["average_event_rate"] = ""
+
+   log(debug, "Initialising array")
+}
+
+# Update the timestamps for calculating event rates for flood detection
+# and anomalous event rate detection
+event_rate_array["flood_detection_load"] = updateload(event_rate_array["flood_detection_load"])
+event_rate_array["anomaly_detection_load"] = updateload(event_rate_array["anomaly_detection_load"])
+
+# Set the current flood detection mode.
+$event_mode = event_rate_array["mode"]
+
+# Calculate how long the probe has been running
+$probe_uptime = int($now) - int(event_rate_array["probe_start_time"])
+
+# Check to see if the average event rate needs to be calculated
+# otherwise update the timestamps used for the average event rate
+# calculation if the average event rate has yet to be calculated.
+if(int($probe_uptime) >= int($average_event_rate_time_window))
+{
+    if(match(event_rate_array["average_event_rate"], ""))
+    {
+        event_rate_array["average_event_rate"] = getload(event_rate_array["average_load"])
+        log(debug, "Average event rate calculated to be " + event_rate_array["average_event_rate"])
+    }
+}
+else
+{
+     event_rate_array["average_load"] = updateload(event_rate_array["average_load"])
+}
+
+# If the probe has been running long enough for an average event rate
+# calculation to have been made, the current event rate can be compared
+# to the average event rate to detect any anomalous rates of receipt of events
+if(!match(event_rate_array["average_event_rate"], ""))
+{
+    $anomaly_detection_event_rate = getload(event_rate_array["anomaly_detection_load"])
+    log(debug, "Average event rate for anomaly detection is set to " + event_rate_array["average_event_rate"])
+    log(debug, "Current event rate for anomaly detection is set to " + $anomaly_detection_event_rate)
+    if(real($anomaly_detection_event_rate) < real(event_rate_array["average_event_rate"]) * real($lower_event_rate_threshold_multiplier))
+    {
+        # Generate an informational event.
+        $ge_summary = "An unusually low event rate has been detected, event rate is " + $anomaly_detection_event_rate
+        $ge_identifier = "Low event rate " + @Node + " " + @AlertKey + " " + @AlertGroup + " " + @Type + " " + @Agent + " " + @Manager
+        $ge_manager = @Manager + " Flood control on " + %Name
+        $ge_alertgroup = "Flood control"
+        $ge_alertkey = "Flood control"
+        $ge_agent = @Agent
+
+        genevent(DefaultOS,
+                @Identifier, $ge_identifier,
+                @Summary, $ge_summary,
+                @Node, hostname(),
+                @Manager, $ge_manager,
+                @Severity, 3,
+                @FirstOccurrence, $now,
+                @LastOccurrence, $now,
+                @AlertGroup, $ge_alertgroup,
+                @AlertKey, $ge_alertkey,
+                @Agent, $ge_agent
+                )
+
+        log(debug, "Current event rate is unusually low")
+    }
+
+    if(real($anomaly_detection_event_rate) > real(event_rate_array["average_event_rate"]) * real($upper_event_rate_threshold_multiplier))
+    {
+        # Generate an informational event.
+        $ge_summary = "An unusually high event rate has been detected, event rate is " + $anomaly_detection_event_rate
+        $ge_identifier = "High event rate " + @Node + " " + @AlertKey + " " + @AlertGroup + " " + @Type + " " + @Agent + " " + @Manager
+        $ge_manager = @Manager + " Flood control on " + %Name
+        $ge_alertgroup = "Flood control"
+        $ge_alertkey = "Flood control"
+        $ge_agent = @Agent
+
+        genevent(DefaultOS,
+                @Identifier, $ge_identifier,
+                @Summary, $ge_summary,
+                @Node, hostname(),
+                @Manager, $ge_manager,
+                @Severity, 3,
+                @FirstOccurrence, $now,
+                @LastOccurrence, $now,
+                @AlertGroup, $ge_alertgroup,
+                @AlertKey, $ge_alertkey,
+                @Agent, $ge_agent
+                )
+
+        log(debug, "Current event rate is unusually high")
+    }
+}
+
+# If the probe has been running for long enough then we check
+# the flood detection event rate against the flood detection
+# threshold to see if an event flood is in progress.
+
+# Using the %FloodControl property, flood control can be overriden remotely
+# while the probe is running. The $OMNIHOME/bin/nco_p_setprop tool can be
+# used for this. When it the property is not set flood or normal (e.g. 
+# auto), then the probe's own mechanism here control flood control.
+if(match(lower(%FloodControl),"flood"))
+{
+    $event_mode = "flood"
+}
+else if(match(lower(%FloodControl), "normal"))
+{
+    $event_mode = "normal"
+}
+else if(int($probe_uptime) >= int($flood_detection_startup_time))
+{
+    $flood_detection_event_rate =  getload(event_rate_array["flood_detection_load"])
+    
+    if((match($event_mode, "normal")))
+    {
+        if(int($flood_detection_event_rate) > int($flood_detection_event_rate_flood_threshold))
+        {
+            $event_mode = "flood"
+        }
+    }
+    else
+    {
+        if(int($flood_detection_event_rate) < int($flood_detection_event_rate_normal_threshold))
+        {
+            $event_mode = "normal"
+        }
+    }
+}
+
+log(debug, "Current flood mode = " + $event_mode)
+
+# Compare the current flood mode to the previous mode to see if an
+# event rate has just started, is in progress or has just finished
+if((match($event_mode, "flood")))
+{
+     # If previous mode was "normal" then flood has just been detected.
+    if(match(event_rate_array["mode"], "normal"))
+    {
+        log(warning, "Event flood detected")
+        event_rate_array["flood_event_count"] = 1
+        event_rate_array["flood_start_time"] = getdate
+        $ge_summary = "An event flood has been detected, event rate is " + getload(event_rate_array["flood_detection_load"]) + " events per second"
+        $ge_identifier = "flood_control_start " + @Node + " " + @AlertKey + " " + @AlertGroup + " " + @Type + " " + @Agent + " " + @Manager
+        $ge_manager = @Manager + " Flood control on " + %Name
+        $ge_alertgroup = "Flood control"
+        $ge_alertkey = "Flood control"
+        $ge_agent = @Agent
+
+        genevent(DefaultOS,
+                @Identifier, $ge_identifier,
+                @Summary, $ge_summary,
+                @Node, hostname(),
+                @Manager, $ge_manager,
+                @Type, 1,
+                @Severity, 5,
+                @FirstOccurrence, $now,
+                @LastOccurrence, $now,
+                @AlertGroup, $ge_alertgroup,
+                @AlertKey, $ge_alertkey,
+                @Agent, $ge_agent
+                )
+
+    }
+    else
+    {
+        log(warning, "Event flood is occurring")
+        event_rate_array["flood_event_count"] = int(event_rate_array["flood_event_count"]) + 1
+    }
+
+    if((int($discard_event_during_flood) == 1) && (int(@Severity) < int($forward_event_minimum_severity)))
+    {
+         # Discard this event.
+         log(debug, "Discarding event during event flood")
+         discard
+    }
+
+    if((int($divert_event_during_flood) == 1) && (int(@Severity) < int($forward_event_minimum_severity)))
+    {
+         # Divert this event to another objectserver.
+         log(debug, "Diverting event during event flood")
+         settarget(FloodEventOS)
+    }
+}
+else
+{
+    # If the previous mode was "flood" then the flood has ended.
+    if(match(event_rate_array["mode"], "flood"))
+    {
+        log(debug, "Event flood has finished, moving to normal mode")
+        $flood_time_delta = int($now) - int(event_rate_array["flood_start_time"])
+        $flood_event_rate =  int(event_rate_array["flood_event_count"]) / int($flood_time_delta)
+        log(debug, "Flood event rate was " + $flood_event_rate + " events per second")
+        log(debug, "Event count during flood was " + event_rate_array["flood_event_count"])
+        log(debug, "Duration of event flood was " + $flood_time_delta)
+        $ge_summary = "An event flood has finished, event rate duration :  " + $flood_time_delta + ", event count during flood : " + event_rate_array["flood_event_count"]
+        $ge_identifier = "flood_control_end " + @Node + " " + @AlertKey + " " + @AlertGroup + " " + @Type + " " + @Agent + " " + @Manager
+        $ge_manager = @Manager + " Flood control on " + %Name
+        $ge_alertgroup = "Flood control"
+        $ge_alertkey = "Flood control"
+        $ge_agent = @Agent
+
+        genevent(DefaultOS,
+                @Identifier, $ge_identifier,
+                @Summary, $ge_summary,
+                @Node, hostname(),
+                @Manager, $ge_manager,
+                @Type, 2,
+                @Severity, 1,
+                @FirstOccurrence, $now,
+                @LastOccurrence, $now,
+                @AlertGroup, $ge_alertgroup,
+                @AlertKey, $ge_alertkey,
+                @Agent, $ge_agent
+                )
+
+    }
+}
+
+event_rate_array["mode"] = $event_mode

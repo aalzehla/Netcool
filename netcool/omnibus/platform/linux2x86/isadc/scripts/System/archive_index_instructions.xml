@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archiveIndex 
+		archiveIndexInstructionsVersion="1" 
+		xmlns:autopd_aii="http://www.ibm.com/autopd/archive_index_instructions" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.ibm.com/autopd/archive_index_instructions archive_index_instructions.xsd ">
+  <fileList category="autopd_generated">
+  	<file fileDescription="Data collection tool log file" 
+  	      fileName=".*autopdinstance.*log" 
+  	      fileTags="autopdinstance"
+   	      nameMatchPattern="regex">
+    </file>
+    <file fileDescription="Data collection tool log file" 
+  	      fileName=".*echoinstance.*log" 
+  	      fileTags="echoinstance"
+   	      nameMatchPattern="regex">
+    </file>
+    <file fileDescription="Data collection tool log file" 
+  	      fileName=".*setupinstance.*log" 
+  	      fileTags="setupinstance"
+   	      nameMatchPattern="regex">
+    </file>
+    <file fileDescription="Data collection tool log file" 
+  	      fileName="autopd.log" 
+  	      nameMatchPattern="name">
+    </file>
+    <file fileDescription="Data collection tool log file" 
+  	      fileName="autopdecho.log" 
+  	      nameMatchPattern="name">
+    </file>
+  </fileList>
+  <fileList category="logs">
+  	<file fileDescription="Product log file" 
+  	      fileName=".*log" 
+  	      excludeFiles="cisa.log!autopd.log!autopdecho.log"
+  	      nameMatchPattern="regex">
+    </file>
+  </fileList>
+  <fileList category="inventory">
+  	<file fileDescription="Contains list of software products installed on the system and additional information about product version and installed fixpacks for selected IBM software products." 
+  	      fileName=".*inventory.*xml" 
+  	      nameMatchPattern="regex">
+    </file>
+  </fileList>
+   <fileList category="configuration">
+    <file fileDescription="Contains network information gathered from your system. The information varies by platform."  
+  	      fileName="collectNetworkOutput.txt" 
+  	      nameMatchPattern="name">
+    </file>
+    <file fileDescription="Contains information about the operating environment such as operating system version and disk space. The information varies by platform."  
+  	      fileName="collectSystemOutput.txt" 
+  	      nameMatchPattern="name">
+    </file>
+    <file fileDescription="Contains user environment information gathered from your system. The information varies by platform."  
+  	      fileName="environment.set.txt" 
+  	      nameMatchPattern="name">
+    </file>
+    <file fileDescription="Contains registry and installed software information gathered from your system. The information varies by platform."  
+  	      fileName="registry.sware.installed.export.txt" 
+  	      nameMatchPattern="name">
+    </file>
+  </fileList> 
+</archiveIndex>
+
+
+

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Configuring accelerated event notification" />
+<meta name="abstract" content="You can configure Tivoli Netcool/OMNIbus for accelerated event notification of events that could present a risk to the system. The Accelerated Event Notification (AEN) system provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption." />
+<meta name="Description" content="You can configure Tivoli Netcool/OMNIbus for accelerated event notification of events that could present a risk to the system. The Accelerated Event Notification (AEN) system provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption." />
+<meta name="DC.subject" content="accelerated event notification, configuring" />
+<meta name="keywords" content="accelerated event notification, configuring" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_aen_configuringchannels.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_aen_monitoringfasttrackevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_aen_configuringaen" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Configuring accelerated event notification</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_aen_configuringaen">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring accelerated event notification</h1>
+<div class="body conbody"><p class="shortdesc">You can configure <span class="keyword">Tivoli Netcool/OMNIbus</span> for
+accelerated event notification of events that could present a risk
+to the system. The Accelerated Event Notification (AEN) system provides
+a means of accelerating high-priority events to help ensure that systems
+can continue to run without interruption. </p>
+<div class="p">When configuring accelerated event notification, use the following
+guidelines:<ul class="ul"><li class="li">Determine the conditions under which you want to accelerate events.
+Consider whether to use the probe rules file to flag events for acceleration,
+or whether to set up conditions within a post-insert, post-update,
+or post-reinsert trigger in the ObjectServer. <p class="p">If the conditions
+under which events should be accelerated are set up in the rules file,
+and are complex, you might need to configure the alerts.status table
+with a dedicated column to receive a flag that identifies an event
+as an accelerated event.</p>
+<p class="p">Typically, you can run a post-insert
+trigger on inserted events to determine whether they meet the conditions
+for acceleration, or run a post-update trigger on updated events that
+have been enriched with information from other sources, or run a post-reinsert
+trigger to escalate repeating events.</p>
+</li>
+<li class="li">Determine whether you require a dedicated gateway for forwarding
+accelerated events. Consider the use of a dedicated gateway if you
+want to eliminate the possibility of unexpected delays caused by high
+volumes of events, which may largely be non-critical, or if you want
+to send accelerated events to a different ObjectServer than that used
+for normal IDUC updates. If using a dedicated gateway, you must configure
+that gateway to replicate only accelerated inserts and updates.</li>
+</ul>
+</div>
+<div class="p">You also need to use Netcool/OMNIbus Administrator to
+configure accelerated event notification, as follows:<ul class="ul"><li class="li">Set up a dedicated event column to flag an event for acceleration,
+if required.</li>
+<li class="li">Set up channels to define the type of event data to be included
+in accelerated event notifications, and the recipients of this event
+data.</li>
+<li class="li">Configure post-insert, post-update, or post-reinsert triggers
+to act on accelerated events that are inserted or updated in the alerts.status
+table.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_aen_configuringchannels.html">Configuring channels to broadcast event data</a></span><br />
+When configuring accelerated event notification, you must
+use channels to define the type of event data to broadcast in the
+accelerated event notifications, and the recipients of this data.
+You can set up multiple channels with varied event data and recipients.</li>
+</ul>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_aen_monitoringfasttrackevnts.html" title="Tivoli Netcool/OMNIbus can handle millions of events a day, with all events being treated with equal importance. However, operators might have key systems or events that have tightly-controlled latency requirements. To accommodate such requirements, the Accelerated Event Notification (AEN) application provides a means of accelerating high-priority events to help ensure that systems can continue to run without interruption.">Monitoring accelerated events</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

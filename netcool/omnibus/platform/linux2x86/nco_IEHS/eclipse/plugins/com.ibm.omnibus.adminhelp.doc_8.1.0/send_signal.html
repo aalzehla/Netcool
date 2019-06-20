@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Send Signal" />
+<meta name="abstract" content="Use this window to send a UNIX signal to a process that is defined within a process control network." />
+<meta name="Description" content="Use this window to send a UNIX signal to a process that is defined within a process control network." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_sendingsignals.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_sendsignalwindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Send Signal</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_sendsignalwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Send Signal</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to send a UNIX signal to a process that
+is defined within a process control network.</p>
+<div class="section"><div class="p">Complete this window as follows:<dl class="dl" id="netom_sendsignalwindow__netom_sendsignalfields"><dt class="dt dlterm">Process Name</dt>
+<dd class="dd">Select the process to which the signal should be sent.</dd>
+<dt class="dt dlterm">Signal</dt>
+<dd class="dd">Select the signal that you want to send. Valid signals include:<ul class="ul"><li class="li"><samp class="ph tt">SIGHUP(1)</samp>: Hangup signal to stop and restart a process</li>
+<li class="li"><samp class="ph tt">SIGINT(2)</samp>: Interrupt signal</li>
+<li class="li"><samp class="ph tt">SIGTERM(15)</samp>: Terminate signal</li>
+</ul>
+<p class="p">On Windows, the <samp class="ph tt">SIGINT(2)</samp> and <samp class="ph tt">SIGTERM(15)</samp> signals
+are supported only on Tivoli Netcool/OMNIbus processes; for example,
+ObjectServers, proxy servers, and probes. You can alternatively use
+the other available methods for stopping processes. When a probe is
+running under process control, the <samp class="ph tt">SIGHUP(1)</samp> signal can be
+used to make the probe re-read its rules file.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_sendsignalwindow__netom_sendsignal_saving_closing"><h2 class="title sectiontitle">Confirming the
+send action</h2><div class="p">After selecting a signal to send, you can proceed
+with the send action or cancel the action by clicking the relevant
+button as follows:<dl class="dl" id="netom_sendsignalwindow__netom_sendsignal_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to close the window and send the signal to the
+selected process.</dd>
+<dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to send the signal to the selected process and
+keep the window open.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without sending a signal.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_pa_sendingsignals.html" title="You can use Netcool/OMNIbus Administrator to send a UNIX signal to a process.">Sending signals to processes</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

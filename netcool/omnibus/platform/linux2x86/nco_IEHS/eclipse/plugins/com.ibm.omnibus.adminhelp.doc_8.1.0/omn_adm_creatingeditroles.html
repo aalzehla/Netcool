@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing roles" />
+<meta name="abstract" content="Use roles to assign permissions to users who are members of a particular group." />
+<meta name="Description" content="Use roles to assign permissions to users who are members of a particular group." />
+<meta name="DC.subject" content="creating, roles, editing" />
+<meta name="keywords" content="creating, roles, editing" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringroles.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingeditroles" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_configuringroles.html" />
+<title>Creating and editing roles</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingeditroles">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing roles</h1>
+<div class="body taskbody"><p class="shortdesc">Use roles to assign permissions to users who are members
+of a particular group.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">You must have started
+Netcool/OMNIbus Administrator by running the <span class="keyword cmdname">nco_config</span> utility. </p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To create or edit a role:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">User</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Roles</span>. </span> The <span class="keyword wintitle">Roles</span> pane
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To add a role, click <span class="ph uicontrol">Add Role</span> in
+the toolbar.</span> The <span class="keyword wintitle">Role Details</span> window
+opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a role, select the role to edit and then click <span class="ph uicontrol">Edit
+Role</span> in the toolbar.</span> The <span class="keyword wintitle">Role
+Details</span> window opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Define a new role as follows:</span> <dl class="dl"><dt class="dt dlterm">Role Name</dt>
+<dd class="dd">Type a unique name for the role. If you are editing a role, you
+cannot change the name. <div class="note tip"><span class="tiptitle">Tip:</span> When creating
+ObjectServer objects, their names must begin with an uppercase or
+lowercase letter, followed by uppercase or lowercase letters, numbers,
+or underscore (_) characters, up to 40 characters in length. <em class="ph i">User,
+group, and role names can be any text string up to 64 characters in
+length and can include spaces.</em> Names of ObjectServer objects are
+case-sensitive.</div>
+</dd>
+<dt class="dt dlterm">Role ID</dt>
+<dd class="dd">Specify a unique numerical identifier for this role. If you are
+editing a role, you cannot change the role ID.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Details</span> tab, enter a meaningful
+description for the role or update the description.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Permissions</span> tab, grant
+permissions to the role or revoke permissions, as follows: </span> <dl class="dl"><dt class="dt dlterm">Add permission</dt>
+<dd class="dd">Click this button to grant permissions to the role. The <span class="keyword wintitle">Permission
+Objects</span> window opens. Complete this window as follows:<dl class="dl"><dt class="dt dlterm">Object Type</dt>
+<dd class="dd">Select the type of object to which you want to grant or revoke permissions.</dd>
+<dt class="dt dlterm">Available Objects</dt>
+<dd class="dd">The contents of this list are dependent on the object type selected. The <span class="ph uicontrol">Available
+Objects</span> list displays the objects for which permissions have not
+been granted. To grant permissions to one or more objects, use the arrow keys
+to move the objects to the <span class="ph uicontrol">Selected Objects</span> list. </dd>
+<dd class="dd">To move all objects to the <span class="ph uicontrol">Selected Objects</span> list,
+click <span class="ph uicontrol">&gt;&gt;</span>. To move a single object or multiple objects
+to the <span class="ph uicontrol">Selected Objects</span> list, select each object and
+then click <span class="ph uicontrol">&gt;</span>. You can use the SHIFT key for consecutive
+selections, or the CTRL key for non-consecutive selections.</dd>
+<dt class="dt dlterm">Selected Objects</dt>
+<dd class="dd">This list displays the objects for which permissions have been granted.
+To revoke permissions for one or more objects, use the arrow keys to move
+the objects to the <span class="ph uicontrol">Available Objects</span> list. </dd>
+<dd class="dd">To move all objects to the <span class="ph uicontrol">Available Objects</span> list,
+click <span class="ph uicontrol">&lt;&lt;</span>. To move a single object or multiple
+objects to the <span class="ph uicontrol">Available Objects</span> list, select each
+object and then click <span class="ph uicontrol">&lt;</span>. You can use the SHIFT key
+for consecutive selections, or the CTRL key for non-consecutive selections.</dd>
+<dd class="dd"><div class="note tip"><span class="tiptitle">Tip:</span> You can add multiple object permissions by selecting
+each required object type in turn from the <span class="ph uicontrol">Object Type</span> list,
+and then adding the object to the <span class="ph uicontrol">Selected Objects</span> list.</div>
+</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the permissions configured for the role, and
+close the <span class="keyword wintitle">Permission Objects</span> window.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</dd>
+<dd class="dd">When you return to the <span class="ph uicontrol">Permissions</span> tab
+on the <span class="keyword wintitle">Role Details</span> window, the permissions tree
+is updated with your changes. The parent node shows the main object,
+and the nested child nodes show associated subobjects. You can expand
+these subobjects to view the associated SQL permissions; for example
+ALTER, DELETE, and DROP. Select the check box associated with the
+SQL permission to assign that permission to the role. Clear the check
+box to revoke the permission.</dd>
+<dt class="dt dlterm">Delete permission</dt>
+<dd class="dd">From the permissions tree, select a parent or child node for which
+you want to revoke permissions, and then click this button. The node
+is deleted from the tree.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the role details and close the window.
+New roles are added to the <span class="keyword wintitle">Roles</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_configuringroles.html" title="Roles are collections of permissions that you can assign to users and groups.">Configuring roles</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

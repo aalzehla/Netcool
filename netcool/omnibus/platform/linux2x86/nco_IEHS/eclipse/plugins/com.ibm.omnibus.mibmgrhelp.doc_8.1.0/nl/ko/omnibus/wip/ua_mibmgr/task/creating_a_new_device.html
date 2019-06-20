@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="디바이스 작성과 삭제" />
+<meta name="abstract" content="MIB Manager 디바이스는 연관된 MIB 모듈을 그룹화하고 내보내기에 필요한 모든 오브젝트를 정의하는 데 사용됩니다. MIB Manager GUI에서 디바이스를 작성하고 업데이트하며 삭제할 수 있습니다." />
+<meta name="Description" content="MIB Manager 디바이스는 연관된 MIB 모듈을 그룹화하고 내보내기에 필요한 모든 오브젝트를 정의하는 데 사용됩니다. MIB Manager GUI에서 디바이스를 작성하고 업데이트하며 삭제할 수 있습니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="defining" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager 디바이스 작성과 삭제</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="defining">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">디바이스 작성과 삭제</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">MIB Manager</span> 디바이스는 연관된 MIB 모듈을 그룹화하고 내보내기에 필요한
+모든 오브젝트를 정의하는 데 사용됩니다. <span class="keyword">MIB Manager</span> GUI에서 디바이스를 작성하고 업데이트하며
+삭제할 수 있습니다. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">이 태스크 정보</h2></div><p class="p"><span class="keyword">MIB Manager</span> 디바이스는 <span class="keyword wintitle">디바이스</span> 보기에 표시됩니다.
+<span class="keyword wintitle">디바이스</span> 트리에서 디바이스를 선택하여 디바이스의 제조업체, 모델 번호, OS 버전을
+표시하십시오. </p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">프로시저</h2></div><p class="li stepsection"><strong class="ph b">디바이스 작성</strong></p><ol><li class="li step stepexpand"><span class="ph cmd">새 디바이스를 작성하려면 다음을 수행하십시오. </span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd"><span class="keyword wintitle">MIB 모듈</span> 보기에서 최소 하나 이상의 MIB 모듈을 선택한 후
+<img class="image" src="../gifs/create_device.gif" alt="디바이스 작성 아이콘" />(디바이스 작성)을 클릭하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">제조업체</span> 필드의 드롭 다운 목록에서 디바이스 제조업체를 선택하십시오. </span> <p class="p"><span class="ph uicontrol">모델</span> 및 <span class="ph uicontrol">OS
+버전</span> 필드는 사용 가능한 옵션으로 채워집니다. </p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">모델</span> 필드의 드롭 다운 목록에서 옵션을 선택하십시오. </span> <p class="p">사용 가능한 모델이 없는 경우 설명하는 모델 이름을 입력하십시오. </p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">OS 버전</span> 필드의 드롭 다운 목록에서 옵션을 선택하십시오. </span> <p class="p">사용 가능한 OS 버전이 없는 경우 설명하는 OS 버전 이름을 입력하십시오. </p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">맵핑된 MIB 모듈</span> 필드에서는 새 디바이스와 연관시키려는 MIB 모듈을 선택하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">확인</span>을 클릭하여 디바이스를 작성하십시오. </span> <p class="p">새 디바이스가 <span class="keyword wintitle">디바이스</span> 보기에 표시됩니다. </p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">디바이스 업데이트</strong></p><ol start="2"><li class="li step stepexpand"><span class="ph cmd">디바이스를 업데이트하려면 다음을 수행하십시오. </span> <ol type="a" class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd"><span class="keyword wintitle">디바이스</span> 보기에서 디바이스를 선택한 후 OS 버전이 표시될 때까지 서브노드를 펼치십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd">OS 버전을 선택한 후 <img class="image" src="../gifs/Edit.gif" alt="디바이스 편집 아이콘" />(디바이스 편집)을 클릭하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">제조업체</span> 필드의 드롭 다운 목록에서 디바이스 제조업체를 선택하십시오. </span> <p class="p"><span class="ph uicontrol">모델</span> 및 <span class="ph uicontrol">OS
+버전</span> 필드는 사용 가능한 옵션으로 채워집니다. </p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">모델</span> 필드의 드롭 다운 목록에서 옵션을 선택하십시오. </span> <p class="p">사용 가능한 모델이 없는 경우 설명하는 모델 이름을 입력하십시오. </p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">OS 버전</span> 필드의 드롭 다운 목록에서 옵션을 선택하십시오. </span> <p class="p">사용 가능한 OS 버전이 없는 경우 설명하는 OS 버전 이름을 입력하십시오. </p>
+</li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">맵핑된 MIB 모듈</span> 필드에서는 새 디바이스와 연관시키려는 MIB 모듈을 선택하십시오. </span></li>
+<li class="li substep substepexpand"><span class="ph cmd"><span class="ph uicontrol">확인</span>을 클릭하여 디바이스 세부사항을 업데이트하십시오. </span> <p class="p">업데이트된 디바이스 세부사항이 <span class="keyword wintitle">디바이스</span> 보기에 표시됩니다. </p>
+</li>
+</ol>
+</li>
+</ol><p class="li stepsection"><strong class="ph b">디바이스 삭제</strong></p><ol start="3"><li class="li step stepexpand"><span class="ph cmd"><span class="keyword wintitle">디바이스</span> 보기에서는 디바이스를 선택한 후
+<img class="image" src="../gifs/Delete.gif" alt="디바이스 삭제 아이콘" />(디바이스 삭제)을 클릭하십시오. </span> <p class="p">여러 디바이스를 삭제하려면, Ctrl+Alt 키를 누른 상태에서 왼쪽 마우스 단추를 사용하여 요소를
+선택한 후 <img class="image" src="../gifs/Delete.gif" alt="디바이스 삭제 아이콘" />(디바이스 삭제)을 클릭하십시오. </p>
+</li>
+</ol></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB Manager를 사용하여 MIB 모듈을 구문 분석하고 Netcool 규칙 파일을 작성할 수 있습니다.">Netcool MIB Manager 사용</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

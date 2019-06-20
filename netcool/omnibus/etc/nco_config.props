@@ -1,0 +1,52 @@
+# Connection time out for the java sybase connection
+# nco_jdbc.timeout: 600
+
+
+# Output log level
+# Valid values for this attribute are :-
+# 	FATAL ERROR WARN INFO DEBUG
+# The default value is ERROR, causing messages of level
+# FATAL and ERROR to be logged.
+# messagelevel: ERROR
+
+# Path to java security policy file
+# java.security.policy:
+
+# System log file information
+# log.file.name: nco_config_system.log
+# log.file.max.size: 10000
+# log.file.max.count: 4
+
+# Property log.console.active controls if the log messages are echoed to the cmd shell
+# Valid values for this attribute are :-
+# 	1 - YES : 0 - NO
+# log.console.active: 1
+
+
+# Audit log file information
+# Property audit.active controls if the audit messages are logged 
+# Valid values for this attribute are :-
+# 	1 - YES : 0 - NO
+# audit.active: 1
+# audit.file.name: nco_config_audit.log
+# audit.file.max.size: 10000
+# audit.file.max.count: 4
+
+
+# Property system.create.conversion controls if a conversion is automatically created
+# when adding / editing a user
+#
+# Valid options for this attribute are
+#
+# 	1 - YES : 0 - NO ( Default:1 )
+#
+# system.create.conversion: 1
+
+
+# Property system.conversion.type controls which user attribute is used in the generation 
+# of the Conversion between user.OwnerUID and one of, user.FullName or user.UserName
+#
+# Valid options for this attribute are:-
+#	fullname : username  ( Default: fullname )
+#
+# system.conversion.type: fullname

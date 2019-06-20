@@ -1,0 +1,313 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/******************************************************************************
+This policy contains functions used to provision Webtop via IPL.
+
+The function Provision(methodCallObject) is to be called by the end user.
+
+The function GetEnv(ENV) should be updated by the end user to reflect their 
+environment.
+
+All other functions exist to support the Provision function and shouldn't need 
+to be edited or called directly.
+
+Thank you, drive through.
+******************************************************************************/
+
+function GetEnv(ENV){
+	ENV = newobject();
+
+
+	// how to run external/remote processes
+	ENV.howToCall="remote";    // options are local, remote;  use SSH/remote with Windows
+	//ENV.howToCall="local";    // options are local, remote
+
+	//location of API CLI
+	ENV.waapiHome="/opt/ibm/netcool/webtop/bin/runwaapi";
+	//ENV.waapiHome="C:\\progra~1\\ibm\\netcool\\webtop\\waapi\\bin\\runwaapi.cmd";		//windows.  note the use of the short file names
+
+	//where the temporary xml files should be stored
+	ENV.integrationHome="/opt/ibm/netcool/impact/integrations/webtop";		//windows.  note the use of the short file names
+	//ENV.integrationHome="C:\\progra~1\\ibm\\netcool\\impact\\integr~1\\webtop";		//windows.  note the use of the short file names
+
+	//save XML files after then have been pushed to the API?
+	ENV.saveXML=TRUE;  //options are TRUE or FALSE
+	//ENV.saveXML=FALSE;  //options are TRUE or FALSE
+	
+	//Unix or Microsoft platform
+	ENV.platform="unix";  //options or unix or ms
+	//ENV.platform="ms";  //SSH command/response with Windows-style pathing
+
+	//file extension for xml files  //example webtop.xml, ngf.xml, psml
+	ENV.extension = "webtop.xml";
+
+
+	/* see the 4.0.1 Policy Reference Guide for information on setting up SSH command/response */
+	/////linux example
+
+	ENV.hostname="spiderman";
+	ENV.username="netcool";
+	ENV.sshPort=22;
+	ENV.expectList={"[netcool@spiderman ~]$ "};
+
+	ENV.UserCredentials=newobject();
+	ENV.UserCredentials.Password=decrypt("7E6C7364EFD7CD69"); 			//run nci_crypt on password
+	ENV.UserCredentials.PassPhrase=decrypt("F1B254C40C873DC64E51BAAAA7644CB6"); 	//run nci_crypt on passphrase
+	ENV.UserCredentials.KeyFile="/opt/ibm/netcool/impact/integrations/ssh/id_rsa";
+
+	ENV.Options=newobject();
+	ENV.Options.Service="ssh";
+	ENV.Options.AutoInitiate=TRUE;
+	ENV.Options.CmdTerminator="\n";
+	ENV.Options.InitialPrompt="[netcool@spiderman ~]$ ";
+
+/*
+	/////openSSH on windows example
+	ENV.hostname="localhost";
+	ENV.username="Administrator";
+	ENV.sshPort=22;
+	ENV.expectList={"C:\Documents and Settings\Administrator>"};
+
+	ENV.UserCredentials=newobject();
+	//ENV.UserCredentials.Password=decrypt("7E6C7364EFD7CD69"); 			//run nci_crypt on password
+	ENV.UserCredentials.Password="netcool";
+	//ENV.UserCredentials.PassPhrase=decrypt("F1B254C40C873DC64E51BAAAA7644CB6"); 	//run nci_crypt on passphrase
+	//ENV.UserCredentials.KeyFile="/opt/ibm/netcool/impact/integrations/ssh/id_rsa";
+
+	ENV.Options=newobject();
+	ENV.Options.Service="ssh";
+	ENV.Options.AutoInitiate=TRUE;
+	ENV.Options.CmdTerminator="\n";
+	ENV.Options.InitialPrompt="C:\Documents and Settings\Administrator>";
+*/
+	/* //logging of ENV values */
+	//log(ENV.waapiHome);
+	//log(ENV.integrationHome);
+
+}
+
+
+
+
+
+
+
+
+function createXMLFile(OMNI){
+	//generate filename
+	log("generating file name");
+	destinationDir=OMNI.ENV.integrationHome;
+	extension=OMNI.ENV.extension;
+	platform=OMNI.ENV.platform;
+	UTIL.generatelUniqueFileName(OMNI.fullFileName, destinationDir, extension, platform);
+	log("file name is " + OMNI.fullFileName);
+
+
+
+
+	//create file local
+	if (OMNI.ENV.howToCall=="local"){
+		log("creating local file");
+
+		//log("platform is: " + OMNI.ENV.platform);
+
+		if(OMNI.ENV.platform=="unix"){
+		UTIL.createLocalFile(OMNI.fullFileName, OMNI.text, cmdOutput);
+		}
+
+		if(OMNI.ENV.platform=="ms"){
+		log("*************use ssh/remote with Windows*******************");
+		//UTIL.cleanTextForWinEcho(OMNI.text);
+		//UTIL.createLocalWinFile(OMNI.fullFileName, OMNI.text, cmdOutput);
+		}
+		//log(cmdOutput);
+	}
+
+
+
+
+	//create file remote
+	if (OMNI.ENV.howToCall=="remote"){
+		log("creating remote file");
+
+		//clean file for echo
+		if(OMNI.ENV.platform=="unix"){
+			UTIL.cleanTextForEcho(OMNI.text);
+		}
+
+		if(OMNI.ENV.platform=="ms"){
+			UTIL.cleanTextForWinEcho(OMNI.text);
+		}
+
+		UTIL.createRemoteFile(OMNI.fullFileName, OMNI.text, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+
+	}
+
+}
+
+
+
+
+function runXMLFile(OMNI){
+	//local
+	if (OMNI.ENV.howToCall=="local"){
+		log("pushing XML to local API");
+		pathToAPI=OMNI.ENV.waapiHome;
+		filePointer="-file";
+		targetFile=OMNI.fullFileName;
+		UTIL.callLocalCLI_API(pathToAPI, filePointer, targetFile, OMNI.apiOutput);
+		log(OMNI.apiOutput);
+	}
+
+	//remote
+	if (OMNI.ENV.howToCall=="remote"){
+		log("pushing XML to remote API");
+		pathToAPI=OMNI.ENV.waapiHome;
+		filePointer="-file";
+		targetFile=OMNI.fullFileName;
+		sshExpectList=OMNI.ENV.expectList;
+		sshSession=OMNI.sshSession;
+		UTIL.callRemoteCLI_API(pathToAPI, filePointer, targetFile, sshExpectList, sshSession, OMNI.apiOutput);
+		//log(OMNI.apiOutput);
+	}
+}
+
+
+function deleteXMLFile(OMNI){
+	//local
+	if (OMNI.ENV.howToCall=="local"){
+		log("deleting local xml file");
+		UTIL.deleteLocalFile(OMNI.fullFileName, cmdOutput);
+		//log(cmdOutput);
+	}
+
+
+	//remote
+	if (OMNI.ENV.howToCall=="remote"){
+		log("deleting remote xml file");
+
+		if(OMNI.ENV.platform=="unix"){
+			UTIL.deleteRemoteFile(OMNI.fullFileName, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+			//log(cmdOutput);
+		}
+
+		if(OMNI.ENV.platform=="ms"){
+			UTIL.deleteRemoteWinFile(OMNI.fullFileName, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+			//log(cmdOutput);
+		}
+
+
+	}
+}
+
+
+
+
+
+function Provision(methodCallObject){
+	//object to pass between functions
+	OMNI=newobject();
+
+
+	// Generate the XML object to send to the API
+	log("generating WAAPI XML string");
+	IPLtoXML.generateXML(methodCallObject, OMNI.text);
+	log("\n" + OMNI.text);
+
+
+	//Get ENV details
+	log("getting ENV");
+	GetEnv(OMNI.ENV);
+
+
+
+	//OPTIONAL create sshSession
+
+	If (OMNI.ENV.howToCall=="remote"){
+		log("generating SSH session");
+		UTIL.createSSHSession(OMNI.sshSession, OMNI.ENV);
+
+	}
+
+
+
+
+	//create xml file
+	createXMLFile(OMNI);
+
+
+
+
+	//push xml file to api
+	runXMLFile(OMNI);
+
+
+
+	//OPTIONAL delete xml file
+	if(OMNI.ENV.saveXML==FALSE){
+		//log("deleting XML file");
+		deleteXMLFile(OMNI);
+	}
+
+
+	//OPTIONAL end sshSession
+
+	If (OMNI.ENV.howToCall=="remote"){
+		log("ending SSH session");
+		UTIL.endSSHSession(OMNI.sshSession);
+
+	}
+
+
+
+	methodCallObject.WAAPI_OUTPUT=OMNI.apiOutput;
+
+
+
+}
+
+
+
+
+///////////////////TESTING/////////////////////////////////////////
+/*
+///////////////////IPL Object//////////////////////
+
+myMethodCall=newobject();
+myMethodCall.XMLElementType="methodCall";
+
+myMethodCall.method1=newobject();
+myMethodCall.method1.XMLElementType="method";
+myMethodCall.method1.methodName="entity.getList";
+*/
+/*
+OMNI=newobject();
+OMNI.text='<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="tool.createTool"><tools acl="*,example,restricted" name="tool1"><execute/></tools><tools acl="*,example" method="GET" name="mygroupassign" showdocument="true"><sql foreach="false" text="update alerts.status set OwnerGID=$prompt.groupassign where Serial in ($selected_rows.Serial);" url="$(SERVER)/_tb37b/ael/SQLToolHandler"/><journal foreach="true" text="Alert assigned to group CONVERSION($prompt.groupassign) by %username."/><prompt name="groupassign" type="dynamicchoice"><sql text="select Conversion, Value from alerts.conversions where Colname=&apos;OwnerGID&apos; order by Value desc;"/></prompt></tools><tools acl="example" name="commandTool1"><command enabled="true" foreach="false" path="dir" platform="Windows" text="$selected_rows.Agent, $selected_rows.Acknowledged" type="command"/><command enabled="true" foreach="false" path="ls" platform="Solaris" type="command"/><command enabled="false" foreach="false" platform="HPUX" type="command"/><command enabled="false" foreach="false" platform="AIX" type="command"/></tools></method></methodCall>';
+//OMNI.text='<?xml version="1.0" $  % )';
+
+GetEnv(OMNI.ENV);
+UTIL.createSSHSession(OMNI.sshSession, OMNI.ENV);
+
+OMNI.fullFileName="/opt/ibm/netcool/impact/integrations/webtop/TESTFILE.xml";
+
+UTIL.createRemoteFile(OMNI.fullFileName, OMNI.text, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+log(cmdOutput);
+*/
+/*
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+//STACK=NewJavaObject("java.util.Stack", {});
+
+//Provision(myMethodCall);
+//log(myMethodCall.WAAPI_OUTPUT);
+*/

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing triggers in an external editor" />
+<meta name="abstract" content="You can use an external editor to create or edit a database, signal, or temporal trigger." />
+<meta name="Description" content="You can use an external editor to create or edit a database, signal, or temporal trigger." />
+<meta name="DC.subject" content="triggers, creating in external editors, editing in external editors" />
+<meta name="keywords" content="triggers, creating in external editors, editing in external editors" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingxtrnleditorfortriggers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_configuringextrnleditortrigg.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_creatingdbasetriggers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_creatingsignaltriggers.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_creatingtemporaltriggs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_usingsqlintinterfacegui.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_creatingedittriggerxtrnleditor" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_usingxtrnleditorfortriggers.html" />
+<title>Creating and editing triggers in an external editor</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_creatingedittriggerxtrnleditor">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing triggers in an external editor</h1>
+<div class="body taskbody"><p class="shortdesc">You can use an external editor to create or edit a database,
+signal, or temporal trigger.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>You must have configured an external editor to use for creating
+or editing triggers.</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">To create or edit a trigger:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the Netcool/OMNIbus Administrator window,
+select the <span class="ph uicontrol">Automation</span> menu button. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Triggers</span>. </span> The <span class="keyword wintitle">Triggers</span> pane
+opens. This window lists all database, signal, and temporal triggers
+that are set up. <div class="note tip"><span class="tiptitle">Tip:</span> To view only one type of
+trigger, click <span class="ph uicontrol">Show Database Triggers Only</span>, <span class="ph uicontrol">Show
+Temporal Triggers Only</span>, or <span class="ph uicontrol">Show Signal Triggers Only</span> in
+the toolbar.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To create a trigger, make sure that no row is selected
+in the <span class="keyword wintitle">Triggers</span> pane, and then click <span class="ph uicontrol">Edit
+in External Editor</span> in the toolbar. (You can deselect a
+row by pressing Ctrl and then clicking the row.)</span> The <span class="keyword wintitle">Select
+Trigger Type</span> dialog box opens. Proceed as follows:<ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">From the <span class="ph uicontrol">Trigger Template</span> list,
+select the template for the type of trigger that you want to create.
+If you select <span class="ph uicontrol">Database</span>, <span class="ph uicontrol">Signal</span>,
+or <span class="ph uicontrol">Temporal</span>, the external editor opens with
+standard syntax for that trigger type. If you select <span class="ph uicontrol">&lt;blank&gt;</span>,
+the external editor opens with no text shown.</span></li>
+<li class="li substep"><span class="ph cmd">Complete the syntax for the trigger. If you are using
+a template, replace the <var class="keyword varname">trigger_name</var> and <var class="keyword varname">group_name</var> variables
+with real values. Additionally, for a signal trigger, replace the <var class="keyword varname">signalName</var> variable
+with a real value, and for a database trigger, replace the <var class="keyword varname">database_name.table_name</var> variable
+with a real value. Add trigger-specific statements, optional clauses,
+and variable declarations, as required. Then add the body of the trigger
+between the Begin and End keywords. The template includes comments
+(preceded by --) for the placement of text. </span></li>
+<li class="li substep"><span class="ph cmd">Save your entries.</span> When you save, the
+trigger is saved to the ObjectServer. If there are any syntax errors,
+you are prompted to reload the contents of the external editor.</li>
+<li class="li substep"><span class="ph cmd">Close the external editor.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To edit a trigger, select the trigger to edit and then
+click <span class="ph uicontrol">Edit in External Editor</span> in the toolbar,
+or right-click and select <span class="ph uicontrol">Edit in External Editor</span> from
+the pop-up menu.</span> The external editor opens, with the trigger
+syntax displayed. Proceed as follows:<ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Edit the trigger syntax and save your changes.</span> When you save, the trigger is saved to the ObjectServer.
+If there are any syntax errors, you are prompted to reload the contents
+of the external editor.</li>
+<li class="li substep"><span class="ph cmd">Close the external editor.</span></li>
+</ol>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><div class="note tip"><span class="tiptitle">Tip:</span> The SQL that you enter in an external editor
+is saved to the ObjectServer as a <span class="ph filepath">.ed</span> file. You
+can check the validity of the syntax in <span class="ph filepath">.ed</span> and
+other <span class="ph filepath">.sql</span> files from the SQL interactive interface
+(running in GUI mode).</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_usingxtrnleditorfortriggers.html" title="From Netcool/OMNIbus Administrator, you can configure an external text editor and then use it to create or edit triggers.">Using an external editor to create and edit triggers</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_configuringextrnleditortrigg.html" title="If required, you can create and edit triggers from an external text editor of your choice. You must first configure which editor you want to use.">Configuring an external editor for triggers</a></div>
+<div><a class="link" href="omn_adm_usingsqlintinterfacegui.html" title="You can use the SQL interactive interface to configure the ObjectServer by issuing SQL commands.">Using the SQL interactive interface in GUI mode</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_sql_creatingdbasetriggers.html" title="Use the CREATE TRIGGER command to create database triggers that fire when a modification or attempted modification to an ObjectServer table occurs (or when a modification or attempted modification to a view affects a base table).">CREATE TRIGGER (database trigger)</a></div>
+<div><a class="link" href="omn_adm_sql_creatingsignaltriggers.html" title="Use the CREATE TRIGGER command to create a signal trigger that fires in response to incidents in the ObjectServer, or that fires in response to a user-defined signal.">CREATE TRIGGER (signal trigger)</a></div>
+<div><a class="link" href="omn_adm_sql_creatingtemporaltriggs.html" title="Use the CREATE TRIGGER command to create temporal triggers that fire at a specified frequency.">CREATE TRIGGER (temporal trigger)</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

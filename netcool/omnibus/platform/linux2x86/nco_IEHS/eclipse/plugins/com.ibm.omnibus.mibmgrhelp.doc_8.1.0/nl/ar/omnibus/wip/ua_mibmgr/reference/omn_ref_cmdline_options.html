@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="اختيارات سطر أمر MIB Manager" />
+<meta name="abstract" content="MIB Managerبه وظيفة سطر الأمر التى يمكنك استخدامها لاستقبال بيانات MIB وارسال ملفات القواعد. يمكنك اصدار الأوامر يدويا أو استدعائها برمجيا." />
+<meta name="Description" content="MIB Managerبه وظيفة سطر الأمر التى يمكنك استخدامها لاستقبال بيانات MIB وارسال ملفات القواعد. يمكنك اصدار الأوامر يدويا أو استدعائها برمجيا." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>اختيارات سطر أمر MIB Manager.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">اختيارات سطر أمر <span class="keyword">MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">MIB Manager</span>به وظيفة سطر الأمر التى يمكنك استخدامها لاستقبال
+بيانات MIB وارسال ملفات القواعد. يمكنك اصدار الأوامر يدويا أو استدعائها برمجيا.</p>
+<div class="section"><div class="p">لبدء وظيفة سطر الأمر، قم باستخدام الأمر التالي:<ul class="ul"><li class="li"><img src="../../../../omnibus/wip/images/ngunix.gif" alt="For UNIX operating system" /> <img src="../../../../omnibus/wip/images/nglinux.gif" alt="For Linux operating system" /> <samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[الاختيارات]</samp></li>
+<li class="li"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> <samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[الاختيارات]</samp><p class="p">على أنظمة تشغيل Windows، يتم عرض المخرجات من<span class="keyword">MIB Manager</span> فى شاشة تحكم رئيسية جديدة.</p>
+</li>
+</ul>
+</div>
+<p class="p">الجدول التالي يصف اختيارات سطر الأمر
+المتاحة. تستطيع الاختيارات <span class="keyword option">-exportmibs</span> و <span class="keyword option">-exportobjects</span>
+و <span class="keyword option">-exportoids</span> التحليل اللغوى للتعبيرات المعتادة التى
+تتماشى مع آلية نموذج Java.</p>
+<p class="p"><img src="../../../../omnibus/wip/images/ngwin.gif" alt="For Windows operating system" /> قم باستخدام مسارات الدليل الكاملة عندما تقوم بتحديد
+الدلائل. على سبيل المثال: <kbd class="ph userinput">nco_mibmanager_batch
+-importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">جدول 1. اختيارات سطر أمر <span class="keyword">MIB Manager</span></span></caption><thead class="thead" align="right"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d633e85">اختيار سطر الأمر</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d633e87">الوصف</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار عندما تقوم بتشغيل وظيفة سطر أمر <span class="keyword">MIB Manager</span> لأول مرة، اذا قمت فى السابق باستخدام وظيفة <span class="keyword">MIB Manager</span> البيانية. ان لم تستخدم هذا الاختيار، يتم عرض خطأ.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد الدليل الذى يتم ارسال ملفات القواعد التى يتم تكوينها
+اليه. قم بتضمين مسار الدليل بين علامات تنصيص مزدوجة (").<p class="p">على سبيل المثال:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد اسم MIB
+المقرر ارساله. يمكنك استخدام التعبيرات المعتادة لتحديد العديد من
+MIBs.<p class="p">على سبيل المثال، الأمر التالي يحقق ارسال العناصر من
+MIB يسمى <span class="q">"RMON-MIB"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">الأمر التالي يحقق ارسال
+العناصر من كل MIBs التى تحتوى أسماؤها على <span class="q">"MON"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد أن الملفات التى يتم ارسالها
+تكتب الى دليل جديد، داخل دليل الارسال القائم.
+يتم تسمية الدليل الفرعى الجديد آليا بخاتم الوقت. قم باستخدام هذا الاختيار لضمان
+ألا يتم احلال ملفات القواعد القائمة.<p class="p">على سبيل المثال:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد اسم عنصر MIB
+المقرر ارساله. يمكنك استخدام التعبيرات المعتادة لتحديد العديد من
+العناصر.<p class="p">على سبيل المثال، الأمر التالي يحقق ارسال كل العناصر بالاسم
+<span class="q">"coldStart"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">الأمر التالي يحقق ارسال كل العناصر التى تبدأ اسمائها
+بواسطة <span class="q">"cold"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportoids</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد OID ليتم ارساله.
+يمكنك استخدام التعبيرات المعتادة لتحديد OID متعددة.<p class="p">على سبيل المثال، الأمر التالي يحقق ارسال كل العناصر ذات OID
+<span class="q">"1.3.6.1.6.3.1.1.5.1"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1 -filetype csv</samp></p>
+<p class="p">الأمر التالي يحقق ارسال كل العناصر التى لها OID يبدأ بواسطة
+<span class="q">"1.3.6.1.6.3.1.1.5"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">الأمر التالي يحقق ارسال
+كل العناصر ذات OIDs <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> أو <span class="q">"1.3.6.1.6.3.1.1.5.2"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد أى نوع من عناصر MIB
+يتم ارساله. هذا الاختيار يأخذ القيم التالية:<ul class="ul"><li class="li"><span class="keyword option">ALL</span>: يتم ارسال كل عناصر MIB.</li>
+<li class="li"><span class="keyword option">TRAPS</span>: يتم ارسال الصفحات الشرطية فقط.</li>
+<li class="li"><span class="keyword option">OBJECTS</span>: يتم ارسال العناصر فقط.</li>
+</ul>
+<p class="p">على سبيل المثال:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد نسق الملف الذى يتم
+به ارسال الملفات التى يتم تكوينها. يعد هذا الاختيار ضروريا لعمليات
+الارسال. <div class="p">المعاملات المتاحة تكون كما يلى:<ul class="ul"><li class="li"><span class="keyword option">csv</span>: يتم كتابة كل بيانات العناصر الى ملفات CSV.</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>: يتم كتابة كل بيانات الصفحة الشرطية وبيانات عنصر وحدات ربط
+المتغير الى ملف CSV منفرد.</li>
+<li class="li"><span class="keyword option">html_with_frames</span>: يتم تكوين صفحة انترنت تناسب
+عملية النشر.</li>
+<li class="li"><span class="keyword option">html_without_frames</span>: يقوم بتكوين ملف منفرد يسمى <span class="ph filepath">oids.html</span> يحتوى على
+كشف بكل العناصر التى تم تحديدها للمخرجات.</li>
+<li class="li"><span class="keyword option">lookup</span>: يتم اخراج كل القيم المحددة فى كشف مبوب
+مناسب لكى يتم تضمينه فى أى ملف للقواعد.</li>
+<li class="li"><span class="keyword option">ncil</span>: يتم تكوين ملفات تضمين منفصلة لكل مشروع ويتم تكوين
+ملف منفرد للصفحات الشرطية العامة.</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>: يتم تكوين الملفات المناسبة للاستخدام مع
+Netcool Knowledge Library V1.1.</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>: يتم تكوين الملفات المناسبة للاستخدام مع
+Netcool Knowledge Library V3.x.</li>
+<li class="li"><span class="keyword option">standalone</span>: يتم تكوين ملف قواعد منفرد يحتوى على كل
+الصفحات الشرطية المحددة.</li>
+<li class="li"><span class="keyword option">text</span>: يتم تكوين ملف نصى منفصل لكل OID.</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>: يتم تكوين ملفات <span class="ph filepath">.mdl</span> و <span class="ph filepath">trapcnfg</span>.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لعرض معلومات المساعدة حول اختيارات سطر
+الأمر.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-importdir</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد الدليل الذى يتم استقبال
+ملفات MIB منه. قم بتضمين مسار الدليل بين علامات تنصيص مزدوجة (").<p class="p">على سبيل المثال:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد أن <span class="keyword">MIB Manager</span> يتجاوز الدلائل الفرعية  عندما يقوم بالبحث عن
+ملفات MIB ليتم استقبالها.<p class="p">على سبيل المثال:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد مستوى تسجيل
+الرسالة. هذا الاختيار يأخذ القيم التالية:<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>: يتم تسجيل رسائل الخطأ فقط.</li>
+<li class="li"><span class="keyword option">WARN</span>: يتم تسجيل رسائل الخطأ والتحذير.</li>
+<li class="li"><span class="keyword option">INFO</span>: يتم تسجيل الرسائل الاعلامية ورسائل التحذير والرسائل
+الهامة.</li>
+<li class="li"><span class="keyword option">DEBUG</span>: يتم تسجيل كل الرسائل.</li>
+<li class="li"><span class="keyword option">VERBOSE</span>: تتضمن الرسائل الطويلة حالة المتغيرات
+والمصفوفات وعلامات # بينما تتغير الحالة والقيمة.</li>
+<li class="li"><span class="keyword option">NONE</span>: لا يتم تسجيل رسائل.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-messagelog</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد الدليل الذى يتم كتابة
+ملف سجل الرسالة، <span class="ph filepath">mibmanager.log</span>،
+اليه. قم بتضمين مسار الدليل بين علامات تنصيص مزدوجة (").<p class="p">المفترض هو
+<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-searchpath</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">قم باستخدام هذا الاختيار لتحديد كشف محدد بالفاصلة المنقوطة
+يحتوى على الدلائل يستطيع <span class="keyword">MIB Manager</span> الحث فيه لحل ارتباطات MIB. قم بتضمين مسار الدليل بين علامات تنصيص مزدوجة (").<p class="p">على سبيل المثال:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies"</samp></p>
+<p class="p">الأمر التالي
+يبحث فى 3 دلائل خاصة عن الارتباطات:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="قم ببدء MIB Manager GUI من سطر الأمر. لم يتم تصميمه لكى يتم تشغيله تحت سيطرة العملية أو كخدمة Windows.">بدء MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="자주 사용되는 파일의 개인용 라이브러리 유지보수" />
+<meta name="abstract" content="UNIX 컨덕터의 개인용 라이브러리는 자주 사용되는 필터 파일, 보기 파일 및 이벤트 목록 구성 파일을 여는 시작점으로 액세스하기 쉬운 위치를 제공합니다. Tivoli Netcool/OMNIbus 파일을 개인용 라이브러리에 추가하고 연관된 애플리케이션을 빨리 열 수 있으며, 더 이상 필요하지 않은 파일을 제거할 수 있습니다." />
+<meta name="Description" content="UNIX 컨덕터의 개인용 라이브러리는 자주 사용되는 필터 파일, 보기 파일 및 이벤트 목록 구성 파일을 여는 시작점으로 액세스하기 쉬운 위치를 제공합니다. Tivoli Netcool/OMNIbus 파일을 개인용 라이브러리에 추가하고 연관된 애플리케이션을 빨리 열 수 있으며, 더 이상 필요하지 않은 파일을 제거할 수 있습니다." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringqckaccessfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_addingfilestopersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_creatingsymlinksinpersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startinganappfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_removingfilesfrompersonallib.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_viewingfullcontentsofpersonallib.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_maintainingapersonallib" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringqckaccessfilters.html" />
+<title>자주 사용되는 파일의 개인용 라이브러리 유지보수</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_maintainingapersonallib">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">자주 사용되는 파일의 개인용 라이브러리 유지보수</h1>
+<div class="body taskbody"><p class="shortdesc">UNIX
+컨덕터의 개인용 라이브러리는 자주 사용되는 필터 파일, 보기 파일 및 이벤트
+목록 구성 파일을 여는 시작점으로 액세스하기 쉬운 위치를 제공합니다.
+<span class="keyword">Tivoli Netcool/OMNIbus</span>
+파일을 개인용 라이브러리에 추가하고 연관된 애플리케이션을 빨리 열 수 있으며, 더 이상 필요하지 않은 파일을
+제거할 수 있습니다.</p>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_addingfilestopersonallib.html">개인용 라이브러리에 파일 추가</a></span><br />
+자주 사용되는 파일의 라이브러리를 확립하기 위해 개인용 라이브러리를
+디렉토리 브라우저 유틸리티와 연계하여 사용할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_creatingsymlinksinpersonallib.html">개인용 라이브러리의 기호 링크 작성</a></span><br />
+로컬 UNIX
+시스템의 파일에 대해 개인용 라이브러리에서 기호 링크를 작성할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_startinganappfrompersonallib.html">개인용 라이브러리에서 애플리케이션 시작</a></span><br />
+개인용 라이브러리에서 필터 빌더, 보기 빌더 및 이벤트 목록을 시작할 수 있습니다.
+또한 기호 링크로 표시되는 파일에 대한 작업을 수행할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_removingfilesfrompersonallib.html">개인용 라이브러리에서 파일 제거</a></span><br />
+파일이 더 이상 개인용 라이브러리에 있어야 할 필요가 없는 경우
+마우스 가운데 단추로 끌어놓기 기법을 사용하여 해당 파일을 개인용 라이브러리에서
+디렉토리 브라우저로 돌려보낼 수 있습니다.
+또한 개인용 라이브러리에서 파일을 삭제할 수도 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_viewingfullcontentsofpersonallib.html">개인용 라이브러리의 전체 내용 보기</a></span><br />
+때로는 현재 이 위치에 보유되어 있으나 기본적으로 표시되지 않는
+특정 파일을 표시하기 위해 개인용 라이브러리를 새로 고치기 또는 업데이트하려 할 수 있습니다.</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_configuringqckaccessfilters.html" title="UNIX 컨덕터에서 로컬 UNIX 시스템 디렉토리의 내용 열람 및 경보 관리에 사용하기 위한 필터 파일, 보기 파일 및 이벤트 목록 구성 파일에 쉽게 액세스할 수 있습니다.">UNIX에서 필터, 보기 및 이벤트 목록 구성에 대한 빠른 액세스 구성</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

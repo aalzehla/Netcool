@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Configurando o nível de criação de log" />
+<meta name="abstract" content="É possível alterar o nível de criação de log para fornecer um log mais detalhado ou rastrear arquivos para ajudar na depuração do MIB Manager. As informações adicionais fornecidas por meio do aumento dos níveis de criação de log poderão ajudá-lo quando da depuração de problemas específicos ao analisar MIBs." />
+<meta name="Description" content="É possível alterar o nível de criação de log para fornecer um log mais detalhado ou rastrear arquivos para ajudar na depuração do MIB Manager. As informações adicionais fornecidas por meio do aumento dos níveis de criação de log poderão ajudá-lo quando da depuração de problemas específicos ao analisar MIBs." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="pt-br" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versão 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configurando o nível de criação de log</h1>
+<div class="body refbody"><p class="shortdesc">É possível alterar o nível de criação de log para fornecer um log mais detalhado
+ou rastrear arquivos para ajudar na depuração do <span class="keyword">MIB Manager</span>. As informações adicionais fornecidas
+por meio do aumento dos níveis de criação de log poderão ajudá-lo quando da depuração de problemas específicos ao analisar MIBs.</p>
+<div class="section"><p class="p">Para alterar o nível de criação de log, clique em <span class="ph menucascade"><span class="ph uicontrol">Editar</span> &gt; <span class="ph uicontrol">depurar</span></span> a partir barra de menus da janela principal. Os arquivos de log têm seis níveis de mensagem com as quais é possível fazer ciclos para aumentar o nível de detalhamento que for capturado: nenhum, erro, aviso,
+informações, depuração e detalhamento.</p>
+<p class="p">A tabela a seguir fornece uma breve descrição de cada nível de criação de log:</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Tabela 1. Uma lista de níveis de criação de log com as descrições associadas</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d19770e36">Nível de log</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d19770e38">Descrição</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d19770e36 ">nenhum</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d19770e38 "><p class="p">Especifica um nível de criação de log no qual nenhuma mensagem de derpuração é de saída. </p>
+<p class="p">O desempenho do aplicativo é melhorado mas nenhuma mensagem de erro ou aviso é exibido durante a análise.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d19770e36 ">erro</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d19770e38 "><p class="p">Especifica um nível de criação de log no qual somente erros que afetam os resultados são registrados.</p>
+<p class="p">Isso inclui qualquer erro
+identificado pelo <span class="keyword">MIB Manager</span> que resultaria em dados incorretos sendo exibidos
+na janela principal. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d19770e36 ">aviso</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d19770e38 "><p class="p">Especifica um nível de criação de log no qual avisos e mensagens de erro são registrados.</p>
+<p class="p">Um aviso indica uma condoção que poderia resultar em dados errados e portanto devem ser verificados. Entretanto,
+a condição não fará com que os dados sejam corrompidos.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d19770e36 ">informações</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d19770e38 "><p class="p">Especificar um nível de criação de log no qual mensagens críticas, informativas e de aviso são registradas.</p>
+<p class="p">Mensagens informativas contém detalhes concernentes de progresso de tarefas em geral. Por exemplo,
+fornece o texto completo de objetos à medida em que estão sendo analisados.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d19770e36 ">depuração</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d19770e38 "><div class="p">Especifica um nível de log na qual todas as mensagens estão registradas. <div class="note note"><span class="notetitle">Nota:</span> Somente execute o <span class="keyword">MIB Manager</span> no modo de depuração quando você estiver tentando resolver
+uma condição de erro. O volume de dados produzido
+quando da análise de apenas um número moderado de MIBs irá preencher rapidamente o sistema de arquivos.</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d19770e36 ">detalhado</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d19770e38 "><p class="p">Especifica um nível de log na qual todas as mensagens de informações estão registradas.</p>
+<p class="p">Uma mensagem detalhada inclui o estado das variáveis, matrizes e hashes à medida em que mudam o valor e estado.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tópico pai:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="Use as preferências de criação de log para especificar o diretório de arquivo de log do MIB Manager e para configurar o nível de mensagem padrão.">Configurando as preferências de criação de log</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Suporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

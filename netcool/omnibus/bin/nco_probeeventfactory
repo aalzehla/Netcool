@@ -1,0 +1,152 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2012. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# Create event in a probe using http interface.
+#
+# 5.50.40
+#
+
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+	echo "Cannot find nco_common" 1>&2
+	exit 1
+fi
+
+. $NCO_COMMON
+		
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+help() {
+	echo "usage: `basename $1` [options] [name=value]..."
+	echo
+	echo "where options can be:"
+	echo
+	echo "	-help		Print this help text"
+	echo "	-host		Hostname of probe"
+	echo "	-messagelevel	Message logging level (default: INFO)"
+	echo "	-password	Password to use for http authentication"
+	echo "	-port		Port number of probe"
+	echo "	-ssl		Use https rather than http"
+	echo "	-timeout	Timeout for http response"
+	echo "	-username	Username to use for http authentication"
+	echo
+	echo "This is then followed by a set of name value pair for the event"
+	echo
+	exit 0
+}
+
+OMNIUSERNAME=""
+OMNIPASSWORD=""
+OMNISSL=0
+OMNIHOST=""
+OMNIPORT=""
+OMNILEVEL="info"
+OMNITIMEOUT="20"
+DATA="{ \"eventfactory\": [{"
+COMMA=
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+	-ssl)
+		OMNISSL=1
+		;;
+	-messagelevel)
+		if [ $# -lt 2 ]; then
+			err "$1 option requires an argument"
+		fi
+		shift	
+		OMNILEVEL="$1"
+		;;
+	-username)
+		if [ $# -lt 2 ]; then
+			err "$1 option requires an argument"
+		fi
+		shift	
+		OMNIUSERNAME="$1"
+		;;
+	-password)
+		if [ $# -lt 2 ]; then
+			err "$1 option requires an argument"
+		fi
+		shift	
+		OMNIPASSWORD="$1"
+		;;
+	-host)
+		if [ $# -lt 2 ]; then
+			err "$1 option requires an argument"
+		fi
+		shift
+		OMNIHOST="$1"
+		;;
+	-port)
+		if [ $# -lt 2 ]; then
+			err "$1 option requires an argument"
+		fi
+		shift
+		OMNIPORT="$1"
+		;;
+	-timeout)
+		if [ $# -lt 2 ]; then
+			err "$1 option requires an argument"
+		fi
+		shift
+		OMNITIMEOUT="$1"
+		;;
+	-he*|-H|-?)
+		help $0 2>&1
+		;;
+	-*)
+		err "unknown option $1"
+		;;
+	*)
+		NV=`echo $1 | sed -e 's/"/\\"/g' -e 's/^\(.*\)=\(.*\)$/"\1": "\2"/'`
+		if [ "$NV" = "" ]; then
+			err "missing = in $1"
+		fi
+		DATA=${DATA}${COMMA}${NV}
+		COMMA=,
+	esac
+	shift
+done
+
+if [ "$OMNIHOST" = "" ]; then
+	err "-host is required"
+fi
+
+if [ "$OMNISSL" -ne 0 ]; then
+	PROTO=https
+else
+	PROTO=http
+fi
+
+if [ "$OMNIPORT" != "" ]; then
+	PORT=":${OMNIPORT}"
+fi
+
+DATA=${DATA}"} ] }"
+URI=${PROTO}://${OMNIHOST}${PORT}/probe/common
+
+if [ "${OMNIUSERNAME}" != "" ]; then
+exec $NCHOME/omnibus/bin/nco_http -datatype application/json -data "${DATA}" \
+	-method POST -uri "${URI}" -messagelevel "${OMNILEVEL}" \
+	-username "${OMNIUSERNAME}" -password "${OMNIPASSWORD}" \
+	-timeout "${OMNITIMEOUT}"
+else
+exec $NCHOME/omnibus/bin/nco_http -datatype application/json -data "${DATA}" \
+	-method POST -uri "${URI}" -messagelevel "${OMNILEVEL}" \
+	-timeout "${OMNITIMEOUT}"
+fi

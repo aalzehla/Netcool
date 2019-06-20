@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="事件列表监视器框" />
+<meta name="abstract" content="根据系统管理员的配置，使用此窗口可查看一个或多个类别的警报信息。 每个警报类别由一个监视器框来描述，该框表示为事件列表创建的过滤器和视图。 过滤器使您可以基于特定的条件显示警报的子集。 视图使您可以选择要显示的警报字段。" />
+<meta name="description" content="根据系统管理员的配置，使用此窗口可查看一个或多个类别的警报信息。 每个警报类别由一个监视器框来描述，该框表示为事件列表创建的过滤器和视图。 过滤器使您可以基于特定的条件显示警报的子集。 视图使您可以选择要显示的警报字段。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_indicatingeventinmaint.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_escalatingdeescalating.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_addingeventstotasklist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitorboxoverview.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_eventlistmonitorboxwindow" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>事件列表监视器框</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_eventlistmonitorboxwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">事件列表监视器框</h1>
+<div class="body refbody"><p class="shortdesc">根据系统管理员的配置，使用此窗口可查看一个或多个类别的警报信息。 每个警报类别由一个<dfn class="term">监视器框</dfn>来描述，该框表示为事件列表创建的过滤器和视图。 过滤器使您可以基于特定的条件显示警报的子集。 视图使您可以选择要显示的警报字段。</p>
+<div class="section"><div class="p">“<span class="keyword wintitle">事件列表</span>”监视器框窗口包含以下区域：<ul class="ul"><li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea">监视器框区域</a></li>
+<li class="li"><a class="xref" href="#netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar">状态栏</a></li>
+</ul>
+</div>
+<div class="note tip" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorboxwindow_note"><span class="tiptitle">提示：</span> “<span class="keyword wintitle">事件列表</span>”监视器框窗口的标题栏显示当前事件列表配置的名称。 </div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_monitorboxarea"><h2 class="title sectiontitle">监视器框区域</h2><div class="p">该区域显示监视器框，其表示可以应用于关联事件列表的特定过滤器和所选的视图。 在系统上显示的监视器框可能有所不同，这取决于您的系统管理员对系统的配置方式。 缺省的“<span class="keyword wintitle">事件列表</span>”监视器框窗口包含各个监视器框的以下过滤器定义：<dl class="dl" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_defaultmonitorboxes"><dt class="dt dlterm">前 10 分钟。</dt>
+<dd class="dd">该过滤器显示除 ProbeWatch、TSMWatch 和 ConnectionWatch 之外的所有警报。 结果与<span class="ph uicontrol">缺省</span>过滤器的结果基本相同，区别在于<span class="ph uicontrol">最后 10 分钟</span>过滤器仅显示最后 10 分钟内发生的警报。</dd>
+<dt class="dt dlterm">正在维护</dt>
+<dd class="dd">该过滤器显示已由操作员指示为“正在维护”的警报。 </dd>
+<dt class="dt dlterm">已升级</dt>
+<dd class="dd">该过滤器显示已由操作员升级的警报。 </dd>
+<dt class="dt dlterm">信息</dt>
+<dd class="dd">该过滤器显示已标识为“信息”警报的警报。
+“信息”警报就是：<ul class="ul"><li class="li">已由探测器指定为“信息”警报的警报</li>
+<li class="li">除 ProbeWatch、TSMWatch 或 ConnectionWatch 警报之外的警报</li>
+<li class="li">已设置升级等级的警报 </li>
+</ul>
+</dd>
+<dt class="dt dlterm">任务列表</dt>
+<dd class="dd">该过滤器显示已添加到操作员任务列表的警报。 </dd>
+<dt class="dt dlterm">Netcool® 状态</dt>
+<dd class="dd">该过滤器只显示 ProbeWatch、TSMWatch 和 ConnectionWatch 警报。</dd>
+<dt class="dt dlterm">缺省值</dt>
+<dd class="dd">该过滤器显示除 ProbeWatch、TSMWatch 和 ConnectionWatch 之外的所有警报。</dd>
+<dt class="dt dlterm">所有事件</dt>
+<dd class="dd">该过滤器显示所有警报。</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_eventlistmonitorboxwindow__netom_eventlistmonitorbox_statusbar"><h2 class="title sectiontitle">状态栏</h2><div class="p">状态栏显示：<ul class="ul"><li class="li">状态消息</li>
+<li class="li">用于登录会话的当前用户名</li>
+<li class="li">您当前所连接到的 ObjectServer，以及这是主（<samp class="ph tt">PRI</samp>）服务器，还是备份（<samp class="ph tt">BAK</samp>）服务器</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>相关概念</strong>:<br />
+<div><a class="link" href="omn_usr_el_monitorboxoverview.html" title="事件列表监视器框窗口上的监视器框将显示过滤器和所选的视图，创建过滤器和视图的目的在于确定要显示事件列表中的哪些警报记录和列。 监视器框将以其关联的过滤器命名。">监视器框概述</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="可以保存为“事件列表”监视器框窗口上的所有监视器框定义的过滤器、视图以及其他事件配置。 该信息保存在事件列表配置（.elc）文件中。">处理事件列表配置</a></div>
+<div><a class="link" href="omn_usr_el_indicatingeventinmaint.html" title="如果正在处理引发了事件的问题，那么可以在事件列表内指示该事件正在“维护中”。 “维护”优先级与“维护”事件列表过滤器结合使用。">指示事件正在“维护中”</a></div>
+<div><a class="link" href="omn_usr_el_escalatingdeescalating.html" title="可以在特定条件下升级事件列表内的事件，例如当您需要令事件引起关注以便不同级别的支持人员可以对其进行管理时。 升级和取消升级事件与已升级事件列表过滤器结合使用。">升级和取消升级事件</a></div>
+<div><a class="link" href="omn_usr_el_addingeventstotasklist.html" title="可以使用任务列表来确定需要特别注意的事件。 将事件添加至与“任务列表”事件列表过滤器结合使用的任务列表。">将事件添加至任务列表</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

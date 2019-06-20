@@ -1,0 +1,39 @@
+#NCO_CONFIG3
+#
+# __OEM__ Event List Configuration File __VERSION__
+#
+# Ident: $Id: minimal.elc 1.1 2003/04/15 15:56:07 nick Development $
+#
+
+config_name = 'çßÝÃÔ«';
+config_columns = 4;
+views = {
+{
+view_name = 'çßÝÃÔ«';
+columns = {
+{ Node, 'åçöµ', 15, centre, left }
+{ AlertKey, 'úÀÆüõï', 15, centre, left }
+{ Summary, 'èòÓÑ', 30, centre, left }
+{ LastOccurrence, 'Ð©È¹àõÆí', 18, centre, centre }
+{ Tally, 'ÓÓí°', 6, centre, centre }
+num_fixed = 0;
+}
+sorting = {
+{ Node, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = 'çßÝÃÔ«';
+filter_text = '';
+filter_metric = 'avg(Severity)';
+default = 'çßÝÃÔ«';
+windows = {
+none
+}
+}
+}
+
+# End of file

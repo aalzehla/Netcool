@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool/OMNIbus 設定 (Netcool/OMNIbus Settings)" />
+<meta name="abstract" content="このウィンドウは、Windows 上の Tivoli Netcool/OMNIbus のプロパティーおよびサーバー通信情報の構成に使用します。 このウィンドウが提供する単一の管理しやすい作業環境から、これらの機能に素早くアクセスできます。" />
+<meta name="Description" content="このウィンドウは、Windows 上の Tivoli Netcool/OMNIbus のプロパティーおよびサーバー通信情報の構成に使用します。 このウィンドウが提供する単一の管理しやすい作業環境から、これらの機能に素早くアクセスできます。" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_settingswindow" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Netcool/OMNIbus 設定 (Netcool/OMNIbus Settings)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_settingswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Netcool/OMNIbus 設定 (Netcool/OMNIbus Settings)</h1>
+<div class="body refbody"><p class="shortdesc">このウィンドウは、Windows 上の <span class="keyword">Tivoli Netcool/OMNIbus</span> のプロパティーおよびサーバー通信情報の構成に使用します。 このウィンドウが提供する単一の管理しやすい作業環境から、これらの機能に素早くアクセスできます。</p>
+<div class="section">「<span class="keyword wintitle">Netcool/OMNIbus 設定</span>」ウィンドウには、以下のタブが含まれています。<ul class="ul"><li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_overviewtab">「概要」タブ</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_serverstab">「サーバー」タブ</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_propertiestab">「プロパティー」タブ</a></li>
+</ul>
+<div class="note note"><span class="notetitle">注:</span> 「<span class="keyword wintitle">サーバー・エディター</span>」ウィンドウが開いている場合、<span class="ph uicontrol">「サーバー」</span>タブは表示されません。
+「<span class="keyword wintitle">プロパティー・エディター</span>」ウィンドウが開いている場合、
+<span class="ph uicontrol">「プロパティー」</span>タブは表示されません。</div>
+<div class="note tip" id="netom_settingswindow__netom_settings_tip"><span class="tiptitle">ヒント:</span> 1 つのタブの内容を変更した後で、変更を保存しないで別のタブを開こうとすると、変更を保存するか取り消すかの選択を求めるプロンプトが出されます。 いつの時点でも、<span class="ph uicontrol">「OK」</span>ボタンをクリックすると、すべての変更を保存し、ウィンドウを閉じることができます。<span class="ph uicontrol">「キャンセル」</span>ボタンをクリックすると、変更を保存しないでウィンドウを閉じることができます。 ウィンドウを閉じないでタブへの変更を保存する場合は、<span class="ph uicontrol">「適用」</span>ボタンをクリックします。</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_overviewtab"><h2 class="title sectiontitle">「概要」タブ</h2><p class="p"><span class="ph uicontrol">「概要」</span>タブを使用して、<span class="keyword">Tivoli Netcool/OMNIbus</span> サーバー・ロケーションおよびプロパティー・ファイルについての簡単な概要を取得します。</p>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_serverstab"><h2 class="title sectiontitle">「サーバー」タブ</h2><div class="p">このタブは、サーバー・コンポーネントに関する通信の詳細の作成および変更、サーバー・アクティビティーのテスト、およびバックアップ (またはフェイルオーバー) サーバーおよびリスナーの追加に使用します。 サーバー・コンポーネントには、ObjectServer、ゲートウェイ、プロセス・エージェント、プロキシー・サーバーなどがあります。 このタブには、サーバー・エディターと同じ機能があります。 <span class="ph uicontrol">「サーバー」</span>タブは、以下のように入力してください。<dl class="dl" id="netom_settingswindow__netom_settingsservfields"><dt class="dt dlterm"><em class="ph i">サーバー・リスト</em></dt>
+<dd class="dd">サーバー・リストは、既存のサーバー・コンポーネントとその設定を示します。<dl class="dl"><dt class="dt dlterm">サーバー</dt>
+<dd class="dd">この列には、このワークステーション用に定義されている各サーバーの名前が表示されます。 デフォルトのサーバー名は以下のとおりです。<ul class="ul"><li class="li">NCOMS: ObjectServer のデフォルト名</li>
+<li class="li">NCO_PROXY: プロキシー・サーバーのデフォルト名</li>
+<li class="li">NCO_GATE: ゲートウェイのデフォルト名</li>
+<li class="li">NCO_PA: プロセス・エージェントのデフォルト名</li>
+</ul>
+</dd>
+<dd class="dd">サーバーのホスト・ワークステーションには <dfn class="term">listener</dfn> 項目が必要です。また、ホスト・ワークステーションおよびサーバーに接続する他のすべてのワークステーションには <dfn class="term">client</dfn> 項目が必要です。</dd>
+<dd class="dd">バックアップの ObjectServer は、サーバー・エディターでは 1 次 ObjectServer の下に表示されます。 バックアップの ObjectServer のリストを非表示にするには、1 次 ObjectServer の名前かサーバー・アイコンをダブルクリックします。 バックアップの ObjectServer は非表示になり、サーバー・アイコンに <em class="ph i">C</em> の文字が表示されます。 バックアップの ObjectServer を再度表示するには、もう一度ダブルクリックしてください。 サーバー・アイコンも通常の表示に戻ります。 </dd>
+<dt class="dt dlterm">ホスト</dt>
+<dd class="dd">この列には、サーバー・コンポーネントがインストールされているワークステーションのホスト名または IP アドレスが表示されます。 デフォルトはホスト名です。</dd>
+<dt class="dt dlterm">ポート</dt>
+<dd class="dd">この列には、サーバー・コンポーネントが暗号化されていない接続の listen を行うポートが表示されます。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">接続が暗号化されていれば、この列には <samp class="ph tt">yes</samp> と表示されます。
+暗号化されている接続と暗号化されていない接続の両方に同じポート番号が使用されます。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">サーバー項目フィールド</dt>
+<dd class="dd">サーバー項目フィールドは、各サーバー・コンポーネントの詳細の入力または編集に使用します。 既存のサーバー・コンポーネントの詳細を編集する場合は、まず最初にサーバー・リストから該当する行を選択し、その詳細をサーバー項目フィールドに表示する必要があります。 <dl class="dl"><dt class="dt dlterm">名前</dt>
+<dd class="dd">新規サーバー・コンポーネントの名前を入力するか、既存のコンポーネントの名前を編集します。 ドロップダウン・リストから名前を選択することもできます。 コンポーネントの名前を指定する際に使用するサフィックスは、プロキシー・サーバーの場合は _PROXY、ゲートウェイの場合は _GATE、プロセス制御エージェントの場合は _PA です。<div class="note note"><span class="notetitle">注:</span> サーバー項目の名前は、29 文字以下の大文字で入力する必要があります。最初の文字を整数にすることはできません。</div>
+</dd>
+<dt class="dt dlterm">ホスト</dt>
+<dd class="dd">サーバー・コンポーネントがインストールされているワークステーションのホスト名または IP アドレスを入力または編集します。 </dd>
+<dd class="dd">IP アドレスを入力する場合は、IPv4 または IPv6 アドレスを指定できます。
+例えば、以下のようになります。<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">ポート</dt>
+<dd class="dd">有効な未使用のポート番号を入力します。</dd>
+<dt class="dt dlterm">リスナー</dt>
+<dd class="dd">サーバーのホスト・ワークステーションのリスナー項目の場合は、このチェック・ボックスを選択してチェック・マークを付けます。 クライアントについて入力する場合は、<span class="ph uicontrol">「リスナー」</span>チェック・ボックスのチェック・マークを外します。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">SSL を使用するクライアントからの暗号化されている接続をそのポートで受け入れるように指示するには、このチェック・ボックスを選択してチェック・マークを付けます。 暗号化されている接続と暗号化されていない接続に同じポート番号が使用されます。</dd>
+<dt class="dt dlterm">追加</dt>
+<dd class="dd">サーバー・リストに新規 (および固有) のサーバーの詳細を追加するには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">削除/更新</dt>
+<dd class="dd">このボタンは、現在選択されているサーバー・コンポーネントを変更したかどうかに基づいて変更されます。 現在選択されているサーバー・コンポーネントをサーバー・リストから削除する場合は、<span class="ph uicontrol">「削除」</span>をクリックします。 サーバー・リストを最新表示して、既存のサーバー・コンポーネントの詳細に対する更新を反映させるには、<span class="ph uicontrol">「更新」</span>をクリックします。</dd>
+<dt class="dt dlterm">テスト</dt>
+<dd class="dd">サーバー・リストで選択されているサーバーへの接続が可能かどうかをテストするには、このボタンをクリックします。 サーバー・エディターは、指定されたホストおよびポートの上にあるサーバーへの接続を試行します。 テスト・コマンドの結果を表示するウィンドウが表示されます。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">優先順位</dt>
+<dd class="dd">サーバーの優先順位フィールドを使用することで、フェイルオーバー・システムとして構成されているサーバー・コンポーネントの優先順位を上げたり下げたりすることができます。 例えば、NCOMS_PRI という ObjectServer が、NCOMS_BAK というバックアップとともに構成されているとします。 <span class="ph uicontrol">「上げる」</span>または<span class="ph uicontrol">「下げる」</span>ボタンを使用することで、NCOMS_BAK の優先順位を上げて 1 次 ObjectServer とし、NCOMS_PRI をバックアップにすることができます。<dl class="dl"><dt class="dt dlterm">上げる</dt>
+<dd class="dd">選択されているサーバー・コンポーネントの優先順位を 1 段階上げるには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">下げる</dt>
+<dd class="dd">選択されているサーバー・コンポーネントの優先順位を 1 段階下げるには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">グループを表示</dt>
+<dd class="dd">サーバー・リスト内の各サーバーを名前でグループ化し、識別されたバックアップ・サーバーおよびリスナーをクライアント項目の後に表示するには、このチェック・ボックスを選択してチェック・マークを付けます。</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_propertiestab"><h2 class="title sectiontitle">「プロパティー」タブ</h2><div class="p">このタブを使用して、ObjectServer、プロキシー・サーバー、データベース初期化ユーティリティー (<span class="keyword cmdname">nco_dbinit</span>)、Confpack ユーティリティー (<span class="keyword cmdname">nco_confpack</span>)、Netcool/OMNIbus Administrator (nco_config)、プローブ、およびゲートウェイのプロパティー・ファイルに含まれる情報を編集します。
+新規プロパティー・ファイルを作成することもできます。 このタブには、プロパティー・エディターと同じ機能があります。 <span class="ph uicontrol">「プロパティー」</span>タブは、以下のように入力してください。<dl class="dl" id="netom_settingswindow__netom_settingspropfields"><dt class="dt dlterm">タイプ</dt>
+<dd class="dd">以下のオプションのいずれかを選択してください。<ul class="ul"><li class="li">ObjectServer やプロキシー・サーバーなどのコンポーネントのプロパティー・ファイルを編集するには、<span class="ph uicontrol">「ObjectServer」</span>を選択する。 <span class="ph uicontrol">「名前」</span>ドロップダウン・リストに該当するファイルが取り込まれます。 これらのファイルは通常、<span class="ph filepath">%NCHOME%¥omnibus¥etc</span> ディレクトリーに保管されています。</li>
+<li class="li">プローブ・プロパティー・ファイルを編集するには、<span class="ph uicontrol">「プローブ」</span>を選択する。
+<span class="ph uicontrol">「名前」</span>ドロップダウン・リストに該当するファイルが取り込まれます。 これらのファイルは通常、<span class="ph filepath">%NCHOME%¥omnibus¥probes¥win32</span> ディレクトリーに保管されています。</li>
+<li class="li">新規プロパティー・ファイルを追加するには、<span class="ph uicontrol">「サーバー」</span>を選択する。
+これらのファイルは、<span class="ph filepath">%NCHOME%¥omnibus¥ini</span> ディレクトリーに保存されます。
+<span class="ph uicontrol">「名前」</span>ドロップダウン・リストにテキスト <samp class="ph codeph">&lt;New File&gt;</samp> が取り込まれます。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">名前</dt>
+<dd class="dd">ドロップダウン・リストから編集するプロパティー・ファイルを選択します。 このリストに取り込まれる内容は、<span class="ph uicontrol">「タイプ」</span>ドロップダウン・リストから何を選択するかによって異なります。 デフォルト値は以下のとおりです。 <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit</span>: データベースの初期化の始動時に読み取られるプロパティー・ファイル (データベースを初期化するには、<span class="keyword cmdname">nco_dbinit</span> を実行します。)</li>
+<li class="li"><span class="ph filepath">NCO_PROXY</span>: プロキシー・サーバーのプロパティー・ファイル (プロキシー・サーバーは、ObjectServer へのプローブ接続の数を削減するために使用できます。)</li>
+<li class="li"><span class="ph filepath">nco_confpack</span>: Confpack のプロパティー・ファイル (<span class="keyword cmdname">nco_confpack</span> は、ObjectServer 構成のインポートおよびエクスポートに使用されます。)</li>
+<li class="li"><span class="ph filepath">nco_config</span>: <span class="keyword">Netcool/OMNIbus Administrator</span> のプロパティー・ファイル</li>
+<li class="li"><span class="ph filepath">NCOMS</span>: ObjectServer のプロパティー・ファイル</li>
+</ul>
+</dd>
+<dd class="dd"><span class="ph filepath">.props</span> ファイル拡張子は表示されません。<span class="ph uicontrol">「名前」</span>リストでファイルを選択すると、プロパティー・リストに使用可能なプロパティーが自動的に取り込まれます。</dd>
+<dt class="dt dlterm"><em class="ph i">プロパティー・リスト</em></dt>
+<dd class="dd">このマトリックスは、プロパティー・ファイルに追加されたプロパティーの詳細を示します。 このリストからプロパティーを選択して、変更することができます。 プローブ・プロパティー・ファイルで事前定義されているプロパティーのデフォルト・セットは、除去できません。
+これらのプロパティーは、プロパティー・リストで灰色表示されます。</dd>
+<dt class="dt dlterm">名前</dt>
+<dd class="dd">このフィールドは、編集するためにプロパティー・リストから選択されたプロパティーの名前を示します。 既存のプロパティーの名前は変更できません。 ドロップダウン・リストから編集するプロパティーを選択することもできます。 </dd>
+<dd class="dd">選択されたプロパティー・ファイルに新規プロパティーを追加する場合は、ここにプロパティーの名前を入力します。 </dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option">サーバー</span>」を選択した場合は、ここに新規プロパティーの名前を入力します。</dd>
+<dt class="dt dlterm">値</dt>
+<dd class="dd">選択された既存のプロパティー・ファイルで作業している場合は、選択されたプロパティーの値を編集するか、追加する新規プロパティーの値を入力します。</dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option">サーバー</span>」を選択した場合は、新規プロパティーの値を入力します。</dd>
+<dt class="dt dlterm">追加/更新</dt>
+<dd class="dd">このボタンは、プロパティーを追加するか既存のプロパティーを編集するかに応じて変更されます。 新規プロパティーの名前および値を入力する場合は、<span class="ph uicontrol">「追加」</span>をクリックしてプロパティー・リストに値を追加します。 プロパティー・リストで選択したプロパティーの値を変更する場合は、<span class="ph uicontrol">「更新」</span>をクリックしてプロパティー・リストの値を更新します。</dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option"> サーバー</span>」を選択した場合は、<span class="ph uicontrol">「追加」</span>をクリックして新規プロパティーを追加します。</dd>
+<dt class="dt dlterm">削除</dt>
+<dd class="dd">選択したプロパティーをプロパティー・ファイルから削除するには、このボタンをクリックします。 デフォルト・プロパティーを選択した場合、このボタンは使用不可です。</dd>
+<dt class="dt dlterm">保存</dt>
+<dd class="dd">プロパティー・ファイルへの変更を保存するには、このボタンをクリックします。</dd>
+<dd class="dd">新規プロパティー・ファイルを作成するために<span class="ph uicontrol">「タイプ」</span>リストから「<span class="keyword option">サーバー</span>」を選択した場合は、プロパティー・リストに新規プロパティーを追加した後で<span class="ph uicontrol">「保管」</span>をクリックします。 「<span class="keyword wintitle">新規プロパティーの保管</span>」ウィンドウから、プロパティー・ファイルの名前を入力します。<span class="ph filepath">.props</span> 拡張子は自動的に追加されるので、入力は省略します。 <span class="ph uicontrol">「保存」</span>をクリックして、ファイルを <span class="ph filepath">%NCHOME%¥omnibus¥ini</span> ディレクトリーに保存します。 <span class="ph uicontrol">「タイプ」</span>フィールドに隣接する<span class="ph uicontrol">「名前」</span>フィールドにプロパティー・ファイル名が表示され、このファイルへのプロパティーの追加を続行できます。 指定するプロパティーのストリング値に引用符を追加するために、このファイルを編集する必要があります。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

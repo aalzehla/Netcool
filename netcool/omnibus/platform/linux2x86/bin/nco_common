@@ -1,0 +1,511 @@
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 1997, 2015. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+#
+# Common routines for scripts
+#
+# 5.50.40
+#
+
+#######################################
+# error message function
+#######################################
+err () {
+	echo "Error: $@" 1>&2
+	exit 1
+}
+
+#######################################
+# warning message function
+#######################################
+warn () {
+	echo "Warning: $@" 1>&2
+}
+
+#######################################
+# debug message function
+#######################################
+debug () {
+	if [ ! -z "$DEBUG" ]; then
+		echo "Debug: $@" 1>&2
+	fi
+}
+
+#######################################
+# Prompt for a value
+#######################################
+f_ANSWER()
+{
+	printf "%s " "$1"
+	if [ "$2" != "" ] ; then
+		printf "[%s] " "$2"
+	fi 
+	if [ "${DEFAULT:-0}" -eq 0 ] ; then
+		read ANSWER
+	else
+		printf "%s\n" "$2"
+	fi
+	if [ "$ANSWER" = "" ] ; then
+		ANSWER="$2"
+	fi
+}
+
+#######################################
+# Get a yes/no answer
+#######################################
+f_YN()
+{
+	YN=""
+	while [ -z "$YN" ]
+	do
+		f_ANSWER "$1 (y/n)?" "$2"
+		YN="$ANSWER"
+		case "$YN" in
+		"")
+			YN=$2;;
+		[Yy]|[Yy][Ee][Ss])
+			YN="y";;
+		[Nn]|[Nn][Oo])
+			YN="n";;
+		*)
+			YN="";;
+		esac
+	done
+}
+
+
+#######################################
+# Get platform
+#######################################
+f_CHECKOS ()
+{
+	SYSTEM=`uname -s`
+	OSVERSION=`uname -v`
+	RELEASE=`uname -r`
+
+	case $SYSTEM in
+	SunOS)
+		MAJOR=`echo $RELEASE | sed 's/\(.\).*/\1/'`
+		if [ "4." = $MAJOR ]; then
+			err "Unsupported version of SunOS"
+		fi
+
+		PROCESSOR=`uname -p`
+
+		case $PROCESSOR in
+		sparc)
+			if [ ` echo $RELEASE | cut -f2 -d. ` -gt 5 ]; then
+				# Post 2.5 may have special binaries
+				SUFFIX=_2.6
+			fi
+			ARCH=solaris2
+			;;
+		*)
+			err "Unsupported processor for Solaris 2.x"
+			;;
+		esac
+
+		KERN_ARCH=`isainfo -v | grep "64-bit"`
+		if [ "$?" -eq "0" ]; then
+			KERN_ARCH=64
+		else
+			KERN_ARCH=32
+		fi
+		;;
+	AIX)
+		case $OSVERSION in
+		4)
+			ARCH=aix4
+			;;
+		5|6|7)
+			ARCH=aix5
+			;;
+		*)
+			err "Unsupported version of AIX"
+			;;
+		esac
+		KERN_ARCH=32
+		;;
+	HP-UX)
+		RNUMBER=`echo $RELEASE | sed -e 's/.\.\(..\)\..*/\1/'`
+		case $RNUMBER in
+		10)
+			ARCH=hpux10
+			;;
+		11)
+			if [ `uname -m` = "ia64" ]; then
+				ARCH=hpux11hpia
+			else
+				ARCH=hpux11
+			fi
+			;;
+		*)
+			err "Unsupported version of HP-UX"
+			;;
+		esac
+		KERN_ARCH=32
+		;;
+	Linux)
+		ARCH=`uname -m`
+		if [ "$ARCH" = "x86_64" ]; then
+			KERN_ARCH=64
+		else
+			KERN_ARCH=32
+		fi
+		RMAJOR=`echo $RELEASE | sed 's/\(.\).*/\1/'`
+		if [ "$RMAJOR" = "3" ]; then
+			#3.x linux kernel does not break
+			#binary compatibility with 2.x
+			RMAJOR="2"
+		fi
+		case $ARCH in
+		i*86|x86*)
+			ARCH=linux"$RMAJOR"x86
+			;;
+		s390*)
+			ARCH=linux"$RMAJOR"s390
+			;;
+		*)
+			err "Unsupported processor for Linux"
+			;;
+		esac
+		;;
+	*)
+		err "Unsupported platform"
+		;;
+	esac
+}
+
+#######################################
+# Get OMNIHOME
+#######################################
+f_OMNIHOME ()
+{
+	export OMNIHOME
+	export NCHOME
+	
+	# Make a guess based on the binary path
+	DIRNAME=`dirname $1`
+	GUESS=`cd $DIRNAME/../../../.. && pwd`
+	debug GUESS=$GUESS
+
+	# If NCHOME is not set, use guess
+	if [ -z "$NCHOME" ]; then
+		NCHOME=${GUESS}
+	fi
+
+	# Check that NCHOME exists
+	if [ ! -d "$NCHOME" ]; then
+		err "Cannot access NCHOME directory: $NCHOME"
+	fi
+
+	# Force OMNIHOME to be set relative to NCHOME
+	OMNIHOME="$NCHOME/omnibus"
+	
+	# Check that OMNIHOME also exists
+	if [ ! -d "$OMNIHOME" ]; then
+		err "Cannot access OMNIHOME directory: $OMNIHOME"
+	fi
+
+	# Make sure there is a RELEASE_ID
+	if [ ! -f "$OMNIHOME/RELEASE_ID" ]; then
+		err "No RELEASE_ID file in $OMNIHOME"
+	fi
+
+	# Do we have a 64 bit version
+	f_64BIT
+
+	# Set the architeture specific binary directory. This has changed 
+	# with the Netcool Common Installer introduced for 7.1
+	ARCH_BIN_DIR=$OMNIHOME/platform/$ARCH/bin$SUF
+	if [ ! -d "$ARCH_BIN_DIR" ]; then
+		err "Cannot access this platforms binary directory: $ARCH_BIN_DIR"
+	fi
+
+	# Set the common architeture specific binary directory. 
+	COMMON_ARCH_BIN_DIR=$NCHOME/platform/$ARCH/bin
+	if [ ! -d "$COMMON_ARCH_BIN_DIR" ]; then
+		err "Cannot access this platforms common binary directory: $COMMON_ARCH_BIN_DIR"
+	fi
+
+	# Set the legacy binary directory. This will only be used to run old patch installed apps. 
+	OLD_ARCH_BIN_DIR=$OMNIHOME/bin/$ARCH
+}
+
+#######################################
+# Find a binary in the given path
+#######################################
+find_binary()
+{
+	var=$1
+	binname=$2
+	shift;shift;
+	for path in "$@"
+	do
+		if [ -x "${path}/${binname}" ]; then
+			eval ${var}=${path}/${binname}
+			return
+		fi
+	done
+	warn Failed to find ${binname} in the following directories : "$@"
+	eval ${var}=${binname}
+}
+
+#######################################
+# whoami replacement if not available
+#######################################
+f_WHO_AM_I () {
+	$WHO am i | awk '{ print $1; }'
+}
+
+#######################################
+# Find standard tools
+#######################################
+f_FIND_TOOLS () {
+	if [ "solaris2" = "$ARCH" ]; then
+		BIN_PATHS="/bin /usr/xpg4/bin /usr/bin /usr/ucb"
+	else
+		BIN_PATHS="/bin /usr/bin"
+	fi
+	find_binary AWK awk ${BIN_PATHS}
+	find_binary CAT cat ${BIN_PATHS}
+	find_binary CP cp ${BIN_PATHS}
+	find_binary DATE date ${BIN_PATHS}
+	find_binary ECHO echo ${BIN_PATHS}
+	find_binary FIND find ${BIN_PATHS}
+	find_binary GREP grep ${BIN_PATHS}
+	find_binary HEAD head ${BIN_PATHS}
+	find_binary ID id ${BIN_PATHS}
+	find_binary LS ls ${BIN_PATHS}
+	find_binary MKDIR mkdir ${BIN_PATHS}
+	find_binary RM rm ${BIN_PATHS}
+	find_binary SED sed ${BIN_PATHS}
+	find_binary SUM sum ${BIN_PATHS}
+	find_binary TAIL tail ${BIN_PATHS}
+	find_binary TAR tar ${BIN_PATHS}
+	find_binary ZCAT zcat ${BIN_PATHS}
+	find_binary HOSTNAME hostname ${BIN_PATHS}
+	find_binary CUT cut ${BIN_PATHS}
+	find_binary WHO who ${BIN_PATHS}
+	find_binary WHOAMI whoami ${BIN_PATHS}
+	if [ "$WHOAMI" = "whoami" ]; then
+		warn "Using \"$WHO am i | $AWK '{ printf \$1; }'\" in place of whoami"
+		WHOAMI=f_WHO_AM_I
+	fi
+	unset BIN_PATHS
+	CD=cd
+
+	# NBS 017453
+	# /bin/echo on Linux is pants. Use -e flag to make it interpret
+	# '\<x>' escape sequences.
+	if [ "Linux" = "$SYSTEM" ]; then
+		ECHO="$ECHO -e"
+	fi
+}
+
+#######################################
+# See if we have a 64 bit binary
+#######################################
+f_64BIT() {
+	bin=`basename $0`
+	if [ -x $OMNIHOME/platform/$ARCH/bin64/$bin -o -x $OMNIHOME/platform/$ARCH/probes64/$bin -o -x $NCHOME/platform/$ARCH/bin64/$bin ]
+	then
+		if [ "64" = "$KERN_ARCH" ]; then
+			SUF=64
+		fi
+	fi
+}
+
+#######################################
+# Set the library path
+#######################################
+do_shared_lib_path() {
+	if [ -z "$3" ]; then
+		eval $2=$OMNIHOME/platform/$1/lib$SUF:$NCHOME/platform/$1/lib$SUF export $2
+	else
+		eval $2=$OMNIHOME/platform/$1/lib$SUF:$NCHOME/platform/$1/lib$SUF:$3 export $2
+	fi
+}
+
+#######################################
+# Set the library path according to platform
+#######################################
+f_SET_LIBRARY_PATH ()
+{
+	case $ARCH in
+	solaris2*)
+		# Check using ldd(1)
+		do_shared_lib_path $ARCH LD_LIBRARY_PATH $LD_LIBRARY_PATH
+		;;
+	linux*)
+		# Check using ldd(1)
+		do_shared_lib_path $ARCH LD_LIBRARY_PATH $LD_LIBRARY_PATH
+		;;
+	hpux*)
+		# Note: SHLIB_PATH only used by programs with setting enabled
+		# (see chatr(1) for full details)
+		do_shared_lib_path $ARCH SHLIB_PATH $SHLIB_PATH
+		;;
+	aix*)
+		# Check using dump -H (dump(1))
+		do_shared_lib_path $ARCH LIBPATH $LIBPATH
+		;;
+	*)
+		err "Unknown architecture for shared libraries"
+		;;
+	esac
+}
+
+#######################################
+# Get the OMNIBus release version
+#######################################
+f_GET_OMNIBUS_RELEASE ()
+{
+	OMNIRELEASE=`head -1 $OMNIHOME/RELEASE_ID | awk '{ print $(NF-3); }'`
+	# Cisco/InfoServer 1.3 is effectively OMNIbus 3.4
+	if [ "$OMNIRELEASE" = "1.3" ]; then
+		$OMNIRELEASE=3.4
+	fi
+
+	#
+	# NBS 18330 - IFS is left modified in the environment on Solaris
+	#
+	saveIFS="$IFS"
+	IFS=. read OMNIRELEASE_MAJOR OMNIRELEASE_MINOR OMNIRELEASE_TEENY <<EOF
+$OMNIRELEASE
+EOF
+	IFS="$saveIFS"
+	unset saveIFS
+}
+
+
+#################################################
+# Set any platform specific environment variables
+# Note: This function is called selectively in all
+# the scripts that source nco_common, except for
+# probe and tsm scripts. This is because the probe 
+# and tsm scripts should not have XPG_SUS_ENV set.
+#################################################
+f_SET_PLATFORM_VARIABLES ()
+{
+	case $ARCH in
+	solaris2|linux*|hpux*)
+		;;
+	aix*)
+		case `basename $0` in
+		nco_objserv)
+			MALLOCOPTIONS=multiheap:32,considersize
+			XPG_SUS_ENV=ON 
+			export XPG_SUS_ENV MALLOCOPTIONS
+			;;
+		nco_dbinit|nco_store_resize|nco_check_store)
+			XPG_SUS_ENV=ON 
+			export XPG_SUS_ENV
+			;;
+		*)
+			;;
+		esac
+		;;
+	*)
+		err "Unknown architecture for environment variables"
+		;;
+	esac
+}
+
+#######################################
+# Set the JRE path if it is not already set
+#
+# NCO_JRE - 32 bit
+# NCO_JRE_64 - 64 bit
+# NCO_JRE_32_64 32 bit if available, 64 bit otherwise
+# NCO_JRE_64_32 64 bit if available, 32 bit otherwise
+#######################################
+f_SET_JRE () {
+	if [ -z "$NCO_JRE" -o ! -x "$NCO_JRE/bin/java" ]
+	then
+		NCO_JRE=`f_LIST_JRE | sort | tail -1`
+		if [ -n "$NCO_JRE" ]
+		then
+				export NCO_JRE
+		fi
+	fi
+
+	if [ -z "$NCO_JRE_64" -o ! -x "$NCO_JRE_64/bin/java" ]
+	then
+		if [ "32" != "$KERN_ARCH" ]
+		then
+			NCO_JRE_64=`f_LIST_JRE_64 | sort | tail -1`
+			if [ -n "$NCO_JRE_64" ]
+			then
+				export NCO_JRE_64
+			fi
+		fi
+	fi
+
+	if [ -n "$NCO_JRE" -a -x "$NCO_JRE/bin/java" ]
+	then
+		NCO_JRE_32_64="$NCO_JRE"
+		export NCO_JRE_32_64
+	elif [ -n "$NCO_JRE_64" -a -x "$NCO_JRE_64/bin/java" ]
+	then
+		NCO_JRE_32_64="$NCO_JRE_64"
+		export NCO_JRE_32_64
+	fi
+
+	if [ -n "$NCO_JRE_64" -a -x "$NCO_JRE_64/bin/java" ]
+	then
+		NCO_JRE_64_32="$NCO_JRE_64"
+		export NCO_JRE_64_32
+	elif [ -n "$NCO_JRE" -a -x "$NCO_JRE/bin/java" ]
+	then
+		NCO_JRE_64_32="$NCO_JRE"
+		export NCO_JRE_64_32
+	fi
+}
+
+f_LIST_JRE () {
+	for jre in "$NCHOME/platform/$ARCH/"jre_[0-9].[0-9].[0-9]/jre
+	do
+		if [ -x "$jre/bin/java" ]
+		then
+			echo "$jre"
+		fi
+	done
+}
+
+f_LIST_JRE_64 () {
+	for jre in "$NCHOME/platform/$ARCH/"jre64_[0-9].[0-9].[0-9]/jre
+	do
+		if [ -x "$jre/bin/java" ]
+		then
+			echo "$jre"
+		fi
+	done
+}
+
+# Get the platform
+f_CHECKOS
+
+# Set some default tools
+f_FIND_TOOLS
+
+# Get OMNIHOME, if not already set, based on the binary path
+f_OMNIHOME $0
+
+# Get OMNIBus release information
+f_GET_OMNIBUS_RELEASE
+
+# Set the library path
+f_SET_LIBRARY_PATH
+
+# Set the JRE values if not already set
+f_SET_JRE
+

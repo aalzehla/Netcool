@@ -1,0 +1,145 @@
+#NCO_CONFIG3
+#
+# Default Netcool/OMNIbus Event List Configuration File 8.1.0 
+#
+
+config_name = 'Default';
+config_columns = 4;
+views = {
+{
+view_name = 'Default';
+view_editable = true;
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ AlertGroup, 'Alert Group', 18, centre, left }
+{ Summary, 'Summary', 60, centre, left }
+{ LastOccurrence, 'Last Occurrence', 15, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+{ Type, 'Type', 12, centre, left }
+{ ExpireTime, 'ExpireTime', 10, centre, centre }
+{ Agent, 'Agent', 25, centre, left }
+{ Manager, 'Manager', 25, centre, left }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, desc }
+{ Node, asc }
+{ AlertGroup, asc }
+{ AlertKey, asc }
+{ Summary, asc }
+}
+}
+{
+view_name = 'X733';
+view_editable = true;
+columns = {
+{ Node, 'Node', 15, centre, left }
+{ X733EventType, 'Event Type', 24, centre, left }
+{ X733ProbableCause, 'Probable Cause', 25, centre, left }
+{ Summary, 'Additional Text', 60, centre, left }
+{ X733SpecificProb, 'Specific Problem', 20, centre, left }
+{ AlertKey, 'Managed Object', 18, centre, left }
+{ LastOccurrence, 'Last Occurrence', 15, centre, centre }
+{ Tally, 'Count', 6, centre, centre }
+{ Type, 'Type', 12, centre, left }
+{ ExpireTime, 'ExpireTime', 10, centre, centre }
+{ Agent, 'Agent', 25, centre, left }
+{ Manager, 'Manager', 25, centre, left }
+num_fixed = 0;
+}
+sorting = {
+{ Severity, desc }
+{ LastOccurrence, desc }
+{ Node, asc }
+{ AlertGroup, asc }
+{ AlertKey, asc }
+{ Summary, asc }
+}
+}
+}
+
+filters = {
+{
+filter_name = 'Last 10 Min.';
+filter_editable = true;
+filter_text = '( ( LastOccurrence >= getdate - 600 ) and ( Manager not like \'^.*Watch$\' ) ) and ( Severity > 0 )';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'In Maintenance';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( SuppressEscl = 6 )';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'Escalated';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( ( SuppressEscl < 4 ) and ( SuppressEscl > 0 ) )';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'Information';
+filter_editable = true;
+filter_text = '( ( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 ) ) and ( Type = 13 )';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'Task List';
+filter_editable = true;
+filter_text = '( ( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 ) ) and ( TaskList = 1 )';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'Netcool Status';
+filter_editable = true;
+filter_text = 'Manager like \'^.*Watch$\'';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'Default';
+filter_editable = true;
+filter_text = '( Manager not like \'^.*Watch$\' ) and ( SuppressEscl < 4 )';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+{
+filter_name = 'All Events';
+filter_editable = true;
+filter_text = '';
+filter_metric = 'sum(Tally)';
+default = 'Default';
+windows = {
+none
+}
+}
+}
+
+# End of file

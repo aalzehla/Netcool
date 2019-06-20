@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="MIB データのエクスポート" />
+<meta name="abstract" content="MIB マネージャーから SNMP MIB データをさまざまなフォーマットに エクスポートする方法です。" />
+<meta name="Description" content="MIB マネージャーから SNMP MIB データをさまざまなフォーマットに エクスポートする方法です。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_exportdata" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB データのエクスポート</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_exportdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB データのエクスポート</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">MIB マネージャー</span>から SNMP MIB データをさまざまなフォーマットに
+エクスポートする方法です。</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><p class="li stepsection">MIB データをエクスポートするには、以下の手順を実行します。</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><img class="image" src="../gifs/export.gif" alt="MIB エクスポート・&#xA;アイコン" /> <span class="ph uicontrol">「エクスポート」</span>をクリックするか、メニューから、
+<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「エクスポート」</span></span>をクリックします。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「ディレクトリー」</span>フィールドに、エクスポートされたファイルの
+宛先ディレクトリーを指定します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「ファイル・タイプ」</span>フィールドに、エクスポートされたファイルの
+ファイル・タイプを指定します。</span> <p class="p">可能な場合は、
+Netcool Knowledge Library (NCKL) を使用する必要があります。これは、NCKL ルール・ファイルが
+デバイスの機能に基づいているためです。NCKL を使用する場合、
+<span class="ph uicontrol">「Netcool Knowledge Library バージョン
+3.x」</span>ファイル・タイプを指定する必要があります。これにより、生成されたファイルを
+Netcool Include Library の既存のインストール済み環境に追加できるようになります。</p>
+
+<p class="p">以下のオプションは、
+<span class="ph uicontrol">「ファイル・タイプ」</span>ドロップダウン・リストから
+使用できます。</p>
+
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="この表の各行には選択肢が示されています。" class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d7654e54-option">ファイル・タイプ</th>
+<th valign="bottom" align="left" id="d7654e54-desc">説明</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e61" class="stentry choption"><strong>CSV</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e61" class="stentry chdesc">このオプションを選択すると、すべてのオブジェクト・データが
+CSV ファイルにロードされるように指定されます。それによって、スプレッドシート・アプリケーションを使用して
+オブジェクト・データを表示できます。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e66" class="stentry choption"><strong>CSV トラップ・オブジェクト</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e66" class="stentry chdesc">このオプションを選択すると、すべてのトラップ・データおよび関連付けられた
+変数バインディング・オブジェクト・データが単一の CSV ファイルにロードされるように指定されます。
+それによって、スプレッドシート・アプリケーションを使用してそれらのデータを表示できます。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e71" class="stentry choption"><strong>フレーム付き HTML</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e71" class="stentry chdesc">このオプションを選択すると、公開に適した Web ページを
+作成します。<p class="p">選択した「MIB ツリー」ビューが、生成された Web ページの
+左側に表示されます。「MIB ツリー」ビューでは、
+MIB ツリー内のノードを展開したり縮小したりすることによって、ビュー内を移動できます。エレメントを
+MIB ツリーから選択すると、エレメントの関連情報が Web ページの
+右側に表示されます。</p>
+<p class="p">このフォーマットでは、大量の
+エクスポート・ファイルが作成される場合があり、それぞれに各オブジェクトの HTML ファイルが含まれ、それらは MIB ツリーにリストされます。ターゲット・ディレクトリーは、
+圧縮されて任意の Web サーバーに置くことができます。また、Web ページは、
+エクスポート・ディレクトリーに作成された <span class="ph filepath">index.html</span> ファイルを開く
+ことにより、ディスクから直接的に表示できます。</p>
+<p class="p">個別の HTML ファイルを
+Web ブラウザーで使用する場合、<span class="ph uicontrol">フレーム付き HTML</span> にエクスポートして
+エクスポート・ディレクトリーの下にある <span class="ph filepath">data</span> サブディレクトリー内の
+ファイルを使用します。</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e91" class="stentry choption"><strong>フレームなし HTML</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e91" class="stentry chdesc">このオプションを選択すると、<span class="ph filepath">oids.html</span> という名の単一ファイルを作成します。
+このファイルには、出力用に選択されたすべてのオブジェクトのリストが入っており、それぞれは、
+水平罫線で区切られています (<samp class="ph codeph">&lt;HR&gt;</samp> タグを使用)。各 OID は
+アンカー・タグで囲まれているため、ロードされると、ブラウザーは、
+URL にハッシュ・シンボル (#) が入った OID (例: <span class="ph filepath">file:c:/oids.html#1.3.6.1.4.1.9</span>) まで
+自動的にスクロールダウンします。<p class="p">このファイルは、
+大量のオブジェクトをエクスポートした場合に、大容量になる
+可能性があります。したがって、このフォーマットは、少数のトラップをエクスポートする場合のみ
+使用する必要があります。</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e107" class="stentry choption"><strong>Netcool ルックアップ・テーブル</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e107" class="stentry chdesc">このオプションを選択すると、タブ付きリストに指定されたすべての値を
+出力します。OID は左側の列に表示されて、オブジェクト名は右側の列に
+表示されます。これは、任意のルール・ファイルに取り込むのに
+適しています。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e112" class="stentry choption"><strong>Netcool Include Library</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e112" class="stentry chdesc">このオプションを選択すると、エンタープライズごとに別々の組み込みファイルを
+作成します。さらに、汎用トラップ (すなわち、エンタープライズ・サブツリーの
+下に存在しない任意のトラップ) 用の単一ファイルを生成します。
+組み込みファイルは、既存の <span class="ph filepath">snmp.rules</span> ファイル (<span class="keyword">MIB マネージャー</span>により
+以前に作成済み、または Netcool Include Library (NCIL) により
+作成済み) に挿入されることが前提となっています。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e123" class="stentry choption"><strong>Netcool Knowledge Library バージョン 1.1</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e123" class="stentry chdesc">このオプションを選択すると、ファイルを <span class="keyword">MIB マネージャー</span>から出力します。ファイルは、
+既存の Netcool Knowledge Library 実装環境に組み込まれます。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e131" class="stentry choption"><strong>Netcool Knowledge Library バージョン 3.x</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e131" class="stentry chdesc">このオプションを選択すると、ファイルを <span class="keyword">MIB マネージャー</span>から出力します。ファイルは、
+既存の Netcool Knowledge Library 実装環境に組み込まれます。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e139" class="stentry choption"><strong>スタンドアロン・ルール</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e139" class="stentry chdesc">このオプションを選択すると、選択したすべてのトラップを含む、単一の
+ルール・ファイルを作成します。このファイルは、<span class="keyword">Tivoli Netcool/OMNIbus</span> SNMP トラップ・プローブの
+プロパティー・ファイルに指定できます。</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e147" class="stentry choption"><strong>個別テキスト・ファイル</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e147" class="stentry chdesc">個別テキスト・ファイル・フォーマットは、Netcool Event
+List の右クリック・メニューに使用されます。<p class="p">個々のテキスト・ファイルにエクスポートするときに、
+各 OID は、別のテキスト・ファイルに出力されます (例: <span class="ph filepath">1.3.6.1.4.1.9.1.1.txt</span>)。
+右クリック・メニューに外部ツールを追加することができます。このツールは、<span class="ph filepath">nco_message</span> を
+使用して、その OID がフィールドに指定されているイベントに関するすべてのオブジェクト情報
+を表示します (例: <samp class="ph codeph">cat 1.3.6.1.4.1.9.1.txt |nco_message
+stdin title "trap info"</samp>)。</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7654e54-option" id="d7654e164" class="stentry choption"><strong>Tivoli Universal Agent</strong></td>
+<td valign="top" headers="d7654e54-desc d7654e164" class="stentry chdesc">Tivoli Universal Agent フォーマットは、選択した内容に基づいて <span class="ph filepath">.mdl</span> ファイルおよび
+<span class="ph filepath">trapcnfg</span> ファイルをエクスポートします。<div class="p">ファイルのエクスポート用にこのフォーマットが選択される場合、
+複数のサブツリーを選択できます。複数のサブツリーが選択された場合、
+MIB ツリー内で選択された項目の下にあるすべてのオブジェクトに関して、
+<span class="ph filepath">.mdl</span> ファイルおよび <span class="ph filepath">trapcnfg</span> ファイルが
+作成されます。<div class="note note"><span class="notetitle">注:</span> アプリケーション名の最初の 3 文字 (
+<span class="ph filepath">.mdl</span> ファイル内で //APPL タグの後に続く) は、エンタープライズ内で
+一意にする必要があります。<span class="keyword">MIB マネージャー</span>は、この要件に従おうとしますが、
+稼働している可能性のある他のエージェントを認識できません。<span class="ph filepath">.mdl</span> ファイルを
+変更して、アプリケーション名がエンタープライズ内で
+一意になるようにしなければならない場合があります。</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「有効範囲」</span>フィールドで、ドロップダウン・リストを使用して
+<span class="keyword">MIB マネージャー</span>の出力が、トラップのみ、オブジェクトのみ、またはすべての OID のいずれであるかを
+指定します。</span> <p class="p">使用できるオプションは、エクスポートするファイル・タイプに応じて
+異なります。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">生成されるファイルに含まれるオブジェクトの数を制限するには、
+<span class="ph uicontrol">「選択したサブツリーのみ」</span>チェック・ボックスを選択します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「エクスポート」</span>をクリックして、ファイルを
+宛先ディレクトリーにエクスポートします。</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。">Netcool MIB マネージャー の使用</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" title="このセクションでは、ルール・ファイルのエクスポート設定を セットアップする方法について説明します。">エクスポート設定のセットアップ</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

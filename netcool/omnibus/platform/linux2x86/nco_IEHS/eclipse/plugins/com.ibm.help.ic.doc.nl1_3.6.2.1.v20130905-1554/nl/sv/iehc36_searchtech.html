@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv-se" xml:lang="sv-se">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2011" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2011" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Avancerade söktekniker" />
+<meta name="abstract" content="Du kan utföra mer avancerade sökningar och returnera en mindre uppsättning med sökresultat med hjälp av citattecken, jokertecken och booleska operatorer." />
+<meta name="description" content="Du kan utföra mer avancerade sökningar och returnera en mindre uppsättning med sökresultat med hjälp av citattecken, jokertecken och booleska operatorer." />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="sv-se" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Avancerade söktekniker</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Avancerade söktekniker</h1>
+<div class="body"><p class="shortdesc">Du kan utföra mer avancerade sökningar och returnera en mindre uppsättning med sökresultat med hjälp av citattecken, jokertecken och booleska operatorer.</p>
+<ul class="ul"><li class="li">När du söker i informationscentret kan du ange vissa ord eller fraser som en exakt söksträng genom att omge dem med citattecken.<p class="p">Om du till exempel anger <kbd class="ph userinput">"spåra fil"</kbd> i fältet <span class="ph uicontrol">Sök</span> söker du efter alla förekomster av strängen <em class="ph i">spåra fil</em>. Om du inte använder citattecken söker du i stället efter avsnitt som innehåller både <em class="ph i">spåra</em> och <em class="ph i">fil</em>.</p>
+</li>
+<li class="li">Du kan utöka sökomfånget genom att använda jokertecken som asterisker (*) och frågetecken (?).<ul class="ul"><li class="li">Du kan använda en asterisk (*) för flera okända eller utbytbara tecken i sökvillkoret. Om du till exempel anger <kbd class="ph userinput">del*</kbd> returneras avsnitt som innehåller <em class="ph i">delvis</em>, <em class="ph i">delta</em> och <em class="ph i">delmängd</em>, och andra ord som börjar med <em class="ph i">del</em>.<div class="note note"><span class="notetitle">Obs!</span>  Det finns ett par begränsningar för sökvillkor: när du använder sökvillkor med en asterisk måste du ange tre tecken före asterisken, och sökvillkor utan jokertecken måste innehålla minst tre tecken.</div>
+</li>
+<li class="li">Du kan använda ett frågetecken (?) för ett enda tecken i sökvillkoret.
+Om du till exempel anger <kbd class="ph userinput">delt?</kbd> returneras avsnitt som innehåller <em class="ph i">delta</em>, men inte avsnitt som innehåller <em class="ph i">delvis</em> eller <em class="ph i">delmängd</em>.</li>
+</ul>
+</li>
+<li class="li">Du kan använda de booleska operatorerna AND, OR och NOT till att skapa ett mer exakt sökvillkor. Exempel:<dl class="dl"><dt class="dt">databas AND "spåra fil"</dt>
+<dd class="dd">Sök efter avsnitt som innehåller både termen <em class="ph i">databas</em> och frasen <em class="ph i">spåra fil</em>.</dd>
+<dt class="dt">databas OR "spåra fil"</dt>
+<dd class="dd">Sök efter avsnitt som innehåller antingen termen <em class="ph i">databas</em> eller frasen <em class="ph i">spåra fil</em>.</dd>
+<dt class="dt">database NOT "spåra fil"</dt>
+<dd class="dd">Sök efter avsnitt som innehåller termen <em class="ph i">databas</em> men som inte innehåller frasen <em class="ph i">spåra fil</em>.</dd>
+<dt class="dt">stordator OR "stor dator" NOT "spåra fil"</dt>
+<dd class="dd">Sök efter avsnitt som innehåller termen <em class="ph i">stordator</em> eller frasen <em class="ph i">stor dator</em> men som inte innehåller frasen <em class="ph i">spåra fil</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Överordnat avsnitt:</strong> <a class="link" href="iehs36_searching.html" title="Du kan söka i alla avsnitt i informationscentret, söka i ett enskilt avsnitt eller i en avsnittssamling eller skapa en delmängd av informationen genom att skapa ett sökomfång. Det går att visa upp till 500 sökresultat i sökresultatvyn, sorterade efter relevans.">Söka i informationscentret</a></div>
+</div>
+</div></body>
+</html>

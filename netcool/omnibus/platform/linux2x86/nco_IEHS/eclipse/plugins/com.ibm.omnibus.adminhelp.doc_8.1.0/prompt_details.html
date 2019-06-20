@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Prompt Details" />
+<meta name="abstract" content="Use this window to set up a new prompt or edit the details of an existing prompt." />
+<meta name="Description" content="Use this window to set up a new prompt or edit the details of an existing prompt." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditprompts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_sql_namingconvobjservobjs.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_promptdetailswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Prompt Details</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_promptdetailswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Prompt Details</h1>
+<div class="body refbody"><p class="shortdesc">Use this window to set up a new prompt or edit the details
+of an existing prompt.</p>
+<div class="section"><p class="p">The fields within this window vary based on the type of
+prompt being created or edited.</p>
+<div class="p">Complete this window as follows:<dl class="dl" id="netom_promptdetailswindow__netom_promptdetailsfields"><dt class="dt dlterm"><a name="netom_promptdetailswindow__netom_promptdetails_name"><!-- --></a>Name</dt>
+<dd class="dd">Type a unique name for the prompt. This name must comply with
+the ObjectServer naming conventions. If you are editing a prompt,
+you cannot change the name.</dd>
+<dt class="dt dlterm"><a name="netom_promptdetailswindow__netom_promptdetails_prompt"><!-- --></a>Prompt</dt>
+<dd class="dd">Type the prompt text that should appear when the tool requests
+information from the user.</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_type">Type</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_stringpara">Select <span class="keyword option">String</span> to
+create a prompt window that accepts one or more characters.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_integerpara">Select <span class="keyword option">Integer</span> to
+create a prompt window that accepts an integer value.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_floatpara">Select <span class="keyword option">Float</span> to
+create a prompt window that accepts a floating point number, which
+can contain a decimal point.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_timepara">Select <span class="keyword option">Time</span> to
+create a prompt window that accepts a time. For a time prompt, the
+default is to display the current time.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_fixedpara">Select <span class="keyword option">Fixed Choice</span> to
+create a pop-up menu that is populated with options that you specify.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_lookuppara">Select <span class="keyword option">Lookup</span> to
+create a pop-up menu or drop-down list that is populated by the values
+in a specified file.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_passwordpara">Select <span class="keyword option">Password</span> to
+create a prompt window that accepts one or more characters as a password.
+For a password prompt, the password characters appear as asterisks
+when the user completes the prompt.</dd>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_type_dynamicpara">Select <span class="keyword option">Dynamic
+Choice</span> to create a pop-up menu or drop-down list that is
+populated by the results of a database query.</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_value">Default</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_valuepara1">Type a default value for the
+prompt to display. </dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a string prompt, integer prompt, or float prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_options">Options</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_optionspara1">Use this field to specify
+menu options to include in the pop-up menu. To create a new option,
+click <span class="ph uicontrol">Add option</span> and type a name for the option
+in the box that is shown within the <span class="ph uicontrol">Options</span> list.
+Click outside the box to complete the entry. You can also edit an
+existing option by clicking the entry in the <span class="ph uicontrol">Options</span> list
+and then clicking <span class="ph uicontrol">Edit option</span>. To delete an
+option, click the entry and then click <span class="ph uicontrol">Delete option</span>.</dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a fixed choice prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_file">File</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_filepara1">Type the path and name of the
+file whose contents must be used to populate the pop-up menu or drop-down
+list associated with the prompt. Alternatively, click <span class="ph uicontrol">Browse</span> to
+open a file selection window, navigate to the appropriate location,
+and select the file. </dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a lookup prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_database">Database</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_databasepara1">Select a database from
+this drop-down list.</dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a dynamic choice prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_table">Table</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_tablepara1">Select a table in the selected
+database, from the drop-down list.</dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a dynamic choice prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_show">Show</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_showpara1">Select a column name from the
+drop-down list. This defines the column that is used to populate the
+prompt menu.</dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a dynamic choice prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_assign">Assign</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_assignpara1">Select a column name from
+the drop-down list. This defines the column that is used to return
+a value to the SQL command, external command, or journal entry that
+contains the prompt. </dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a dynamic choice prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_where">Where</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_wherepara1">Type an SQL search condition.
+For example: <kbd class="ph userinput">Colname='Severity'</kbd>. </dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a dynamic choice prompt.</div>
+</dd>
+<dt class="dt dlterm" id="netom_promptdetailswindow__netom_promptdetails_orderby">Order By</dt>
+<dd class="dd" id="netom_promptdetailswindow__netom_promptdetails_orderbypara1">Select a column name from
+the drop-down list. This defines the column by which items are sorted
+in the prompt menu. Use the <span class="ph uicontrol">Ascending</span> and <span class="ph uicontrol">Descending</span> options
+to specify the sort direction.</dd>
+<dd class="dd"><div class="note note"><span class="notetitle">Note:</span> This field is displayed only if you are creating
+or editing a dynamic choice prompt.</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_promptdetailswindow__netom_promptdetails_saving_closing"><h2 class="title sectiontitle">Saving your
+prompt details</h2><div class="p">After creating or editing a prompt, you can
+save or cancel the changes made by clicking the relevant button as
+follows:<dl class="dl" id="netom_promptdetailswindow__netom_promptdetails_okcancelbuttons"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the prompt details and close the window.
+New prompts are added to the <span class="keyword wintitle">Prompts</span> pane.</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_adm_sql_namingconvobjservobjs.html" title="When you issue SQL commands, you must adhere to the predefined ObjectServer naming conventions.">ObjectServer SQL naming conventions</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingeditprompts.html" title="You can create prompts to use with tools.">Creating and editing prompts</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

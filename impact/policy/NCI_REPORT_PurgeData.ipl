@@ -1,0 +1,56 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+ // NOTE: This is a sample policy which deletes old Reporting data.
+ 
+ // Please tune the MAX_ROWS and NUM_DAYS parameters according to your deployment.
+ // You can use a PolicyActivator service to trigger this policy at regular intervals,
+ // the activation frequency should take the reporting volume into consideration.
+ // Also if you increase the MAX_ROWS, please check the maximum heap settings 
+ // of ImpactProfile since higher value results in higher memory usage
+
+// NUM_DAYS is the number of days old the data is. Default value is 2, which 
+// translates to deleting rows which are more than 2 days old
+NUM_DAYS = 2;
+
+// MAX_ROWS is the maximum number of rows that have to be deleted
+MAX_ROWS = 1000;
+
+ReporterStatusItems = DirectSQL('ImpactDB', "SELECT SERIAL FROM IMPACT.REPORTER_STATUS WHERE LASTOCCURRENCE < (VALUES {fn TIMESTAMPADD(SQL_TSI_DAY, -"+NUM_DAYS+", CURRENT_TIMESTAMP)}) FETCH FIRST " + MAX_ROWS + " ROWS ONLY", false);
+If (Num > 0) {
+    Min_Serial = ReporterStatusItems[0].SERIAL;
+    Max_Serial = ReporterStatusItems[Num-1].SERIAL;
+    Reporter_Status_Filter = "SERIAL >= " + Min_Serial + " AND SERIAL <= " + Max_Serial;
+    BatchDelete('REPORT_EventStatus', Reporter_Status_Filter, null);
+}
+
+RepAuditItems = DirectSQL('ImpactDB', "SELECT SERIAL FROM IMPACT.REP_AUDIT_ACK WHERE ENDDATE < (VALUES {fn TIMESTAMPADD(SQL_TSI_DAY, -"+NUM_DAYS+", CURRENT_TIMESTAMP)}) FETCH FIRST " + MAX_ROWS + " ROWS ONLY", false);
+If (Num > 0) {
+    Min_Serial = RepAuditItems[0].SERIAL;
+    Max_Serial = RepAuditItems[Num-1].SERIAL;
+    Rep_Audit_Filter = "SERIAL >= " + Min_Serial + " AND SERIAL <= " + Max_Serial;
+    BatchDelete('REPORT_AuditAck', Rep_Audit_Filter, null);
+}
+
+PolicyProfileItems = DirectSQL('ImpactDB', "SELECT SERIAL FROM IMPACT.POLICY_PROFILE WHERE START_TIME < (VALUES {fn TIMESTAMPADD(SQL_TSI_DAY, -"+NUM_DAYS+", CURRENT_TIMESTAMP)}) FETCH FIRST " + MAX_ROWS + " ROWS ONLY", false);
+If (Num > 0) {
+    Min_Serial = PolicyProfileItems[0].SERIAL;
+    Max_Serial = PolicyProfileItems[Num-1].SERIAL;
+    Policy_Profile_Filter = "SERIAL >= " + Min_Serial + " AND SERIAL <= " + Max_Serial;
+    BatchDelete('REPORT_PolicyProfile', Policy_Profile_Filter, null);
+}
+
+ActionProfileItems = DirectSQL('ImpactDB', "SELECT SERIAL FROM IMPACT.ACTION_PROFILE WHERE START_TIME < (VALUES {fn TIMESTAMPADD(SQL_TSI_DAY, -"+NUM_DAYS+", CURRENT_TIMESTAMP)}) FETCH FIRST " + MAX_ROWS + " ROWS ONLY", false);
+If (Num > 0) {
+    Min_Serial = ActionProfileItems[0].SERIAL;
+    Max_Serial = ActionProfileItems[Num-1].SERIAL;
+    Action_Profile_Filter = "SERIAL >= " + Min_Serial + " AND SERIAL <= " + Max_Serial;
+    BatchDelete('REPORT_ActionProfile', Action_Profile_Filter, null);
+}

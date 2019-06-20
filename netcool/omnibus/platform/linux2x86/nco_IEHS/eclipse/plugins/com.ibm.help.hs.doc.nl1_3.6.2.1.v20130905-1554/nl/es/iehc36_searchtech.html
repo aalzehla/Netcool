@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es-es" xml:lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Técnicas de búsqueda avanzada" />
+<meta name="abstract" content="Puede realizar búsquedas más avanzadas utilizando comillas, comodines u operadores booleanos para devolver un conjuntos de resultados de búsqueda más pequeño" />
+<meta name="description" content="Puede realizar búsquedas más avanzadas utilizando comillas, comodines u operadores booleanos para devolver un conjuntos de resultados de búsqueda más pequeño" />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="es-es" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Técnicas de búsqueda avanzada</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Técnicas de búsqueda avanzada</h1>
+<div class="body"><p class="shortdesc">Puede realizar búsquedas más avanzadas utilizando comillas, comodines u operadores booleanos para devolver un conjuntos de resultados de búsqueda más pequeño</p>
+<ul class="ul"><li class="li">Cuando realiza búsquedas en el sistema de ayuda, puede identificar algunas palabras o expresiones
+como series exactas colocándolas entre comillas dobles.<p class="p">Por ejemplo,
+si especifica <kbd class="ph userinput">"archivo fuente"</kbd> en el campo <span class="ph uicontrol">Buscar</span>, buscará todas las apariciones de la serie <em class="ph i">archivo fuente</em>. Si no se especifican las comillas dobles, se devolverán los temas que contengan instancias tanto de la palabra <em class="ph i">archivo</em> como de la palabra <em class="ph i">fuente</em>.</p>
+</li>
+<li class="li">Puede utilizar comodines como por ejemplo un asterisco (*) y un signo
+de interrogación (?) en la búsqueda para ampliar el ámbito de búsqueda.<ul class="ul"><li class="li">Utilice el asterisco (*) para múltiples caracteres desconocidos o variables en la consulta de búsqueda. Por ejemplo, si especifica <kbd class="ph userinput">par*</kbd>, se devolverán los temas que contengan <em class="ph i">parte</em>, <em class="ph i">participar</em>, <em class="ph i">parcial</em> y otras palabras que empiecen por <em class="ph i">par</em>.<div class="note note"><span class="notetitle">Nota:</span>  Hay
+una limitación para el título de búsqueda: al utilizar un término de búsqueda
+con un asterisco éste debe ir precedido de tres caracteres como mínimo,
+de manera similar un término de búsqueda sin un comodín debe contener al menos
+tres caracteres.</div>
+</li>
+<li class="li">Utilice un signo de interrogación para un solo carácter en la consulta de búsqueda.
+Por ejemplo, si especifica <kbd class="ph userinput">par?</kbd>, se devolverán temas que contengan <em class="ph i">paro</em>, pero no <em class="ph i">parcial</em> o <em class="ph i">parte</em>.</li>
+</ul>
+<div class="note note"><span class="notetitle">Nota:</span> Al utilizar un término de búsqueda con un asterisco (*), éste debe ir precedido de tres caracteres como mínimo</div>
+</li>
+<li class="li">Puede utilizar los operadores Booleanos AND, OR y NOT para hacer que la consulta sea más específica. Por ejemplo:<dl class="dl"><dt class="dt dlterm">servidor AND "archivo fuente"</dt>
+<dd class="dd">Acota el resultado de búsqueda a los temas que contengan el término <em class="ph i">servidor</em> y la frase <em class="ph i">archivo fuente</em>.</dd>
+<dt class="dt dlterm">servidor OR "archivo fuente"</dt>
+<dd class="dd">Amplía el resultado de búsqueda a los temas que contengan el término <em class="ph i">servidor</em> o la frase <em class="ph i">archivo fuente</em>.</dd>
+<dt class="dt dlterm">servidor NOT "archivo fuente"</dt>
+<dd class="dd">Acota el resultado de búsqueda a los temas que contengan el término <em class="ph i">servidor</em> pero no la frase <em class="ph i">archivo fuente</em>.</dd>
+<dt class="dt dlterm">servidor OR <q>"base de datos"</q> NOT <q>"archivo fuente"</q></dt>
+<dd class="dd">Busca temas que contengan el término <em class="ph i">servidor</em> o la frase <em class="ph i">base de datos</em> pero no la frase <em class="ph i">archivo fuente</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="iehs36_searching.html" title="Puede buscar en todos los temas del sistema de ayuda, buscar en un tema individual o una colección de temas, o crear un ámbito de búsqueda para buscar solamente en un subconjunto de la información. La vista Resultados de búsqueda puede mostrar hasta 500 resultados, ordenados por relevancia.">Buscar en el sistema de ayuda</a></div>
+</div>
+</div></body>
+</html>

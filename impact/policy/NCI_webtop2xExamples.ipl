@@ -1,0 +1,2264 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+//THIS POLICY IS NOT FOR RUNNING AS IS.  COPY OUT THE EXAMPLE CODE YOU WISH TO USE
+
+//
+// EXAMPLE WEBTOP2x_cgi_modify.ipl  ########################################
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="cgi.modifyCGI"><cgi acl="example" name="nci-ping" useSmartPageCommands="false"/></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "cgi.modifyCGI");
+IPLtoXML.newSubElement(method1, cgi1, "cgi");
+IPLtoXML.addAttribute(cgi1, "name", "nci-ping");
+IPLtoXML.addAttribute(cgi1, "acl", "example");
+IPLtoXML.addAttribute(cgi1, "useSmartPageCommands", "false");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 18:01:39 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+//
+// EXAMPLE WEBTOP2x_cgi_register.ipl  ////////////////////////
+//
+///////////////////desired XML generated//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="cgi.registerCGI"><cgi acl="*" fileName="/home/nco_myping.cgi" name="nci-ping" useSmartPageCommands="true"/></method></methodCall>
+*/
+
+///////////////////IPL Object//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newElement(methodCall1, "methodCall");
+IPLtoXML.addElement(myMethodCall, methodCall1);
+IPLtoXML.newElement(method1, "method");
+IPLtoXML.addElement(methodCall1, method1);
+IPLtoXML.addAttribute(method1, "methodName", "cgi.registerCGI");
+IPLtoXML.newElement(cgi1, "cgi");
+IPLtoXML.addElement(method1, cgi1);
+IPLtoXML.addAttribute(cgi1, "name", "nci-ping");
+IPLtoXML.addAttribute(cgi1, "acl", "*");
+IPLtoXML.addAttribute(cgi1, "useSmartPageCommands", "true");
+IPLtoXML.addAttribute(cgi1, "fileName", "/home/webtop13/nco_myping.cgi");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+//log("OUTPUT\n" + myMethodCall.WAAPI_OUTPUT);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:48:05 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_cgi_unregister.ipl  //////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="cgi.unregisterCGI"><cgi name="nci-ping"/></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "cgi.unregisterCGI");
+IPLtoXML.newSubElement(method1, cgi1, "cgi");
+IPLtoXML.addAttribute(cgi1, "name", "nci-ping");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 18:04:27 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_entity_add.ipl  ////////////////////
+//
+///////////////////desired XML////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="entity.addEntity"><entitygroup name="demo"><entity filter="Severity &gt; 4" metriclabel="tom" metricof="Severity" metricshow="Average" name="ncientity01"/><entitylist list="AllEvents" metriclabel="tomd" name="ncientitylist01" view="basic"/></entitygroup></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+
+
+IPLtoXML.newDocument(myMethodCall);
+
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "entity.addEntity");
+
+IPLtoXML.newSubElement(method1, entityGroup1, "entitygroup");
+IPLtoXML.addAttribute(entityGroup1, "name", "demo");  //group needs to exist
+
+IPLtoXML.newSubElement(entityGroup1, entity1, "entity");
+IPLtoXML.addAttribute(entity1, "name", "ncientity01");
+IPLtoXML.addAttribute(entity1, "filter", "Severity > 4");
+IPLtoXML.addAttribute(entity1, "metriclabel", "tom");
+IPLtoXML.addAttribute(entity1, "metricshow", "Average");
+IPLtoXML.addAttribute(entity1, "metricof", "Severity");
+
+IPLtoXML.newSubElement(entityGroup1, entityList1, "entitylist");
+IPLtoXML.addAttribute(entityList1, "name", "ncientitylist01");
+IPLtoXML.addAttribute(entityList1, "list", "AllEvents");
+IPLtoXML.addAttribute(entityList1, "view", "basic");
+IPLtoXML.addAttribute(entityList1, "metriclabel", "tomd");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_entity_delete.ipl  ///////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="entity.deleteEntity"><entitygroup name="demo"><entity name="ncientity01"/><entitylist name="ncientitylist01"/></entitygroup></method></methodCall>
+*/
+
+
+///////////////////IPL Object//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "entity.deleteEntity");
+
+IPLtoXML.newSubElement(method1, eg1, "entitygroup");
+IPLtoXML.addAttribute(eg1, "name", "demo");
+
+IPLtoXML.newSubElement(eg1, entity1, "entity");
+IPLtoXML.addAttribute(entity1, "name", "ncientity01");
+
+IPLtoXML.newSubElement(eg1, entitylist1, "entitylist");
+IPLtoXML.addAttribute(entitylist1, "name", "ncientitylist01");
+
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 26 15:25:52 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+
+//
+// EXAMPLE WEBTOP2x_entity_getList.ipl  ////////////////////////
+//
+/////////////////// desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="entity.getList"/></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubELement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "entity.getList");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+log(myMethodCall.WAAPI_OUTPUT);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:15:29 CDT 2007
+
+Entity Groups hosted on the server
+********************************************************************
+
+Default View: basic
+
+
+Group <default> contains:
+      AllEvents
+      Critical
+      JournalEntries
+      Last30Minutes
+      LastDay
+      LastMonth
+      LastWeek
+      LiveEvents
+      NotAssigned
+      Tallygt5
+
+Group demo contains:
+      Chicago
+      Dallas
+      LINK_DALLAS_CHICAGO
+      LINK_NY_CHICAGO
+      LINK_NY_DALLAS
+      LINK_SF_CHICAGO
+      LINK_SF_DALLAS
+      NewYork
+      RT_CHICAGO
+      RT_DALLAS
+      RT_NY
+      RT_SF
+      SanFrancisco
+      USA
+
+Group NGD contains:
+      APAC-applications
+      APAC-lan
+      APAC-performance
+      APAC-security
+      APAC-systems
+      APAC-voice
+      APAC-wan
+      application-database
+      application-dns
+      application-email
+      application-proxy
+      application-web
+      applications
+      apps-database-fault
+      apps-database-performance
+      apps-database-sla
+      apps-dns-fault
+      apps-dns-performance
+      apps-dns-sla
+      apps-email-fault
+      apps-email-performance
+      apps-email-sla
+      apps-london-sla
+      apps-losangeles-sla
+      apps-madrid-sla
+      apps-newyork-sla
+      apps-proxy-fault
+      apps-proxy-performance
+      apps-proxy-sla
+      apps-sydney-sla
+      apps-tokyo-sla
+      apps-web-fault
+      apps-web-performance
+      apps-web-sla
+      EMEA-applications
+      EMEA-lan
+      EMEA-performance
+      EMEA-security
+      EMEA-systems
+      EMEA-voice
+      EMEA-wan
+      lan
+      lan-interface
+      lan-london-sla
+      lan-losangeles-sla
+      lan-madrid-sla
+      lan-newyork-sla
+      lan-sydney-sla
+      lan-tokyo-sla
+      London
+      london-tokyo
+      LosAngeles
+      losangeles-newyork
+      Madrid
+      madrid-london
+      NewYork
+      newyork-london
+      NotAckd
+      performance
+      performance-connect
+      performance-latency
+      performance-response
+      security
+      security-authentication
+      security-firewall
+      security-ids
+      security-london-sla
+      security-losangeles-sla
+      security-madrid-sla
+      security-newyork-sla
+      security-sydney-sla
+      security-tokyo-sla
+      Sydney
+      systems
+      systems-disk
+      systems-london-sla
+      systems-losangeles-sla
+      systems-madrid-sla
+      systems-memory
+      systems-newyork-sla
+      systems-sydney-sla
+      systems-tokyo-sla
+      Tokyo
+      tokyo-losangeles
+      tokyo-sydney
+      USA-applications
+      USA-lan
+      USA-performance
+      USA-security
+      USA-systems
+      USA-voice
+      USA-wan
+      voice
+      voice-london-sla
+      voice-losangeles-sla
+      voice-madrid-sla
+      voice-newyork-sla
+      voice-sydney-sla
+      voice-tokyo-sla
+      wan
+      wan-interface
+      wan-london-sla
+      wan-losangeles-sla
+      wan-madrid-sla
+      wan-newyork-sla
+      wan-sydney-sla
+      wan-tokyo-sla
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+*/
+
+//
+// EXAMPLE WEBTOP2x_entity_setView.ipl  //////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="entity.setDefaultView"><entityview name="basic"/></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.AddAttribute(method1, "methodName", "entity.setDefaultView");
+
+IPLtoXML.newSubElement(method1, ev1, "entityview");
+IPLtoXML.AddAttribute(ev1, "name", "basic");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 26 15:25:52 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+//
+// EXAMPLE WEBTOP2x_file_addDirectory.ipl  //////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="file.addDir"><file dirName="dir01/subdir01"/><file dirName="dir02"/></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "file.addDir");
+IPLtoXML.newSubElement(method1, dir1, "file");
+IPLtoXML.addAttribute(dir1, "dirName", "dir01/subdir01");
+IPLtoXML.newSubElement(method1, dir2, "file");
+IPLtoXML.addAttribute(dir2, "dirName", "dir02");
+// directories will be created in $WEBTOP_HOME/www/webapps/ROOT
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 18:36:33 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+
+*/
+
+//
+// EXAMPLE WEBTOP2x_file_addFile.ipl  /////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="file.addFile"><file fileName="/home/netcool/file2.txt" toDir="dir02"/></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "file.addFile");
+IPLtoXML.newSubElement(method1, file1, "file");
+IPLtoXML.addAttribute(file1, "fileName", "/home/netcool/file2.txt");
+IPLtoXML.addAttribute(file1, "toDir", "dir02");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 18:54:25 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_file_deleteFile.ipl  //////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="file.deleteFile"><file fileName="file2.txt" fromDir="dir02"/></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "file.deleteFile");
+IPLtoXML.newSubElement(method1, file1, "file");
+IPLtoXML.addAttribute(file1, "fileName", "file2.txt");
+IPLtoXML.addAttribute(file1, "fromDir", "dir02");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 18:57:16 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_file_removeDirectory.ipl  //////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="file.recurseRemove"><file dirName="dir01"/><file dirName="dir02"/></method></methodCall>
+*/
+
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "file.recurseRemove");
+
+IPLtoXML.newSubElement(method1, dir1, "file");
+IPLtoXML.addAttribute(dir1, "dirName", "dir01");
+
+IPLtoXML.newSubElement(method1, dir2, "file");
+IPLtoXML.addAttribute(dir2, "dirName", "dir02");
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 19:00:11 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+//
+// EXAMPLE WEBTOP2x_map_createMap.ipl  //////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="map.createMap"><map acl="example" bgColor="white" h="490" name="map1" w="850"><text color="black" font="Helvetica" justify="center" label="MAP CREATED BY IMPACT" name="Impact_Generated" size="10" style="b" x="144" y="15"/><monitor action="table" background_color="lightGray" entity="Critical" font="Helvetica" foreground_color="black" h="126" label="Unassigned" name="unassigned" show_highest="false" show_highest_severity_as_border="false" show_label="true" show_lowest="false" show_metric="true" show_total="true" size="10" style="p" target="bottom" type="histogram" url="$(SERVER)/TableView/NY/NotAssigned" w="100" x="142" y="130"/><line action="go" entity="LINK_NY_CHICAGO" label="LinkA_B" name="LINK_A_B" target="_self" thickness="8" url="$(SERVER)/usademo/link_ny_chicago.html" x="144" x2="444" y="350" y2="350"/><text color="black" font="Helvetica" justify="center" label="A" name="texta" size="30" style="b" x="124" y="350"/><text color="black" font="Helvetica" justify="center" label="B" name="textb" size="30" style="b" x="454" y="350"/><text color="black" font="Helvetica" justify="center" label="Click button below Monitor for Active Event List" name="ael_instructions" size="10" style="b" x="144" y="40"/><button action="go" arc_diameter="20" color="lightGray" font="Helvetica" font_color="black" h="20" label="Active Event List" legend="Label" name="critical_table_3" size="11" target="hidden" transparent="false" type="rectangle" url="$(SERVER)/Template/openPage.html?Entity_Name=LastDay" w="98" x="396" y="266"/><button action="go" arc_diameter="20" color="lightGray" font="Helvetica" font_color="black" h="20" label="Active Event List" legend="Label" name="critical_table_2" size="11" target="hidden" transparent="false" type="rectangle" url="$(SERVER)/Template/openPage.html?Entity_Name=LiveEvents" w="98" x="269" y="266"/><button action="go" arc_diameter="20" color="lightGray" font="Helvetica" font_color="black" h="20" label="Active Event List" legend="Label" name="critical_table_1" size="11" target="hidden" transparent="false" type="rectangle" url="$(SERVER)/Template/openPage.html?Entity_Name=NotAssigned" w="98" x="144" y="266"/><button action="go" arc_diameter="20" color="lightGray" font="Helvetica" font_color="black" h="20" label="Active Event List" legend="Label" name="critical_table" size="11" target="hidden" transparent="false" type="rectangle" url="$(SERVER)/Template/openPage.html?Entity_Name=Critical" w="98" x="21" y="266"/><monitor action="table" background_color="lightGray" entity="LastDay" font="Helvetica" foreground_color="red" h="126" label="Last Day" name="lastday" show_highest="false" show_highest_severity_as_border="false" show_label="true" show_lowest="false" show_metric="true" show_total="true" size="10" style="p" target="_blank" type="histogram" w="100" x="394" y="130"/><monitor action="table" background_color="lightGray" entity="LiveEvents" font="Helvetica" foreground_color="black" h="126" label="Live Events" name="liveevents" show_highest="false" show_highest_severity_as_border="false" show_label="true" show_lowest="false" show_metric="true" show_total="true" size="10" style="p" target="bottom" type="histogram" w="100" x="267" y="130"/><monitor action="table" background_color="lightGray" entity="Critical" font="Helvetica" foreground_color="black" h="126" label="Critical" name="critical" show_highest="false" show_highest_severity_as_border="false" show_label="true" show_lowest="false" show_metric="true" show_total="true" size="10" style="p" target="bottom" type="histogram" w="100" x="17" y="130"/></map></method></methodCall>
+*/
+
+
+///////////////////IPL Object//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "map.createMap");
+IPLtoXML.newSubElement(method1, map01, "map");
+IPLtoXML.addAttribute(map01, "name", "map1");
+IPLtoXML.addAttribute(map01, "acl", "example");
+//IPLtoXML.addAttribute(map01, "bgImage", "");
+IPLtoXML.addAttribute(map01, "bgColor", "white");
+IPLtoXML.addAttribute(map01, "w", "850");
+IPLtoXML.addAttribute(map01, "h", "490");
+
+IPLtoXML.newSubElement(map01, text01, "text");
+IPLtoXML.addAttribute(text01, "name", "Impact_Generated");
+IPLtoXML.addAttribute(text01, "label", "MAP CREATED BY IMPACT");
+IPLtoXML.addAttribute(text01, "x", "144");
+IPLtoXML.addAttribute(text01, "y", "15");
+IPLtoXML.addAttribute(text01, "font", "Helvetica");
+IPLtoXML.addAttribute(text01, "size", "10");
+IPLtoXML.addAttribute(text01, "justify", "center");
+IPLtoXML.addAttribute(text01, "style", "b");
+IPLtoXML.addAttribute(text01, "color", "black");
+
+IPLtoXML.newSubElement(map01, text02, "text");
+IPLtoXML.addAttribute(text02, "name", "ael_instructions");
+IPLtoXML.addAttribute(text02, "label", "Click button below Monitor for Active Event List");
+IPLtoXML.addAttribute(text02, "x", "144");
+IPLtoXML.addAttribute(text02, "y", "40");
+IPLtoXML.addAttribute(text02, "font", "Helvetica");
+IPLtoXML.addAttribute(text02, "size", "10");
+IPLtoXML.addAttribute(text02, "justify", "center");
+IPLtoXML.addAttribute(text02, "style", "b");
+IPLtoXML.addAttribute(text02, "color", "black");
+
+
+IPLtoXML.newSubElement(map01, button01, "button");
+IPLtoXML.addAttribute(button01, "name", "critical_table_3");
+IPLtoXML.addAttribute(button01, "label", "Active Event List");
+IPLtoXML.addAttribute(button01, "x", "396");
+IPLtoXML.addAttribute(button01, "y", "266");
+IPLtoXML.addAttribute(button01, "action", "go");
+IPLtoXML.addAttribute(button01, "url", "$(SERVER)/Template/openPage.html?Entity_Name=LastDay");
+IPLtoXML.addAttribute(button01, "target", "hidden");
+IPLtoXML.addAttribute(button01, "w", "98");
+IPLtoXML.addAttribute(button01, "h", "20");
+IPLtoXML.addAttribute(button01, "color", "lightGray");
+IPLtoXML.addAttribute(button01, "type", "rectangle");
+IPLtoXML.addAttribute(button01, "arc_diameter", "20");
+IPLtoXML.addAttribute(button01, "transparent", "false");
+IPLtoXML.addAttribute(button01, "legend", "Label");
+IPLtoXML.addAttribute(button01, "font", "Helvetica");
+IPLtoXML.addAttribute(button01, "size", "11");
+IPLtoXML.addAttribute(button01, "font_color", "black");
+
+
+IPLtoXML.newSubElement(map01, button02, "button");
+IPLtoXML.addAttribute(button02, "name", "critical_table_2");
+IPLtoXML.addAttribute(button02, "label", "Active Event List");
+IPLtoXML.addAttribute(button02, "x", "269");
+IPLtoXML.addAttribute(button02, "y", "266");
+IPLtoXML.addAttribute(button02, "action", "go");
+IPLtoXML.addAttribute(button02, "url", "$(SERVER)/Template/openPage.html?Entity_Name=LiveEvents");
+IPLtoXML.addAttribute(button02, "target", "hidden");
+IPLtoXML.addAttribute(button02, "w", "98");
+IPLtoXML.addAttribute(button02, "h", "20");
+IPLtoXML.addAttribute(button02, "color", "lightGray");
+IPLtoXML.addAttribute(button02, "type", "rectangle");
+IPLtoXML.addAttribute(button02, "arc_diameter", "20");
+IPLtoXML.addAttribute(button02, "transparent", "false");
+IPLtoXML.addAttribute(button02, "legend", "Label");
+IPLtoXML.addAttribute(button02, "font", "Helvetica");
+IPLtoXML.addAttribute(button02, "size", "11");
+IPLtoXML.addAttribute(button02, "font_color", "black");
+
+
+IPLtoXML.newSubElement(map01, button03, "button");
+IPLtoXML.addAttribute(button03, "name", "critical_table_1");
+IPLtoXML.addAttribute(button03, "label", "Active Event List");
+IPLtoXML.addAttribute(button03, "x", "144");
+IPLtoXML.addAttribute(button03, "y", "266");
+IPLtoXML.addAttribute(button03, "action", "go");
+IPLtoXML.addAttribute(button03, "url", "$(SERVER)/Template/openPage.html?Entity_Name=NotAssigned");
+IPLtoXML.addAttribute(button03, "target", "hidden");
+IPLtoXML.addAttribute(button03, "w", "98");
+IPLtoXML.addAttribute(button03, "h", "20");
+IPLtoXML.addAttribute(button03, "color", "lightGray");
+IPLtoXML.addAttribute(button03, "type", "rectangle");
+IPLtoXML.addAttribute(button03, "arc_diameter", "20");
+IPLtoXML.addAttribute(button03, "transparent", "false");
+IPLtoXML.addAttribute(button03, "legend", "Label");
+IPLtoXML.addAttribute(button03, "font", "Helvetica");
+IPLtoXML.addAttribute(button03, "size", "11");
+IPLtoXML.addAttribute(button03, "font_color", "black");
+
+
+IPLtoXML.newSubElement(map01, button04, "button");
+IPLtoXML.addAttribute(button04, "name", "critical_table");
+IPLtoXML.addAttribute(button04, "label", "Active Event List");
+IPLtoXML.addAttribute(button04, "x", "21");
+IPLtoXML.addAttribute(button04, "y", "266");
+IPLtoXML.addAttribute(button04, "action", "go");
+IPLtoXML.addAttribute(button04, "url", "$(SERVER)/Template/openPage.html?Entity_Name=Critical");
+IPLtoXML.addAttribute(button04, "target", "hidden");
+IPLtoXML.addAttribute(button04, "w", "98");
+IPLtoXML.addAttribute(button04, "h", "20");
+IPLtoXML.addAttribute(button04, "color", "lightGray");
+IPLtoXML.addAttribute(button04, "type", "rectangle");
+IPLtoXML.addAttribute(button04, "arc_diameter", "20");
+IPLtoXML.addAttribute(button04, "transparent", "false");
+IPLtoXML.addAttribute(button04, "legend", "Label");
+IPLtoXML.addAttribute(button04, "font", "Helvetica");
+IPLtoXML.addAttribute(button04, "size", "11");
+IPLtoXML.addAttribute(button04, "font_color", "black");
+
+IPLtoXML.newSubElement(map01, monitor01, "monitor");
+IPLtoXML.addAttribute(monitor01, "name", "lastday");
+IPLtoXML.addAttribute(monitor01, "label", "Last Day");
+IPLtoXML.addAttribute(monitor01, "x", "394");
+IPLtoXML.addAttribute(monitor01, "y", "130");
+IPLtoXML.addAttribute(monitor01, "action", "table");
+//IPLtoXML.addAttribute(monitor01, "url", "");
+IPLtoXML.addAttribute(monitor01, "target", "_blank");
+IPLtoXML.addAttribute(monitor01, "entity", "LastDay");
+IPLtoXML.addAttribute(monitor01, "w", "100");
+IPLtoXML.addAttribute(monitor01, "h", "126");
+IPLtoXML.addAttribute(monitor01, "type", "histogram");
+IPLtoXML.addAttribute(monitor01, "show_label", "true");
+IPLtoXML.addAttribute(monitor01, "show_total", "true");
+IPLtoXML.addAttribute(monitor01, "show_highest", "false");
+IPLtoXML.addAttribute(monitor01, "show_lowest", "false");
+IPLtoXML.addAttribute(monitor01, "show_metric", "true");
+IPLtoXML.addAttribute(monitor01, "foreground_color", "red");
+IPLtoXML.addAttribute(monitor01, "background_color", "lightGray");
+IPLtoXML.addAttribute(monitor01, "font", "Helvetica");
+IPLtoXML.addAttribute(monitor01, "size", "10");
+IPLtoXML.addAttribute(monitor01, "style", "p");
+IPLtoXML.addAttribute(monitor01, "show_highest_severity_as_border", "false");
+
+
+IPLtoXML.newSubElement(map01, monitor02, "monitor");
+IPLtoXML.addAttribute(monitor02, "name", "liveevents");
+IPLtoXML.addAttribute(monitor02, "label", "Live Events");
+IPLtoXML.addAttribute(monitor02, "x", "267");
+IPLtoXML.addAttribute(monitor02, "y", "130");
+IPLtoXML.addAttribute(monitor02, "action", "table");
+//IPLtoXML.addAttribute(monitor02, "url", "");
+IPLtoXML.addAttribute(monitor02, "target", "bottom");
+IPLtoXML.addAttribute(monitor02, "entity", "LiveEvents");
+IPLtoXML.addAttribute(monitor02, "w", "100");
+IPLtoXML.addAttribute(monitor02, "h", "126");
+IPLtoXML.addAttribute(monitor02, "type", "histogram");
+IPLtoXML.addAttribute(monitor02, "show_label", "true");
+IPLtoXML.addAttribute(monitor02, "show_total", "true");
+IPLtoXML.addAttribute(monitor02, "show_highest", "false");
+IPLtoXML.addAttribute(monitor02, "show_lowest", "false");
+IPLtoXML.addAttribute(monitor02, "show_metric", "true");
+IPLtoXML.addAttribute(monitor02, "foreground_color", "black");
+IPLtoXML.addAttribute(monitor02, "background_color", "lightGray");
+IPLtoXML.addAttribute(monitor02, "font", "Helvetica");
+IPLtoXML.addAttribute(monitor02, "size", "10");
+IPLtoXML.addAttribute(monitor02, "style", "p");
+IPLtoXML.addAttribute(monitor02, "show_highest_severity_as_border", "false");
+
+
+IPLtoXML.newSubElement(map01, monitor03, "monitor");
+IPLtoXML.addAttribute(monitor03, "name", "critical");
+IPLtoXML.addAttribute(monitor03, "label", "Critical");
+IPLtoXML.addAttribute(monitor03, "x", "17");
+IPLtoXML.addAttribute(monitor03, "y", "130");
+IPLtoXML.addAttribute(monitor03, "action", "table");
+//IPLtoXML.addAttribute(monitor03, "url", "");
+IPLtoXML.addAttribute(monitor03, "target", "bottom");
+IPLtoXML.addAttribute(monitor03, "entity", "Critical");
+IPLtoXML.addAttribute(monitor03, "w", "100");
+IPLtoXML.addAttribute(monitor03, "h", "126");
+IPLtoXML.addAttribute(monitor03, "type", "histogram");
+IPLtoXML.addAttribute(monitor03, "show_label", "true");
+IPLtoXML.addAttribute(monitor03, "show_total", "true");
+IPLtoXML.addAttribute(monitor03, "show_highest", "false");
+IPLtoXML.addAttribute(monitor03, "show_lowest", "false");
+IPLtoXML.addAttribute(monitor03, "show_metric", "true");
+IPLtoXML.addAttribute(monitor03, "foreground_color", "black");
+IPLtoXML.addAttribute(monitor03, "background_color", "lightGray");
+IPLtoXML.addAttribute(monitor03, "font", "Helvetica");
+IPLtoXML.addAttribute(monitor03, "size", "10");
+IPLtoXML.addAttribute(monitor03, "style", "p");
+IPLtoXML.addAttribute(monitor03, "show_highest_severity_as_border", "false");
+
+
+IPLtoXML.newSubElement(map01, monitor04, "monitor");
+IPLtoXML.addAttribute(monitor04, "name", "unassigned");
+IPLtoXML.addAttribute(monitor04, "label", "Unassigned");
+IPLtoXML.addAttribute(monitor04, "x", "142");
+IPLtoXML.addAttribute(monitor04, "y", "130");
+IPLtoXML.addAttribute(monitor04, "action", "table");
+IPLtoXML.addAttribute(monitor04, "url", "$(SERVER)/TableView/NY/NotAssigned");
+IPLtoXML.addAttribute(monitor04, "target", "bottom");
+IPLtoXML.addAttribute(monitor04, "entity", "Critical");
+IPLtoXML.addAttribute(monitor04, "w", "100");
+IPLtoXML.addAttribute(monitor04, "h", "126");
+IPLtoXML.addAttribute(monitor04, "type", "histogram");
+IPLtoXML.addAttribute(monitor04, "show_label", "true");
+IPLtoXML.addAttribute(monitor04, "show_total", "true");
+IPLtoXML.addAttribute(monitor04, "show_highest", "false");
+IPLtoXML.addAttribute(monitor04, "show_lowest", "false");
+IPLtoXML.addAttribute(monitor04, "show_metric", "true");
+IPLtoXML.addAttribute(monitor04, "foreground_color", "black");
+IPLtoXML.addAttribute(monitor04, "background_color", "lightGray");
+IPLtoXML.addAttribute(monitor04, "font", "Helvetica");
+IPLtoXML.addAttribute(monitor04, "size", "10");
+IPLtoXML.addAttribute(monitor04, "style", "p");
+IPLtoXML.addAttribute(monitor04, "show_highest_severity_as_border", "false");
+
+
+IPLtoXML.newSubElement(map01, line9, "line");
+IPLtoXML.addAttribute(line9, "name", "LINK_A_B");
+IPLtoXML.addAttribute(line9, "label", "LinkA_B");
+IPLtoXML.addAttribute(line9, "x", "144");
+IPLtoXML.addAttribute(line9, "y", "350");
+IPLtoXML.addAttribute(line9, "action", "go");
+IPLtoXML.addAttribute(line9, "url", "$(SERVER)/usademo/link_ny_chicago.html");
+IPLtoXML.addAttribute(line9, "target", "_self");
+IPLtoXML.addAttribute(line9, "entity", "LINK_NY_CHICAGO");
+IPLtoXML.addAttribute(line9, "thickness", "8");
+IPLtoXML.addAttribute(line9, "x2", "444");
+IPLtoXML.addAttribute(line9, "y2", "350");
+
+
+IPLtoXML.newSubElement(map01, texta, "text");
+IPLtoXML.addAttribute(texta, "name", "texta");
+IPLtoXML.addAttribute(texta, "label", "A");
+IPLtoXML.addAttribute(texta, "x", "124");
+IPLtoXML.addAttribute(texta, "y", "350");
+IPLtoXML.addAttribute(texta, "font", "Helvetica");
+IPLtoXML.addAttribute(texta, "size", "30");
+IPLtoXML.addAttribute(texta, "justify", "center");
+IPLtoXML.addAttribute(texta, "style", "b");
+IPLtoXML.addAttribute(texta, "color", "black");
+
+IPLtoXML.newSubElement(map01, textb, "text");
+IPLtoXML.addAttribute(textb, "name", "textb");
+IPLtoXML.addAttribute(textb, "label", "B");
+IPLtoXML.addAttribute(textb, "x", "454");
+IPLtoXML.addAttribute(textb, "y", "350");
+IPLtoXML.addAttribute(textb, "font", "Helvetica");
+IPLtoXML.addAttribute(textb, "size", "30");
+IPLtoXML.addAttribute(textb, "justify", "center");
+IPLtoXML.addAttribute(textb, "style", "b");
+IPLtoXML.addAttribute(textb, "color", "black");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 21:17:03 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_map_delete.ipl  /////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="map.deleteMap"><map name="map1"/></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubELement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "map.deleteMap");
+
+IPLtoXML.newSubElement(method1, map1, "map");
+IPLtoXML.addAttribute(map1, "name", "map1");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 21:17:03 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_map_deleteMapVisual.ipl  ////////////////////////////
+//
+///////////////////desired XML/////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="map.deleteMapVisual"><map name="map1"><icon name="visual_4"/><icon name="visual_3"/></map></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubELement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "map.deleteMapVisual");
+
+IPLtoXML.newSubElement(method1, map1, "map");
+IPLtoXML.addAttribute(map1, "name", "map1");
+
+IPLtoXML.newSubElement(map1, delete1, "icon");
+IPLtoXML.addAttribute(delete1, "name", "visual_4");
+
+IPLtoXML.newSubElement(map1, delete2, "icon");
+IPLtoXML.addAttribute(delete2, "name", "visual_3");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Thu Aug 23 15:57:02 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_map_getList.ipl  //////////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="map.getList"/></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "map.getList");
+
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+log("output is: " + myMethodCall.WAAPI_OUTPUT);
+
+
+/*
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+*********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:27:12 CDT 2007
+
+Maps hosted on the server
+********************************************************************
+Chicago
+Dallas
+link_dallas_chicago
+link_ny_chicago
+link_ny_dallas
+link_sf_chicago
+link_sf_dallas
+NGD_apps-database
+NGD_apps-dns
+NGD_apps-email
+NGD_apps-proxy
+NGD_apps-web
+NGD_Apps_Summary
+NGD_biz_apps
+NGD_chicago
+NGD_map_parts
+NGD_net_dia
+NGD_school_net
+NGD_slamap
+NGD_World
+NY
+SanFrancisco
+Summary
+Summary_List
+USA
+USA_Summary
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_map_modify.ipl  //////////////////////////////
+//
+///////////////////desired XML //////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="map.addMapVisual"><map name="map1"><button action="go" arc_diameter="20" color="lightGray" entity="" font="Helvetica" font_color="black" h="42" label="Active Button" legend="None" name="visual_1" size="10" target="_self" type="rectangle" url="" w="103" x="230" y="217"/><line color="black" label="Inactive Line" name="visual_2" thickness="1" x="144" x2="380" y="50" y2="50"/><icon action="go" arc_diameter="10" entity="" entity_status_indicator="Highlight Bar" font="Helvetica" font_color="black" h="19" image="eventlist.gif" label="Active Icon" legend="None" name="visual_3" size="10" target="hidden" type="rectangle" url="$(SERVER)/Template/openPage.html?Entity_Name=LiveEvents" w="30" x="75" y="60"/><icon image="" label="Inactive Icon" name="visual_4" x="10" y="10"/><text color="black" font="Helvetica" justify="center" label="The shortest distance between two points is a straight line." name="shortest" size="8" style="bi" x="144" y="370"/></map></method></methodCall>
+*/
+
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "map.addMapVisual");
+
+IPLtoXML.newSubElement(method1, map1, "map");
+IPLtoXML.addAttribute(map1, "name", "map1");
+
+IPLtoXML.newSubElement(map1, anotherButton, "button");
+IPLtoXML.addAttribute(anotherButton, "name", "visual_1");
+IPLtoXML.addAttribute(anotherButton, "label", "Active Button");
+IPLtoXML.addAttribute(anotherButton, "x", "230");
+IPLtoXML.addAttribute(anotherButton, "y", "217");
+IPLtoXML.addAttribute(anotherButton, "action", "go");
+IPLtoXML.addAttribute(anotherButton, "url", "");
+IPLtoXML.addAttribute(anotherButton, "target", "_self");
+IPLtoXML.addAttribute(anotherButton, "entity", "");
+IPLtoXML.addAttribute(anotherButton, "w", "103");
+IPLtoXML.addAttribute(anotherButton, "h", "42");
+IPLtoXML.addAttribute(anotherButton, "type", "rectangle");
+IPLtoXML.addAttribute(anotherButton, "arc_diameter", "20");
+IPLtoXML.addAttribute(anotherButton, "legend", "None");
+IPLtoXML.addAttribute(anotherButton, "font", "Helvetica");
+IPLtoXML.addAttribute(anotherButton, "size", "10");
+IPLtoXML.addAttribute(anotherButton, "font_color", "black");
+IPLtoXML.addAttribute(anotherButton, "color", "lightGray");
+
+
+IPLtoXML.newSubElement(map1, anotherLine, "line");
+IPLtoXML.addAttribute(anotherLine, "name", "visual_2");
+IPLtoXML.addAttribute(anotherLine, "label", "Inactive Line");
+IPLtoXML.addAttribute(anotherLine, "x", "144");
+IPLtoXML.addAttribute(anotherLine, "y", "50");
+IPLtoXML.addAttribute(anotherLine, "color", "black");
+IPLtoXML.addAttribute(anotherLine, "thickness", "1");
+IPLtoXML.addAttribute(anotherLine, "x2", "380");
+IPLtoXML.addAttribute(anotherLine, "y2", "50");
+
+
+
+IPLtoXML.newSubElement(map1, icon1, "icon");
+IPLtoXML.addAttribute(icon1, "name", "visual_3");
+IPLtoXML.addAttribute(icon1, "label", "Active Icon");
+IPLtoXML.addAttribute(icon1, "x", "75");
+IPLtoXML.addAttribute(icon1, "y", "60");
+IPLtoXML.addAttribute(icon1, "action", "go");
+IPLtoXML.addAttribute(icon1, "url", "$(SERVER)/Template/openPage.html?Entity_Name=LiveEvents");
+IPLtoXML.addAttribute(icon1, "target", "hidden");
+IPLtoXML.addAttribute(icon1, "entity", "");
+IPLtoXML.addAttribute(icon1, "w", "30");
+IPLtoXML.addAttribute(icon1, "h", "19");
+IPLtoXML.addAttribute(icon1, "type", "rectangle");
+IPLtoXML.addAttribute(icon1, "arc_diameter", "10");
+IPLtoXML.addAttribute(icon1, "legend", "None");
+IPLtoXML.addAttribute(icon1, "font", "Helvetica");
+IPLtoXML.addAttribute(icon1, "size", "10");
+IPLtoXML.addAttribute(icon1, "font_color", "black");
+IPLtoXML.addAttribute(icon1, "image", "eventlist.gif");
+IPLtoXML.addAttribute(icon1, "entity_status_indicator", "Highlight Bar");
+
+
+IPLtoXML.newSubElement(map1, icon2, "icon");
+IPLtoXML.addAttribute(icon2, "name", "visual_4");
+IPLtoXML.addAttribute(icon2, "label", "Inactive Icon");
+IPLtoXML.addAttribute(icon2, "x", "10");
+IPLtoXML.addAttribute(icon2, "y", "10");
+IPLtoXML.addAttribute(icon2, "image", "");
+
+
+IPLtoXML.newSubElement(map1, moreText, "text");
+IPLtoXML.addAttribute(moreText, "name", "shortest");
+IPLtoXML.addAttribute(moreText, "label", "The shortest distance between two points is a straight line.");
+IPLtoXML.addAttribute(moreText, "x", "144");
+IPLtoXML.addAttribute(moreText, "y", "370");
+IPLtoXML.addAttribute(moreText, "font", "Helvetica");
+IPLtoXML.addAttribute(moreText, "size", "8");
+IPLtoXML.addAttribute(moreText, "justify", "center");
+IPLtoXML.addAttribute(moreText, "style", "bi");
+IPLtoXML.addAttribute(moreText, "color", "black");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 21:17:03 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_menu_create.ipl  //////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="menu.createMenu"><supermenu mnemonic="n" name="menu1"><menu label="Alerts" name="alerts"/><separator/><tool label="Acknowledged" mnemonic="a" name="acknowledge" shortcut="ctrl+a"/></supermenu><supermenu name="toolMenu1"/></method></methodCall>
+*/
+
+///////////////////IPL Object//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "menu.createMenu");
+
+IPLtoXML.newSubElement(method1, supermenu1, "supermenu");
+IPLtoXML.addAttribute(supermenu1, "name", "ncimenu1");
+IPLtoXML.addAttribute(supermenu1, "mnemonic", "n");
+
+IPLtoXML.newSubElement(supermenu1, item1, "menu");
+IPLtoXML.addAttribute(item1, "name", "alerts");
+IPLtoXML.addAttribute(item1, "label", "nciAlerts");
+
+IPLtoXML.newSubElement(supermenu1, item2, "separator");
+
+IPLtoXML.newSubElement(supermenu1, item3, "tool");
+IPLtoXML.addAttribute(item3, "name", "acknowledge");
+IPLtoXML.addAttribute(item3, "label", "nciAcknowledged");
+IPLtoXML.addAttribute(item3, "mnemonic", "a");
+IPLtoXML.addAttribute(item3, "shortcut", "ctrl+a");
+
+IPLtoXML.newSubElement(method1, supermenu2, "supermenu");
+IPLtoXML.addAttribute(supermenu2, "name", "ncitoolMenu1");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Thu Aug 23 16:56:15 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_menu_delete.ipl  ////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="menu.deleteMenu"><supermenu name="menu1"/><supermenu name="toolMenu1"/></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "menu.deleteMenu");
+IPLtoXML.newSubElement(method1, supermenu1, "supermenu");
+IPLtoXML.addAttribute(supermenu1, "name", "ncimenu1");
+IPLtoXML.newSubElement(method1, supermenu2, "supermenu");
+IPLtoXML.addAttribute(supermenu2, "name", "ncitoolMenu1");
+
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Thu Aug 23 17:16:32 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_menu_getList.ipl  ////////////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="menu.getList"/></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "menu.getList");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+log(myMethodCall.WAAPI_OUTPUT);
+
+
+/*
+
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:28:48 CDT 2007
+
+Menus hosted on the server
+********************************************************************
+
+Menu CGI_Tools contains:
+      tool: Ping
+
+Menu Local_Tools contains:
+      tool: LocalPing
+      tool: Telnet
+      tool: Tracepath
+
+Menu alerts contains:
+      tool: acknowledge
+      tool: deacknowledge
+      separator
+      tool: prioritise
+      tool: takeownership
+      tool: userassign
+      tool: groupassign
+      tool: delete
+
+Menu tools contains:
+      menu: CGI_Tools
+      menu: Local_Tools
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_menu_modify.ipl  ///////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="menu.modifyMenu"><supermenu mnemonic="n" name="ncimenu1"><separator/><tool label="Prioritize" mnemonic="p" name="prioritise"/></supermenu><supermenu name="ncitoolMenu1"><tool label="ping" mnemonic="" name="Ping" shortcut=""/><separator/><menu label="ncimenu1" name="ncimenu1"/><separator/><tool label="NukeEm" mnemonic="" name="delete" shortcut=""/></supermenu></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "menu.modifyMenu");
+
+
+IPLtoXML.newSubElement(method1, supermenu1, "supermenu");
+IPLtoXML.addAttribute(supermenu1, "name", "ncimenu1");
+IPLtoXML.addAttribute(supermenu1, "mnemonic", "n");
+
+
+IPLtoXML.newSubElement(supermenu1, item1, "separator");
+
+IPLtoXML.newSubElement(supermenu1, item2, "tool");
+IPLtoXML.addAttribute(item2, "name", "prioritise");
+IPLtoXML.addAttribute(item2, "label", "Prioritize");
+IPLtoXML.addAttribute(item2, "mnemonic", "p");
+//IPLtoXML.addAttribute(item2, "shortcut", "");
+
+
+IPLtoXML.newSubElement(method1, supermenu2, "supermenu");
+IPLtoXML.addAttribute(supermenu2, "name", "ncitoolMenu1");
+
+IPLtoXML.newSubElement(supermenu2, item01, "tool");
+IPLtoXML.addAttribute(item01, "name", "Ping"); 
+IPLtoXML.addAttribute(item01, "label", "ping");
+IPLtoXML.addAttribute(item01, "mnemonic", "");
+IPLtoXML.addAttribute(item01, "shortcut", "");
+
+
+IPLtoXML.newSubElement(supermenu2, item02, "separator");
+
+
+IPLtoXML.newSubElement(supermenu2, item03, "menu");
+IPLtoXML.addAttribute(item03, "name", "ncimenu1"); 
+IPLtoXML.addAttribute(item03, "label", "ncimenu1");
+
+
+IPLtoXML.newSubElement(supermenu2, item04, "separator");
+
+
+IPLtoXML.newSubElement(supermenu2, item05, "tool");
+IPLtoXML.addAttribute(item05, "name", "delete"); 
+IPLtoXML.addAttribute(item05, "label", "NukeEm");
+IPLtoXML.addAttribute(item05, "mnemonic", "");
+IPLtoXML.addAttribute(item05, "shortcut", "");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Thu Aug 23 17:47:37 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_osresync.refreshOSCache.ipl  ///////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="osresync.refreshOSCache"/></methodCall>
+*/
+
+
+///////////////////IPL Object//////////////////////
+/*
+myMethodCall=newobject();
+myMethodCall.XMLElementType="methodCall";
+
+myMethodCall.method1=newobject();
+myMethodCall.method1.XMLElementType="method";
+myMethodCall.method1.methodName="osresync.refreshOSCache";
+*/
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "osresync.refreshOSCache");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:35:25 CDT 2007
+NCWRPCOSConfigHandler.refreshOSCache() command excecuted.
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+*/
+
+
+
+//
+// EXAMPLE WEBTOP2x_resource_add.ipl  ////////////////////
+//
+///////////////////XML generated//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="resource.addResource"><resources mapName="map1"><resource name="/opt/ibm/netcool/guifoundation/webapps/webtop/impactTesting/im.JPG"/></resources></method></methodCall>
+*/
+
+///////////////////IPL Object//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "resource.addResource");
+IPLtoXML.newSubElement(method1, resources1, "resources");
+IPLtoXML.addAttribute(resources1, "mapName", "Chicago");
+IPLtoXML.newSubElement(resources1, resource1, "resource");
+IPLtoXML.addAttribute(resource1, "name", "/tmp/ibm_log.jpg");
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 15:35:31 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_resource_getList.ipl  ////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="resource.getList"/></methodCall>
+*/
+
+
+///////////////////IPL Object//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "resource.getList");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+log(myMethodCall.WAAPI_OUTPUT);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:30:03 CDT 2007
+
+Map resources hosted on the server
+********************************************************************
+
+Map NGD_Apps_Summary contains:
+       white_scan_lines.png
+       server_wide.gif
+       server_48.gif
+
+Map NGD_biz_apps contains:
+       4_labels.jpg
+
+Map NGD_chicago contains:
+       ChicagoMap.gif
+
+Map NGD_map_parts contains:
+       sample_bg.jpg
+
+Map NGD_school_net contains:
+       school_icon.gif
+       headquarters_icon.gif
+       hub_school_icon.gif
+
+Map NGD_slamap contains:
+       slamapbg.gif
+
+Map NGD_World contains:
+       emea-summary.jpg
+       usa-summary.jpg
+       square.gif
+       apac-summary.jpg
+       earth-750.jpg
+       earth-500.jpg
+
+Map NY contains:
+       ny.gif
+
+Map Summary contains:
+       background.gif
+
+Map USA contains:
+       usa.gif
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+
+*/
+
+
+
+//
+// EXAMPLE WEBTOP2x_resource_remove.ipl  //////////////////////////
+//
+///////////////////desired XML generated//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="resource.removeResource"><resources mapName="map1"><resource name="/opt/ibm/netcool/guifoundation/webapps/webtop/impactTesting/im.JPG"/></resources></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "resource.removeResource");
+IPLtoXML.newSubElement(method1, resources1, "resources");
+IPLtoXML.addAttribute(resources1, "mapName", "Chicago");
+IPLtoXML.newSubElement(resources1, resource1, "resource");
+IPLtoXML.addAttribute(resource1, "name", "/tmp/ibm_log.jpg"); //file must be there already
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 15:35:31 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+
+//
+// EXAMPLE WEBTOP2x_tool_create.ipl ///////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="tool.createTool"><tools acl="*,example,restricted,acl1" name="tool1"><execute text="$selected_rows.Acknowledged, $selected_rows.Agent"/></tools><tools acl="*,example" method="GET" name="mygroupassign" showdocument="true"><sql foreach="false" text="update alerts.status set OwnerGID=$prompt.groupassign where Serial in ($selected_rows.Serial);" url="$(SERVER)/_tb37b/ael/SQLToolHandler"/><journal foreach="true" text="Alert assigned to group CONVERSION($prompt.groupassign) by %username."/><prompt name="groupassign" type="dynamicchoice"><sql text="select Conversion, Value from alerts.conversions where Colname='OwnerGID' order by Value desc;"/></prompt></tools><tools acl="example" name="commandTool1"><command enabled="true" foreach="false" path="dir" platform="Windows" text="$selected_rows.Agent, $selected_rows.Acknowledged" type="command"/><command enabled="true" foreach="false" path="ls" platform="Solaris" text="" type="command"/><command enabled="false" foreach="false" path="" platform="HPUX" text="" type="command"/><command enabled="false" foreach="false" path="" platform="AIX" text="" type="command"/></tools></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "tool.createTool");
+
+
+
+IPLtoXML.newSubElement(method1, tools1, "tools");
+IPLtoXML.addAttribute(tools1, "name", "tool1");
+IPLtoXML.addAttribute(tools1, "acl", "*,example,restricted");
+
+IPLtoXML.newSubElement(tools1, execute1, "execute");
+IPLtoXML.addAttribute(execture1, "text", "$selected_rows.Acknowledged, $selected_rows.Agent");
+
+
+
+IPLtoXML.newSubElement(method1, tools2, "tools");
+IPLtoXML.addAttribute(tools2, "name", "mygroupassign");
+IPLtoXML.addAttribute(tools2, "acl", "*,example");   
+IPLtoXML.addAttribute(tools2, "showdocument", "true");
+IPLtoXML.addAttribute(tools2, "method", "GET");
+
+IPLtoXML.newSubElement(tools2, t2A_sql1, "sql");
+IPLtoXML.addAttribute(t2A_sql1, "foreach", "false");
+IPLtoXML.addAttribute(t2A_sql1, "text", "update alerts.status set OwnerGID=$prompt.groupassign where Serial in ($selected_rows.Serial);");
+IPLtoXML.addAttribute(t2A_sql1, "url", "$(SERVER)/_tb37b/ael/SQLToolHandler");
+
+IPLtoXML.newSubElement(tools2, t2B_journal1, "journal");
+IPLtoXML.addAttribute(t2B_journal1, "foreach", "true");
+IPLtoXML.addAttribute(t2B_journal1, "text", "Alert assigned to group CONVERSION($prompt.groupassign) by %username.");
+
+IPLtoXML.newSubElement(tools2, t2C_prompt1, "prompt");
+IPLtoXML.addAttribute(t2C_prompt1, "type", "dynamicchoice");
+IPLtoXML.addAttribute(t2C_prompt1, "name", "groupassign");
+
+IPLtoXML.newSubElement(t2C_prompt1, t2C_sql1, "sql");
+IPLtoXML.addAttribute(t2C_sql1, "text", "select Conversion, Value from alerts.conversions where Colname='OwnerGID' order by Value desc;");
+
+
+
+IPLtoXML.newSubElement(method1, tools3, "tools");
+IPLtoXML.addAttribute(tools3, "name", "commandTool1");
+IPLtoXML.addAttribute(tools3, "acl", "example");   
+
+IPLtoXML.newSubElement(tools3, t3A_command1, "command");
+IPLtoXML.addAttribute(t3A_command1, "platform", "Windows");
+IPLtoXML.addAttribute(t3A_command1, "foreach", "false");
+IPLtoXML.addAttribute(t3A_command1, "enabled", "true");
+IPLtoXML.addAttribute(t3A_command1, "type", "command");
+IPLtoXML.addAttribute(t3A_command1, "path", "dir");
+IPLtoXML.addAttribute(t3A_command1, "text", "$selected_rows.Agent, $selected_rows.Acknowledged");
+
+IPLtoXML.newSubElement(tools3, t3B_command2, "command");
+IPLtoXML.addAttribute(t3B_command2, "platform", "Solaris");
+IPLtoXML.addAttribute(t3B_command2, "foreach", "false");
+IPLtoXML.addAttribute(t3B_command2, "enabled", "true");
+IPLtoXML.addAttribute(t3B_command2, "type", "command");
+IPLtoXML.addAttribute(t3B_command2, "path", "ls");
+//IPLtoXML.addAttribute(t3B_command2, "text", "");
+
+IPLtoXML.newSubElement(tools3, t3C_command3, "command");
+IPLtoXML.addAttribute(t3C_command3, "platform", "HPUX");
+IPLtoXML.addAttribute(t3C_command3, "foreach", "false");
+IPLtoXML.addAttribute(t3C_command3, "enabled", "false");
+IPLtoXML.addAttribute(t3C_command3, "type", "command");
+//IPLtoXML.addAttribute(t3C_command3, "path="");
+//IPLtoXML.addAttribute(t3C_command3, "text="");
+
+IPLtoXML.newSubElement(tools3, t3D_command4, "command");
+IPLtoXML.addAttribute(t3D_command4, "platform", "AIX");
+IPLtoXML.addAttribute(t3D_command4, "foreach", "false");
+IPLtoXML.addAttribute(t3D_command4, "enabled", "false");
+IPLtoXML.addAttribute(t3D_command4, "type", "command");
+//IPLtoXML.addAttribute(t3D_command4, "path", "");
+//IPLtoXML.addAttribute(t3D_command4, "text", "");
+
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 16:42:42 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+
+//
+// EXAMPLE WEBTOP2x_tool_delete.ipl  ///////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+<method methodName="tool.deleteTool">
+<tools name="tool1"/>
+<tools name="mygroupassign"/>
+<tools name="commandTool1"/>
+</method>
+</methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+/*
+myMethodCall=newobject();
+myMethodCall.XMLElementType="methodCall";
+
+myMethodCall.method1=newobject();
+myMethodCall.method1.XMLElementType="method";
+myMethodCall.method1.methodName="tool.deleteTool";
+
+
+myMethodCall.method1.tools1=newobject();
+myMethodCall.method1.tools1.XMLElementType="tools";
+myMethodCall.method1.tools1.name="tool1";
+
+
+myMethodCall.method1.tools2=newobject();
+myMethodCall.method1.tools2.XMLElementType="tools";
+myMethodCall.method1.tools2.name="mygroupassign";
+
+
+
+myMethodCall.method1.tools3=newobject();
+myMethodCall.method1.tools3.XMLElementType="tools";
+myMethodCall.method1.tools3.name="commandTool1";
+*/
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "tool.deleteTool");
+IPLtoXML.newSubElement(method1, tools1, "tools");
+IPLtoXML.addAttribute(tools1, "name", "tool1");
+IPLtoXML.newSubElement(method1, tools2, "tools");
+IPLtoXML.addAttribute(tools2, "name", "mygroupassign");
+IPLtoXML.newSubElement(method1, tools3, "tools");
+IPLtoXML.addAttribute(tools3, "name", "commandTool1");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 16:42:42 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_tool_getList.ipl  ////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="tool.getList"/></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "tool.getList");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+/*
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 16:48:36 CDT 2007
+
+Tools hosted on the server
+********************************************************************
+tool1
+mygroupassign
+Tracepath
+takeownership
+userassign
+Telnet
+groupassign
+commandTool1
+Ping
+deacknowledge
+delete
+LocalPing
+acknowledge
+prioritise
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_tool_modify.ipl  //////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="tool.modifyTool"><tools acl="example,*" method="GET" name="tool1" showdocument="true"><execute foreach="true" text="$selected_rows.Agent, $selected_rows.Acknowledged,$selected_rows.AlertKey" url="$(SERVER)cgi-bin/nco_ping.cgi"/></tools><tools acl="example,*" method="GET" name="mygroupassign" showdocument="true"><sql foreach="true" text="update alerts.status set OwnerGID=$prompt.groupassign where Serial in ($selected_rows.Serial);" url="$(SERVER)/_tb37b/ael/SQLToolHandler"/><journal foreach="true" text="Alert assigned to group CONVERSION($prompt.groupassign) by %username."/><prompt name="groupassign" type="dynamicchoice"><sql text="select Conversion, Value from alerts.conversions where Colname=&apos;OwnerGID&apos; order by Value desc;"/></prompt></tools></method></methodCall>
+*/
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "tool.modifyTool");
+
+IPLtoXML.newSubElement(method1, tools1, "tools");
+IPLtoXML.addAttribute(tools1, "name", "tool1");
+IPLtoXML.addAttribute(tools1, "acl", "example,*");
+IPLtoXML.addAttribute(tools1, "showdocument", "true");
+IPLtoXML.addAttribute(tools1, "method", "GET");
+
+IPLtoXML.newSubElement(tools1, execute1, "execute");
+IPLtoXML.addAttribute(execute1, "text", "$selected_rows.Acknowledged, $selected_rows.Agent");
+IPLtoXML.addAttribute(execute1, "foreach", "true");
+IPLtoXML.addAttribute(execute1, "text", "$selected_rows.Agent, $selected_rows.Acknowledged,$selected_rows.AlertKey");
+IPLtoXML.addAttribute(execute1, "url", "$(SERVER)cgi-bin/nco_ping.cgi");
+
+
+IPLtoXML.newSubElement(method1, tools2, "tools");
+IPLtoXML.addAttribute(tools2, "name", "mygroupassign");
+IPLtoXML.addAttribute(tools2, "acl", "example,*");
+IPLtoXML.addAttribute(tools2, "showdocument", "true");
+IPLtoXML.addAttribute(tools2, "method", "GET");
+
+IPLtoXML.newSubElement(tools2, A_sql1, "sql");
+IPLtoXML.addAttribute(A_sql1, "foreach", "true");
+IPLtoXML.addAttribute(A_sql1, "text", "update alerts.status set OwnerGID=$prompt.groupassign where Serial in ($selected_rows.Serial);");
+IPLtoXML.addAttribute(A_sql1, "url", "$(SERVER)/_tb37b/ael/SQLToolHandler");
+
+IPLtoXML.newSubElement(tools2, B_journal1, "journal");
+IPLtoXML.addAttribute(B_journal1, "foreach", "true");
+IPLtoXML.addAttribute(B_journal1, "text", "Alert assigned to group CONVERSION($prompt.groupassign) by %username.");
+
+IPLtoXML.newSubElement(tools2, C_prompt1, "prompt");
+IPLtoXML.addAttribute(C_prompt1, "type", "dynamicchoice");
+IPLtoXML.addAttribute(C_prompt1, "name", "groupassign");
+
+IPLtoXML.newSubElement(C_prompt1, t2C_sql1, "sql");
+IPLtoXML.addAttribute(t2C_sql1, "text", "select Conversion, Value from alerts.conversions where Colname='OwnerGID' order by Value desc;");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 16:42:42 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_user_getList.ipl  ///////////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+<method methodName="user.getList"/>
+</methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "user.getList");
+
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+log(myMethodCall.WAAPI_OUTPUT);
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:32:30 CDT 2007
+
+Webtop users hosted on GUI Foundation
+********************************************************************
+parker
+lili
+impact
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_user_modifyUser.ipl ///////////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?><methodCall><method methodName="user.modifyUser"><user ael_user_properties_allow_custom_refresh="false" ael_user_properties_allow_select="true" ael_user_properties_minimum_refresh_time="70" ael_user_properties_refresh_time="90" ael_user_properties_show_details="true" ael_user_properties_show_info="false" ael_user_properties_show_journal="true" ael_user_properties_show_preferences="true" filter="Severity&gt;=0" name="impact" passwd="no password"/></method></methodCall>
+*/
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "user.modifyUser");
+IPLtoXML.newSubElement(method1, user1, "user");
+
+IPLtoXML.addAttribute(user1, "name", "impact");
+IPLtoXML.addAttribute(user1, "passwd", "no password");
+IPLtoXML.addAttribute(user1, "filter ", "Severity>=0");
+IPLtoXML.addAttribute(user1, "ael_user_properties_refresh_time", "90");
+IPLtoXML.addAttribute(user1, "ael_user_properties_minimum_refresh_time", "70");
+IPLtoXML.addAttribute(user1, "ael_user_properties_show_preferences", "true");
+IPLtoXML.addAttribute(user1, "ael_user_properties_allow_custom_refresh", "false");
+IPLtoXML.addAttribute(user1, "ael_user_properties_allow_select", "true");
+IPLtoXML.addAttribute(user1, "ael_user_properties_show_details", "true");
+IPLtoXML.addAttribute(user1, "ael_user_properties_show_info", "false");
+IPLtoXML.addAttribute(user1, "ael_user_properties_show_journal", "true");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 17:33:06 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_view_create.ipl  ////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+<method methodName="view.getList"/>
+</methodCall>
+*/
+
+
+
+///////////////////IPL//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "view.createView");
+IPLtoXML.newSubElement(method1, view1, "view");
+IPLtoXML.addAttribute(view1, "viewName", "nci_view1");
+IPLtoXML.newSubElement(view1, sorting1, "sorting");
+IPLtoXML.newSubElement(sorting1, sortColumn1, "sortColumn");
+IPLtoXML.addAttribute(sortColumn1, "fieldName", "Severity");
+IPLtoXML.addAttribute(sortColumn1, "order", "desc");
+
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:33:42 CDT 2007
+
+Views hosted on the server
+********************************************************************
+extended
+basic
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+*/
+
+
+
+//
+// EXAMPLE WEBTOP2x_view_delete.ipl  ///////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+<method methodName="view.deleteView">
+<view viewName="nci_view1"/>
+</method>
+</methodCall>
+*/
+
+
+///////////////////IPL/////////////////////
+
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "view.deleteView");
+IPLtoXML.newSubElement(method1, view1, "view");
+IPLtoXML.addAttribute(view1, "viewName", "nci_view1");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+*********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 17:57:41 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_view_getList.ipl  ///////////////////////////
+//
+///////////////////XML generated//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+<method methodName="view.getList"/>
+</methodCall>
+*/
+
+
+
+///////////////////IPL Object//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "view.getList");
+
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+log(myMethodCall.WAAPI_OUTPUT);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Sun Aug 19 17:33:42 CDT 2007
+
+Views hosted on the server
+********************************************************************
+extended
+basic
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+*/
+
+
+//
+// EXAMPLE WEBTOP2x_view_modify.ipl  ///////////////////////////////
+//
+///////////////////desired XML//////////////////////
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<methodCall>
+<method methodName="view.modifyView">
+<view acl="*" viewName="nci_view1">
+<columns>
+<visualEntry columnWidth="18" dataJustify="left" fieldName="Node" fieldTitle="Node" titleJustify="left"/>
+<visualEntry columnWidth="12" dataJustify="left" fieldName="Serial" fieldTitle="Serial" titleJustify="left"/>
+</columns>
+<sorting>
+<sortColumn fieldName="Severity" order="asc"/>
+</sorting>
+</view>
+</method>
+</methodCall>
+*/
+
+
+///////////////////IPL Object//////////////////////
+
+IPLtoXML.newDocument(myMethodCall);
+IPLtoXML.newSubElement(myMethodCall, methodCall1, "methodCall");
+IPLtoXML.newSubElement(methodCall1, method1, "method");
+IPLtoXML.addAttribute(method1, "methodName", "view.modifyView");
+
+IPLtoXML.newSubElement(method1, view1, "view");
+IPLtoXML.addAttribute(view1, "viewName", "nci_view1");
+IPLtoXML.addAttribute(view1, "acl", "*");
+
+IPLtoXML.newSubElement(view1, columns1, "columns");
+
+IPLtoXML.newSubElement(columns1, ve1, "visualEntry");
+IPLtoXML.addAttribute(ve1, "fieldName", "Node");
+IPLtoXML.addAttribute(ve1, "fieldTitle", "Node");
+IPLtoXML.addAttribute(ve1, "dataJustify", "left");
+IPLtoXML.addAttribute(ve1, "titleJustify", "left");
+IPLtoXML.addAttribute(ve1, "columnWidth", "18");
+
+IPLtoXML.newSubElement(columns1, ve2, "visualEntry");
+IPLtoXML.addAttribute(ve2, "fieldName", "Serial");
+IPLtoXML.addAttribute(ve2, "fieldTitle", "Serial");
+IPLtoXML.addAttribute(ve2, "dataJustify", "left");
+IPLtoXML.addAttribute(ve2, "titleJustify", "left");
+IPLtoXML.addAttribute(ve2, "columnWidth", "12");
+
+///////////////////Function call to provision Webtop//////////////////////
+
+//STACK is always required before function call
+STACK=NewJavaObject("java.util.Stack", {});
+
+WEBTOP.Provision(myMethodCall);
+
+/*
+
+///////////////////Output from WAAPI/Webtop//////////////////////
+********************************************************************
+WAAPIClient: Request sent to server on http://localhost:8080/webtop/...
+Fri Aug 24 17:56:22 CDT 2007
+********************************************************************
+WAAPIClient: 1 method was fully executed.
+
+*/

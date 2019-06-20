@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Tipos de Objetos MIB" />
+<meta name="abstract" content="Este tópico descreve os tipos de objetos definidos no SNMP v1 e v2." />
+<meta name="Description" content="Este tópico descreve os tipos de objetos definidos no SNMP v1 e v2." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="pt-br" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>Tipos de Objetos MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versão 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Tipos de Objetos MIB</h1>
+<div class="body refbody"><p class="shortdesc">Este tópico descreve os tipos de objetos definidos no SNMP v1
+e v2.</p>
+<div class="section"><p class="p">É possível localizar as informações do objeto descritas nas seções a seguir ao
+selecionar um módulo na visualização <span class="keyword wintitle">Módulos MIB</span> e, então, procurar por <kbd class="ph userinput">ifIndex</kbd> no campo <span class="ph uicontrol">Procura</span> da visualização
+<span class="keyword wintitle">Árvore OID</span>. Clique no objeto <samp class="ph codeph">ifIndex</samp> na hierarquia
+<span class="keyword wintitle">Árvore OID</span> para visualizar informações sobre o objeto e informações sobre
+convenção textual na visualização <span class="keyword wintitle">Detalhes</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p">O <samp class="ph codeph">OBJECT IDENTIFIER</samp> é definido pelo SNMP v1 e é o bloco de construção principal da árvore MIB.
+Identificadores de objeto são análogos a um título de capítulo em um livro -
+eles não contêm dados reais, mas fornece uma ideia de qual tipo de conteúdo é retransmitido
+por seus descendentes.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p">O <samp class="ph codeph">OBJECT TYPE</samp> é definido pelo
+SNMP v1 e é usado como um contêiner para armazenar informações sobre o dispositivo gerenciado
+ou algum valor medido no dispositivo.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL CONVENTION</h2><p class="p">A <samp class="ph codeph">TEXTUAL CONVENTION</samp> (TC) é uma definição de um tipo de objeto, mas não é um objeto real. Na visualização <span class="keyword wintitle">Módulos MIB</span>, é possível selecionar <span class="ph uicontrol">Convenções Textuais</span> a partir da lista
+<span class="ph uicontrol">Visualizar</span> para visualizar as convenções textuais analisadas exibidas na
+árvore MIB. Selecione um nome de TC na árvore MIB para exibir suas definições na visualização <span class="keyword wintitle">Detalhes</span>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TIPO DE TRAP SNMP v1 e TIPO DE NOTIFICAÇÃO SNMP v2</h2><div class="p">O TIPO DE TRAP
+SNMP v1 e o TIPO DE NOTIFICAÇÃO v2 são o mecanismo SNMP para gerar eventos autônomos para o
+gerenciador de SNMP. Os traps SNMP no
+v1 não são definidos como objetos na árvore MIB. Um objeto do TIPO TRAP não possui um pai
+definido no formato de IDENTIFICADOR DE OBJETO. Em vez disso, uma definição trap especifica uma empresa na qual o trap é definido.
+A seguir está um objeto TRAP-TYPE
+típico:<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM 
+enters the ESTABLISHED state." ::= 1 </code></pre>
+</div>
+<p class="p">A seção <samp class="ph codeph">ENTERPRISE</samp> define qual objeto é o pai do trap. Entretanto, é possível que um objeto da árvore MIB seja definido
+com <samp class="ph codeph">bgp</samp> como o pai e é definido como filho número 1. De fato, <samp class="ph codeph">bgpVersion</samp> é definido como <samp class="ph codeph">{ bgp 1}</samp> no módulo RFC1269-MIB. Por esta razão, é impossível incluir um trap v1 à árvore MIB como uma folha usando o
+<samp class="ph codeph">ENTERPRISE</samp> como pai.</p>
+<p class="p">O SNMP v2 altera a definição do TRAP-TYPE para NOTIFICATION-TYPE e especifica que este novo trap v2 seja definido como outros objetos MIB, com um número para o pai e outro para o filho tornando isso um problema para os traps v1 . RFC1155
+Section 4.1 define que o uso de zero (0) como um número de filho é inválido e reservado para
+uso futuro. O SNMP v2 faz uso daquele zero para permitir que os fornecedores incluam seus traps v1 para um MIB v2, incluindo um zero ao nome da empresa e em seguida
+incluindo o número do trap depois do zero. Portanto, na v2 é apropriado definir um identificador de objeto com um zero como um filho da empresa e, então, incluir os traps v1 como filhos de
+tal zero. </p>
+<p class="p">Esta convenção causou outro erro comum feito pelos autores do MIB. A Seção 4
+do RFC1155 determina o seguinte:</p>
+<p class="p"><span class="q">"Uma definição de tipo de objeto consiste em cinco
+campos: OBJETO: ------- Um nome textual, expresso como DESCRITOR DO OBJETO, para o tipo de objeto, junto com seu IDENTIFICADOR DE OBJETO correspondente.  Sintaxe: A sintaxe abstrata para o tipo de objeto. Isto deverá resolver para uma instância do ASN.1 tipo ObjectSyntax (definida abaixo). Definição: uma descrição textual da semântica do tipo de objeto. As implementações deverão assegurar que suas instâncias do objeto cumprem esta definição já que o propósito do MIB é o de ser usado em ambientes de diversos fornecedores. Como tal é vital que os objetos tenham significado consistente em todas as máquinas.
+Acesso: Um dos seguintes, somente leitura, leitura/gravação, somente gravação ou não acessível.
+Status: Um dos seguintes, obrigatório, opcional ou obsoleto.  Memorandos futuros também podem especificar outros campos para os objetos que eles definem."</span></p>
+<div class="p">De acordo com esta regra, todos os objetos deverão ter tanto um nome do objeto quanto um número de objeto. Alguns módulos fornecedores MIB e até alguns RFC's, definiram um NOTIFICATION-TYPE com um pai como zero mas sem um nome objeto para aquela zero. No exemplo a seguir, a definição de objeto
+não está na realidade sintaticamente correta pelo fato de não haver nenhum nome do objeto definido para o filho número zero do objeto <samp class="ph codeph">adslAtucTraps</samp>. O <span class="keyword">MIB Manager</span> reconhece a preferência de alguns autores de MIB de
+usar tais métodos como um atalho e permitir que o objeto seja incluído sem
+um nome de objeto. Além disso, para facilitar a inclusão de traps v1 na
+árvore MIB, o <span class="keyword">MIB Manager</span> inclui automaticamente um objeto zero como um filho do
+objeto corporativo v1 (note que um MIB v1 não pode usar um zero em
+seu OID), designa o objeto zero como Traps onde estiver o nome da
+empresa e inclui o trap abaixo desse novo objeto na árvore MIB. Por exemplo, usar <samp class="ph codeph">bgp</samp> resultaria nos ancestrais de traps a seguir: <samp class="ph codeph">{ bgp bgpTraps(0)
+1 }).</samp> <pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">Varbinds</h2><p class="p">Objetos que são transmitidos com o trap v1 ou a notificação v2 são conhecidos como varbinds. Varbinds contêm informações adicionais sobre o evento
+relatado. Em um trap v1, os varbinds são detalhados em itens na seção VARIABLES e em uma notificação v2, os varbinds são listados na seção OBJETOS. Eles têm o mesmo uso em todas
+as versões do SNMP. A ordem na qual os varbinds aparecem na lista é importante porque
+o PDU (Pacote SNMP) codifica os valores associados na mesma ordem na qual eles são listados
+na MIB.</p>
+<p class="p">Por exemplo, na seção OBJECTS, os três varbinds a seguir foram especificados: <samp class="ph codeph">ifIndex</samp>, <samp class="ph codeph">ifAdminStatus</samp> e <samp class="ph codeph">ifOperStatus</samp>. Portanto, <samp class="ph codeph">ifIndex</samp> é o primeiro varbind a ser codificado, <samp class="ph codeph">ifAdminStatus</samp> é o
+segundo e <samp class="ph codeph">ifOperStatus</samp> é o terceiro a ser codificado. Verificando o IF-MIB descobrimos que o tipo de objeto <samp class="ph codeph">ifIndex</samp> é definido como
+<samp class="ph codeph">InterfaceIndex</samp>. Como este não é um tipo ASN.1 primitivo válido para SNMP,
+ele deve ser uma convenção textual. Procurando em convenções textuais, descobrimos que
+<samp class="ph codeph">InterfaceIndex</samp> realmente resolve para um Integer32 (número inteiro de
+32 bits). Portanto, quando o PDU
+chegar ao <span class="keyword">MIB Manager</span>, o primeiro varbind será um número inteiro. Para determinar
+o que esse número inteiro significa, o <span class="keyword">MIB Manager</span> deve referenciar o módulo IF-MIB, consultar <samp class="ph codeph">ifIndex</samp>
+e ler as informações do objeto associado. Verificando o segundo varbind, descobrimos um tipo de número inteiro
+enumerado: </p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">Quando o varbind é decodificado a
+partir do pacote SNMP, seu valor será um número inteiro, o valor do qual deve ser
+interpretado com base nos itens nesta lista enumerada. Quando o <span class="keyword">MIB Manager</span> for usado para criar um arquivo de regras, ele criará uma
+tabela de consulta para vincular automaticamente o número inteiro enumerado com sua
+representação textual. O terceiro varbind
+também é um tipo enumerado com os mesmos valores. Portanto, se o <samp class="ph codeph">ifAdminStatus</samp>
+for 1 (para cima) e o <samp class="ph codeph">ifOperStatus</samp> for 2 (para baixo), sabemos porque o evento
+foi gerado e pode continuar a tentar determinar a causa desta indisponibilidade.</p>
+<p class="p">Varbinds são apresentados para o usuário em um arquivo de regras como <samp class="ph codeph">$1</samp>, <samp class="ph codeph">$2</samp>,
+<samp class="ph codeph">$3</samp>e assim por diante, com cada número representando um número de varbind. O <span class="keyword">MIB Manager</span>
+ cria elementos com base nos elementos varbind e
+os usa para configurar variáveis na tabela de detalhes. Por exemplo, os elementos usados nos detalhes da tabela podem ser $ifIndex = $1, que será um número inteiro,
+$ifAdminStatus = $2, que será alguma coisa como (1), e $ifOperStatus
+= $3, o que será algo como (3).
+Quaisquer mudanças feitas nas
+configurações de objeto são automaticamente configuradas no arquivo de regras,
+usando as convenções configuradas pela Netcool Knowledge Library (NCKL).</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Tabelas</h2><p class="p">Tabelas representam o equivalente a
+uma matriz multidimensional com linhas e colunas de dados. O objeto da tabela
+é definido como uma SEQUENCE OF de um objeto de Entrada. O objeto de Entrada
+é em seguida definido como objeto SEQUENCE of OBJECT-TYPE. Ocasionalmente,
+um fornecedor projeta um sistema não usual, por exemplo, o roteador Cisco 10k.
+Este dispositivo mantém uma tabela interna de condições de alarme e gera um
+trap ou notificação quando a tabela muda. Em seguida é necessário emitir uma solicitação
+SNMP GET sobre o conteúdo da tabela para determinar o
+status atual dos alarmes ativos no dispositivo. Isto torna a obtenção de alarmes pelo
+gerenciador de SNMP um pouco mais difícil, mas não impossível se o administrador tiver as
+ferramentas adequadas.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SEQUÊNCIA DE OCTETOS</h2><p class="p">Um octeto é uma construção de dados que consiste
+em oito bits (comumente conhecida como um byte). Portanto uma SEQUÊNCIA DE OCTETOS, é uma matriz de bytes (ou uma sequência de bytes). O termo SEQUÊNCIA DE OCTETOS não significa que todos os bytes na sequência são alfanuméricos.
+Também podem ser caracteres binários
+e serem usados como máscara de bits.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tópico pai:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="Esta seção fornece informações adicionais sobre a arquitetura do Protocolo Simples de Gerenciamento de Rede (SNMP), a base de informações de gerenciamento (MIB) do SNMP e alguns conceitos adicionais da MIB.">Sobre o SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Suporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

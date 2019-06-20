@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="OID 트리 보기" />
+<meta name="abstract" content="OID(Object Identifier) 트리 보기는 가져온 MIB 모듈에 있는 모든 MIB 오브젝트의 표시를 제공합니다." />
+<meta name="Description" content="OID(Object Identifier) 트리 보기는 가져온 MIB 모듈에 있는 모든 MIB 오브젝트의 표시를 제공합니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="oidtree" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>OID 트리 보기</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="oidtree">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">OID 트리 보기</h1>
+<div class="body refbody"><p class="shortdesc">OID(Object Identifier) 트리 보기는 가져온 MIB 모듈에 있는 모든 MIB 오브젝트의 표시를
+제공합니다. </p>
+<div class="section"><div class="p"><span class="ph uicontrol">보기</span> 드롭 다운 목록에서 다음 옵션 중 하나를 선택하여
+<span class="keyword wintitle">OID 트리</span> 보기에서 데이터를 필터링할 수 있습니다. <ul class="ul"><li class="li"><span class="ph uicontrol">모두</span></li>
+<li class="li"><span class="ph uicontrol">트랩/알림</span></li>
+<li class="li"><span class="ph uicontrol">오브젝트</span></li>
+<li class="li"><span class="ph uicontrol">모듈</span></li>
+</ul>
+</div>
+<p class="p"><span class="keyword wintitle">OID 트리</span> 보기에서
+특정 값을 검색하려면, <span class="ph uicontrol">검색</span> 필드에 텍스트를 입력하고
+<span class="ph uicontrol">Enter</span>를 누르거나 <img class="image" src="../gifs/find.gif" alt="검색 아이콘" />(검색)을 클릭하십시오. </p>
+<p class="p"><span class="keyword">MIB Manager</span>는 선택한 항목부터 또는 현재 선택한 항목이
+없는 경우 목록의 첫 번째 항목부터 검색을 시작합니다. 목록에서 다음으로 일치하는 항목을 찾으려면,
+계속해서 <img class="image" src="../gifs/find.gif" alt="검색 아이콘" />(검색)을 클릭하십시오. </p>
+<p class="p">항목을 찾으면,
+<span class="keyword wintitle">OID 트리</span> 보기에서 자동으로 강조되어 표시됩니다. </p>
+<p class="p"><span class="ph uicontrol">검색</span> 필드에서는
+유효한 정규식을 지정하거나 전체 또는 일부 오브젝트 이름이나 OID를 표시하는 평문을 입력하십시오.
+각 브랜치 노드에 표시되는 숫자는 해당 오브젝트 OID의 마지막 숫자입니다.</p>
+<p class="p">다음 테이블에서는 <span class="keyword wintitle">OID 트리</span> 보기 아이콘을 나열하며 각 아이콘의 의미에 대해
+설명합니다. </p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">표 1. <span class="keyword wintitle">OID 트리</span> 아이콘 및 이들이 표시하는 연관된 오브젝트</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="29.145728643216078%" id="d5876e79">아이콘</th>
+<th class="entry" valign="top" width="70.85427135678391%" id="d5876e81">표시</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "> <div class="image"><img class="image" src="../gifs/obj_identifier.gif" alt="OID(Object Identifier) 아이콘" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">OBJECT IDENTIFIER, OBJECT-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/agent_capabilities.gif" alt="에이전트 기능" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">AGENT-CAPABILITIES</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/mod_compliance.gif" alt="모듈 준수 아이콘" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">MODULE-COMPLIANCE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "> <div class="image"><img class="image" src="../gifs/module_identity.gif" alt="모듈 ID" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">MODULE, MODULE-IDENTITY</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "> <div class="image"><img class="image" src="../gifs/obj_group.gif" alt="오브젝트 그룹" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">OBJECT-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "> <div class="image"><img class="image" src="../gifs/notification_gp.gif" alt="알림 그룹" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">NOTIFICATION-GROUP</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/trap_type.gif" alt="트랩 유형" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">TRAP-TYPE (v1 trap)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/notification_type.gif" alt="알림 유형" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">NOTIFICATION-TYPE (v2 trap)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/gen_obj_type.gif" alt="일반 오브젝트 유형" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">일반 OBJECT-TYPE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/counter_type.gif" alt="카운터" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">COUNTER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/counter_32.gif" alt="카운터 32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">COUNTER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/counter_64.gif" alt="카운터 64" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">COUNTER64</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/guage.gif" alt="게이지" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">GAUGE</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/guage_32.gif" alt="게이지 32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">GAUGE32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/integer.gif" alt="정수" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">INTEGER</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/integer_32.gif" alt="정수 32" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">INTEGER32</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/ip_address.gif" alt="IP 주소" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">IpAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/network_address.gif" alt="네트워크 주소" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">NetworkAddress</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/OID.gif" alt="OID" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">OID</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/octet_string.gif" alt="옥테트 문자열" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">OCTET STRING</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/sequence.gif" alt="순서 테이블" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">SEQUENCE(table)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/sequence_task.gif" alt="순서 테이블 항목" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">SEQUENCE (Entry, table row)</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/timeticks.gif" alt="시계" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">TIMETICKS</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="29.145728643216078%" headers="d5876e79 "><div class="image"><img class="image" src="../gifs/textual.gif" alt="텍스트 규칙" /></div></td>
+<td class="entry" valign="top" width="70.85427135678391%" headers="d5876e81 ">TEXTUAL-CONVENTION</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB Manager를 사용하여 MIB 모듈을 구문 분석하고 Netcool 규칙 파일을 작성할 수 있습니다.">Netcool MIB Manager 사용</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

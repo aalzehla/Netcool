@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="配置 UNIX 事件列表窗口的字体大小" />
+<meta name="abstract" content="NCOEvent 资源文件包含事件列表窗口的用户界面元素的定义。" />
+<meta name="description" content="NCOEvent 资源文件包含事件列表窗口的用户界面元素的定义。" />
+<meta name="DC.subject" content="配置字体大小, 事件列表, 字体大小" />
+<meta name="keywords" content="配置字体大小, 事件列表, 字体大小" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_customizingappearance.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_configuringfontsunixdsktop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_startingconductor.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_con_configuringfontsizesunixevntlst" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_customizingappearance.html" />
+<title>配置 UNIX 事件列表窗口的字体大小</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_con_configuringfontsizesunixevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">配置 UNIX 事件列表窗口的字体大小</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="ph filepath">NCOEvent</span> 资源文件包含事件列表窗口的用户界面元素的定义。</p>
+<div class="section context"><div class="p">可以使用该资源文件更改以下事件列表窗口中的菜单、工具栏按钮、字段标签和条目、按钮、状态栏、列标题以及事件数据的字体大小：<ul class="ul"><li class="li">事件列表的“<span class="keyword wintitle">登录</span>”窗口</li>
+<li class="li">“<span class="keyword wintitle">事件列表</span>”监视器框窗口</li>
+<li class="li">事件列表</li>
+<li class="li">可从监视器框窗口和事件列表访问的所有其他窗口。这些窗口包括“过滤器构建器”窗口、“视图构建器”窗口和其他可通过单击菜单选项打开的窗口。</li>
+</ul>
+</div>
+<p class="p">也可以使用 <span class="ph filepath">NCOEvent</span> 资源文件来更改事件列表窗口的其他属性；例如，字体类型、字符串值和颜色。</p>
+<p class="p">如果使用 Conductor（<kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd>）来提供对桌面工具的单点登录访问，那么您在 <span class="ph filepath">NCOEvent</span> 资源文件中所做的字体更改将反映在监视器框窗口、事件列表和关联的窗口中。如果从命令提示符（<kbd class="ph userinput">$NCHOME/omnibus/bin/nco_event &amp;</kbd>）启动事件列表，那么字体更改将反映在“<span class="keyword wintitle">登录</span>”窗口、监视器框窗口、事件列表和关联的窗口中。</p>
+<p class="p">要配置 UNIX 事件列表窗口的字体大小：</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">转至以下位置：</span> <p class="p"><span class="ph filepath">$NCHOME/omnibus/desktop/locale/<var class="keyword varname">arch</var>/<var class="keyword varname">locale_name</var>/app-defaults</span></p>
+
+<p class="p">其中 <var class="keyword varname">arch</var> 是操作系统目录，<var class="keyword varname">locale_name</var> 是完整的语言环境名称；例如，en_GB.ISO8859-1。请注意，此目录中的一些语言环境名称可能是符号链接。</p>
+
+<div class="note tip"><span class="tiptitle">提示：</span> 要使您的更改可见，<var class="keyword varname">locale_name</var> 值必须与您当前的语言环境匹配。您可以运行 <span class="keyword cmdname">locale</span> 命令（不带任何参数）来列出当前语言环境。</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">编辑 <span class="ph filepath">NCOEvent</span> 资源文件，以按需更改事件列表资源的字体大小：</span> <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="90%" rules="all" frame="border" border="1"><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="33.33333333333333%" id="d134772e110">资源</th>
+<th class="entry" valign="bottom" width="66.66666666666666%" id="d134772e112">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响所有窗口上的大多数文本；例如，菜单、工具栏按钮、大多数字段标签和按钮。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*XmText.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响描述性文本项，例如，日志项。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*XmTextField.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响可编辑文本；例如，事件列表的“<span class="keyword wintitle">登录</span>”窗口中的<span class="ph uicontrol">用户名</span>和<span class="ph uicontrol">密码</span>项。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*XmLabel.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响不可编辑的标签；例如，事件列表的“<span class="keyword wintitle">登录</span>”窗口中的<span class="ph uicontrol">用户名</span>和<span class="ph uicontrol">密码</span>字段标签，或监视器框上的<span class="ph uicontrol">编号</span>和<span class="ph uicontrol">度量值</span>标签。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*main_status_line.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响登录后监视器框窗口的状态栏中显示的状态消息；例如，<samp class="ph msgph">就绪。</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*main_user_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响已登录用户的名称，该名称显示在登录后的监视器框窗口的状态栏中。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*main_server_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响登录后监视器框窗口的状态栏中显示的 ObjectServer 名称。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*sub_status_line.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响事件列表的状态栏中显示的状态消息；例如，<samp class="ph msgph">未修改任何行。</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*sub_clock.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响事件列表的状态栏中显示的日期和时间。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*sub_user_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响已登录用户的名称，该名称显示在事件列表的状态栏中。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*sub_server_field.fontList</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响事件列表的状态栏中显示的 ObjectServer 名称。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 ">NCOEvent*sub_matrix.labelFont</td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响事件列表表中的列标题。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.33333333333333%" headers="d134772e110 "><strong class="ph b">NCOEvent*sub_matrix.fontList</strong></td>
+<td class="entry" valign="top" width="66.66666666666666%" headers="d134772e112 ">影响事件列表表中的事件数据的文本。<div class="note note"><span class="notetitle">注：</span> 该资源未列于 <span class="ph filepath">NCOEvent</span> 资源文件中，但可以添加（如果您要更改事件数据的字体）。您可以复制并粘贴 NCOEvent*sub_matrix.labelFont 行，使其在文件中重复。然后，通过将 <samp class="ph codeph">NCOEvent*sub_matrix.labelFont</samp> 部分更改为 <samp class="ph codeph">NCOEvent*sub_matrix.fontList</samp>，修改粘贴的行</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <p class="p">例如，要将任意资源的字体大小从 <strong class="ph b">12</strong> 更改为 <strong class="ph b">24</strong>，您可以将 <samp class="ph codeph">-adobe-helvetica-bold-r-normal--<strong class="ph b">12</strong>-*-75-75-*-*-iso*-*</samp> 更改为 <samp class="ph codeph">-adobe-helvetica-bold-r-normal--<strong class="ph b">24</strong>-*-75-75-*-*-iso*-*</samp></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">保存更改。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">要使更改生效，请关闭所有打开的监视器框和事件列表窗口，然后重新打开。</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_customizingappearance.html" title="可以定制事件列表的外观。">定制事件列表的外观</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。">启动事件列表</a></div>
+<div><a class="link" href="omn_con_configuringfontsunixdsktop.html" title="如果要以您的语言环境查看 UNIX 桌面，您可能会发现必需配置所需的字体才能以您语言环境的编码显示文本。">配置 UNIX 桌面的字体</a></div>
+<div><a class="link" href="omn_usr_startingconductor.html" title="Conductor 向所有 Tivoli Netcool/OMNIbus 桌面工具提供了单点登录访问，以用于查看和管理警报。">启动 Conductor</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

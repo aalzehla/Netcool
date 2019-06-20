@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="SNMP 트랩 생성" />
+<meta name="abstract" content="SNMP 트랩을 생성하는 방법입니다. MIB Manager에서 생성된 규칙 파일을 테스트하는 데에도 이 기능을 사용할 수 있습니다." />
+<meta name="Description" content="SNMP 트랩을 생성하는 방법입니다. MIB Manager에서 생성된 규칙 파일을 테스트하는 데에도 이 기능을 사용할 수 있습니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SNMP 트랩 생성</h1>
+<div class="body taskbody"><p class="shortdesc">SNMP 트랩을 생성하는 방법입니다. <span class="keyword">MIB Manager</span>에서 생성된 규칙 파일을 테스트하는 데에도 이 기능을
+사용할 수 있습니다. </p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">프로시저</h2></div><p class="li stepsection">SNMP 트랩을 생성하려면 다음을 수행하십시오. </p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><img class="image" src="../gifs/trap.gif" alt="트랩 아이콘" /> <span class="ph uicontrol">트랩</span>을 클릭하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">대상 주소</span> 필드에서 SNMP Trapd 서비스를 실행하는 컴퓨터의 호스트 이름 또는
+IP 주소를 지정하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">대상 포트</span> 필드에서 SNMP Trapd 서비스가 인식하는 UDP 포트를 지정하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">커뮤니티</span> 필드에서 Trapd 관리자에 대해 유효한 문자열을 지정하십시오. </span></li>
+<li class="li step stepexpand"><span class="ph cmd">생성하는 트랩의 유형에 따라, <span class="ph uicontrol">가변 바인딩</span> 섹션이
+<span class="keyword wintitle">SNMP 트랩 생성</span> 창에 표시될 수 있습니다. <span class="ph uicontrol">가변 바인딩</span> 섹션에서
+사용 가능한 필드도 생성하는 트랩 유형에 따라 달라집니다. </span> <p class="p">필드 값 구문에 대한 세부사항을 보려면 마우스를 <span class="ph uicontrol">가변 바인딩</span> 필드 이름 위에 두십시오.
+쉼표로 구분하여 여러 값을 지정할 수 있습니다. 이 값은 트랩을 빌드할 때 랜덤으로 선택됩니다. </p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">반복 지표</span> 필드에서는 생성될 수 있는 트랩 수(1 - 1000)를 지정하십시오. </span> <p class="p">큰 수를 지정하면, 신속하게 연속해서 트랩이 생성되므로 Trapd 관리자에서
+알람 스톰이 발생할 수 있습니다. 값이 1보다
+크거나(&gt; 1) 세미콜론으로 구분된 목록으로 지정되는 경우
+<span class="keyword">MIB Manager</span>가 지정된 목록에서 무작위로 선택하고
+임의 값을 varbind로 표시하여 트랩을 생성합니다. </p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">실행</span>을 클릭하여 트랩을 생성하십시오. </span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">결과</h2></div><span class="keyword wintitle">SNMP 트랩 생성</span> 창의 <span class="ph uicontrol">결과</span> 필드가
+트랩이 성공적으로 전송되었는지 여부를 표시합니다. </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB Manager를 사용하여 MIB 모듈을 구문 분석하고 Netcool 규칙 파일을 작성할 수 있습니다.">Netcool MIB Manager 사용</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

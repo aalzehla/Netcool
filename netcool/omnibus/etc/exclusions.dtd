@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+******************************************************************************
+
+Licensed Materials - Property of IBM
+
+5724O4800
+
+(C) Copyright IBM Corp. 1994, 2001. All Rights Reserved
+
+US Government Users Restricted Rights - Use, duplication
+or disclosure restricted by GSA ADP Schedule Contract
+with IBM Corp.
+
+******************************************************************************
+exclusions.dtd: This is the DTD for the files and directories that will
+be excluded from the nco_confpack export package.  
+******************************************************************************
+-->
+<!ELEMENT exclusions	(OmniHome, Platform+)>
+<!ELEMENT File		EMPTY>
+<!ATTLIST File
+	Name	CDATA	#REQUIRED>
+<!ELEMENT Dir		EMPTY>
+<!ATTLIST Dir
+	Name	CDATA	#REQUIRED>
+<!ELEMENT OmniHome	(File*, Dir*)>
+<!ELEMENT Platform	(File*, Dir*)>
+<!ATTLIST Platform
+	Name	CDATA	#REQUIRED
+	Type	CDATA	#REQUIRED>
+<!-- end of DTD -->

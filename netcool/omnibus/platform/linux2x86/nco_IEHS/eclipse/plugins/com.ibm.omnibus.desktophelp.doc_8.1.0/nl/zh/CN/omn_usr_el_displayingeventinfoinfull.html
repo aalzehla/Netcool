@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="完整地显示事件信息" />
+<meta name="abstract" content="从事件列表可以查看任何选定事件的完整详细信息。 存储于 alerts.status、alerts.details 以及 alerts.journal 数据库表内的事件信息将会显示。" />
+<meta name="description" content="从事件列表可以查看任何选定事件的完整详细信息。 存储于 alerts.status、alerts.details 以及 alerts.journal 数据库表内的事件信息将会显示。" />
+<meta name="DC.subject" content="事件列表, 显示事件信息, 显示, 事件信息" />
+<meta name="keywords" content="事件列表, 显示事件信息, 显示, 事件信息" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_copyingdatafromevntlst.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_displayingeventinfoinfull" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>完整地显示事件信息</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_displayingeventinfoinfull">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">完整地显示事件信息</h1>
+<div class="body taskbody"><p class="shortdesc">从事件列表可以查看任何选定事件的完整详细信息。 存储于 alerts.status、alerts.details 以及 alerts.journal 数据库表内的事件信息将会显示。</p>
+<div class="section context">要显示关于一个或更多事件的完整信息：</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">从事件列表执行以下某个操作：</span><ul class="ul choices"><li class="li choice">要查看单个事件的信息，请双击事件，或选择事件然后单击<span class="ph menucascade"><span class="ph uicontrol">警报</span> &gt; <span class="ph uicontrol">信息</span></span>。 </li>
+<li class="li choice">要查看多个事件的信息，请选择事件然后单击<span class="ph menucascade"><span class="ph uicontrol">警报</span> &gt; <span class="ph uicontrol">信息</span></span>。 </li>
+</ul>
+ 此时将打开“<span class="keyword wintitle">事件信息</span>”窗口。</li>
+<li class="li step stepexpand"><span class="ph cmd">按以下方法使用此窗口：</span> <dl class="dl"><dt class="dt dlterm">警报字段</dt>
+<dd class="dd">单击此选项卡可查看选定事件的所有列及其响应值的列表。 该信息存储在 ObjectServer 的 alerts.status 表中。 您可单击列表中的任何列以查看列列表下的字段中其值的完整文本。 缺省情况下，将显示<span class="ph uicontrol">摘要</span>列的完整值。</dd>
+<dt class="dt dlterm">警报详细信息</dt>
+<dd class="dd">单击此选项卡可查看存储在 ObjectServer alerts.details 表中的警报详细情况。</dd>
+<dt class="dt dlterm">日志</dt>
+<dd class="dd">单击此选项卡可查看存储在 ObjectServer alerts.journal 表中的事件日志项。 </dd>
+<dd class="dd">您可通过单击<span class="ph uicontrol">添加到日志</span>打开当前所选事件的完整<span class="keyword wintitle">日志</span>窗口，从而输入其他日志项。 完成后，关闭窗口以返回到<span class="keyword wintitle">事件信息</span>窗口。<div class="note tip"><span class="tiptitle">提示：</span> 在任何选项卡中，您都可以将警报信息从<span class="keyword wintitle">事件信息</span>窗口复制到剪贴板。 选择要复制的信息，右键单击所选的文本，然后单击<span class="ph uicontrol">复制到剪贴板</span>（UNIX）或从弹出菜单单击<span class="ph uicontrol">复制</span>（Windows）。 然后可将该信息粘贴到另一个应用程序中。</div>
+</dd>
+<dt class="dt dlterm">上一个</dt>
+<dd class="dd">如果从事件列表中选择了多个事件，单击此按钮可显示所作选择中上一个事件的详细信息。
+如果事件已在系统别处删除，此操作可能失败。</dd>
+<dt class="dt dlterm">下一个</dt>
+<dd class="dd">如果从事件列表中选择了多个事件，单击此按钮可显示所作选择中下一个事件的详细信息。 如果事件已在系统别处删除，此操作可能失败。</dd>
+<dt class="dt dlterm">关闭</dt>
+<dd class="dd">单击该按钮可关闭该窗口。</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="要处理事件列表内的事件，必须先选择事件。">处理事件</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。">启动事件列表</a></div>
+<div><a class="link" href="omn_usr_el_copyingdatafromevntlst.html" title="可以将事件数据从事件列表复制到剪贴板，以便在其他应用程序内使用。">从事件列表中复制数据</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

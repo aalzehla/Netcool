@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="视图构建器" />
+<meta name="abstract" content="使用此窗口可定义应该显示在事件列表中的警报列选择，并可定义这些列的顺序与格式。 您可使用视图构建器来设置和维护这些事件数据信息视图。" />
+<meta name="description" content="使用此窗口可定义应该显示在事件列表中的警报列选择，并可定义这些列的顺序与格式。 您可使用视图构建器来设置和维护这些事件数据信息视图。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewwin.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_viewbuilderwindowWIN" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>视图构建器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_viewbuilderwindowWIN">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">视图构建器</h1>
+<div class="body refbody"><p class="shortdesc">使用此窗口可定义应该显示在事件列表中的警报列选择，并可定义这些列的顺序与格式。 您可使用视图构建器来设置和维护这些事件数据信息视图。</p>
+<div class="section"><div class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_descriptionWIN">视图构建器包含以下区域：<ul class="ul"><li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupareaWIN">视图设置区域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareaWIN">列显示区域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareaWIN">列排序区域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareaWIN">行数限制区域</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupareaWIN"><h2 class="title sectiontitle">视图设置区域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_viewsetupareadescriptionWIN">使用此区域可为视图定义名称和设置许可权。</p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_viewsetupfieldsWIN"><dt class="dt dlterm">名称</dt>
+<dd class="dd">如果您要创建新视图，请使用唯一的视图名称覆盖当前名称。 该名称用于事件列表中。 如果要编辑现有视图，那么您无需在此字段中输入任何内容。</dd>
+<dt class="dt dlterm">可编辑</dt>
+<dd class="dd">如果您有相应的管理员许可权，请选择此复选框允许其他用户编辑此视图，或清除该复选框以防视图被修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 仅当视图保存为事件列表配置（<span class="ph filepath">.elc</span> 文件）的一部分时，此设置才适用。</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareaWIN"><h2 class="title sectiontitle">列显示区域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_displaycolumnsareadescriptionWIN">使用此区域选择要在事件列表中显示的 alerts.status 列，并指定列的顺序和格式。</p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafieldsWIN"><dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafields_availablecolumnslistWIN"><!-- --></a>可用字段</dt>
+<dd class="dd">该列表显示所有仍可向事件列表中添加的列。 该列表中的列名称按字母顺序显示。 <span class="ph uicontrol">可用字段</span>列表与<span class="ph uicontrol">事件列表视图</span>列表配合使用，用于保存选择要添加到事件列表中的列。</dd>
+<dd class="dd">使用下表中描述的按钮可在两个列表之间移动列。<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="netom_viewbuilderwindowWIN__netom_viewbuilder_table1" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. 列选择按钮</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d70452e78">按钮</th>
+<th class="entry" valign="top" width="80%" id="d70452e80">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_right.gif" alt="该图显示 Windows 视图构建器中的“右移”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">单击此按钮可将选中列从左侧的可用字段列表移至右侧的列表中。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_rightfar.gif" alt="该图显示 Windows 视图构建器中的“移至最右侧”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">单击此按钮可将所有列从左侧的可用字段列表移至右侧的列表中。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_left.gif" alt="该图显示 Windows 视图构建器中的“左移”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">单击此按钮可将选中列从右侧的列表中移至左侧的可用字段列表。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e78 "><div class="image"><img class="image" src="bt_omn_vb_leftfar.gif" alt="该图显示 Windows 视图构建器中的“移至最左侧”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e80 ">单击此按钮可将所有列从右侧的列表中移至左侧的可用字段列表。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_displaycolumnsareafields_columnmatrixWIN"><!-- --></a>事件列表视图</dt>
+<dd class="dd">此列表显示选中要出现在事件列表视图中的所有列和这些列的显示顺序。 </dd>
+<dd class="dd">您可使用下表中描述的按钮更改这些列的顺序。 <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 2. 列顺序按钮</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d70452e126">按钮</th>
+<th class="entry" valign="top" width="80%" id="d70452e128">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“移至顶部”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">单击此按钮可将选中列移至列表顶部，使其成为事件列表中显示的第一个列。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“上移”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">单击此按钮可将选中列在事件列表中上移一个位置（或在事件列表中左移一个位置）。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“下移”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">单击此按钮可将选中列在事件列表中下移一个位置（或在事件列表中右移一个位置）。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e126 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“移至底部”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e128 ">单击此按钮可将选中列移至列表底部，使其成为事件列表中的最后一个列。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</dd>
+<dt class="dt dlterm">字段名称/调整</dt>
+<dd class="dd">在<span class="ph uicontrol">事件列表视图</span>列表中选择了列后，
+系统定义的列名称将显示在<span class="ph uicontrol">字段名称</span>字段中且其值为只读。 从相邻的<span class="ph uicontrol">调整</span>列表中选择“靠左”、“居中”或“靠右”可设置事件列表中列数据的对齐。</dd>
+<dt class="dt dlterm">列标题/调整</dt>
+<dd class="dd">要让在<span class="ph uicontrol">事件列表视图</span>列表中选择的列显示为系统定义的名称以外的标题，请在<span class="ph uicontrol">列标题</span>字段中输入该标题。 从相邻的<span class="ph uicontrol">调整</span>列表中选择“靠左”、“居中”或“靠右”可设置事件列表中列标题的对齐。</dd>
+<dt class="dt dlterm">列宽</dt>
+<dd class="dd">指定事件列表中的列宽。 </dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareaWIN"><h2 class="title sectiontitle">列排序区域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_sortcolumnsareadescriptionWIN">使用此区域可为事件列表中的行配置排序顺序和优先级。 您可不指定或指定若干作为数据排序依据的列，并为这些列定义排序优先级。 </p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafieldsWIN"><dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafields_selectedcolumnslistWIN"><!-- --></a>可用排序字段</dt>
+<dd class="dd">该列表显示所有作为数据排序依据的可用列。 该列表中的列名称按字母顺序显示。 <span class="ph uicontrol">可用排序字段</span>列表和<span class="ph uicontrol">排序依据</span>配合使用。</dd>
+<dd class="dd">使用前述的<cite class="cite">列选择按钮</cite>表中描述的按钮可在两个列表中移动列。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowWIN__netom_viewbuilder_sortcolumnsareafields_sortorderselectionWIN"><!-- --></a>排序依据</dt>
+<dd class="dd">此列表显示用于为事件数据排序的列。 使用此列表可为事件数据指定排序定义，如下所示： <ul class="ul"><li class="li">为每个列定义排序顺序：此列表中每个列名称左边将显示一个箭头。 在缺省情况下，箭头指向朝上，表示该列将按字母升序进行排序。 要更改为降序，双击该箭头。 要更改排序方向，也可在选中列名称上右键单击，然后从弹出菜单中选择<span class="ph uicontrol">更改</span>。</li>
+<li class="li">为所有列定义排序优先级：排序时，排序列表顶部的字段拥有最高的优先级。 如果向列表中添加了第二个字段，第一个字段与若干项完全相同，则使用第二个字段对这些项进行排序。 要提高或降低一个列的排序优先级，请选择列名称然后使用箭头按钮，如下表中所示。<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 3. 列排序顺序按钮</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry" valign="top" width="20%" id="d70452e237">按钮</th>
+<th class="entry" valign="top" width="80%" id="d70452e239">描述</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_first.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“移至顶部”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">单击此按钮可将选中列移至列表顶部。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_up.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“上移”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">单击此按钮可将列表中的选中列上移一个位置。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_down.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“下移”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">单击此按钮可将列表中的选中列下移一个位置。 </td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="20%" headers="d70452e237 "><div class="image"><img class="image" src="bt_omn_vb_last.gif" alt="该图显示 Windows 视图构建器或“通道列详细信息”窗口中的“移至底部”按钮。" /></div></td>
+<td class="entry" valign="top" width="80%" headers="d70452e239 ">单击此按钮可将选中列移至列表底部。 </td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareaWIN"><h2 class="title sectiontitle">行数限制区域</h2><p class="p" id="netom_viewbuilderwindowWIN__netom_viewbuilderwindow_restrictrowsareadescriptionWIN">要增强性能，您可限制从 ObjectServer 读取的行的数目。 使用此区域可限制事件列表中显示的行数。</p>
+<p class="p">请按以下步骤完成此区域：</p>
+<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_restrictrowsareafieldsWIN"><dt class="dt dlterm">限制行数 [1-100]</dt>
+<dd class="dd">选此复选框可将事件列表中显示的行数限制在 1 到 100 之间。 <span class="ph uicontrol">最小值</span>、<span class="ph uicontrol">最大值</span>和<span class="ph uicontrol">缺省值</span>字段可用。<div class="note note"><span class="notetitle">注：</span> 如果选择了<span class="ph uicontrol">限制行数 [1-100]</span> 复选框，并将该配置保存为 <span class="ph filepath">.elv</span> 文件，这个 <span class="ph filepath">.elv</span> 文件将与 Netcool/OMNIbus V3.6 不兼容。</div>
+</dd>
+<dt class="dt dlterm">最小值</dt>
+<dd class="dd">输入要显示的最小行数，或使用箭头增加或减少该值。</dd>
+<dt class="dt dlterm">最大值</dt>
+<dd class="dd">输入要显示的最大行数，或使用箭头增加或减少该值。</dd>
+<dt class="dt dlterm">缺省值</dt>
+<dd class="dd">输入要显示的缺省行数，或使用箭头增加或减少该值。</dd>
+<dt class="dt dlterm">从事件列表设置</dt>
+<dd class="dd">选此复选框可使事件列表用户能够在事件列表视图中选择要显示的事件数。 如果选择了此复选框，用户使用事件列表控件选择查看的事件数将受到视图构建器中<span class="ph uicontrol">最小值</span>和<span class="ph uicontrol">最大值</span>的限制。 如果清除此复选框，显示的事件数的值将总是指定的<span class="ph uicontrol">缺省值</span>。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowWIN__netom_viewbuilder_applying_saving_closingWIN"><h2 class="title sectiontitle">应用和保存视图</h2><div class="p">定义或修改视图后，您可按以下步骤通过单击相关按钮来应用、保存或取消所作的更改：<dl class="dl" id="netom_viewbuilderwindowWIN__netom_viewbuilder_applyclosebuttonsWIN"><dt class="dt dlterm">应用</dt>
+<dd class="dd">点击此按钮可向视图应用更改，但不保存更改。 </dd>
+<dt class="dt dlterm">关闭</dt>
+<dd class="dd">单击此按钮可关闭窗口并废弃更改。</dd>
+</dl>
+</div>
+<p class="p">必须使用 <span class="ph filepath">.elf</span> 文件扩展名来保存视图。 单击<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">保存</span></span>或<span class="ph menucascade"><span class="ph uicontrol">文件</span> &gt; <span class="ph uicontrol">另存为</span></span>。</p>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_vb_creatingeditingviewwin.html" title="使用视图构建器可定义事件列表内显示哪些列。">在 Windows 上创建或编辑视图</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

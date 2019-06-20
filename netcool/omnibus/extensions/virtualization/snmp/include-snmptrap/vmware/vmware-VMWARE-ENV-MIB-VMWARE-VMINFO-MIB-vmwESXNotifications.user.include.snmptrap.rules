@@ -1,0 +1,64 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-ENV-MIB , VMWARE-VMINFO-MIB
+#
+###############################################################################
+
+log(DEBUG, "<<<<< Entering... vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXNotifications.user.include.snmptrap.rules >>>>>")
+
+switch($specific-trap)
+{
+	case "1": ### vmwVmPoweredOn
+	
+	case "2": ### vmwVmPoweredOff
+	
+	case "3": ### vmwVmHBLost
+	
+	case "4": ### vmwVmHBDetected
+	
+	case "5": ### vmwVmSuspended
+	
+	case "301": ### vmwESXEnvHardwareEvent
+	
+	case "302": ### vmwESXEnvHardwareAlert
+	
+	case "303": ### vmwESXEnvBatteryAlert
+	
+	case "304": ### vmwESXEnvChassisAlert
+	
+	case "305": ### vmwESXEnvThermalAlert
+	
+	case "306": ### vmwESXEnvDiskAlert
+	
+	case "307": ### vmwESXEnvPowerAlert
+	
+	case "308": ### vmwESXEnvProcessorAlert
+	
+	case "309": ### vmwESXEnvMemoryAlert
+	
+	case "310": ### vmwESXEnvBIOSAlert
+	
+    default:
+}
+
+log(DEBUG, "<<<<< Leaving... vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXNotifications.user.include.snmptrap.rules >>>>>")
+

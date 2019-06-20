@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="有効な MIB オブジェクト・フォーマット" />
+<meta name="abstract" content="このトピックでは、有効な MIB オブジェクトのフォーマットについて説明します。" />
+<meta name="Description" content="このトピックでは、有効な MIB オブジェクトのフォーマットについて説明します。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_formats" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>有効な MIB オブジェクト・フォーマット</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_formats">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">有効な MIB オブジェクト・フォーマット</h1>
+<div class="body refbody"><p class="shortdesc">このトピックでは、有効な MIB オブジェクトのフォーマットについて説明します。</p>
+<div class="section"><p class="p">以下のセクションでは、有効な SNMP MIB オブジェクト・フォーマットについて説明します。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL-CONVENTION</h2><p class="p">v2 TEXTUAL-CONVENTION
+(TC) は、以下のような構文規則を持ちます。この構文規則では、オブジェクト名の後に <samp class="ph codeph">::=</samp> エントリーが続き、その後に <samp class="ph codeph">TEXTUAL-CONVENTION</samp> が続きます。
+いくつかのセクションが続き、その後に SYNTAX 定義が追加されます。</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION 
+DISPLAY-HINT "255a" 
+STATUS current 
+DESCRIPTION "Represents textual information taken from the NVT SCII character set, as defined in pages 4, 10-11 of RFC 854. To summarize RFC 854, the NVT ASCII repertoire specifies: - the use of character codes 0-127 (decimal) - the graphics characters (32-126) are interpreted as US ASCII - NUL, LF, CR,BEL, BS, HT, VT and FF have the special meanings specified in RFC 854 - the other 25 codes have no standard interpretation - the sequence 'CR LF' means newline - the sequence 'CR NUL' means carriage-return - an 'LF' not preceded by a 'CR' means moving to the same column on the next line. - the sequence 'CR x' for any x other than LF or NUL is illegal. (Note that this also means that a string may end with either 'CR LF' or 'CR NUL', but notwith CR.) Any object defined using this syntax may not exceed 255 characters in length." 
+SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+</div>
+<p class="p">v1 TC は、<samp class="ph codeph">::=</samp> エントリーが
+後に続くオブジェクト名で構成されており、続けて、
+有効な SYNTAX 定義を使用して追加されます。例:</p>
+<div class="p"><pre class="pre codeblock"><code>DisplayString ::= OCTET STRING</code></pre>
+</div>
+<p class="p">これらのオブジェクトはどちらも MIB ツリーの外部に存在するため、MIB 内のオブジェクトではありません。両方のオブジェクトは、構文規則が定義可能な
+フォーマットを表しています。これらのオブジェクトには OID はありません。これらは、<span class="ph uicontrol">「ビュー」</span>ドロップダウン・リストをクリックして、<span class="ph uicontrol">「Textual-Conventions」</span>を選択することで、別のフィルターにより<span class="keyword wintitle">「MIB モジュール」</span>ビューで表示できます。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TRAP-TYPE オブジェクト</h2><p class="p">TRAP-TYPE オブジェクトは、v1 MIB に対して有効です。このオブジェクトは、元は、
+MIB ツリーに明確に適応するようには定義されていません。このオブジェクトに OID はありませんが、その代わりにエンタープライズ ID およびトラップ番号があります。
+例は、以下のとおりです。</p>
+<div class="p"><pre class="pre codeblock"><code>newRoot TRAP-TYPE 
+ENTERPRISE dot1dBridge 
+DESCRIPTION "The newRoot trap indicates that the sending agent has become the new root 
+of the Spanning Tree; the trap is sent by a bridge soon after its election as the new 
+root, e.g., upon expiration of the Topology Change Timer immediately subsequent to its 
+election." 
+::= 1</code></pre>
+</div>
+<p class="p">v1 トラップは、キーワード <samp class="ph codeph">TRAP-TYPE</samp> が
+後に続くオブジェクト名で始まります。後にいくつかのセクションが続いて、
+<samp class="ph codeph">::=</samp> エントリーおよび数字で終わります。
+数字の前後に中括弧 ({}) を使用してはなりません。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">MACRO オブジェクト</h2><p class="p">MACRO オブジェクトは、その他の MIB オブジェクトのフォーマットを定義します。MACRO 定義は必ず、オブジェクト・タイプ、
+<samp class="ph codeph">MACRO</samp> キーワード、および <samp class="ph codeph">::=</samp> エントリーの順で始まります。
+マクロ定義の残りの部分は、<samp class="ph codeph">BEGIN</samp> タグおよび <samp class="ph codeph">END</samp> タグで囲まれます。例:</p>
+<div class="p"><pre class="pre codeblock"><code>OBJECT-TYPE MACRO ::= 
+BEGIN 
+TYPE NOTATION ::= "SYNTAX" 
+type (TYPE ObjectSyntax) "ACCESS" Access "STATUS" Status VALUE NOTATION ::= value 
+(VALUE ObjectName) Access ::= "read-only" | "read-write" | "write-only" | "not-accessible" 
+Status ::= "mandatory" | "optional" | "obsolete" 
+END</code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">その他のオブジェクト</h2><div class="p">その他のすべてのオブジェクトは、以下のフォーマットに従う必要があります。<pre class="pre codeblock"><code>snmpInPkts OBJECT-TYPE SYNTAX Counter ACCESS read-only STATUS mandatory DESCRIPTION
+ "The total number of Messages delivered to the SNMP entity from the transport 
+service." ::= { snmp 1 }</code></pre>
+</div>
+<p class="p">これらのオブジェクトはオブジェクト名で始まり、オブジェクト名は小文字の英字で始まる必要があります。この後には、オブジェクト・タイプを示すキーワードが
+続きます。任意の追加セクションがキーワードに続き、<samp class="ph codeph">::=</samp> エントリー、および中括弧 ({}) 内の祖先のリストで
+フォーマットが終了します。中括弧 ({}) 内の祖先は、2 つのフォーマットの
+いずれかにすることができます。1 つ目 (上記) では、フォーマットは、オブジェクト名の後に番号が続きます。オブジェクト名はこのオブジェクトの
+すぐ上の親のオブジェクト名で、番号はこのオブジェクトの親に対するリーフ番号です。</p>
+<div class="p">祖先のリストの 2 つ目の有効なフォーマットは、既知のオブジェクトにまで遡るすべての祖先の
+リストです。例は以下のとおりです。<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } </code></pre>
+</div>
+<p class="p">この例で、リストは、既知のオブジェクト (ツリーのルートである <samp class="ph codeph">iso</samp>) で始まり、続いて、後続の各世代のオブジェクト名およびリーフ番号 (<samp class="ph codeph">org(3)</samp> および <samp class="ph codeph">dod(6)</samp>) を定義し、リストの最後は、オブジェクト番号を示す単一の整数 (<samp class="ph codeph">1</samp>) となります。オブジェクト名と
+オブジェクト番号の間にスペースを入れてはならないことに注意してください。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="このセクションでは、Simple Network Management Protocol (SNMP) アーキテクチャー、 SNMP 管理情報ベース (MIB)、および MIB の追加概念のいくつかに関する追加情報を説明します。">SNMP について</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

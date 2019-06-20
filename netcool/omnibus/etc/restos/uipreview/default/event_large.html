@@ -1,0 +1,485 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Large Event Preview</title>
+<style>
+.oneui {
+	font-family: Helvetica, Arial, Tahoma, Verdana, sans-serif;
+	font-size: 75%;
+	color: #222222;
+}
+.stbl, .etbl {
+	font-size: 100%;
+	width:95%;
+	border-collapse:collapse;
+}
+.stbl td, .stbl th {
+	border:1px solid black;
+	padding:3px 7px 2px 7px;
+	background-color:#fafafa;
+	width:50%;
+	text-align:center;
+}
+.etbl td, .etbl th {
+	border:1px solid black;
+	padding:3px 7px 2px 7px;
+	background-color:#fafafa;
+}
+.stbl th, .etbl th {
+	font-weight:bold;
+	padding-top:4px;
+	padding-bottom:4px;
+	background-color:#444444;
+	color:white;
+}
+#summary_tbl tr td.metric {
+	text-align:left;
+}
+#chartNode {
+	width:98%;
+	height:250px;
+	padding:2px 2px 2px 2px;
+}
+#webguibtn, #showevtsbtn {
+	font-weight: bold;
+	width:18em;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+#oslcem_summary {
+	text-align:left;
+	width:57%;
+}
+#oslcem_severity {
+	width:15%;
+	text-align:center;
+}
+#dcterms_created {
+	width:28%;
+	text-align:center;
+}
+</style>
+
+<meta name="viewport" content="initial-scale=1, user-scalable=yes">
+<script src="/OMNIbusWSREST/js/utils.js">
+</script>
+<script src="/OMNIbusWSREST/oslc_wa/js/oslc_em.js">
+</script>
+<script src="/OMNIbusWSREST/chartjs-0.2.0/Chart.min.js">
+</script>
+<script type="text/javascript" language="javascript">
+/***************************************************************************
+ * UI Preview expanded data details.
+ **************************************************************************/
+__EVENTDATA__
+
+var webguiuri="__WEBGUIURI__";
+
+/***************************************************************************
+ * Show event column data.
+ **************************************************************************/
+var evtdata_cols = [	{
+				nsprefix : "oslcem",
+				property : "summary",
+				colname  : "Summary"
+			},
+			{
+				nsprefix : "oslcem",
+				property : "severity",
+				colname  : "Severity"
+			},
+			{
+				nsprefix : "dcterms",
+				property : "created",
+				colname  : "Created"
+			}
+		   ];
+
+var evtdata_ordby =[
+			{
+				desc	 : true,
+				nsprefix : "oslcem",
+				property : "severity"
+			}
+		   ];
+
+/***************************************************************************
+ * The main UI Preview JavaScript callbacks.
+ **************************************************************************/
+function btnWebGUIOnClickCB()
+{
+	/*
+	 * Launch a WEBGUI window.
+	 */
+	window.open(	webguiuri, "_blank",
+			"toolbar=no,menubar=no,location=no,height=500,width=800", false );
+}
+
+function btnShowEventsOnClickCB(btn)
+{
+	/*
+	 * Is this a request to show or hide the events?
+	 */
+	if( btn.textContent == "Show Events ..." )
+	{
+		/*
+		 * Clear thye chart and get the event data.
+		 */
+		clearChart();
+		getEventData("events_tbl");
+
+		/*
+		 * Update the button.
+		 */
+		btn.textContent = "Hide Events ...";
+	}
+	else
+	{
+		/*
+		 * Clear the events and setup the chart.
+		 */
+		clearEventData("events_tbl");
+		setupChart();
+
+		/*
+		 * Update the button.
+		 */
+		btn.textContent = "Show Events ...";
+	}
+}
+
+/***************************************************************************
+ * The main UI Preview JavaScript functions.
+ **************************************************************************/
+function setupUIPreview()
+{
+	var	node;
+
+	/* Set the preview summary values.  */
+	node = document.getElementById("count");
+	node.innerHTML = evals.count;
+	node = document.getElementById("sum");
+	node.innerHTML = evals.sum;
+	node = document.getElementById("min");
+	node.innerHTML = uipGetSeverityName(evals, evals.min);
+	node = document.getElementById("max");
+	node.innerHTML = uipGetSeverityName(evals, evals.max);
+
+	/* Set the filter clause values. */
+	node = document.getElementById("oslcwhere");
+	node.innerHTML += encodeHTML(oslcwhere);
+
+	/* Setup the chart */
+	setupChart();
+
+	/* Setup the WebGUI launch in-context button */
+	setupWebGUIBtn();
+}
+
+function setupChart()
+{
+	var	chartdata;
+	var	chart;
+	var	labels;
+	var	dataset;
+	var	datasets;
+	var	data;
+	var	node;
+	var	idx;
+	var	opts;
+	var	ctx;
+	var	max;
+	var	steps;
+	var	canvas;
+
+	/*
+	 * Add the necessary HTML to add the canvas to the chart section.
+	 */
+	node = document.getElementById("chart_canvas");
+	canvas = document.createElement("canvas");
+	canvas.setAttribute("height", "275");
+	node.appendChild(canvas);
+
+	/*
+	 * Create the labels.
+	 */
+	labels = new Array();
+
+	for( idx = 0; idx < evals.severities.length; ++idx )
+	{
+		labels.push(evals.severities[idx].name);
+	}
+
+	/*
+	 * Create the data set.
+	 */
+	dataset = new Object();
+
+	dataset["fillColor"] = "rgba(89,160,189,0.5)";
+	dataset["strokeColor"] = "rgba(89,160,189,1)";
+
+	max = 0;
+	data = new Array();
+	for( idx = 0; idx < evals.severities.length; ++idx )
+	{
+		data.push(evals.severities[idx].count);
+		if( evals.severities[idx].count > max )
+		{
+			max = evals.severities[idx].count;
+		}
+	}
+
+	dataset["data"] = data;
+	datasets = new Array();
+	datasets.push(dataset);
+
+	/*
+	 * Create the chart data.
+	 */
+	chartdata = new Object();
+	chartdata["labels"] = labels;
+	chartdata["datasets"] = datasets;
+
+	/*
+	 * Set-up the bar chart options.
+	 */
+	steps = max;
+	if( max > 15 )
+	{
+		if( (max % 5) )
+		{
+			steps = max + (5 - (max % 5));
+		}
+		steps = steps / 5;
+	}
+	opts = new Object();
+	opts["scaleOverride"] = true;
+	opts["scaleSteps"] = steps;
+	opts["scaleStepWidth"] = ((max > 15) ? 5 : 1);
+	opts["scaleStartValue"] = 0;
+
+	/*
+	 * Create the chart.
+	 */
+	if( canvas.getContext )
+	{
+		var	btn;
+
+		/*
+		 * Set-up the and display the chart.
+		 */
+		ctx = canvas.getContext("2d");
+		ctx.canvas.width = window.innerWidth - 30;
+		chart = new Chart(ctx);
+		chart.Bar(chartdata, opts);
+
+		/*
+		 * Canvas support, we need to enabled the change button.
+		 */
+		btn = document.getElementById("showevtsbtn");
+		btn.style.display = "";
+	}
+	else
+	{
+		/*
+		 * No canvas support, we need to default to the event view.
+		 */
+		clearChart();
+		getEventData("nocanvas_events_tbl");
+
+		node = document.getElementById("events_tbl");
+		node.parentNode.removeChild(node);
+	}
+}
+
+function clearChart()
+{
+	var	chart;
+
+	/*
+	 * Find the chart locatoin and cleasr it.
+	 */
+	chart = document.getElementById("chart_canvas");
+	chart.innerHTML = "";
+}
+
+function setupWebGUIBtn()
+{
+	/*
+	 * Do we have a WebGUI URI?
+	 */
+	if( webguiuri.length > 0 )
+	{
+		var	btn;
+
+		/*
+		 * Get a handle to the button and change its display.
+		 */
+		btn = document.getElementById("webguibtn");
+		btn.style.display = "";
+	}
+}
+
+function clearEventData(tblname)
+{
+	var	tbl;
+	var	idx;
+
+	/*
+	 * Find the events table body and clear its inner HTML.
+	 */
+	tbl = document.getElementById(tblname);
+
+	while( tbl.rows.length > 0 )
+	{ 
+		tbl.deleteRow(0);
+	}
+}
+
+function getEventData(tblname)
+{
+	var	oslcem;
+	var	tbl;
+	var	cidx;
+	var	eidx;
+	var	name;
+	var	value;
+	var	hdr;
+	var	row;
+	var	cells;
+	var	cell;
+
+	/*
+	 * Create an OSLC event manager consumer.
+	 */
+	oslcem = new OslcEmConsumer();
+
+	/*
+	 * Get the required event data.
+	 */
+	events = oslcem.getEventData(	(window.location.protocol + "//" +
+					 window.location.host + "/" +
+					 window.location.pathname),
+					 ((oslcwhere == "<none>") ? null :
+								oslcwhere),
+					 evtdata_cols, evtdata_ordby );
+	if( events == null )
+	{
+		return;
+	}
+
+	/*
+	 * Process the returned evnet set.
+	 */
+	tbl = document.getElementById(tblname);
+
+	hdr = tbl.createTHead();
+	row = hdr.insertRow(0);
+	for( cidx = 0; cidx < evtdata_cols.length; ++cidx )
+	{
+		name =	evtdata_cols[cidx].nsprefix + "_" +
+			evtdata_cols[cidx].property;
+		cell= document.createElement("th");
+		cell.id = name;
+		cell.innerHTML = evtdata_cols[cidx].colname;
+		row.appendChild(cell);
+	}
+
+	/*
+	 * Is There any events?
+	 */
+	if( events.length == 0 )
+	{
+		row = tbl.insertRow(tbl.rows.length);
+		cell = row.insertCell(0);
+		cell.innerHTML = "No Events!!";
+	}
+	else
+	{
+		for( eidx = 0; eidx < events.length; ++eidx )
+		{
+			row = tbl.insertRow(tbl.rows.length);
+			for( cidx = 0; cidx < evtdata_cols.length; ++cidx )
+			{
+				name =	evtdata_cols[cidx].nsprefix + "_" +
+					evtdata_cols[cidx].property;
+
+				cell = row.insertCell(cidx);
+				cell.id = name;
+
+				if(	evtdata_cols[cidx].nsprefix == "oslcem" &&
+					evtdata_cols[cidx].property == "severity" )
+				{
+					value = parseInt(events[eidx][name]);
+					cell.innerHTML = uipGetSeverityName(evals, value);
+				}
+				else
+				{
+					cell.innerHTML = events[eidx][name];
+				}
+			}
+		}
+	}
+}
+</script>
+</head>
+<body id="main" class="oneui" onLoad="javascript:setupUIPreview()">
+<br>
+<center>
+<table class="stbl" id="summary_tbl">
+	<tbody>
+		<tr>
+			<th>Metric</th>
+			<th>Value</th>
+		</tr>
+
+		<tr>
+			<td class="metric">Event Count (Unique)</td>
+			<td id="count"></td>
+		</tr>
+		<tr class="alt">
+			<td class="metric">Event Count (Deduplicated)</td>
+			<td id="sum"></td>
+		</tr>
+
+		<tr>
+			<td class="metric">Minimum Severity</td>
+			<td id="min"></td>
+		</tr>
+		<tr class="alt">
+			<td class="metric">Maximum Severity</td>
+			<td id="max"></td>
+		</tr>
+
+	</tbody>
+</table>
+<br>
+<div id="chart_canvas">
+</div>
+<table class="etbl" id="nocanvas_events_tbl">
+	<tbody id="nocanvas_events_tbl_body">
+	</tbody>
+</table>
+<br>
+<button class="oneui" id="showevtsbtn" type="button" style="display:none" onclick="javascript:btnShowEventsOnClickCB(this);">Show Events ...</button>
+<button class="oneui" id="webguibtn" type="button" style="display:none" onclick="javascript:btnWebGUIOnClickCB();">Show Events In OMNIbus ...</button>
+<p>
+<table class="etbl" id="events_tbl">
+	<tbody id="events_tbl_body">
+	</tbody>
+</table>
+</p>
+<table class="stbl" id="clause_tbl">
+	<tbody>
+		<tr>
+			<th>Event Filter Clause</th>
+		</tr>
+		<tr>
+			<td id="oslcwhere"></td>
+
+		</tr>
+	</tbody>
+</table>
+</center>
+</html>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-tw" xml:lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="視圖建置器" />
+<meta name="abstract" content="使用此視窗，可以定義應該出現在事件清單中的警示直欄選項，還可以定義這些直欄的順序及格式。 您可以使用「視圖建置器」來設定及維護事件資料的這些資訊視圖。" />
+<meta name="description" content="使用此視窗，可以定義應該出現在事件清單中的警示直欄選項，還可以定義這些直欄的順序及格式。 您可以使用「視圖建置器」來設定及維護事件資料的這些資訊視圖。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_creatingeditingviewunix.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_viewbuilderwindowUNIX" />
+<meta name="DC.Language" content="zh-tw" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>視圖建置器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_viewbuilderwindowUNIX">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 7.4 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">視圖建置器</h1>
+<div class="body refbody"><p class="shortdesc">使用此視窗，可以定義應該出現在事件清單中的警示直欄選項，還可以定義這些直欄的順序及格式。 您可以使用「視圖建置器」來設定及維護事件資料的這些資訊視圖。</p>
+<div class="section"><div class="p" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_descriptionUNIX">「視圖建置器」包含下列區域：<ul class="ul"><li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupareaUNIX">視圖設定區域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareaUNIX">顯示直欄區域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareaUNIX">排序直欄區域</a></li>
+<li class="li"><a class="xref" href="#netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareaUNIX">限制列區域</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupareaUNIX"><h2 class="title sectiontitle">視圖設定區域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_viewsetupareadescriptionUNIX">使用此區域，可以定義視圖的名稱並設定其許可權。</span></p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_viewsetupfieldsUNIX"><dt class="dt dlterm">視圖名稱</dt>
+<dd class="dd">如果您是在建立新視圖，請以視圖的唯一名稱改寫現行名稱。 此名稱會在事件清單中使用。 如果您正在編輯現有的視圖，則不需要在此欄位中進行輸入。</dd>
+<dt class="dt dlterm">可編輯</dt>
+<dd class="dd">如果您擁有相關管理者權限，則可以選取此勾選框，讓其他使用者可編輯此視圖，或者取消勾選該勾選框，以保護視圖，使其免於修改。<div class="note restriction"><span class="restrictiontitle">限制：</span> 只有在視圖儲存為事件清單配置（<span class="ph filepath">.elc</span> 檔）時，
+才適用這項設定。</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareaUNIX"><h2 class="title sectiontitle">顯示直欄區域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_displaycolumnsareadescriptionUNIX">使用此區域，可以選取您要在事件清單中顯示的 alerts.status 直欄，還可以指定直欄的順序及格式。</span></p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafieldsUNIX"><dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_columnmatrixUNIX"><!-- --></a><em class="ph i">事件清單矩陣</em></dt>
+<dd class="dd">此矩陣會顯示所選之要顯示在事件清單視圖中的所有直欄，以及其顯示順序。 實際的直欄名稱會顯示在頂端，下面的列會顯示每個直欄的資料類型。
+在列中，字詞<samp class="ph tt">虛擬的</samp>用於識別字串直欄，數字 <samp class="ph tt">1</samp> 會識別整數直欄，而 <samp class="ph tt">01/01/70 01:00:01</samp> 會識別時間直欄。</dd>
+<dd class="dd">事件清單矩陣與<span class="ph uicontrol">移除</span>、<span class="ph uicontrol">第一個</span>、<span class="ph uicontrol">左</span>、<span class="ph uicontrol">右</span>及<span class="ph uicontrol">最後一個</span>按鈕一起使用。
+若要在此矩陣中對任何直欄執行動作，您必須先按一下與該直欄相關聯的資料格。 在您以此方式選取直欄之後，目前針對該直欄定義的詳細資料也會顯示在<span class="ph uicontrol">直欄明細</span>區域中。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_availablecolumnslistUNIX"><!-- --></a><em class="ph i">可用的直欄清單</em></dt>
+<dd class="dd">這個清單與<span class="ph uicontrol">直欄明細</span>區域相鄰，會顯示仍可新增至事件清單的所有直欄。 可用的直欄清單可與<span class="ph uicontrol">新增</span>按鈕一起使用。</dd>
+<dd class="dd">選取要新增至事件清單的任何直欄。<div class="note tip"><span class="tiptitle">提示：</span> 此清單中的直欄名稱會按字母順序顯示。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_addbuttonUNIX"><!-- --></a>新增</dt>
+<dd class="dd">按一下此按鈕，以將可用直欄清單中目前選取的直欄新增至事件清單。 直欄會新增為事件清單矩陣中最右側的項目。<div class="note tip"><span class="tiptitle">提示：</span> 您可以使用拖放技術來新增直欄。 從可用的直欄清單中，選取您要新增的直欄。 在此直欄上按下並按住滑鼠的中鍵，然後將其拖曳到事件清單矩陣中。 當您位在可放置直欄的區域中時，游標會變更為顯示綠色記號。 放開滑鼠按鈕。 直欄會新增為事件清單矩陣中最右側的項目。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_removebuttonUNIX"><!-- --></a>移除</dt>
+<dd class="dd">按一下此按鈕，以將事件清單矩陣中目前選取的直欄移回到可用的直欄清單中。 此直欄將不再顯示在事件清單中。<div class="note tip"><span class="tiptitle">提示：</span> 您可以使用拖放技術來移除直欄。 從事件清單矩陣中，選取要移除之直欄的資料格。 在此資料格上按下並按住滑鼠的中鍵，然後將游標拖曳到可用的直欄清單中。 當您位在可放置直欄的區域中時，游標會變更為顯示綠色記號。 放開滑鼠按鈕。 直欄會新增至可用的直欄清單中。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_firstbuttonUNIX"><!-- --></a>第一筆</dt>
+<dd class="dd">按一下此按鈕，以將事件清單矩陣中目前選取的直欄重新定位為事件清單中的第一個 (最左側的) 直欄。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_leftbuttonUNIX"><!-- --></a>左</dt>
+<dd class="dd">按一下此按鈕，以將事件清單矩陣中目前選取的直欄向左移動一個位置。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_rightbuttonUNIX"><!-- --></a>右</dt>
+<dd class="dd">按一下此按鈕，以將事件清單矩陣中目前選取的直欄向右移動一個位置。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_lastbuttonUNIX"><!-- --></a>最後一筆</dt>
+<dd class="dd">按一下此按鈕，以將事件清單矩陣中目前選取的直欄重新定位為事件清單中的最後一個 (最右側的) 直欄。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_columndetailsUNIX"><!-- --></a>直欄詳細資料</dt>
+<dd class="dd">使用此區域，可以格式化事件清單矩陣中目前選取的直欄：<dl class="dl"><dt class="dt dlterm">直欄/整理版面</dt>
+<dd class="dd">系統定義的直欄名稱在<span class="ph uicontrol">直欄</span>欄位中顯示為唯讀值。 從相鄰<span class="ph uicontrol">整理版面</span>清單中，選取<span class="keyword option">靠左</span>、<span class="keyword option">置中</span>或<span class="keyword option">靠右</span>，以設定事件清單中直欄資料的對齊方式。</dd>
+<dt class="dt dlterm">標題/整理版面</dt>
+<dd class="dd">如果您要讓直欄顯示的標題與其系統定義的名稱不同，請在<span class="ph uicontrol">標題</span>欄位中輸入此標題。
+從相鄰<span class="ph uicontrol">整理版面</span>清單中，選取「靠左」、「置中」或「靠右」，以設定事件清單中直欄標題的對齊方式。</dd>
+<dt class="dt dlterm">寬度</dt>
+<dd class="dd">將調節器方框拖曳到左側或右側，以設定事件清單中直欄的寬度。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_displaycolumnsareafields_fixedcolumnsUNIX"><!-- --></a>固定直欄</dt>
+<dd class="dd">您可以在事件清單的左側具有一些固定直欄。 如果您在視圖中捲動直欄，則固定直欄不會移出畫面。 使用此調節器，修正為比視圖中的直欄總數少一個。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareaUNIX"><h2 class="title sectiontitle">排序直欄區域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_sortcolumnsareadescriptionUNIX">使用此區域，可以配置事件清單中列的排序及優先順序。 您可以指定零個或多個直欄作為排序資料的依據，以及定義直欄的排序優先順序。</span></p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafieldsUNIX"><dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_selectedcolumnslistUNIX"><!-- --></a><em class="ph i">可用的排序清單</em></dt>
+<dd class="dd">此清單 (位於左側) 會顯示您據以排序事件資料的所有可用直欄。 可用的排序清單可與<span class="ph uicontrol">新增</span>按鈕一起使用。</dd>
+<dd class="dd">選取要作為排序事件清單列之依據的任何直欄。<div class="note tip"><span class="tiptitle">提示：</span> 此清單中的直欄名稱會按字母順序顯示。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_addbuttonUNIX"><!-- --></a>新增</dt>
+<dd class="dd">按一下此按鈕，以將可用排序清單中選取的直欄新增至相鄰排序定義清單。 直欄會新增至排序清單的底端。<div class="note tip"><span class="tiptitle">提示：</span> 您可以使用拖放技術來新增直欄。 從可用的排序清單中，選取您要新增至排序定義清單的直欄。 在此直欄名稱上按下並按住滑鼠的中鍵，然後將游標拖曳到排序定義清單中。 當您位在可放置直欄的區域中時，游標會變更為顯示綠色記號。 放開滑鼠按鈕。 直欄會新增至排序定義清單的底端。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_sortorderselectionUNIX"><!-- --></a><em class="ph i">排序定義清單</em></dt>
+<dd class="dd">此清單 (位於右側) 會顯示用於排序事件資料的所有直欄。 使用此清單，可以指定事件資料的排序定義，如下所示： <ul class="ul"><li class="li">定義每個直欄的排序：箭頭會顯示在清單中每個直欄名稱的左側。 依預設，此箭頭會指向上方，指出直欄會以遞增的英數次序來排序。 若要變為遞減次序，請按兩下箭頭。 若要變更排序方向，您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中選取<span class="ph uicontrol">變更</span>。</li>
+<li class="li">定義所有直欄的排序優先順序：位於排序清單頂端的欄位在排序時具有最高優先順序。 如果第一個欄位包含一些項目的相同值，則清單中的第二個欄位會用於排序那些項目。
+若要提高或降低直欄的排序優先順序，請選取直欄名稱，然後使用<span class="ph uicontrol">頂端</span>、<span class="ph uicontrol">上移</span>、<span class="ph uicontrol">下移</span>及<span class="ph uicontrol">底端</span>按鈕，如下所說明。</li>
+</ul>
+</dd>
+<dd class="dd">您也可以將排序定義清單與<span class="ph uicontrol">移除</span>按鈕一起使用。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_removebuttonUNIX"><!-- --></a>移除</dt>
+<dd class="dd">按一下此按鈕，以將目前選取的排序直欄從排序定義清單移回到可用的排序清單。 您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中選取<span class="ph uicontrol">移除</span>。<div class="note tip"><span class="tiptitle">提示：</span> 您可以使用拖放技術來移除直欄。 從排序定義清單中，選取要移除的直欄。 在此直欄名稱上按下並按住滑鼠的中鍵，然後將游標拖曳到可用的排序清單中。 當您位在可放置直欄的區域中時，游標應該變更為顯示綠色記號。 放開滑鼠按鈕。 直欄會新增至可用的排序清單中。</div>
+</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_topbuttonUNIX"><!-- --></a>頂端</dt>
+<dd class="dd">按一下此按鈕，以將選取的直欄移至清單頂端。
+您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中按一下<span class="ph uicontrol">頂端</span>。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_upbuttonUNIX"><!-- --></a>上移</dt>
+<dd class="dd">按一下此按鈕，以將選取的直欄在清單中向上移動一個位置。
+您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中按一下<span class="ph uicontrol">上移</span>。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_downbuttonUNIX"><!-- --></a>下移</dt>
+<dd class="dd">按一下此按鈕，以將選取的直欄在清單中向下移動一個位置。
+您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中按一下<span class="ph uicontrol">下移</span>。</dd>
+<dt class="dt dlterm"><a name="netom_viewbuilderwindowUNIX__netom_viewbuilder_sortcolumnsareafields_bottombuttonUNIX"><!-- --></a>底端</dt>
+<dd class="dd">按一下此按鈕，以將選取的直欄移至清單底端。
+您還可以用滑鼠右鍵按一下選取的直欄名稱，然後從蹦現功能表中按一下<span class="ph uicontrol">底端</span>。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareaUNIX"><h2 class="title sectiontitle">限制列區域</h2><p class="p"><span class="ph" id="netom_viewbuilderwindowUNIX__netom_viewbuilderwindow_restrictrowsareadescriptionUNIX">若要加強效能，您可以限制從 ObjectServer 中讀取的列數。 使用此區域，可以限制事件清單中顯示的列數。</span></p>
+<p class="p">如下所示完成此區域：</p>
+<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_restrictrowsareafieldsUNIX"><dt class="dt dlterm">限制列 [1-100]</dt>
+<dd class="dd">如果您要將事件清單中顯示的列數限制為 1 到 100 之間，請選取此勾選框。 <span class="ph uicontrol">下限</span>、<span class="ph uicontrol">上限</span>及<span class="ph uicontrol">預設</span>欄位會變為可用。<div class="note note"><span class="notetitle">註：</span> 如果您選取<span class="ph uicontrol">限制列 [1-100]</span> 勾選框，並將配置儲存為 <span class="ph filepath">.elv</span> 檔案，則 <span class="ph filepath">.elv</span> 檔案與 Netcool/OMNIbus 3.6 版不相容。</div>
+</dd>
+<dt class="dt dlterm">最小值</dt>
+<dd class="dd">輸入要顯示的列數下限，或使用箭頭來增加或減少值。</dd>
+<dt class="dt dlterm">最大值</dt>
+<dd class="dd">輸入要顯示的列數上限，或使用箭頭來增加或減少值。</dd>
+<dt class="dt dlterm">預設值</dt>
+<dd class="dd">輸入要顯示的預設列數，或使用箭頭來增加或減少值。</dd>
+<dt class="dt dlterm">從事件清單設定</dt>
+<dd class="dd">如果您要讓事件清單使用者可以選擇要在其事件清單視圖中顯示的事件數目，請選取此勾選框。 如果您選取此勾選框，則使用者可以透過使用事件清單控制項來選擇檢視的事件數目，會受到「視圖建置器」中指定之<span class="ph uicontrol">下限</span>及<span class="ph uicontrol">上限</span>值的限制。 如果取消勾選此勾選框，則顯示的事件數目一律是指定的<span class="ph uicontrol">預設</span>值。</dd>
+</dl>
+</div>
+<div class="section" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_applying_saving_closingUNIX"><h2 class="title sectiontitle">套用及儲存視圖</h2><div class="p">在定義或修改視圖之後，您可以透過按一下相關按鈕來套用、儲存或取消所進行的變更，如下所示：<dl class="dl" id="netom_viewbuilderwindowUNIX__netom_viewbuilder_applyclosebuttonsUNIX"><dt class="dt dlterm">套用</dt>
+<dd class="dd">按一下此按鈕，以將變更套用至視圖，而不儲存它們。 </dd>
+<dt class="dt dlterm">關閉</dt>
+<dd class="dd">按一下此按鈕，以關閉視窗並捨棄變更。</dd>
+</dl>
+</div>
+<p class="p">您必須使用 <span class="ph filepath">.elv</span> 副檔名儲存視圖。</p>
+<div class="note note"><span class="notetitle">註：</span> 在從「管理者」執行「UNIX 視圖建置器」時，不會顯示<span class="ph uicontrol">套用</span>按鈕。 在此情況下，您必須透過從「UNIX 視圖建置器」中，選取<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">儲存</span></span>或<span class="ph menucascade"><span class="ph uicontrol">檔案</span> &gt; <span class="ph uicontrol">另存新檔</span></span>，來儲存所有視圖。</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相關工作</strong>:<br />
+<div><a class="link" href="omn_usr_vb_creatingeditingviewunix.html" title="使用「視圖建置器」，可以定義要在事件清單中顯示的直欄。">在 UNIX 上建立或編輯視圖</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">程式庫</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+<span class="runningfooter">前次更新日期：2012 年 11 月</span><br /></div>
+</body>
+</html>

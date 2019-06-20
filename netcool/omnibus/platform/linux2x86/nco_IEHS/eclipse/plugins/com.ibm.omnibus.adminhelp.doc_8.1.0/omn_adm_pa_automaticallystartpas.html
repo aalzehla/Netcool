@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Automatically starting process agents on UNIX" />
+<meta name="abstract" content="On UNIX, startup scripts are available to automatically start the process agent when the system starts." />
+<meta name="Description" content="On UNIX, startup scripts are available to automatically start the process agent when the system starts." />
+<meta name="DC.subject" content="process agents, starting automatically, starting" />
+<meta name="keywords" content="process agents, starting automatically, starting" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_automaticallystartpas" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<title>Automatically starting process agents on UNIX</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_automaticallystartpas">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Automatically starting process agents on UNIX</h1>
+<div class="body taskbody"><p class="shortdesc">On UNIX, startup
+scripts are available to automatically start the process agent when
+the system starts.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div><p class="p">You can modify the startup scripts before you install them, if required. </p>
+<div class="p">On Linux operating systems, modify the startup script called <span class="keyword cmdname">nco</span> for the version of Linux that you are using. The script contains sections for either
+the Red Hat and SUSE versions of Linux, and these sections are delimited
+with comments within the script as follows:<pre class="pre codeblock"><code>### REDHAT ONLY
+...
+### END REDHAT ONLY
+
+
+### SUSE ONLY
+...
+### END SUSE ONLY</code></pre>
+Note that the script contains a number
+of separate sections for the Red Hat and SUSE versions of Linux.</div>
+<p class="p">Also on Linux, modify
+the <span class="keyword cmdname">nco</span> script if you are using Plugable Authentication
+Modules (PAM) for authentication by adding the <span class="keyword option">-authentication
+PAM</span> argument to the script. For the default UNIX authentication,
+you do not need to add anything.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><p class="p">These scripts are located in the following directory:</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/install/startup</span></p>
+<div class="p">This
+directory contains one of the following installation scripts, depending
+on the operating system: <ul class="ul"><li class="li"><span class="keyword cmdname">aix5install</span> </li>
+<li class="li"><span class="keyword cmdname">hpux11hpiainstall</span></li>
+<li class="li"><span class="keyword cmdname">solaris2install</span> </li>
+<li class="li"><span class="keyword cmdname">linux2x86install</span></li>
+<li class="li"><span class="keyword cmdname">linux2s390install</span></li>
+</ul>
+</div>
+<p class="p">To use the process agent startup scripts, you must run
+the appropriate installation script for your operating system. (You
+might need to make the script executable before running it.)</p>
+<p class="p">To install the process agent startup scripts:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Run the installation script as the <samp class="ph tt">root</samp> user. </span> For example, to install the scripts on Solaris, run <span class="keyword cmdname">solaris2install</span> from the <span class="ph filepath">$NCHOME/omnibus/install/startup</span> location. The following output is displayed:<p class="p"><samp class="ph systemoutput">Name of the Process Agent Daemon [NCO_PA]</samp></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Press Enter to accept the default process agent server
+name NCO_PA or enter another server name. </span> The following
+output is displayed:<p class="p"><samp class="ph systemoutput">Should pa_name run in secure
+mode (y/n)? [y]</samp></p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Press Enter to include the <span class="keyword option">-secure</span> command-line
+option when starting the process agent. </span> Secure mode controls
+the authentication of connection requests with a user name and password. <div class="p">The following message is displayed:<pre class="pre msgblock"><code>Enter value for environment variable NETCOOL_LICENSE_FILE,
+if required [27000@localhost]:</code></pre>
+</div>
+<div class="note note"><span class="notetitle">Note:</span> Although <span class="keyword">Tivoli Netcool/OMNIbus</span> does not require a license key in order to run, some probes
+and gateways that have not been through a recent maintenance cycle
+still require license keys. If you are running these older probe or
+gateway packages, they will still require the NETCOOL_LICENSE_FILE
+environment variable to be set, and the availability of a Netcool® license server. </div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">If you do not use a license server, you can safely press
+Enter to run the script. If you have a license server, either press
+Enter to accept the default value for the licensing environment variable,
+or enter another value.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>Each installation script copies or links the required configuration
+files into the system startup directory. On some systems (for example,
+Solaris and HP-UX), the ability to stop the processes at system shutdown
+is also provided.</div>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">What to do next</h2></div><p class="p">For information about modifying startup scripts, see your
+specific operating system documentation. </p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_creatingstartpctrlsysunix.html" title="To manage process control, you must first determine your process control configuration requirements and then perform a number of configuration tasks.">Creating and starting a process control network system</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+########################################################################
+#
+#       Licensed Materials - Property of IBM
+#       
+#       
+#       
+#       (C) Copyright IBM Corp. 2005. All Rights Reserved
+#       
+#       US Government Users Restricted Rights - Use, duplication
+#       or disclosure restricted by GSA ADP Schedule Contract
+#       with IBM Corp.
+#
+#
+#######################################################################
+
+if( match( @Manager, "ProbeWatch" ) )
+{
+        switch(@Summary)
+        {
+        case "Running ...":
+                @Severity = 1
+                @AlertGroup = "probestat"
+                @Type = 2
+        case "Going Down ...":
+                @Severity = 5
+                @AlertGroup = "probestat"
+                @Type = 1
+        default:
+                @Severity = 1
+        }
+        @AlertKey = @Agent
+        @Summary = @Agent + " probe on " + @Node + ": " + @Summary
+}
+else
+{
+	@Manager	= "Simnet Probe"
+	@Class		= 3300
+	@Node 		= $Node
+	@Agent 		= $Agent
+	@AlertGroup 	= $Group
+	@Summary 	= $Summary
+	@Severity 	= $Severity
+	@Identifier 	= $Node + $Agent + $Severity + $Group
+
+	if (nmatch($Summary, "Port failure"))
+	{
+		@AlertKey = $PortNumber
+	}
+	else if (nmatch($Summary, "Diskspace"))
+	{
+		@AlertKey = $PercentFull + "% full"
+	}
+
+	if(regmatch($Summary, ".*Down.*")){
+		@Identifier = "Down" + @Identifier 
+		@Type = 1
+	}
+	if(regmatch($Summary, ".*Up.*")){
+		@Type = 2
+	}
+}
+

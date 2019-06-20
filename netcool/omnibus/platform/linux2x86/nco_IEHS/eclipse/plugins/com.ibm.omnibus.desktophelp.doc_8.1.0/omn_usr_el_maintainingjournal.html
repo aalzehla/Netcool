@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Maintaining a journal for an event" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus provides a journal facility within which you can enter and store event history information. You can maintain a journal for any event in the event list." />
+<meta name="Description" content="Tivoli Netcool/OMNIbus provides a journal facility within which you can enter and store event history information. You can maintain a journal for any event in the event list." />
+<meta name="DC.subject" content="events, maintaining journals, journals, maintaining" />
+<meta name="keywords" content="events, maintaining journals, journals, maintaining" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_maintainingjournal" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>Maintaining a journal for an event</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_maintainingjournal">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Maintaining a journal for an event</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> provides
+a journal facility within which you can enter and store event history
+information. You can maintain a journal for any event in the event
+list. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To open and maintain a journal for an event:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the event list, select the event, and then click <span class="ph menucascade"><span class="ph uicontrol">Alerts</span> &gt; <span class="ph uicontrol">Journal</span></span>. </span> The <span class="keyword wintitle">Journal</span> window
+opens. <div class="note tip"><span class="tiptitle">Tip:</span> You can also access the <span class="keyword wintitle">Journal</span> window
+while within the <span class="keyword wintitle">Event Information</span> window for
+a selected event. From the <span class="ph uicontrol">Journal</span> tab, click
+the <span class="ph uicontrol">Add to Journal</span> button.</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">Journal information list boxes</em></dt>
+<dd class="dd">The upper list box is read-only and displays the existing journal history
+text. For each entry, the name of the user who entered the information, and
+the date and time when they entered this information, are shown. You can use
+the <span class="ph uicontrol">Alerts</span> menu while within this window by right-clicking
+within this list box.</dd>
+<dd class="dd">Use the lower list box to add a text entry to the journal. There is a
+limit of 4096 characters for each journal entry. When you have completed the
+text entry, click <span class="ph uicontrol">Apply</span> to save the text within the
+upper list box. The new text is saved as the last entry, and your user name,
+and the date and time, are automatically added. </dd>
+<dt class="dt dlterm">Apply to All Selected</dt>
+<dd class="dd">Select this check box if you want to add the newly-entered text to all
+events that are selected in the event list, and not just to the event whose
+serial number is displayed at the top of the window. To save the text entry
+to the journal for each selected event, click <span class="ph uicontrol">Apply</span>.</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save newly-entered text and close the window. </dd>
+<dt class="dt dlterm">Previous</dt>
+<dd class="dd">If you selected multiple events in the event list, click this button to
+move to the journal entry for the previous event in your selection.</dd>
+<dt class="dt dlterm">Next</dt>
+<dd class="dd">If you selected multiple events in the event list, click this button to
+move to the journal entry for the next event in your selection.</dd>
+<dt class="dt dlterm">Apply</dt>
+<dd class="dd">Click this button to save newly-entered text to the journal. The <span class="keyword wintitle">Journal</span> window
+remains open for further entries. This button is useful if you have selected
+multiple events and want to add different journal entries for them.</dd>
+<dt class="dt dlterm">Close</dt>
+<dd class="dd">Click this button to close this window. You are prompted to save any unsaved
+changes before the window closes.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="To manipulate an event in the event list, you must first select it.">Working with events</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

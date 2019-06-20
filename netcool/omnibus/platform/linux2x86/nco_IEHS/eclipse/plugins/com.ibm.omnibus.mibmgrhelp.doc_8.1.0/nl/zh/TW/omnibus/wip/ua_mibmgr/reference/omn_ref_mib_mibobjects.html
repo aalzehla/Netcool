@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB 物件類型" />
+<meta name="abstract" content="本主題說明在 SNMP v1 和 v2 中定義的數種類型。" />
+<meta name="Description" content="本主題說明在 SNMP v1 和 v2 中定義的數種類型。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibobjects" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB 物件類型</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibobjects">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB 物件類型</h1>
+<div class="body refbody"><p class="shortdesc">本主題說明在 SNMP v1 和 v2 中定義的數種類型。</p>
+<div class="section"><p class="p">您可以尋找下列區段中說明的物件資訊，方法是選取「<span class="keyword wintitle">MIB 模組</span>」視圖中的模組，然後在「<span class="keyword wintitle">OID 樹狀結構</span>」視圖的<span class="ph uicontrol">搜尋</span>欄位中搜尋 <kbd class="ph userinput">ifIndex</kbd>。在「<span class="keyword wintitle">OID 樹狀結構</span>」階層中按一下 <samp class="ph codeph">ifIndex</samp> 物件，以查看「<span class="keyword wintitle">詳細資料</span>」視圖中的物件資訊與文字使用慣例資訊。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT IDENTIFIER</h2><p class="p"><samp class="ph codeph">OBJECT IDENTIFIER</samp> 是由 SNMP v1 定義，並且是 MIB 樹狀結構的主要建置區塊。
+物件 ID 類似於書籍中的章節標題，不包含自己的真實資料，但會向您提供其後代傳達的內容種類相關概念。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OBJECT TYPE</h2><p class="p"><samp class="ph codeph">OBJECT TYPE</samp> 由 SNMP v1 定義，且用來作為儲存器以儲存受管理裝置或裝置上某個測量值的相關資訊。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">TEXTUAL-CONVENTION</h2><p class="p"><samp class="ph codeph">TEXTUAL-CONVENTION</samp> (TC) 是物件類型定義，而非實際物件。在「<span class="keyword wintitle">MIB 模組</span>」 視圖中，您可以從<span class="ph uicontrol">視圖</span>清單選取<span class="ph uicontrol">文字使用慣例</span>，來查看顯示在 MIB 樹狀結構中的已剖析文字使用慣例。在 MIB 樹狀結構中選取 TC 名稱以在「<span class="keyword wintitle">詳細資料</span>」視圖中顯示其定義。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">SNMP v1 TRAP TYPE 和 SNMP v2 NOTIFICATION TYPE</h2><div class="p">SNMP v1 TRAP-TYPE 和 v2 NOTIFICATION-TYPE 是 SNMP 機制，用來產生自主事件到 SNMP 管理程式。v1 中的 SNMP 設陷未定義為 MIB 樹狀結構中的物件。TRAP-TYPE 物件沒有 OBJECT IDENTIFIER 格式的已定義母項。相反，設陷定義會指定對其定義設陷的企業。以下是一般 TRAP-TYPE 物件：<pre class="pre codeblock"><code>bgpEstablished TRAP-TYPE ENTERPRISE bgp VARIABLES { bgpPeerRemoteAddr, bgpPeerLastError,
+ bgpPeerState } DESCRIPTION "The BGP Established event is generated when the BGP FSM 
+enters the ESTABLISHED state." ::= 1</code></pre>
+</div>
+<p class="p"><samp class="ph codeph">ENTERPRISE</samp> 區段定義哪個物件是設陷的母項。然而，MIB 樹狀結構物件可使用 <samp class="ph codeph">bgp</samp> 定義成母項，並定義成編號為 1 的子項。實際上，在 RFC1269-MIB 模組中，<samp class="ph codeph">bgpVersion</samp> 是定義為 <samp class="ph codeph">{ bgp1}</samp>。因此，無法使用 <samp class="ph codeph">ENTERPRISE</samp> 作為母項，將 v1 設陷新增至 MIB 樹狀結構作為葉節點。</p>
+<p class="p">SNMP v2 會將 TRAP-TYPE 的定義變更為 NOTIFICATION-TYPE，並指定這個新的 v2 設陷會像其他 MIB 物件那樣定義，使用母項及子項號碼讓它成為 v1 設陷的唯一問題。RFC1155 4.1 節定義使用零 (0) 作為子項號碼是無效的，會保留供將來使用。SNMP v2 會利用該零，方式是容許供應商將其 v1 設陷新增至 v2 MIB、將零新增至企業名稱，然後在零後面新增設陷號碼。因此，若為 v2，合適的做法是將具有零的物件 ID 定義為企業的子項，然後將 v1 設陷新增為該零的子項。</p>
+<p class="p">這個使用慣例已導致 MIB 作者犯的其他一般錯誤。RFC1155 第 4 節陳述下列內容：</p>
+<p class="p"><span class="q">"An
+object type definition consists of five fields: OBJECT: ------- A
+textual name, termed  the OBJECT DESCRIPTOR, for the object type,
+along with its corresponding OBJECT IDENTIFIER.  Syntax: The abstract syntax for the object type. This must resolve to an instance of the ASN.1 type ObjectSyntax (defined below). Definition: A textual description of the semantics of the object type. Implementations should ensure that their instance of the object fulfills this definition since this MIB is intended for use in multi-vendor environments. As such it is vital that objects have consistent meaning across all machines. Access: One of read-only, read-write, write-only, or not-accessible. Status: One of mandatory, optional, or obsolete. Future memos may
+also specify other fields for the objects which they define."</span></p>
+<div class="p">根據此規則，所有物件都必須具有物件名稱和物件號碼。部分供應商的 MIB 模組，甚至是部分 RFC，使用沒有物件名稱的母項零，定義了 NOTIFICATION-TYPE。在下列範例中，物件定義實際上在語法上是不正確的，因為 <samp class="ph codeph">adslAtucTraps</samp> 物件的子項號碼零沒有定義物件名稱。
+<span class="keyword">MIB Manager</span> 可辨識部分 MIB 作者的喜好設定，以使用此類方法作為捷徑，並容許新增沒有物件名稱的物件。此外，若要協助新增 v1 設陷至 MIB 樹狀結構，<span class="keyword">MIB Manager</span> 會自動將物件零新增為 v1 企業物件的子項（請注意，v1 MIB 無法在其 OID 中使用零），並將該物件零指派為企業名稱所在的設陷，以及將該設陷新增到 MIB 樹狀結構中的這個新物件之下。例如，使用 <samp class="ph codeph">bgp</samp> 會導致發生下列設陷上代：<samp class="ph codeph">{
+bgp bgpTraps(0) 1 })</samp>。<pre class="pre codeblock"><code>adslAtucPerfLofsThreshTrap NOTIFICATION-TYPE OBJECTS { adslAtucPerfCurr15MinLofs, adslAtucThresh15MinLofs } STATUS current DESCRIPTION "Loss of Framing 15-minute interval threshold reached." ::= { adslAtucTraps 0 1 } </code></pre>
+</div>
+</div>
+<div class="section"><h2 class="title sectiontitle">varbind</h2><p class="p">使用 v1 設陷或 v2 通知傳送的物件稱為 varbind。varbind 包含已報告事件的其他相關資訊。在 v1 設陷中，varbind 是在 VARIABLES 區段中進行項目化，而在 v2 通知中，varbind 列在 OBJECTS 區段。在所有版本的 SNMP 中，它們的用途都相同。varbind 出現在清單中的順序很重要，因為 PDU（SNMP 封包）會以 varbind 列在 MIB 中的相同順序來編碼關聯的值。</p>
+<p class="p">例如，在 OBJECTS 區段中，已指定下列三個 varbind：<samp class="ph codeph">ifIndex</samp>、<samp class="ph codeph">ifAdminStatus</samp> 和 <samp class="ph codeph">ifOperStatus</samp>。因此，<samp class="ph codeph">ifIndex</samp> 是第一個要編碼的 varbind，<samp class="ph codeph">ifAdminStatus</samp> 是第二個，而 <samp class="ph codeph">ifOperStatus</samp> 是第三個要編碼的 varbind。檢查 IF-MIB 可以發現 <samp class="ph codeph">ifIndex</samp> 物件類型定義為 <samp class="ph codeph">InterfaceIndex</samp>。因為這不是 SNMP 的有效初始 ASN.1 類型，它必須是文字使用慣例。搜尋文字使用慣例可以發現 <samp class="ph codeph">InterfaceIndex</samp> 實際上會解析為 Integer32（32 位元整數）。因此，當 PDU 到達 <span class="keyword">MIB Manager</span> 時，第一個 varbind 將會是整數。若要確定該整數的意思，<span class="keyword">MIB Manager</span> 必須參照 IF-MIB 模組、查閱 <samp class="ph codeph">ifIndex</samp> 並讀取關聯的物件資訊。檢查第二個 varbind 可以發現列舉的整數類型：</p>
+<pre class="pre codeblock"><code>SYNTAX INTEGER { up(1), -- ready to pass packets down(2), 
+testing(3) -- in some test mode }</code></pre>
+<p class="p">當 varbind 從 SNMP 封包解碼時，其值將為整數，必須根據此列舉清單中的項目來解譯其值。當使用 <span class="keyword">MIB Manager</span> 來建立規則檔時，它將會建立一個參考表，以自動將列舉的整數與其文字呈現鏈結在一起。第三個 varbind 同樣是具有相同值的列舉類型。因此，如果 <samp class="ph codeph">ifAdminStatus</samp> 是
+1（開啟），而 <samp class="ph codeph">ifOperStatus</samp> 是 2（關閉），則可以知道事件產生的原因，並且可以繼續嘗試確定此中斷的原因。</p>
+<p class="p">Varbind 在規則檔中向使用者呈現為 <samp class="ph codeph">$1</samp>、<samp class="ph codeph">$2</samp>、<samp class="ph codeph">$3</samp>，以此類推，每個號碼代表一個 varbind 號碼。<span class="keyword">MIB Manager</span> 根據 varbind 元素來建立元素，並使用這些元素來在詳細資料表格中設定變數。例如，詳細資料表格中使用的元素可能為 $ifIndex = $1（這將是一個整數）、$ifAdminStatus = $2（這將為上標 (1) 之類的內容）和 $ifOperStatus = $3（這將為下標 (3) 之類的內容）。透過使用「Netcool 知識庫 (NCKL)」設定的使用慣例，將對物件設定的所有變更自動設定在規則檔中。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Table</h2><p class="p">Table 代表具有資料列和資料欄之多維度陣列的對等項目。Table 物件定義為 Entry 物件的 SEQUENCE。Entry 物件隨後定義為 OBJECT-TYPE 物件的 SEQUENCE。供應商偶爾會設計不常用系統，例如 Cisco 10k 路由器。
+這個裝置會維護警示狀況的內部表格，並在表格變更時產生設陷或通知。您必須隨後在表格內容上發出 SNMP GET 要求，來判定裝置上作用中警示的現行狀態。這會讓 SNMP 管理程式不易取得警示，但是並非不可能（如果管理者具有符合的工具的話）。</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">OCTET STRING</h2><p class="p">八位元組是包含 8 個位元（通常稱為一個位元組）的資料結構。OCTET STRING 是位元組陣列（或位元組字串）。OCTET STRING 術語並未暗示字串中的所有位元組都是英數。它們還可以是二進位字元，並用來作為位元遮罩。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="本節提供有關「簡易網路管理通訊協定 (SNMP)」架構、SNMP 管理資訊庫 (MIB) 及一些其他 MIB 概念的其他相關資訊。">關於 SNMP</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

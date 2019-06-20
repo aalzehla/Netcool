@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="ローカル・システム・ディレクトリーの操作" />
+<meta name="abstract" content="Tivoli Netcool/OMNIbus には、UNIX のファイル・システム・ブラウザーと同じように動作するディレクトリー・ブラウザー・ユーティリティーが用意されています。" />
+<meta name="Description" content="Tivoli Netcool/OMNIbus には、UNIX のファイル・システム・ブラウザーと同じように動作するディレクトリー・ブラウザー・ユーティリティーが用意されています。" />
+<meta name="DC.subject" content="ディレクトリー・ブラウザー, 表示, ローカル・システム・ディレクトリー" />
+<meta name="keywords" content="ディレクトリー・ブラウザー, 表示, ローカル・システム・ディレクトリー" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringqckaccessfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_addingfilestopersonallib.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_workingwithlocalsysdirectories" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringqckaccessfilters.html" />
+<title>ローカル・システム・ディレクトリーの操作</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_workingwithlocalsysdirectories">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ローカル・システム・ディレクトリーの操作</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword">Tivoli Netcool/OMNIbus</span> には、UNIX のファイル・システム・ブラウザーと同じように動作するディレクトリー・ブラウザー・ユーティリティーが用意されています。</p>
+<div class="section context"><p class="p">このディレクトリー・ブラウザーを使用すれば、UNIX のローカル・システム・ディレクトリーの内容を表示したり、ディレクトリー・ブラウザーと個人用ライブラリー (頻繁に使用するファイルを保存しておく場所) の間で、ビュー・ファイル、フィルター・ファイル、イベント・リスト構成ファイルの移動やコピーを実行したりできます。 このブラウザーから、ビュー、フィルター、イベント・リスト構成を直接開くことも可能です。 </p>
+<p class="p">UNIX のローカル・システム・ディレクトリーの内容を表示して、<span class="keyword">Tivoli Netcool/OMNIbus</span> ファイルを操作するには、以下のようにします。</p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">コンダクターから、ボタン・バーの<span class="ph uicontrol">「ブラウザー」</span>をクリックします。 </span> 「<span class="keyword wintitle">ディレクトリー・ブラウザー</span>」ウィンドウが開きます。 </li>
+<li class="li step stepexpand"><span class="ph cmd">このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">ディレクトリー</dt>
+<dd class="dd">このフィールドには、現行ディレクトリーの絶対パス名が表示されます。 ディレクトリーを変更するには、次のいずれかのアクションを実行します。<ul class="ul"><li class="li">フィールドにディレクトリーの絶対パスを入力して Enter を押します。</li>
+<li class="li">ディレクトリー表示域で、任意のディレクトリー・アイコンをダブルクリックします。</li>
+</ul>
+</dd>
+<dt class="dt dlterm"><em class="ph i">ディレクトリー表示域</em></dt>
+<dd class="dd">この領域には、現行ディレクトリー内に存在するサブディレクトリーが表示されます。
+親ディレクトリーは、ディレクトリー名を 2 つのピリオド (<span class="ph uicontrol">..</span>) で表現したアイコンとして示されます。 現行ディレクトリーの上のディレクトリーに移動するには、親ディレクトリーのアイコンをダブルクリックします。</dd>
+<dd class="dd">ディレクトリー・ブラウザーのこの領域にあるファイルを、コンダクター内の個人用ライブラリーにドラッグ・アンド・ドロップすることができます。<ul class="ul"><li class="li">ファイルを移動するには、中央マウス・ボタンを使用します。 (この操作は、<span class="keyword cmdname">mv</span> コマンドの実行に相当します。)</li>
+<li class="li">ファイルをコピーするには、Ctrl キーと中央マウス・ボタンを同時に押します。
+(この操作は、<span class="keyword cmdname">cp</span> コマンドの実行に相当します。)</li>
+</ul>
+<div class="note note"><span class="notetitle">注:</span> ディレクトリーを表すアイコン以外のすべてのアイコンをドラッグ・アンド・ドロップできます。</div>
+</dd>
+<dd class="dd">同様に、個人用ライブラリー内のすべてのアイコン (<span class="ph uicontrol">設定</span>アイコンは除く) を、このディレクトリー表示域にドラッグ・アンド・ドロップすることもできます。</dd>
+<dd class="dd">ビュー、フィルター、およびイベント・リスト構成は、該当するアイコンをダブルクリックして直接開くこともできます。 <span class="ph filepath">.elf</span> アイコンをダブルクリックすると、フィルター・ビルダー内の定義済みフィルターが開きます。 <span class="ph filepath">.elv</span> アイコンをダブルクリックすると、ビュー・ビルダー内の定義済みビューが開きます。 <span class="ph filepath">.elc</span> アイコンをダブルクリックすると、「<span class="keyword wintitle">イベント・リスト</span>」モニター・ボックス・ウィンドウ内の定義済みイベント・リスト構成が開きます。 </dd>
+<dt class="dt dlterm">最新表示</dt>
+<dd class="dd">ディレクトリー・ブラウザーの内容を最新表示するには、このボタンをクリックします。</dd>
+<dt class="dt dlterm">閉じる</dt>
+<dd class="dd">このボタンをクリックして、ウィンドウを閉じます。</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_configuringqckaccessfilters.html" title="UNIX コンダクターから、ローカルの UNIX システム・ディレクトリーの内容を表示して、フィルター・ファイル、ビュー・ファイル、およびイベント・リスト構成ファイルに簡単にアクセスし、アラートの管理に使用することができます。">UNIX でのフィルター、ビュー、およびイベント・リスト構成へのクイック・アクセスの構成</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_addingfilestopersonallib.html" title="個人用ライブラリーをディレクトリー・ブラウザー・ユーティリティーと併せて使用して、頻繁に使用するファイルのライブラリーを構築することができます。">個人用ライブラリーへのファイルの追加</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

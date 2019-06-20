@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="MIB データのインポート" />
+<meta name="abstract" content="SNMP MIB データを MIB マネージャーへインポートする方法です。" />
+<meta name="Description" content="SNMP MIB データを MIB マネージャーへインポートする方法です。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB データのインポート</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB データのインポート</h1>
+<div class="body taskbody"><p class="shortdesc">SNMP MIB データを MIB マネージャーへインポートする方法です。</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">始める前に</h2></div><p class="p"><span class="keyword wintitle">「設定」</span>ウィンドウに、ベンダーの MIB で通常使用される、
+MIB のロケーションを指定します。MIB が
+ベンダー固有のディレクトリーに存在するようにするとともに、関連するあらゆる装置番号が
+サブディレクトリーに存在するようにします。また、これらのディレクトリーには
+MIB のテキスト・ファイルのみ含まれるようにします。ほとんどの MIB は、<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span> ディレクトリーにインストールされ、すべての RFC MIB は、<span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span> ディレクトリーにインストールされます。</p>
+<p class="p">インポート
+する MIB は、その他の MIB に従属していることがあります。インポート実行中に
+<span class="keyword">MIB マネージャー</span>が、従属 MIB を検索できるようにするには、
+検索パスを、従属 MIB ファイルのロケーションに
+設定します。</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">手順</h2></div><p class="li stepsection">MIB データをインポートするには、以下の手順を実行します。</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><img class="image" src="../gifs/import.gif" alt="MIB インポート・&#xA;アイコン" /> <span class="ph uicontrol">「インポート」</span>をクリックするか、メニューから、
+<span class="ph menucascade"><span class="ph uicontrol">「ファイル」</span> &gt; <span class="ph uicontrol">「インポート」</span></span>をクリックします。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「ディレクトリー」</span>フィールドに、インポートする
+MIB モジュールのロケーションを指定します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">使用可能なサブディレクトリーで検出されたすべての MIB を <span class="keyword">MIB マネージャー</span>が
+解析するようにするには、<span class="ph uicontrol">「サブディレクトリーを全探索」</span>チェック・ボックスを
+選択します。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「インポート」</span>をクリックします。</span> <p class="p"><span class="keyword wintitle">「インポート
+状況」</span>ウィンドウは、MIB モジュールの解析時に表示されます。
+このウィンドウの左側には、インポートされた MIB ファイルの解析中に
+さまざまな異なる MIB オブジェクト・タイプが検出されるたびに、それらの数が表示されます。</p>
+  MIB の解析が終わると、<span class="keyword">MIB マネージャー</span>は、それぞれの MIB モジュールを
+レビューしてから、MIB マネージャーで検出されたすべての MIB オブジェクトを解析します。
+すべてのオブジェクトが解析されると、<span class="keyword">MIB マネージャー</span>は、それぞれの MIB をレビューしてから
+インポート・ステートメントを処理して、参照される MIB モジュールがないか探します。
+参照される MIB モジュールが、既にインポートされた MIB モジュールに見つからない場合、<span class="keyword">MIB マネージャー</span>は、検索パスに指定されたディレクトリーを
+検索します。<span class="keyword wintitle">「インポート状況」</span>ウィンドウの右側には、
+インポートされた MIB で検出されたインポート・ステートメントの状況を示す、
+以下の表のようなアイコンが表示されます。
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="「インポート状況」ウィンドウに表示されるアイコン とその意味" class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8207e100">アイコン</th>
+<th class="entry" valign="bottom" id="d8207e102">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8207e100 "><img class="image" src="../gifs/question_mark.gif" alt="疑問符" /></td>
+<td class="entry" valign="top" headers="d8207e102 ">インポート・ステートメントが解決されなかったことを
+示します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8207e100 "><img class="image" src="../gifs/tick.gif" alt="チェック・マーク" /></td>
+<td class="entry" valign="top" headers="d8207e102 ">インポート・ステートメントが解決されたことを
+示します。</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8207e100 "><img class="image" src="../gifs/cross.gif" alt="クロス" /></td>
+<td class="entry" valign="top" headers="d8207e102 ">インポート・ステートメントで参照される MIB モジュールを
+解決できなかったことを示します。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">インポート・ステートメント・ツリーを展開すると、インポート・ステートメントを使用して他の MIB モジュールを参照している MIB モジュールを表示できます。</p>
+
+<p class="p">インポートされたすべての MIB ファイルが処理されると、<span class="ph uicontrol">「インポート
+が完了しました」</span>が、状況フレームの上部に
+表示されます。インポート中に生成された状況メッセージのすべてを表示するには、
+<span class="ph uicontrol">「状況履歴の
+表示」</span>をクリックし、<span class="ph uicontrol">「ビュー」</span>ドロップダウン・リストを使用して
+フィルター・オプションを選択します。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph uicontrol">「閉じる」</span>をクリックして、<span class="keyword wintitle">「インポート
+状況」</span>ウィンドウを閉じます。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">タスクの結果</h2></div><p class="p"><span class="keyword wintitle">「MIB モジュール」</span>ビューは、新たにインポートされた MIB モジュール名を
+表示するために、自動的に最新表示されます。<span class="keyword wintitle">「OID ツリー」</span>ビューは、
+新たにインポートされた、すべての MIB オブジェクトを表示するために、自動的に最新表示されます。
+<span class="keyword">MIB マネージャー</span>は、ツリーを再作成するために、
+ツリーの親ノード (<span class="ph filepath">iso</span>、<span class="ph filepath">ccitt</span>、および <span class="ph filepath">joint-iso-ccitt</span>) に対して、
+繰り返し検索を実行して、子ノードがないか確認します。これは、関連付けられた子を持たない子ノードが検出されるまで
+行われます。エラーが検出されなければ、すべて項目を取り込み済みの MIB ツリーが<span class="keyword wintitle">「OID ツリー」</span>ビューに表示されます。これには、
+解析されたオブジェクトが入っています。</p>
+<p class="p"><span class="keyword wintitle">「OID
+ツリー」</span>ビューでオブジェクトをクリックすると、オブジェクトが<span class="keyword wintitle">「MIB
+モジュール」</span>ビューに自動的に表示されます。<span class="keyword wintitle">「詳細」</span>ビューには、
+選択したオブジェクトに関する詳細情報が表示されます。</p>
+<p class="p">インポートされた
+MIB モジュールは、xml ファイルに保管され、MIB モジュールの構造を
+表します。xml ファイルは <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span> ディレクトリーにあります。</p>
+<p class="p">未解決の
+インポート・ステートメントが検出された場合、欠落した MIB の
+担当ベンダーに連絡して、欠落したファイルを検索パスに追加してから
+インポートを繰り返します。</p>
+<div class="p"><div class="note note"><span class="notetitle">注:</span> <p class="p">ベンダーは、重複するオブジェクト名を
+指定したり、RFC で指定されたオブジェクト名と
+同じオブジェクト名を指定することがあります。</p>
+
+<p class="p">例えば、
+<samp class="ph codeph">system</samp> という名のオブジェクトは、OID が 1.3.6.1.2.1.1 の
+モジュール SNMPv2-MI' に定義され、別の <samp class="ph codeph">system</samp> という名のオブジェクトは、
+OID が 1.3.6.1.4.1.311.1.1.3.1.1.23 のモジュール WINDOWS-NT-PERFORMANCE に定義されています。
+また、<samp class="ph codeph">sysDescr</samp> という名のオブジェクトは、<samp class="ph codeph">system.1</samp> として
+モジュール SNMPv2-MIB に定義され、別の <samp class="ph codeph">sysFileReadOperationsPerSec</samp> という名のオブジェクトは、
+<samp class="ph codeph">system.1</samp> としてモジュール WINDOWS-NT-PERFORMANCE に定義されています。
+この場合、子オブジェクトが関連付けられる先の親オブジェクトは
+不明確です。</p>
+
+<p class="p">親の名が重複するオブジェクトが見つかった場合、
+<span class="keyword">MIB マネージャー</span>は、同じ MIB モジュール内に定義された親を探そうと
+します。前述の例で、これは
+WINDOWS-NT-PERFORMANCE です。どちらの親も同じ MIB モジュールに定義
+されていない場合、<span class="keyword">MIB マネージャー</span>は検索を行い、オブジェクトが依存する他の
+MIB モジュールに親が定義されていないかを確認します。
+また、<span class="keyword">MIB マネージャー</span>はその親を参照する別の MIB モジュールを識別し、
+最も一般的に参照される親の名前を選択します。ただし、この結果、
+MIB ツリーにデータが誤って取り込まれ、OID が誤って算出される可能性があります。このため、<span class="keyword">MIB マネージャー</span>は、重複する
+オブジェクト名を検出する度に、警告をログに記録するとともに重複を解決するための
+アクションをデバッグ・ファイルに記録します。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="MIB マネージャーを使用して、MIB モジュールを構文解析し、Netcool ルール・ファイルを作成できます。">Netcool MIB マネージャー の使用</a></div>
+</div>
+<div class="relinfo relref"><strong>関連資料</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="ディレクトリー設定を使用して、インポートされた MIB、MIB データ、およびエクスポートされたルール・ファイルの保管に使用するディレクトリーを指定します。">ディレクトリー設定のセットアップ</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="このセクションでは、MIB ファイルの検索に使用される、MIB マネージャー設定の定義方法に ついて説明します。">検索設定のセットアップ</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

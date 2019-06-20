@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="生成 SNMP 陷阱" />
+<meta name="abstract" content="如何生成 SNMP 陷阱。此功能也可用于测试 MIB 管理器 生成的规则文件。" />
+<meta name="Description" content="如何生成 SNMP 陷阱。此功能也可用于测试 MIB 管理器 生成的规则文件。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="zh-cn" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB 管理器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">生成 SNMP 陷阱</h1>
+<div class="body taskbody"><p class="shortdesc">如何生成 SNMP 陷阱。此功能也可用于测试 <span class="keyword">MIB 管理器</span> 生成的规则文件。</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">过程</h2></div><p class="li stepsection">要生成 SNMP 陷阱：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">单击 <img class="image" src="../gifs/trap.gif" alt="“陷阱”图标" /> <span class="ph uicontrol">陷阱</span>。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目标地址</span>字段中，指定运行 SNMP Trapd 服务的计算机的主机名或 IP 地址。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目标端口</span>字段中，指定 SNMP Trapd 服务所侦听的 UDP 端口。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">社区</span>字段中，为 Trapd 管理器指定有效字符串。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">“<span class="keyword wintitle">生成 SNMP 陷阱</span>”窗口中可能会出现<span class="ph uicontrol">变量绑定</span>”部分，这取决于陷阱的类型。在<span class="ph uicontrol">变量绑定</span>”部分中可用的字段也取决于所生成的陷阱的类型。</span> <p class="p">将光标悬停在<span class="ph uicontrol">变量绑定</span>字段名称上可获取字段值语法的详细信息。您可以指定多个值，各个值之间以逗号分隔。将随机选择这些值来构建陷阱。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">重复度量</span>字段中，指定可生成的陷阱数量（1 到 1000）。</span> <p class="p">如果您指定了较大的数量，那么将快速连续地生成陷阱，这可能导致 Trapd 管理器中出现大量警报。对于大于 1 (&gt; 1) 和以分号分隔的列表形式指定的值，<span class="keyword">MIB 管理器</span> 会从指定的列表中随机选择，并使用以 varbind 形式呈现的任意值来生成陷阱。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">单击<span class="ph uicontrol">执行</span>以生成陷阱。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">结果</h2></div>“<span class="keyword wintitle">生成 SNMP 陷阱</span>”窗口中的<span class="ph uicontrol">结果</span>字段将指示是否已成功发送陷阱。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="可以使用 MIB 管理器 来解析 MIB 模块并创建 Netcool 规则文件。">使用Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">库</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+</div>
+</body>
+</html>

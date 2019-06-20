@@ -1,0 +1,128 @@
+DELETE FROM O4SRV.TSITDESC WHERE SITNAME = "Event_Rate_TTCT_1W";
+INSERT INTO O4SRV.TSITDESC
+  (AFFINITIES,
+   ALERTLIST,
+   AUTOSTART,
+   HUB,
+   LSTCCSID,
+   LSTDATE,
+   LSTRELEASE,
+   LSTUSRPRF,
+   OBJECTLOCK,
+   PDT,
+   QIBSCOPE,
+   REEV_DAYS,
+   REEV_TIME,
+   SENDMSGQ,
+   SITNAME,
+   TEXT,
+   AUTOSOPT,
+   SITINFO,
+   ADVISE,
+   CMD  )
+VALUES
+  ("0000000000000000000000000000G00000########F",
+   "",
+   "*YES",
+   "",
+   "en_US",
+   "1100628221100000",
+   "V100",
+   "sysadmin",
+   "",
+   "*IF *VALUE KPA_T_NO8099_LTS.Time_To_Critical_Threshold *GT 0 *AND *V
+ALUE  KPA_T_NO8099_LTS.Time_To_Critical_Threshold *LE 7 *AND *VALUE KPA_
+T_NO8099_LTS.Strength *GE 3",
+   "E",
+   "0",
+   "010000",
+   "*NONE",
+   "Event_Rate_TTCT_1W",
+   "",
+   "NNN",
+   "ATOM=KPACNO8099.AGENTNODE;",
+   'ADVICE("kpa:"+$ISITSTSH.SITNAME$);',
+   "*NONE"
+  );
+DELETE FROM O4SRV.TSITDESC WHERE SITNAME = "Event_Rate_TTWT_1W";
+INSERT INTO O4SRV.TSITDESC
+  (AFFINITIES,
+   ALERTLIST,
+   AUTOSTART,
+   HUB,
+   LSTCCSID,
+   LSTDATE,
+   LSTRELEASE,
+   LSTUSRPRF,
+   OBJECTLOCK,
+   PDT,
+   QIBSCOPE,
+   REEV_DAYS,
+   REEV_TIME,
+   SENDMSGQ,
+   SITNAME,
+   TEXT,
+   AUTOSOPT,
+   SITINFO,
+   ADVISE,
+   CMD  )
+VALUES
+  ("0000000000000000000000000000G00000########F",
+   "",
+   "*YES",
+   "",
+   "en_US",
+   "1100628221100000",
+   "V100",
+   "sysadmin",
+   "",
+   "*IF *VALUE KPA_T_NO8099_LTS.Time_To_Warning_Threshold *GT 0 *AND *VA
+LUE KPA_T_NO8099_LTS.Time_To_Warning_Threshold *LE 7 *AND *VALUE KPA_T_N
+O8099_LTS.Strength *GE 2",
+   "E",
+   "0",
+   "010000",
+   "*NONE",
+   "Event_Rate_TTWT_1W",
+   "",
+   "NNN",
+   "ATOM=KPACNO8099.AGENTNODE;",
+   'ADVICE("kpa:"+$ISITSTSH.SITNAME$);',
+   "*NONE"
+  );
+DELETE FROM O4SRV.TOBJACCL WHERE OBJNAME = "Event_Rate_TTCT_1W";
+INSERT INTO O4SRV.TOBJACCL
+  (NODEL,
+   OBJNAME,
+   HUB,
+   LSTDATE,
+   LSTRELEASE,
+   LSTUSRPRF,
+   OBJCLASS  )
+VALUES
+  ("*AFT_PERF_ANALYZER_WHSE_AGENT",
+   "Event_Rate_TTCT_1W",
+   "Y",
+   "1100628221100000",
+   "",
+   "",
+   "5140"
+  );
+DELETE FROM O4SRV.TOBJACCL WHERE OBJNAME = "Event_Rate_TTWT_1W";
+INSERT INTO O4SRV.TOBJACCL
+  (NODEL,
+   OBJNAME,
+   HUB,
+   LSTDATE,
+   LSTRELEASE,
+   LSTUSRPRF,
+   OBJCLASS  )
+VALUES
+  ("*AFT_PERF_ANALYZER_WHSE_AGENT",
+   "Event_Rate_TTWT_1W",
+   "Y",
+   "1100628221100000",
+   "",
+   "",
+   "5140"
+  );

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="컨덕터 시작" />
+<meta name="abstract" content="컨덕터는 경보의 열람 및 관리가 가능한 모든 Tivoli Netcool/OMNIbus 데스크탑 도구에 대해 싱글 사인온 액세스를 제공합니다." />
+<meta name="Description" content="컨덕터는 경보의 열람 및 관리가 가능한 모든 Tivoli Netcool/OMNIbus 데스크탑 도구에 대해 싱글 사인온 액세스를 제공합니다." />
+<meta name="DC.subject" content="컨덕터, 시작" />
+<meta name="keywords" content="컨덕터, 시작" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_accessingdesktoptools.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_startingconductor" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_accessingdesktoptools.html" />
+<title>컨덕터 시작</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_startingconductor">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">컨덕터 시작</h1>
+<div class="body taskbody"><p class="shortdesc">컨덕터는 경보의 열람 및 관리가 가능한
+모든 <span class="keyword">Tivoli Netcool/OMNIbus</span>
+데스크탑 도구에 대해 싱글 사인온 액세스를 제공합니다. </p>
+<div class="section context"><p class="p">데스크탑 도구를 사용하려면 올바른 인증 신임 정보를 사용하여 실행 중인
+ObjectServer에 연결해야 합니다. </p>
+<div class="note tip"><span class="tiptitle">팁:</span> 선택에 따라 UNIX의 명령행 또는
+Windows
+<span class="ph uicontrol">시작</span> 메뉴에서 데스크탑 도구를 개별적으로 시작할 수 있습니다.
+하지만 이 방법으로 데스크탑 도구를 시작할 때마다 선택된 ObjectServer에 대한 인증 및 연결을
+위해 사용자 이름과 비밀번호를 입력해야 합니다.</div>
+<p class="p">컨덕터를 시작하려면 다음을 수행하십시오. </p>
+</div>
+<ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">운영 체제별로 적절한 조치를 수행하십시오. </span>
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="이 테이블의 각 행은 선택 항목에 대한 옵션을 설명합니다." class="simpletable choicetable choicetableborder">
+<thead><tr><th id="d234515e41-option" valign="bottom" align="left">옵션</th>
+<th id="d234515e41-desc" valign="bottom" align="left">설명</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d234515e41-option" id="d234515e43" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d234515e41-desc d234515e43" class="stentry chdesc" width="80%">명령 프롬프트에서 다음을 입력하십시오. <kbd class="ph userinput">$NCHOME/omnibus/bin/nco &amp;</kbd> </td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d234515e41-option" id="d234515e52" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d234515e41-desc d234515e52" class="stentry chdesc" width="80%"><ul class="ul"><li class="li">Windows <span class="ph uicontrol">시작</span> 메뉴에서
+<span class="ph uicontrol">Netcool Conductor</span>를 클릭하십시오. </li>
+<li class="li">명령 프롬프트에서 다음을 입력하십시오. <p class="p"><kbd class="ph userinput">%NCHOME%\omnibus\desktop\NCOConductor.exe</kbd></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+ 컨덕터의 <span class="keyword wintitle">로그인</span> 창이 열립니다. </li>
+<li class="li step stepexpand"><span class="ph cmd">다음과 같이 이 창을 완료하십시오. </span> <dl class="dl"><dt class="dt dlterm">사용자 이름</dt>
+<dd class="dd">사용자 이름을 입력하십시오. </dd>
+<dt class="dt dlterm">비밀번호</dt>
+<dd class="dd">비밀번호를 입력하십시오. 사용자가 입력한 텍스트의 위치에 별표(*) 문자가 나타납니다.<div class="note note"><span class="notetitle">참고:</span> 사용자 이름 및 암호가
+외부 인증 소스(ObjectServer가 아니라)와 대조하여 검증되고 있는 경우 이 소스가 멀티바이트 문자를 지원하는지 여부를 확인해야 합니다. 멀티바이트
+문자가 지원되지 않는 경우 ASCII 문자를 사용하여 사용자 이름과 비밀번호를 지정해야 합니다. </div>
+</dd>
+<dt class="dt dlterm">서버</dt>
+<dd class="dd">ObjectServer 이름이 NCOMS(Netcool/OMNIbus Master
+Server)의 기본값입니다. 환경에 여러 ObjectServer가 구성된 경우 이 드롭 다운 목록에서 ObjectServer가 모두 사용 가능합니다. 연결하려는 ObjectServer를 선택하십시오.</dd>
+<dt class="dt dlterm">확인</dt>
+<dd class="dd">로그인 세부사항을 인증하려면 이 단추를 클릭하십시오. <div class="note note"><span class="notetitle">참고:</span> 로그인 시도는 3번까지 가능합니다. 각 시도에서 <span class="ph uicontrol">Password</span> 필드는 지워집니다. 3번째 시도에서 올바르게 로그인하지 못하면 프로그램이 종결됩니다.</div>
+</dd>
+<dt class="dt dlterm">취소</dt>
+<dd class="dd">로그인 시도를 취소하려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">결과</h2></div><div class="p">로그인에 성공하면, <ul class="ul"><li class="li">UNIX
+컨덕터가 창에 열립니다. </li>
+<li class="li">Windows
+컨덕터가 Windows
+시스템 트레이에 버스 아이콘으로 표시됩니다. Windows
+<span class="ph uicontrol">컨덕터</span> 메뉴를 보려면 이 아이콘을 마우스 오른쪽 단추로 클릭하십시오. <p class="p">실행 중인 각 ObjectServer에 대해 컨덕터를
+시작할 수 있습니다. Windows에서
+각 컨덕터는 시스템 트레이에 아이콘을 할당받습니다. </p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_accessingdesktoptools.html" title="컨덕터를 사용하여 Tivoli Netcool/OMNIbus 데스크탑 도구(또는 클라이언트 애플리케이션)를 관리할 수 있습니다.">데스크탑 도구 액세스</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

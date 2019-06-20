@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="SNMP에 대한 정보" />
+<meta name="abstract" content="이 절에서는 SNMP(Simple Network Management Protocol) 아키텍처, SNMP MIB(Management Information Base), 일부 추가 MIB 개념에 대한 추가 정보를 제공합니다." />
+<meta name="Description" content="이 절에서는 SNMP(Simple Network Management Protocol) 아키텍처, SNMP MIB(Management Information Base), 일부 추가 MIB 개념에 대한 추가 정보를 제공합니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_about_snmp" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" />
+<title>SNMP에 대한 정보</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_about_snmp">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">SNMP에 대한 정보</h1>
+<div class="body refbody"><p class="shortdesc">이 절에서는 SNMP(Simple Network Management Protocol) 아키텍처, SNMP MIB(Management Information Base),
+일부 추가 MIB 개념에 대한 추가 정보를 제공합니다. </p>
+<div class="section"><p class="p">SNMP 아키텍처에서는 관리자 구성요소가 에이전트를 관리합니다.
+에이전트는 네트워크 디바이스나 애플리케이션에서 실행되는 소프트웨어로서,
+정보 요청(SET 및 GET)에 응답하고 트랩이라는 자율 알림을 생성합니다.
+관리자는 트랩을 받아 네트워크 디바이스로부터 SET 또는 GET SNMP 오브젝트에 이르는
+메커니즘을 제공하는 소프트웨어입니다.</p>
+<p class="p">자율 트랩을 수신하기 위해 관리자는 TCP/IP SNMP 트랩 포트(포트 162)를 인식하는
+애플리케이션을 실행합니다.
+SNMP SET 및 GET에서는 포트 161을 사용합니다. 이 애플리케이션을 보통 Trapd 또는 트랩 디먼이라고 합니다.
+트랩 디먼은 백그라운드로 실행되는 프로세스로서 컴퓨터에서 서비스를 처리합니다. 
+Netcool Trapd 애플리케이션을 SNMP 프로브(<span class="ph filepath">nco_p_mttrapd</span>,
+여기서 <span class="ph filepath">mt</span>는 multithreaded의 약어)라고 하며
+<span class="ph filepath">$OMNIHOME/probes/</span> 디렉토리에 위치합니다.
+<span class="keyword">MIB Manager</span>에서 생성된 규칙 파일은 SNMP 프로브에서 사용하도록 설계되었습니다. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">보안</h2><p class="p">SNMP v1 및 v2에서의 기본 보안은 커뮤니티 문자열을 사용하여 제공합니다.
+커뮤니티 문자열은 모든 요청에서 보내지는 평문 비밀번호입니다.
+읽기 전용 액세스와 읽기/쓰기 액세스에 대해 커뮤니티 문자열이 다릅니다.
+<span class="keyword">MIB Manager</span>는 디바이스에 정의된 커뮤니티 문자열을 알아야
+요청(GET의 경우 읽기 전용, SET의 경우 읽기/쓰기)을 실행할 수 있으며,
+SNMP 트랩과 알림은 사전 정의된 커뮤니티 문자열과 함께 <span class="keyword">MIB Manager</span>로 전송됩니다. </p>
+<p class="p">SNMP를 지원하는 모든 네트워크 디바이스에는
+커뮤니티 문자열을 정의하기 위한 메커니즘이 있습니다. 표준의 기본 읽기 전용 비밀번호는
+공용이며 표준의 기본 읽기/쓰기 비밀번호는 개인용입니다.
+디바이스에 커뮤니티 문자열이 설정되어 있지 않으면, 보통 다음 비밀번호 중 하나가 됩니다.
+보안 상의 이유로 기본 비밀번호는 가능한 빨리 변경해야 합니다. </p>
+</div>
+<div class="section"><h2 class="title sectiontitle">자세한 정보</h2><div class="p">SNMP 프레임워크 및 MIB를 이해하는 데에는 다음 서적이 유용합니다. <ul class="ul"><li class="li"><cite class="cite">Managing Internetworks with SNMP(Third Edition)</cite> by
+Mark Miller (Wiley, 1999)</li>
+<li class="li"><cite class="cite">Understanding SNMP MIBs</cite> by David Perkins and Evan
+McGinnis(Prentice Hall, 1996)</li>
+</ul>
+</div>
+<p class="p">ASN.1에 대한 논의와 네트워크 상의 전송을 위해
+SNMP 데이터를 프로토콜 데이터 단위(PDU) 패킷으로 인코딩하는 데
+사용되는 기본 인코딩 규칙(BER)은 다음 서적을 참조하십시오. </p>
+<p class="p"><cite class="cite">SNMP, SNMPv2, and CMIP: The Practical Guide to Network-Management
+Standards</cite> by William Stallings (Addison-Wesley, 1993).</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibconcepts.html">MIB 개념 및 디자인</a></span><br />
+특정 디바이스에서 사용하도록 정의되는
+모든 SNMP MIB 모듈이 해당 디바이스의 MIB를 구성합니다. MIB라는 용어는 종종 단일 모듈 정의를
+설명하는 데 사용되지만 이것은 기술적으로 잘못된 내용입니다. MIB는 디바이스가 하드웨어와 연관되는지 또는
+소프트웨어와 연관되는지에 관계없이 특정 디바이스를 관리하는 데 사용되는 모든 모듈을 결합한 것입니다.
+그러므로 공급업체가 정의하거나 RFC에 있는 각 모듈의 좀 더 정밀한 이름이 SNMP MIB 모듈입니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_mibobjects.html">MIB 오브젝트 유형</a></span><br />
+SNMP v1과 v2에 정의된 오브젝트 유형에 대해 설명합니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_formats.html">유효한 MIB 오브젝트 형식</a></span><br />
+유효한 MIB 오브젝트의 형식에 대해 설명합니다. </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/the_mib_manager.html" title="Netcool MIB Manager는 SNMP(Simple Network Management Protocol) MIB(Management Information Base) 파일을 구문 분석하는 데 사용할 수 있는 IBM Eclipse 기반 GUI 애플리케이션으로 여기에서 Netcool 규칙 파일을 생성할 수 있습니다. MIB Manager는 mib2rules 유틸리티를 대체합니다.">Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

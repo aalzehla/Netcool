@@ -1,0 +1,87 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+DEBUG=true;
+
+function lookupPolicyID(policyID) {
+ theType = "REPORT_Policy";
+ org = null;
+ filter = "name ='"+policyName+"'";
+
+log(3, "ReportManager: running GetByFilter with filter = " + filter);
+ orgs = GetByFilter(theType, filter, false);
+ orgs_num = Length(orgs);
+log(3, "ReportManager: length is " + orgs_num);
+
+ if (orgs_num > 0) {
+ org = orgs[0];
+ } else {
+log(3, "ReportManager: adding new dataitem");
+ org = NewObject();
+ org["name"] = policyName;
+ AddDataItem(theType, org);
+
+ons = GetByFilter(theType, filter, false);
+
+if (Length(ons) > 0) {
+ org= ons[0];
+}
+
+ }
+
+ policyID = Int(org["id"]);
+Log(3, "ReportManager: policyID = " + policyID);
+
+}
+
+function recordPolicyProfile() {
+ longExeTime = Float(exeTime);
+ executionTime = longExeTime/1000;
+ log(3, "ReportManager: enter recordPolicyProfile policyName: "+policyName+" exeTime: "+executionTime+"(secs) startTime: "+startTime);
+
+ theType = "REPORT_PolicyProfile";
+
+ policyID = null;
+
+synchronized (policyName) {
+log(3, "ReportManager: running lookupPolicyID");
+ lookupPolicyID(policyID);
+}
+
+ if(policyID == null) {
+ log(3, "Error! ReportManager.recordPolicyProfile: couldnot find policyID for name "+policyName+" . Returing recordPolicyProfile");
+ exit();
+ } else {
+ log(3, "ReportManager.recordPolicyProfile: find policy id "+policyID);
+ }
+
+ newOn = NewObject();
+ log(3, "ReportManager.recordPolicyProfile: startTime = " + startTime);
+
+log(3, "ReportManager.recordPolicyProfile: classof startTime = " + Classof(startTime));
+
+startDate_int = Int(startTime/1000);
+
+log(3, "ReportManager.recordPolicyProfile: classof startDate = " + Classof(startDate_int));
+log(3, "ReportManager.recordPolicyProfile: startDate = " + startDate_int);
+
+ startDate = LocalTime(Int(startTime/1000));
+ log(3, "ReportManager.recordPolicyProfile add new dataItem to type: "+ theType +" policyName: "+policyName+" exeTime: "+executionTime+"(secs)");
+log(3, "ReportManager.recordPolicyProfile add new dataItem to type: " + theType + " policyID: " + policyID + " isError: " + error + " error_msg: " + policyError);
+ newOn["policy_id"] = policyID;
+ newOn["exe_time"] = Float(executionTime);
+ newOn["start_time"] = startDate;
+ newOn["is_error"] = Int(error);
+newOn["error_msg"] = policyError;
+ AddDataItem( theType, newOn);
+}
+
+recordPolicyProfile();

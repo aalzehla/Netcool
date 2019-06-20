@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Windows event list command-line options" />
+<meta name="abstract" content="When you use the NCOEvent.exe command to start the event list on Windows, you can specify a number of command-line options to modify the configuration. You can run this command from the %NCHOME%\omnibus\desktop directory." />
+<meta name="Description" content="When you use the NCOEvent.exe command to start the event list on Windows, you can specify a number of command-line options to modify the configuration. You can run this command from the %NCHOME%\omnibus\desktop directory." />
+<meta name="DC.subject" content="event lists, Windows command-line options, command-line options, Windows event lists" />
+<meta name="keywords" content="event lists, Windows command-line options, command-line options, Windows event lists" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_winevntlstcmdlineopt" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingeventlist.html" />
+<title>Windows event list command-line options</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_winevntlstcmdlineopt">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Windows event list
+command-line options</h1>
+<div class="body refbody"><p class="shortdesc">When you use the <span class="keyword cmdname">NCOEvent.exe</span> command
+to start the event list on Windows,
+you can specify a number of command-line options to modify the configuration.
+You can run this command from the <span class="ph filepath">%NCHOME%\omnibus\desktop</span> directory.</p>
+<div class="section"><p class="p">The following table describes the command-line options
+for starting the Windows event
+list. </p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Windows event
+list (NCOEvent) command-line options</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d20899e45">Command-line option</th>
+<th class="entry" valign="bottom" width="75%" id="d20899e47">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-config</span> <var class="keyword varname">string | URL</var><p class="p">or</p>
+<p class="p"><span class="keyword option">-elc</span> <var class="keyword varname">string
+| URL</var></p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Specifies the initial configuration file to use, where:<p class="p"><var class="keyword varname">string</var> specifies
+a path to a <span class="ph filepath">.elc</span> file.</p>
+<p class="p"><var class="keyword varname">URL</var> specifies
+a <span class="ph filepath">.elc</span> file that is located on a remote server,
+which is accessible by using HTTP or FTP. Specify the <var class="keyword varname">URL</var> by
+using one of the following formats:</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+</ul>
+<p class="p">The optional port number <var class="keyword varname">:port</var> needs to
+be specified only if the server is not using the default port.</p>
+<p class="p"><span class="ph">You can optionally specify an IPv4
+or IPv6 address for the <var class="keyword varname">servername</var> value. When
+specifying an IPv6 address, enclose the address within brackets [];
+for example:</span></p>
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+<p class="p">If
+using FTP, the path must be the full path from the root directory;
+for example, <span class="ph filepath">/home/<var class="keyword varname">user</var>/mydir/myconfig.elc</span>.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Displays extended diagnostic messages.<p class="p">This option is only
+useful for detecting problems with the event list. Do not use this
+command-line option unless you are advised by <span class="keyword">IBM Software Support</span>.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Indicates whether to enable or disable dual-write mode when
+operating in a desktop ObjectServer architecture. Valid options are
+as follows:<ul class="ul"><li class="li"><samp class="ph codeph">0</samp>: Disable dual-write mode</li>
+<li class="li"><samp class="ph codeph">1</samp>: Enable dual-write mode</li>
+</ul>
+<p class="p">The <span class="keyword option">-dualwrite</span> command-line option overrides
+the DualWrite field entry in the master.national table of the desktop
+ObjectServer.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="ph"><span class="keyword option">-failbackpolltime</span> <var class="keyword varname">integer</var></span></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 "><span class="ph">If
+connected to a backup ObjectServer because failover occurred, the
+event list periodically attempts to reconnect to the primary ObjectServer.
+This command-line option specifies the frequency, in seconds, at which
+the event list polls for the return of the primary ObjectServer. If
+it is detected that the primary ObjectServer has restarted, the event
+list disconnects from the backup ObjectServer and reconnects to the
+primary ObjectServer. The default is <span class="keyword option">30</span> seconds.
+When set to <span class="keyword option">0</span>, no polling occurs.</span><p class="p"><span class="ph">When an event list connects
+to an ObjectServer, the event list checks the <span class="keyword parmname parmname">BackupObjectServer</span> property
+setting of the ObjectServer to which it is connecting. Polling occurs
+only if this property is set to <span class="keyword option">TRUE</span>, indicating
+a backup ObjectServer.</span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Displays help for this command and exits.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Indicates the master ObjectServer to use in a desktop ObjectServer
+architecture. <p class="p">The <span class="keyword option">-masterserver</span> command-line option
+overrides the MasterServer field entry in the master.national table
+of the desktop ObjectServer.</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Specifies a time in seconds after which a login attempt or
+connection to the ObjectServer will time out, if a network failure
+occurs. After the specified timeout period, the event list attempts
+to reconnect to the ObjectServer. If the connection is unsuccessful
+after a second timeout period, the event list will attempt to connect
+to a backup ObjectServer, where available. The default is 20 seconds.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Specifies a password to use to log in to the event list.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Specifies the name of the ObjectServer to which you are connecting.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Specifies the user name to use to log in to the event list.</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d20899e45 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d20899e47 ">Displays version information and exits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="You can use a desktop ObjectServer architecture to improve the performance of an ObjectServer that frequently experiences heavy loads.">Desktop ObjectServer architecture</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="You can save the filter, view, and other event configurations that are defined for all the monitor boxes on the Event List monitor box window. This information is saved within an event list configuration (.elc) file.">Working with event list configurations</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

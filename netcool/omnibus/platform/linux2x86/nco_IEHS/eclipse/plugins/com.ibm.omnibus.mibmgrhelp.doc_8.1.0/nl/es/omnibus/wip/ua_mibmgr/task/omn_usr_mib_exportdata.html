@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es-es" lang="es-es">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Exportación de datos MIB" />
+<meta name="abstract" content="Cómo exportar datos MIB de SNMP desde MIB Manager en una variedad de formatos." />
+<meta name="Description" content="Cómo exportar datos MIB de SNMP desde MIB Manager en una variedad de formatos." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_exportdata" />
+<meta name="DC.Language" content="es-es" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>Exportación de datos MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_exportdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versión 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Exportación de datos MIB</h1>
+<div class="body taskbody"><p class="shortdesc">Cómo exportar datos MIB de SNMP desde <span class="keyword">MIB Manager</span> en una variedad de formatos.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedimiento</h2></div><p class="li stepsection">Para exportar datos MIB:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Pulse <img class="image" src="../gifs/export.gif" alt="icono Exportar MIB" /> <span class="ph uicontrol">Exportar</span> o, desde el menú,
+pulse <span class="ph menucascade"><span class="ph uicontrol">Archivo</span> &gt; <span class="ph uicontrol">Exportar</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Directorio</span>, especifique
+el directorio de destino de los archivos exportados.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Tipo de archivo</span>, especifique
+un tipo de archivo para los archivos exportados.</span> <p class="p">Debe utilizar la biblioteca Netcool Knowledge Library (NCKL)
+siempre que sea posible, porque los archivos de reglas NCKL
+se basan en la funcionalidad del dispositivo. Cuando se utiliza
+NCKL, se debe especificar el tipo de archivo <span class="ph uicontrol">Netcool Knowledge Library versión
+3.x</span>. De este modo se permite añadir los archivos generados
+a las instalaciones de la biblioteca Netcool Include Library existente.</p>
+
+<p class="p">Las opciones siguientes están disponibles en la lista
+desplegable <span class="ph uicontrol">Tipo de archivo</span>:</p>
+
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Cada fila en esta tabla describe una opción a escoger." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d7702e58-option">Tipo de archivo</th>
+<th valign="bottom" align="left" id="d7702e58-desc">Descripción</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e65" class="stentry choption"><strong>CSV</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e65" class="stentry chdesc">Seleccione esta opción para especificar que todos los datos del objeto
+se carguen en archivos CSV, de modo que se pueda visualizar mediante una
+aplicación de hoja de cálculo.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e70" class="stentry choption"><strong>Objetos de interrupción CSV</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e70" class="stentry chdesc">Seleccione esta opción para especificar que todos los datos de
+interrupción y los datos de objeto de enlaces variables asociados se carguen
+en un sólo archivo CSV, de modo que pueda visualizarse mediante una aplicación de hoja de cálculo.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e75" class="stentry choption"><strong>HTML con marcos</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e75" class="stentry chdesc">Seleccione esta opción para crear una página web que sea adecuada para
+la publicación. <p class="p">La vista de árbol MIB seleccionada se muestra en la parte
+izquierda de la página web generada. Puede navegar por la vista de árbol MIB
+expandiendo y contrayendo los nodos del árbol MIB. Cuando se selecciona un
+elemento del árbol MIB, su información asociada se visualiza en la parte
+derecha de la página web.</p>
+<p class="p">A menudo, este formato puede crear un
+gran número de archivos de exportación, conteniendo cada uno de ellos
+un archivo HTML para cada objeto de la lista del árbol MIB. El directorio
+de destino se puede comprimir y se puede ubicar en cualquier servidor web, o las
+páginas se pueden visualizar directamente desde un disco abriendo el archivo <span class="ph filepath">index.html</span>
+creado en el directorio de exportación. </p>
+<p class="p">Si desea utilizar archivos HTML individuales
+con un navegador web, exporte en <span class="ph uicontrol">HTML con marcos</span> y, a continuación,
+utilice los archivos del subdirectorio <span class="ph filepath">datos</span> situado debajo
+del directorio de exportación.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e95" class="stentry choption"><strong>HTML sin marcos</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e95" class="stentry chdesc">Seleccione esta opción para crear un único archivo denominado <span class="ph filepath">oids.html</span>.
+Este archivo contendrá una lista de todos los objetos seleccionados para la salida,
+cada uno de ellos separado por reglas horizontales (mediante la etiqueta <samp class="ph codeph">&lt;HR&gt;</samp>). Cada OID
+se delimita mediante una etiqueta ancla, de modo que cuando se cargue, el navegador
+se desplazará automáticamente de modo descendente hasta un OID que incluya un símbolo hash
+(#) en el URL, por ejemplo: <span class="ph filepath">file:c:/oids.html#1.3.6.1.4.1.9</span>.<p class="p">Este
+archivo puede resultar muy grande si se exporta un gran número de
+objetos. Por consiguiente, este formato sólo debe utilizarse para exportar un
+número pequeño de interrupciones.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e111" class="stentry choption"><strong>Tabla de búsqueda Netcool</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e111" class="stentry chdesc">Seleccione esta opción para dar salida a todos los valores especificados
+en una lista tabulada, mostrando los OID en la columna izquierda y los nombres
+de objeto en la columna derecha. Esta opción es adecuada para la inclusión en
+cualquier archivo de reglas.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e116" class="stentry choption"><strong>Netcool Include Library</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e116" class="stentry chdesc">Seleccione esta opción para crear archivos de inclusión por separado
+para cada empresa, y para generar un único archivo para las interrupciones genéricas
+(es decir, para las interrupciones que no estén ubicadas bajo el subárbol de la empresa).
+Se supone que los archivos de inclusión se insertan en archivos <span class="ph filepath">snmp.rules</span>
+existentes: los que ha creado <span class="keyword">MIB Manager</span> previamente o los que ha creado la
+biblioteca Netcool Include Library (NCIL).</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e127" class="stentry choption"><strong>Netcool Knowledge Library versión 1.1</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e127" class="stentry chdesc">Seleccione esta opción para generar archivos desde <span class="keyword">MIB Manager</span>. Los
+archivos se incluirán en una implementación existente de Netcool Knowledge Library.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e135" class="stentry choption"><strong>Netcool Knowledge Library versión 3.x</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e135" class="stentry chdesc">Seleccione esta opción para generar archivos desde <span class="keyword">MIB Manager</span>. Los
+archivos se incluirán en una implementación existente de Netcool Knowledge Library.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e143" class="stentry choption"><strong>Reglas autónomas</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e143" class="stentry chdesc">Seleccione esta opción para crear un único archivo de reglas que contenga
+todas las interrupciones seleccionadas. Puede especificar este archivo en el archivo
+de propiedades de cualquier analizador de interrupciones SNMP de <span class="keyword">Tivoli Netcool/OMNIbus</span>.</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e151" class="stentry choption"><strong>Archivos de texto individuales</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e151" class="stentry chdesc">El formato de archivos de texto individuales se utiliza para el menú
+del botón derecho del ratón Netcool Event List.<p class="p">Cuando se exporta en archivos de texto individuales,
+se da salida a cada OID en un archivo de texto por separado, por ejemplo <span class="ph filepath">1.3.6.1.4.1.9.1.1.txt</span>.
+Entonces, se puede añadir una herramienta externa al menú del botón derecho del ratón que utiliza <span class="ph filepath">nco_message</span> para mostrar toda la información de objeto para un suceso que tiene
+el OID especificado en un campo, por ejemplo: <samp class="ph codeph">cat 1.3.6.1.4.1.9.1.txt |nco_message
+stdin title "trap info"</samp>.</p>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d7702e58-option" id="d7702e168" class="stentry choption"><strong>Tivoli Universal Agent</strong></td>
+<td valign="top" headers="d7702e58-desc d7702e168" class="stentry chdesc">El formato de Tivoli Universal Agent exporta archivos <span class="ph filepath">.mdl</span> y <span class="ph filepath">trapcnfg</span>
+basándose en el contenido seleccionado.<div class="p">Se pueden seleccionar varios subárboles
+cuando se selecciona este formato para exportar archivos. Si se seleccionan varios
+subárboles, se crearán archivos <span class="ph filepath">.mdl</span> y <span class="ph filepath">trapcnfg</span>
+para todos los objetos ubicados bajo un elemento seleccionado en el árbol
+MIB. <div class="note note"><span class="notetitle">Nota:</span> Las tres primeras letras del nombre de aplicación, que siguen a la etiqueta
+//APPL en el archivo <span class="ph filepath">.mdl</span>, deben ser exclusivos dentro
+de una empresa. <span class="keyword">MIB Manager</span> intenta cumplir este requisito pero no puede tener en cuenta
+otros agentes que puedan estar en ejecución. Es posible que tenga
+que modificar el archivo <span class="ph filepath">.mdl</span> para asegurarse de que
+el nombre de la aplicación sea exclusivo en la empresa.</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">En el campo <span class="ph uicontrol">Ámbito</span>, utilice la lista desplegable
+para especificar si <span class="keyword">MIB Manager</span> da salida sólo a interrupciones, sólo a objetos o a todos los OID.</span> <p class="p">Las opciones disponibles dependen del tipo de archivo
+que se está exportando.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Para limitar el número de objetos incluidos en el archivo generado, seleccione
+el recuadro de selección <span class="ph uicontrol">Sólo subárbol(es) seleccionado(s)</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Pulse <span class="ph uicontrol">Exportar</span> para exportar los archivos
+al directorio de destino.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Tema principal:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Puede utilizar MIB Manager para analizar módulos MIB y crear archivos de reglas de Netcool.">Utilización de Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>Referencia relacionada</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_exporting.html" title="En esta sección se describe cómo establecer las preferencias de exportación de archivos de reglas.">Establecimiento de las preferencias de exportación</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteca</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Soporte</a> |</span>
+<br />
+</div>
+</body>
+</html>

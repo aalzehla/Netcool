@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CREATE PROCEDURE (SQL procedures)" />
+<meta name="abstract" content="Use the CREATE PROCEDURE command to create SQL procedures." />
+<meta name="Description" content="Use the CREATE PROCEDURE command to create SQL procedures." />
+<meta name="DC.subject" content="creating, SQL procedures, CREATE PROCEDURE" />
+<meta name="keywords" content="creating, SQL procedures, CREATE PROCEDURE" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_creatingsqlprocedures" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Creating SQL procedures (CREATE PROCEDURE command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_creatingsqlprocedures">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">CREATE PROCEDURE (SQL procedures)</h1>
+<div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">CREATE PROCEDURE</samp> command to create
+SQL procedures.</p>
+<div class="section"><p class="p">This command defines the structure and operation of the
+procedure, including the types of parameter passed into, and out of,
+the procedure, and the local variables, condition testing, row operations,
+and assignments that are performed in the procedure.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>CREATE [ OR REPLACE ] PROCEDURE <var class="keyword varname">procedure_name</var>
+ ([
+   [ <u class="ph u">IN</u> | OUT | IN OUT ] <var class="keyword varname">parameter_name</var>
+  { <var class="keyword varname">parameter_type</var> | ARRAY OF <var class="keyword varname">parameter_type</var> }, ...
+])
+[ DECLARE <var class="keyword varname">variable_declaration</var>;...[;] ]
+BEGIN
+ <var class="keyword varname">procedure_body_statement</var>;...[;]
+END</code></pre>
+<p class="p">If there is a possibility that a procedure already
+exists with the same name as the one you want to create, use the optional
+OR REPLACE keywords. If the procedure exists, it is replaced by the
+one you are creating. If the procedure does not exist, a new one is
+created.</p>
+<p class="p">The <var class="keyword varname">procedure_name</var> must be unique
+within the ObjectServer and comply with the ObjectServer naming conventions.</p>
+<p class="p">Following
+the <var class="keyword varname">procedure_name</var>, specify the parameters that
+can be passed into, or out of, the procedure, within parentheses (
+). You must include parentheses after the <var class="keyword varname">procedure_name</var> even
+if the procedure has no parameters.</p>
+<p class="p">Each procedure parameter
+has a mode, which can be IN, OUT, or IN OUT. Depending on the mode
+that you choose for your parameters, you can use them in different
+ways:</p>
+<ul class="ul"><li class="li">An IN parameter is a read-only variable. You can use an IN parameter
+in expressions to help calculate a value, but you cannot assign a
+value to the parameter. If you do not want to change a variable value
+within the procedure, use an IN parameter to pass the variable value
+into the procedure. This parameter is used by default if you do not
+specify the parameter mode.</li>
+<li class="li">An OUT parameter is a write-only variable. You can use an OUT
+parameter to assign a value to the parameter, but you cannot read
+from it within the body of the procedure. Therefore, you cannot use
+this type of parameter in an expression. OUT parameters are useful
+for passing values that are computed within a procedure, out of the
+procedure.</li>
+<li class="li">An IN OUT parameter is a read and write variable, with none of
+the constraints of an IN or OUT parameter. This parameter is useful
+for variables that you want to change within the procedure, and pass
+out of the procedure.</li>
+</ul>
+<p class="p">The <var class="keyword varname">parameter_name</var> must be unique within
+the procedure and comply with the ObjectServer naming conventions.</p>
+<p class="p">The <var class="keyword varname">parameter_type</var> defines
+the type of data that the parameter can pass into, or out of, the
+procedure. The data type can be any valid ObjectServer data type,
+except VARCHAR or INCR.</p>
+<p class="p">An <samp class="ph codeph">ARRAY OF <var class="keyword varname">parameter_type</var></samp> is
+an array of any valid parameter type.</p>
+<p class="p">In the optional DECLARE
+section of a procedure, you can define (declare) local variables for
+use within a procedure. A local variable is a placeholder for values
+used during the execution of the procedure. Use semicolons to separate
+local variable declarations. Variable names must be unique within
+the procedure and comply with the ObjectServer naming conventions.
+The <var class="keyword varname">variable_declaration</var> can include either of
+the following variable types:</p>
+<ul class="ul"><li class="li">Simple variables: <pre class="pre codeblock"><code><var class="keyword varname">variable_name</var> <var class="keyword varname">variable_type</var></code></pre>
+</li>
+<li class="li">Array variables: <pre class="pre codeblock"><code>variable_name <var class="keyword varname">variable_type</var> [ ARRAY ] <strong class="ph b">[</strong> <var class="keyword varname">integer</var> <strong class="ph b">]</strong></code></pre>
+<p class="p">A <var class="keyword varname">variable_type</var> is
+any valid ObjectServer data type, except VARCHAR or INCR.</p>
+<p class="p">Define
+the size of an array by specifying an integer value greater than 1
+in square brackets.</p>
+<div class="note note"><span class="notetitle">Note:</span> The square brackets in bold
+type around the integer value are required to specify the size of
+the array; they do not indicate syntax notation for an optional keyword
+or clause.</div>
+</li>
+</ul>
+<p class="p">The body of a procedure is enclosed within the keywords BEGIN
+and END. You can use the SET statement, IF THEN ELSE statement, CASE
+WHEN statement, FOR EACH ROW loop, and FOR loop in the procedure body.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">In the following procedure declaration,
+the formal parameter is the variable <samp class="ph codeph">current_severity</samp>.
+When you run the procedure, you pass an actual parameter.</p>
+<pre class="pre codeblock"><code>CREATE PROCEDURE calculate_average_severity
+ ( IN current_severity INTEGER )</code></pre>
+<p class="p">For example, in the
+following procedure call, the actual parameter is the value <samp class="ph codeph">5</samp>,
+which is assigned to the formal parameter <samp class="ph codeph">current_severity</samp>.</p>
+<pre class="pre codeblock"><code>EXECUTE PROCEDURE calculate_average_severity(5);</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><pre class="pre codeblock"><code>CREATE PROCEDURE add_or_concat
+ ( IN counter INTEGER, IN one_char_string CHAR(1))</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">In the following example, an array
+of integers is passed into the procedure and used to calculate the
+average severity of a subset of alerts:</p>
+<pre class="pre codeblock"><code>CREATE PROCEDURE calculate_average_severity
+ ( IN severity_arr ARRAY OF INTEGER)</code></pre>
+<p class="p">An array of integers
+is passed into the procedure when you run it. These integers are assigned
+to an array named <samp class="ph codeph">severity_arr</samp>.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">To create a Boolean variable used
+in the procedure to indicate when a severity exceeds a particular
+value:</p>
+<pre class="pre codeblock"><code>DECLARE SeverityTooHigh BOOLEAN;</code></pre>
+<p class="p">To create an array of 20 integer values used in the
+procedure to store node names:</p>
+<pre class="pre codeblock"><code>DECLARE NodeNameArray INTEGER [20];</code></pre>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

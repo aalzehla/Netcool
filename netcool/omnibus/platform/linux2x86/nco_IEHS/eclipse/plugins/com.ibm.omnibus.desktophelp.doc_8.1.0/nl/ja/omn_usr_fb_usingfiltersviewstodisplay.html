@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="フィルターおよびビューを使用したカスタム・イベント情報の表示" />
+<meta name="abstract" content="alerts データベース表には、ObjectServer に転送されるイベント情報が保持されます。 フィルターおよびビューを使用して、イベント・リストに表示されるこのイベント情報を 定義することができます。" />
+<meta name="Description" content="alerts データベース表には、ObjectServer に転送されるイベント情報が保持されます。 フィルターおよびビューを使用して、イベント・リストに表示されるこのイベント情報を 定義することができます。" />
+<meta name="DC.subject" content="フィルター, 概要, ビュー" />
+<meta name="keywords" content="フィルター, 概要, ビュー" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_usingfiltersviewstodisplay" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>フィルターおよびビューを使用したカスタム・イベント情報の表示</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_usingfiltersviewstodisplay">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">フィルターおよびビューを使用したカスタム・イベント情報の表示</h1>
+<div class="body conbody"><p class="shortdesc"><samp class="ph tt">alerts</samp> データベース表には、ObjectServer に転送されるイベント情報が保持されます。 フィルターおよびビューを使用して、イベント・リストに表示されるこのイベント情報を
+定義することができます。</p>
+<p class="p">フィルターは表示されるアラート (または、データベース・レコード) を制御し、
+ビューはこれらのアラートに表示される列 (または、データベース・フィールド) を制御します。 構造化照会言語 (SQL) を使用して、データベース表の情報要求を実行することができます。</p>
+<div class="p">イベント・リスト内にアラートを表示するには、alerts.status 表上で SELECT
+ステートメントを実行する必要があります。 SQL ステートメントは、以下の 3 つの
+概念部分に分けられます。<ul class="ul"><li class="li">ビュー・ビルダー内で作成されたビューを使用して、表示する alerts.status 表内の列を選択する。</li>
+<li class="li">フィルター・ビルダー内で作成されたフィルターを使用して、これらの 1 つ以上の列内にある固有のデータ値を含むイベントを選択する。</li>
+<li class="li">ビュー・ビルダー内で作成されたビューを使用して、イベントを表示する
+順序を選択する。</li>
+</ul>
+</div>
+<p class="p">alerts.status 表上で実行される SELECT ステートメントの例を以下に示します。 </p>
+<pre class="pre codeblock"><code>select Node as NODE, Summary as Detail from alerts.status
+where Node ='link1' </code></pre>
+<p class="p">SELECT 節はビュー・ビルダー内で構成され、ビューの作成および編集に
+使用されます。 WHERE 節はフィルター・ビルダー内で構成され、フィルターの作成および編集に
+使用されます。</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_settingupfiltersevntlst.html">イベント・リスト・データのフィルターのセットアップ</a></span><br />
+フィルターは、モニター・ボックスおよびイベント・リストにカスタム・アラート情報を表示するために、ObjectServer <samp class="ph tt">alerts</samp> データベース表上で実行することができる SQL 照会を構築するのに使用されます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_vb_settingupviewsevntlsts.html">イベント・リストのビュー設定</a></span><br />
+ビューでは、イベント・リストに表示される列の選択およびこれらの列内の情報のフォーマットが定義されます。</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

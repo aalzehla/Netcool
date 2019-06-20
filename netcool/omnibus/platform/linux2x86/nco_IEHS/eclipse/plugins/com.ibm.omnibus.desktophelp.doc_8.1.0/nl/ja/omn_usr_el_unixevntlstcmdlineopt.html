@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="UNIX イベント・リストのコマンド行オプション" />
+<meta name="abstract" content="UNIX 上で nco_event コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。" />
+<meta name="Description" content="UNIX 上で nco_event コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。 $NCHOME/omnibus/bin ディレクトリーからこのコマンドを実行できます。" />
+<meta name="DC.subject" content="イベント・リスト, UNIX コマンド行オプション, コマンド行オプション, UNIX イベント・リスト" />
+<meta name="keywords" content="イベント・リスト, UNIX コマンド行オプション, コマンド行オプション, UNIX イベント・リスト" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_dsk_dsktopobjservarch.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_unixevntlstcmdlineopt" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_startingeventlist.html" />
+<title>UNIX イベント・リストのコマンド行オプション</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_unixevntlstcmdlineopt">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">UNIX イベント・リストのコマンド行オプション</h1>
+<div class="body refbody"><p class="shortdesc">UNIX 上で <span class="keyword cmdname">nco_event</span> コマンドを使用してイベント・リストを開始する場合は、いくつかのコマンド行オプションを指定して構成を変更する必要があります。
+<span class="ph filepath">$NCHOME/omnibus/bin</span> ディレクトリーからこのコマンドを実行できます。</p>
+<div class="section"><p class="p">以下の表では、UNIX イベント・リストを開始するコマンド行オプションについて説明します。 </p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" width="100%" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. UNIX イベント・リスト (nco_event) のコマンド行オプション</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="25%" id="d104516e44">コマンド行オプション</th>
+<th class="entry" valign="bottom" width="75%" id="d104516e46">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-cmap</span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">専用カラー・マップを指定します。 このコマンド行オプションは省略することはできません。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-config</span> <var class="keyword varname">string | URL</var><p class="p">または</p>
+<p class="p"><span class="keyword option">-elc</span> <var class="keyword varname">string
+| URL</var></p>
+</td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">使用する初期構成ファイルを指定します。ここで、<p class="p"><var class="keyword varname">string</var> は、<span class="ph filepath">.elc</span> ファイルのパスを指定します。</p>
+<p class="p"><var class="keyword varname">URL</var> は、
+リモート・サーバーに配置される <span class="ph filepath">.elc</span> ファイルを指定します。
+このファイルには HTTP または FTP を使用してアクセス可能です。 以下のフォーマットのいずれかを使用して、<var class="keyword varname">URL</var> を
+指定します。</p>
+<ul class="ul"><li class="li"><kbd class="ph userinput">http://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">http://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+<li class="li"><kbd class="ph userinput">ftp://<var class="keyword varname">username</var>:<var class="keyword varname">password</var>@<var class="keyword varname">servername</var>[:<var class="keyword varname">port</var>]/<var class="keyword varname">path</var>/<var class="keyword varname">filename</var>.elc</kbd> </li>
+</ul>
+<p class="p">サーバーがデフォルトのポートを使用していない場合にのみ、オプションのポート番号 <var class="keyword varname">:port</var> を
+指定する必要があります。</p>
+<p class="p"><span class="ph">オプションで、<var class="keyword varname">servername</var> 値の IPv4 または IPv6 アドレスを指定することもできます。 IPv6 アドレスを指定する場合は、例えば以下のように、アドレスを大括弧 [] で囲みます。</span></p>
+<p class="p"><span class="ph"><kbd class="ph userinput">http://[2003:13f8:206:190:204:baef:fe6a:6af0]:2880/mydir/myfile.elc</kbd></span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-diagnostic</span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">拡張された診断メッセージを表示します。 <p class="p">このオプションは、
+イベント・リストの問題を検出する場合にのみ有効です。 <span class="keyword">IBM ソフトウェア・サポート</span> によって指示されない場合は、このコマンド行オプションを使用しないでください。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-dualwrite 0 | 1</span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">デスクトップ ObjectServer アーキテクチャーで動作している場合に、デュアル書き込みモードを使用可能に設定するか、または使用不可に設定するかを指定します。 有効なオプションは以下のとおりです。 <ul class="ul"><li class="li"><samp class="ph codeph">0</samp>: デュアル書き込みモードを使用不可に設定します</li>
+<li class="li"><samp class="ph codeph">1</samp>: デュアル書き込みモードを使用可能に設定します</li>
+</ul>
+<p class="p"><span class="keyword option">-dualwrite</span> コマンド行オプションにより、デスクトップ ObjectServer の master.national 表内の
+DualWrite フィールド・エントリーが無効になります。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="ph"><span class="keyword option">-failbackpolltime</span> <var class="keyword varname">integer</var></span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 "><span class="ph">フェイルオーバーが発生したために、バックアップ ObjectServer に接続された場合、
+イベント・リストは定期的に 1 次 ObjectServer に再接続しようとします。
+このコマンド行オプションは、イベント・リストが 1 次 ObjectServer が回復しているかどうかをポーリングする頻度を、秒単位で指定します。 1 次 ObjectServer が再始動していることが検出された場合、
+イベント・リストはバックアップ ObjectServer を切断し、1 次 ObjectServer に再接続します。 デフォルトは <span class="keyword option">30</span> 秒です。
+<span class="keyword option">0</span> に設定すると、ポーリングは行われません。</span><p class="p"><span class="ph">イベント・リストが ObjectServer に接続するときに、イベント・リストは接続先となる ObjectServer の
+<span class="keyword parmname parmname">BackupObjectServer</span> プロパティーの設定値を検査します。
+ポーリングは、このプロパティーが <span class="keyword option">TRUE</span> (バックアップ ObjectServer を示す) に設定されている場合にのみ行われます。</span></p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">このコマンドのヘルプを表示して終了します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-masterserver</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">デスクトップ ObjectServer アーキテクチャー内で使用するマスター ObjectServer
+を指定します。 <p class="p"><span class="keyword option">-masterserver</span> コマンド行オプションにより、デスクトップ ObjectServer の master.national 表内の
+MasterServer フィールド・エントリーが無効になります。</p>
+</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-networktimeout</span> <var class="keyword varname">integer</var> </td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">ネットワーク障害が発生した場合に、ログイン試行または
+ObjectServer サーバーへの接続がタイムアウトするまでの時間を秒単位で指定します。 指定されたタイムアウト期間が過ぎると、
+イベント・リストは ObjectServer への再接続を試みます。 2 回目のタイムアウト期間が過ぎても接続が成功しなかった場合、イベント・リストはバックアップ ObjectServer (使用可能な場合) への接続を試みます。 デフォルトは 20 秒です。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-password</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">イベント・リストにログインするのに使用するパスワードを指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-server</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">接続する ObjectServer の名前を指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-uneditable</span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">イベント・リスト構成の編集を許可しません。 このオプションを使用する場合、
+<span class="ph uicontrol">「フィルター・ビルダー」</span>および<span class="ph uicontrol">「ビュー・ビルダー
+」</span>ボタンと<span class="ph uicontrol">「保存」</span>および<span class="ph uicontrol">「別名保存
+」</span>メニュー項目は使用不可に設定されます。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-username</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">イベント・リストにログインするのに使用するユーザー名を指定します。</td>
+</tr>
+<tr class="row" valign="top"><td class="entry" valign="top" width="25%" headers="d104516e44 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="75%" headers="d104516e46 ">バージョン情報を表示して終了します。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section"><div class="note tip"><span class="tiptitle">ヒント:</span> イベント・リストのコマンド行オプションは、
+それぞれ固有の最短の省略形に省略することができます。 例えば、<span class="keyword option">-uneditable</span> は
+<span class="keyword option">-un</span> に省略することができます。</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>関連概念</strong>:<br />
+<div><a class="link" href="omn_con_dsk_dsktopobjservarch.html" title="デスクトップ ObjectServer アーキテクチャーを使用すると、負荷が重くなりがちな ObjectServer のパフォーマンスを改善できます。">デスクトップ ObjectServer アーキテクチャー</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="「イベント・リスト」モニター・ボックス・ウィンドウのすべてのモニター・ボックスで定義したフィルターやビューや他のイベント構成を保存できます。 その情報の保存先は、イベント・リスト構成 (.elc) ファイルになります。">イベント・リスト構成の操作</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

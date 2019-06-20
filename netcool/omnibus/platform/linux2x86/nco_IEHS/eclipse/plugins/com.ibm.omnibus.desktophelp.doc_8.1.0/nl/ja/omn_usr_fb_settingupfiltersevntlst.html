@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="イベント・リスト・データのフィルターのセットアップ" />
+<meta name="abstract" content="フィルターは、モニター・ボックスおよびイベント・リストにカスタム・アラート情報を表示するために、ObjectServer alerts データベース表上で実行することができる SQL 照会を構築するのに使用されます。" />
+<meta name="Description" content="フィルターは、モニター・ボックスおよびイベント・リストにカスタム・アラート情報を表示するために、ObjectServer alerts データベース表上で実行することができる SQL 照会を構築するのに使用されます。" />
+<meta name="DC.subject" content="フィルター, 説明" />
+<meta name="keywords" content="フィルター, 説明" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_filtermetrics.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_bestpracticesfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingfiltersunixdragdrop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_openingprevsavedfilter.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_settingupfiltersevntlst" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<title>イベント・リスト・データのフィルターのセットアップ</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_settingupfiltersevntlst">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リスト・データのフィルターのセットアップ</h1>
+<div class="body conbody"><p class="shortdesc">フィルターは、モニター・ボックスおよびイベント・リストにカスタム・アラート情報を表示するために、ObjectServer <samp class="ph tt">alerts</samp> データベース表上で実行することができる SQL 照会を構築するのに使用されます。</p>
+<div class="p">フィルターは、イベント・リストに表示する以下の場合のアラートを定義します。<ul class="ul"><li class="li">特定のフィールドが特定の値を持つ場合</li>
+<li class="li">特定のフィールドがあるフィールドに似た値を持つ場合</li>
+<li class="li">2 つの特定の時点の間にイベントが発生した場合</li>
+<li class="li">ある特定の分数の前までにイベントが発生した場合</li>
+</ul>
+</div>
+<div class="p">デフォルトのフィルターのいくつかが、<span class="keyword">Tivoli Netcool/OMNIbus</span> で提供されます。
+これらのフィルターは以下のとおりです。<dl class="dl"><dt class="dt dlterm">最後の 10 分</dt>
+<dd class="dd">このフィルターは、ProbeWatch、TSMWatch、ConnectionWatch を除くすべてのアラートを表示します。 結果は<span class="ph uicontrol">「デフォルト」</span>フィルターの結果と同じですが、<span class="ph uicontrol">「最後の 10 分」</span>フィルターでは最近 10 分間に発生したアラートだけを表示する点が異なります。</dd>
+<dt class="dt dlterm">保守</dt>
+<dd class="dd">このフィルターは、オペレーターによって「保守中」と示されているアラートを表示します。 </dd>
+<dt class="dt dlterm">エスカレート</dt>
+<dd class="dd">このフィルターは、オペレーターがエスカレートしたアラートを表示します。 </dd>
+<dt class="dt dlterm">情報</dt>
+<dd class="dd">このフィルターは、情報アラートとして識別されたアラートを表示します。
+情報アラートは以下のとおりです。<ul class="ul"><li class="li">プローブにより情報アラートと指定されたアラート</li>
+<li class="li">ProbeWatch、TSMWatch、ConnectionWatch 以外のアラート</li>
+<li class="li">エスカレーション・レベルが設定されているアラート </li>
+</ul>
+</dd>
+<dt class="dt dlterm">タスク・リスト</dt>
+<dd class="dd">このフィルターは、オペレーターのタスク・リストに追加されたアラートを表示します。 </dd>
+<dt class="dt dlterm">Netcool® 状況</dt>
+<dd class="dd">このフィルターは、ProbeWatch アラート、TSMWatch アラート、ConnectionWatch アラートだけを表示します。</dd>
+<dt class="dt dlterm">デフォルト</dt>
+<dd class="dd">このフィルターは、ProbeWatch、TSMWatch、ConnectionWatch を除くすべてのアラートを表示します。</dd>
+<dt class="dt dlterm">すべてのイベント</dt>
+<dd class="dd">このフィルターは、すべてのアラートを表示します。</dd>
+</dl>
+</div>
+<p class="p">さらに、カスタム・フィルターを構築することができます。 フィルターは、<span class="ph filepath">.elf</span> ファイルとして保存されます。
+フィルター・ビルダーを使用して、フィルターを作成および編集します。</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_componentsoffilter.html">フィルターのコンポーネント</a></span><br />
+フィルターは、<dfn class="term">エレメント</dfn> の収集から構成されます。 使用可能なエレメント・タイプには、条件、論理、およびサブ照会エレメントがあります。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_filtermetrics.html">フィルター・メトリック</a></span><br />
+すべてのフィルターは、自分自身に関連付けられたメトリックを持ちます。 メトリックとは、フィルターが
+有効な数値を計算するようにフィルターに適用される測定のことです。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_bestpracticesfilters.html">フィルターのベスト・プラクティス</a></span><br />
+フィルターを構築する際は、最初に簡単なテストを実行します。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_startingfilterbuilder.html">フィルター・ビルダーの開始</a></span><br />
+フィルター・ビルダーには、フィルターを構成する SQL ステートメントを作成してテストするためのグラフィカル・インターフェースが用意されています。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterunix.html">UNIX でのフィルターの作成または編集</a></span><br />
+UNIX のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterwin.html">Windows でのフィルターの作成または編集</a></span><br />
+Windows のフィルター・ビルダーを使用すれば、イベント・リスト・データのためのフィルターを作成できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingfiltersunixdragdrop.html">UNIX でのドラッグ・アンド・ドロップによるフィルターの作成</a></span><br />
+UNIX では、ドラッグ・アンド・ドロップ機能を使用してフィルターを作成できます。</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_openingprevsavedfilter.html">フィルターを開く</a></span><br />
+保存されているフィルターを開いて、フィルター定義を表示したり編集したりできます。</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_fb_usingfiltersviewstodisplay.html" title="alerts データベース表には、ObjectServer に転送されるイベント情報が保持されます。 フィルターおよびビューを使用して、イベント・リストに表示されるこのイベント情報を 定義することができます。">フィルターおよびビューを使用したカスタム・イベント情報の表示</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

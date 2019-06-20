@@ -1,0 +1,53 @@
+<?xml version="1.0"?><MIB_MODULE thread="MibParser:Thread-41" name="SNMPv2-TC-v1" hashcode="MibParser:635311407" sourcefile="Default Data">
+<IMPORTS>
+<IMPORT name="TimeTicks" from="RFC1155-SMI"></IMPORT>
+</IMPORTS>
+<EXPORTS></EXPORTS>
+<TEXTUAL-CONVENTION name="DisplayString" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="PhysAddress" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="MacAddress" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="TruthValue" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="true"></ENUM>
+<ENUM index="2" value="false"></ENUM>
+</ENUMS>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="TestAndIncr" version="1">
+<SYNTAX type="INTEGER"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="AutonomousType" version="1">
+<SYNTAX type="OBJECT IDENTIFIER"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="InstancePointer" version="1">
+<SYNTAX type="OBJECT IDENTIFIER"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="RowStatus" version="1">
+<SYNTAX type="INTEGER">
+<ENUMS>
+<ENUM index="1" value="active"></ENUM>
+<ENUM index="2" value="notInService"></ENUM>
+<ENUM index="3" value="notReady"></ENUM>
+<ENUM index="4" value="createAndGo"></ENUM>
+<ENUM index="5" value="createAndWait"></ENUM>
+<ENUM index="6" value="destroy"></ENUM>
+</ENUMS>
+</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="TimeStamp" version="1">
+<SYNTAX type="TEXTUAL-CONVENTION">TimeTicks</SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="TimeInterval" version="1">
+<SYNTAX type="INTEGER"></SYNTAX>
+</TEXTUAL-CONVENTION>
+<TEXTUAL-CONVENTION name="DateAndTime" version="1">
+<SYNTAX type="OCTET STRING"></SYNTAX>
+</TEXTUAL-CONVENTION>
+</MIB_MODULE>

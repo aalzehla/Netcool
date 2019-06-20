@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating and editing processes" />
+<meta name="abstract" content="You can set up a process and configure it to run as part of a service." />
+<meta name="Description" content="You can set up a process and configure it to run as part of a service." />
+<meta name="DC.subject" content="creating, processes, process control, creating processes, editing, editing processes" />
+<meta name="keywords" content="creating, processes, process control, creating processes, editing, editing processes" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_configuringprocs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_connectingtopa.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_definingprocspaconfigfile.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_creatingeditprocs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_configuringprocs.html" />
+<title>Creating and editing processes</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_creatingeditprocs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Creating and editing processes</h1>
+<div class="body taskbody"><p class="shortdesc">You can set up a process and configure it to run as part
+of a service.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Before you begin</h2></div>At least one service must already exist before you can configure
+processes.</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To create or edit a process:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd"><span class="ph">Perform any of the following actions
+from Netcool/OMNIbus Administrator:</span></span> <ul class="ul choices"><li class="li choice"><span class="ph">If you are connected to the process
+agent and the <span class="keyword wintitle">Service/Process Details</span> pane is
+open, go to the next step.</span></li>
+<li class="li choice"><span class="ph">If not already connected,
+connect to the process agent. On successful connection, the <span class="keyword wintitle">Service/Process
+Details</span> pane opens.</span></li>
+<li class="li choice"><span class="ph">If you are connected to the
+process agent, but the <span class="keyword wintitle">Service/Process Details</span> pane
+is not currently on display, click the <span class="ph uicontrol">Status</span> icon
+in the Configuration window for the process agent, to view this pane.</span></li>
+</ul>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">To add a process, click <span class="ph uicontrol">New Process</span> in
+the toolbar. To edit a process, select the process to edit and then
+click <span class="ph uicontrol">Edit</span> in the toolbar.</span> <p class="p">The <span class="keyword wintitle">Process
+Details</span> window opens.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Define a new process as follows: </span> <dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type the process name. This name must be unique per process agent. When
+editing a process, you cannot change the name.</dd>
+<dt class="dt dlterm">Command</dt>
+<dd class="dd">Type the command string that starts the process, as it would be entered
+on the command line. Use the full path for the command. For example, to configure
+an ObjectServer named NCOMS, with process agent SFOSYS1_PA, type:<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_objserv
+-name NCOMS -pa SFOSYS1_PA</kbd></p>
+</dd>
+<dt class="dt dlterm">Host</dt>
+<dd class="dd">Type the name of the host on which the process is run. Process control
+automatically resolves the name of the process agent, when required.</dd>
+<dt class="dt dlterm">Service</dt>
+<dd class="dd">Select the service under which this process will run. When editing a process,
+you cannot change the service.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Process</span> tab, specify additional
+details about the process. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Managed</dt>
+<dd class="dd">Select this check box if you want to the process to restart automatically
+if it fails.</dd>
+<dt class="dt dlterm">Run As ID</dt>
+<dd class="dd">Type the user ID under which the process is run. This value is typically
+0, which corresponds to the <samp class="ph tt">root</samp> user name.<div class="note note"><span class="notetitle">Note:</span> If the
+process agent is not running as <samp class="ph tt">root</samp>, this option is ignored, and
+the process is run as the user who is running the process agent.</div>
+</dd>
+<dt class="dt dlterm">Retry Count</dt>
+<dd class="dd">Specify the number of restart attempts to be made if the process exits
+within the time specified by the process agent <span class="keyword option">-retrytime</span> command-line
+option. If set to <samp class="ph tt">0</samp>, there is no limit to the number of restart attempts.
+The default is <samp class="ph tt">0</samp>.</dd>
+<dt class="dt dlterm">Process Type</dt>
+<dd class="dd">From this drop-down list, select <samp class="ph tt">PA Aware</samp> to make the process
+aware of process control and enable the use of all process control features,
+such as dependencies. Select <samp class="ph tt">Not PA Aware</samp> if the process can be managed
+by process control, but cannot use all process control features. </dd>
+<dt class="dt dlterm">Dependency</dt>
+<dd class="dd">Use this drop-down list to indicate whether the process has any dependencies.
+The option that you select here determines the remaining fields that are displayed:<ul class="ul"><li class="li">Select <samp class="ph tt">None</samp> to specify that the process has no dependency on
+any other process. No more fields are displayed.</li>
+<li class="li">Select <samp class="ph tt">Delay</samp> to indicate a time dependency for starting the process.
+An additional field titled <span class="ph uicontrol">Start delay</span> is displayed
+for you to define the time dependency.</li>
+<li class="li">Select <samp class="ph tt">Process</samp> to indicate a dependency on another process. An
+additional field titled <span class="ph uicontrol">Select Delay from</span> or <span class="ph uicontrol">Dependent
+Name</span> is displayed for you to specify a process.</li>
+</ul>
+</dd>
+<dt class="dt dlterm">Start delay</dt>
+<dd class="dd">Specify a time (in seconds) for starting the process. This time is measured
+from the start of the service.</dd>
+<dt class="dt dlterm">Select Delay from/Dependent Name</dt>
+<dd class="dd">Use this drop-down list to select another PA aware process on which the
+process being created or edited depends. The process being created or edited
+will not start until the process on which it depends is already running.</dd>
+</dl>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">From the <span class="ph uicontrol">Messages</span> tab, specify message
+details that should be sent to the UNIX syslog
+or the Windows Event Viewer
+when the process is restarted or exits. Complete the tab as follows:</span> <dl class="dl"><dt class="dt dlterm">Restart</dt>
+<dd class="dd">Type the message to be sent to the UNIX syslog or the Windows Event Viewer
+if the process is restarted. For example: <kbd class="ph userinput">The ObjectServer has
+been restarted</kbd>.</dd>
+<dt class="dt dlterm">Alert</dt>
+<dd class="dd">Type the message to be sent to the UNIX syslog or the Windows Event Viewer
+if the process exits. For example: <kbd class="ph userinput">The ObjectServer has gone down</kbd>.</dd>
+<dd class="dd">When the process agent generates an alert or restart message, this message
+is passed to the syslog or Event Viewer. Tivoli Netcool/OMNIbus has a Syslog
+probe that can monitor these messages and convert them into ObjectServer alerts. </dd>
+<dd class="dd">The alert and restore messages are sent to the UNIX syslog or the Windows
+Event Viewer as warnings. The message is formatted as:<pre class="pre codeblock"><code><var class="keyword varname">HOSTNAME</var> : <var class="keyword varname">ALERT_OR_RESTART_MSG</var> : <var class="keyword varname">MSG</var></code></pre>
+The <var class="keyword varname">HOSTNAME</var> is the name of the
+host that has reported the problem. <var class="keyword varname">ALERT_OR_RESTORE_MSG</var> describes
+the type of message. <var class="keyword varname">MSG</var> is the text defined in the configuration
+file for that process.</dd>
+</dl>
+<div class="p">You
+can use the expansion keywords described in the following table in the restart
+and alert entries that you specify in the <span class="ph uicontrol">Messages</span> tab.
+Expansion keywords act as variables and contain information about the process
+that has exited or restarted.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1.  Expansion keywords</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d61877e265">Expansion keyword</th>
+<th class="entry" valign="bottom" width="60%" id="d61877e267">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d61877e265 ">${NAME}</td>
+<td class="entry" valign="top" width="60%" headers="d61877e267 ">The name of the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d61877e265 ">${HOST}</td>
+<td class="entry" valign="top" width="60%" headers="d61877e267 ">The name of the host running the process.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d61877e265 ">${EUID}</td>
+<td class="entry" valign="top" width="60%" headers="d61877e267 ">The effective user ID under which the process is running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d61877e265 ">${COMMAND}</td>
+<td class="entry" valign="top" width="60%" headers="d61877e267 ">The command that defines the process.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Save or cancel your changes as follows: </span> <dl class="dl"><dt class="dt dlterm">OK</dt>
+<dd class="dd">Click this button to save the process details and close the window. New
+processes are added to the <span class="keyword wintitle">Service/Process Details</span> pane.<div class="note tip"><span class="tiptitle">Tip:</span> Your configuration changes are not automatically saved to the process
+control configuration file. To update the file, click <span class="ph uicontrol">Write Process
+Agent Config File</span> in the toolbar. </div>
+</dd>
+<dt class="dt dlterm">Cancel</dt>
+<dd class="dd">Click this button to close the window without saving your changes.</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_configuringprocs.html" title="Using Netcool/OMNIbus Administrator, you can create, edit, delete, start, and stop processes within a service that is configured to run under a process agent. You can also send signals to processes.">Configuring processes</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+<div><a class="link" href="omn_adm_pa_connectingtopa.html" title="Before you can connect to a process agent by using Netcool/OMNIbus Administrator, you must ensure that the process agent has started.">Connecting to a process agent</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_pa_definingprocspaconfigfile.html" title="Within the process agent configuration file, you must define the list of processes that should be run by the process agents.">Defining processes in the process agent configuration file</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

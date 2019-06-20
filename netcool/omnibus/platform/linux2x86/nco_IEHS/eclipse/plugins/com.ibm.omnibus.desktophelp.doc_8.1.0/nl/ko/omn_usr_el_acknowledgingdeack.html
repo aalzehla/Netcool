@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="이벤트 수신확인 및 수신확인 취소" />
+<meta name="abstract" content="해당 작업을 수행할 권한이 있는 경우에만 이벤트 목록에서 수신확인 및 수신확인 취소할 수 있습니다." />
+<meta name="Description" content="해당 작업을 수행할 권한이 있는 경우에만 이벤트 목록에서 수신확인 및 수신확인 취소할 수 있습니다." />
+<meta name="DC.subject" content="이벤트 목록, 이벤트 수신확인, 이벤트 수신확인 취소, 수신확인, 이벤트, 수신확인 취소" />
+<meta name="keywords" content="이벤트 목록, 이벤트 수신확인, 이벤트 수신확인 취소, 수신확인, 이벤트, 수신확인 취소" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_selectingdeselecting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_acknowledgingdeack" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>이벤트 수신확인 및 수신확인 취소</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_acknowledgingdeack">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">이벤트 수신확인 및 수신확인 취소</h1>
+<div class="body taskbody"><p class="shortdesc">해당 작업을 수행할 권한이 있는 경우에만 이벤트 목록에서 수신확인 및
+수신확인 취소할 수 있습니다.</p>
+<div class="section context"><div class="note note"><span class="notetitle">참고:</span> 사용자 자신, 그룹 또는 <samp class="ph tt">nobody</samp> 사용자에게 지정되는 이벤트만 수신확인 및 수신확인 취소할 수 있습니다.</div>
+<p class="p">선택된 이벤트를 모두 수신확인하려면
+<span class="ph menucascade"><span class="ph uicontrol">경보</span> &gt; <span class="ph uicontrol">수신확인</span></span>을 클릭하십시오. 상태
+표시줄은 수신확인된 이벤트의 수와 지정되지 않아 수신확인할 수 없는 이벤트의 수를 표시합니다.</p>
+<div class="p">시스템 관리자가 구성한 경우 이벤트 목록의 이벤트를 수신확인할 때마다 저널 항목을
+입력해야 합니다.
+이와 같은 경우에 <span class="keyword wintitle">저널
+항목</span> 창은 이벤트를 수신확인할 때마다 열립니다. 다음과 같이 이 창을 완료하십시오. <dl class="dl"><dt class="dt dlterm"><em class="ph i">저널 목록 상자</em></dt>
+<dd class="dd">시스템 관리자에 의해 구성된 경우, 이 목록 상자는 시스템 관리자가 입력한
+기존 저널 텍스트를 표시합니다. 저널 항목을 완료하십시오. </dd>
+<dd class="dd">시스템 관리자가 구성한 경우, 정보를 입력하거나 선택할 수 있도록
+프롬프트 창 또는 팝업 메뉴가 표시될 수 있습니다.
+각 저널 항목은 4096자로 제한됩니다.</dd>
+<dt class="dt dlterm">확인</dt>
+<dd class="dd">이 단추를 클릭해 경보의 수신확인 정보 및 저널의 텍스트 입력을 저장하십시오.
+이 텍스트는 도구가 사용될 때 선택한 경보의
+저널에 추가됩니다.
+사용자 이름, 날짜 및 시간은 자동으로 추가됩니다.</dd>
+<dt class="dt dlterm">닫기</dt>
+<dd class="dd">항목을 저장하지 않고 창을 닫으려면 이 단추를 클릭하십시오. </dd>
+</dl>
+</div>
+<p class="p">선택된 이벤트를 모두 수신확인 취소하려면
+<span class="ph menucascade"><span class="ph uicontrol">경보</span> &gt; <span class="ph uicontrol">수신확인 취소</span></span>를 클릭하십시오. 상태
+표시줄은 수신확인 취소된 이벤트의 수와 지정되지 않아 수신확인 취소할 수 없는 이벤트의 수를 표시합니다.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="이벤트 목록의 이벤트를 조작하려면 맨 먼저 해당 이벤트를 선택해야 합니다.">이벤트에 대한 작업</a></div>
+</div>
+<div class="relinfo reltasks"><strong>관련 태스크</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="이벤트 목록에서 경보를 모니터하고 관리하려면 올바른 인증 신임 정보를 사용하여 실행 중인 ObjectServer에 연결해야 합니다. 컨덕터, 명령행 또는 Windows 시작 메뉴에서 이벤트 목록을 시작할 수 있습니다.">이벤트 목록 시작</a></div>
+<div><a class="link" href="omn_usr_el_selectingdeselecting.html" title="이벤트 목록에서 하나 이상의 이벤트에 대해 작업하려면 먼저 이벤트를 선택해야 합니다. 그런 다음 경보 메뉴의 옵션을 사용하여 이벤트를 조작할 수 있습니다. 선택된 이벤트 목록에서 하나 이상의 이벤트를 선택 취소할 수도 있습니다.">이벤트 선택 및 선택 취소</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

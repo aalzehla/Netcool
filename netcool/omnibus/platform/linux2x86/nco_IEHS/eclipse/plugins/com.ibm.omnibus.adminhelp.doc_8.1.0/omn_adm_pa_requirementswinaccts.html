@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Windows account requirements for the process control system" />
+<meta name="abstract" content="On Windows, the process agent must run as an account that is an Administrator on the local computer." />
+<meta name="Description" content="On Windows, the process agent must run as an account that is an Administrator on the local computer." />
+<meta name="DC.subject" content="process control, Windows user accounts" />
+<meta name="keywords" content="process control, Windows user accounts" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_requirementswinaccts" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_creatingstartpctrlsysunix.html" />
+<title>Windows account requirements for the process control system</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_requirementswinaccts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Windows account requirements
+for the process control system</h1>
+<div class="body refbody"><p class="shortdesc">On Windows, the
+process agent must run as an account that is an Administrator on the
+local computer.</p>
+<div class="section"><div class="p">To connect to the process agent from Netcool/OMNIbus Administrator,
+another process agent, the ObjectServer, or a process control utility,
+you need one of the following account types:<ul class="ul"><li class="li">A local Windows user
+account</li>
+<li class="li">A local Windows domain
+account</li>
+<li class="li">An account in User Principal Name (UPN) format; that is, <var class="keyword varname">username</var>@<var class="keyword varname">DNS_domain_name</var></li>
+</ul>
+</div>
+<p class="p">For peer-to-peer connections between process agents, be
+wary of using password policies that lock out Windows accounts after a set number of attempts.
+Process agents repeatedly attempt to log in if they fail to connect;
+therefore, the use of a wrong password could cause your Windows accounts to be locked out very quickly.</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_creatingstartpctrlsysunix.html" title="To manage process control, you must first determine your process control configuration requirements and then perform a number of configuration tasks.">Creating and starting a process control network system</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="MIB adatok importálása" />
+<meta name="abstract" content="SNMP MIB adatok importálása az MIB Manager termékbe." />
+<meta name="Description" content="SNMP MIB adatok importálása az MIB Manager termékbe." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB adatok importálása</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB adatok importálása</h1>
+<div class="body taskbody"><p class="shortdesc">SNMP MIB adatok importálása az MIB Manager termékbe.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Mielőtt elkezdené</h2></div><p class="p">A <span class="keyword wintitle">Beállítások</span> ablakban adja meg az MIB szállítók által rendszeresen használt MIB-k helyét. Gondoskodjék róla, hogy az MIB-k a szállítóra jellemző könyvtárakba kerüljenek, és hogy a társított felszerelések számai az alkönyvtárakba kerüljenek.
+Arról is gondoskodjon, hogy ezek a könyvtárak ne tartalmazzanak nem MIB szövegfájlokat. A legtöbb MIB az <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span>
+könyvtárba van telepítve, és az összes RFC MIB az <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span>
+könyvtárba van telepítve.</p>
+<p class="p">Az importált MIB-k más MIB-ktől függhetnek. Ha biztosítani akarja, hogy
+a <span class="keyword">MIB Manager</span> keresni tudja a függő MIB alkalmazásokat az importálás végrehajtása során,
+akkor állítsa be a keresési útvonalakat a függő MIB fájlokhoz.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Eljárás</h2></div><p class="li stepsection">MIB adatok importálása:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Kattintson az <img class="image" src="../gifs/import.gif" alt="MIB importálás ikon" /> <span class="ph uicontrol">Importálás</span> gombra, vagy a menüben kattintson a <span class="ph menucascade"><span class="ph uicontrol">Fájl</span> &gt; <span class="ph uicontrol">Importálás</span></span> menüpontra.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">A <span class="ph uicontrol">Könyvtár</span> mezőben adja meg az importálni kívánt MIB modulok helyét.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Ha azt szeretné, hogy a <span class="keyword">MIB Manager</span> az elérhető alkönyvtárakban található összes MIB-t értelmezze,
+akkor válassza ki az <span class="ph uicontrol">Alkönyvtárak átvizsgálása</span> jelölőnégyzetet.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Kattintson az <span class="ph uicontrol">Importálás</span> gombra.</span> <p class="p">Az MIB modulok értelmezésekor megjelenik az <span class="keyword wintitle">Importálás állapota</span> ablak.
+Az ablak bal oldala a különböző MIB objektumtípusok számát jeleníti meg, ahogy azok feltérképezésre kerülnek, az importált MIB fájlok értelmezése során.</p>
+  A MIB-k értelmezése után a <span class="keyword">MIB Manager</span> áttekinti az egyes MIB modulokat, és értelmezi az összes MIB objektumot, amelyet megtalál.
+Az összes objektum értelmezése után a <span class="keyword">MIB Manager</span> áttekinti az egyes MIB-ket, és feldolgozza az import utasításokat
+a hivatkozott MIB modulok keresése érdekében. Ha a hivatkozott MIB modulok nem találhatók
+a korábban importált MIB modulokban, akkor a <span class="keyword">MIB Manager</span> a keresési útvonalon megadott könyvtárakban végez keresést. Az <span class="keyword wintitle">Importálás állapota</span> ablak jobb oldalán az importált MIB-kben található import utasítások állapotát megjelenítő ikonok vannak, az alábbi táblázatnak megfelelően:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="Az Importálás állapota ablakban megjelenő ikonok és jelentésük." class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8251e106">Ikon</th>
+<th class="entry" valign="bottom" id="d8251e108">Leírás</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8251e106 "><img class="image" src="../gifs/question_mark.gif" alt="Kérdőjel" /></td>
+<td class="entry" valign="top" headers="d8251e108 ">Azt jelzi, hogy az import utasítás nem lett feloldva.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8251e106 "><img class="image" src="../gifs/tick.gif" alt="Pipa" /></td>
+<td class="entry" valign="top" headers="d8251e108 ">Azt jelzi, hogy az import utasítás fel lett oldva.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8251e106 "><img class="image" src="../gifs/cross.gif" alt="Kereszt" /></td>
+<td class="entry" valign="top" headers="d8251e108 ">Azt jelzi, hogy az import utasításban hivatkozott MIB modult nem lehetett feloldani.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">Kibonthatja az import utasításfát, így megjelenítve, hogy mely MIB modulok használnak import utasításokat más MIB modulokra hivatkozáshoz.</p>
+
+<p class="p"><span class="ph uicontrol">Az importálás befejeződött</span> - az állapot keret tetején jelenik meg, miután az összes importált MIB fájl feldolgozása befejeződött. Az importálás során előállított összes állapotüzenetet megjelenítheti, ha az <span class="ph uicontrol">Állapotelőzmények megjelenítése</span> elemre kattint, és a  <span class="ph uicontrol">Nézet</span> legördülő listából kiválaszt egy szűrőbeállítást.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Kattintson az <span class="ph uicontrol">Elutasítás</span> gombra az <span class="keyword wintitle">Importálás állapota</span> ablak bezárásához.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Eredmények</h2></div><p class="p">Az <span class="keyword wintitle">MIB modulok</span> nézet automatikusan frissítésre kerül, és megjeleníti az újonnan importált MIB modulok neveit. Az
+<span class="keyword wintitle">OID fa</span> nézet automatikusan frissítésre kerül, és megjeleníti az összes újonnan
+importált MIB objektumot. A fa újraépítéséhez a <span class="keyword">MIB Manager</span> a fa szülő csomópontjain (<span class="ph filepath">iso</span>, <span class="ph filepath">ccitt</span>
+és <span class="ph filepath">joint-iso-ccitt</span>) végez visszatérő keresést az utód csomópontok után, amíg olyan
+utód csomópontot nem talál, amelynek nincsenek társított utódai. Ha nem talál hibákat, akkor egy teljesen feltölt MIB fa jelenik meg az <span class="keyword wintitle">OID fa</span> nézetben, amely az értelmezett objektumokat tartalmazza.</p>
+<p class="p">Ha egy objektumra kattint az <span class="keyword wintitle">OID fa</span> nézetben, akkor automatikusan megjelenik az objektum az <span class="keyword wintitle">MIB
+ modulok</span> nézetben.
+A <span class="keyword wintitle">Részletek</span> nézet részletes információkat jelenít meg a kijelölt objektumról.</p>
+<p class="p">Az importált MIB modulokat egy xml fájl tárolja, amely az MIB modul szerkezetét ábrázolja. Az XML fájlok az <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span> könyvtárban találhatók.</p>
+<p class="p">Ha fel nem oldott import utasítások fordulnak elő, akkor keresse meg a hiányzó MIB-ért vagy MIB-kért felelős kereskedőt, adja a hiányzó fájlt vagy fájlokat a keresési útvonalhoz, és ismételje meg az importálást.</p>
+<div class="p"><div class="note note"><span class="notetitle">Megjegyzés:</span> <p class="p">A kereskedők néha többször szereplő objektumneveket adnak meg, vagy olyan objektumnevet adnak meg, amely azonos egy RFC-ben megadott objektumnévvel.</p>
+
+<p class="p">Egy <samp class="ph codeph">system</samp> nevű objektum például az SNMPv2-MI' modulban az 1.3.6.1.2.1.1 objektumazonosítóval van megadva, és egy másik <samp class="ph codeph">system</samp> nevű objektum az WINDOWS-NT-PERFORMANCE modulban az 1.3.6.1.4.1.311.1.1.3.1.1.23 objektumazonosítóval van megadva.
+Vagy a <samp class="ph codeph">sysDescr</samp> nevű objektum mint <samp class="ph codeph">system.1</samp> van megadva az SNMPv2-MIB modulban, és egy másik  <samp class="ph codeph">sysFileReadOperationsPerSec</samp> nevű objektum is mint <samp class="ph codeph">system.1</samp> van megadva a WINDOWS-NT-PERFORMANCE modulban.
+Ebben az esetben nem tisztázott, hogy az utód objektumok mely szülő objektumhoz tartoznak.</p>
+
+<p class="p">Amikor a rendszer olyan objektumot talál, amelynek szülője többször szerepel, akkor a
+<span class="keyword">MIB Manager</span> megpróbálja megtalálni azt a szülőt, amely ugyanabban az MIB modulban van megadva. Az előző példában ez a WINDOWS-NT-PERFORMANCE.
+Ha egyik szülő sincs ugyanabban a MIB modulban megadva,  akkor a <span class="keyword">MIB Manager</span> azt keresi, hogy a szülő meg van-e határozva olyan MIB modulokban, amelyektől az objektum függ.
+A <span class="keyword">MIB Manager</span> más, a szülőre hivatkozó MIB modulokat is azonosít, és kiválasztja
+a leggyakrabban hivatkozott szülőnevet. Ez azonban helytelenül feltöltött MIB fát és helytelenül kiszámított objektumazonosítókat eredményezhet. Ezért minden alkalommal,
+amikor a <span class="keyword">MIB Manager</span> többször szereplő objektumnévvel találkozik, naplóz egy figyelmeztetést, és rögzíti a másodpéldány feloldására tett műveleteket egy hibakeresési fájlban.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="A MIB Manager eszközt a MIB modulok értelmezésére és a Netcool szabályfájlok létrehozásához használhatja.">Netcool MIB Manager használata</a></div>
+</div>
+<div class="relinfo relref"><strong>Kapcsolódó hivatkozás</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="A könyvtár beállításokkal adhatja meg az importált MIB-ek, MIB adatok és az exportált szabályfájlok tárolásához használandó könyvtárakat.">Könyvtár beállítások megadása</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="Ez a rész az MIB fájlok keresésére használt MIB Manager beállítások megadásának módját írja le.">Keresési beállítások megadása</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

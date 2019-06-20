@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool/OMNIbus 设置" />
+<meta name="abstract" content="在 Windows 上可使用此窗口为 Tivoli Netcool/OMNIbus 配置属性和服务器通信信息。 本窗口提供了一个单一、可管理的工作环境，您可以从其中即时访问这些功能。" />
+<meta name="description" content="在 Windows 上可使用此窗口为 Tivoli Netcool/OMNIbus 配置属性和服务器通信信息。 本窗口提供了一个单一、可管理的工作环境，您可以从其中即时访问这些功能。" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_settingswindow" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Netcool/OMNIbus 设置</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_settingswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Netcool/OMNIbus 设置</h1>
+<div class="body refbody"><p class="shortdesc">在 Windows 上可使用此窗口为  <span class="keyword">Tivoli Netcool/OMNIbus</span> 配置属性和服务器通信信息。 本窗口提供了一个单一、可管理的工作环境，您可以从其中即时访问这些功能。</p>
+<div class="section">“<span class="keyword wintitle">Netcool/OMNIbus 设置</span>”窗口包含以下选项卡：<ul class="ul"><li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_overviewtab">“概述”选项卡</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_serverstab">“服务器”选项卡</a></li>
+<li class="li"><a class="xref" href="#netom_settingswindow__netom_settings_propertiestab">“属性”选项卡</a></li>
+</ul>
+<div class="note note"><span class="notetitle">注：</span> 如果“<span class="keyword wintitle">服务器编辑器</span>”窗口当前处于打开状态，那么将不显示<span class="ph uicontrol">服务器</span>选项卡。
+如果“<span class="keyword wintitle">属性编辑器</span>”窗口当前处于打开状态，那么将不显示<span class="ph uicontrol">属性</span>选项卡。</div>
+<div class="note tip" id="netom_settingswindow__netom_settings_tip"><span class="tiptitle">提示：</span> 如果您对其中某个选项卡做出了更改，随即尝试访问其他选项卡而未保存更改，那么将提示您保存或取消更改。 在任何时刻，您都可以单击<span class="ph uicontrol">确定</span>按钮保存所有更改并关闭窗口，或单击<span class="ph uicontrol">取消</span>按钮关闭窗口而不保存更改。 如果要保存对任意选项卡所作的更改而不关闭窗口，单击<span class="ph uicontrol">应用</span>按钮。</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_overviewtab"><h2 class="title sectiontitle">“概述”选项卡</h2><p class="p">使用<span class="ph uicontrol">概述</span>选项卡可获取关于 <span class="keyword">Tivoli Netcool/OMNIbus</span> 服务器位置和属性文件的简要概述。</p>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_serverstab"><h2 class="title sectiontitle">“服务器”选项卡</h2><div class="p">使用此选项卡可为服务器组件创建和修改通信详细信息、测试通信活动性以及添加备份（或故障转移）服务器和侦听器。 服务器组件包括 ObjectServer、网关、进程代理程序和代理服务器。 此选项卡提供与服务器编辑器相同的功能。 请按以下步骤完成<span class="ph uicontrol">服务器</span>选项卡：<dl class="dl" id="netom_settingswindow__netom_settingsservfields"><dt class="dt dlterm"><em class="ph i">服务器列表</em></dt>
+<dd class="dd">服务器列表显示现有的服务器组件及其设置：<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">此列显示为此工作站定义的每个服务器的名称。 缺省服务器名称为：<ul class="ul"><li class="li">NCOMS：ObjectServer 的缺省名称</li>
+<li class="li">NCO_PROXY：代理服务器的缺省名称</li>
+<li class="li">NCO_GATE：网关的缺省名称</li>
+<li class="li">NCO_PA：进程代理程序的缺省名称</li>
+</ul>
+</dd>
+<dd class="dd">服务器的主机工作站必须具有<dfn class="term">侦听器</dfn>条目，而主机工作站和任何其他连接到该服务器的工作站必须具有<dfn class="term">客户机</dfn>条目。</dd>
+<dd class="dd">备份 ObjectServer 在服务器编辑器中显示在主控 ObjectServer 之下。 要隐藏备份 ObjectServer 列表，请双击主控 ObjectServer 名称或服务器图标。 备份 ObjectServer 将被隐藏，服务器图标中将显示 <em class="ph i">C</em> 字母。 再次双击可显示备份 ObjectServer。 服务器图标返回到正常状态。 </dd>
+<dt class="dt dlterm">主机</dt>
+<dd class="dd">此列显示安装了服务器组件的工作站的主机名或 IP 地址。 缺省值为主机名。</dd>
+<dt class="dt dlterm">端口</dt>
+<dd class="dd">此列显示服务器组件侦听未加密连接的端口。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">此列对加密连接显示<samp class="ph tt">是</samp>。
+加密和未加密连接使用相同的端口号。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">服务器项字段</dt>
+<dd class="dd">使用服务器项字段可输入或编辑每个服务器组件的详细信息。 如果您要编辑现有服务器组件的详细情况，您必须首先在服务器列表中选择相应的行，以便在服务器项字段中显示详细情况。 <dl class="dl"><dt class="dt dlterm">名称</dt>
+<dd class="dd">输入新服务器组件的名称或编辑现有组件的名称。 您也可以使用下拉列表选择名称。 命名组件时请使用以下后缀：_PROXY（代理服务器）、_GATE（网关）和 _PA（进程控制代理）。<div class="note note"><span class="notetitle">注：</span> 服务器项的名称必须包含不超过 29 个大写字母，且不能以整数开头。</div>
+</dd>
+<dt class="dt dlterm">主机</dt>
+<dd class="dd">输入或编辑安装了服务器组件的工作站的主机名或 IP 地址。 </dd>
+<dd class="dd">如果输入 IP 地址，那么可以指定 IPv4 或 IPv6 地址。
+For example:<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">端口</dt>
+<dd class="dd">输入有效的、未使用过的端口号。</dd>
+<dt class="dt dlterm">侦听器</dt>
+<dd class="dd">如果这是服务器主机工作站上的侦听器项，请选此复选框。 如果这是客户机项，请清除<span class="ph uicontrol">侦听器</span>复选框。</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">选此复选框表示端口接受从客户机发出的使用 SSL 的加密连接。 加密和未加密连接使用相同的端口号。</dd>
+<dt class="dt dlterm">添加</dt>
+<dd class="dd">单击此按钮可向服务器列表添加新的（且唯一的）服务器详细信息。</dd>
+<dt class="dt dlterm">除去/更新</dt>
+<dd class="dd">此按钮将根据您是否对当前选定的服务器组件做出了更改而发生变化。 如果要从服务器列表除去当前选定的服务器组件，请单击<span class="ph uicontrol">除去</span>。 单击<span class="ph uicontrol">更新</span>可使用现有服务器组件的更新详细信息来刷新服务器列表。</dd>
+<dt class="dt dlterm">测试</dt>
+<dd class="dd">单击此按钮可测试您是否能连接到在服务器列表中选择的服务器。 服务器编辑器将尝试连接指定主机和端口上的服务器。 测试命令的结果将在窗口中显示。</dd>
+</dl>
+</dd>
+<dt class="dt dlterm">优先级</dt>
+<dd class="dd">服务器优先级字段可使您能够提高或降低已配置为故障转移系统的服务器组件的优先级。 例如，假设名为 NCOMS_PRI 的 ObjectServer 是使用名为 NCOMS_BAK 的备份配置的。 通过使用<span class="ph uicontrol">提高</span>或<span class="ph uicontrol">降低</span>按钮，您可提高 NCOMS_BAK 的优先级使之成为主控 ObjectServer，并降低 NCOMS_PRI 的优先级使之成为备份 ObjectServer。<dl class="dl"><dt class="dt dlterm">提高</dt>
+<dd class="dd">单击此按钮可将所选服务器组件的优先级提高一级。</dd>
+<dt class="dt dlterm">降低</dt>
+<dd class="dd">单击此按钮可将所选服务器组件的优先级降低一级。</dd>
+<dt class="dt dlterm">显示组</dt>
+<dd class="dd">选此复选框可在服务器列表中按名称对每个服务器分组，同时在客户机条目后标识备份服务器和侦听器。</dd>
+</dl>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="netom_settingswindow__netom_settings_propertiestab"><h2 class="title sectiontitle">“属性”选项卡</h2><div class="p">使用该选项卡可编辑以下各项的属性文件中所含信息：ObjectServer、代理服务器、数据库初始化实用程序（<span class="keyword cmdname">nco_dbinit</span>）、Confpack 实用程序（<span class="keyword cmdname">nco_confpack</span>）、Netcool/OMNIbus Administrator（nco_config）、探测器和网关。
+也可以新建属性文件。 此选项卡提供与属性编辑器相同的功能。 请按以下步骤完成<span class="ph uicontrol">属性</span>选项卡：<dl class="dl" id="netom_settingswindow__netom_settingspropfields"><dt class="dt dlterm">类型</dt>
+<dd class="dd">请选择以下任一选项：<ul class="ul"><li class="li">选择 <span class="ph uicontrol">ObjectServer</span> 可编辑类似 ObjectServer 和代理服务器的组件的属性文件。 这些文件将出现在<span class="ph uicontrol">名称</span>下拉列表中。 这些文件通常存储在 <span class="ph filepath">%NCHOME%\omnibus\etc</span> 目录中。</li>
+<li class="li">选择<span class="ph uicontrol">探测器</span>可编辑探测器属性文件。
+这些文件将出现在<span class="ph uicontrol">名称</span>下拉列表中。 这些文件通常存储在 <span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> 目录中。</li>
+<li class="li">选择<span class="ph uicontrol">服务器</span>可添加新的属性文件。
+这些文件保存在 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目录中。
+<span class="ph uicontrol">名称</span>下拉列表将使用文本 <samp class="ph codeph">&lt;New File&gt;</samp> 进行填充。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">名称</dt>
+<dd class="dd">从下拉列表中选择要编辑的属性文件。 显示的列表取决于从<span class="ph uicontrol">类型</span>下拉列表中所作的选择。 缺省值为： <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit</span>：数据库初始化开始时（运行 <span class="keyword cmdname">nco_dbinit</span> 以初始化数据库）要读取的属性文件。</li>
+<li class="li"><span class="ph filepath">NCO_PROXY</span>：代理服务器属性文件（代理服务器可用于减少 ObjectServer 上的探测器连接数量）。</li>
+<li class="li"><span class="ph filepath">nco_confpack</span>：Confpack 属性文件（<span class="keyword cmdname">nco_confpack</span> 用于导入和导出 ObjectServer 配置）。</li>
+<li class="li"><span class="ph filepath">nco_config</span>：<span class="keyword">Netcool/OMNIbus Administrator</span> 属性文件</li>
+<li class="li"><span class="ph filepath">NCOMS</span>：ObjectServer 属性文件</li>
+</ul>
+</dd>
+<dd class="dd">请注意，不显示 <span class="ph filepath">.props</span> 文件扩展名，当您在<span class="ph uicontrol">名称</span>列表中选择了文件时将自动使用可用属性填充属性列表。</dd>
+<dt class="dt dlterm"><em class="ph i">属性列表</em></dt>
+<dd class="dd">此矩阵显示添加到属性文件的任何属性的详细信息。 要更改某个属性，可以在此列表中选择该属性。 已为探测器属性文件定义了一组缺省属性，用户不能除去这些属性。
+这些属性将以灰色显示在属性列表中。</dd>
+<dt class="dt dlterm">名称</dt>
+<dd class="dd">此字段显示了您从属性列表中选定进行编辑的属性的名称。 不能更改已有属性的名称。 您也可以使用下拉列表来选择要编辑的属性。 </dd>
+<dd class="dd">如果要向选定的属性文件添加新的属性，请在此输入属性的名称。 </dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>以新建属性文件，请在此输入新属性的名称。</dd>
+<dt class="dt dlterm">值</dt>
+<dd class="dd">如果要使用现有的选定属性文件，请编辑选定属性的值，或为要添加的新属性输入值。</dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>以新建属性文件，请输入新属性的值。</dd>
+<dt class="dt dlterm">添加/更新</dt>
+<dd class="dd">此按钮将根据您要添加还是编辑现有属性而发生变化。 如果输入了新的属性名和值，单击<span class="ph uicontrol">添加</span>可向属性列表添加该值。 如果更改了属性列表中选择的属性的值，单击<span class="ph uicontrol">更新</span>可更新属性列表中的该值。</dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>以新建属性文件，单击<span class="ph uicontrol">添加</span>可添加新的属性。</dd>
+<dt class="dt dlterm">除去</dt>
+<dd class="dd">单击此按钮可从属性文件中除去所选属性。 如果选择了缺省属性，那么不能使用此按钮。</dd>
+<dt class="dt dlterm">保存</dt>
+<dd class="dd">单击此按钮可保存属性文件的更改。</dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>来新建属性文件，请在向属性列表添加新的属性后单击<span class="ph uicontrol">保存 </span>。 在<span class="keyword wintitle">保存新属性</span>窗口中输入属性文件的名称，但请省略 <span class="ph filepath">.props</span> 扩展名；系统将自动为您添加该扩展名。 单击<span class="ph uicontrol">保存</span>将文件保存到 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目录中。 属性文件名将显示在与<span class="ph uicontrol">类型</span>字段相连的<span class="ph uicontrol">名称</span>字段中，您可以继续向该文件添加属性。 请注意，将要求您编辑此文件以向您为属性指定的字符串值添加引号。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

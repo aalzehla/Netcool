@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Opening local event list configurations" />
+<meta name="abstract" content="If you had previously saved one or more event list configurations locally, you can open any of the associated event list configuration files in order to monitor and manage events that match the defined filters and views." />
+<meta name="Description" content="If you had previously saved one or more event list configurations locally, you can open any of the associated event list configuration files in order to monitor and manage events that match the defined filters and views." />
+<meta name="DC.subject" content="event list configurations, opening, local" />
+<meta name="keywords" content="event list configurations, opening, local" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_openinglocevntlstconfigs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevntlstconfigs.html" />
+<title>Opening local event list configurations</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_openinglocevntlstconfigs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Opening local event list configurations</h1>
+<div class="body taskbody"><p class="shortdesc">If you had previously saved one or more event list configurations
+locally, you can open any of the associated event list configuration files
+in order to monitor and manage events that match the defined filters and views.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div><div class="note tip"><span class="tiptitle">Tip:</span> Event list configuration file names have a <span class="ph filepath">.elc</span> extension.</div>
+<p class="p">To
+open a local event list configuration file:</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">From the <span class="keyword wintitle">Event List</span> monitor box window, click <span class="ph menucascade"><span class="ph uicontrol">File</span> &gt; <span class="ph uicontrol">Open</span></span>. </span> The <span class="keyword wintitle">Save Configuration</span> window opens. </li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows: </span> <dl class="dl"><dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e919"><!-- --></a>Filter</dt>
+<dd class="dd">Use this field to specify a search query for the type of file
+that you want to open. This field works in conjunction with the <span class="ph uicontrol">Filter</span> button
+and the <span class="ph uicontrol">Files</span> list. Enter the current directory
+path and file type in the <span class="ph uicontrol">Filter</span> field, and
+then click <span class="ph uicontrol">Filter</span>. All matching files are displayed
+in the <span class="ph uicontrol">Files</span> list.</dd>
+<dd class="dd">For example, to display all the filter files in the <span class="ph filepath">/myfiles/filters</span> directory,
+enter <kbd class="ph userinput">/myfiles/filters/*.elf</kbd> and click <span class="ph uicontrol">Filter</span> to
+view all matching files. </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e950"><!-- --></a>Directories</dt>
+<dd class="dd">This list displays all of the subdirectories in the current directory.
+To refresh the directory, double-click the '.' entry. To move up the
+directory tree by one directory, double-click the '..' entry.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e955"><!-- --></a>Files</dt>
+<dd class="dd">This list displays the files in the current directory, which match
+the selection in the <span class="ph uicontrol">Filter</span> field. Select the
+name of the file that you want to open. You can also select an existing
+file that you want to overwrite. </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e963"><!-- --></a>Selection</dt>
+<dd class="dd">The path and name of the file that you are saving or opening are
+shown here. You can edit the path and file name to open a different
+file, to save a file to another location, or to save a file by using
+a different file name.</dd>
+<dd class="dd">If you are saving a view, use a <span class="ph filepath">.elv</span> extension
+in the file name. If you are saving a filter, use a <span class="ph filepath">.elf</span> extension
+in the file name. If you are saving an event list configuration, use
+a <span class="ph filepath">.elc</span> extension in the file name.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e979"><!-- --></a>Backup Existing Files (UNIX only) </dt>
+<dd class="dd">Select this check box to create a backup of an existing view file
+if the file name that you are saving already exists. This check box
+is displayed only if you are saving a filter, view, or event list
+configuration. </dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e987"><!-- --></a>OK</dt>
+<dd class="dd">Click this button to open or save the file.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e992"><!-- --></a>Filter</dt>
+<dd class="dd">This button works in conjunction with the <span class="ph uicontrol">Filter</span> field
+and the <span class="ph uicontrol">Files</span> list. Click this button to display
+files in the current directory based on your selection in the <span class="ph uicontrol">Filter</span> field.
+The files appear in the <span class="ph uicontrol">Files</span> list.</dd>
+<dt class="dt dlterm"><a name="omn_usr_el_openinglocevntlstconfigs__d7881e1009"><!-- --></a>Cancel</dt>
+<dd class="dd">Click this button to close this window without opening or saving
+a file.</dd>
+</dl>
+</li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div>The <span class="keyword wintitle">Event List</span> monitor box window refreshes to
+show the monitor boxes within that configuration, and the selected configuration
+file name is displayed in the title bar of the event list. </div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_el_workingwithevntlstconfigs.html" title="You can save the filter, view, and other event configurations that are defined for all the monitor boxes on the Event List monitor box window. This information is saved within an event list configuration (.elc) file.">Working with event list configurations</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="To monitor and manage alerts in the event list, you must connect to a running ObjectServer by using valid authentication credentials. You can start the event list from the Conductor, from the command line, or from the Windows Start menu.">Starting the event list</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

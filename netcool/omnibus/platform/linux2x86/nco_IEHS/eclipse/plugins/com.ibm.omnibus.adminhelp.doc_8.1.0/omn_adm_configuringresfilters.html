@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Configuring restriction filters" />
+<meta name="abstract" content="You can use restriction filters to control the rows in ObjectServer tables that users are allowed to view and modify. Restriction filters apply to Tivoli Netcool/OMNIbus client applications and INSERT, UPDATE, and DELETE statements. You can assign restrictions filters to individual users or to a collection of users in a group." />
+<meta name="Description" content="You can use restriction filters to control the rows in ObjectServer tables that users are allowed to view and modify. Restriction filters apply to Tivoli Netcool/OMNIbus client applications and INSERT, UPDATE, and DELETE statements. You can assign restrictions filters to individual users or to a collection of users in a group." />
+<meta name="DC.subject" content="restriction filters, configuring" />
+<meta name="keywords" content="restriction filters, configuring" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_managingauthorizatn.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingeditresfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingresfilters.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_configuringresfilters" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_managingauthorizatn.html" />
+<title>Configuring restriction filters</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_configuringresfilters">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring restriction filters</h1>
+<div class="body conbody"><div class="abstract"><div class="shortdesc">You can use restriction filters to control the
+rows in ObjectServer tables that users are allowed to view and modify.
+Restriction filters apply to <span class="keyword">Tivoli Netcool/OMNIbus</span> client applications and INSERT, UPDATE, and DELETE statements.
+You can assign restrictions filters to individual users or to a collection
+of users in a group.</div>
+<p class="p">You can assign only one restriction
+filter per table to a user or a group. However, multiple restriction
+filters can apply to a user. For example, a user can be assigned a
+single restriction filter and can also be a member of one or more
+groups, to which restriction filters are applied. So, if a user is
+a member of three groups to which restriction filters are assigned,
+and the user is also assigned a restriction filter, four restriction
+filters apply to that user. If multiple restriction filters apply
+to a user, the resulting data is a combination of all applicable restriction
+filters for the user or group</p>
+<p class="p"><span class="ph">If you are using multiple
+restriction filters, make sure that you set the ObjectServer <span class="keyword parmname parmname">RestrictionFiltersAND</span> property
+appropriately.</span></p>
+</div>
+<div class="example">You create a restriction filter against the alerts.status
+table that has the following condition:<pre class="pre codeblock"><code>Tally &gt; 100 AND Severity &gt; 4</code></pre>
+After this restriction filter is applied to a user, the user can
+see only events that occurred more than 100 times and that have a
+severity that is greater than 4.</div>
+<div class="example"><p class="p">Another example usage of restriction filters is to limit
+the geographical coverage for events that users can view. You can
+create a restriction filter against the alerts.status table that permits
+London-based users to view only events from operations centers in
+London.</p>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_creatingeditresfilters.html">Creating and editing restriction filters</a></span><br />
+</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_deletingresfilters.html">Deleting restriction filters</a></span><br />
+You cannot delete restriction filters that are currently
+assigned to a user or group.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_managingauthorizatn.html" title="Authorization is the verification of the rights to view and modify information.">Managing authorization with users, groups, roles, and restriction filters</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

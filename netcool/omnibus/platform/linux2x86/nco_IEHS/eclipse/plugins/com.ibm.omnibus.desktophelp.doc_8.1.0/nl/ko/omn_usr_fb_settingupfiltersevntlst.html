@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="이벤트 목록 데이터에 대한 필터 설정" />
+<meta name="abstract" content="필터는 모니터 상자 및 이벤트 목록에 사용자 정의 경보 정보를 표시하기 위해 ObjectServer alerts 데이터베이스 테이블에서 실행할 수 있는 SQL 조회를 빌드하는 데 사용됩니다." />
+<meta name="Description" content="필터는 모니터 상자 및 이벤트 목록에 사용자 정의 경보 정보를 표시하기 위해 ObjectServer alerts 데이터베이스 테이블에서 실행할 수 있는 SQL 조회를 빌드하는 데 사용됩니다." />
+<meta name="DC.subject" content="필터, 설명" />
+<meta name="keywords" content="필터, 설명" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_filtermetrics.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_bestpracticesfilters.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_startingfilterbuilder.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingeditfilterwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_creatingfiltersunixdragdrop.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_openingprevsavedfilter.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_settingupfiltersevntlst" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_usingfiltersviewstodisplay.html" />
+<title>이벤트 목록 데이터에 대한 필터 설정</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_settingupfiltersevntlst">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">이벤트 목록 데이터에 대한 필터 설정</h1>
+<div class="body conbody"><p class="shortdesc">필터는 모니터 상자 및 이벤트 목록에 사용자 정의 경보 정보를 표시하기 위해
+ObjectServer <samp class="ph tt">alerts</samp> 데이터베이스 테이블에서 실행할 수 있는 SQL 조회를
+빌드하는 데 사용됩니다.</p>
+<div class="p">필터는 다음과 같은 이벤트 목록에 표시되는 경보를 정의합니다. <ul class="ul"><li class="li">특정 필드의 특정 값이 있음</li>
+<li class="li">특정 필드의 값이 어떤 값과 유사함</li>
+<li class="li">두 가지 고정 시점 사이에 이벤트가 발생함</li>
+<li class="li">특정 시간(분) 전까지 이벤트가 발생함</li>
+</ul>
+</div>
+<div class="p">다수의 기본 필터가 <span class="keyword">Tivoli Netcool/OMNIbus</span>와 함께 제공됩니다.
+이 필터는 다음과 같습니다. <dl class="dl"><dt class="dt dlterm">최근 10분</dt>
+<dd class="dd">이 필터는 ProbeWatch, TSMWatch, ConnectionWatch를 제외한 모든 경보를
+표시합니다. <span class="ph uicontrol">최근 10분</span> 필터가 마지막 10분에 발생한 경보만
+표시하는 것을 제외하면 결과는 <span class="ph uicontrol">기본</span> 필터와 동일합니다.</dd>
+<dt class="dt dlterm">유지보수</dt>
+<dd class="dd">이 필터는 운영자가 "유지보수"로 표시한 경보를 표시합니다.</dd>
+<dt class="dt dlterm">에스컬레이션</dt>
+<dd class="dd">이 필터는 운영자가 에스컬레이션한 경보를 표시합니다. </dd>
+<dt class="dt dlterm">정보</dt>
+<dd class="dd">이 필터는 정보 경보로 식별된 경보를 표시합니다. 정보 경보는 다음과 같습니다. <ul class="ul"><li class="li">프로브를 통해 정보 경보로 지정된 경보</li>
+<li class="li">ProbeWatch, TSMWatch 또는 ConnectionWatch가 아닌 경보</li>
+<li class="li">에스컬레이션 레벨이 설정된 경보</li>
+</ul>
+</dd>
+<dt class="dt dlterm">태스크 목록</dt>
+<dd class="dd">이 필터는 운영자의 태스크 목록에 추가된 경보를 표시합니다.</dd>
+<dt class="dt dlterm">Netcool® 상태</dt>
+<dd class="dd">이 필터는 ProbeWatch, TSMWatch, ConnectionWatch 경보만 표시합니다. </dd>
+<dt class="dt dlterm">기본값</dt>
+<dd class="dd">이 필터는 ProbeWatch, TSMWatch, ConnectionWatch를 제외한 모든 경보를 표시합니다. </dd>
+<dt class="dt dlterm">모든 이벤트</dt>
+<dd class="dd">이 필터는 모든 경보를 표시합니다. </dd>
+</dl>
+</div>
+<p class="p">사용자 정의 필터를 빌드할 수도 있습니다. 필터는 <span class="ph filepath">.elf</span> 파일로 저장됩니다.
+필터 빌더를 사용하여 필터를 작성하고 편집합니다. </p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_componentsoffilter.html">필터의 구성요소</a></span><br />
+필터는 <dfn class="term">요소</dfn>의 콜렉션으로 구성되어 있습니다. 사용 가능 요소 유형은
+조건, 논리 및 하위 조회 요소를 포함합니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_filtermetrics.html">필터 지표</a></span><br />
+모든 필터는 연관되어 있는 지표를 포함할 수 있습니다. 지표는 유용한 계수를 계산하기 위해
+필터에 적용할 수 있는 측정법입니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_bestpracticesfilters.html">필터에 대한 우수 사례</a></span><br />
+필터 빌드 시 집중 테스트를 먼저 수행하십시오. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_startingfilterbuilder.html">필터 빌더 시작</a></span><br />
+필터 빌더는 필터를 구성하는 SQL 문을 빌드 및 테스트할 수 있는 그래픽
+인터페이스를 제공합니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterunix.html">UNIX에서 필터 작성 또는 편집</a></span><br />
+UNIX 필터 빌더를 사용하면 이벤트 목록 데이터의 필터를 빌드할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingeditfilterwin.html">Windows에서 필터 작성 또는 편집</a></span><br />
+Windows
+필터 빌더를 사용하면 이벤트 목록 데이터의 필터를 빌드할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_creatingfiltersunixdragdrop.html">끌어놓기로 UNIX에서 필터 작성</a></span><br />
+UNIX에서 끌어놓기 기능을 사용하여 필터를 작성할 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_openingprevsavedfilter.html">필터 열기</a></span><br />
+해당 정의를 보거나 편집하기 위해 저장된 필터를 열 수 있습니다. </li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_fb_usingfiltersviewstodisplay.html" title="경보 데이터베이스 테이블은 ObjectServer에 전달되는 이벤트 정보를 보유합니다. 필터 및 보기를 사용하여 이 이벤트 정보 중 이벤트 목록에 표시되는 이벤트 정보를 정의할 수 있습니다.">필터 및 보기를 사용한 사용자 정의 이벤트 정보 표시</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

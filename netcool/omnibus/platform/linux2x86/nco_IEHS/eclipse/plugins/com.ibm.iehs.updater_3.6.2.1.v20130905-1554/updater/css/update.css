@@ -1,0 +1,75 @@
+/*******************************************************************************
+ *(C) Copyright IBM Corp. 2010
+ * IBM Confidential
+ * OCO Source Materials
+ *
+ * The source code for this program is not published or otherwise
+ * divested of its trade secrets, irrespective of what has been
+ * deposited with the U.S. Copyright Office.
+ *******************************************************************************/
+
+UL { 
+    font-size: 12px;
+    margin-top:0px;
+    margin-bottom:0px;
+	border-width:0; 
+	margin-left:14px; 
+}
+
+UL.itemPanel {
+	font-size: 15px;
+	margin-bottom:0px;
+	margin-top:0px;
+	padding: 0px;
+	margin: 0px;
+	border: 0 none;
+}
+.itemPanel {
+	margin-bottom:0px;
+	margin-top:0px;
+	padding: 0px;
+	margin: 0px;
+	border: 0 none;
+}
+
+.innerPanel { 
+    
+    margin-top:5px;
+	margin-left:20px;
+	margin-bottom:20px;  
+}
+
+.panel {
+	margin-top:0px;
+	border: 1px solid #999999;
+	font-family: "Arial", "Helvetica", "sans-serif";
+}
+
+UL.expanded {
+	display:block; 
+}
+
+UL.collapsed { 
+	display: none;
+}
+
+LI { 
+	margin-top:0px; 
+	margin-bottom:0px; 
+	list-style-image:none;
+	list-style-type:none;
+	white-space: nowrap;
+	border-width:0;
+}
+
+A {
+	text-decoration:none; 
+	color:WindowText;
+	padding-<%=isRTL?"left":"right"%>:2px;
+	/* this works in ie5.5, but not in ie5.0  */
+	white-space: nowrap;
+}
+
+* {
+	background-color: #FFFFFF;
+}

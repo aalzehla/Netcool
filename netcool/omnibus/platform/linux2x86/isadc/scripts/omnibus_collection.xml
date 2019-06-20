@@ -1,0 +1,703 @@
+<project name="OMNIbus Collector - OMNIbus Collection" default="autopdmain">
+
+    <taskdef file="${autopdrootdir}/properties/autopdtaskdef.properties" loaderref="ISA" />
+
+    <!-- Targets shared among multiple scripts are in the XML documents *-sharedtargets.xml. -->
+    <import>
+        <javaresource name="scripts/sharedtargets.xml" />
+    </import>
+
+    <import>
+        <javaresource name="scripts/sharedelements/sharedelements-sharedtargets.xml" />
+    </import>
+
+    <target name="autopdmain" description="This is AutoPD main to control running steps"
+            depends="load_sharedelements_tasks,
+                set_problem_type_with_nls_bundle,
+                setup_autopd_v2,
+                validate_os,
+                init,
+                input_dialogue_include_home,
+                input_dialogue_without_home,
+                custom_input_dialogue,
+                collect_IM_decision,
+                collect_objserv_decision,
+                collect_IM_data,
+                collect_objserv_data,
+                run_default,
+                run_custom,
+                ftp_message_shared,
+                ftp_collected_information_shared">
+    </target>
+
+    <target name="run_System_Collector" description="run the My System Collector" >
+            <ant antfile="allcollector.xml" dir="System" inheritRefs="true"/>
+    </target>
+
+    <target name="input_dialogue_include_home" description="get input dialogue from user include prompting for NCHOME"
+            unless="isInProduct">
+                <autopdproperty name="IncorrectDirectories" value="true" />
+                <autopdwhile property="IncorrectDirectories">
+                    <autopd_if isTrue="${isWindows}">
+                        <inputdialogtask_v2 actionProperty="actionResult">
+                            <fieldtask name="prompt" label="user_prompt" type="prompt"
+                                        bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+                            <fieldtask name="Collection_Type" label="collector_type_prompt" type="selectlist"
+                                        list="Collect All:Custom Collection" listDetails="collect_all:custom_collect"
+                                        bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                                        defaultValue="Collect All" />
+                            <fieldtask name="NCHOMELocation" label="nchome_prompt_win" type="filebrowser"
+                                        bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                                        initialValueSource="persisted"
+                                        defaultValue="" />
+                        </inputdialogtask_v2>
+                    </autopd_if>
+                    <autopd_if isNotTrue="${isWindows}">
+                        <inputdialogtask_v2 actionProperty="actionResult">
+                            <fieldtask name="prompt" label="user_prompt" type="prompt"
+                                        bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+                            <fieldtask name="Collection_Type" label="collector_type_prompt" type="selectlist"
+                                        list="Collect All:Custom Collection" listDetails="collect_all:custom_collect"
+                                        bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                                        defaultValue="Collect All" />
+                            <fieldtask name="NCHOMELocation" label="nchome_prompt_unix" type="filebrowser"
+                                        bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                                        initialValueSource="persisted"
+                                        defaultValue="" />
+                        </inputdialogtask_v2>
+                    </autopd_if>
+                    <condition property="isDefault">
+                        <matches pattern="Collect All" string="${Collection_Type}" />
+                    </condition>
+                    <autopdproperty name="NCHOME" value="${NCHOMELocation}" />
+                    <condition property="NCHOME.present">
+                        <available file="${NCHOME}/omnibus/etc" type="dir" />
+                    </condition>
+                    <autopd_if isNotTrue="${NCHOME.present}">
+                        <autopdinput message="Incorrect_Directory" validargs="OK"
+                                     bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"/>
+                    </autopd_if>
+                    <autopd_if isTrue="${NCHOME.present}">
+                        <autopdproperty name="IncorrectDirectories" value="false" />
+                    </autopd_if>
+                </autopdwhile>
+                <condition property="has_COI">
+                    <available file="${NCHOME}/_uninst/OMNIbus" type="dir"/> 
+                </condition>
+    </target>
+
+    <target name="input_dialogue_without_home" 
+            description="get input dialogue from user do not include prompting for NCHOME" if="isInProduct">
+                <inputdialogtask_v2>
+                    <fieldtask name="prompt" label="user_prompt" type="prompt"
+                               bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+                    <fieldtask name="Collection_Type" label="collector_type_prompt" type="selectlist"
+                               list="Collect All:Custom Collection" listDetails="collect_all:custom_collect"
+                               bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                               defaultValue="Collect All" />
+                </inputdialogtask_v2>
+            <condition property="isDefault">
+                <matches pattern="Collect All" string="${Collection_Type}" />
+            </condition>
+            <autopdproperty name="NCHOME" value="${isadepth}" />
+            <condition property="has_COI">
+                <available file="${NCHOME}/_uninst/OMNIbus" type="dir"/>
+            </condition>
+    </target>
+
+    <target name="run_default" description="run default targets" if="isDefault">
+        <antcall target="run_System_Collector" inheritRefs="true" />
+        <stepcount percent="20" />
+        <autopd_if isTrue="${has_COI}">
+            <mkdir dir="${destination}/Install" />
+            <antcall target="run_nc_install_logs" inheritRefs="true" />
+        </autopd_if>
+        <stepcount percent="25" />
+        <antcall target="collect_Log_Dir" />
+        <antcall target="collect_etc_Dir" />
+        <antcall target="collect_omnibus_ini" />
+        <antcall target="list_var_Dir" />
+        <antcall target="list_db_Dir" />
+        <stepcount percent="30" />
+        <antcall target="format_lists" inheritRefs="true" />
+        <mkdir dir="${omnihome}/gates" />
+        <antcall target="collect_gates_data" />
+        <antcall target="collect_probe_data" />
+        <antcall target="collect_netcool_etc_Dir" />
+        <antcall target="collect_netcool_log_Dir" />
+        <antcall target="collect_realease_ID" />
+        <stepcount percent="60" />
+        <antcall target="run_nco_id" />
+        <stepcount percent="80" />
+        <antcall target="get_java_version" />
+        <antcall target="get_java_security" />
+        <antcall target="collect_desktop_data" />
+        <stepcount percent="90" />
+        <antcall target="delete" />
+    </target>
+    
+    <target name="run_custom" description="run custom targets" unless="isDefault">
+        <antcall target="run_System_Collector" inheritRefs="true" />
+        <stepcount percent="20" />
+        <autopd_if isTrue="${Collect_Installation}">
+            <autopd_if isTrue="${has_COI}">
+                <mkdir dir="${destination}/Install" />
+                <antcall target="run_nc_install_logs" inheritRefs="true" />
+            </autopd_if>
+        </autopd_if>
+        <stepcount percent="25" />
+        <antcall target="collect_Log_Dir" />
+        <antcall target="collect_etc_Dir" />
+        <antcall target="collect_omnibus_ini" />
+        <antcall target="list_var_Dir" />
+        <antcall target="list_db_Dir" />
+        <stepcount percent="30" />
+        <antcall target="format_lists" inheritRefs="true" />
+        <autopd_if isTrue="${Collect_Gates}">
+        <mkdir dir="${omnihome}/gates" />
+        <antcall target="collect_gates_data" />
+        </autopd_if>
+        <autopd_if isTrue="${Collect_Probes}">
+        <antcall target="collect_probe_data" />
+        </autopd_if>
+        <antcall target="collect_netcool_etc_Dir" />
+        <antcall target="collect_netcool_log_Dir" />
+        <antcall target="collect_realease_ID" />
+        <stepcount percent="60" />
+        <antcall target="run_nco_id" />
+        <stepcount percent="80" />
+        <antcall target="get_java_version" />
+        <antcall target="get_java_security" />
+        <autopd_if isNotTrue="${isWindows}">
+            <autopd_if isTrue="${Collect_Desktop}">
+                <antcall target="collect_desktop_data" />
+            </autopd_if>
+        </autopd_if>
+        <stepcount percent="90" />
+        <antcall target="delete" />
+    </target>
+
+    <target name="custom_input_dialogue" description="custom input dialogue" unless="isDefault">
+        <inputdialogtask_v2>
+            <fieldtask name="prompt" label="user_prompt" type="prompt"
+                       bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+            <fieldtask name="Collect_Installation" label="custom_install" type="selectlist" defaultValue="Yes"
+                       list="Yes:No" listDetails="Yes:No"
+                       bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+            <fieldtask name="Collect_Probes" label="custom_probes" type="selectlist" defaultValue="Yes"
+                       list="Yes:No" listDetails="Yes:No"
+                       bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+            <fieldtask name="Collect_Gates" label="custom_gates" type="selectlist" defaultValue="Yes"
+                       list="Yes:No" listDetails="Yes:No"
+                       bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+            <fieldtask name="Collect_Objserv" label="custom_objserv" type="selectlist" defaultValue="No"
+                       list="Yes:No" listDetails="Yes:No"
+                       bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+        </inputdialogtask_v2>
+    </target>
+
+    <target name="init" description="initialise directory structure of collected files">
+        <property name="destination" location="${autopdtmp}" />
+        <mkdir dir="${destination}/System" />
+        <mkdir dir="${destination}/System/Inventory" />
+        <mkdir dir="${destination}/netcool" />
+        <property name="nchome_tmp_dir" location="${destination}/netcool" />
+        <mkdir dir="${nchome_tmp_dir}/omnibus" />
+        <property name="omnihome" location="${nchome_tmp_dir}/omnibus" />
+        <condition property="isWindows">
+            <os family="windows" />
+        </condition>
+        <property name="isadepth" value="../../../../.."/>
+        <autopd_if isTrue="${isWindows}">
+            <property name="interfaces_location" value="${isadepth}/ini/sql.ini" />
+        </autopd_if>
+        <autopd_if isNotTrue="${isWindows}">
+            <property name="interfaces_location" value="${isadepth}/etc/omni.dat" />
+        </autopd_if>
+        <condition property="isInProduct">
+            <available file="${interfaces_location}" type="file" />
+        </condition>
+    </target>
+
+    <target name="collect_Log_Dir" description="collect omnibus log directory">
+        <copy todir="${omnihome}/log" failonerror="false">
+            <fileset dir="${NCHOME}/omnibus/log" />
+        </copy>
+    </target>
+
+    <target name="collect_etc_Dir" description="collect omnibus etc directory">
+        <copy todir="${omnihome}/etc" failonerror="false">
+            <fileset dir="${NCHOME}/omnibus/etc">
+                <exclude name="initial/**" />
+                <exclude name="default/**" />
+                <exclude name="restos/default/**" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="collect_netcool_etc_Dir" description="collect netcool etc directory">
+        <autopd_if isTrue="${isWindows}">
+            <copy todir="${nchome_tmp_dir}/ini" failonerror="false">
+                <fileset dir="${NCHOME}/ini">
+                    <exclude name="security/**" />
+                    <exclude name="default/**" />
+                </fileset>
+            </copy>
+        </autopd_if>
+        <autopd_if isNotTrue="${isWindows}">
+            <copy todir="${nchome_tmp_dir}/etc" failonerror="false">
+                <fileset dir="${NCHOME}/etc">
+                    <exclude name="security/**" />
+                    <exclude name="default/**" />
+                </fileset>
+            </copy>
+        </autopd_if>
+    </target>
+
+    <target name="list_var_Dir" description="a list of the contents in the var directory and their file sizes">
+        <length property="filesize" mode="each">
+            <fileset dir="${NCHOME}/omnibus/var" erroronmissingdir="false" />
+        </length>
+        <echo file="${omnihome}/varList.txt">${filesize}</echo>
+    </target>
+
+    <target name="list_db_Dir" description="a list of the contents in the db directory and their file sizes">
+        <length property="db_filesize" mode="each">
+            <fileset dir="${NCHOME}/omnibus/db" erroronmissingdir="false" />
+        </length>
+        <echo file="${omnihome}/dbList.txt">${db_filesize}</echo>
+    </target>
+
+    <target name="format_lists" description="format the var and db lists with html">
+        <java classname="com.ibm.tivoli.netcool.omnibus_java.FormatLists" fork="true" failonerror="false"
+              spawn="false">
+                    <arg line="${autopdtmp}"/>
+                    <classpath>
+                        <pathelement location="../lib/omnibus_1.0.2.jar" />
+                    </classpath>
+        </java>
+    </target>
+
+    <target name="collect_gates_data" description="collects gateway related data">
+        <copy todir="${omnihome}/gates" failonerror="false">
+            <fileset dir="${NCHOME}/omnibus/gates">
+                <exclude name="**/default/**" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="collect_probe_data" description="collects probe related data">
+        <condition property="isAIX">
+            <contains string="${os.name}" substring="aix" casesensitive="false" />
+        </condition>
+        <condition property="isSolaris">
+            <contains string="${os.name}" substring="sunos" casesensitive="false" />
+        </condition>
+        <condition property="isHPUX">
+            <contains string="${os.name}" substring="hpux" casesensitive="false" />
+        </condition>
+        <condition property="isLinux">
+            <contains string="${os.name}" substring="linux" casesensitive="false" />
+        </condition>
+        <condition property="isZOS">
+            <contains string="${os.name}" substring="zos" casesensitive="false" />
+        </condition>
+        <condition property="isWindows">
+            <contains string="${os.name}" substring="win" casesensitive="false" />
+        </condition>
+        <autopd_if isTrue="${isAIX}">
+            <property name="probe_os_name" value="aix" />
+        </autopd_if>
+        <autopd_if isTrue="${isSolaris}">
+            <property name="probe_os_name" value="solaris" />
+        </autopd_if>
+        <autopd_if isTrue="${isHPUX}">
+            <property name="probe_os_name" value="hpux" />
+        </autopd_if>
+        <autopd_if isTrue="${isLinux}">
+            <property name="probe_os_name" value="linux" />
+        </autopd_if>
+        <autopd_if isTrue="${isZOS}">
+            <property name="probe_os_name" value="zos" />
+            <!-- need to check this on a zos machine -->
+        </autopd_if>
+        <autopd_if isTrue="${isWindows}">
+            <property name="probe_os_name" value="win" />
+        </autopd_if>
+        <copy todir="${omnihome}/probes" failonerror="false">
+            <fileset dir="${NCHOME}/omnibus/probes/">
+                <type type="file" />
+                <size value="100" units="Ki" when="less" />
+                <exclude name="${probe_os_name}*/default/**" />
+                <include name="${probe_os_name}*/*.props" />
+                <include name="${probe_os_name}*/*.def" />
+                <include name="${probe_os_name}*/*.rules" />
+                <include name="${probe_os_name}*/*.log" />
+                <include name="debug*" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="collect_netcool_log_Dir" description="collect netcool log directory">
+        <copy todir="${nchome_tmp_dir}/log" failonerror="false">
+            <fileset dir="${NCHOME}/log" />
+        </copy>
+    </target>
+
+    <target name="collect_omnibus_ini" description="collect omnibus ini directory - windows only"
+            if="${isWindows}">
+                <copy todir="${omnihome}/ini" failonerror="false">
+                    <fileset dir="${NCHOME}/omnibus/ini" >
+                        <exclude name="default/**" />
+                    </fileset>
+                </copy>
+    </target>
+
+    <target name="collect_desktop_data" description="collect desktop data - unix only">
+        <autopd_if isNotTrue="${isWindows}">
+            <copy todir="${omnihome}/desktop" failonerror="false">
+                <fileset dir="${NCHOME}/omnibus/desktop" >
+                    <include name="*.elc" />
+                    <include name="*.elv" />
+                </fileset>
+            </copy>
+        </autopd_if>
+    </target>
+
+    <target name="collect_realease_ID" description="collect the release ID file in omnihome">
+        <copy file="${NCHOME}/omnibus/RELEASE_ID" todir="${omnihome}" failonerror="false" />
+    </target>
+
+    <target name="run_nco_id" description="run nco_id to collect system configuration data">
+        <autopd_if isTrue="${isWindows}">
+            <exec executable="cmd" output="${nchome_tmp_dir}/nco_id.stdout" failifexecutionfails="false"
+                  error="${destination}/nco_id.err" failonerror="false">
+                <arg value="/c" />
+                <arg file="${NCHOME}/omnibus/bin/nco_id.bat" />
+                <arg value="-v" />
+                <arg value="-o" />
+                <arg value="${nchome_tmp_dir}/nco_id.html" />
+            </exec>
+        </autopd_if>
+        <autopd_if isNotTrue="${isWindows}">
+            <exec dir="${NCHOME}/omnibus/bin" executable="./nco_id" output="${nchome_tmp_dir}/nco_id.stdout"
+                  failifexecutionfails="false" error="${destination}/nco_id.err" failonerror="false" >
+                <arg line="-v -o ${nchome_tmp_dir}/nco_id.html" />
+            </exec>
+        </autopd_if>
+        <!-- check if there was an error in the error file -->
+        <condition property="nco_id_has_error">
+            <length file="${destination}/nco_id.err" when="greater" length="0"/>
+        </condition>
+        <!-- check if there was an output file -->
+        <condition property="nco_id_has_stdout">
+            <length file="${nchome_tmp_dir}/nco_id.stdout" when="greater" length="0"/>
+        </condition>
+        <!-- if there is an error leave the .err file if not delete the empty file -->
+        <autopd_if isNotTrue="${nco_id_has_error}">
+            <delete file="${destination}/nco_id.err"/>
+        </autopd_if>
+        <!-- if there is a output then leave the .stdout file if not delete the empty file -->
+        <autopd_if isNotTrue="${nco_id_has_stdout}">
+            <delete file="${nchome_tmp_dir}/nco_id.stdout"/>
+        </autopd_if> 
+    </target>
+
+    <target name="get_java_version" description="get the java version the machine is running">
+        <exec executable="java" output="${destination}/java_version.stdout"
+              failifexecutionfails="false" failonerror="false">
+            <arg value="-version" />
+        </exec>
+    </target>
+
+    <target name="get_java_security" description="get the java.security file located in the platform dir">
+        <copy todir="${nchome_tmp_dir}/platform" failonerror="false">
+            <fileset dir="${NCHOME}/platform">
+                <include name="**/**/jre/lib/security/java.security" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="collect_objserv_data" description="collects the object server data by running nco_osreport"
+            if="${really_collect_objserv_data}">
+        <autopdproperty name="more_servers" value="true" />
+        <autopdwhile property="more_servers">
+            <inputdialogtask_v2 doSkip="true" actionproperty="actionResult">
+                <fieldtask name="prompt" label="user_prompt" type="prompt"
+                            bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+                <fieldtask name="os_name" label="objserv_name" type="plaintext"
+                           bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                           defaultValue="" initialValueSource="default" />
+                <fieldtask name="os_username" label="objserv_user" type="plaintext"
+                           bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                           defaultValue="" initialValueSource="default" />
+                <fieldtask name="os_password" label="objserv_pass" type="password"
+                           bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                           defaultValue="" initialValueSource="default" />
+                <fieldtask name="is_another_server" label="more_servers" type="selectlist" list="Yes:No"
+                           listDetails="Yes:No" defaultValue="No" initialValueSource="default"
+                           bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+            </inputdialogtask_v2>
+        <condition property="has_skipped">
+            <equals arg1="skip" arg2="${actionResult}"/>
+        </condition>
+        <autopd_if isNotTrue="${has_skipped}">
+            <autopd_if isNotTrue="${is_another_server}">
+                <autopdproperty name="more_servers" value="false" />
+            </autopd_if>
+            <autopd_if isTrue="${isWindows}">
+                <condition property="isBlank" >
+                    <equals arg1="${os_password}" arg2=""/>
+                </condition>
+                <autopd_if isTrue="${isBlank}">
+                    <autopdproperty name="os_password" value="&quot;&quot;"/>
+                </autopd_if>
+            </autopd_if>
+            <autopd_if isTrue="${isWindows}">
+                <exec executable="cmd" output="${omnihome}/osreport.stdout" failifexecutionfails="false"
+                      failonerror="false" error="${destination}/nco_osreport.err">
+                    <arg value="/c" />
+                    <arg file="${NCHOME}/omnibus/bin/nco_osreport.bat" />
+                    <arg value="-html" />
+                    <arg value="-server" />
+                    <arg value="${os_name}" />
+                    <arg value="-user" />
+                    <arg value="${os_username}" />
+                    <arg value="-password" />
+                    <arg value="${os_password}" />
+                    <arg value="-directory" />
+                    <arg value="${omnihome}" />
+                </exec>
+                <move file="${omnihome}/osreport.html" tofile="${omnihome}/${os_name}-osreport.html"
+                      failonerror="false" />
+                <move file="${omnihome}/osreport.stdout" tofile="${omnihome}/${os_name}-osreport.stdout"
+                      failonerror="false" />
+                <move file="${destination}/nco_osreport.err" tofile="${destination}/${os_name}-osreport.err"
+                      failonerror="false" />
+            </autopd_if>
+            <autopd_if isNotTrue="${isWindows}">
+                <exec dir="${NCHOME}/omnibus/bin" executable="./nco_osreport" output="${omnihome}/osreport.stdout"
+                      failifexecutionfails="false" failonerror="false" error="${destination}/nco_osreport.err">
+                    <arg value="-html" />
+                    <arg value="-server" />
+                    <arg value="${os_name}" />
+                    <arg value="-user" />
+                    <arg value="${os_username}" />
+                    <arg value="-password" />
+                    <arg value="${os_password}" />
+                    <arg value="-directory" />
+                    <arg value="${omnihome}" />
+                </exec>
+                <move file="${omnihome}/osreport.html" tofile="${omnihome}/${os_name}-osreport.html"
+                      failonerror="false" />
+                <move file="${omnihome}/osreport.stdout" tofile="${omnihome}/${os_name}-osreport.stdout"
+                      failonerror="false" />
+                <move file="${destination}/nco_osreport.err" tofile="${destination}/${os_name}-osreport.err"
+                      failonerror="false" />
+            </autopd_if>
+            <!-- check if there was an error in the error file -->
+            <condition property="osreport_has_error">
+                <length file="${destination}/${os_name}-osreport.err" when="greater" length="0"/>
+            </condition>
+            <!-- if there is an error leave the .err file if not delete the empty file -->
+            <autopd_if isNotTrue="${osreport_has_error}">
+                <delete file="${destination}/${os_name}-osreport.err"/>
+            </autopd_if>
+            <!-- check if there was an output in the stdout file -->
+            <condition property="osreport_has_stdout">
+                <length file="${omnihome}/${os_name}-osreport.stdout" when="greater" length="0"/>
+            </condition>
+            <!-- if there is an output leave the .stdout file if not delete the empty file -->
+            <autopd_if isNotTrue="${osreport_has_stdout}">
+                <delete file="${omnihome}/${os_name}-osreport.stdout"/>
+            </autopd_if>
+        </autopd_if>
+        <autopd_if isTrue="${has_skipped}">
+            <autopdproperty name="more_servers" value="false"/>
+        </autopd_if>
+        </autopdwhile>
+    </target>
+
+    <target name="collect_IM_data" description="Collects the data related to installation manager"
+            if="${really_collect_IM_data}">
+        <!-- if IM used -->
+        <autopd_if isNotTrue="${has_COI}">
+            <mkdir dir="${destination}/Install" />
+            <autopdproperty name="incorrect_im_dir" value="true" />
+            <!-- Try to load the properties file we created at install time -->
+            <autopdproperty name="im_install_props_file"
+                value="${NCHOME}/properties/installer/install.properties" />
+            <condition property="im_install_details_exists">
+                <available file="${im_install_props_file}" />
+            </condition>
+            <autopd_if isTrue="${im_install_details_exists}">
+                <loadproperties srcFile="${im_install_props_file}" />
+                <condition property="im_dir_correct">
+                    <available file="${IMHOME}/tools" type="dir" />
+                </condition>
+                <autopd_if isTrue="${im_dir_correct}">
+                    <autopdproperty name="incorrect_im_dir" value="false" />
+                    <!-- Try to match the stored value to that which might be
+                         entered by the user if IMHOME isn't valid -->
+                    <autopdproperty name="im_root_dir" value="${IMHOME}/.." />
+                </autopd_if>
+            </autopd_if>
+            <!-- If the properties file doesn't exist or incorrect IMHOME -->
+            <autopdwhile property="incorrect_im_dir">
+                <autopd_if isTrue="${isWindows}">
+                    <inputdialogtask_v2 doSkip="true">
+                        <fieldtask name="prompt" label="user_prompt" type="prompt"
+                                   bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+                        <fieldtask name="im_root_dir" label="im_prompt_win" type="filebrowser"
+                                   bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                                   initialValueSource="persisted"
+                                   defaultValue="" />
+                    </inputdialogtask_v2>
+                </autopd_if>
+                <autopd_if isNotTrue="${isWindows}">
+                    <inputdialogtask_v2 doSkip="true">
+                        <fieldtask name="prompt" label="user_prompt" type="prompt"
+                                   bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue" />
+                        <fieldtask name="im_root_dir" label="im_prompt_unix" type="filebrowser"
+                                   bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"
+                                   initialValueSource="persisted" defaultValue="" />
+                    </inputdialogtask_v2>
+                </autopd_if>
+                <condition property="im_dir_correct">
+                    <available file="${im_root_dir}/eclipse/tools" type="dir" />
+                </condition>
+                <autopd_if isNotTrue="${im_dir_correct}">
+                    <autopdinput message="Incorrect_IM_Directory" validargs="OK"
+                                 bundle="com/ibm/tivoli/netcool/collector/resources/nls/input_dialogue"/>
+                </autopd_if>
+                <autopd_if isTrue="${im_dir_correct}">
+                    <autopdproperty name="incorrect_im_dir" value="false" />
+                </autopd_if>
+            </autopdwhile>
+            <autopd_if isTrue="${isWindows}">
+                <exec executable="${im_root_dir}/eclipse/tools/imcl.exe"
+                      output="${destination}/Install/imcl_install_data.stdout"
+                      failifexecutionfails="false" failonerror="false" error="${destination}/imcl.err">
+                    <arg line="exportInstallData ${destination}/Install/imcl_install_data.zip" />
+                </exec>
+            </autopd_if>
+            <autopd_if isNotTrue="${isWindows}">
+                <exec dir="${im_root_dir}/eclipse/tools/" executable="./imcl"
+                      output="${destination}/Install/imcl_install_data.stdout"
+                      failifexecutionfails="false" failonerror="false" error="${destination}/imcl.err">
+                    <arg line="exportInstallData ${destination}/Install/imcl_install_data.zip" />
+                </exec>
+            </autopd_if>
+        <!-- check if there was an error in the error file -->
+            <condition property="imcl_has_error">
+                <length file="${destination}/imcl.err" when="greater" length="0"/>
+            </condition>
+        <!-- if there is an error leave the .err file if not delete the empty file -->
+            <autopd_if isNotTrue="${imcl_has_error}">
+                <delete file="${destination}/imcl.err"/>
+            </autopd_if>
+        <!-- check if there was an output in the stdout file -->
+            <condition property="imcl_has_stdout">
+                <length file="${destination}/Install/imcl_install_data.stdout" when="greater" length="0"/>
+            </condition>
+        <!-- if there is an output leave the .stdout file if not delete the empty file -->
+            <autopd_if isNotTrue="${imcl_has_stdout}">
+                <delete file="${destination}/Install/imcl_install_data.stdout"/>
+            </autopd_if>
+        </autopd_if>
+    </target>
+
+    <target name="run_nc_install_logs" description="collect insall data for COI DE installations for 7.4">
+        <autopd_if isTrue="${isWindows}">
+            <exec executable="cscript" output="${destination}/Install/nc_install_logs.stdout"
+                  failifexecutionfails="false" failonerror="false" error="${destination}/nc_install_logs.err">
+                <arg line="nc_install_logs.vbs ${NCHOME}"/>
+            </exec>
+        </autopd_if>
+        <autopd_if isNotTrue="${isWindows}">
+            <exec executable="./nc_install_logs.sh" output="${destination}/Install/nc_install_logs.stdout"
+                  failifexecutionfails="false" failonerror="false" error="${destination}/nc_install_logs.err">
+                <arg line="${NCHOME}"/>
+            </exec>
+        </autopd_if>
+        <!-- check if there was an error in the error file -->
+        <condition property="nc_inst_has_error">
+            <length file="${destination}/nc_install_logs.err" when="greater" length="0"/>
+        </condition>
+        <!-- if there is an error leave the .err file if not delete the empty file -->
+        <autopd_if isNotTrue="${nc_inst_has_error}">
+            <delete file="${destination}/nc_install_logs.err"/>
+        </autopd_if>
+        <!-- check if there was an output in the stdout file -->
+        <condition property="nc_inst_has_stdout">
+            <length file="${destination}/Install/nc_install_logs.stdout" when="greater" length="0"/>
+        </condition>
+        <!-- if there is an output leave the .stdout file if not delete the empty file -->
+        <autopd_if isNotTrue="${nc_inst_has_stdout}">
+            <delete file="${destination}/Install/nc_install_logs.stdout"/>
+        </autopd_if>
+        <move todir="${destination}/Install" failonerror="false">
+            <fileset dir=".">
+                <include name="nc_install_logs.*" />
+                <exclude name="nc_install_logs.sh" />
+                <exclude name="nc_install_logs.vbs" />
+            </fileset>
+        </move>
+    </target>
+
+    <target name="collect_objserv_decision" description="set a property if collect_objserv_data should be collected">
+        <echo file="collect_objserv.txt" message="${Collect_Objserv}"/>
+        <echo file="isdefault_obj.txt" message="${isDefault}"/>
+        <condition property="really_collect_objserv_data">
+            <or>
+                <equals arg1="${Collect_Objserv}" arg2="Yes"/>
+                <equals arg1="${isDefault}" arg2="true"/>
+            </or>
+        </condition>
+        <echo file="objservdecision.txt" message="${really_collect_objserv_data}"/>
+    </target> 
+    
+   <target name="collect_IM_decision" description="set a property if collect_objserv_data should be collected">
+       <echo file="collect_installation.txt" message="${Collect_Installation}"/>
+       <echo file="isdefault.txt" message="${isDefault}"/>
+       <condition property="really_collect_IM_data">
+            <or>
+                <equals arg1="${Collect_Installation}" arg2="Yes"/>
+                <equals arg1="${isDefault}" arg2="true" />
+            </or>
+        </condition>
+        <echo file="imdecision.txt" message="${really_collect_IM_data}"/>
+    </target> 
+
+    <target name="compress" description="compress the collection into a zip file">
+        <zip encoding="UTF8" destfile="${pmrfilename}">
+            <fileset dir="${destination}">
+                <exclude name="tmp_*/**"/>
+                <exclude name="autopd/**"/>
+            </fileset>
+        </zip>
+    </target>
+    
+    <target name="delete_dest" 
+            description="delete the destination directory with no dependencies, used for clean up on cancel">
+        <delete dir="${destination}"/>
+    </target>
+    <target name="delete" description="delete the files that arent zipped up" depends="package_collection, compress">
+        <!-- <delete dir="${destination}" /> -->
+    </target>
+
+    <target name="package_collection" description="package the contents of the destination directory" >
+        <unzip src="${pmrfilename}" dest="${destination}/System">
+            <patternset>
+                <include name="autopdzip/**"/>
+                <include name="*.txt" />
+            </patternset>
+        </unzip>
+        <move todir="${destination}/System/Inventory" failonerror="false">
+            <fileset dir="${destination}/System/autopdzip/autopd"/>
+        </move>
+        <delete dir="${destination}/System/autopdzip"/>
+        
+    </target>
+
+</project>

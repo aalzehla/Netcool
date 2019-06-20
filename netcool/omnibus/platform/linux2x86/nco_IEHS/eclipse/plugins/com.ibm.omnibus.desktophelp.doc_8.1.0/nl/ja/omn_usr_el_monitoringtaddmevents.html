@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="イベント・リストでの TADDM イベントのモニター" />
+<meta name="abstract" content="TADDM イベントは、IT 環境で構成変更が検出された場合に、IBM Tivoli Application Dependency Discovery Manager 内で生成されます。 システムがこの機能をサポートするように構成されている場合は、Tivoli Netcool/OMNIbus イベント・リストから TADDM イベントをモニターすることができます。" />
+<meta name="Description" content="TADDM イベントは、IT 環境で構成変更が検出された場合に、IBM Tivoli Application Dependency Discovery Manager 内で生成されます。 システムがこの機能をサポートするように構成されている場合は、Tivoli Netcool/OMNIbus イベント・リストから TADDM イベントをモニターすることができます。" />
+<meta name="DC.subject" content="モニター, TADDM イベント" />
+<meta name="keywords" content="モニター, TADDM イベント" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_monitoringtaddmevents" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>イベント・リストでの TADDM イベントのモニター</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_monitoringtaddmevents">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">イベント・リストでの <span class="keyword">TADDM</span> イベントのモニター</h1>
+<div class="body taskbody"><div class="abstract"><span class="shortdesc"><span class="keyword">TADDM</span> イベントは、IT 環境で構成変更が検出された場合に、<span class="keyword">IBM
+Tivoli Application Dependency Discovery Manager</span> 内で生成されます。 システムがこの機能をサポートするように構成されている場合は、<span class="keyword">Tivoli Netcool/OMNIbus</span> イベント・リストから <span class="keyword">TADDM</span> イベントをモニターすることができます。</span>
+</div>
+<div class="section context"><p class="p">構成を行えば、イベント・リスト内で、<span class="keyword">TADDM</span> イベントをフィルター処理するための <span class="ph uicontrol"><span class="keyword">TADDM</span></span> フィルターを使用できるようになります。
+現在のビューに<span class="ph uicontrol">「クラス」</span>列がある場合は、その列でソートを実行することにより、イベント・リスト内の <span class="keyword">TADDM</span> イベントを特定することもできます。 この項目は、デフォルトでは「<samp class="ph systemoutput">Tivoli Application Dependency Discovery Manager</samp>」ですが、この値はシステム管理者が変更できます。</p>
+<p class="p"><span class="keyword">TADDM</span> イベントのデフォルトの重大度レベルは、「不確定」です。</p>
+<p class="p">イベント・リストから、<span class="keyword">TADDM</span> の Java™ コンソールまたは Web クライアントを起動して、アラートが出された構成アイテムに関するより詳しい内容を表示することができます。</p>
+</div>
+<ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd"><span class="keyword">TADDM</span> の Java コンソールで構成アイテムの属性に関するすべての詳細を表示するには、イベント・リスト内の <span class="keyword">TADDM</span> イベントを右クリックして、ポップアップ・メニューから<span class="ph menucascade"><span class="ph uicontrol">「<span class="keyword">TADDM</span>」</span> &gt; <span class="ph uicontrol">「構成アイテムの詳細 (コンソール)」</span></span>とクリックします。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="keyword">TADDM</span> の Web クライアントで構成アイテムの属性に関するすべての詳細を表示するには、イベント・リスト内の <span class="keyword">TADDM</span> イベントを右クリックして、ポップアップ・メニューから<span class="ph menucascade"><span class="ph uicontrol">「<span class="keyword">TADDM</span>」</span> &gt; <span class="ph uicontrol">「構成アイテムの詳細 (Web)」</span></span>とクリックします。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="keyword">TADDM</span> の Java コンソールで構成アイテムの変更履歴レポートを表示するには、イベント・リスト内の <span class="keyword">TADDM</span> イベントを右クリックして、ポップアップ・メニューから<span class="ph menucascade"><span class="ph uicontrol">「<span class="keyword">TADDM</span></span> &gt; <span class="ph uicontrol">「変更履歴 (コンソール)」</span></span>とクリックします。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="keyword">TADDM</span> の Web クライアントで構成アイテムの変更履歴レポートを表示するには、イベント・リスト内の <span class="keyword">TADDM</span> イベントを右クリックして、ポップアップ・メニューから<span class="ph menucascade"><span class="ph uicontrol">「<span class="keyword">TADDM</span>」</span> &gt; <span class="ph uicontrol">「変更履歴 (Web)」</span></span>とクリックします。</span> <p class="p">イベントをダブルクリックすることで、「<span class="keyword wintitle">イベント情報</span>」ウィンドウに、その一連の完全な詳細を表示できます。</p>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="イベント・リストを使用して、アラートをモニターおよび管理できます。 アラートは、ObjectServer がイベント、アラーム、メッセージ、またはデータ項目を受信したときに作成されます。 各アラートは、ObjectServer alerts.status 表内の行に保持されている情報の列 (またはフィールド) で構成されます。">イベント・リスト内のイベントのモニターおよび管理</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

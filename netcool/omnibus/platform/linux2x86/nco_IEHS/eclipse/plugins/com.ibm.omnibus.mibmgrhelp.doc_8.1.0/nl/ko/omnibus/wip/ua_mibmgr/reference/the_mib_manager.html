@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko-kr" lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Netcool MIB Manager" />
+<meta name="abstract" content="Netcool MIB Manager는 SNMP(Simple Network Management Protocol) MIB(Management Information Base) 파일을 구문 분석하는 데 사용할 수 있는 IBM Eclipse 기반 GUI 애플리케이션으로 여기에서 Netcool 규칙 파일을 생성할 수 있습니다. MIB Manager는 mib2rules 유틸리티를 대체합니다." />
+<meta name="Description" content="Netcool MIB Manager는 SNMP(Simple Network Management Protocol) MIB(Management Information Base) 파일을 구문 분석하는 데 사용할 수 있는 IBM Eclipse 기반 GUI 애플리케이션으로 여기에서 Netcool 규칙 파일을 생성할 수 있습니다. MIB Manager는 mib2rules 유틸리티를 대체합니다." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="the_mib_manager" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<title>MIB Manager는 SNMP MIB 파일을 구문 분석하고 규칙 파일을 생성합니다. MIB Manager는 mib2rules 유틸리티를 대체합니다.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="the_mib_manager">
+<span><strong>IBM Tivoli Netcool/OMNIbus 버전 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">Netcool MIB Manager</span></h1>
+<div class="body refbody"><p class="shortdesc"><span class="keyword">Netcool MIB Manager</span>는 SNMP(Simple Network Management Protocol) MIB(Management
+Information Base) 파일을 구문 분석하는 데 사용할 수 있는 IBM®
+Eclipse 기반 GUI 애플리케이션으로 여기에서 Netcool 규칙 파일을
+생성할 수 있습니다. MIB Manager는 <span class="keyword cmdname">mib2rules</span>
+유틸리티를 대체합니다. </p>
+<div class="section"><p class="p"><span class="keyword">Tivoli
+Netcool/OMNIbus</span>에는
+수동으로 또는 프로그래밍 방식으로 명령을 실행하는데 사용할 수 있는
+<span class="keyword">Netcool MIB Manager</span> 명령행 유틸리티(<span class="keyword cmdname">nco_mibmanager_batch</span>)도 포함됩니다. </p>
+<div class="p"><span class="keyword">Netcool MIB Manager</span>에는 다음과 같은 기능이 있습니다. <ul class="ul"><li class="li">SNMP MIB 파일을 가져와서 MIB 종속성을 분석하여 OID(Object Identifier) 트리를
+빌드합니다. </li>
+<li class="li">가져온 SNMP 오브젝트의 전부 또는 일부를 Netcool 규칙 파일과
+기타 파일 형식으로 내보낼 수 있습니다. </li>
+<li class="li">기본 MIB와 기타 MIB 파일에서 가장 일반적으로 요구되는 RFC MIB가 포함되어 있습니다. </li>
+<li class="li">가져온 MIB 모듈의 디바이스 중심 그룹화를 사용하기 위한 디바이스 정의가 포함되어 있습니다. </li>
+<li class="li">오브젝트 이름 또는 OID를 기준으로 MIB 모듈과 OID 트리를 필터링하고 검색할 수 있습니다. </li>
+<li class="li">SNMP 프로브(<span class="ph filepath">nco_p_mttrapd</span>) 또는 기타 SNMP 에이전트에
+전송할 SNMP 트랩을 생성할 수 있습니다. </li>
+<li class="li">MIB 데이터를 가져오고 규칙 파일을 내보내는 데 사용할 수 있는
+명령행 인터페이스가 있습니다. 명령을 수동으로 실행하거나 프로그래밍
+방식으로 호출할 수 있습니다. </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html">MIB Manager 시작</a></span><br />
+명령행에서 <span class="keyword">MIB Manager</span> GUI를 시작할 수 있습니다. MIB Manager는
+프로세스 제어 하에 실행되거나 Windows 서비스로 실행되도록 설계되지 않았습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html">Netcool MIB Manager 사용</a></span><br />
+<span class="keyword">MIB Manager</span>를 사용하여 MIB 모듈을 구문 분석하고 Netcool 규칙 파일을 작성할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/configuringglobalprefernces.html">글로벌 환경 설정 구성</a></span><br />
+<span class="keyword wintitle">환경 설정</span> 창에서 여러 <span class="keyword">MIB Manager</span> 글로벌 환경 설정을 구성할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html">SNMP에 대한 정보</a></span><br />
+이 절에서는 SNMP(Simple Network Management Protocol) 아키텍처, SNMP MIB(Management Information Base),
+일부 추가 MIB 개념에 대한 추가 정보를 제공합니다. </li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">라이브러리</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+</div>
+</body>
+</html>

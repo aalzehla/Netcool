@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-tw" lang="zh-tw">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="產生 SNMP 設陷" />
+<meta name="abstract" content="如何產生 SNMP 設陷。此功能還可用於測試 MIB Manager 產生的規則檔案。" />
+<meta name="Description" content="如何產生 SNMP 設陷。此功能還可用於測試 MIB Manager 產生的規則檔案。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-26" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="zh-tw" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1 版</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">產生 SNMP 設陷</h1>
+<div class="body taskbody"><p class="shortdesc">如何產生 SNMP 設陷。此功能還可用於測試 <span class="keyword">MIB Manager</span> 產生的規則檔案。</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">程序</h2></div><p class="li stepsection">若要產生 SNMP 設陷，請執行下列動作：</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">按一下 <img class="image" src="../gifs/trap.gif" alt="設陷圖示" /> <span class="ph uicontrol">設陷</span>。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目的地位址</span>欄位中，指定執行「SNMP 設陷」服務之電腦的主機名稱或 IP 位址。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">目的地埠</span>欄位中，指定「SNMP 設陷」服務接聽所在的 UDP 埠。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">社群</span>欄位中，指定設陷管理程式的有效字串。</span></li>
+<li class="li step stepexpand"><span class="ph cmd">視產生的設陷類型而定，<span class="ph uicontrol">變數連結</span>區段可能在「<span class="keyword wintitle">產生 SNMP 設陷</span>」視窗中可見。<span class="ph uicontrol">變數連結</span>區段中可用的欄位也視產生的設陷類型而定。</span> <p class="p">將滑鼠指標移至<span class="ph uicontrol">變數連結</span>欄位名稱上方，以取得欄位值語法的詳細資料。您可以指定多個值，以逗點區隔。這些值將隨機選擇用來建置設陷。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">在<span class="ph uicontrol">重複度量</span>欄位中，指定可產生的設陷數（從 1 到 1000）。</span> <p class="p">如果指定的數目很大，則會快速連續產生設陷並可導致設陷管理程式發生警示風暴。若為大於 1 (&gt; 1) 的值以及指定為分號區隔清單的值，<span class="keyword">MIB Manager</span> 會隨機從指定清單中選取，然後將任意值呈現為 varbind 來產生設陷。</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">按一下<span class="ph uicontrol">執行</span>以產生設陷。</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">結果</h2></div>「<span class="keyword wintitle">產生 SNMP 設陷</span>」視窗中的<span class="ph uicontrol">結果</span>欄位將指出設陷是否順利傳送。</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>上層主題：</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="您可以使用 MIB Manager 來剖析 MIB 模組及建立 Netcool 規則檔案。">使用 Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">程式庫</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支援</a> |</span>
+<br />
+</div>
+</body>
+</html>

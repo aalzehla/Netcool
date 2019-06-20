@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="属性编辑器" />
+<meta name="abstract" content="使用该窗口可编辑以下各项的属性文件中所含的配置信息：ObjectServer、代理服务器、数据库初始化实用程序（nco_dbinit）、Confpack 实用程序（nco_confpack）、Netcool/OMNIbus Administrator（nco_config）、探测器和网关。 还可以在 Windows 上创建新的属性文件。 此功能只有超级用户可用。" />
+<meta name="description" content="使用该窗口可编辑以下各项的属性文件中所含的配置信息：ObjectServer、代理服务器、数据库初始化实用程序（nco_dbinit）、Confpack 实用程序（nco_confpack）、Netcool/OMNIbus Administrator（nco_config）、探测器和网关。 还可以在 Windows 上创建新的属性文件。 此功能只有超级用户可用。" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringproperties.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_propertieseditorwindow" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>属性编辑器</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_propertieseditorwindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">属性编辑器</h1>
+<div class="body refbody"><p class="shortdesc">使用该窗口可编辑以下各项的属性文件中所含的配置信息：ObjectServer、代理服务器、数据库初始化实用程序（<span class="keyword cmdname">nco_dbinit</span>）、Confpack 实用程序（<span class="keyword cmdname">nco_confpack</span>）、Netcool/OMNIbus Administrator（nco_config）、探测器和网关。 还可以在 Windows 上创建新的属性文件。 此功能只有超级用户可用。</p>
+<div class="section"><div class="p">如下所示完成此窗口： <dl class="dl" id="netom_propertieseditorwindow__netom_propertieseditorfields"><dt class="dt dlterm">类型</dt>
+<dd class="dd">在 UNIX 上，选择以下任一选项：<ul class="ul"><li class="li">选择<span class="ph uicontrol">普通</span>可编辑除探测器之外的组件的属性文件。 这些文件将出现在<span class="ph uicontrol">文件</span>下拉列表中。</li>
+<li class="li">选择<span class="ph uicontrol">探测器</span>可编辑探测器属性文件。 这些文件将出现在<span class="ph uicontrol">文件</span>下拉列表中。</li>
+</ul>
+</dd>
+<dd class="dd">在 Windows 上，选择以下任一选项：<ul class="ul"><li class="li">选择 <span class="ph uicontrol">ObjectServer</span> 可编辑类似 ObjectServer 和代理服务器的组件的属性文件。 这些文件将出现在<span class="ph uicontrol">名称</span>下拉列表中。 这些文件通常存储在 <span class="ph filepath">%NCHOME%\omnibus\etc</span> 目录中。</li>
+<li class="li">选择<span class="ph uicontrol">探测器</span>可编辑探测器属性文件。 这些文件将出现在<span class="ph uicontrol">名称</span>下拉列表中。 这些文件通常存储在 <span class="ph filepath">%NCHOME%\omnibus\probes\win32</span> 目录中。</li>
+<li class="li">选择<span class="ph uicontrol">服务器</span>可添加新的属性文件。 这些文件保存在 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目录中。
+<span class="ph uicontrol">名称</span>下拉列表将使用文本 <samp class="ph codeph">&lt;New File&gt;</samp> 进行填充。</li>
+</ul>
+</dd>
+<dt class="dt dlterm">文件（UNIX）/名称
+（Windows）</dt>
+<dd class="dd">从下拉列表中选择要编辑的属性文件。
+显示的列表取决于从<span class="ph uicontrol">类型</span>下拉列表中所作的选择。 缺省值为： <ul class="ul"><li class="li"><span class="ph filepath">nco_dbinit.props</span>：数据库初始化开始时（运行 <span class="keyword cmdname">nco_dbinit</span> 以初始化数据库）要读取的属性文件。</li>
+<li class="li"><span class="ph filepath">NCO_PROXY.props</span>：代理服务器属性文件（代理服务器可用于减少 ObjectServer 上的探测器连接数量）。</li>
+<li class="li"><span class="ph filepath">nco_confpack.props</span>：Confpack 属性文件（<span class="keyword cmdname">nco_confpack</span> 用于导入和导出 ObjectServer 配置）。</li>
+<li class="li"><span class="ph filepath">nco_config.props</span>： <span class="keyword">Netcool/OMNIbus Administrator</span> 属性文件</li>
+<li class="li"><span class="ph filepath">NCOMS.props</span>：ObjectServer 属性文件</li>
+</ul>
+</dd>
+<dd class="dd">在 Windows 上，不会显示 <span class="ph filepath">.props</span> 文件扩展名，且在<span class="ph uicontrol">名称</span>列表中选择文件时，将使用可用属性自动填充属性列表。</dd>
+<dt class="dt dlterm">打开（仅限 UNIX）</dt>
+<dd class="dd">在 UNIX 上，选择类型和文件名后，单击该按钮可打开属性文件。</dd>
+<dt class="dt dlterm"><em class="ph i">属性列表</em></dt>
+<dd class="dd">此矩阵显示添加到属性文件的任何属性的详细信息。 要更改某个属性，可以在此列表中选择该属性。 已为探测器属性文件定义了一组缺省属性，用户不能除去这些属性。 这些属性将以灰色显示在属性列表中。 </dd>
+<dt class="dt dlterm">名称</dt>
+<dd class="dd">此字段显示了您从属性列表中选定进行编辑的属性的名称。 不能更改已有属性的名称。
+在 Windows 上，还可以使用下拉列表来选择要编辑的属性。 </dd>
+<dd class="dd">如果要向选定的属性文件添加新的属性，请在此输入属性的名称。 </dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>以新建属性文件，请在此输入新属性的名称。</dd>
+<dt class="dt dlterm">值</dt>
+<dd class="dd">如果要使用现有的选定属性文件，请编辑选定属性的值，或为要添加的新属性输入值。</dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>以新建属性文件，请输入新属性的值。</dd>
+<dt class="dt dlterm">添加/更新</dt>
+<dd class="dd">此按钮将根据您要添加还是编辑现有属性而发生变化。 如果输入了新的属性名和值，单击<span class="ph uicontrol">添加</span>可向属性列表添加该值。 如果更改了属性列表中选择的属性的值，单击<span class="ph uicontrol">更新</span>可更新属性列表中的该值。</dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>以新建属性文件，单击<span class="ph uicontrol">添加</span>可添加新的属性。</dd>
+<dt class="dt dlterm">除去</dt>
+<dd class="dd">单击此按钮可从属性文件中除去所选属性。 如果选择了缺省属性，那么不能使用此按钮。</dd>
+<dt class="dt dlterm">保存</dt>
+<dd class="dd">单击此按钮可保存属性文件的更改。</dd>
+<dd class="dd">如果您从<span class="ph uicontrol">类型</span>列表选择了<span class="keyword option">服务器</span>来新建属性文件，请在向属性列表添加新的属性后单击<span class="ph uicontrol">保存 </span>。 在<span class="keyword wintitle">保存新属性</span>窗口中输入属性文件的名称，但请略去 <span class="ph filepath">.props</span> 扩展名；系统将自动为您添加该扩展名。 单击<span class="ph uicontrol">保存</span>将文件保存到 <span class="ph filepath">%NCHOME%\omnibus\ini</span> 目录中。
+属性文件名将显示在与<span class="ph uicontrol">类型</span>字段相连的<span class="ph uicontrol">名称</span>字段中，您可以继续向该文件添加属性。 请注意，将要求您编辑此文件以向您为属性指定的字符串值添加引号。</dd>
+</dl>
+<dl class="dl" id="netom_propertieseditorwindow__netom_propertieseditorfields2"><dt class="dt dlterm">关闭（仅限 UNIX）</dt>
+<dd class="dd">单击此按钮可在保存更改后关闭本窗口，或关闭本窗口而不保存更改。</dd>
+<dt class="dt dlterm">确定（仅限 Windows）</dt>
+<dd class="dd">单击此按钮可在保存更改后关闭本窗口。</dd>
+<dt class="dt dlterm">取消（仅限 Windows）</dt>
+<dd class="dd">单击此按钮可关闭窗口，而不保存更改。</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_configuringproperties.html" title="您可以编辑以下各项的属性文件中所含的信息：ObjectServer、代理服务器、数据库初始化实用程序（nco_dbinit）、Confpack 实用程序（nco_confpack）、Netcool/OMNIbus Administrator（nco_config）、探测器和网关。属性文件具有 .props 扩展名。">配置属性</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

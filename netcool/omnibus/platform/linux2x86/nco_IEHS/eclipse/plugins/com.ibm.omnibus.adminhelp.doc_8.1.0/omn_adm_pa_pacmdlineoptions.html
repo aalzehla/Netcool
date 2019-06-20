@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Process agent command-line options" />
+<meta name="abstract" content="When running the process agent with the nco_pad command, you can specify a number of command-line options for additional configuration." />
+<meta name="Description" content="When running the process agent with the nco_pad command, you can specify a number of command-line options for additional configuration." />
+<meta name="DC.subject" content="nco_pad, command-line options, process control" />
+<meta name="keywords" content="nco_pad, command-line options, process control" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_manuallystartpas.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_propsfileencryption.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_pacmdlineoptions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_manuallystartpas.html" />
+<title>Process agent command-line options</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_pacmdlineoptions">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Process agent command-line options</h1>
+<div class="body refbody"><p class="shortdesc">When running the process agent with the <span class="keyword cmdname">nco_pad</span> command,
+you can specify a number of command-line options for additional configuration.</p>
+<div class="section"><p class="p">The command-line options for the <span class="ph filepath">$NCHOME/omnibus/bin/nco_pad</span> command
+are described in the following table. UNIX and
+Linux-specific command-line options, which are not supported on Windows, are flagged in the
+table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Process agent daemon nco_pad command-line
+options</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d21766e41">Command-line option</th>
+<th class="entry" valign="bottom" width="60%" id="d21766e43">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-admingroup </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the name of the UNIX user group that has administrator privileges.
+Members of this group can access the process control system. The default
+group name is <span class="keyword option">ncoadmin</span>.</p>
+<div class="note note"><span class="notetitle">Note:</span> The <span class="keyword option">-admingroup</span> option
+is applicable only to the UNIX authentication
+mode.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-apicheck</span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">If specified, Sybase API checking is enabled.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-authenticate </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the authentication mode to use
+to verify the credentials of a user or remote process agent daemon. </p>
+<div class="p"><div class="note note"><span class="notetitle">Note:</span> When in FIPS 140-2 mode, only the <span class="keyword option">PAM</span> option
+can be specified for authentication.</div>
+</div>
+<div class="p">On UNIX, the values are:<ul class="ul"><li class="li"><span class="keyword option">UNIX</span>:
+This is the default authentication mode, which means that the Posix
+getpwnam or getspnam function is used to verify user credentials on UNIX platforms. Depending on system
+setup, passwords are verified by using the <span class="ph filepath">/etc/password</span> file,
+the <span class="ph filepath">/etc/shadow</span> shadow password file, NIS, or
+NIS+. If the process agent is running as a non-root user, ensure that
+this user has read-access to the <span class="ph filepath">/etc/shadow</span>.
+Check with your system administrator to determine the best way to
+obtain this access.</li>
+<li class="li"><span class="keyword option">PAM</span>: If PAM is specified as the authentication
+mode, Pluggable Authentication Modules are used to verify user credentials.
+The service name used by the gateway when the PAM interface is initialized
+is netcool. PAM authentication is available on Linux, Solaris, and HP-UX 11 platforms only. </li>
+<li class="li"><span class="keyword option">KERBEROS</span>: If KERBEROS is specified as the authentication
+mode, Kerberos IV authentication is used to verify user credentials.
+This is available only on Solaris systems with a Kerberos IV authentication
+server installed.</li>
+<li class="li"><span class="keyword option">HPTCB</span>: If HPTCB is specified as the authentication
+mode, the HP-UX password protection system is used. This is available
+only on HP trusted (secure) systems.</li>
+<li class="li"><span class="keyword option">none</span>: Authentication is not attempted. The process
+agent daemon prompt accepts any login credentials. Use this option
+only for testing purposes. Do not use it on a production environment.</li>
+</ul>
+</div>
+<div class="p">On Windows,
+the values are:<ul class="ul"><li class="li"><span class="keyword option">WINDOWS</span>: This is the default authentication mode,
+where the process agent authenticates against the Windows account.</li>
+<li class="li"><span class="keyword option">none</span>: Authentication is not attempted. The process
+agent daemon prompt accepts any login credentials. Use this option
+only for testing purposes. Do not use it on a production environment.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-configfile </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Use this file name, relative to <span class="ph filepath">$NCHOME/omnibus</span>,
+as the configuration file, rather than the default file <span class="ph filepath">$NCHOME/omnibus/etc/nco_pa.conf</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-connections</span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Sets the maximum number of connections that
+are available for running external actions. The default is <span class="keyword option">30</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-cryptalgorithm</span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the cryptographic algorithm to
+use for decrypting passwords that were encrypted with the <span class="keyword cmdname">nco_aes_crypt</span> utility
+and then stored in the process agent configuration file. Set the <var class="keyword varname">string</var> value
+as follows:</p>
+<ul class="ul"><li class="li">When in FIPS 140–2 mode, use <span class="keyword option">AES_FIPS</span>.</li>
+<li class="li">When in non-FIPS 140–2 mode, you can use either <span class="keyword option">AES_FIPS</span> or <span class="keyword option">AES</span>.
+Use <span class="keyword option">AES</span> only if you need to maintain compatibility
+with passwords that were encrypted using the tools provided in versions
+earlier than <span class="keyword">Tivoli Netcool/OMNIbus</span> V7.2.1.</li>
+</ul>
+<p class="p">The value that you specify must be identical to that used
+when you ran the <span class="keyword cmdname">nco_aes_crypt</span> command with the <span class="keyword option">-c</span> setting,
+to encrypt the passwords in the routing definition section of the
+file.</p>
+<p class="p">Use the <span class="keyword option">-cryptalgorithm</span> command-line
+option in conjunction with the <span class="keyword option">-keyfile</span> option.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-debug </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Enables debugging. The <var class="keyword varname">integer</var> value
+specifies the amount of debug information written to the log. Available
+levels are <span class="keyword option">1</span> (Debug), <span class="keyword option">2</span> (Information), <span class="keyword option">3</span> (Warning), <span class="keyword option">4</span> (Error),
+and <span class="keyword option">5</span> (Fatal). The default is <span class="keyword option">3</span>.</p>
+<p class="p">When
+running at debug level 1, the process agent logs information about
+processes it is about to start. This information includes the path
+to the program, each of the command-line arguments, and the effective
+user ID of the process. If applicable, the log also includes the current
+working directory, and additionally for UNIX,
+the effective group ID, and the umask (in octal) of the process.</p>
+<p class="p">When
+running at debug level 2, the log contains a message showing which
+user account the process agent is running under.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-DNS </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies a value to override the host name
+in DNS environments. This must be the same as the entry in the configuration
+file.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-help </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Displays help information about the process
+agent and exits.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-keyfile </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the path and name of the file that
+contains the key to be used for decrypting the encrypted passwords
+that are stored in the process agent configuration file.</p>
+<p class="p">The
+key file that you specify must be identical to that used when you
+ran the <span class="keyword cmdname">nco_aes_crypt</span> utility with the <span class="keyword option">-k</span> setting,
+to encrypt the passwords in the routing definition section of the
+file.</p>
+<p class="p">Use the <span class="keyword option">-keyfile</span> command-line option
+in conjunction with the <span class="keyword option">-cryptalgorithm</span> option to
+decrypt passwords.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-killprocessgroup </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">If specified, when the process agent daemon
+stops a process, it also sends a signal to kill any processes in the
+same operating system process group.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-logfile </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies an alternative log file. On UNIX, the log can be redirected
+to stderr and stdout. On Windows,
+the log is always written to a file.</p>
+<p class="p">The default log file is:</p>
+<p class="p"><span class="ph filepath">$NCHOME/omnibus/log/<var class="keyword varname">pa_name</var>.log</span></p>
+<p class="p">Where <var class="keyword varname">pa_name</var> is
+the name of the process agent specified with the <span class="keyword option">-name</span> option.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-logsize </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the maximum log file size in KB.
+The default is 1024 KB, and the minimum size is 16 KB.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-msgpoolsize </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the number of messages that are
+available to the process control agent. </p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-name </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the name of the server for this
+process agent. If not specified, the default process agent name is <span class="keyword option">NCO_PA</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-newlog </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">This option is obsolete.</p>
+<p class="p">The process
+agent always overwrites the previous log file.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-noautostart</span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">If specified, the process agent does not
+start any services automatically, even if they are set to start automatically
+in the <span class="ph filepath">nco_pa.conf</span> file.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-noconfig </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">If specified, the process agent does not
+read the <span class="ph filepath">nco_pa.conf</span> configuration file. This
+forces process control to start with no configuration information.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-nodaemon </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">By default, process control forks into the
+background to run as a daemon process. When <span class="keyword option">-nodaemon</span> is
+specified, the process runs in the foreground.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-password </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the password that is used to log
+into other process agents.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-pidfile </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the path, relative to <span class="ph filepath">$NCHOME/omnibus</span>,
+to the file in which the process control daemon PID is stored. Each
+process agent daemon must have its own PID file. The default is <span class="ph filepath">$NCHOME/omnibus/var/<var class="keyword varname">pa_name</var>.pid</span>,
+where <var class="keyword varname">pa_name</var> represents the name of the process
+agent. Provided all process agents are given unique names, there should
+be no need to change this setting. This makes it possible to run more
+than one process agent daemon on the same computer.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> On Windows, there is no restriction
+on the number of process agents that can run as Windows services on the same host.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-pidmsgpool </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the size of the signal-handling
+message pool.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-redirectfile </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies a file to which the stderr and
+stdout messages of processes started by the process agent are directed.
+This is useful for troubleshooting purposes.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> On Windows, a similar result can
+be achieved by running the process agent from the command line. Each
+child process will have its own console window in which the processing
+output is displayed. Alternatively, if the process agent is running
+as a Windows service, open
+the <span class="keyword wintitle">Services</span> window, and specify the following
+settings in the <span class="keyword wintitle">Properties</span> window for the service:
+from the <span class="ph uicontrol">Log On</span> tab, select <span class="ph uicontrol">Local
+System account</span> and then select <span class="ph uicontrol">Allow service
+to interact with desktop</span>.</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-retrytime </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the number of seconds that a process
+started by process control must run to be considered a successful
+start. The default <var class="keyword varname">retrytime</var> is <span class="keyword option">5</span>.</p>
+<p class="p">The
+process agent attempts to restart a process if the process exits.
+If the process exits after <var class="keyword varname">retrytime</var> seconds, the
+process agent attempts to restart the process immediately. If the
+process exits before <var class="keyword varname">retrytime</var> seconds, the process
+agent attempts to restart the process at the exponential rate of 2,
+4, 8, 16, 32, ..., 256 seconds. The process agent resets the timing
+interval after eight attempts to start the process.</p>
+<p class="p">If the process
+fails to run for more than <var class="keyword varname">retrytime</var> seconds, the
+RetryCount (specified in the process definition) for that process
+is also decremented. If the process runs successfully for at least <var class="keyword varname">retrytime</var> seconds,
+the RetryCount is set back to its original value. If the RetryCount
+is 0, there is no limit to the number of restart attempts.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-roguetimeout </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the time in seconds to wait for
+the process to shut down. The default is <span class="keyword option">30</span> seconds
+and the minimum is <span class="keyword option">5</span> seconds.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-secure </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">If <span class="keyword option">-secure</span> is specified,
+all clients need to authenticate themselves with a valid user name
+and password, which are specified with the <span class="keyword option">-user</span> and <span class="keyword option">-password</span> command-line
+options. </p>
+<p class="p">In non-FIPS 140–2 mode, login information is automatically
+encrypted in transmission when the process agent connects to another
+process agent. In FIPS 140–2 mode, login information is passed as
+plain text, and SSL must be used if you require encryption during
+transmission.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-stacksize </span> <var class="keyword varname">integer</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the size of the thread stack.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><div class="image"><img class="image" src="ngunix.gif" alt="For UNIX operating system" /></div> <div class="image"><img class="image" src="nglinux.gif" alt="For Linux operating system" /></div> <span class="keyword option">-ticketdir </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Directory for Kerberos tickets if <span class="keyword option">-authenticate</span> is
+set to KERBEROS.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-traceevtq </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Enables tracing of event queue activity.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-tracemsgq </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Enables tracing of message queue activity.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-tracemtx </span> <var class="keyword varname"></var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Enables the tracing of mutex locks.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-tracenet </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Enables net library tracing.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-user </span> <var class="keyword varname">string</var></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Specifies the user name that is used to log
+into another process agent.</p>
+<p class="p">If the <span class="keyword option">-user</span> option
+is not specified, the user name that is used to make the connection
+is the user running the command. </p>
+<p class="p">This option must be specified
+if connecting to a process agent that is running in secure mode (using
+the <span class="keyword option">-secure</span> option). </p>
+<p class="p">This user name and its
+associated password (which you specify using <span class="keyword option">-password</span>)
+are used if no login credentials are specified in the routing section
+of the process control configuration file.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d21766e41 "><p class="p"><span class="keyword option">-version </span></p>
+</td>
+<td class="entry" valign="top" width="60%" headers="d21766e43 "><p class="p">Displays version information about the process
+agent and exits.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_manuallystartpas.html" title="You can manually start process agents from the command line.">Manually starting process agents</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="omn_adm_propsfileencryption.html" title="You can use property value encryption to encrypt string values in a properties file or configuration file so that the strings cannot be read without a key. When the process that uses the properties file or configuration file starts up, the strings are decrypted.">Property value encryption</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

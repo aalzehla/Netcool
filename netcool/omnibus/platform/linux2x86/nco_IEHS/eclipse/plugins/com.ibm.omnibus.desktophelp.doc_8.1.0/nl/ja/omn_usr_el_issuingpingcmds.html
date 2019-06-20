@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Ping コマンドの発行" />
+<meta name="abstract" content="Ping ツールは、alerts.status 表の「ノード」列の値で Ping コマンドを 実行します。" />
+<meta name="Description" content="Ping ツールは、alerts.status 表の「ノード」列の値で Ping コマンドを 実行します。" />
+<meta name="DC.subject" content="イベント・リスト, Ping ツール, ツール, Ping" />
+<meta name="keywords" content="イベント・リスト, Ping ツール, ツール, Ping" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_usingtoolsmanageevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_issuingpingcmds" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_usingtoolsmanageevents.html" />
+<title>Ping コマンドの発行</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_issuingpingcmds">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Ping コマンドの発行</h1>
+<div class="body taskbody"><p class="shortdesc">Ping ツールは、alerts.status 表の「ノード」列の値で Ping コマンドを
+実行します。</p>
+<div class="section context">Ping コマンドを発行するには、イベント・リストで以下のアクションの
+いずれかを実行します。 </div>
+<ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd">ping するノードが含まれる該当する行を選択する。 次に、<span class="ph menucascade"><span class="ph uicontrol">「アラート」</span> &gt; <span class="ph uicontrol">「ツール」</span> &gt; <span class="ph uicontrol">「Ping」</span></span>をクリックするか、または右クリックした後<span class="ph menucascade"><span class="ph uicontrol">「ツール」</span> &gt; <span class="ph uicontrol">「Ping」</span></span>をクリックする。 「<span class="keyword wintitle">ツールの出力</span>」ウィンドウ内に、ノードの状況が戻されます。</span></li>
+<li class="li step stepexpand"><span class="ph cmd"><span class="ph menucascade"><span class="ph uicontrol">「ツール」</span> &gt; <span class="ph uicontrol">「Ping」</span></span>をクリックして、ホストに <span class="keyword cmdname">ping</span> コマンドを発行する。
+「<span class="keyword wintitle">ツールのパラメーター</span>」ウィンドウ (UNIX の場合) または「<span class="keyword wintitle">内部コマンドのパラメーター</span>」ウィンドウ
+(Windows の場合)
+が開きます。 このウィンドウに以下のように入力します。</span> <dl class="dl"><dt class="dt dlterm">ホスト名</dt>
+<dd class="dd">アクセスするワークステーションの IP アドレスまたはホスト名を入力します。</dd>
+<dt class="dt dlterm">OK</dt>
+<dd class="dd">このボタンをクリックして、コマンドを実行します。 </dd>
+<dd class="dd">Ping ツールを実行した場合は、「<span class="keyword wintitle">ツールの出力</span>」ウィンドウ内のノードの状況が返されます。 Telnet ツールを実行した場合は、リモート・ホスト・ワークステーションに接続されます。</dd>
+<dt class="dt dlterm">キャンセル</dt>
+<dd class="dd">このボタンをクリックして、コマンドを発行せずにウィンドウを閉じます。 </dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_el_usingtoolsmanageevents.html" title="システム管理者は、イベント・リストに含まれているイベントを操作するためのツールを定義し、ユーザー用に Tivoli Netcool/OMNIbus のデスクトップ・メニューにそれらのツールを追加できます。 ユーザーの側では、そのようなツールを使用して、ObjectServer に対して SQL コマンドを実行したり、ローカル・アプリケーション・バッチ・ファイルやスクリプトなどの外部コマンドを実行したりすることが可能になります。">ツールを使用したイベントの管理</a></div>
+</div>
+<div class="relinfo reltasks"><strong>関連タスク</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="イベント・リストでアラートのモニターと管理を行うには、有効な認証資格情報を使用して実行中の ObjectServer に接続する必要があります。 イベント・リストは、コンダクター、コマンド行、または Windows の「スタート」メニューから開始できます。">イベント・リストの開始</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>

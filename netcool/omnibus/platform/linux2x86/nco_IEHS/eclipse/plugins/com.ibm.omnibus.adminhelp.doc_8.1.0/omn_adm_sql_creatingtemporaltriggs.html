@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="CREATE TRIGGER (temporal trigger)" />
+<meta name="abstract" content="Use the CREATE TRIGGER command to create temporal triggers that fire at a specified frequency." />
+<meta name="Description" content="Use the CREATE TRIGGER command to create temporal triggers that fire at a specified frequency." />
+<meta name="DC.subject" content="creating, temporal triggers, CREATE TRIGGER" />
+<meta name="keywords" content="creating, temporal triggers, CREATE TRIGGER" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_sql_creatingtemporaltriggs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Creating temporal triggers (CREATE TRIGGER command)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_sql_creatingtemporaltriggs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">CREATE TRIGGER (temporal trigger)</h1>
+<div class="body refbody"><p class="shortdesc">Use the <samp class="ph codeph">CREATE TRIGGER</samp> command to create
+temporal triggers that fire at a specified frequency.</p>
+<div class="section"><h2 class="title sectiontitle">Syntax</h2><pre class="pre codeblock"><code>CREATE [ OR REPLACE ] TRIGGER <var class="keyword varname">trigger_name</var>
+ GROUP <var class="keyword varname">group_name</var>
+ [ DEBUG { TRUE | <u class="ph u">FALSE</u> } ]
+ [ ENABLED { <u class="ph u">TRUE</u> | FALSE } ]
+ PRIORITY integer
+ [ COMMENT '<var class="keyword varname">comment_string</var>'
+ <strong class="ph b">EVERY <var class="keyword varname">integer</var> { HOURS | MINUTES | <u class="ph u">SECONDS</u> }</strong>
+ <strong class="ph b">[ EVALUATE <var class="keyword varname">SELECT_cmd</var> BIND AS <var class="keyword varname">variable_name</var> ]</strong>
+ [ WHEN <var class="keyword varname">condition</var> ]
+ [ DECLARE <var class="keyword varname">variable_declaration</var> ]
+BEGIN
+<var class="keyword varname">  trigger_action</var>
+END;</code></pre>
+</div>
+<div class="section"><p class="p">If there is a possibility
+that a trigger already exists with the same name as the one that you
+want to create, use the optional OR REPLACE keywords. If the trigger
+exists, it is replaced by the one that you are creating. If the trigger
+does not exist, a new one is created.</p>
+<p class="p">The <var class="keyword varname">trigger_name</var> value
+must be unique within the ObjectServer and comply with the ObjectServer
+naming conventions.</p>
+<p class="p">The <var class="keyword varname">group_name</var> value
+can be any trigger group already created by using the CREATE TRIGGER
+GROUP command.</p>
+<p class="p">If DEBUG is set to <samp class="ph tt">TRUE</samp>, debugging information
+is sent to the ObjectServer message log, if the message level is set
+to <span class="keyword option">debug</span>.</p>
+<p class="p">If ENABLED is set to <samp class="ph tt">TRUE</samp>,
+the trigger fires when the associated incident occurs. Otherwise,
+the trigger does not fire when the incident occurs.</p>
+<p class="p">The PRIORITY
+of a trigger determines the order in which the ObjectServer fires
+triggers when more than one trigger is associated with the same incident.
+The priority can be in the range of 1 to 20. The lower the number,
+the higher the priority, so a trigger with a priority of 2 is fired
+before a trigger with a priority of 3. If more than one trigger of
+the same priority is fired because of the same incident, the order
+in which these triggers fire is undetermined.</p>
+<p class="p">Use the optional
+COMMENT keyword to add a comment (<var class="keyword varname">comment_string</var>)
+for the trigger.</p>
+</div>
+<div class="section"><p class="p">Within a temporal trigger, you must specify how often
+the trigger will fire. Specify an <var class="keyword varname">integer</var> value
+in seconds (the default unit of time), minutes, or hours.</p>
+<p class="p">Use
+the optional EVALUATE clause to build a temporary result set from
+a single SELECT statement to be processed in the <var class="keyword varname">trigger_action</var>.
+The SELECT statement cannot contain an ORDER BY clause.</p>
+<div class="note note"><span class="notetitle">Note:</span> The EVALUATE clause must fully qualify any tables, which
+are included in the SELECT statement, with a database name. For example,
+the following syntax is deemed invalid: <samp class="ph codeph">evaluate select Node
+from status...</samp> The correct syntax is: <samp class="ph codeph">evaluate select
+Node from alerts.status...</samp></div>
+<p class="p">An EVALUATE
+clause can mostly be replaced with a FOR EACH ROW clause. Use an EVALUATE
+clause only when a GROUP BY clause is required.</p>
+</div>
+<div class="section"><p class="p">Use the optional WHEN clause
+to test for a particular <var class="keyword varname">condition</var> before the trigger
+action runs. If the condition is not met, the trigger action does
+not run.</p>
+<p class="p">You can optionally declare local trigger variables
+for use in the body of the trigger. These variables are declared and
+used in the same way as procedure variables. However, trigger variables
+are static, so they maintain their value between the times when the
+trigger runs.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Example</h2><p class="p">The following temporal trigger deletes
+all clear rows (<samp class="ph codeph">Severity = 0</samp>) from the alerts.status
+table that have not been modified in the last two minutes.</p>
+<pre class="pre codeblock"><code>create trigger DeleteClears
+group my_triggers
+priority 1
+every 60 seconds
+begin
+   delete from alerts.status where Severity = 0
+      and StateChange &lt; (getdate - 120);
+end;</code></pre>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

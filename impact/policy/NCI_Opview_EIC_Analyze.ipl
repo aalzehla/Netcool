@@ -1,0 +1,133 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2011, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+// LAYOUT PANEL - END
+// ACTION PANEL - START
+// ACTION PANEL - END
+opview_servlet_prefix="";
+opview_stylesheet="opview.css";
+
+//
+// HTML policy 
+//
+
+Handle com.micromuse.common.datasource.SQLDataSourceException {
+   log(0,"sql excpetion encountered : " + ErrorMessage );
+   setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',true);
+   setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',ErrorMessage);
+}
+
+// Input to the opview is Serial Number
+
+setGlobalVar('CHECK_CONN_EXCEPTION_RAISED',false);
+setGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE',"");
+EIC_IsolateAndCorrelate.init();
+enableJsonLog=getglobalvar('ENABLE_JSON_LOG');
+isSCRReq=true;
+EIC_utils.checkAllConnections(isEr,err,isSCRReq);
+errorMessage = "";
+isExceptionRaised = getGlobalVar('CHECK_CONN_EXCEPTION_RAISED');
+if( isExceptionRaised = true ) {
+   errorMessage = getGlobalVar('CHECK_CONN_EXCEPTION_ERROR_MESSAGE');
+   EIC_IsolateAndCorrelate.EIC_log(0,"Exception Raised : " + errorMessage);
+   dummyArr = {};
+   id="id";
+   EIC_utils.convertToJSONStr(dummyArr,id,outString);
+   resourcesAndEvents=outString;
+   id="ID";
+   EIC_utils.convertToJSONStr(dummyArr,id,outString);
+   eventRuleInfoData=outString;
+   id="Identifier";
+   EIC_utils.convertToJSONStr(dummyArr,id,outString);
+   primaryEventInfo=outString;
+
+   //actions and tasks
+   idValue = "ACTIONNAME"; 
+   EIC_utils.getListOfTasks(eRuleInfo,actionsList);
+   EIC_utils.convertToJSONStr(actionsList,idValue, outString);
+   eventRuleActionsData = outString;
+ 
+} else {
+   log(3,"Current Context : " + CurrentContext());
+   log(0,"SerialNum : " + @serialNum);
+   log(0,"Serial Num from webgui : " + @_selected_rows_Serial);
+   ssNum = 0;
+   if( @_selected_rows_Serial != null ) {
+      log(0, "Analysis page was launched from WEB GUI");
+      ssNum = @_selected_rows_Serial;
+   } else {
+      if( @serialNum != null ) {
+            ssNum = @serialNum;
+      }
+   }
+   log(0, "Serial Number assigned after processing : " + ssNum);
+   EIC_IsolateAndCorrelate.init();
+   EIC_IsolateAndCorrelate.EIC_log(0,"!!!!!!!!!!!!!!!!!!!!!!! OPVIEW EIC POLICY !!!!!!!!!!!!!!!  ");
+   eMsg = '';
+   EIC_IsolateAndCorrelate.analyze(ssNum, primaryEventInfo, alertArray, dependentResourcesArray,eRuleInfo,emsg );
+   if( emsg != '') {
+     errorMessage = emsg;
+   }
+   EIC_IsolateAndCorrelate.EIC_log(3," Primary Event Info : " + primaryEventInfo);
+   EIC_IsolateAndCorrelate.EIC_log(3,"alert Array : " + alertArray);
+   idValue = 'id';
+   //
+   // Convert the Resources Array and events in to JSON string.
+   //
+   EIC_utils.convertToJSONStr(dependentResourcesArray,idValue,outString);
+   EIC_IsolateAndCorrelate.EIC_log(3,"Dependent Resources Array : " + dependentResourcesArray);
+   EIC_IsolateAndCorrelate.EIC_log(3," log : " + enableJsonLog);
+   if( enableJsonLog = true ) {
+      EIC_IsolateAndCorrelate.EIC_log(3,"Converted String : " + outString);
+   }
+   resourcesAndEvents = outString;
+   
+   if( primaryEventInfo != null ) {
+      node=primaryEventInfo.Node;
+      summary=primaryEventInfo.Summary;
+      alertGroup=primaryEventInfo.AlertGroup;
+      alertKey=primaryEventInfo.AlertKey;
+      severity=""+primaryEventInfo.Severity;
+   }else {
+      node='';
+      summary='';
+      alertGroup='';
+      alertKey='';
+      severity='';
+   }
+   serial=""+ssNum;
+   
+   primArray = {};
+   if( eRuleInfo != null ) {
+     primArray = primArray + eRuleInfo;
+   }
+   
+   idValue="ID";
+   EIC_utils.convertToJSONStr(primArray,idValue,outString);
+   eventRuleInfoData=outString;
+   
+   primArray={};
+   if( primaryEventInfo != null ) {
+      primArray = primArray+primaryEventInfo;
+   }
+   idValue = "Identifier";
+   EIC_IsolateAndCorrelate.EIC_log(3,"Converting the prim Event Info : " + primArray);
+   EIC_utils.convertToJSONStr(primArray,idValue,outString);
+   primaryEventInfo=outString;
+
+   //actions and tasks
+   idValue = "ACTIONNAME"; 
+   EIC_utils.getListOfTasks(eRuleInfo,actionsList);
+   EIC_utils.convertToJSONStr(actionsList,idValue, outString);
+   eventRuleActionsData = outString;
+}
+
+EIC_IsolateAndCorrelate.EIC_log(0,"!!!!!!!!!!!!!!!!!!!!!!! OPVIEW EIC POLICY Completed.!!!!!!!!!!!!!!!  ");

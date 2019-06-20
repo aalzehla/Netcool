@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="ロギング・レベルの設定" />
+<meta name="abstract" content="ロギング・レベルを変更することで、より詳細なログやトレース・ファイルを 提供して、MIB マネージャーのデバッグに役立てることができます。ロギング・レベル を上げることで提供される追加情報は、MIB 解析時の特定の問題をデバッグする際に 役立ちます。" />
+<meta name="Description" content="ロギング・レベルを変更することで、より詳細なログやトレース・ファイルを 提供して、MIB マネージャーのデバッグに役立てることができます。ロギング・レベル を上げることで提供される追加情報は、MIB 解析時の特定の問題をデバッグする際に 役立ちます。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="logging" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" />
+<title>MIB マネージャー</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="logging">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">ロギング・レベルの設定</h1>
+<div class="body refbody"><p class="shortdesc">ロギング・レベルを変更することで、より詳細なログやトレース・ファイルを
+提供して、<span class="keyword">MIB マネージャー</span>のデバッグに役立てることができます。ロギング・レベル
+を上げることで提供される追加情報は、MIB 解析時の特定の問題をデバッグする際に
+役立ちます。</p>
+<div class="section"><p class="p">ロギング・レベルを変更するには、メイン・ウィンドウのメニュー・バーから
+<span class="ph menucascade"><span class="ph uicontrol">「編集」</span> &gt; <span class="ph uicontrol">「デバッグ」</span></span>を
+クリックします。ログ・ファイルには、6 つのメッセージ・レベル (なし、
+エラー、警告、情報、デバッグ、および詳細) があり、この順で、収集される
+詳細情報のレベルを上げることができます。</p>
+<p class="p">以下の表では、各ロギング・レベルの
+要旨を説明しています。</p>
+<div class="p"><div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">表 1. ロギング・レベルおよび関連した説明の
+リスト</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="12.060301507537687%" id="d3897e36">ログ・レベル</th>
+<th class="entry" valign="bottom" width="87.93969849246231%" id="d3897e38">説明</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">なし</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">デバッグ・メッセージが出力されないログ・レベルを
+指定します。</p>
+<p class="p">アプリケーションのパフォーマンスは向上しますが、解析中に
+警告メッセージもエラー・メッセージも表示されません。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">エラー</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">結果に影響を及ぼすエラーのみログに記録される
+ログ・レベルを指定します。</p>
+<p class="p">これには、<span class="keyword">MIB マネージャー</span>によって
+識別された、誤ったデータがメイン・ウィンドウに表示される
+原因となる任意のエラーが含まれます。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">警告</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">警告メッセージおよびエラー・メッセージがログに記録される
+ログ・レベルを指定します。</p>
+<p class="p">警告は、誤ったデータの発生原因となる可能性がある状態を
+示しているため、確認する必要があります。ただし、この状態は
+データ破損の原因とはなりません。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">情報</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">情報メッセージ、警告メッセージ、および重大メッセージがログに記録される
+ログ・レベルを指定します。</p>
+<p class="p">情報メッセージには、全体的なタスク進行に
+関する詳細情報が含まれます。例えば、解析中のオブジェクトに関する
+完全なテキストを提供します。</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">デバッグ</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><div class="p">すべてのメッセージがログに記録される
+ログ・レベルを指定します。<div class="note note"><span class="notetitle">注:</span> <span class="keyword">MIB マネージャー</span>をデバッグ・モードで実行するのは、エラー状態を
+解決しようとしている場合のみにしてください。それほど多くない個数の MIB を
+解析するだけで、大量のデータが生成され、ファイル・システムがすぐに
+一杯になるためです。</div>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="12.060301507537687%" headers="d3897e36 ">詳細</td>
+<td class="entry" valign="top" width="87.93969849246231%" headers="d3897e38 "><p class="p">すべての情報メッセージがログに記録されるログ・レベルを
+指定します。</p>
+<p class="p">詳細メッセージには、変数、配列、およびハッシュの、値と状態が変わる際の
+状態が含まれています。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_logging.html" title="ロギング設定を使用して、MIB マネージャーのログ・ファイル・ディレクトリー を指定するとともに、デフォルトのメッセージ・レベルを設定します。">ロギング設定のセットアップ</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

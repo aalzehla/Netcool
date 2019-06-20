@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Databases, Tables and Columns" />
+<meta name="abstract" content="Use this pane to view details of all databases and tables that are set up in the selected ObjectServer, and to set up and maintain databases and tables." />
+<meta name="Description" content="Use this pane to view details of all databases and tables that are set up in the selected ObjectServer, and to set up and maintain databases and tables." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingdatabases.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_creatingtables.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_addingedittablecols.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingdatabases.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingtables.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_deletingtablecols.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="netom_databasestablescolumnswindow" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Databases, Tables and Columns</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="netom_databasestablescolumnswindow">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Databases, Tables and Columns</h1>
+<div class="body refbody"><p class="shortdesc">Use this pane to view details of all databases and tables that
+are set up in the selected ObjectServer, and to set up and maintain databases
+and tables.</p>
+<div class="section"><p class="p">Within this pane, all the ObjectServer databases are depicted
+in a tree structure, and can be identified with a database symbol. System
+databases have a lock symbol next to them to indicate that you cannot make
+changes to such databases. To view the tables defined for each database, double-click
+the database name. You can also click the round symbol (on UNIX) or the plus
+(+) symbol (on Windows) that is shown to the left of the database name. Tables
+are depicted with a table symbol. You can collapse a list of expanded tables
+by clicking the round symbol (on UNIX) or the minus (-) symbol (on Windows)
+that is shown to the left of the database name.</p>
+<p class="p">You can view and configure
+table and column information for each non-system database listed.</p>
+<div class="p">Use
+the <span class="ph uicontrol">Column Definitions</span> tab to view information about
+the columns in any selected table. This information includes:<ul class="ul"><li class="li">The unique name assigned to the column</li>
+<li class="li">The data type</li>
+<li class="li">The maximum length of characters allowed</li>
+<li class="li">An indication of whether the column is a primary key </li>
+<li class="li">An indication of whether the value of this column must be specified in
+the initial INSERT command</li>
+<li class="li">An indication of whether the value of this column can be changed after
+the initial INSERT command</li>
+<li class="li">An indication of whether the column is hidden </li>
+</ul>
+</div>
+<p class="p">Use the <span class="ph uicontrol">Data View</span> tab to view data contained
+in the selected table. The table columns are depicted as headers, and the
+data is shown in the rows.</p>
+<div class="note tip"><span class="tiptitle">Tip:</span> To refresh any displayed information,
+click the symbol for the currently-selected database or table, or click <span class="ph uicontrol">Refresh</span> in
+the toolbar.</div>
+</div>
+</div>
+<div class="related-links"><div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_creatingdatabases.html" title="You can use Netcool/OMNIbus Administrator to create and manage ObjectServer databases.">Creating databases</a></div>
+<div><a class="link" href="omn_adm_creatingtables.html" title="A table has a fixed number of data-typed columns. The name of each column is unique to the table. A table contains zero or more rows of data in the format defined by the table's column list. The fully-qualified table name includes the database name and the table name, separated by a period.">Creating tables</a></div>
+<div><a class="link" href="omn_adm_addingedittablecols.html" title="You can add new columns to ObjectServer tables or edit existing columns. The maximum number of columns in a table is 512, excluding the system-maintained columns. The maximum row size for a table, which is the sum of the length of the columns in the row, is 64 KB. You cannot add PRIMARY KEY columns to existing tables.">Adding and editing table columns</a></div>
+<div><a class="link" href="omn_adm_deletingdatabases.html" title="You are not permitted to drop system databases, which have a lock icon next to them.">Deleting databases</a></div>
+<div><a class="link" href="omn_adm_deletingtables.html" title="You are not permitted to delete tables in system databases.">Deleting tables</a></div>
+<div><a class="link" href="omn_adm_deletingtablecols.html" title="You are not permitted to delete primary key columns or columns in system tables.">Deleting table columns</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

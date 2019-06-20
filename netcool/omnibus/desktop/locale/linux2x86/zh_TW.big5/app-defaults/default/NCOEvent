@@ -1,0 +1,2924 @@
+
+
+! ****************************************************************************
+! Main event list resource set.
+! ****************************************************************************
+NCOEvent*foreground: White
+NCOEvent*background: Slate Grey
+NCOEvent*fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*XmText.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*XmTextField.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*XmLabel.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*main_status_line.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*main_user_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*main_server_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*sub_status_line.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*sub_clock.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*sub_user_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+NCOEvent*sub_server_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-big5*-*:large
+
+NCOEvent*print_fsb.width:400
+
+! Tool tip background colours
+NCOEvent*xrtGearBackground: wheat
+NCOEvent*xrtGearFontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+
+NCOEvent*xrtBackgroundColor: "Slate Grey"
+NCOEvent*xrtForegroundColor: "white"
+NCOEvent*xrtAxisFont: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+
+NCOEvent*XmToggleButton.selectColor: red
+NCOEvent*XmToggleButton.fillOnSelect: True
+NCOEvent*XmToggleButtonGadget.selectColor: red
+NCOEvent*XmToggleButtonGadget.fillOnSelect: True
+NCOEvent*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+NCOEvent*XmTextField.background: CadetBlue
+NCOEvent*XmText.background: CadetBlue
+NCOEvent*XmXrtIntField.background: CadetBlue
+
+NCOEvent*main_status_line.background: Slate Grey
+NCOEvent*main_user_field.background: Slate Grey
+NCOEvent*main_server_field.background: Slate Grey
+NCOEvent*sub_status_line.background: Slate Grey
+NCOEvent*sub_clock.background: Slate Grey
+NCOEvent*sub_user_field.background: Slate Grey
+NCOEvent*sub_server_field.background: Slate Grey
+
+NCOEvent*output_text.background: Slate Grey
+
+NCOEvent*error_dialog_popup.title: 錯誤
+NCOEvent*warning_dialog_popup.title: 警告
+
+NCOEvent*new_question_dialog_popup.title: 放棄變更？
+NCOEvent*new_question_dialog.messageString: 建立新配置將會遺失已修改的定義\n您確定要這樣做嗎？
+NCOEvent*new_question_dialog.okLabelString: 是
+NCOEvent*new_question_dialog.cancelLabelString: 否
+NCOEvent*new_question_dialog.helpLabelString: 說明
+
+NCOEvent*open_question_dialog_popup.title: 放棄變更？
+NCOEvent*open_question_dialog.messageString: 開啟新配置將會遺失已修改的定義\n您確定要這樣做嗎？
+NCOEvent*open_question_dialog.okLabelString: 是
+NCOEvent*open_question_dialog.cancelLabelString: 否
+NCOEvent*open_question_dialog.helpLabelString: 說明
+
+NCOEvent*exit_question_dialog_popup.title: 放棄變更？
+NCOEvent*exit_question_dialog.messageString: 結束此應用程式將會遺失已修改的定義\n您確定要這樣做嗎？
+NCOEvent*exit_question_dialog.okLabelString: 是
+NCOEvent*exit_question_dialog.cancelLabelString: 否
+NCOEvent*exit_question_dialog.helpLabelString: 說明
+
+NCOEvent*view_drop_help_dialog_popup.title: 視圖放置站台說明
+NCOEvent*view_drop_help_dialog.messageString: 您可以在此放置視圖檔案。\n放置視圖，即可將它新增至現行配置。\n\n請按「確定」以繼續放置，或是取消作業。\n
+
+NCOEvent*filter_drop_help_dialog_popup.title: 過濾器放置站台說明
+NCOEvent*filter_drop_help_dialog.messageString: 您可以在此放置過濾器檔案。\n放置過濾器，即可將它新增至現行配置。\n\n請按「確定」以繼續放置，或是取消作業。\n
+
+NCOEvent*matrix_drop_help_dialog_popup.title: 放置站台說明
+NCOEvent*matrix_drop_help_dialog.messageString: 您可以在此放置視圖、過濾器或配置檔。\n放置視圖或過濾器，即可將它新增至現行配置\n以及將它設為現行視圖或過濾器。\n放置配置檔會有下列其中一種作用：\n\n1. 如果您正在複製資料，會將配置資料新增至現行配置。\n2. 如果您正在移動資料，則會取代現行配置。\n\n請按「確定」以繼續放置，或是取消作業。\n
+
+! Need to set foreground of colour labels
+NCOEvent*unack_crit_label.foreground:  black
+NCOEvent*unack_major_label.foreground: black
+NCOEvent*unack_minor_label.foreground: black
+NCOEvent*unack_warn_label.foreground:  black
+NCOEvent*unack_indet_label.foreground: black
+NCOEvent*unack_clear_label.foreground: black
+NCOEvent*unack_close_label.foreground: black
+NCOEvent*ack_crit_label.foreground:  White
+NCOEvent*ack_major_label.foreground: White
+NCOEvent*ack_minor_label.foreground: White
+NCOEvent*ack_warn_label.foreground:  White
+NCOEvent*ack_indet_label.foreground: White
+NCOEvent*ack_clear_label.foreground: White
+NCOEvent*ack_close_label.foreground: White
+
+! Journal editor dialogs
+
+NCOEvent*jnext_q_dialog_popup.title: 放棄變更？
+NCOEvent*jnext_q_dialog.messageString: 若移動到下一個項目，會遺失已修改的日誌登載詳細資料\n您確定要這樣做嗎？
+NCOEvent*jnext_q_dialog.okLabelString: 是
+NCOEvent*jnext_q_dialog.cancelLabelString: 否
+NCOEvent*jnext_q_dialog.helpLabelString: 說明
+
+NCOEvent*jprev_q_dialog_popup.title: 放棄變更？
+NCOEvent*jprev_q_dialog.messageString: 若移動到前一個項目，會遺失已修改的日誌登載詳細資料\n您確定要這樣做嗎？
+NCOEvent*jprev_q_dialog.okLabelString: 是
+NCOEvent*jprev_q_dialog.cancelLabelString: 否
+NCOEvent*jprev_q_dialog.helpLabelString: 說明
+
+NCOEvent*jclose_q_dialog_popup.title: 放棄變更？
+NCOEvent*jclose_q_dialog.messageString: 關閉此視窗會遺失已修改的日誌登載詳細資料\n您確定要這樣做嗎？
+NCOEvent*jclose_q_dialog.okLabelString: 是
+NCOEvent*jclose_q_dialog.cancelLabelString: 否
+NCOEvent*jclose_q_dialog.helpLabelString: 說明
+
+NCOEvent*extension_dialog_popup.title: 是否使用了不正確的副檔名？
+NCOEvent*extension_dialog.messageString: 指定的檔名沒有 .elc 副檔名\n您確定要使用此檔名來儲存資料嗎？
+NCOEvent*extension_dialog.okLabelString: 是
+NCOEvent*extension_dialog.cancelLabelString: 否
+NCOEvent*extension_dialog.helpLabelString: 說明
+
+! Set matrix resources
+
+NCOEvent*sub_matrix.gridType:	XmGRID_SHADOW_IN
+NCOEvent*sub_matrix.rows:           1
+NCOEvent*sub_matrix.columns:        1
+NCOEvent*sub_matrix.columnWidths:   10
+
+NCOEvent*sub_matrix.cellMarginWidth: 		0
+NCOEvent*sub_matrix.cellMarginHeight:		0
+NCOEvent*sub_matrix.cellShadowThickness: 	1
+NCOEvent*sub_matrix.cellShadowType:		XmSHADOW_OUT
+NCOEvent*sub_matrix.highlightColor:		black
+
+NCOEvent*sub_matrix.showArrows: False
+
+NCOEvent*sub_matrix.foreground: black
+NCOEvent*sub_matrix.rowLabelColor: White
+NCOEvent*sub_matrix.columnLabelColor: White
+NCOEvent*sub_matrix.selectedBackground: White
+NCOEvent*sub_matrix.selectedForeground: black
+
+NCOEvent*sub_matrix.allowColumnResize:   True
+
+NCOEvent*sub_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+
+!
+! This resource controls the scrolling while selecting in the event matrix
+! It also has a side effect that it will jump the event matrix back to the
+! selected row if the cursor leaves and then reenters the matrix window
+!
+NCOEvent*sub_matrix.selectScrollVisible: True
+
+NCOEvent*sub_matrix.translations:   #replace\n		Shift ~Ctrl<Btn1Down>: SelectCell(Match)\n		Ctrl ~Shift<Btn1Down>: SelectCell(AddSelect)\n		Shift Ctrl<Btn1Down>: ResizeColumns()\n		~Shift ~Ctrl<Btn1Down>(2): SelectCell(DClick)\n		~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n		<Btn2Down>:      ProcessDrag()\n		<Btn3Down>:      SelectCell(Menu)\n		<Key>osfUp:      SelectCell(Up)\n		<Key>osfDown:    SelectCell(Down)\n		<Key>space:      SelectCell(KeySelect)\n		<Key>Tab:	 TraverseNext()\n		Shift<Key>Tab:	 TraversePrev()\n		<FocusIn>:	 MatrixFocusIn()\n		<FocusOut>:	 MatrixFocusOut()
+NCOEvent*sub_matrix.clip.translations:   #replace\n		Shift ~Ctrl<Btn1Down>: SelectCell(Match)\n		Ctrl ~Shift<Btn1Down>: SelectCell(AddSelect)\n		Shift Ctrl<Btn1Down>: ResizeColumns()\n		~Shift ~Ctrl<Btn1Down>(2): SelectCell(DClick)\n		~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n		<Btn2Down>:      ProcessDrag()\n		<Btn3Down>:      SelectCell(Menu)\n		<Key>osfUp:      SelectCell(Up)\n		<Key>osfDown:    SelectCell(Down)\n		<Key>space:      SelectCell(KeySelect)\n		<Key>Tab:	 TraverseNext()\n		Shift<Key>Tab:	 TraversePrev()\n		<FocusIn>:	 MatrixFocusIn()\n		<FocusOut>:	 MatrixFocusOut()
+
+NCOEvent*config_list.translations:	#override\n		<Btn2Down>:     ConfigDragStart()
+
+NCOEvent*user_menu.numColumns: 4
+NCOEvent*user_menu.packing: XmPACK_COLUMN
+NCOEvent*user_menu.orientation: XmVERTICAL
+
+NCOEvent*no_user_button.labelString: [沒有使用者]
+
+! Defaults for monitor boxes
+NCOEvent*fs_number_label.labelString:   0
+NCOEvent*fs_highest_label.labelString:  0
+NCOEvent*fs_lowest_label.labelString:   0
+NCOEvent*fs_metric_label.labelString:   0
+
+!
+! Ident: $Id: Global.res 1.2 1997/02/20 14:36:47 adam Development $
+!
+
+
+*viewBuilderSortFontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+*view_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+
+*view_builder*vb_new_question_dialog_popup.title: 放棄變更？
+*view_builder*vb_new_question_dialog.messageString: 建立新視圖將會遺失已修改的定義\n您確定要這樣做嗎？
+*view_builder*vb_new_question_dialog.okLabelString: 是
+*view_builder*vb_new_question_dialog.cancelLabelString: 否
+*view_builder*vb_new_question_dialog.helpLabelString: 說明
+
+*view_builder*vb_open_question_dialog_popup.title: 放棄變更？
+*view_builder*vb_open_question_dialog.messageString: 開啟新視圖將會遺失已修改的定義\n您確定要這樣做嗎？
+*view_builder*vb_open_question_dialog.okLabelString: 是
+*view_builder*vb_open_question_dialog.cancelLabelString: 否
+*view_builder*vb_open_question_dialog.helpLabelString: 說明
+
+*view_builder*vb_exit_question_dialog_popup.title: 放棄變更？
+*view_builder*vb_exit_question_dialog.messageString: 關閉此視窗將會遺失已修改的定義\n您確定要這樣做嗎？
+*view_builder*vb_exit_question_dialog.okLabelString: 是
+*view_builder*vb_exit_question_dialog.cancelLabelString: 否
+*view_builder*vb_exit_question_dialog.helpLabelString: 說明
+
+*view_builder*display_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+
+*view_builder*display_matrix.gridType:	XmGRID_SHADOW_IN
+*view_builder*display_matrix.height:         80
+*view_builder*display_matrix.rows:           2
+*view_builder*display_matrix.columns:        1
+*view_builder*display_matrix.columnWidths:   10
+
+*view_builder*display_matrix.cellMarginWidth: 		2
+*view_builder*display_matrix.cellMarginHeight: 		2
+*view_builder*display_matrix.cellShadowThickness:	1
+*view_builder*display_matrix.cellShadowType: 		XmSHADOW_OUT
+
+*view_builder*display_matrix.showArrows: True
+*view_builder*display_matrix.allowColumnResize: True
+
+*view_builder*display_matrix.foreground: black
+*view_builder*display_matrix.rowLabelColor: White
+*view_builder*display_matrix.columnLabelColor: White
+*view_builder*display_matrix.selectedBackground: White
+*view_builder*display_matrix.selectedForeground: black
+
+*view_builder*display_matrix.translations:   #replace\n			Shift Ctrl<Btn1Down>: ResizeColumns()\n                        <Btn1Down>:      SelectCell(select)\n                        <Btn2Down>:      SelectCell(drag)\n                        <Btn3Down>:      SelectCell(menu)
+*view_builder*display_matrix.traversalOn:	False
+
+*view_builder*display_column_list.translations:	#override\n			<Btn2Down>:      VbDpyDragStart()
+*view_builder*sort_column_list.translations:	#override\n			<Btn2Down>:      VbSortDragStart()
+
+*view_builder*display_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+
+*view_builder*vb_extension_dialog_popup.title: 是否使用了不正確的副檔名？
+*view_builder*vb_extension_dialog.messageString: 指定的檔名沒有 .elv 副檔名\n您確定要使用此檔名來儲存資料嗎？
+*view_builder*vb_extension_dialog.okLabelString: 是
+*view_builder*vb_extension_dialog.cancelLabelString: 否
+*view_builder*vb_extension_dialog.helpLabelString: 說明
+! Generated by X-Designer
+
+
+! view_builder
+*view_builder*view_builder.width: 500
+*view_builder*view_builder.title: 視圖建置器
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*view_builder*file_cascade_button.labelString: 檔案(F)
+*view_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*view_builder*file_new_button.labelString: 新建(N)
+*view_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*view_builder*file_open_button.labelString: 開啟(O)...
+*view_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*view_builder*file_save_button.labelString: 儲存(S)
+*view_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*view_builder*file_save_as_button.labelString: 另存新檔(A)...
+*view_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*view_builder*file_close_button.labelString: 關閉(C)
+*view_builder*file_close_button.mnemonic: C
+
+! vb_mb
+
+! vb_apply_button
+*view_builder*vb_apply_button.labelString: 套用
+
+! vb_close_button
+*view_builder*vb_close_button.labelString: 關閉
+
+! vb_help_button
+*view_builder*vb_help_button.labelString: 說明
+
+! form2
+
+! label1
+*view_builder*name_label.labelString: 視圖名稱
+
+! name_field
+
+! view_editable_toggle
+*view_builder*view_editable_toggle.labelString: 可編輯
+
+! frame2
+
+! dnd_target
+
+! disp_cols_form
+*view_builder*disp_cols_form.paneMinimum: 1
+
+! label2
+*view_builder*display_columns_label.labelString: 顯示直欄
+
+! frame4
+
+! display_matrix
+
+! rowcol1
+
+! disp_add_button
+*view_builder*disp_add_button.labelString: 新增
+
+! disp_remove_button
+*view_builder*disp_remove_button.labelString: 移除
+
+! display_column_list
+
+! rowcol2
+
+! move_first_button
+*view_builder*move_first_button.labelString: 第一筆
+
+! move_left_button
+*view_builder*move_left_button.labelString: 左
+
+! move_right_button
+*view_builder*move_right_button.labelString: 右
+
+! move_last_button
+*view_builder*move_last_button.labelString: 最後一筆
+
+! aligner1
+
+! column_label
+*view_builder*column_label.labelString: 直欄
+
+! column_field
+
+! title_label
+*view_builder*title_label.labelString: 標題
+
+! title_field
+
+! column_align_menu
+*view_builder*column_align_menu.labelString: 對齊
+
+! label3
+
+! column_align_beginning
+*view_builder*column_align_beginning.labelString: 左
+
+! column_align_center
+*view_builder*column_align_center.labelString: 中
+
+! column_align_end
+*view_builder*column_align_end.labelString: 右
+
+! title_align_menu
+*view_builder*title_align_menu.labelString: 對齊
+
+! label4
+
+! title_align_beginning
+*view_builder*title_align_beginning.labelString: 左
+
+! title_align_center
+*view_builder*title_align_center.labelString: 中
+
+! title_align_end
+*view_builder*title_align_end.labelString: 右
+
+! width_label
+*view_builder*width_label.labelString: 寬度
+
+! width_scale
+
+! label5
+*view_builder*column_details_label.labelString: 直欄詳細資料
+
+! label6
+*view_builder*num_fixed_label.labelString: 固定直欄
+
+! num_fixed_scale
+
+! sort_cols_form
+*view_builder*sort_cols_form.paneMinimum: 1
+
+! label7
+*view_builder*sort_columns_label.labelString: 排序直欄
+
+! sort_column_list
+
+! rowcol3
+
+! sort_add_button
+*view_builder*sort_add_button.labelString: 新增
+
+! sort_remove_button
+*view_builder*sort_remove_button.labelString: 移除
+
+! sort_sw
+
+! sort_da
+
+! rowcol4
+
+! move_top_button
+*view_builder*move_top_button.labelString: 頂端
+
+! move_up_button
+*view_builder*move_up_button.labelString: 上移
+
+! move_down_button
+*view_builder*move_down_button.labelString: 下移
+
+! move_bottom_button
+*view_builder*move_bottom_button.labelString: 底端
+
+! restrict_rows_rowcol
+
+! label16
+*view_builder*label16.labelString: 限制列
+
+! restrict_rows_sub_rowcol
+
+! restrict_rows_toggle
+*view_builder*restrict_rows_toggle.labelString: 限制列數
+
+! min_label
+*view_builder*min_label.labelString: 最小值
+
+! restrict_rows_min_spin
+
+! max_label
+*view_builder*max_label.labelString: 最大值
+
+! restrict_rows_max_spin
+
+! default_label
+*view_builder*default_label.labelString: 預設值
+
+! restrict_rows_default_spin
+
+! restrict_rows_from_eventlist_toggle
+*view_builder*restrict_rows_from_eventlist_toggle.labelString: 從事件清單設定
+
+
+! vb_sort_popup
+*view_builder*vb_sort_popup.menuPost: <Button3>
+
+! sp_change_button
+*view_builder*sp_change_button.labelString: 變更
+
+! sp_top_button
+*view_builder*sp_top_button.labelString: 頂端
+
+! sp_up_button
+*view_builder*sp_up_button.labelString: 上移
+
+! sp_down_button
+*view_builder*sp_down_button.labelString: 下移
+
+! sp_bottom_button
+*view_builder*sp_bottom_button.labelString: 底端
+
+! sp_delete_button
+*view_builder*sp_delete_button.labelString: 移除
+
+! vb_display_popup
+*view_builder*vb_display_popup.menuPost: <Button3>
+
+! dp_first_button
+*view_builder*dp_first_button.labelString: 第一筆
+
+! dp_left_button
+*view_builder*dp_left_button.labelString: 左
+
+! dp_right_button
+*view_builder*dp_right_button.labelString: 右
+
+! dp_last_button
+*view_builder*dp_last_button.labelString: 最後一筆
+
+! dp_delete_button
+*view_builder*dp_delete_button.labelString: 移除
+
+
+! vb_save_dialog
+*view_builder*vb_save_dialog.title: 儲存視圖...
+
+! vb_save_file_sb
+*view_builder*vb_save_file_sb.applyLabelString: 過濾器
+*view_builder*vb_save_file_sb.okLabelString: 確定
+*view_builder*vb_save_file_sb.cancelLabelString: 取消
+*view_builder*vb_save_file_sb.helpLabelString: 說明
+*view_builder*vb_save_file_sb.selectionLabelString: 選項
+*view_builder*vb_save_file_sb.filterLabelString: 檔案過濾器
+*view_builder*vb_save_file_sb.fileListLabelString: 檔案
+*view_builder*vb_save_file_sb.dirListLabelString: 目錄
+*view_builder*vb_save_file_sb.pattern: *.elv
+
+! label10
+*view_builder*vb_save_file_sb.FilterLabel.labelString: 檔案過濾器
+
+! save_backup_toggle
+*view_builder*save_backup_toggle.labelString: 備份現有檔案
+
+
+! vb_open_dialog
+*view_builder*vb_open_dialog.title: 開啟視圖...
+
+! vb_open_file_sb
+*view_builder*vb_open_file_sb.applyLabelString: 過濾器
+*view_builder*vb_open_file_sb.okLabelString: 確定
+*view_builder*vb_open_file_sb.cancelLabelString: 取消
+*view_builder*vb_open_file_sb.helpLabelString: 說明
+*view_builder*vb_open_file_sb.selectionLabelString: 選項
+*view_builder*vb_open_file_sb.filterLabelString: 檔案過濾器
+*view_builder*vb_open_file_sb.fileListLabelString: 檔案
+*view_builder*vb_open_file_sb.dirListLabelString: 目錄
+*view_builder*vb_open_file_sb.pattern: *.elv
+
+! label14
+*view_builder*vb_open_file_sb.FilterLabel.labelString: 檔案過濾器
+
+!
+! SCCS: @(#)Global.res (libfb) 3.5 01/15/97 14:08:49
+!
+
+
+*filter_builder*XmToggleButton.selectColor: red
+*filter_builder*XmToggleButton.fillOnSelect: True
+*filter_builder*XmToggleButtonGadget.selectColor: red
+*filter_builder*XmToggleButtonGadget.fillOnSelect: True
+*filter_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+*filter_builder*XmTextField.background: Cadet Blue
+*filter_builder*XmText.background: Cadet Blue
+
+*filter_builder*status_line.background: Slate Grey
+*filter_builder*user_field.background: Slate Grey
+*filter_builder*server_field.background: Slate Grey
+
+*filter_builder*int_conversions_combo*XmList*background: CadetBlue
+
+
+*filter_builder*string_editor.width: 80
+
+*filter_builder*fb_new_question_dialog_popup.title: 放棄變更？
+*filter_builder*fb_new_question_dialog.messageString: 建立新過濾器將會遺失已修改的定義\n您確定要這樣做嗎？
+*filter_builder*fb_new_question_dialog.okLabelString: 是
+*filter_builder*fb_new_question_dialog.cancelLabelString: 否
+*filter_builder*fb_new_question_dialog.helpLabelString: 說明
+
+*filter_builder*fb_open_question_dialog_popup.title: 放棄變更？
+*filter_builder*fb_open_question_dialog.messageString: 開啟新過濾器將會遺失已修改的定義\n您確定要這樣做嗎？
+*filter_builder*fb_open_question_dialog.okLabelString: 是
+*filter_builder*fb_open_question_dialog.cancelLabelString: 否
+*filter_builder*fb_open_question_dialog.helpLabelString: 說明
+
+*filter_builder*fb_exit_question_dialog_popup.title: 放棄變更？
+*filter_builder*fb_exit_question_dialog.messageString: 關閉此視窗將會遺失已修改的定義\n您確定要這樣做嗎？
+*filter_builder*fb_exit_question_dialog.okLabelString: 是
+*filter_builder*fb_exit_question_dialog.cancelLabelString: 否
+*filter_builder*fb_exit_question_dialog.helpLabelString: 說明
+
+*filter_builder*fb_extension_dialog_popup.title: 是否使用了不正確的副檔名？
+*filter_builder*fb_extension_dialog.messageString: 指定的檔名沒有 .elf 副檔名\n您確定要使用此檔名來儲存資料嗎？
+*filter_builder*fb_extension_dialog.okLabelString: 是
+*filter_builder*fb_extension_dialog.cancelLabelString: 否
+*filter_builder*fb_extension_dialog.helpLabelString: 說明
+
+*filter_builder*component_button.translations: #override\n		<Btn2Down>:	FbDoNothing()
+
+! LIBFB_MSG0001
+NCOEvent*filter_builder.libfbPasteMismatch.messageString: 貼上作業的表格不符
+! LIBFB_MSG0002
+NCOEvent*fb_edit_mb.libfbInvalidSQL.messageString: SQL 陳述式無效。請檢查您的陳述式內容。
+! LIBFB_MSG0003
+NCOEvent*fb_edit_mb.libfbInvalidComplex.messageString: 複式表示式陳述式無效。請檢查您的陳述式內容。
+! LIBFB_MSG0004
+NCOEvent*libfbInvalidLeftExpr.messageString: 左方表示式無效。請檢查已使用的\n文字及直欄參照的指定資料類型，以及關聯的運算子。
+! Generated by X-Designer
+
+
+! fb_edit_dialog
+*filter_builder*fb_edit_dialog.title: 過濾器 SQL 編輯
+
+! fb_edit_mb
+
+! fb_edit_ok_button
+*filter_builder*fb_edit_ok_button.labelString: 確定
+
+! fb_edit_cancel_button
+*filter_builder*fb_edit_cancel_button.labelString: 取消
+
+! fb_edit_help_button
+*filter_builder*fb_edit_help_button.labelString: 說明
+
+! fb_edit_text
+
+
+! filter_builder
+*filter_builder*filter_builder.width: 850
+*filter_builder*filter_builder.height: 700
+*filter_builder*filter_builder.title: 過濾器建置器
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*filter_builder*file_cascade_button.labelString: 檔案(F)
+*filter_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*filter_builder*file_new_button.labelString: 新建(N)
+*filter_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*filter_builder*file_open_button.labelString: 開啟(O)...
+*filter_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*filter_builder*file_save_button.labelString: 儲存(S)
+*filter_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*filter_builder*file_save_as_button.labelString: 另存新檔(A)...
+*filter_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*filter_builder*file_close_button.labelString: 關閉(C)
+*filter_builder*file_close_button.mnemonic: C
+
+! edit_cascade_button
+*filter_builder*edit_cascade_button.labelString: 編輯(E)
+*filter_builder*edit_cascade_button.mnemonic: E
+
+! edit_menu
+
+! edit_cut_button
+*filter_builder*edit_cut_button.labelString: 剪下(T)
+*filter_builder*edit_cut_button.mnemonic: t
+*filter_builder*edit_cut_button.accelerator: Shift<Key>osfDelete
+*filter_builder*edit_cut_button.acceleratorText: Shift+Del
+
+! edit_copy_button
+*filter_builder*edit_copy_button.labelString: 複製(C)
+*filter_builder*edit_copy_button.mnemonic: C
+*filter_builder*edit_copy_button.accelerator: Ctrl<Key>osfInsert
+*filter_builder*edit_copy_button.acceleratorText: Ctrl+Insert
+
+! edit_paste_button
+*filter_builder*edit_paste_button.labelString: 貼上(P)
+*filter_builder*edit_paste_button.mnemonic: P
+*filter_builder*edit_paste_button.accelerator: Shift<Key>osfInsert
+*filter_builder*edit_paste_button.acceleratorText: Shift+Ins
+
+! fb_mb
+
+! form2
+
+! label1
+*filter_builder*name_label.labelString: 過濾器名稱
+
+! name_field
+
+! filter_editable_toggle
+*filter_builder*filter_editable_toggle.labelString: 可編輯
+
+! frame2
+
+! dnd_target
+
+! separator3
+
+! button_rc
+
+! rowcol4
+
+! predicate_button
+*filter_builder*predicate_button.labelString: 條件
+
+! negate_button
+*filter_builder*negate_button.labelString: 無效
+
+! leading_logical_button
+*filter_builder*leading_logical_button.labelString: 前置\n邏輯
+
+! trailing_logical_button
+*filter_builder*trailing_logical_button.labelString: 尾端\n邏輯
+
+! subquery_button
+*filter_builder*subquery_button.labelString: 子查詢
+
+! rowcol3
+
+! edit_delcomp_button
+*filter_builder*edit_delcomp_button.labelString: 刪除\n元素
+
+! edit_deltree_button
+*filter_builder*edit_deltree_button.labelString: 刪除\n樹狀結構
+
+! rowcol2
+
+! fb_edit_sql_button
+*filter_builder*fb_edit_sql_button.labelString: 編輯\nSQL...
+
+! separator6
+
+! main_sw
+*filter_builder*main_sw.height: 330
+
+! tree
+
+! separator5
+
+! sql_text
+
+! separator7
+
+! form
+
+! in_form
+
+! rowcol1
+
+! fb_in_value_add_button
+*filter_builder*form*fb_in_value_add_button.labelString: 新增
+
+! fb_in_value_remove_button
+*filter_builder*form*fb_in_value_remove_button.labelString: 移除
+
+! in_list
+
+! separator8
+
+! metric_form
+
+! metric_function_menu
+*filter_builder*metric_function_menu.labelString: 度量：
+
+! label2
+
+! metric_avg_button
+*filter_builder*metric_avg_button.labelString: 平均值
+
+! metric_count_button
+*filter_builder*metric_count_button.labelString: 計數
+
+! metric_sum_button
+*filter_builder*metric_sum_button.labelString: 總和
+
+! metric_min_button
+*filter_builder*metric_min_button.labelString: 最小值
+
+! metric_max_button
+*filter_builder*metric_max_button.labelString: 最大值
+
+! metric_field_menu
+*filter_builder*metric_field_menu.labelString: /
+
+! label3
+
+! metric_field_button
+
+! fb_apply_button
+*filter_builder*fb_apply_button.labelString: 套用
+
+! fb_close_button
+*filter_builder*fb_close_button.labelString: 關閉
+
+! fb_help_button
+*filter_builder*fb_help_button.labelString: 說明
+
+
+! fb_save_dialog
+*filter_builder*fb_save_dialog.title: 儲存過濾器...
+
+! fb_save_file_sb
+*filter_builder*fb_save_file_sb.applyLabelString: 過濾器
+*filter_builder*fb_save_file_sb.okLabelString: 確定
+*filter_builder*fb_save_file_sb.cancelLabelString: 取消
+*filter_builder*fb_save_file_sb.helpLabelString: 說明
+*filter_builder*fb_save_file_sb.selectionLabelString: 選項
+*filter_builder*fb_save_file_sb.filterLabelString: 檔案過濾器
+*filter_builder*fb_save_file_sb.fileListLabelString: 檔案
+*filter_builder*fb_save_file_sb.dirListLabelString: 目錄
+*filter_builder*fb_save_file_sb.pattern: *.elf
+
+! label6
+*filter_builder*fb_save_file_sb.FilterLabel.labelString: 檔案過濾器
+
+! save_backup_toggle
+*filter_builder*save_backup_toggle.labelString: 儲存現有檔案
+
+
+! fb_open_dialog
+*filter_builder*fb_open_dialog.title: 開啟過濾器...
+
+! fb_open_file_sb
+*filter_builder*fb_open_file_sb.applyLabelString: 過濾器
+*filter_builder*fb_open_file_sb.okLabelString: 確定
+*filter_builder*fb_open_file_sb.cancelLabelString: 取消
+*filter_builder*fb_open_file_sb.helpLabelString: 說明
+*filter_builder*fb_open_file_sb.selectionLabelString: 選項
+*filter_builder*fb_open_file_sb.filterLabelString: 檔案過濾器
+*filter_builder*fb_open_file_sb.fileListLabelString: 檔案
+*filter_builder*fb_open_file_sb.dirListLabelString: 目錄
+*filter_builder*fb_open_file_sb.pattern: *.elf
+
+! label10
+*filter_builder*fb_open_file_sb.FilterLabel.labelString: 檔案過濾器
+
+
+! predicate_component
+
+! predicate_type_menu
+*filter_builder*predicate_type_menu.labelString: 表示式類型
+
+! label23
+
+! predicate_type_simple
+*filter_builder*predicate_type_simple.labelString: 簡式
+
+! predicate_type_complex
+*filter_builder*predicate_type_complex.labelString: 複式
+
+! predicate_type_freeform
+*filter_builder*predicate_type_freeform.labelString: 開放式
+
+! predicate_field_menu
+*filter_builder*predicate_field_menu.labelString: 直欄
+
+! label12
+
+! predicate_field_menu_button
+
+! predicate_op_menu
+*filter_builder*predicate_op_menu.labelString: 運算子
+
+! label13
+
+! predicate_op_menu_button
+
+! predicate_op_menu_rc
+
+! predicate_op_eq_button
+*filter_builder*predicate_op_eq_button.labelString: 等於
+
+! predicate_op_lt_button
+*filter_builder*predicate_op_lt_button.labelString: 小於
+
+! predicate_op_lte_button
+*filter_builder*predicate_op_lte_button.labelString: 小於等於
+
+! predicate_op_like_button
+*filter_builder*predicate_op_like_button.labelString: 相似於
+
+! predicate_op_in_button
+*filter_builder*predicate_op_in_button.labelString: 包含於
+
+! predicate_op_ne_button
+*filter_builder*predicate_op_ne_button.labelString: 不等於
+
+! predicate_op_gt_button
+*filter_builder*predicate_op_gt_button.labelString: 大於
+
+! predicate_op_gte_button
+*filter_builder*predicate_op_gte_button.labelString: 大於等於
+
+! predicate_op_nlike_button
+*filter_builder*predicate_op_nlike_button.labelString: 不相似於
+
+! predicate_op_nin_button
+*filter_builder*predicate_op_nin_button.labelString: 不包含於
+
+! logical_component
+
+! logical_and_toggle
+*filter_builder*logical_and_toggle.labelString: 邏輯 AND
+
+! logical_or_toggle
+*filter_builder*logical_or_toggle.labelString: 邏輯 OR
+
+! subquery_component
+
+! subquery_selection_menu
+*filter_builder*subquery_selection_menu.labelString: 直欄
+
+! label14
+
+! subquery_selection_menu_button
+
+! subquery_op_menu
+*filter_builder*subquery_op_menu.labelString: 運算子
+
+! label15
+
+! subquery_op_menu_button
+
+! subquery_op_menu_rc
+
+! subquery_op_in_button
+*filter_builder*subquery_op_in_button.labelString: 包含於
+
+! subquery_op_nin_button
+*filter_builder*subquery_op_nin_button.labelString: 不包含於
+
+! subquery_field_menu
+*filter_builder*subquery_field_menu.labelString: 選取
+
+! label16
+
+! subquery_field_menu_button
+
+! subquery_table_menu
+*filter_builder*subquery_table_menu.labelString: 從
+
+! label17
+
+! subquery_table_menu_button
+
+! subquery_table_menu_rc
+
+! subquery_status_table_button
+
+! subquery_details_table_button
+
+! subquery_journal_table_button
+
+! time_editor
+
+! te_type_menu
+
+! te_absolute_button
+*filter_builder*te_absolute_button.labelString: 絕對
+
+! te_relative_button
+*filter_builder*te_relative_button.labelString: 相對
+
+! te_relative_field
+
+! te_absolute_form
+
+! label22
+*filter_builder*date_day_label.labelString: dd:
+
+! te_field1
+
+! te_up1
+
+! te_down1
+
+! label19
+*filter_builder*date_month_label.labelString: mm:
+
+! te_field2
+
+! te_up2
+
+! te_down2
+
+! label20
+*filter_builder*date_year_label.labelString: yyyy:
+
+! te_field3
+
+! te_up3
+
+! te_down3
+
+! label24
+*filter_builder*time_hour_label.labelString: hh:
+
+! te_field4
+
+! te_up4
+
+! te_down4
+
+! label26
+*filter_builder*time_minute_label.labelString: mm:
+
+! te_field5
+
+! te_up5
+
+! te_down5
+
+! label27
+*filter_builder*time_second_label.labelString: ss:
+
+! te_field6
+
+! te_up6
+
+! te_down6
+
+! int_editor
+
+! int_conversions_menu
+
+! int_conversions_combo
+
+! int_field
+*filter_builder*int_field.width: 80
+
+! int_inc_button
+
+! int_dec_button
+
+! exp_editor
+
+! complex_text_sb_h
+
+! complex_text_sb_v
+
+! complex_text_fld
+
+! complex_edit_btn
+*filter_builder*complex_edit_btn.labelString: 編輯...
+
+! Generated by X-Designer
+
+
+! about_dialog
+NCOEvent*about_dialog.allowShellResize: false
+NCOEvent*about_dialog.title: 關於...
+
+! about_form
+NCOEvent*about_form.autoUnmanage: false
+
+! about_image
+
+! Generated by X-Designer
+
+
+! sdown_dialog
+NCOEvent*sdown_dialog.allowShellResize: true
+NCOEvent*sdown_dialog.title: 連線失敗
+
+! sdown_mb
+NCOEvent*sdown_mb.autoUnmanage: true
+NCOEvent*sdown_mb.dialogType: DIALOG_ERROR
+NCOEvent*sdown_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*sdown_mb.messageString: 您試圖連線的伺服器\n似乎沒有回應。\n\n請使用不同的伺服器名稱重試。
+NCOEvent*sdown_mb.okLabelString: 確定
+NCOEvent*sdown_mb.cancelLabelString: 取消
+NCOEvent*sdown_mb.helpLabelString: 說明
+
+! button2
+NCOEvent*sdown_mb.Help.sensitive: false
+
+
+! fatal_dialog
+NCOEvent*fatal_dialog.allowShellResize: true
+NCOEvent*fatal_dialog.title: 登入失敗
+
+! fatal_mb
+NCOEvent*fatal_mb.autoUnmanage: true
+NCOEvent*fatal_mb.dialogType: DIALOG_ERROR
+NCOEvent*fatal_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*fatal_mb.messageString: 無法辨識您所提供的\n使用者名稱及(或)密碼。\n\n很抱歉，您嘗試了三次，已達次數上限！
+NCOEvent*fatal_mb.okLabelString: 確定
+NCOEvent*fatal_mb.cancelLabelString: 取消
+NCOEvent*fatal_mb.helpLabelString: 說明
+
+! button5
+NCOEvent*fatal_mb.Help.sensitive: false
+
+
+! attempt_dialog
+NCOEvent*attempt_dialog.allowShellResize: true
+NCOEvent*attempt_dialog.title: 登入失敗
+
+! attempt_mb
+NCOEvent*attempt_mb.autoUnmanage: true
+NCOEvent*attempt_mb.dialogType: DIALOG_ERROR
+NCOEvent*attempt_mb.messageAlignment: ALIGNMENT_CENTER
+NCOEvent*attempt_mb.messageString: 無法辨識您所提供的\n使用者名稱及(或)密碼。請再試一次。
+NCOEvent*attempt_mb.okLabelString: 確定
+NCOEvent*attempt_mb.cancelLabelString: 取消
+NCOEvent*attempt_mb.helpLabelString: 說明
+
+! button8
+NCOEvent*attempt_mb.Help.sensitive: false
+
+
+! login_dialog
+NCOEvent*login_dialog.allowShellResize: true
+NCOEvent*login_dialog.title: 登入
+
+! login_mb
+NCOEvent*login_mb.autoUnmanage: false
+NCOEvent*login_mb.dialogType: DIALOG_TEMPLATE
+
+! login_ok_button
+NCOEvent*login_ok_button.labelString: 確定
+
+! login_cancel_button
+NCOEvent*login_cancel_button.labelString: 取消
+
+! login_help_button
+NCOEvent*login_help_button.sensitive: false
+NCOEvent*login_help_button.labelString: 說明
+
+! login_mframe
+
+! login_mform
+
+! login_tframe
+NCOEvent*login_tframe.shadowType: SHADOW_OUT
+NCOEvent*login_tframe.marginHeight: 3
+NCOEvent*login_tframe.marginWidth: 3
+
+! login_big_label
+NCOEvent*login_big_label.labelString:  
+NCOEvent*login_big_label.alignment: ALIGNMENT_CENTER
+
+! login_msg
+NCOEvent*login_little_label.labelString: 請輸入您的\n使用者名稱及密碼以繼續進行
+
+! login_credentials
+
+! login_username_label
+NCOEvent*login_username_label.labelString: 使用者名稱
+
+! login_username_field
+NCOEvent*login_username_field.xrtGearResizeWidth: true
+
+! login_password_label
+NCOEvent*login_password_label.labelString: 密碼
+
+! login_password_field
+NCOEvent*login_password_field.xrtGearResizeWidth: true
+
+! login_sep
+
+! login_server_menu
+NCOEvent*login_server_menu.navigationType: TAB_GROUP
+NCOEvent*login_server_menu.labelString: 伺服器
+
+! login_server_label
+
+! login_server_cascade
+
+NCOEvent*OclMessage.MSG_00003.messageString: 警告：
+NCOEvent*OclMessage.MSG_00004.messageString: 錯誤：
+NCOEvent*OclMessage.MSG_00005.messageString: 嚴重錯誤：
+NCOEvent*OclMessage.MSG_00006.messageString: 您不是有效的使用者\n
+NCOEvent*OclMessage.MSG_00007.messageString: 開啟用戶端錯誤：
+NCOEvent*OclMessage.MSG_00008.messageString: 開啟用戶端訊息：
+NCOEvent*OclMessage.MSG_00009.messageString: 伺服器訊息：
+NCOEvent*OclMessage.MSG_00010.messageString: 無法配置伺服器環境定義\n
+NCOEvent*OclMessage.MSG_00011.messageString: 無法起始伺服器環境定義\n
+NCOEvent*OclMessage.MSG_00012.messageString: 無法設定用戶端訊息回呼\n
+NCOEvent*OclMessage.MSG_00013.messageString: 無法設定伺服器訊息回呼\n
+NCOEvent*OclMessage.MSG_00014.messageString: 非預期的伺服器關機\n
+NCOEvent*OclMessage.MSG_00015.messageString: 無法配置連線環境\n
+NCOEvent*OclMessage.MSG_00016.messageString: 無法設定連線內容：使用者名稱\n
+NCOEvent*OclMessage.MSG_00017.messageString: 無法設定連線內容：密碼\n
+NCOEvent*OclMessage.MSG_00018.messageString: 無法設定連線內容：應用程式名稱\n
+NCOEvent*OclMessage.MSG_00019.messageString: 無法連線\n
+NCOEvent*OclMessage.MSG_00020.messageString: 無法中斷連線\n
+NCOEvent*OclMessage.MSG_00021.messageString: 無法捨棄連線環境\n
+NCOEvent*OclMessage.MSG_00022.messageString: 無法關閉伺服器環境定義\n
+NCOEvent*OclMessage.MSG_00023.messageString: 無法捨棄伺服器環境定義\n
+NCOEvent*OclMessage.MSG_00024.messageString: 無法配置指令環境定義\n
+NCOEvent*OclMessage.MSG_00025.messageString: 無法處理指令\n
+NCOEvent*OclMessage.MSG_00026.messageString: 無法傳送指令\n
+NCOEvent*OclMessage.MSG_00027.messageString: 無法中斷指令\n
+NCOEvent*OclMessage.MSG_00028.messageString: 無法執行 SQL 要求\n
+NCOEvent*OclMessage.MSG_00029.messageString: %1$s：無法開啟顯示畫面\n
+NCOEvent*OclMessage.MSG_00030.messageString: 未知的選項：%1$s\n
+NCOEvent*OclMessage.MSG_00031.messageString: 無法連線至物件伺服器\n
+NCOEvent*OclMessage.MSG_00032.messageString: 警告：無法修正連至 XKeysymDB 的路徑！\n
+NCOEvent*OclMessage.MSG_00033.messageString: 無法取得伺服器主機名稱\n
+NCOEvent*OclMessage.MSG_00034.messageString: 無法使用資料庫警示\n
+NCOEvent*OclMessage.MSG_00035.messageString: 無法設定介面內容\n
+NCOEvent*OclMessage.MSG_00036.messageString: 訊息號碼解碼：層 %1$ld，源點 %2$ld，嚴重性 %3$ld，號碼 %4$ld\n
+NCOEvent*OclMessage.MSG_00037.messageString: 訊息字串：%1$s\n
+NCOEvent*OclMessage.MSG_00038.messageString: 作業系統錯誤：%1$s\n
+NCOEvent*OclMessage.MSG_00039.messageString: 訊息號碼解碼：號碼 %1$ld，嚴重性 %2$ld，狀態 %3$ld，行 %4$ld\n
+NCOEvent*OclMessage.MSG_00040.messageString: 從伺服器 '%1$s'\n
+NCOEvent*OclMessage.MSG_00041.messageString: 程序 '%1$s'\n
+NCOEvent*OclMessage.MSG_00042.messageString: 訊息字串：%1$s\n
+NCOEvent*OclMessage.MSG_00043.messageString: ** 開始追蹤延伸的診斷程式 **\n
+NCOEvent*OclMessage.MSG_00044.messageString: ** 結束追蹤延伸的診斷程式 **\n
+NCOEvent*OclMessage.MSG_00045.messageString: 結果處理失敗\n
+NCOEvent*OclMessage.MSG_00046.messageString: 傳回非預期的結果\n
+NCOEvent*OclMessage.MSG_00047.messageString: 直欄連結失敗\n
+NCOEvent*OclMessage.MSG_00048.messageString: 橫列提取失敗\n
+NCOEvent*OclMessage.MSG_00049.messageString: 欄位 '%1$s' 不存在於表格 '%2$s' 中，或具有錯誤的類型\n
+NCOEvent*OclMessage.MSG_00050.messageString: 告急：
+NCOEvent*OclMessage.MSG_00051.messageString: SelectCell() 的引數號碼無效\n
+NCOEvent*OclMessage.MSG_00058.messageString: 過濾器="
+NCOEvent*OclMessage.MSG_00059.messageString: 視圖="
+NCOEvent*OclMessage.MSG_00060.messageString: \ - 廣域凍結
+NCOEvent*OclMessage.MSG_00061.messageString: \ - 凍結
+NCOEvent*OclMessage.MSG_00062.messageString: 用法：%1$s [options]\n\n其中的選項可以是：\n
+NCOEvent*OclMessage.MSG_00063.messageString: \011-config(-elc) <name>\011起始配置檔\n
+NCOEvent*OclMessage.MSG_00066.messageString: 預設值
+NCOEvent*OclMessage.MSG_00067.messageString: \011-username <name>\011用來執行連線的使用者名稱\n
+NCOEvent*OclMessage.MSG_00068.messageString: \011-password <name>\011執行連線的使用者密碼\n
+NCOEvent*OclMessage.MSG_00069.messageString: \011-server <name>\011連接的物件伺服器\n
+NCOEvent*OclMessage.MSG_00070.messageString: \011-help\011\011顯示此說明文字\n
+NCOEvent*OclMessage.MSG_00071.messageString: \011-version\011顯示版本資訊\n
+NCOEvent*OclMessage.MSG_00072.messageString: \011-nlw\011\011不顯示授權期限警告\n
+NCOEvent*OclMessage.MSG_00073.messageString: \011-diagnostic\011顯示延伸的診斷訊息\n
+NCOEvent*OclMessage.MSG_00074.messageString: \n下列「標準」X 選項也已確認：\n
+NCOEvent*OclMessage.MSG_00075.messageString: \011-background 或 -bg <color>\n
+NCOEvent*OclMessage.MSG_00077.messageString: \011-bordercolor 或 -bd <color>\n
+NCOEvent*OclMessage.MSG_00079.messageString: \011-foreground 或 -fg <color>\n
+NCOEvent*OclMessage.MSG_00076.messageString: \011-borderwidth 或 -bw <n>\n
+NCOEvent*OclMessage.MSG_00078.messageString: \011-display <dpy>\n
+NCOEvent*OclMessage.MSG_00080.messageString: \011-font 或 -fn <font>\n
+NCOEvent*OclMessage.MSG_00081.messageString: \011-geometry <geometry>\n
+NCOEvent*OclMessage.MSG_00082.messageString: \011-iconic\n
+NCOEvent*OclMessage.MSG_00083.messageString: \011-name <name>\n
+NCOEvent*OclMessage.MSG_00084.messageString: \011-reverse 或 -rv\n
+NCOEvent*OclMessage.MSG_00085.messageString: \011-selectionTimeout\n
+NCOEvent*OclMessage.MSG_00086.messageString: \011-synchronous\n
+NCOEvent*OclMessage.MSG_00087.messageString: \011-title <name>\n
+NCOEvent*OclMessage.MSG_00088.messageString: \011-xrm <resource>\n
+NCOEvent*OclMessage.MSG_00089.messageString: \n也可以指定選項為最短的唯一縮寫，\n但已附註的選項除外。\n
+NCOEvent*OclMessage.MSG_00090.messageString: \n%1$s - %2$s 版
+NCOEvent*OclMessage.MSG_00102.messageString: 無法取得 '%1$s' 的表格說明
+NCOEvent*OclMessage.MSG_00103.messageString: 
+NCOEvent*OclMessage.MSG_00104.messageString: 
+NCOEvent*OclMessage.MSG_00105.messageString: 
+NCOEvent*OclMessage.MSG_00106.messageString: 序號 %1$d 的日誌登載項目
+NCOEvent*OclMessage.MSG_00108.messageString: 無法建立備份檔\n
+NCOEvent*OclMessage.MSG_00109.messageString: 無法儲存配置至\n%1$s\n
+NCOEvent*OclMessage.MSG_00110.messageString: 無法從\n%1$s 載入配置\n
+NCOEvent*OclMessage.MSG_00112.messageString: \011-cmap\011\011使用專用的顏色對映 (無縮寫)\n
+NCOEvent*OclMessage.MSG_00113.messageString: [無]
+NCOEvent*OclMessage.MSG_00114.messageString: 無法從\n%1$s 過濾定義\n
+NCOEvent*OclMessage.MSG_00115.messageString: 無法從\n%1$s 檢視定義\n
+NCOEvent*OclMessage.MSG_00116.messageString: \\：
+NCOEvent*OclMessage.MSG_00117.messageString: 備妥。
+NCOEvent*OclMessage.MSG_00118.messageString: 已儲存配置。
+NCOEvent*OclMessage.MSG_00119.messageString: 已重新整理所有顯示畫面。
+NCOEvent*OclMessage.MSG_00121.messageString: 已關閉所有事件視窗。
+NCOEvent*OclMessage.MSG_00122.messageString: 已開啟新的視窗。
+NCOEvent*OclMessage.MSG_00127.messageString: \011-noauto\011\011不在啟動群組中啟動工具\n
+NCOEvent*OclMessage.MSG_00128.messageString: \011-directory <name>\011設定起始目錄\n
+NCOEvent*OclMessage.MSG_00135.messageString: 正在開啟新的視窗...
+NCOEvent*OclMessage.MSG_00137.messageString: 剖析 %1$s - 於第 %3$d 行發生 "%2$s"
+NCOEvent*OclMessage.MSG_00138.messageString: 喜好設定
+NCOEvent*OclMessage.MSG_00139.messageString: SQL 文字
+NCOEvent*OclMessage.MSG_00140.messageString: 無法建置轉換表格\n
+NCOEvent*OclMessage.MSG_00141.messageString: 無法建置視覺表格\n
+NCOEvent*OclMessage.MSG_00142.messageString: 無法建置類別表格\n
+NCOEvent*OclMessage.MSG_00144.messageString: 無法載入喜好設定\n
+NCOEvent*OclMessage.MSG_00145.messageString: 無法建置使用者表格\n
+NCOEvent*OclMessage.MSG_00147.messageString: 事件清單
+NCOEvent*OclMessage.MSG_00148.messageString: 無法儲存喜好設定
+NCOEvent*OclMessage.MSG_00149.messageString: 無法建立圖素對映
+NCOEvent*OclMessage.MSG_00153.messageString: 工具字串
+NCOEvent*OclMessage.MSG_00154.messageString: 正在執行 "%1$s"...
+NCOEvent*OclMessage.MSG_00155.messageString: "%1$s" 已終止 (讀取錯誤)
+NCOEvent*OclMessage.MSG_00156.messageString: "%1$s" 已終止 (ioctl 錯誤)
+NCOEvent*OclMessage.MSG_00157.messageString: "%1$s" 已完成
+NCOEvent*OclMessage.MSG_00159.messageString: 事件清單配置
+NCOEvent*OclMessage.MSG_00160.messageString: 視圖建置器
+NCOEvent*OclMessage.MSG_00161.messageString: 無法儲存視圖資料至\n%1$s\n
+NCOEvent*OclMessage.MSG_00164.messageString: 虛擬
+NCOEvent*OclMessage.MSG_00165.messageString: 無法建立個人程式庫目錄：%1$s
+NCOEvent*OclMessage.MSG_00167.messageString: <內部>
+NCOEvent*OclMessage.MSG_00169.messageString: 無法儲存過濾器資料至\n%1$s\n
+NCOEvent*OclMessage.MSG_00171.messageString: 未終止的字串
+NCOEvent*OclMessage.MSG_00172.messageString: 無效的字元
+NCOEvent*OclMessage.MSG_00175.messageString: 篩選建置器
+NCOEvent*OclMessage.MSG_00212.messageString: 無法啟動事件清單
+NCOEvent*OclMessage.MSG_00232.messageString: 指揮
+NCOEvent*OclMessage.MSG_00233.messageString: 介面
+NCOEvent*OclMessage.MSG_00234.messageString: 內容
+NCOEvent*OclMessage.MSG_00235.messageString: 瀏覽器
+NCOEvent*OclMessage.MSG_00240.messageString: 警告：無法修正連至 X NLS 的路徑！\n
+NCOEvent*OclMessage.MSG_00246.messageString: 啟動事件清單(S)...
+NCOEvent*OclMessage.MSG_00247.messageString: 啟動過濾器建置器(S)...
+NCOEvent*OclMessage.MSG_00248.messageString: 啟動視圖建置器(S)...
+NCOEvent*OclMessage.MSG_00249.messageString: 啟動目標檢視(S)...
+NCOEvent*OclMessage.MSG_00250.messageString: 啟動對映編輯器(S)...
+NCOEvent*OclMessage.MSG_00256.messageString: 作業系統錯誤：%1$s
+NCOEvent*OclMessage.MSG_00257.messageString: %1$s 系統呼叫失效：%2$s
+NCOEvent*OclMessage.MSG_00260.messageString: 無法開啟目錄 %1$s
+NCOEvent*OclMessage.MSG_00274.messageString: 目錄瀏覽器
+NCOEvent*OclMessage.MSG_00284.messageString: 無法開啟介面檔：%1$s
+NCOEvent*OclMessage.MSG_00285.messageString: 說明
+NCOEvent*OclMessage.MSG_00293.messageString: \011-page <name>\011\011起始說明頁面\n
+NCOEvent*OclMessage.MSG_00303.messageString: 關閉
+NCOEvent*OclMessage.MSG_00304.messageString: 無
+NCOEvent*OclMessage.MSG_00310.messageString: 在介面檔中找不到項目
+NCOEvent*OclMessage.MSG_00317.messageString: 內部初始化失敗\n
+NCOEvent*OclMessage.MSG_00327.messageString: 背景
+NCOEvent*OclMessage.MSG_00328.messageString: 註釋
+NCOEvent*OclMessage.MSG_00329.messageString: 物件
+NCOEvent*OclMessage.MSG_00353.messageString: 格線
+NCOEvent*OclMessage.MSG_00354.messageString: 無法擷取警示資訊
+NCOEvent*OclMessage.MSG_00356.messageString: 事件資訊：序號 %1$d 的警示狀態
+NCOEvent*OclMessage.MSG_00357.messageString: 記憶體不足
+NCOEvent*OclMessage.MSG_00371.messageString: 找不到預設字型！
+NCOEvent*OclMessage.MSG_00375.messageString: 正在檢查：%1$s
+NCOEvent*OclMessage.MSG_00385.messageString: ___SEVERITY_%1$d___
+NCOEvent*OclMessage.MSG_00389.messageString: 正在啟動事件清單...
+NCOEvent*OclMessage.MSG_00390.messageString: 正在等待回應...
+NCOEvent*OclMessage.MSG_00397.messageString: 實體：%1$s
+NCOEvent*OclMessage.MSG_00404.messageString: 無法設定連線內容：主機名稱\n
+NCOEvent*OclMessage.MSG_00405.messageString: 嚴重的伺服器通訊錯誤\n
+NCOEvent*OclMessage.MSG_00406.messageString: 伺服器傳回不明的資料類型 ---!
+NCOEvent*OclMessage.MSG_00407.messageString: 伺服器傳回不明的資料類型：%1$s.%2$s !
+NCOEvent*OclMessage.MSG_00412.messageString: 您必須指定搜尋的欄位
+NCOEvent*OclMessage.MSG_00413.messageString: 指定的值是無效的正規表示式
+NCOEvent*OclMessage.MSG_00414.messageString: 找不到任何符合的橫列
+NCOEvent*OclMessage.MSG_00415.messageString: 無法 (重新) 連線至物件伺服器
+NCOEvent*OclMessage.MSG_00416.messageString: 序號 %1$d 已不存在！
+NCOEvent*OclMessage.MSG_00420.messageString: 日誌登載項目中沒有文字
+NCOEvent*OclMessage.MSG_00424.messageString: 未指派警示至日誌登載
+NCOEvent*OclMessage.MSG_00427.messageString: 在事件清單中找不到警示。\n已刪除警示。無法執行指定的作業。
+NCOEvent*OclMessage.MSG_00428.messageString: 在事件清單中找不到警示。\n警示已被刪除，因此無法存取它。
+NCOEvent*OclMessage.MSG_00429.messageString: 無法擷取任何已指派的警示。
+NCOEvent*OclMessage.MSG_00435.messageString: 無法設定非同步的記憶體儲存區\n
+NCOEvent*OclMessage.MSG_00440.messageString: 表格 '%1$s' 沒有預期的 %2$d 直欄。
+NCOEvent*OclMessage.MSG_00445.messageString: ___FLASH_SEV_%1$d___
+NCOEvent*OclMessage.MSG_00447.messageString: 無法將顏色對映中的讀寫顏色資料格配置為預設的視覺效果。\n\011 無法使用事件清單的閃動功能。請將預設視覺設為 PseudoColor。\n
+NCOEvent*OclMessage.MSG_00457.messageString: 無法使用格式 '%1$s' 將日期從字串轉換為 UTC。
+NCOEvent*OclMessage.MSG_00458.messageString: 找不到動作 ID %1$d 的動作記錄。無法執行工具。
+NCOEvent*OclMessage.MSG_00459.messageString: 無法透過關聯次要功能表蹦現的 XSendClient() 來產生用戶端訊息。
+NCOEvent*OclMessage.MSG_00460.messageString: 未選取資料格
+NCOEvent*OclMessage.MSG_00461.messageString: 剪貼簿複製作業擱置中...
+NCOEvent*OclMessage.MSG_00462.messageString: 剪貼簿複製作業完成。
+NCOEvent*OclMessage.MSG_00463.messageString: 視窗未凍結，但廣域「全部凍結」選項集設為 - 視窗未重新整理
+NCOEvent*OclMessage.MSG_00464.messageString: 用來進行拖放作業的橫列無效。
+NCOEvent*OclMessage.MSG_00467.messageString: 無效的橫列。
+NCOEvent*OclMessage.MSG_00468.messageString: 在忽略「全部凍結」的期間，已安排重新整理的時間。
+NCOEvent*OclMessage.MSG_00469.messageString: 正在安排重新整理的時間...
+NCOEvent*OclMessage.MSG_00470.messageString: 已更新未凍結的視窗。
+NCOEvent*OclMessage.MSG_00471.messageString: 正在重新連接至伺服器 - 請稍候...
+NCOEvent*OclMessage.MSG_00472.messageString: 伺服器已中斷連線 - 請嘗試重新連線
+NCOEvent*OclMessage.MSG_00473.messageString: 無法建立視窗！
+NCOEvent*OclMessage.MSG_00474.messageString: 當動態工具子系統找不到警示功能表時，便無法初始化。
+NCOEvent*OclMessage.MSG_00475.messageString: 無法建立動態工具。
+NCOEvent*OclMessage.MSG_00476.messageString: 無法針對 LOCATE 要求建立視窗！
+NCOEvent*OclMessage.MSG_00477.messageString: 重新整理時間無效。\n未儲存喜好設定。
+NCOEvent*OclMessage.MSG_00478.messageString: 無法透過清除重疊顯示用戶端資料的 XSendClient() 來產生用戶端訊息。
+NCOEvent*OclMessage.MSG_00479.messageString: 找不到連接的警示功能表定義。
+NCOEvent*OclMessage.MSG_00480.messageString: 在動態工具系統中找不到功能表 ID %1$d。
+NCOEvent*OclMessage.MSG_00481.messageString: 無法管理現行選定類別清單的功能表 %1$d 的功能表項目。
+NCOEvent*OclMessage.MSG_00482.messageString: 找不到連接的次要事件清單視窗工具功能表定義。
+NCOEvent*OclMessage.MSG_00483.messageString: 嚴重的記憶體配置失效。
+NCOEvent*OclMessage.MSG_00484.messageString: 找不到連接的主要事件清單視窗工具功能表定義。
+NCOEvent*OclMessage.MSG_00485.messageString: 工具未影響任何橫列。
+NCOEvent*OclMessage.MSG_00486.messageString: 工具已影響 %1$d 個橫列。
+NCOEvent*OclMessage.MSG_00487.messageString: 無法執行工具。動態工具錯誤 (%1$d/%2$d)\n[ %3$s ]。
+NCOEvent*OclMessage.MSG_00488.messageString: 使用者已中斷工具執行。
+NCOEvent*OclMessage.MSG_00489.messageString: 當動態工具子系統找不到指揮工具功能表時，便無法初始化。
+NCOEvent*OclMessage.MSG_00490.messageString: 無法針對日誌登載對話框蹦現警示功能表。工具錯誤 %1$d/%2$d)\n[ %3$s ]。
+NCOEvent*OclMessage.MSG_00491.messageString: 無法判斷已連接的物件伺服器的發行版本。
+NCOEvent*OclMessage.MSG_00495.messageString: 重新整理時間無效 (最小值為 10 秒)。\n\011\011未套用喜好設定。
+NCOEvent*OclMessage.MSG_00497.messageString: 已順利執行動態工具。
+NCOEvent*OclMessage.MSG_00498.messageString: 動態工具執行失敗。
+NCOEvent*OclMessage.MSG_00499.messageString: 「指揮」已偵測到您所連接的物件伺服器\n版本為 3.3。此物件伺服器不支援 3.4 桌面\n所支援的工具。\n\n應用程式將會終止。
+NCOEvent*OclMessage.MSG_00500.messageString: \011-masterserver <name>\011要連接的主要物件伺服器\n
+NCOEvent*OclMessage.MSG_00501.messageString: \011-dualwrite <1/0>\011雙重寫入旗標 (1：雙重寫入模式，0：單一寫入模式)\n
+NCOEvent*OclMessage.MSG_00504.messageString: [PRI]
+NCOEvent*OclMessage.MSG_00505.messageString: [BAK]
+NCOEvent*OclMessage.MSG_00506.messageString: 偵測到主要的物件伺服器
+NCOEvent*OclMessage.MSG_00507.messageString: \n按一下「確定」，重新連接至主要物件伺服器。\n
+NCOEvent*OclMessage.MSG_00508.messageString: 正在進行物件伺服器連線失效回復...
+NCOEvent*OclMessage.MSG_00509.messageString: 主要物件伺服器失效回復已完成。
+NCOEvent*OclMessage.MSG_00510.messageString: 無法設定 CS_SEC_CHALLENGE
+NCOEvent*OclMessage.MSG_00511.messageString: 無法設定 CS_CHALLENGE_CB
+NCOEvent*OclMessage.MSG_00512.messageString: \n正在重新連接至主要物件伺服器。\n正在重新同步化物件伺服器資料，請稍候。\n這可能需要幾分鐘...
+NCOEvent*OclMessage.MSG_00513.messageString: 正在進行主要物件伺服器連線失效回復...
+NCOEvent*OclMessage.MSG_00514.messageString: 主要物件伺服器失效回復已完成。
+NCOEvent*OclMessage.MSG_00515.messageString: \n重新連線至主要物件伺服器已完成。
+NCOEvent*OclMessage.MSG_00516.messageString: 無法取得遠端主機名稱
+NCOEvent*OclMessage.MSG_00517.messageString: 連線失敗
+NCOEvent*OclMessage.MSG_00518.messageString: 您沒有刪除此過濾器的許可權。
+NCOEvent*OclMessage.MSG_00519.messageString: 您沒有刪除此視圖的許可權。
+NCOEvent*OclMessage.MSG_00520.messageString: master.national 表格或指令行所提供的主要伺服器名稱\n無效。請結束然後再試一次。
+NCOEvent*OclMessage.MSG_00521.messageString: 無法連接至主要物件伺服器。\n請檢查伺服器是否正在執行，以及桌面及主要物件伺服器所提供的使用者名稱與密碼\n是否相同。
+NCOEvent*OclMessage.MSG_00522.messageString: 在視圖 "%1$s" 中，參數 "%2$s" 超過\n允許值，因此將限制為 %3$d\n\n
+NCOEvent*OclMessage.MSG_00523.messageString: 視窗凍結 - 要等到您重新整理之後才會顯示結果。
+NCOEvent*OclMessage.MSG_00524.messageString: 視窗未凍結 - 將不會重新整理結果。
+NCOEvent*OclMessage.MSG_00525.messageString: 您所提供的使用者名稱及密碼組合\n不正確。請嘗試重新連線。
+NCOEvent*OclMessage.MSG_00526.messageString: 喪失連線。此時可能已拒絕您存取\n物件伺服器。\n如果問題持續發生，請聯絡您的系統管理者。
+NCOEvent*OclMessage.MSG_00527.messageString: 您所提供的使用者名稱及密碼組合\n不正確。\n\n很抱歉，您已達到 3 次輸入錯誤上限。
+NCOEvent*OclMessage.MSG_00528.messageString: 喪失連線。此時可能已拒絕您存取\n物件伺服器。\n\n很抱歉，您已達到 3 次輸入錯誤上限。
+NCOEvent*OclMessage.MSG_00540.messageString: 空的橫列，未複製任何內容。
+NCOEvent*OclMessage.MSG_00541.messageString: 無法設定 Sybase 連線逾時值\n
+NCOEvent*OclMessage.MSG_00542.messageString: \011-networktimeout <seconds>\011在使用者動作之後，偵測因硬體問題而無法與網路連線的時間\n
+NCOEvent*OclMessage.MSG_00543.messageString: 無法 (重新) 連線至主要物件伺服器
+NCOEvent*OclMessage.MSG_00544.messageString: NetworkTimeout 設為無效的值。正在回復為 %1$d。
+NCOEvent*OclMessage.MSG_00545.messageString: %1$s [PRI]
+NCOEvent*OclMessage.MSG_00546.messageString: %1$s [BAK]
+NCOEvent*OclMessage.MSG_00548.messageString: char_expansion_factor 必須在範圍 [%1$d-%2$d] 中。正在回復為 %3$d。
+NCOEvent*OclMessage.MSG_00549.messageString: \011-char_expansion_factor [%1$d-%2$d]。從物件伺服器中接收資料時，允許用戶端配置每個字元具有更多位元組。\n
+NCOEvent*OclMessage.MSG_00550.messageString: \n按一下「確定」，重新連接至主要物件伺服器。\n
+NCOEvent*OclMessage.MSG_00551.messageString: 從失效回復執行緒檔案描述子讀取時發生錯誤：%1$s
+NCOEvent*OclMessage.MSG_00600.messageString: 無法取得有效的授權。
+NCOEvent*OclMessage.MSG_00601.messageString: 資訊：
+NCOEvent*OclMessage.MSG_00602.messageString: 無法載入喜好設定
+NCOEvent*OclMessage.MSG_00603.messageString: 無法載入圖素對映檔案：%1$s
+NCOEvent*OclMessage.MSG_00604.messageString: 工具參數對話框
+NCOEvent*OclMessage.MSG_00605.messageString: 轉換為 UTC 整數
+NCOEvent*OclMessage.MSG_00606.messageString: 無法隱藏指令行密碼
+NCOEvent*OclMessage.MSG_00607.messageString: \011-failbackpolltime <seconds>\011連接到備份時輪詢主要物件伺服器的每兩次嘗試之間的時間間隔\n
+NCOEvent*OclMessage.top_range_template.messageString: 頂端 [%1$d-%2$d]
+NCOEvent*OclMessage.top_off_string.messageString: 頂端 [ OFF ]
+NCOEvent*OclMessage.top_fixed_string.messageString: 頂端 [ FIXED ]
+NCOEvent*OclMessage.restricted_range_template.messageString: 限制橫列 [%1$d-%2$d]
+NCOEvent*OclMessage.liboclLookupOpen.messageString: 無法開啟查閱檔案 (%1$s)\n
+NCOEvent*OclMessage.liboclVersionFormat.messageString: %1$s %2$s 版
+NCOEvent*OclMessage.liboclReleaseId.messageString: 版本 ID：%1$s\n
+NCOEvent*OclMessage.liboclLibraryRelease.messageString: Ocl 程式庫版本：%1$s\n
+NCOEvent*OclMessage.liboclCompileDate.messageString: 軟體編譯日期：%1$s\n
+NCOEvent*OclMessage.liboclSybaseRelease.messageString: Sybase 程式庫版本：%1$s\n
+NCOEvent*OclMessage.liboclServerUsedataFailed.messageString: 無法取得伺服器訊息 CB 中的使用者資料。
+NCOEvent*OclMessage.liboclChallengeUserdataFailed.messageString: 無法取得盤查 CB 中的使用者資料。
+NCOEvent*OclMessage.liboclEventList.messageString: 事件清單資訊
+NCOEvent*OclMessage.liboclBusyFailed.messageString: 錯誤：無法啟動工作中的訊息。\n
+NCOEvent*OclMessage.liboclAsyncFailed.messageString: 無法設定 CS_ASYNC_NOTIFS
+NCOEvent*OclMessage.liboclPacketFailed.messageString: 無法設定 CS_PACKET_SIZE
+NCOEvent*OclMessage.liboclAddressHandle.messageString: IP 位址控點建立。(%1$d：%2$s)
+NCOEvent*OclMessage.liboclIducConnection.messageString: IDUC 通道連線失敗。connect()：%1$s
+NCOEvent*OclMessage.liboclBlockIduc.messageString: IDUC 上的區塊 - 正在重新同步化
+NCOEvent*OclMessage.liboclNotSet.messageString: %1$s 未設定\n
+NCOEvent*OclMessage.liboclDoesntContain.messageString: %1$s 不包含：\n
+NCOEvent*OclMessage.liboclStartsWith.messageString: %1$s 開始於：\n
+NCOEvent*OclMessage.liboclPortInvalid.messageString: %2$s 中的埠 '%1$s' 無效\n
+NCOEvent*OclMessage.liboclIducHostRedirect.messageString: SSH IDUC 重新導向至主機 '%1$s'\n
+NCOEvent*OclMessage.liboclIducPortRedirect.messageString: SSH IDUC 重新導向至埠 '%1$ld'\n
+NCOEvent*OclMessage.liboclHttpError.messageString: HTTP 錯誤 %1$3d - %2$s
+! DTOOLS_MSG001
+NCOEvent*OclMessage.DTOOLS_MSG001.messageString: 記憶體配置失效。
+! DTOOLS_MSG002
+NCOEvent*OclMessage.DTOOLS_MSG002.messageString: 無法說明表格 %1$s。請確保表格存在於物件伺服器中。
+! DTOOLS_MSG003
+NCOEvent*OclMessage.DTOOLS_MSG003.messageString: 表格 %1$s 的直欄計數不正確。原預期為 %2$d 個直欄。
+! DTOOLS_MSG004
+NCOEvent*OclMessage.DTOOLS_MSG004.messageString: 其中一個系統表格 %1$s 的必要輸入欄位的資料類型不正確。
+! DTOOLS_MSG005
+NCOEvent*OclMessage.DTOOLS_MSG005.messageString: 無法建立欄位描述子以提取表格 %1$s 的表格資料。
+! DTOOLS_MSG006
+NCOEvent*OclMessage.DTOOLS_MSG006.messageString: 無法執行 SQL 陳述式以提取 %1$s 表格的必要資料。
+! DTOOLS_MSG007
+NCOEvent*OclMessage.DTOOLS_MSG007.messageString: 已建立功能表 %1$d 的蹦現功能表。
+! DTOOLS_MSG008
+NCOEvent*OclMessage.DTOOLS_MSG008.messageString: 無法說明在功能表定義 %1$d 中所定義的表格。
+! DTOOLS_MSG009
+NCOEvent*OclMessage.DTOOLS_MSG009.messageString: 找不到在功能表定義 %1$d 中所定義的其中一個欄位。
+! DTOOLS_MSG010
+NCOEvent*OclMessage.DTOOLS_MSG010.messageString: 在動作所使用的提示定義中，找不到參照的指定功能表定義。
+! DTOOLS_MSG011
+NCOEvent*OclMessage.DTOOLS_MSG011.messageString: 在動態工具子系統中發生不明錯誤。
+! DTOOLS_MSG012
+NCOEvent*OclMessage.DTOOLS_MSG012.messageString: 無法開啟在類型查閱的提示定義中所指定的查閱檔。
+! DTOOLS_MSG013
+NCOEvent*OclMessage.DTOOLS_MSG013.messageString: 動作中的提示參照已擴充至零長度。
+! DTOOLS_MSG014
+NCOEvent*OclMessage.DTOOLS_MSG014.messageString: 在功能表項目 ID %1$d 的動作中找不到參照的提示定義。
+! DTOOLS_MSG015
+NCOEvent*OclMessage.DTOOLS_MSG015.messageString: 在動態工具中找不到已參照的動作 %1$d。
+! DTOOLS_MSG016
+NCOEvent*OclMessage.DTOOLS_MSG016.messageString: 找不到功能表項目參照為次要功能表的功能表 %1$d。
+! DTOOLS_MSG017
+NCOEvent*OclMessage.DTOOLS_MSG017.messageString: 對工具的存取權不足。
+! DTOOLS_MSG018
+NCOEvent*OclMessage.DTOOLS_MSG018.messageString: 嘗試蹦現功能表，該功能表沒有建立關聯的蹦現小組件集。
+! DTOOLS_MSG019
+NCOEvent*OclMessage.DTOOLS_MSG019.messageString: 內部/外部/日誌登載的第 %1$d 行發生剖析錯誤。
+! DTOOLS_MSG020
+NCOEvent*OclMessage.DTOOLS_MSG020.messageString: 使用者已中斷動作執行。
+! DTOOLS_MSG021
+NCOEvent*OclMessage.DTOOLS_MSG021.messageString: 動作的內部作用執行失敗。
+! DTOOLS_MSG022
+NCOEvent*OclMessage.DTOOLS_MSG022.messageString: 無法針對外部作用的串流重新導向建立管道結構。
+! DTOOLS_MSG023
+NCOEvent*OclMessage.DTOOLS_MSG023.messageString: 無法分出程序以啟動外部作用。\n[錯誤碼：%1$d = %2$s]
+! DTOOLS_MSG024
+NCOEvent*OclMessage.DTOOLS_MSG024.messageString: 無法執行外部作用。
+! DTOOLS_MSG025
+NCOEvent*OclMessage.DTOOLS_MSG025.messageString: 無法將日誌登載文字分成 16255 個片段集。
+! DTOOLS_MSG026
+NCOEvent*OclMessage.DTOOLS_MSG026.messageString: 在系統表 %1$s 中找不到其中一個必要輸入欄位。
+! DTOOLS_MSG027
+NCOEvent*OclMessage.DTOOLS_MSG027.messageString: 一般動態工具錯誤。
+! DTOOLS_MSG028
+NCOEvent*OclMessage.DTOOLS_MSG028.messageString: 無法執行日誌登載項目。
+! DTOOLS_MSG029
+NCOEvent*OclMessage.DTOOLS_MSG029.messageString: 無法轉換為多位元組字元字串。
+! DTOOLS_MSG999
+NCOEvent*OclMessage.DTOOLS_MSG999.messageString: <UNKNOWN>
+! Generated by X-Designer
+
+
+! output_window
+NCOEvent*output_window.allowShellResize: true
+NCOEvent*output_window.title: 工具輸出
+
+! output_mb
+NCOEvent*output_mb.autoUnmanage: false
+NCOEvent*output_mb.dialogType: DIALOG_TEMPLATE
+
+! output_sep
+
+! output_close_button
+NCOEvent*output_close_button.labelString: 結束
+
+! output_mform
+
+! output_label
+NCOEvent*output_label.labelString: 輸出
+NCOEvent*output_label.alignment: ALIGNMENT_CENTER
+
+! output_scrolltext
+
+! output_text
+NCOEvent*output_text.traversalOn: false
+NCOEvent*output_text.columns: 40
+NCOEvent*output_text.editable: false
+NCOEvent*output_text.cursorPositionVisible: false
+NCOEvent*output_text.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+NCOEvent*output_text.editMode: MULTI_LINE_EDIT
+NCOEvent*output_text.rows: 15
+
+
+! param_dialog
+NCOEvent*param_dialog.allowShellResize: true
+
+! param_mb
+NCOEvent*param_mb.dialogStyle: DIALOG_FULL_APPLICATION_MODAL
+NCOEvent*param_mb.autoUnmanage: false
+NCOEvent*param_mb.dialogType: DIALOG_TEMPLATE
+
+! param_ok_button
+NCOEvent*param_ok_button.labelString: 確定
+
+! param_cancel_button
+NCOEvent*param_cancel_button.labelString: 取消
+
+! param_help_button
+NCOEvent*param_help_button.labelString: 說明
+
+! param_form
+NCOEvent*param_form.fractionBase: 3
+
+! label1
+NCOEvent*param_label.labelString: 輸入下列必要的參數
+
+! param_sep
+
+! ############################################################################
+! libOcl:Global.res - General library X resources.
+! ############################################################################
+
+! Msg.c: Message dialog related X resources.
+NCOEvent*info_dialog.okLabelString: 確定
+NCOEvent*error_dialog.okLabelString: 確定
+NCOEvent*warning_dialog.okLabelString: 確定
+
+NCOEvent*question_dialog.okLabelString: 確定
+NCOEvent*question_dialog.cancelLabelString: 取消
+
+NCOEvent*oclLocaleMsgWarning.messageString: 警告：
+NCOEvent*oclLocaleMsgError.messageString: 錯誤：
+NCOEvent*oclLocaleMsgFatal.messageString: 嚴重錯誤：
+
+NCOEvent*OclMessage.accelerator.messageString: Ctrl+%1$c
+
+! Info dialog overrides
+
+NCOEvent*info_form*background: CadetBlue
+NCOEvent*info_label_form*background: CadetBlue
+
+NCOEvent*info_dialog*XmDrawingArea.background: CadetBlue
+NCOEvent*info_dialog*XmScrollBar.background: CadetBlue
+
+NCOEvent*info_matrix.width:	500
+NCOEvent*info_matrix.gridType:	XmGRID_NONE
+NCOEvent*info_matrix.rows:           10
+NCOEvent*info_matrix.columns:        2
+NCOEvent*info_matrix.columnWidths:   20,256
+NCOEvent*info_matrix.columnAlignments:   alignment_end,alignment_beginning
+NCOEvent*info_matrix.fixedColumns: 1
+!NCOEvent*info_matrix.columnLabels:   Field,Value
+
+NCOEvent*info_matrix.cellMarginWidth: 		0
+NCOEvent*info_matrix.cellMarginHeight:		0
+NCOEvent*info_matrix.highlightColor:		black
+
+NCOEvent*info_matrix.showArrows: False
+
+NCOEvent*info_matrix.foreground: White
+NCOEvent*info_matrix.rowLabelColor: White
+NCOEvent*info_matrix.columnLabelColor: White
+NCOEvent*info_matrix.selectedBackground: White
+NCOEvent*info_matrix.selectedForeground: black
+NCOEvent*info_matrix.allowColumnResize:   True
+NCOEvent*info_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-big5*-*:
+
+NCOEvent*info_matrix.selectScrollVisible: True
+
+NCOEvent*info_matrix.translations:   #replace\n                Shift Ctrl<Btn1Down>: ResizeColumns()\n                ~Ctrl Shift<Btn1Down>: ResizeColumns(RangeSelect)\n                ~Shift Ctrl<Btn1Down>: SelectCell(ToggleSelect)\n                ~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n                <Btn2Down>:      ProcessDrag()\n                <Btn3Down>:      SelectCell(Menu)
+NCOEvent*info_matrix.clip.translations:   #replace\n                Shift Ctrl<Btn1Down>: ResizeColumns()\n                ~Ctrl Shift<Btn1Down>: ResizeColumns(RangeSelect)\n                ~Shift Ctrl<Btn1Down>: SelectCell(ToggleSelect)\n                ~Shift ~Ctrl<Btn1Down>: SelectCell(Select)\n                <Btn2Down>:      ProcessDrag()\n                <Btn3Down>:      SelectCell(Menu)
+
+! Main window and sub-window toolbar resources to disable keyboard traversal.
+! The toolbar replicates menu options which can be accessed via the keyboard.
+! It makes no sense to allow travesal via the tab key through the toolbar
+! buttons, especially as the toggle buttons, which are XrtLabels do not
+! support tab traversal very well.
+NCOEvent*main_toolbar*traversalOn: False
+NCOEvent*sub_toolbar*traversalOn: False
+
+! Include the dynamic tool resources.
+NCOEvent*param_dialog*XmList*background: CadetBlue
+NCOEvent*param_dialog*XmXrtDateField.background: CadetBlue
+NCOEvent*param_dialog*XmXrtDateField.xrtFldEnterFormatList:DD-MM-YYYY hh:mm:ss,D-M-YYYY h:m:s
+NCOEvent*output_window*XmText.background: Black
+
+! XRT Combo Box drop down colour re-source.
+NCOEvent*XmXrtGearCombo*XmList*background:CadetBlue
+
+! HPUX11/HPUX 10.20 work-arounds. Due to the default font set specifications
+! used by CDE, the HPUX library is unable to convert the font set due to
+! missing charsets. This should be OK, but on HPUX 11 our application will
+! crash in the widget creation as the application has no fonts. This is not
+! good. We override these resources here in order to prevent this error 
+! from occurring. :)
+
+! ****************************************************************************
+! Alerts menu additional static menu item related resources.
+! ****************************************************************************
+NCOEvent*alerts_info_btn.labelString: 資訊(I)
+NCOEvent*alerts_info_btn.mnemonic: I
+NCOEvent*alerts_info_btn.accelerator: Ctrl<Key>I
+NCOEvent*alerts_info_btn.acceleratorText: Ctrl+I
+
+NCOEvent*alerts_journal_btn.labelString: 日誌登載(J)
+NCOEvent*alerts_journal_btn.mnemonic: J
+NCOEvent*alerts_journal_btn.accelerator: Ctrl<Key>J
+NCOEvent*alerts_journal_btn.acceleratorText: Ctrl+J
+
+NCOEvent*alerts_quickfilter_btn.labelString: 快速過濾器(F)
+NCOEvent*alerts_quickfilter_btn.mnemonic: F
+NCOEvent*alerts_quickfilter_btn.accelerator: Ctrl<Key>F
+NCOEvent*alerts_quickfilter_btn.acceleratorText: Ctrl+F
+
+NCOEvent*qfilter_menu_eq_btn.labelString: 等於(E)
+NCOEvent*qfilter_menu_eq_btn.mnemonic: E
+NCOEvent*qfilter_menu_eq_btn.accelerator: Ctrl<Key>E
+NCOEvent*qfilter_menu_eq_btn.acceleratorText: Ctrl+E
+
+NCOEvent*qfilter_menu_neq_btn.labelString: 不等於(N)
+NCOEvent*qfilter_menu_neq_btn.mnemonic: N
+NCOEvent*qfilter_menu_neq_btn.accelerator: Ctrl<Key>N
+NCOEvent*qfilter_menu_neq_btn.acceleratorText: Ctrl+N
+
+NCOEvent*qfilter_menu_gt_btn.labelString: 大於(G)
+NCOEvent*qfilter_menu_gt_btn.mnemonic: G
+NCOEvent*qfilter_menu_gt_btn.accelerator: Ctrl<Key>G
+NCOEvent*qfilter_menu_gt_btn.acceleratorText: Ctrl+G
+
+NCOEvent*qfilter_menu_gte_btn.labelString: 大於等於(Q)
+NCOEvent*qfilter_menu_gte_btn.mnemonic: q
+NCOEvent*qfilter_menu_gte_btn.accelerator: Ctrl<Key>q
+NCOEvent*qfilter_menu_gte_btn.acceleratorText: Ctrl+q
+
+NCOEvent*qfilter_menu_lt_btn.labelString: 小於(L)
+NCOEvent*qfilter_menu_lt_btn.mnemonic: L
+NCOEvent*qfilter_menu_lt_btn.accelerator: Ctrl<Key>L
+NCOEvent*qfilter_menu_lt_btn.acceleratorText: Ctrl+L
+
+NCOEvent*qfilter_menu_lte_btn.labelString: 小於等於(H)
+NCOEvent*qfilter_menu_lte_btn.mnemonic: h
+NCOEvent*qfilter_menu_lte_btn.accelerator: Ctrl<Key>h
+NCOEvent*qfilter_menu_lte_btn.acceleratorText: Ctrl+h
+
+NCOEvent*qfilter_menu_like_btn.labelString: 相似於(K)
+NCOEvent*qfilter_menu_like_btn.mnemonic: k
+NCOEvent*qfilter_menu_like_btn.accelerator: Ctrl<Key>k
+NCOEvent*qfilter_menu_like_btn.acceleratorText: Ctrl+k
+
+NCOEvent*qfilter_menu_nlike_btn.labelString: 不相似於(T)
+NCOEvent*qfilter_menu_nlike_btn.mnemonic: t
+NCOEvent*qfilter_menu_nlike_btn.accelerator: Ctrl<Key>t
+NCOEvent*qfilter_menu_nlike_btn.acceleratorText: Ctrl+t
+
+NCOEvent*qfilter_menu_off_btn.labelString: 關閉(O)
+NCOEvent*qfilter_menu_off_btn.mnemonic: O
+NCOEvent*qfilter_menu_off_btn.accelerator: Ctrl<Key>O
+NCOEvent*qfilter_menu_off_btn.acceleratorText: Ctrl+O
+
+
+
+! NCOEVENT_MSG0001
+NCOEvent*main_status_line.readyString.messageString: 備妥。
+! NCOEVENT_MSG0002
+NCOEvent*sub_status_line.rowsSelected.messageString: 已選取 %1$d 列。
+! NCOEVENT_MSG0003
+NCOEvent*sub_status_line.noRowsSelected.messageString: 未選取列。
+! NCOEVENT_MSG0004
+NCOEvent*sub_status_line.iducModifyStatus.messageString: 插入 %1$d 列、更新 %2$d 列及刪除 %3$d 列。
+! NCOEVENT_MSG0005
+NCOEvent*sub_status_line.iducNoRowsModified.messageString: 未修改列。
+! NCOEVENT_MSG0006
+NCOEvent*sub_status_line.rowsMatched.messageString: %1$d 列相符。
+! NCOEVENT_MSG0007
+NCOEvent*sub_status_line.noRowsMatched.messageString: 沒有相符列。
+! NCOEVENT_MSG0008
+NCOEvent*sub_status_line.windowIsFrozen.messageString: 視窗凍結 - 要等到您重新整理之後才會顯示結果。
+! NCOEVENT_MSG0009
+NCOEvent*sub_status_line.resultsRetrieveError.messageString: 擷取結果時發生錯誤。
+! NCOEVENT_MSG0010
+NCOEvent*main_status_line.windowCreateFailed.messageString: 無法建立視窗！
+! NCOEVENT_MSG0012
+NCOEvent*sub_status_line.noServices.messageString: 未定義服務
+! NCOEVENT_MSG0013
+NCOEvent*sub_status_line.allRows.messageString: 已選取所有的列。
+NCOEvent*OclMessage.noFilterPermission.messageString: 您沒有修改此過濾器的許可權
+NCOEvent*OclMessage.noViewPermission.messageString: 您沒有修改此視圖的許可權
+NCOEvent*OclMessage.readOnlyFilterExists.messageString: 含有此名稱的唯讀過濾器已存在
+NCOEvent*OclMessage.readOnlyViewExists.messageString: 含有此名稱的唯讀視圖已存在
+NCOEvent*OclMessage.openTmpFailed.messageString: 無法開啟暫存檔！
+NCOEvent*OclMessage.openFailed.messageString: 無法開啟檔案！
+NCOEvent*OclMessage.printLaunchFailed.messageString: 無法啟動印表機程序
+NCOEvent*OclMessage.journalRetrieveFailed.messageString: 無法擷取日誌登載資訊
+NCOEvent*OclMessage.pipeFailed.messageString: 無法建立管道 - 可能沒有足夠的檔案描述子。
+NCOEvent*OclMessage.masterFailbackSpawnFailed.messageString: 無法大量產生主要的失效回復執行緒。
+NCOEvent*OclMessage.failebackSpawnFailed.messageString: 無法大量產生失效回復執行緒。
+NCOEvent*OclMessage.libnetcoolFaild.messageString: 無法將 netcool 程式庫初始化。
+NCOEvent*OclMessage.resourceLoadFailed.messageString: 無法載入語言環境 X 資源。
+NCOEvent*OclMessage.services.messageString: 服務
+NCOEvent*OclMessage.masterConnectFailed.messageString: 無法連接至主要物件伺服器。\n請檢查伺服器是否正在執行，以及桌面及主要物件伺服器所提供的使用者名稱與密碼\n是否相同。
+NCOEvent*OclMessage.service.messageString: 服務
+NCOEvent*OclMessage.lastChange.messageString: 前次變更
+NCOEvent*OclMessage.lastGood.messageString: 前次正確
+NCOEvent*OclMessage.lastBad.messageString: 前次錯誤
+NCOEvent*OclMessage.lastMarginal.messageString: 前次最低限度
+NCOEvent*OclMessage.lastReported.messageString: 前次報告
+NCOEvent*OclMessage.error.messageString: <錯誤>
+NCOEvent*OclMessage.row.messageString: 列
+NCOEvent*OclMessage.printFailed.messageString: 無法列印
+NCOEvent*OclMessage.uniquePanic.messageString: 緊急！無法取得唯一的系統 ID！\n
+NCOEvent*OclMessage.fontlistFailed.messageString: 無法為使用者指定的字型建立字型清單。\n請改用預設字型。
+NCOEvent*OclMessage.uneditableConfig.messageString: \011-uneditable\011不允許編輯配置\n
+NCOEvent*OclMessage.sub_toolbar_refresh_button.messageString: 更新事件
+NCOEvent*OclMessage.sub_toolbar_freeze_toggle.messageString: [未]凍結
+NCOEvent*OclMessage.sub_toolbar_select_all_toggle.messageString: [取消]全選
+NCOEvent*OclMessage.sub_toolbar_print_button.messageString: 列印
+NCOEvent*OclMessage.sub_toolbar_filter_button.messageString: 過濾器建置器
+NCOEvent*OclMessage.sub_toolbar_filter_option.messageString: 變更過濾器
+NCOEvent*OclMessage.sub_toolbar_view_button.messageString: 視圖建置器
+NCOEvent*OclMessage.sub_toolbar_view_option.messageString: 變更視圖
+NCOEvent*OclMessage.sub_toolbar_service_tog.messageString: 服務視圖
+NCOEvent*OclMessage.sub_toolbar_service_button.messageString: 顯示服務視窗
+NCOEvent*OclMessage.sub_toolbar_service_option.messageString: 變更服務
+NCOEvent*OclMessage.sub_toolbar_service_indicator.messageString: 服務狀態
+NCOEvent*OclMessage.sub_toolbar_jump_button.messageString: 跳至頂端
+NCOEvent*OclMessage.sub_toolbar_top_label.messageString: 限制列至前 <n> 個
+NCOEvent*OclMessage.fs_name_button.messageString: 啟動過濾器建置器
+NCOEvent*OclMessage.fs_view_button.messageString: 顯示子事件清單
+NCOEvent*OclMessage.fs_view_menu.messageString: 可用的視圖
+NCOEvent*OclMessage.toolbar_new_button.messageString: 新建
+NCOEvent*OclMessage.toolbar_open_button.messageString: 開啟
+NCOEvent*OclMessage.toolbar_save_button.messageString: 儲存
+NCOEvent*OclMessage.toolbar_refresh_button.messageString: 重新整理視窗
+NCOEvent*OclMessage.toolbar_freeze_toggle.messageString: 凍結所有顯示畫面
+NCOEvent*OclMessage.toolbar_rownum.messageString: 變更每列的監視器框數目
+NCOEvent*OclMessage.resync_all_text.messageString: 您確定要讓所有本端資料\n與物件伺服器重新同步嗎？
+NCOEvent*OclMessage.resync_visuals_text.messageString: 您確定要讓視覺資料\n與物件伺服器重新同步嗎？
+NCOEvent*OclMessage.resync_classes_text.messageString: 您確定要讓類別資料\n與物件伺服器重新同步嗎？
+NCOEvent*OclMessage.resync_users_text.messageString: 您確定要讓使用者資料\n與物件伺服器重新同步嗎？
+NCOEvent*OclMessage.resync_groups_text.messageString: 您確定要讓群組資料\n與物件伺服器重新同步嗎？
+NCOEvent*OclMessage.resync_menus_text.messageString: 您確定要讓工具功能表\n資料與物件伺服器重新同步嗎？
+NCOEvent*OclMessage.resync_services_text.messageString: 您確定要讓服務資料\n與物件伺服器重新同步嗎？
+
+
+! Generated by X-Designer
+
+
+! service_window
+NCOEvent*service_window.width: 700
+NCOEvent*service_window.height: 400
+NCOEvent*service_window.title: 服務
+
+! service_mb
+
+! service_close_button
+NCOEvent*service_close_button.labelString: 關閉
+
+! service_help_button
+NCOEvent*service_help_button.labelString: 說明
+
+! service_tree
+
+
+! print_file
+NCOEvent*print_file.title: 列印至檔案...
+
+! print_fsb
+NCOEvent*print_fsb.applyLabelString: 過濾器
+NCOEvent*print_fsb.okLabelString: 確定
+NCOEvent*print_fsb.cancelLabelString: 取消
+NCOEvent*print_fsb.helpLabelString: 說明
+NCOEvent*print_fsb.selectionLabelString: 選項
+NCOEvent*print_fsb.filterLabelString: 過濾器
+NCOEvent*print_fsb.fileListLabelString: 檔案
+NCOEvent*print_fsb.dirListLabelString: 目錄
+
+
+! resync_dialog
+NCOEvent*resync_dialog.title: 重新同步？
+
+! resync_mb
+NCOEvent*resync_mb.messageString: 您確定要讓\n %1$s 資料與物件伺服器重新同步嗎？
+NCOEvent*resync_mb.okLabelString: 是
+NCOEvent*resync_mb.cancelLabelString: 否
+NCOEvent*resync_mb.helpLabelString: 說明
+
+
+! print_dialog
+NCOEvent*print_dialog.title: 列印
+
+! print_mb
+
+! print_ok_button
+NCOEvent*print_ok_button.labelString: 確定
+
+! print_cancel_button
+NCOEvent*print_cancel_button.labelString: 取消
+
+! print_help_button
+NCOEvent*print_help_button.labelString: 說明
+
+! frame1
+
+! radioBox1
+
+! print_printer_toggle
+NCOEvent*print_printer_toggle.labelString: 印表機
+
+! print_file_toggle
+NCOEvent*print_file_toggle.labelString: 檔案
+
+! label7
+NCOEvent*printer_label.labelString: 印表機
+
+! print_printer_field
+NCOEvent*print_printer_field.value: lp
+
+! print_file_button
+NCOEvent*print_file_button.labelString: 檔案
+
+! print_file_field
+
+! label8
+NCOEvent*output_label.labelString: 輸出
+
+! frame2
+
+! radioBox2
+
+! print_all_toggle
+NCOEvent*print_all_toggle.labelString: 視圖中的所有警示
+
+! print_selection_toggle
+NCOEvent*print_selection_toggle.labelString: 已選取的警示
+
+! label9
+NCOEvent*selection_label.labelString: 選項
+
+! frame3
+
+! rowcol1
+
+! print_row_sep_toggle
+NCOEvent*print_row_sep_toggle.labelString: 列分隔符號
+
+! print_row_num_toggle
+NCOEvent*print_row_num_toggle.labelString: 列號
+
+! print_col_sep_toggle
+NCOEvent*print_col_sep_toggle.labelString: 直欄分隔符號
+
+! print_col_head_toggle
+NCOEvent*print_col_head_toggle.labelString: 直欄標題
+
+! label10
+NCOEvent*options_label.labelString: 選項
+
+
+! alt_journal_dialog
+NCOEvent*alt_journal_dialog.title: 日誌登載項目
+
+! alt_journal_mb
+
+! alt_ok_button
+NCOEvent*alt_ok_button.labelString: 確定
+
+! alt_cancel_button
+NCOEvent*alt_cancel_button.labelString: 取消
+
+! alt_help_button
+NCOEvent*alt_help_button.labelString: 說明
+
+! alt_text
+
+! alt_menu
+NCOEvent*alt_menu.labelString: ID
+
+! label11
+
+
+! panic_dialog
+NCOEvent*panic_dialog.title: 伺服器故障
+
+! panic_mb
+
+! panic_connect_button
+NCOEvent*panic_connect_button.labelString: 連線
+
+! panic_exit_button
+NCOEvent*panic_exit_button.labelString: 結束
+
+! panic_help_button
+NCOEvent*panic_help_button.labelString: 說明
+
+! label12
+NCOEvent*panic_little_label.labelString: 您所連線的物件伺服器\n顯示為連線失敗。\n\n您可以嘗試對它重新連線，連線至\n不同的物件伺服器，或從這個應用程式中結束。\n\n 您可以使用不同的使用者來連線，方法是填寫下列的欄位。\n
+
+! label13
+NCOEvent*panic_username_label.labelString: 使用者名稱
+
+! panic_username_field
+
+! label14
+NCOEvent*panic_password_label.labelString: 密碼
+
+! panic_password_field
+
+! panic_server_menu
+NCOEvent*panic_server_menu.labelString: 伺服器
+
+! label15
+
+
+! find_dialog
+NCOEvent*find_dialog.title: 尋找...
+
+! find_mb
+
+! find_find_button
+NCOEvent*find_find_button.labelString: 尋找
+
+! find_next_button
+NCOEvent*find_next_button.labelString: 下一個
+
+! find_close_button
+NCOEvent*find_close_button.labelString: 關閉
+
+! find_help_button
+NCOEvent*find_help_button.labelString: 說明
+
+! find_field_list
+
+! label16
+NCOEvent*find_value_label.labelString: 值
+
+! find_value_field
+
+! radioBox3
+
+! find_exact_toggle
+NCOEvent*find_exact_toggle.labelString: 完全相符
+
+! find_regexp_toggle
+NCOEvent*find_regexp_toggle.labelString: 正規表示式
+
+! find_substring_toggle
+NCOEvent*find_substring_toggle.labelString: 子字串
+
+! label17
+NCOEvent*label17.labelString: 選項
+
+
+! prefs_dialog
+NCOEvent*prefs_dialog.title: 事件清單喜好設定
+
+! prefs_mb
+
+! prefs_apply_button
+NCOEvent*prefs_apply_button.labelString: 套用
+
+! prefs_save_button
+NCOEvent*prefs_save_button.labelString: 儲存
+
+! prefs_close_button
+NCOEvent*prefs_close_button.labelString: 關閉
+
+! prefs_undo_button
+NCOEvent*prefs_undo_button.labelString: 復原
+
+! prefs_help_button
+NCOEvent*prefs_help_button.labelString: 說明
+
+! tab_manager
+
+! monitors_tab
+NCOEvent*monitors_tab.labelString: 監視器
+
+! refresh_tab
+NCOEvent*refresh_tab.labelString: 重新整理
+
+! notification_tab
+NCOEvent*notification_tab.labelString: 通知
+
+! flash_tab
+NCOEvent*flash_tab.labelString: 閃動
+
+! misc_tab
+NCOEvent*misc_tab.labelString: 雜項
+
+! monitors_frame
+
+! prefs_fs_number_toggle
+NCOEvent*prefs_fs_number_toggle.labelString: 顯示計數
+
+! prefs_fs_max_toggle
+NCOEvent*prefs_fs_max_toggle.labelString: 顯示最高的嚴重性
+
+! prefs_fs_min_toggle
+NCOEvent*prefs_fs_min_toggle.labelString: 顯示最低的嚴重性
+
+! prefs_fs_metric_toggle
+NCOEvent*prefs_fs_metric_toggle.labelString: 顯示度量
+
+! prefs_fs_sev_border_toggle
+NCOEvent*prefs_fs_sev_border_toggle.labelString: 顯示嚴重性邊界
+
+! rowcol9
+
+! prefs_fs_lavalamp_toggle
+NCOEvent*prefs_fs_lavalamp_toggle.labelString: 顯示 Lavalamp
+
+! prefs_fs_histogram_toggle
+NCOEvent*prefs_fs_histogram_toggle.labelString: 顯示直方圖
+
+! refresh_frame
+
+! prefs_timed_refresh_toggle
+NCOEvent*prefs_timed_refresh_toggle.labelString: 安排更新時間
+
+! prefs_refresh_time_field
+
+! notification_frame
+
+! prefs_notify_toggle
+NCOEvent*prefs_notify_toggle.labelString: 出現圖示時通知
+
+! separator9
+
+! prefs_when_label
+NCOEvent*prefs_when_label.labelString: 時間
+
+! prefs_notify_on_insert_toggle
+NCOEvent*prefs_notify_on_insert_toggle.labelString: 新建
+
+! prefs_notify_on_update_toggle
+NCOEvent*prefs_notify_on_update_toggle.labelString: 變更
+
+! prefs_notify_on_delete_toggle
+NCOEvent*prefs_notify_on_delete_toggle.labelString: 刪除
+
+! separator10
+
+! prefs_how_label
+NCOEvent*prefs_how_label.labelString: 方式
+
+! prefs_notify_bell_toggle
+NCOEvent*prefs_notify_bell_toggle.labelString: 鈴聲
+
+! prefs_notify_icon_toggle
+NCOEvent*prefs_notify_icon_toggle.labelString: 警示圖示
+
+! prefs_notify_open_toggle
+NCOEvent*prefs_notify_open_toggle.labelString: 開啟視窗
+
+! prefs_notify_external_toggle
+NCOEvent*prefs_notify_external_toggle.labelString: 執行外部指令
+
+! prefs_notify_external_field
+
+! flash_frame
+
+! prefs_flash_enable_toggle
+NCOEvent*prefs_flash_enable_toggle.labelString: 啟用閃動
+
+! prefs_flash_time_gauge
+
+! prefs_fast_label
+NCOEvent*prefs_fast_label.labelString: 快
+
+! prefs_slow_label
+NCOEvent*prefs_slow_label.labelString: 慢
+
+! prefs_flash_brightness_gauge
+
+! prefs_bright_label
+NCOEvent*prefs_bright_label.labelString: 亮
+
+! prefs_dark_label
+NCOEvent*prefs_dark_label.labelString: 暗
+
+! misc_frame
+
+! separator42
+
+! label20
+NCOEvent*label20.labelString: 資訊對話框
+
+! prefs_colours_toggle
+NCOEvent*prefs_colours_toggle.labelString: 顯示顏色
+
+! prefs_summary_toggle
+NCOEvent*prefs_summary_toggle.labelString: 顯示分送摘要
+
+! prefs_toolbar_toggle
+NCOEvent*prefs_toolbar_toggle.labelString: 顯示工具列
+
+! prefs_enable_jump_btn
+NCOEvent*prefs_enable_jump_btn.labelString: 依預設開啟跳躍按鈕
+
+! separator34
+
+! label18
+NCOEvent*label18.labelString: 事件視窗
+
+! prefs_sort_info_toggle
+NCOEvent*prefs_sort_info_toggle.labelString: 排序資訊詳細資料
+
+
+! filter_segment
+
+! fs_form
+
+! fs_name_button
+
+! rowcol2
+
+! _fs_number_label
+NCOEvent*_fs_number_label.labelString: 號碼：
+
+! _fs_highest_label
+NCOEvent*_fs_highest_label.labelString: 最高：
+
+! _fs_lowest_label
+NCOEvent*_fs_lowest_label.labelString: 最低：
+
+! _fs_metric_label
+NCOEvent*_fs_metric_label.labelString: 度量：
+
+! rowcol3
+
+! fs_number_label
+
+! fs_highest_label
+
+! fs_lowest_label
+
+! fs_metric_label
+
+! fs_lavalamp
+
+! bottom_separator
+
+! fs_view_button
+NCOEvent*fs_view_button.labelString: 視圖
+
+! fs_view_menu
+
+! fs_chart
+
+
+! sub_window
+NCOEvent*sub_window.width: 680
+NCOEvent*sub_window.height: 350
+NCOEvent*sub_window.title: 事件清單
+
+! sub_form
+
+! sub_menu_bar
+
+! sub_file_cascade_button
+NCOEvent*sub_file_cascade_button.labelString: 檔案(F)
+NCOEvent*sub_file_cascade_button.mnemonic: F
+
+! sub_file_print_button
+NCOEvent*sub_file_print_button.labelString: 列印(P)...
+NCOEvent*sub_file_print_button.mnemonic: P
+NCOEvent*sub_file_print_button.accelerator: Ctrl<Key>P
+NCOEvent*sub_file_print_button.acceleratorText: Ctrl+P
+
+! sub_file_keep_filter_button
+NCOEvent*sub_file_keep_filter_button.labelString: 保留視窗(K)
+NCOEvent*sub_file_keep_filter_button.mnemonic: K
+
+! sub_file_separator
+
+! sub_file_close_button
+NCOEvent*sub_file_close_button.labelString: 關閉(C)
+NCOEvent*sub_file_close_button.mnemonic: C
+
+! sub_edit_cascade_button
+NCOEvent*sub_edit_cascade_button.labelString: 編輯(E)
+NCOEvent*sub_edit_cascade_button.mnemonic: E
+
+! sub_edit_select_all_button
+NCOEvent*sub_edit_select_all_button.labelString: 全選(/)
+NCOEvent*sub_edit_select_all_button.accelerator: Ctrl<Key>slash
+NCOEvent*sub_edit_select_all_button.acceleratorText: Ctrl+/
+
+! sub_edit_deselect_all_button
+NCOEvent*sub_edit_deselect_all_button.labelString: 取消全選(\\)
+NCOEvent*sub_edit_deselect_all_button.accelerator: Ctrl<Key>backslash
+NCOEvent*sub_edit_deselect_all_button.acceleratorText: Ctrl+\
+
+! sub_edit_filter_button
+NCOEvent*sub_edit_filter_button.labelString: 編輯過濾器(F)...
+NCOEvent*sub_edit_filter_button.mnemonic: F
+NCOEvent*sub_edit_filter_button.accelerator: Shift<Key>F
+NCOEvent*sub_edit_filter_button.acceleratorText: Shift+F
+
+! sub_edit_view_button
+NCOEvent*sub_edit_view_button.labelString: 編輯視圖(V)...
+NCOEvent*sub_edit_view_button.mnemonic: V
+NCOEvent*sub_edit_view_button.accelerator: Shift<Key>V
+NCOEvent*sub_edit_view_button.acceleratorText: Shift+V
+
+! sub_edit_copy_button
+NCOEvent*sub_edit_copy_button.labelString: 複製到剪貼簿(C)
+NCOEvent*sub_edit_copy_button.mnemonic: C
+NCOEvent*sub_edit_copy_button.accelerator: Ctrl<Key>C
+NCOEvent*sub_edit_copy_button.acceleratorText: Ctrl+C
+
+! sub_upd_cascade_button
+NCOEvent*sub_upd_cascade_button.labelString: 檢視(V)
+NCOEvent*sub_upd_cascade_button.mnemonic: V
+
+! sub_upd_refresh_button
+NCOEvent*sub_upd_refresh_button.labelString: 重新整理(R)
+NCOEvent*sub_upd_refresh_button.mnemonic: R
+NCOEvent*sub_upd_refresh_button.accelerator: Ctrl<Key>R
+NCOEvent*sub_upd_refresh_button.acceleratorText: Ctrl+R
+
+! sub_upd_freeze_toggle
+NCOEvent*sub_upd_freeze_toggle.labelString: 凍結(Z)
+NCOEvent*sub_upd_freeze_toggle.mnemonic: z
+NCOEvent*sub_upd_freeze_toggle.accelerator: Ctrl<Key>Z
+NCOEvent*sub_upd_freeze_toggle.acceleratorText: Ctrl+Z
+
+! sub_upd_jump_toggle
+NCOEvent*sub_upd_jump_toggle.labelString: 跳至頂端(U)
+NCOEvent*sub_upd_jump_toggle.mnemonic: u
+NCOEvent*sub_upd_jump_toggle.accelerator: Ctrl<Key>U
+NCOEvent*sub_upd_jump_toggle.acceleratorText: Ctrl+U
+
+! sub_upd_find_button
+NCOEvent*sub_upd_find_button.labelString: 尋找(F)...
+NCOEvent*sub_upd_find_button.mnemonic: F
+NCOEvent*sub_upd_find_button.accelerator: Ctrl<Key>F
+NCOEvent*sub_upd_find_button.acceleratorText: Ctrl+F
+
+! sub_alerts_cascade_button
+NCOEvent*sub_alerts_cascade_button.labelString: 警示(A)
+NCOEvent*sub_alerts_cascade_button.mnemonic: A
+
+! sub_tools_cascade_button
+NCOEvent*sub_tools_cascade_button.labelString: 工具(T)
+NCOEvent*sub_tools_cascade_button.mnemonic: T
+
+! sub_help_cascade_button
+NCOEvent*sub_help_cascade_button.labelString: 說明(H)
+NCOEvent*sub_help_cascade_button.mnemonic: H
+
+! sub_help_on_context_button
+NCOEvent*sub_help_on_context_button.labelString: 以環境定義(C)
+NCOEvent*sub_help_on_context_button.mnemonic: C
+NCOEvent*sub_help_on_context_button.accelerator: Shift<Key>osfHelp
+NCOEvent*sub_help_on_context_button.acceleratorText: Shift+Help
+
+! sub_toolbar_form
+
+! sub_toolbar
+
+! sub_toolbar_refresh_button
+
+! sub_toolbar_freeze_toggle
+
+! sub_toolbar_select_all_toggle
+
+! sub_toolbar_print_button
+
+! sub_toolbar_forms
+
+! sub_toolbar_filter_form
+
+! separator17
+
+! sub_toolbar_filter_button
+
+! sub_toolbar_filter_option
+NCOEvent*sub_toolbar_filter_option.resizable: false
+NCOEvent*sub_toolbar_filter_option.labelString:  
+
+! label19
+
+! cascade9
+
+! sub_toolbar_filter_menu
+
+! sub_toolbar_view_form
+
+! separator18
+
+! sub_toolbar_view_button
+
+! sub_toolbar_view_option
+NCOEvent*sub_toolbar_view_option.resizable: false
+
+! label21
+
+! cascade11
+
+! sub_toolbar_view_menu
+
+! sub_toolbar_services_form
+
+! separator39
+
+! sub_toolbar_service_tog
+
+! sub_toolbar_service_button
+
+! sub_toolbar_service_option
+NCOEvent*sub_toolbar_service_option.resizable: false
+
+! label48
+
+! sub_toolbar_service_menu
+
+! frame6
+
+! sub_toolbar_service_indicator
+
+! separator40
+
+! sub_toolbar_jump_button
+
+! separator48
+
+! sub_toolbar_top_form
+
+! sub_toolbar_top_label
+NCOEvent*sub_toolbar_top_label.labelString: 前 [1-300] 個
+
+! sub_toolbar_top_box
+
+! sub_matrix
+
+! sub_status_line
+
+! sub_clock
+NCOEvent*sub_clock.columns: 1
+NCOEvent*sub_clock.resizeWidth: true
+
+! sub_user_field
+NCOEvent*sub_user_field.columns: 1
+NCOEvent*sub_user_field.resizeWidth: true
+
+! sub_server_field
+NCOEvent*sub_server_field.columns: 1
+NCOEvent*sub_server_field.resizeWidth: true
+
+! form21
+
+! sub_summary_bar_form
+
+! sub_clear_summary_toggle
+NCOEvent*sub_clear_summary_toggle.labelString: 清除
+
+! sub_indeterminate_summary_toggle
+NCOEvent*sub_indeterminate_summary_toggle.labelString: 不確定
+
+! sub_warning_summary_toggle
+NCOEvent*sub_warning_summary_toggle.labelString: 警告
+
+! sub_minor_summary_toggle
+NCOEvent*sub_minor_summary_toggle.labelString: 次要
+
+! sub_major_summary_toggle
+NCOEvent*sub_major_summary_toggle.labelString: 主要
+
+! sub_critical_summary_toggle
+NCOEvent*sub_critical_summary_toggle.labelString: 重要
+
+! sub_all_events_button
+NCOEvent*sub_all_events_button.labelString: 所有的事件
+
+
+! info_dialog
+NCOEvent*info_dialog.title: 事件資訊
+
+! info_mb
+
+! info_close_button
+NCOEvent*info_close_button.labelString: 關閉
+
+! info_prev_button
+NCOEvent*info_prev_button.labelString: 前一個
+
+! info_next_button
+NCOEvent*info_next_button.labelString: 下一個
+
+! info_help_button
+NCOEvent*info_help_button.labelString: 說明
+
+! button24
+NCOEvent*button24.labelString: 警示欄位
+
+! button25
+NCOEvent*button25.labelString: 警示詳細資料
+
+! button26
+NCOEvent*button26.labelString: 日誌登載
+
+! form23
+
+! info_matrix
+
+! info_full_text_fld
+
+! info_detail
+
+! info_journal_sw
+
+! info_journal
+
+! info_add_button
+NCOEvent*info_add_button.labelString: 新增至日誌登載...
+
+
+! view_load_dialog
+NCOEvent*view_load_dialog.title: 事件清單：視圖下載
+
+! view_load_fsb
+NCOEvent*view_load_fsb.applyLabelString: 過濾器
+NCOEvent*view_load_fsb.okLabelString: 確定
+NCOEvent*view_load_fsb.cancelLabelString: 取消
+NCOEvent*view_load_fsb.helpLabelString: 說明
+NCOEvent*view_load_fsb.selectionLabelString: 選項
+NCOEvent*view_load_fsb.filterLabelString: 檔案過濾器
+NCOEvent*view_load_fsb.fileListLabelString: 檔案
+NCOEvent*view_load_fsb.dirListLabelString: 目錄
+NCOEvent*view_load_fsb.pattern: *.elv
+
+! button10
+
+! label29
+NCOEvent*view_load_fsb.FilterLabel.labelString: 檔案過濾器
+
+
+! filter_load_dialog
+NCOEvent*filter_load_dialog.title: 事件清單：過濾器下載
+
+! filter_load_fsb
+NCOEvent*filter_load_fsb.applyLabelString: 過濾器
+NCOEvent*filter_load_fsb.okLabelString: 確定
+NCOEvent*filter_load_fsb.cancelLabelString: 取消
+NCOEvent*filter_load_fsb.helpLabelString: 說明
+NCOEvent*filter_load_fsb.selectionLabelString: 選項
+NCOEvent*filter_load_fsb.filterLabelString: 檔案過濾器
+NCOEvent*filter_load_fsb.fileListLabelString: 檔案
+NCOEvent*filter_load_fsb.dirListLabelString: 目錄
+NCOEvent*filter_load_fsb.pattern: *.elf
+
+! button14
+
+! label33
+NCOEvent*filter_load_fsb.FilterLabel.labelString: 檔案過濾器
+
+
+! config_window
+NCOEvent*config_window.title: 事件清單配置
+
+! config_mb
+
+! config_close_button
+NCOEvent*config_close_button.labelString: 關閉
+
+! config_help_button
+NCOEvent*config_help_button.labelString: 說明
+
+! label35
+NCOEvent*settings_label.labelString: 設定
+
+! label36
+NCOEvent*name_label.labelString: 名稱
+
+! config_name_field
+
+! label37
+NCOEvent*columns_label.labelString: 直欄
+
+! config_num_cols_scale
+
+! frame13
+
+! rowcol4
+
+! config_new_button
+NCOEvent*config_new_button.labelString: 新建...
+
+! config_edit_button
+NCOEvent*config_edit_button.labelString: 編輯...
+
+! config_load_button
+NCOEvent*config_load_button.labelString: 下載...
+
+! config_delete_button
+NCOEvent*config_delete_button.labelString: 刪除
+
+! config_list
+
+! rowcol5
+
+! config_top_button
+NCOEvent*config_top_button.labelString: 頂端
+
+! config_up_button
+NCOEvent*config_up_button.labelString: 上移
+
+! config_down_button
+NCOEvent*config_down_button.labelString: 下移
+
+! config_bottom_button
+NCOEvent*config_bottom_button.labelString: 底端
+
+! config_show_menu
+NCOEvent*config_show_menu.labelString: 正在編輯
+
+! label38
+
+! config_show_filters_button
+NCOEvent*config_show_filters_button.labelString: 過濾器
+
+! config_show_views_button
+NCOEvent*config_show_views_button.labelString: 視圖
+
+
+! main_window
+NCOEvent.width: 500
+NCOEvent.height: 340
+NCOEvent.title: 事件清單
+
+! main_form
+
+! main_menu_bar
+
+! file_cascade_button
+NCOEvent*main_menu_bar.file_cascade_button.labelString: 檔案(F)
+NCOEvent*main_menu_bar.file_cascade_button.mnemonic: F
+
+! file_new_button
+NCOEvent*main_menu_bar.XmMenuShell*file_new_button.labelString: 新建(N)
+NCOEvent*main_menu_bar.XmMenuShell*file_new_button.mnemonic: N
+
+! file_open_button
+NCOEvent*main_menu_bar.XmMenuShell*file_open_button.labelString: 開啟(O)...
+NCOEvent*main_menu_bar.XmMenuShell*file_open_button.mnemonic: O
+
+! file_save_button
+NCOEvent*main_menu_bar.XmMenuShell*file_save_button.labelString: 儲存(S)
+NCOEvent*main_menu_bar.XmMenuShell*file_save_button.mnemonic: S
+
+! file_save_as_button
+NCOEvent*main_menu_bar.XmMenuShell*file_save_as_button.labelString: 另存新檔(A)...
+NCOEvent*main_menu_bar.XmMenuShell*file_save_as_button.mnemonic: A
+
+! file_resync_cascade
+NCOEvent*main_menu_bar.XmMenuShell*file_resync_cascade.labelString: 重新同步(R)
+NCOEvent*main_menu_bar.XmMenuShell*file_resync_cascade.mnemonic: R
+
+! resync_all_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_all_btn.labelString: 全部...
+
+! resync_visuals_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_visuals_btn.labelString: 視覺...
+
+! resync_classes_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_classes_btn.labelString: 類別...
+
+! resync_users_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_users_btn.labelString: 使用者...
+
+! resync_groups_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_groups_btn.labelString: 群組...
+
+! resync_menus_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_menus_btn.labelString: 功能表...
+
+! resync_services_btn
+NCOEvent*main_menu_bar.XmMenuShell*resync_services_btn.labelString: 服務...
+
+! file_exit_button
+NCOEvent*main_menu_bar.XmMenuShell*file_exit_button.labelString: 結束(X)
+NCOEvent*main_menu_bar.XmMenuShell*file_exit_button.mnemonic: x
+
+! update_cascade_button
+NCOEvent*main_menu_bar.update_cascade_button.labelString: 檢視(V)
+NCOEvent*main_menu_bar.update_cascade_button.mnemonic: V
+
+! update_refresh_all_button
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.labelString: 全部重新整理(R)
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.mnemonic: R
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.accelerator: Ctrl<Key>R
+NCOEvent*main_menu_bar.XmMenuShell*update_refresh_all_button.acceleratorText: Ctrl+R
+
+! update_freeze_all_toggle
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.labelString: 全部凍結(Z)
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.mnemonic: z
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.accelerator: Ctrl<Key>Z
+NCOEvent*main_menu_bar.XmMenuShell*update_freeze_all_toggle.acceleratorText: Ctrl+Z
+
+! windows_cascade_button
+NCOEvent*main_menu_bar.windows_cascade_button.labelString: 視窗(W)
+NCOEvent*main_menu_bar.windows_cascade_button.mnemonic: W
+
+! windows_menu
+
+! windows_config_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.labelString: 配置(C)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.mnemonic: C
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.accelerator: Ctrl<Key>C
+NCOEvent*main_menu_bar.XmMenuShell*windows_config_button.acceleratorText: Ctrl+C
+
+! windows_services_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.labelString: 服務(S)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.mnemonic: S
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.accelerator: Ctrl<Key>S
+NCOEvent*main_menu_bar.XmMenuShell*windows_services_button.acceleratorText: Ctrl+S
+
+! windows_prefs_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.labelString: 喜好設定(P)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.mnemonic: P
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.accelerator: Ctrl<Key>P
+NCOEvent*main_menu_bar.XmMenuShell*windows_prefs_button.acceleratorText: Ctrl+P
+
+! windows_colours_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.labelString: 顏色(O)...
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.mnemonic: O
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.accelerator: Ctrl<Key>O
+NCOEvent*main_menu_bar.XmMenuShell*windows_colours_button.acceleratorText: Ctrl+O
+
+! windows_close_all_button
+NCOEvent*main_menu_bar.XmMenuShell*windows_close_all_button.labelString: 關閉所有事件視窗
+
+! tools_cascade_button
+NCOEvent*main_menu_bar.tools_cascade_button.labelString: 工具(T)
+NCOEvent*main_menu_bar.tools_cascade_button.mnemonic: T
+
+! help_cascade_button
+NCOEvent*main_menu_bar.help_cascade_button.labelString: 說明(H)
+NCOEvent*main_menu_bar.help_cascade_button.mnemonic: H
+
+! help_on_context_button
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.labelString: 以環境定義(C)
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.mnemonic: C
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.accelerator: Shift<Key>osfHelp
+NCOEvent*main_menu_bar.XmMenuShell*help_on_context_button.acceleratorText: Shift+Help
+
+! help_on_version_button
+NCOEvent*main_menu_bar.XmMenuShell*help_on_version_button.labelString: 以版本(V)
+NCOEvent*main_menu_bar.XmMenuShell*help_on_version_button.mnemonic: V
+
+! main_sw
+
+! main_rc
+
+! main_status_line
+
+! main_user_field
+NCOEvent*main_user_field.columns: 1
+NCOEvent*main_user_field.resizeWidth: true
+
+! main_server_field
+NCOEvent*main_server_field.columns: 1
+NCOEvent*main_server_field.resizeWidth: true
+
+! main_toolbar_form
+
+! main_toolbar
+
+! toolbar_new_button
+
+! toolbar_open_button
+
+! toolbar_save_button
+
+! toolbar_refresh_button
+
+! toolbar_freeze_toggle
+
+! toolbar_rownum_form
+
+! toolbar_rownum_frame
+
+! toolbar_rownum
+NCOEvent*toolbar_rownum.labelString: 20
+
+! form37
+
+! toolbar_rownum_inc
+
+! toolbar_rownum_dec
+
+
+! journal_dialog
+NCOEvent*journal_dialog.title: 日誌登載
+
+! journal_mb
+
+! journal_ok_button
+NCOEvent*journal_ok_button.labelString: 確定
+
+! journal_apply_button
+NCOEvent*journal_apply_button.labelString: 套用
+
+! journal_close_button
+NCOEvent*journal_close_button.labelString: 關閉
+
+! journal_prev_button
+NCOEvent*journal_prev_button.labelString: 前一個
+
+! journal_next_button
+NCOEvent*journal_next_button.labelString: 下一個
+
+! journal_help_button
+NCOEvent*journal_help_button.labelString: 說明
+
+! journal_entry_label
+NCOEvent*journal_entry_label.labelString: 日誌登載項目適用於
+
+! journal_text
+NCOEvent*journal_textSW.journal_text.columns: 37
+NCOEvent*journal_textSW.journal_text.rows: 10
+
+! journal_edit_text
+NCOEvent*journal_edit_textSW.journal_edit_text.columns: 37
+NCOEvent*journal_edit_textSW.journal_edit_text.rows: 4
+
+! rowcol6
+
+! journal_apply_to_all_toggle
+NCOEvent*journal_apply_to_all_toggle.labelString: 套用至所有已選取的
+
+
+! colours_dialog
+NCOEvent*colours_dialog.title: 事件清單顏色
+
+! colours_mb
+
+! colours_close_button
+NCOEvent*colours_close_button.labelString: 關閉
+
+! rowcol7
+
+! colours_unassign_label
+NCOEvent*colours_unassign_label.labelString: 未指定的警示
+
+! colours_unack_label
+NCOEvent*colours_unack_label.labelString: 未認可的警示
+
+! unack_crit_label
+NCOEvent*unack_crit_label.labelString: 重要
+
+! unack_major_label
+NCOEvent*unack_major_label.labelString: 主要
+
+! unack_minor_label
+NCOEvent*unack_minor_label.labelString: 次要
+
+! unack_warn_label
+NCOEvent*unack_warn_label.labelString: 警告
+
+! unack_indet_label
+NCOEvent*unack_indet_label.labelString: 不確定
+
+! unack_clear_label
+NCOEvent*unack_clear_label.labelString: 清除
+
+! unack_close_label
+NCOEvent*unack_close_label.labelString: 已關閉
+
+! separator30
+
+! rowcol8
+
+! colours_assigned_label
+NCOEvent*colours_assigned_label.labelString: 已指派的警示
+
+! colours_ack_label
+NCOEvent*colours_ack_label.labelString: 已認可的警示
+
+! ack_crit_label
+NCOEvent*ack_crit_label.labelString: 重要
+
+! ack_major_label
+NCOEvent*ack_major_label.labelString: 主要
+
+! ack_minor_label
+NCOEvent*ack_minor_label.labelString: 次要
+
+! ack_warn_label
+NCOEvent*ack_warn_label.labelString: 警告
+
+! ack_indet_label
+NCOEvent*ack_indet_label.labelString: 不確定
+
+! ack_clear_label
+NCOEvent*ack_clear_label.labelString: 清除
+
+! ack_close_label
+NCOEvent*ack_close_label.labelString: 已關閉
+
+
+! save_dialog
+NCOEvent*save_dialog.title: 儲存配置...
+
+! save_file_sb
+NCOEvent*save_file_sb.applyLabelString: 過濾器
+NCOEvent*save_file_sb.okLabelString: 確定
+NCOEvent*save_file_sb.cancelLabelString: 取消
+NCOEvent*save_file_sb.helpLabelString: 說明
+NCOEvent*save_file_sb.selectionLabelString: 選項
+NCOEvent*save_file_sb.filterLabelString: 檔案過濾器
+NCOEvent*save_file_sb.fileListLabelString: 檔案
+NCOEvent*save_file_sb.dirListLabelString: 目錄
+NCOEvent*save_file_sb.pattern: *.elc
+
+! button16
+NCOEvent*save_file_sb.Apply.labelString: 過濾器
+
+! button17
+NCOEvent*save_file_sb.Cancel.labelString: 取消
+
+! button18
+NCOEvent*save_file_sb.Help.labelString: 說明
+
+! label39
+NCOEvent*save_file_sb.Items.labelString: 檔案
+
+! button19
+NCOEvent*save_file_sb.OK.labelString: 確定
+
+! label40
+NCOEvent*save_file_sb.Selection.labelString: 選項
+
+! label41
+NCOEvent*save_file_sb.FilterLabel.labelString: 檔案過濾器
+
+! label42
+NCOEvent*save_file_sb.Dir.labelString: 目錄
+
+! save_backup_toggle
+NCOEvent*save_backup_toggle.labelString: 備份現有檔案
+
+
+! open_dialog
+NCOEvent*open_dialog.title: 開啟配置...
+
+! open_file_sb
+NCOEvent*open_file_sb.applyLabelString: 過濾器
+NCOEvent*open_file_sb.okLabelString: 確定
+NCOEvent*open_file_sb.cancelLabelString: 取消
+NCOEvent*open_file_sb.helpLabelString: 說明
+NCOEvent*open_file_sb.selectionLabelString: 選項
+NCOEvent*open_file_sb.filterLabelString: 檔案過濾器
+NCOEvent*open_file_sb.fileListLabelString: 檔案
+NCOEvent*open_file_sb.dirListLabelString: 目錄
+NCOEvent*open_file_sb.pattern: *.elc
+
+! button21
+NCOEvent*open_file_sb.Cancel.labelString: 取消
+
+! button22
+NCOEvent*open_file_sb.Help.labelString: 說明
+
+! label43
+NCOEvent*open_file_sb.Items.labelString: 檔案
+
+! button23
+NCOEvent*open_file_sb.OK.labelString: 確定
+
+! label44
+NCOEvent*open_file_sb.Selection.labelString: 選項
+
+! label45
+NCOEvent*open_file_sb.FilterLabel.labelString: 檔案過濾器
+
+! label46
+NCOEvent*open_file_sb.Dir.labelString: 目錄
+
+
+! info_popup
+
+! info_popup_title
+
+! info_popup_copy_button
+NCOEvent*info_popup_copy_button.labelString: 複製到剪貼簿
+

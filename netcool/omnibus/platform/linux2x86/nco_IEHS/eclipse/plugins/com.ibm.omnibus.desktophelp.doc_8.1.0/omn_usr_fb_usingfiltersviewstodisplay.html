@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Using filters and views to display custom event information" />
+<meta name="abstract" content="The alerts database tables hold event information that is forwarded to the ObjectServer. You can use filters and views to define which of this event information is displayed in your event lists." />
+<meta name="Description" content="The alerts database tables hold event information that is forwarded to the ObjectServer. You can use filters and views to define which of this event information is displayed in your event lists." />
+<meta name="DC.subject" content="filters, overview, views" />
+<meta name="keywords" content="filters, overview, views" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_settingupfiltersevntlst.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_vb_settingupviewsevntlsts.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_usingfiltersviewstodisplay" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Using filters and views to display custom event information</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_usingfiltersviewstodisplay">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Using filters and views to display custom event information</h1>
+<div class="body conbody"><p class="shortdesc">The <samp class="ph tt">alerts</samp> database tables hold event information
+that is forwarded to the ObjectServer. You can use filters and views
+to define which of this event information is displayed in your event
+lists.</p>
+<p class="p">A filter controls which alerts (or database records) can be seen,
+and a view controls which columns (or database fields) are visible
+for those alerts. You can perform information requests on the database
+tables using Structured Query Language (SQL).</p>
+<div class="p">To display alerts within the event list, it is necessary to perform
+a SELECT statement on the alerts.status table. The SQL statements
+can be separated into three conceptual parts:<ul class="ul"><li class="li">Select which columns in the alerts.status table you want to view,
+by using views created in the View Builder.</li>
+<li class="li">Select the events that contain specific data values in one or
+more of those columns, by using filters created in the Filter Builder.</li>
+<li class="li">Select the order for displaying the events, by using views created
+in the View Builder.</li>
+</ul>
+</div>
+<p class="p">The following example shows a SELECT statement that is performed
+on the alerts.status table: </p>
+<pre class="pre codeblock"><code>select Node as NODE, Summary as Detail from alerts.status
+where Node ='link1' </code></pre>
+<p class="p">The SELECT clause is constructed within the View Builder, which
+is used to create and edit views. The WHERE clause is constructed
+within the Filter Builder, which is used to create and edit filters.</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_fb_settingupfiltersevntlst.html">Setting up filters for event list data</a></span><br />
+Filters are used to build SQL queries that can be run on the ObjectServer <samp class="ph tt">alerts</samp> database
+tables, in order to display custom alert information in monitor boxes and
+event lists.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_vb_settingupviewsevntlsts.html">Setting up views for event lists</a></span><br />
+Views define the selection of columns that are shown in
+the event list, and the formatting of information within these columns.</li>
+</ul>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+#
+# Rules for VMWare ESXi 5.0/5.1 Integration.
+#
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7.x.x
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-ENV-MIB , VMWARE-VMINFO-MIB
+#
+###############################################################################
+
+log(DEBUG, "<<<<< Entering... vmware-vmstatus-update.include.snmptrap.rules >>>>>")
+
+switch($specific-trap)
+{
+    case "1": ### vmwVmPoweredOn
+
+	# The Virtual Machine has just powered on or has been moved to a new host
+	genevent( vmstatus_target, @VMHostName, $vmwVmDisplayName, @HyperHostName, @Node, @VMStatus, 1 )
+
+    case "2": ### vmwVmPoweredOff
+
+	# The Virtual Machine has just powered off
+	genevent( vmstatus_target, @VMHostName, $vmwVmDisplayName, @HyperHostName, @Node, @VMStatus, 0 )
+        
+    case "3": ### vmwVmHBLost
+
+	# The Virtual Machine has lost its heartbeat
+	genevent( vmstatus_target, @VMHostName, $vmwVmDisplayName, @HyperHostName, @Node, @VMStatus, 0 )
+ 
+    case "4": ### vmwVmHBDetected
+
+	# The Virtual Machine has regained its heartbeat
+	genevent( vmstatus_target, @VMHostName, $vmwVmDisplayName, @HyperHostName, @Node, @VMStatus, 1 )
+        
+    case "5": ### vmwVmSuspended
+
+	# The Virtual Machine has been suspended
+	genevent( vmstatus_target, @VMHostName, $vmwVmDisplayName, @HyperHostName, @Node, @VMStatus, 0 )
+
+####################
+# The following events are for hypervisor host health. These canbe correlated with similar VM health
+# events if the same alert group is used for both. When adding more please also add them to the
+# vm_correlate trigger. 
+####################
+		
+    case "301": ### vmwESXEnvHardwareEvent
+
+        
+    case "302": ### vmwESXEnvHardwareAlert
+
+        
+    case "303": ### vmwESXEnvBatteryAlert
+
+    case "304": ### vmwESXEnvChassisAlert
+        
+    case "305": ### vmwESXEnvThermalAlert
+
+    case "306": ### vmwESXEnvDiskAlert
+
+        #Set disk alert group for correlation with VM events
+        @AlertGroup = "Disk Status"
+      
+    case "307": ### vmwESXEnvPowerAlert
+        
+    case "308": ### vmwESXEnvProcessorAlert
+
+        #Set CPU alert group for correlation with VM events
+        @AlertGroup = "CPU Status"
+
+    case "309": ### vmwESXEnvMemoryAlert
+
+        #Set memory alert group for correlation with VM events
+        @AlertGroup = "Memory Allocation Status"
+        
+    case "310": ### vmwESXEnvBIOSAlert
+
+    default:
+}
+
+log(DEBUG, "<<<<< Leaving... vmware-vmstatus-update.include.snmptrap.rules >>>>>")
+

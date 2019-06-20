@@ -1,0 +1,225 @@
+###############################################################################
+#
+#    Licensed Materials - Property of IBM
+#    "Restricted Materials of IBM"
+#
+#    5724-S44
+#
+#    (C) Copyright IBM Corp. 2005, 2012
+#
+#    Netcool Knowledge Library
+#
+###############################################################################
+###############################################################################
+#
+# 1.0 - Initial Release.
+#
+#        Compatible with:
+#
+#          -  Netcool/Omnibus 3.x and 7
+#          -  Netcool Rules File Standards (MUSE-STD-RF-03, Jan 2006)
+#
+#          -  VMWARE-ENV-MIB , VMWARE-VMINFO-MIB
+#
+###############################################################################
+
+log(DEBUG, "<<<<< Entering... vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXNotifications.adv.include.snmptrap.rules >>>>>")
+
+switch($specific-trap)
+{
+   case "1": ### vmwVmPoweredOn
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwVmPoweredOn"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "vmwVmEntry." + $vmwVmIdx
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "2": ### vmwVmPoweredOff
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwVmPoweredOff"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "vmwVmEntry." + $vmwVmIdx
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "3": ### vmwVmHBLost
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwVmHBLost"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "vmwVmEntry." + $vmwVmIdx
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "4": ### vmwVmHBDetected
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwVmHBDetected"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "vmwVmEntry." + $vmwVmIdx
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "5": ### vmwVmSuspended
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwVmSuspended"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "vmwVmEntry." + $vmwVmIdx
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+		
+    case "301": ### vmwESXEnvHardwareEvent
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvHardwareEvent"
+        $OS_OsiLayer = 0
+
+        
+    case "302": ### vmwESXEnvHardwareAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvHardwareAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "303": ### vmwESXEnvBatteryAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvBatteryAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "304": ### vmwESXEnvChassisAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvChassisAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "305": ### vmwESXEnvThermalAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvThermalAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "306": ### vmwESXEnvDiskAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvDiskAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "307": ### vmwESXEnvPowerAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvPowerAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "308": ### vmwESXEnvProcessorAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvProcessorAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "309": ### vmwESXEnvMemoryAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvMemoryAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    case "310": ### vmwESXEnvBIOSAlert
+
+        $OS_X733EventType = 1
+        $OS_X733ProbableCause = 1008
+        $OS_X733SpecificProb = "vmwESXEnvBIOSAlert"
+        $OS_OsiLayer = 0
+
+        $OS_LocalPriObj = "ID : " + $vmwEnvAlertingElement
+        $OS_LocalRootObj = $OS_LocalPriObj
+        $VAR_RelateLRO2LPO = 1
+        $VAR_RelateLRO2LSO = 0
+        $VAR_RelateLSO2LPO = 0
+        
+    default:
+}
+
+log(DEBUG, "<<<<< Leaving... vmware-VMWARE-ENV-MIB-VMWARE-VMINFO-MIB-vmwESXNotifications.adv.include.snmptrap.rules >>>>>")
+
+

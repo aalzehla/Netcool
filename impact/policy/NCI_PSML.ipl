@@ -1,0 +1,379 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2008, 2014. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+/*
+ * Functions for taking an IPL object created using IPLtoXML functions, converting
+ * the IPL object t XML, saving the XML to a .psml file, and using the ngf_api to
+ * import the .psml file.
+ */
+
+// the goal here is to produce a psml file that can be imported by the NGF code
+// we'll need to push the file name to NGF code
+
+function GetEnv(ENV){
+	ENV = newobject();
+
+
+	// how to run external/remote processes.  Only remote works with windows
+	ENV.howToCall="remote";    // options are local (jrexec), remote (ssh command/response)
+
+	//location of API CLI
+	ENV.ngfapiHome="/opt/ibm/netcool/bin/ngf_api";
+	//ENV.ngfapiHome="C:\\progra~1\\ibm\\netcool\\bin\\ngf_api.bat";		//use 8.3 file names for Windows
+
+	//where the temporary xml files should be stored
+	ENV.integrationHome="/opt/ibm/netcool/impact/integrations/webtop/";
+	//ENV.integrationHome="C:\\progra~1\\ibm\\netcool\\impact\\integr~1\\webtop";		//use 8.3 file names for Windows
+
+	//save xml files after they have been run?
+	ENV.saveXML=TRUE;  //options are TRUE or FALSE
+
+	//Unix or Microsoft platform
+	ENV.platform="unix";  //options or unix or ms
+	//ENV.platform="ms";  SSH command/response with windows style pathing
+
+	//file extension for xml files //example webtop.xml, ngf.xml, psml
+	ENV.extension = "psml";
+
+	//Page Ownership
+	ENV.assignTo="user";  //user, role, or group
+	ENV.assignToValue="impact";
+
+	//NGF Connection info
+	ENV.ngfUser="admin";
+	ENV.ngfPassword="netcool"; //you could nci_encrypt/decrypt this
+	ENV.ngfHost="localhost";
+	ENV.ngfPort="8080";
+        ENV.ngfIMPACT_HOME="/opt/ibm/netcool/";
+	//ENV.ngfNCHome="/opt/ibm/netcool/";
+	//ENV.ngfNCHome="C:\\progra~1\\ibm\\netcool";
+
+
+	/* see the 4.0.1 Policy Reference Guide for information on setting up SSH command/response */
+	/////linux example
+
+	ENV.hostname="spiderman";
+	ENV.username="netcool";
+	ENV.sshPort=22;
+	ENV.expectList={"[netcool@spiderman ~]$ "};
+
+	ENV.UserCredentials=newobject();
+	ENV.UserCredentials.Password=decrypt("7E6C7364EFD7CD69"); 			//run nci_crypt on password
+	ENV.UserCredentials.PassPhrase=decrypt("F1B254C40C873DC64E51BAAAA7644CB6"); 	//run nci_crypt on passphrase
+	ENV.UserCredentials.KeyFile="/opt/ibm/netcool/impact/integrations/ssh/id_rsa";
+
+	ENV.Options=newobject();
+	ENV.Options.Service="ssh";
+	ENV.Options.AutoInitiate=TRUE;
+	ENV.Options.CmdTerminator="\n";
+	ENV.Options.InitialPrompt="[netcool@spiderman ~]$ ";
+
+/*
+	/////openSSH on windows example
+	ENV.hostname="localhost";
+	ENV.username="Administrator";
+	ENV.sshPort=22;
+	ENV.expectList={"C:\Documents and Settings\Administrator>"};
+
+	ENV.UserCredentials=newobject();
+	//ENV.UserCredentials.Password=decrypt("7E6C7364EFD7CD69"); 			//run nci_crypt on password
+	ENV.UserCredentials.Password="netcool";
+	//ENV.UserCredentials.PassPhrase=decrypt("F1B254C40C873DC64E51BAAAA7644CB6"); 	//run nci_crypt on passphrase
+	//ENV.UserCredentials.KeyFile="/opt/ibm/netcool/impact/integrations/ssh/id_rsa";
+
+	ENV.Options=newobject();
+	ENV.Options.Service="ssh";
+	ENV.Options.AutoInitiate=TRUE;
+	ENV.Options.CmdTerminator="\n";
+	ENV.Options.InitialPrompt="C:\Documents and Settings\Administrator>";
+*/
+
+	/* //logging of ENV values */
+	//log(ENV.waapiHome);
+	//log(ENV.integrationHome);
+
+
+}
+
+
+
+function createXMLFile(OMNI){
+	//generate filename
+	log("generating file name");
+	destinationDir=OMNI.ENV.integrationHome;
+	extension=OMNI.ENV.extension;
+	platform=OMNI.ENV.platform;
+	UTIL.generatelUniqueFileName(OMNI.fullFileName, destinationDir, extension, platform);
+	log("file name is " + OMNI.fullFileName);
+
+
+
+	//create file local
+	if (OMNI.ENV.howToCall="local"){
+		log("creating local file");
+		log("platform is: " + OMNI.ENV.platform);
+
+		if(OMNI.ENV.platform=="unix"){
+		UTIL.createLocalFile(OMNI.fullFileName, OMNI.text, cmdOutput);
+		}
+
+		if(OMNI.ENV.platform=="ms"){
+		log("*************use ssh/remote with Windows*******************");
+		//UTIL.cleanTextForWinEcho(OMNI.text);
+		//UTIL.createLocalWinFile(OMNI.fullFileName, OMNI.text, cmdOutput);
+		}
+		//log(cmdOutput);
+	}
+
+
+
+	//create file remote
+	if (OMNI.ENV.howToCall="remote"){
+		log("creating remote file");
+
+		//clean file for echo
+		if(OMNI.ENV.platform=="unix"){
+			UTIL.cleanTextForEcho(OMNI.text);
+		}
+
+		if(OMNI.ENV.platform=="ms"){
+			UTIL.cleanTextForWinEcho(OMNI.text);
+		}
+
+		UTIL.createRemoteFile(OMNI.fullFileName, OMNI.text, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+	}
+}
+
+
+
+
+
+
+
+function deleteXMLFile(OMNI){
+	//local
+	if (OMNI.ENV.howToCall="local"){
+		log("deleting local xml file");
+		UTIL.deleteLocalFile(OMNI.fullFileName, cmdOutput);
+		//log(cmdOutput);
+	}
+
+
+	//remote
+	if (OMNI.ENV.howToCall=="remote"){
+		log("deleting remote xml file");
+
+		if(OMNI.ENV.platform=="unix"){
+			UTIL.deleteRemoteFile(OMNI.fullFileName, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+			//log(cmdOutput);
+		}
+
+		if(OMNI.ENV.platform=="ms"){
+			UTIL.deleteRemoteWinFile(OMNI.fullFileName, OMNI.ENV.expectList, OMNI.sshSession, cmdOutput);
+			//log(cmdOutput);
+		}
+
+
+	}
+}
+
+
+function importPage(OMNI){
+	IPLtoXML.newDocument(ngfProject);
+
+	IPLtoXML.newSubElement(ngfProject, project1, "project");
+	IPLtoXML.addAttribute(project1, "name", "import a psml page");
+	IPLtoXML.addAttribute(project1, "default", "main");
+	IPLtoXML.addAttribute(project1, "basedir", ".");
+
+	IPLtoXML.newSubElement(project1, a_taskdef, "taskdef");
+	IPLtoXML.addAttribute(a_taskdef, "name", "psmltask");
+	IPLtoXML.addAttribute(a_taskdef, "classpath", "%CLASSPATH%");
+	IPLtoXML.addAttribute(a_taskdef, "classname", "com.sybase.mach.ant.extension.MachPsmlTask");
+
+	IPLtoXML.newSubElement(project1, b_property1, "property");
+	IPLtoXML.addAttribute(b_property1, "name", "username");
+	IPLtoXML.addAttribute(b_property1, "value", OMNI.ENV.ngfUser);
+	//log("importing page as: " + OMNI.ENV.ngfUser);
+
+
+	IPLtoXML.newSubElement(project1, b_property2, "property");
+	IPLtoXML.addAttribute(b_property2, "name", "password");
+	IPLtoXML.addAttribute(b_property2, "value", OMNI.ENV.ngfPassword);
+	//log("using password: " + OMNI.ENV.ngfPassword);
+
+	IPLtoXML.newSubElement(project1, b_property3, "property");
+	IPLtoXML.addAttribute(b_property3, "name", "server");
+	IPLtoXML.addAttribute(b_property3, "value", OMNI.ENV.ngfHost + ":" + OMNI.ENV.ngfPort); //change to match ngf server host:port
+	//log("importing to server at: " + OMNI.ENV.ngfHost + ":" + OMNI.ENV.ngfPort);
+
+	IPLtoXML.newSubElement(project1, b_property4, "property");
+	IPLtoXML.addAttribute(b_property4, "name", "netcool.home");
+	IPLtoXML.addAttribute(b_property4, "value", OMNI.ENV.ngfIMPACT_HOME);
+	//log("netcool.home is: " + OMNI.ENV.ngfIMPACT_HOME);
+
+	IPLtoXML.newSubElement(project1, c_target, "target");
+	IPLtoXML.addAttribute(c_target, "name", "main");
+	IPLtoXML.addAttribute(c_target, "description", "creates an example page in ngf");
+
+	IPLtoXML.newSubElement(c_target, task1, "psmltask");
+	//IPLtoXML.addAttribute(task1, "verbose", "true");
+	IPLtoXML.addAttribute(task1, "username", "${username}");
+	IPLtoXML.addAttribute(task1, "password", "${password}");
+	IPLtoXML.addAttribute(task1, "server", "${server}");
+
+	IPLtoXML.addAttribute(task1, "name", psmlPageName);
+	IPLtoXML.addAttribute(task1, "action", "import"); //import or delete
+	IPLtoXML.addAttribute(task1, "psmlfile", OMNI.fullFileName);
+	IPLtoXML.addAttribute(task1, "mediaType", "html");
+	IPLtoXML.addAttribute(task1, "categoryName", OMNI.ENV.assignTo); //assign page to user, role, or group
+	IPLtoXML.addAttribute(task1, "categoryValue", OMNI.ENV.assignToValue);
+
+
+
+	//STACK is always required before function call that makes use of IPLtoXML
+	//STACK=NewJavaObject("java.util.Stack", {});
+
+	NGF.Provision(ngfProject);
+	OMNI.apiOutput=ngfProject.NGFAPI_OUTPUT;
+	//log(ngfProject.NGFAPI_OUTPUT);
+
+
+
+}
+
+
+
+function Provision(psmlObject, psmlPageName){
+
+	//object to pass between functions
+	OMNI=newobject();
+
+
+	// Generate the XML object to send to the API
+	log("generating psml string");
+	IPLtoXML.generateXML(psmlObject, OMNI.text);
+	log("\n" + OMNI.text);
+
+
+	//Get ENV details
+	log("getting ENV");
+	GetEnv(OMNI.ENV);
+
+
+
+	//OPTIONAL create sshSession
+
+	If (OMNI.ENV.howToCall="remote"){
+		log("generating SSH session");
+		UTIL.createSSHSession(OMNI.sshSession, OMNI.ENV);
+
+	}
+
+
+
+
+	//create psml file
+	createXMLFile(OMNI);
+
+
+
+
+
+
+	//import psml
+	importPage(OMNI);
+
+
+
+	//OPTIONAL delete psml file
+	if(OMNI.ENV.saveXML=FALSE){
+		log("deleting PSML file");
+		deleteXMLFile(OMNI);
+	}
+
+
+	//OPTIONAL end sshSession
+
+	If (OMNI.ENV.howToCall="remote"){
+		log("ending SSH session");
+		UTIL.endSSHSession(OMNI.sshSession);
+
+	}
+
+
+
+
+	psmlObject.NGFAPI_OUTPUT=OMNI.apiOutput; //DIFF from webtop policy
+
+
+
+
+}
+
+
+
+
+
+
+////////////////////////////////TESTING
+/*
+pageNameSuffix="AEL_single_column";
+
+psmlportlet1=newobject();
+psmlportlet1.XMLElementType="portlets";
+psmlportlet1.metainfo1=newobject();
+	psmlportlet1.metainfo1.XMLElementType="metainfo";
+	psmlportlet1.metainfo1.title1=newobject();
+		psmlportlet1.metainfo1.title1.XMLElementType="title";
+		psmlportlet1.metainfo1.title1.XMLElementContent="impact_" + pageNameSuffix;
+psmlportlet1.entry1=newobject();
+	psmlportlet1.entry1.XMLElementType="entry";
+	psmlportlet1.entry1.parent="ncw-ael";					// what viewpoint type is used
+	psmlportlet1.entry1.layout=newobject();
+		psmlportlet1.entry1.layout.XMLElementType="layout";		// how things are laid out
+		psmlportlet1.entry1.layout.position="-1";
+		psmlportlet1.entry1.layout.size="-1";
+		psmlportlet1.entry1.layout.property1=newobject();
+			psmlportlet1.entry1.layout.property1.XMLElementType="property";
+			psmlportlet1.entry1.layout.property1.name="column";
+			psmlportlet1.entry1.layout.property1.value="0";
+		psmlportlet1.entry1.layout.property2=newobject();
+			psmlportlet1.entry1.layout.property2.XMLElementType="property";
+			psmlportlet1.entry1.layout.property2.name="row";
+			psmlportlet1.entry1.layout.property2.value="0";
+	psmlportlet1.entry1.control1=newobject();
+		psmlportlet1.entry1.control1.XMLElementType="control";
+		psmlportlet1.entry1.control1.name="TitlePortletControl";
+
+										//parameters for viewpoint
+	psmlportlet1.entry1.control1=newobject();
+		psmlportlet1.entry1.control1.XMLElementType="control";
+		psmlportlet1.entry1.control1.name="TitlePortletControl";
+	psmlportlet1.entry1.parameter1=newobject();
+		psmlportlet1.entry1.parameter1.XMLElementType="parameter";
+		psmlportlet1.entry1.parameter1.name="ael_height";
+		psmlportlet1.entry1.parameter1.value="400";
+	psmlportlet1.entry1.parameter2=newobject();
+		psmlportlet1.entry1.parameter2.XMLElementType="parameter";
+		psmlportlet1.entry1.parameter2.name="ael_width";
+		psmlportlet1.entry1.parameter2.value="90%";
+	psmlportlet1.entry1.parameter3=newobject();
+		psmlportlet1.entry1.parameter3.XMLElementType="parameter";
+		psmlportlet1.entry1.parameter3.name="ael_entity";
+		psmlportlet1.entry1.parameter3.value="AllEvents";
+
+//STACK is always required before function call that makes use of IPLtoXML
+STACK=NewJavaObject("java.util.Stack", {});
+
+Provision(psmlportlet1);
+log(psmlportlet1.NGFAPI_OUTPUT);
+
+*/

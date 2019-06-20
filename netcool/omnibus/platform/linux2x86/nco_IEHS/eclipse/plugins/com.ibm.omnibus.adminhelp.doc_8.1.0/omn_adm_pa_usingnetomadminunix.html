@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Using Netcool/OMNIbus Administrator to manage process control" />
+<meta name="abstract" content="Netcool/OMNIbus Administrator provides a visual interface from which you can manage process control. You can use Netcool/OMNIbus Administrator to view and manage process agents, processes, and services on your Tivoli Netcool/OMNIbus hosts." />
+<meta name="Description" content="Netcool/OMNIbus Administrator provides a visual interface from which you can manage process control. You can use Netcool/OMNIbus Administrator to view and manage process agents, processes, and services on your Tivoli Netcool/OMNIbus hosts." />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_usingpctrlmanageprocesses.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_connectingtopa.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_displayingconfigstattinfo.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_displayingprocsservs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_configuringservicespa.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_configuringprocs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_copyingpasteserviceproc.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_runningextnalact.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_stoppingpa.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_usingnetomadminunix" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_usingpctrlmanageprocesses.html" />
+<title>Using Netcool/OMNIbus Administrator to manage process control</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_usingnetomadminunix">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Using Netcool/OMNIbus Administrator to
+manage process control</h1>
+<div class="body conbody"><p class="shortdesc">Netcool/OMNIbus Administrator
+provides a visual interface from which you can manage process control.
+You can use Netcool/OMNIbus Administrator
+to view and manage process agents, processes, and services on your <span class="keyword">Tivoli Netcool/OMNIbus</span> hosts. </p>
+<p class="p">For example, you can view the status of services that are under
+process control on a host computer, and then start or stop the processes
+in those services.</p>
+<p class="p">You must connect to a process agent in order to manage its services
+and processes. Configuration changes that you make to services and
+processes can be saved to the process control configuration file,
+which is overwritten each time that you save.</p>
+<div class="note note"><span class="notetitle">Note:</span> You cannot use Netcool/OMNIbus Administrator to
+specify that only certain hosts can connect to process agents. To
+define such secure hosts, you must add a security definition to the
+process agent configuration file manually.</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_connectingtopa.html">Connecting to a process agent</a></span><br />
+Before you can connect to a process agent by using Netcool/OMNIbus Administrator,
+you must ensure that the process agent has started. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_displayingconfigstattinfo.html">Displaying and configuring status information for a process agent</a></span><br />
+You can view version details for a process agent to which
+you are connected, and change the logging level for messages that
+the process agent generates. You can also configure host routing by
+adding process agents to a routing group.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_displayingprocsservs.html">Displaying the processes and services for a process agent</a></span><br />
+You can use the <span class="keyword wintitle">Service/Process Details</span> pane
+in Netcool/OMNIbus Administrator
+to view details of the processes and services that are configured
+for a process agent, and to manage these processes and services.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_configuringservicespa.html">Configuring services for a process agent</a></span><br />
+You can use Netcool/OMNIbus Administrator to
+create, edit, delete, start, and stop services that are defined to
+run under a process agent. When you make configuration changes to
+a service, you can elect to save your changes to the process control
+configuration file.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_configuringprocs.html">Configuring processes</a></span><br />
+Using Netcool/OMNIbus Administrator, you
+can create, edit, delete, start, and stop processes within a service
+that is configured to run under a process agent. You can also send
+signals to processes. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_copyingpasteserviceproc.html">Copying and pasting a service or process between process agent hosts</a></span><br />
+You can copy and paste a selected service and its related
+processes, or a selected process, either within a process agent, or
+from one process agent to another.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_runningextnalact.html">Running an external action</a></span><br />
+You can use Netcool/OMNIbus Administrator to
+run a command on a host.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_adm_pa_stoppingpa.html">Stopping a process agent</a></span><br />
+You can stop a process agent and all its managed processes, or
+stop a process agent and leave its processes running.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_usingpctrlmanageprocesses.html" title="The Tivoli Netcool/OMNIbus process control system performs two primary tasks. It manages local and remote processes, and runs external procedures that are specified in automations.">Using process control to manage processes and external procedures</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

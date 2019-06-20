@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# Licensed Materials - Property of IBM
+#
+# 5724O4800
+#
+# (C) Copyright IBM Corp. 2007, 2015. All Rights Reserved
+#
+# US Government Users Restricted Rights - Use, duplication
+# or disclosure restricted by GSA ADP Schedule Contract
+# with IBM Corp.
+#
+# help_start_desktop - start IEHS in Standalone mode
+# Used by desktop components
+#
+# --
+#######################################
+
+#######################################
+# MAIN
+#######################################
+#######################################
+# Find nco_common
+NCO_COMMON=`dirname $0`/../bin/nco_common
+
+# Check for nco_common, and load if found
+if [ ! -f "$NCO_COMMON" ]; then
+	echo "Cannot find nco_common" 1>&2
+	exit 1
+fi
+. $NCO_COMMON
+
+# Set platform variables
+f_SET_PLATFORM_VARIABLES
+
+#
+# environment variables that this shell script sets/changes:
+#
+export OMNIHOME NCHOME OMNISERVER OMNIUSER OMNIPASSWD
+
+
+if [ "$NCHOME" = ""  ]
+then
+	echo Cannot find your NCHOME environment
+	exit 1
+fi
+# redefine OMNIHOME to NCHOME/omnibus
+OMNIHOME="$NCHOME/omnibus"
+#
+# Check JRE was found by nco_common
+#
+if [ "$NCO_JRE_64_32" = "" -o ! -x "$NCO_JRE_64_32/bin/java" ]
+then
+	echo Cannot find your Java environment
+	exit 1
+fi
+#
+# Set classpath to only include relevant jar files
+#
+if [ -z "${CLASSPATH}" ]; then
+	export CLASSPATH
+fi
+IEHSPATH=${OMNIHOME}/platform/${ARCH}/nco_IEHS
+
+CLASSPATH=${IEHSPATH}/eclipse/plugins/org.eclipse.help.base_3.5.0.v201006080911/helpbase.jar
+
+#
+# Add -os linux option in Standalone mode for linux platforms
+#
+if [ "$ARCH" = "linux2x86" ] || [ "$ARCH" = "linux2s390" ]
+then
+	OS_OPTION="-os linux"
+else
+	OS_OPTION=""
+fi
+#
+# Uset XPG_SUS_ENV in case it's set on AIX
+#
+unset XPG_SUS_ENV
+
+#
+# Start IEHS
+#
+${NCO_JRE_64_32}/bin/java -classpath ${CLASSPATH} org.eclipse.help.standalone.Help -eclipsehome ${IEHSPATH}/eclipse -configuration configuration_iehs -plugincustomization ${IEHSPATH}/eclipse/plugins/com.ibm.omnibus.desktophelp.doc_8.1.0/plugin_customization.ini -showupdater -noexec  ${OS_OPTION} -host localhost -clean $*
+

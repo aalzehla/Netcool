@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Displaying the processes and services for a process agent" />
+<meta name="abstract" content="You can use the Service/Process Details pane in Netcool/OMNIbus Administrator to view details of the processes and services that are configured for a process agent, and to manage these processes and services." />
+<meta name="Description" content="You can use the Service/Process Details pane in Netcool/OMNIbus Administrator to view details of the processes and services that are configured for a process agent, and to manage these processes and services." />
+<meta name="DC.subject" content="process control, displaying processes, displaying services" />
+<meta name="keywords" content="process control, displaying processes, displaying services" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_usingnetomadminunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_startingadministrator.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_adm_pa_connectingtopa.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_displayingprocsservs" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_adm_pa_usingnetomadminunix.html" />
+<title>Displaying the processes and services for a process agent</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_displayingprocsservs">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Displaying the processes and services for a process agent</h1>
+<div class="body taskbody"><p class="shortdesc">You can use the <span class="keyword wintitle">Service/Process Details</span> pane
+in Netcool/OMNIbus Administrator
+to view details of the processes and services that are configured
+for a process agent, and to manage these processes and services.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To view the processes and services that are configured for
+a process agent, perform either of the following actions: </div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ul class="ul steps-unordered"><li class="li step"><span class="ph cmd">If not already connected, connect to the process agent
+by using Netcool/OMNIbus Administrator. </span> On successful connection, the <span class="keyword wintitle">Service/Process
+Details</span> pane opens by default.</li>
+<li class="li step"><span class="ph cmd">If you are already connected to the process agent, but
+the <span class="keyword wintitle">Service/Process Details</span> pane is not currently
+on display, click the <span class="ph uicontrol">Status</span> icon in the Configuration
+window for the process agent, to view this pane.</span></li>
+</ul>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Results</h2></div><div class="p">In the <span class="keyword wintitle">Service/Process Details</span> pane,
+the following details are shown for each configured service and process:<ul class="ul"><li class="li">The unique name that is assigned to the service or process</li>
+<li class="li">The status of the service or process</li>
+<li class="li">The host on which the process is running; this column is blank for services</li>
+<li class="li">The process identifier of a running process; this column is blank for
+services and processes that are not currently running </li>
+</ul>
+</div>
+<p class="p">Within the <span class="ph uicontrol">Name</span> column,
+the <img class="image" src="icn_omn_adm_processctrlservice.gif" alt="This figure shows the service icon in the Service/Process Details panel in Netcool/OMNIbus Administrator." /> icon shown to the left of a name identifies
+the entry as a service, and the <img class="image" src="icn_omn_adm_processctrlprocess.gif" alt="This figure shows the process icon in the Service/Process Details panel in Netcool/OMNIbus Administrator." /> icon identifies the entry as a process. Processes
+are also grouped by the service under which they run, and process names are
+shown in the following format:</p>
+<p class="p"><samp class="ph systemoutput"><var class="keyword varname">service_name</var>:<var class="keyword varname">process_name</var></samp></p>
+<p class="p">For example: <samp class="ph systemoutput">Core:MasterObjectServer</samp></p>
+<div class="p">Within the <span class="ph uicontrol">Status</span> column,
+the status icon is depicted as a circle, and its color indicates whether the
+service or process is running:<ul class="ul"><li class="li">Green: The service or process is running.</li>
+<li class="li">Blue: The service is marginal. Not all processes are running.</li>
+<li class="li">Yellow: The process is pending. The process is waiting for a time dependency
+to complete. This status can also indicate that the process has failed to
+start properly, regardless of any process dependencies.</li>
+<li class="li">Gray: The process is dead (not running) or the service has stopped. </li>
+<li class="li">Red: This identifies an error status level, which is an indication that
+a status level cannot be retrieved from the process agent.</li>
+</ul>
+</div>
+<div class="p">From the <span class="keyword wintitle">Service/Process
+Details</span> pane, you can manage processes and services for the selected
+process agent in the following ways:<ul class="ul"><li class="li">Create or edit a service</li>
+<li class="li">Create or edit a process</li>
+<li class="li">Delete a selected service or process</li>
+<li class="li">Start a selected service or process</li>
+<li class="li">Stop a selected service or process</li>
+<li class="li">Copy and paste a service or process within the same process agent, or
+across process agent hosts</li>
+<li class="li">Stop the process agent</li>
+<li class="li">Run an external action</li>
+<li class="li">Send a signal to a process</li>
+<li class="li">Save the process agent configuration file to disk</li>
+<li class="li">Refresh the contents of the pane (by clicking <span class="ph uicontrol">Refresh</span> in
+the toolbar)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_adm_pa_usingnetomadminunix.html" title="Netcool/OMNIbus Administrator provides a visual interface from which you can manage process control. You can use Netcool/OMNIbus Administrator to view and manage process agents, processes, and services on your Tivoli Netcool/OMNIbus hosts.">Using Netcool/OMNIbus Administrator to manage process control</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="omn_adm_startingadministrator.html" title="You must run the nco_config utility to start Netcool/OMNIbus Administrator.">Starting Netcool/OMNIbus Administrator</a></div>
+<div><a class="link" href="omn_adm_pa_connectingtopa.html" title="Before you can connect to a process agent by using Netcool/OMNIbus Administrator, you must ensure that the process agent has started.">Connecting to a process agent</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

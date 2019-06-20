@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>IBM Support Assistant Data Collector</title>
+<script type="text/javascript">
+
+     // This file should be used to redirect properly depending on the locale of the browser.
+
+function getLanguage(){
+  var browserLang = "en-us"
+  // Default index.html -- English version.
+  var langOffset = "en"; //for en-us, we return empty String
+  // This array should contain the browser language codes corresponding to the languages of 
+  // the translated index.html.
+  var supportedLangs = ["cs","de", "es", "fr", "hu", "it", "ja", "ko", "pl", "pt-br", "ro", "ru", "zh-cn", "zh-tw","zh"];
+  // This array should contain the folder language codes corresponding to the languages of 
+  // the translated index.html.  Order matters here -- should match up positionally with
+  // the language code in the supportedLangs array above.
+  var fileLangs = ["cs", "de", "es", "fr", "hu", "it", "ja", "ko", "pl", "pt-br", "ro", "ru", "zh", "zh-tw","zh"];  
+
+  // Gets the browser language code.
+  if (navigator.language != null && navigator.language != "") {
+	 browserLang = navigator.language;
+  } else if (navigator.userLanguage != null && navigator.userLanguage != "") {
+	 browserLang = navigator.userLanguage;
+  }else if (navigator.systemLanguage != null && navigator.systemLanguage != "") {
+	browserLang = navigator.systemLanguage;
+  }
+
+  // Looks through the list of supported browser language codes, and, if finds a match
+  // sets the file to display to the corresponding folder language code on disk.
+  for (i = 0; i < supportedLangs.length; i++) {
+	if (browserLang.toLowerCase().indexOf(supportedLangs[i]) >= 0) {
+		langOffset = fileLangs[i];
+	}
+   }
+ return langOffset;
+}
+
+    var languageOffset=getLanguage();
+    
+	var localeFolder="lang/"+languageOffset;
+	//console.debug("Locale Folder: "+localeFolder);
+	location.replace(localeFolder+"/index.html"+location.search);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

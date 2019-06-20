@@ -1,0 +1,53 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2009, 2013. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+windows=GetByFilter('mm_windows', "WINTYPE=1", false);
+Log("Num found: " + Num);
+
+i=0;
+while (i<Num) {
+    timezone = windows[i].TIMEZONE;
+    onetstart = windows[i].OT_STARTTIME;
+    onetend = windows[i].OT_ENDTIME; 
+
+    Log(3, "Creating a calendar for time zone: " + @timezone);
+
+    // Create a time zone object
+    timeZone = JavaCall("java.util.TimeZone", null, "getTimeZone", { timezone });
+
+    // Create a calendar object
+    calendar = JavaCall("java.util.Calendar", null, "getInstance", {});
+
+    // Tweak calendar to reflect given time zone
+    JavaCall(null, calendar, "setTimeZone", { timeZone });
+
+    // Start time
+
+    Opview_Add1TWin.getEpoch(onetstart, calendar, onetime_start);
+    Opview_Add1TWin.getDSTOffset(timezone, calendar, offset); 
+    onetime_start = Int(onetime_start - offset);
+
+    Log(3, "onetime_start = " + onetime_start);
+    Log(3, "EOT_STARTTIME = " + windows[i].EOT_STARTTIME);
+    windows[i].EOT_STARTTIME = onetime_start;
+
+    Opview_Add1TWin.getEpoch(onetend, calendar, onetime_end);
+    Opview_Add1TWin.getDSTOffset(timezone, calendar, offset); 
+    onetime_end = Int(onetime_end - offset);
+
+    Log(3, "onetime_end = " + onetime_end);
+    Log(3, "EOT_ENDTIME = " + windows[i].EOT_ENDTIME);
+    windows[i].EOT_ENDTIME = onetime_end;
+    DoNothing();
+
+    i=i+1;
+}
+

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="hu-hu" lang="hu-hu">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© Copyright IBM 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB Manager parancssori paraméterek" />
+<meta name="abstract" content="A MIB Manager olyan segédprogrammal rendelkezik, amely segítségével importálhatja a MIB adatokat és exportálhatja a szabályfájlokat. A parancsokat kiadhatja kézzel vagy meghívhatja őket programozással." />
+<meta name="Description" content="A MIB Manager olyan segédprogrammal rendelkezik, amely segítségével importálhatja a MIB adatokat és exportálhatja a szabályfájlokat. A parancsokat kiadhatja kézzel vagy meghívhatja őket programozással." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-20" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_cmdline_options" />
+<meta name="DC.Language" content="hu-hu" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" />
+<title>MIB Manager parancssori paraméterek.</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_cmdline_options">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus 8.1. változat</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1"><span class="keyword">MIB Manager</span> parancssori paraméterek</h1>
+<div class="body refbody"><p class="shortdesc">A <span class="keyword">MIB Manager</span> olyan segédprogrammal rendelkezik, amely segítségével importálhatja a
+MIB adatokat és exportálhatja a szabályfájlokat. A parancsokat kiadhatja kézzel vagy meghívhatja
+őket programozással.</p>
+<div class="section"><div class="p">A parancssori segédprogram indításához használja a következő parancsot:<ul class="ul"><li class="li"><img alt="For UNIX operating system" src="../../../../omnibus/wip/images/ngunix.gif" /><img alt="For Linux operating system" src="../../../../omnibus/wip/images/nglinux.gif" /><samp class="ph codeph">$NCHOME/omnibus/bin/nco_mibmanager_batch
+[options]</samp></li>
+<li class="li"><img alt="For Windows operating system" src="../../../../omnibus/wip/images/ngwin.gif" /><samp class="ph codeph">%NCHOME%\omnibus\bin\nco_mibmanager_batch
+[options]</samp><p class="p">Windows operációs rendszereken a kimenet a <span class="keyword">MIB Manager</span> termékből egy új konzolon jelenik meg.</p>
+</li>
+</ul>
+</div>
+<p class="p">A következő táblázat az elérhető
+parancssor paramétereket mutatja be. Az <span class="keyword option">-exportmibs</span>, <span class="keyword option">-exportobjects</span>
+és az <span class="keyword option">-exportoids</span> paraméter olyan reguláris kifejezéseket értelmeznek, amelyek
+megfelelnek a Java minta alrendszernek.</p>
+<p class="p"><img alt="For Windows operating system" src="../../../../omnibus/wip/images/ngwin.gif" />A könyvtárak megadásakor
+használjon teljes könyvtárútvonalakat. Például: <kbd class="ph userinput">nco_mibmanager_batch
+-importdir "C:\anydir\mibs"</kbd></p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">1. Táblázat <span class="keyword">MIB Manager</span> parancssori paraméterei</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="34.34343434343434%" id="d633e85">Parancssori paraméter</th>
+<th class="entry" valign="bottom" width="65.65656565656566%" id="d633e87">Leírás</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-clean</span></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezt a paramétert a <span class="keyword">MIB Manager</span> parancssori segédprogram első futtatásakor használja, ha korábban a
+<span class="keyword">MIB Manager</span> grafikus segédprogramot használta. Ha nem használja ezt a paramétert,
+akkor megjelenik egy hiba.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportdir</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel megadhatja a könyvtárat, amelybe az előállított
+szabályfájlok exportálásra kerülnek. A könyvtár útvonalát tegye dupla idézőjelek
+(") közé.<p class="p">Például:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportdir "/home/user/export_cmd" -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportmibs</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel az exportálni kívánt MIB
+nevét adhatja meg. Több MIB megadásához használjon reguláris kifejezéseket.
+<p class="p">Például a következő paranccsal lehet objektumokat exportálni az
+<span class="q">"RMON-MIB"</span> nevű MIB-ből:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportmibs
+RMON-MIB -filetype csv</samp></p>
+<p class="p">A következő paranccsal exportálhatók az objektumok
+az összes olyan MIB-ből, amelynek nevében szerepel a <span class="q">"MON"</span>:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportmibs .*MON.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportnewdirectory</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg, hogy az exportált fájlok
+egy új könyvtárba kerüljenek beírásra a meglévő exportálási könyvtárban.
+Az új alkönyvtár automatikusan átnevezésre kerül az időpecséttel. Ezzel a
+paraméterre biztosíthatja, hogy a meglévő szabályfájlok ne kerüljenek felülírásra.<p class="p">Például:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir "/home/user/export_cmd"
+-exportnewdirectory -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportobjects</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg az exportálandó MIB
+nevét. Több objektum megadásához használjon reguláris kifejezéseket.
+<p class="p">Például az alábbi parancs az összes <span class="q">"coldStart"</span> nevű
+objektumot exportálja:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects coldStart -filetype csv</samp></p>
+<p class="p">A következő alábbi
+az összes olyan objektumot exportálja, amelynek neve <span class="q">"cold"</span> kezdetű:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportobjects cold.* -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportoids</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg az exportálandó OID azonosítót.
+Több OID megadásához használjon reguláris kifejezéseket.<p class="p">Például a,
+következő parancs az összes <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> OID azonosítóval rendelkező objektumot exportálja:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1 -filetype csv</samp></p>
+<p class="p">A következő parancs az összes olyan
+objektumot exportálja, amelynek OID azonosítója <span class="q">"1.3.6.1.6.3.1.1.5"</span> kezdetű:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.* -filetype csv</samp></p>
+<p class="p">A következő parancs
+az összes objektumot exportálja, amely az <span class="q">"1.3.6.1.6.3.1.1.5.1"</span> vagy az
+<span class="q">"1.3.6.1.6.3.1.1.5.2"</span> OID azonosítóval rendelkezik:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-exportoids 1.3.6.1.6.3.1.1.5.1|1.3.6.1.6.3.1.1.5.2 -filetype csv</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-exportscope</span> <p class="p"><span class="keyword option">ALL|TRAPS|OBJECTS</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg az exportálandó MIB
+típusokat. Ez a paraméter a következő értékeket veszi fel:<ul class="ul"><li class="li"><span class="keyword option">ALL</span>: Minden MIB objektum exportálásra kerül.</li>
+<li class="li"><span class="keyword option">TRAPS</span>: Csak a trapek kerülnek exportálásra.</li>
+<li class="li"><span class="keyword option">OBJECTS</span>: Csak az objektumok kerülnek exportálásra.</li>
+</ul>
+<p class="p">Például:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch -exportdir
+"/home/user/export_cmd" -exportnewdirectory -filetype csv -exportscope
+ALL</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-filetype</span> <p class="p"><span class="keyword option">csv|<br />csv_trap_objects|<br />html_with_frames|<br />html_without_frames|<br />lookup|ncil|nckl_1_1|<br />nckl_3_0|standalone|<br />text|<br />tivoli_universal_agent</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel megadhatja a fájlformátumot, amelyben
+az előállított fájlok exportálásra kerülnek. Ennek a paraméternek a megadása
+az exportálási műveletekhez kötelező.<div class="p">Az elérhető paraméterek a következők:<ul class="ul"><li class="li"><span class="keyword option">csv</span>: Minden objektumadat CSV fájlokba kerül beírásra.</li>
+<li class="li"><span class="keyword option">csv_trap_objects</span>: Minden trap adat és társított
+változóösszerendelési objektumadat egyetlen CSV fájlba kerül beírásra.</li>
+<li class="li"><span class="keyword option">html_with_frames</span>: Olyan weboldalt hoz létre, amely
+megfelelő a közzétételhez. </li>
+<li class="li"><span class="keyword option">html_without_frames</span>: Létrehoz egy <span class="ph filepath">oids.html</span>
+nevű fájlt, amely tartalmazza a kimenethez kiválasztott összes objektum listáját.</li>
+<li class="li"><span class="keyword option">lookup</span>: Kirakja az összes megadott értéket tabulátorozott
+listára, amely megfelelő befoglalásra bármelyik szabályfájlba.</li>
+<li class="li"><span class="keyword option">ncil</span>: Önálló tartalmazási fájlokat hoz létre
+minden egyes vállalathoz és előállít egy fájlt az általános trapekhez.</li>
+<li class="li"><span class="keyword option">nckl_1_1</span>: Olyan fájlokat hoz létre, amelyek megfelelnek
+együttes használatra a Netcool Knowledge Library 1.1 változattal.</li>
+<li class="li"><span class="keyword option">nckl_3_0</span>: Olyan fájlokat hoz létre, amelyek megfelelnek
+együttes használatra a Netcool Knowledge Library 3.x változattal.</li>
+<li class="li"><span class="keyword option">standalone</span>: Egy olyan szabályfájlt hoz létre,
+amely az összes kiválasztott trapet tartalmazza.</li>
+<li class="li"><span class="keyword option">text</span>: Minden egyes OID azonosítóhoz létrehoz egy önálló szövegfájlt.</li>
+<li class="li"><span class="keyword option">tivoli_universal_agent</span>: Az <span class="ph filepath">.mdl</span>
+és a <span class="ph filepath">trapcnfg</span> fájlt hozza létre.</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-help</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel jelenítheti meg a súgóinformációkat
+a parancssori paraméterekről.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-importdir</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg azt a könyvtárat,
+amelyből a MIB fájlok importálásra kerülnek. A könyvtár útvonalát tegye dupla idézőjelek
+(") közé.<p class="p">Például:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs"</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-importdirtraverse</span> </td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg, hogy a
+<span class="keyword">MIB Manager</span> bejárja az alkönyvtárakat, amikor
+MIB fájlokat keres az importáláshoz.<p class="p">Például:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -importdirtraverse</samp></p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-messagelevel</span> <p class="p"><span class="keyword option">ERROR|WARN|<br />INFO|DEBUG|VERBOSE|NONE</span></p>
+</td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg az üzenetnaplózási
+szintet. Ez a paraméter a következő értékeket veszi fel:<ul class="ul"><li class="li"><span class="keyword option">ERROR</span>: Csak a hibaüzenetek kerülnek naplózásra.</li>
+<li class="li"><span class="keyword option">WARN</span>: A figyelmeztető- és a hibaüzenetek kerülnek naplózásra.</li>
+<li class="li"><span class="keyword option">INFO</span>: Az információs, figyelmeztető és a fontos üzenetek kerülnek
+naplózásra.</li>
+<li class="li"><span class="keyword option">DEBUG</span>: Minden üzenet naplózásra kerül.</li>
+<li class="li"><span class="keyword option">VERBOSE</span>: A részletes üzenetek tartalmazzák a változók,
+tömbök és a kivonatok állapotát, ahogy az értékük és az állapotuk változik.</li>
+<li class="li"><span class="keyword option">NONE</span>: A rendszer nem naplóz üzeneteket.</li>
+</ul>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-messagelog</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg a könyvtárat, amelybe
+a <span class="ph filepath">mibmanager.log</span> üzenetnaplófájl beírásra
+kerül. A könyvtár útvonalát tegye dupla idézőjelek (") közé.<p class="p">Az
+alapértelmezett könyvtár az <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/log</span>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="34.34343434343434%" headers="d633e85 "><span class="keyword option">-searchpath</span> <var class="keyword varname">karaktersorozat</var></td>
+<td class="entry" valign="top" width="65.65656565656566%" headers="d633e87 ">Ezzel a paraméterrel adhatja meg a könyvtárak pontosvesszővel tagolt
+listáját, amelyekben a <span class="keyword">MIB Manager</span> keresést végezhet a MIB függőségek feloldásához. A könyvtár útvonalát tegye dupla
+idézőjelek (") közé.<p class="p">Például:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies"</samp></p>
+<p class="p">A következő parancs
+három specifikus könyvtárat keres a függőségekhez:</p>
+<p class="p"><samp class="ph codeph">nco_mibmanager_batch
+-importdir "/home/user/mibs" -searchpath "/home/user/mib_dependencies;/home/user/mib_other;/home/user/mib_test"</samp></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Szülőtéma:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/task/starting_mibmanager.html" title="Indítsa el a MIB Manager grafikus felületet a parancssorból. Nem úgy tervezték, hogy folyamatvezérlés alatt vagy Windows szolgáltatásként fusson.">MIB Manager indítása</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Könyvtár</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Támogatás</a> |</span>
+<br />
+</div>
+</body>
+</html>

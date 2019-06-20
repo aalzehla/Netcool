@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Stopping a service or process (nco_pa_stop)" />
+<meta name="abstract" content="You can run the nco_pa_stop utility to stop a service or process at any location in the process control system configuration." />
+<meta name="Description" content="You can run the nco_pa_stop utility to stop a service or process at any location in the process control system configuration." />
+<meta name="DC.subject" content="process control, nco_pa_stop, stopping services, stopping processes" />
+<meta name="keywords" content="process control, nco_pa_stop, stopping services, stopping processes" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_adm_pa_stoppingservprocncopastop" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<title>Stopping a service or process (nco_pa_stop)</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_adm_pa_stoppingservprocncopastop">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Stopping a service or process (nco_pa_stop)</h1>
+<div class="body refbody"><p class="shortdesc">You can run the <span class="keyword cmdname">nco_pa_stop</span> utility
+to stop a service or process at any location in the process control
+system configuration. </p>
+<div class="section"><p class="p">If the service or process has already been stopped, the
+command is ignored.</p>
+<p class="p"><span class="ph">When you stop a service, all the
+processes that are defined within that service are also stopped.</span> <span class="ph">When you stop a process, the status of
+dependent processes remains unaltered; for example, if an ObjectServer
+is stopped, the probes that were dependent on it continue to run.</span></p>
+<p class="p">To
+stop a service or process, enter the following command:</p>
+<p class="p"><kbd class="ph userinput">$NCHOME/omnibus/bin/nco_pa_stop <var class="keyword varname">command_line_options</var></kbd></p>
+<p class="p">In
+this command, <var class="keyword varname">command_line_options</var> represents one
+or more command-line options that you can specify for the <span class="keyword cmdname">nco_pa_stop</span> utility.
+You can specify only a single service or process.</p>
+</div>
+<div class="section"><h2 class="title sectiontitle">Command-line options for nco_pa_stop</h2><p class="p">Command-line
+options for the <span class="keyword cmdname">nco_pa_stop</span> utility are described
+in the following table.</p>
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Command-line options for
+nco_pa_stop</span></caption><thead class="thead" align="left"><tr class="row" valign="bottom"><th class="entry" valign="bottom" width="40%" id="d25217e67">Command-line option</th>
+<th class="entry" valign="bottom" width="60%" id="d25217e69">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-force</span></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">If specified, no warning is output if the process
+or service is not running.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-help</span></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">Displays help about the command-line options
+and exits.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-nosecure</span></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">Connects to process agents in a non-secure mode
+that does not encrypt login information during transmission.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-password </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">The password to use for the process agent.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-process </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">Name of the process to stop.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-server </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">Name of process agent to contact.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-service </span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">Name of the service to stop.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-user</span> <var class="keyword varname">string</var></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">The user name for the process agent. The default
+is the user running the command.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="40%" headers="d25217e67 "><span class="keyword option">-version</span></td>
+<td class="entry" valign="top" width="60%" headers="d25217e69 ">Displays software version information and exits.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="related-links"></div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

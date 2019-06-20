@@ -1,0 +1,425 @@
+/******************************************************* {COPYRIGHT-TOP-RM} ***
+* Licensed Materials - Property of IBM
+* "Restricted Materials of IBM"
+* 5724-S43
+*
+* (C) Copyright IBM Corporation 2013, 2015. All Rights Reserved.
+*
+* US Government Users Restricted Rights - Use, duplication, or
+* disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+******************************************************** {COPYRIGHT-END-RM} **/
+
+/*******************************************************
+*
+* EVENT SPECIFIC CODE SECTION
+*
+* IN THIS SECTION OF THE CODE, THE SPECIFIC FIELDS RELATING TO THE
+* INCOMING EVENT NEED TO BE SET.  THESE INCLUDE:
+*
+*  - ScopeID - THE PRIMARY CONTAINMENT VALUE
+*  - NormalisedAlarmCode - THIS DETERMINES THE IMPACT AND CAUSE WEIGHTINGS
+*  - OSILevel - THIS DETERMINES THE WEIGHTING MULTIPLIERS
+*
+*  - SiteName - THE SECONDARY CONTAINMENT VALUE - OPTIONAL
+*
+********************************************************/
+
+/*******************************************************/ 
+// STEP 1: SET ScopeID AND SiteName
+// THIS EXAMPLE RETRIEVES ScopeID AND SiteName FROM A DATA TYPE BASED ON NODE 
+
+MyScopeIDs = GetByKey("ScopeIDs", @Node, 1000);
+
+if (MyScopeIDs != null) { 
+
+        ScopeID = MyScopeIDs[0].ScopeID;
+        SiteName = MyScopeIDs[0].SiteName;
+ 
+        // INITIALISE VARIABLES
+         NormalisedAlarmCode = "0";
+        OSILevel = "9";
+
+/*******************************************************/ 
+// STEP 2: SET NormalisedAlarmCode and OSILevel 
+// SET NormalisedAlarmCode AND OSILevel BASED ON INCOMING EVENT
+// "EventCode" COULD BE ANY FIELD THAT IDENTIFIES THE EVENT CATEGORISATION
+// OSILevel NEEDS TO BE SET APPROPRIATELY DEPENDING ON THE EVENT
+
+        if (EventCode == "10") {
+
+                // EXAMPLE - Informational events
+                NormalisedAlarmCode = "10";
+                OSILevel = "3";
+
+        } elseif (EventCode == "20") {
+
+                // EXAMPLE - Workarounds in execution
+                NormalisedAlarmCode = "20";
+                OSILevel = "3";
+
+        } elseif (EventCode == "30") {
+
+                // EXAMPLE - Control Path Loss
+                NormalisedAlarmCode = "30";
+                OSILevel = "3";
+
+        } elseif (EventCode == "40") {
+
+                // EXAMPLE - Heartbeat Loss
+                NormalisedAlarmCode = "40";
+                OSILevel = "3";
+
+        } elseif (EventCode == "50") {
+
+                // EXAMPLE - Service delivery reported as non-Functional
+                NormalisedAlarmCode = "50";
+                OSILevel = "3";
+
+        } elseif (EventCode == "60") {
+
+                // EXAMPLE - Missing Component
+                NormalisedAlarmCode = "60";
+                OSILevel = "3";
+
+        } elseif (EventCode == "70") {
+
+                // EXAMPLE - Operational Warning, inc running on backup
+                NormalisedAlarmCode = "70";
+                OSILevel = "3";
+
+        } elseif (EventCode == "80") {
+
+                // EXAMPLE - Performance Warning
+                NormalisedAlarmCode = "80";
+                OSILevel = "3";
+
+        } elseif (EventCode == "90") {
+
+                // EXAMPLE - Device inoperative State, Change of State
+                NormalisedAlarmCode = "90";
+                OSILevel = "3";
+
+        } elseif (EventCode == "100") {
+
+                // EXAMPLE - Performance Degradation
+                NormalisedAlarmCode = "100";
+                OSILevel = "3";
+
+        } elseif (EventCode == "110") {
+
+                // EXAMPLE - Performance Failure
+                NormalisedAlarmCode = "110";
+                OSILevel = "3";
+
+        } elseif (EventCode == "120") {
+
+                // EXAMPLE - Environmental Warning, inc Door Open and similar alarms
+                NormalisedAlarmCode = "120";
+                OSILevel = "3";
+
+        } elseif (EventCode == "130") {
+
+                // EXAMPLE - General Component Failure
+                NormalisedAlarmCode = "130";
+                OSILevel = "3";
+
+        } elseif (EventCode == "140") {
+
+                // EXAMPLE - Catastrophic Component Failure
+                NormalisedAlarmCode = "140";
+                OSILevel = "3";
+
+        } elseif (EventCode == "150") {
+
+                // EXAMPLE - Power Loss
+                NormalisedAlarmCode = "150";
+                OSILevel = "3";
+
+        } elseif (EventCode == "160") {
+
+                // EXAMPLE - Control Shut Down
+                NormalisedAlarmCode = "160";
+                OSILevel = "3";
+
+        } else {
+
+                NormalisedAlarmCode = "0";
+        }
+
+/*******************************************************
+*
+* VENDOR NON-SPECIFIC CODE - DO NOT EDIT
+*
+* THIS SECTION APPLIES THE STANDARD WEIGHTINGS ACCORDING TO THE CATEGORISATION
+* OF THE EVENT IN THE PREVIOUS STEP BY SETTING NormalisedAlarmCode AND OSILevel.
+*
+*  - NormalisedAlarmName - THIS IS USED TO CONSTRUCT THE Summary FIELD OF
+*                          THE SYNTHETIC CONTAINMENT ALARM IN THE OBJECTSERVER
+*  - ImpactWeight - THIS IS A RELATIVE INDICATION OF THIS EVENT'S IMPACT TO AN INCIDENT
+*  - CauseWeight - THIS IS A RELATIVE INDICATION OF THIS EVENT'S LIKELIHOOD THAT IT IS A CAUSE
+*
+********************************************************/
+
+/*******************************************************/ 
+// STEP 3: SET CauseWeight AND ImpactWeight BASED ON NormalisedAlarmCode AND OSILevel
+// ASSIGN INITIAL CAUSE AND IMPACT WEIGHTS AND NormalisedAlarmName BASED ON NormalisedAlarmCode
+
+        CauseWeight = NormalisedAlarmCode;
+
+        if (NormalisedAlarmCode == "10") {
+
+                ImpactWeight = "130";
+                NormalisedAlarmName = "Informational events";
+
+        } elseif (NormalisedAlarmCode ==  "20") {
+
+                ImpactWeight = "140";
+                NormalisedAlarmName = "Workarounds in execution";
+
+        } elseif (NormalisedAlarmCode == "30") {
+
+                ImpactWeight = "150";
+                NormalisedAlarmName = "Control Path Loss";
+
+        } elseif (NormalisedAlarmCode == "40") {
+
+                ImpactWeight = "160";
+                NormalisedAlarmName = "Heartbeat Loss";
+
+        } elseif (NormalisedAlarmCode == "50") {
+
+                ImpactWeight = "110";
+                NormalisedAlarmName = "Service delivery reported as non-Functional";
+
+        } elseif (NormalisedAlarmCode == "60") {
+
+                ImpactWeight = "100";
+                NormalisedAlarmName = "Missing Component";
+
+        } elseif (NormalisedAlarmCode == "70") {
+
+                ImpactWeight = "90";
+                NormalisedAlarmName = "Operational Warning, inc running on backup";
+
+        } elseif (NormalisedAlarmCode == "80") {
+
+                ImpactWeight = "120";
+                NormalisedAlarmName = "Performance Warning";
+
+        } elseif (NormalisedAlarmCode == "90") {
+
+                ImpactWeight = "80";
+                NormalisedAlarmName = "Device inoperative State, Change of State";
+
+        } elseif (NormalisedAlarmCode == "100") {
+
+                ImpactWeight = "70";
+                NormalisedAlarmName = "Performance Degradation";
+
+        } elseif (NormalisedAlarmCode == "110") {
+
+                ImpactWeight = "60";
+                NormalisedAlarmName = "Performance Failure";
+
+        } elseif (NormalisedAlarmCode == "120") {
+
+                ImpactWeight = "50";
+                NormalisedAlarmName = "Environmental Warning, inc Door Open and similar alarms";
+
+        } elseif (NormalisedAlarmCode == "130") {
+
+                ImpactWeight = "40";
+                NormalisedAlarmName = "General Component Failure";
+
+        } elseif (NormalisedAlarmCode == "140") {
+
+                ImpactWeight = "30";
+                NormalisedAlarmName = "Catastrophic Component Failure";
+
+        } elseif (NormalisedAlarmCode == "150") {
+
+                ImpactWeight = "20";
+                NormalisedAlarmName = "Power Loss";
+
+        } elseif (NormalisedAlarmCode == "160") {
+
+                ImpactWeight = "10";
+                NormalisedAlarmName = "Control Shut Down";
+
+        } else {
+
+                ImpactWeight = "0";
+                NormalisedAlarmName = "UNKNOWN";
+        }
+
+        // DETERMINE CAUSE AND IMPACT MULTIPLIERS BASED ON OSILevel
+        if (OSILevel == "0" || OSILevel == "1") {
+
+                if (NormalisedAlarmCode == "10" || NormalisedAlarmCode == "20" || NormalisedAlarmCode == "30" || \
+                    NormalisedAlarmCode == "40" || NormalisedAlarmCode ==  "50" || NormalisedAlarmCode ==  "60" || \
+                    NormalisedAlarmCode == "70" || NormalisedAlarmCode == "80") {
+
+                        CauseWeightMultiplier = "8";
+                        ImpactWeightMultiplier = "2";
+
+                } elseif (NormalisedAlarmCode == "90" || NormalisedAlarmCode == "100" || NormalisedAlarmCode ==  "110" || \
+                  NormalisedAlarmCode == "120" || NormalisedAlarmCode == "130" || NormalisedAlarmCode == "140" || \
+                  NormalisedAlarmCode == "150" || NormalisedAlarmCode ==  "160") {
+
+                        CauseWeightMultiplier = "10";
+                        ImpactWeightMultiplier = "1";
+
+                } else {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "1";
+                }
+
+        } elseif (OSILevel == "2") {
+
+                if (NormalisedAlarmCode == "10" || NormalisedAlarmCode == "20" || NormalisedAlarmCode ==  "30" || \
+                    NormalisedAlarmCode == "40" || NormalisedAlarmCode ==  "50" || NormalisedAlarmCode ==  "60" || \
+                    NormalisedAlarmCode == "70" || NormalisedAlarmCode ==  "80") {
+
+                        CauseWeightMultiplier = "6";
+                        ImpactWeightMultiplier = "3";
+
+                } elseif (NormalisedAlarmCode == "90" || NormalisedAlarmCode ==  "100" || NormalisedAlarmCode ==  "110" || \
+                          NormalisedAlarmCode == "120" || NormalisedAlarmCode == "130" || NormalisedAlarmCode ==  "140" || \
+                          NormalisedAlarmCode == "150" || NormalisedAlarmCode ==  "160") {
+
+                        CauseWeightMultiplier = "8";
+                        ImpactWeightMultiplier = "2";
+
+                } else {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "1";
+                }
+
+        } elseif (OSILevel == "3") {
+
+                if (NormalisedAlarmCode == "10" || NormalisedAlarmCode ==  "20" || NormalisedAlarmCode ==  "30" || \
+                    NormalisedAlarmCode == "40" || NormalisedAlarmCode ==  "50" || NormalisedAlarmCode == "60" || \
+                    NormalisedAlarmCode == "70" || NormalisedAlarmCode ==  "80") {
+
+                        CauseWeightMultiplier = "5";
+                        ImpactWeightMultiplier = "4";
+
+                } elseif (NormalisedAlarmCode == "90" || NormalisedAlarmCode ==  "100" || NormalisedAlarmCode ==  "110" || \
+                        NormalisedAlarmCode == "120" || NormalisedAlarmCode ==  "130" || NormalisedAlarmCode ==  "140" || \
+                        NormalisedAlarmCode == "150" || NormalisedAlarmCode ==  "160") {
+
+                        CauseWeightMultiplier = "6";
+                        ImpactWeightMultiplier = "4";
+
+                } else {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "1";
+                }
+
+        } elseif (OSILevel == "4") {
+
+                if (NormalisedAlarmCode == "10" || NormalisedAlarmCode ==  "20" || NormalisedAlarmCode == "30" || \
+                    NormalisedAlarmCode == "40" || NormalisedAlarmCode == "50" || NormalisedAlarmCode ==  "60" || \
+                    NormalisedAlarmCode == "70" || NormalisedAlarmCode ==  "80" || NormalisedAlarmCode ==  "90" || \
+                    NormalisedAlarmCode == "100" || NormalisedAlarmCode ==  "110" || NormalisedAlarmCode ==  "120") {
+
+                        CauseWeightMultiplier = "4";
+                        ImpactWeightMultiplier = "5";
+
+                } elseif (NormalisedAlarmCode == "130" || NormalisedAlarmCode ==  "140") {
+
+                        CauseWeightMultiplier = "5";
+                        ImpactWeightMultiplier = "5";
+
+                } elseif (NormalisedAlarmCode == "150" || NormalisedAlarmCode ==  "160") {
+
+                        CauseWeightMultiplier = "8";
+                        ImpactWeightMultiplier = "4";
+
+                } else {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "1";
+                }
+
+        } elseif (OSILevel == "5" || OSILevel == "6") {
+
+                if (NormalisedAlarmCode == "10" || NormalisedAlarmCode == "20" || NormalisedAlarmCode ==  "30" || \
+                    NormalisedAlarmCode == "40" || NormalisedAlarmCode ==  "50" || NormalisedAlarmCode ==  "60" || \
+                    NormalisedAlarmCode == "70" || NormalisedAlarmCode ==  "80" || NormalisedAlarmCode ==  "90" || \
+                    NormalisedAlarmCode == "100" || NormalisedAlarmCode ==  "110" || NormalisedAlarmCode == "120") {
+
+                        CauseWeightMultiplier = "2";
+                        ImpactWeightMultiplier = "6";
+
+                } elseif (NormalisedAlarmCode == "130" || NormalisedAlarmCode ==  "140") {
+
+                        CauseWeightMultiplier = "4";
+                        ImpactWeightMultiplier = "6";
+
+                } elseif (NormalisedAlarmCode == "150" || NormalisedAlarmCode ==  "160") {
+
+                        CauseWeightMultiplier = "6";
+                        ImpactWeightMultiplier = "4";
+
+                } else {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "1";
+                }
+
+        } elseif (OSILevel == "7") {
+
+                if (NormalisedAlarmCode == "10" || NormalisedAlarmCode ==  "20" || NormalisedAlarmCode ==  "30" || \
+                    NormalisedAlarmCode == "40" || NormalisedAlarmCode == "50" || NormalisedAlarmCode == "60" || \
+                    NormalisedAlarmCode == "70" || NormalisedAlarmCode ==  "80" || NormalisedAlarmCode ==  "90" || \
+                    NormalisedAlarmCode == "100" || NormalisedAlarmCode == "110" || NormalisedAlarmCode ==  "120") {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "8";
+
+                } elseif (NormalisedAlarmCode == "130" || NormalisedAlarmCode == "140") {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "8";
+
+                } elseif (NormalisedAlarmCode == "150" || NormalisedAlarmCode ==  "160") {
+
+                        CauseWeightMultiplier = "6";
+                        ImpactWeightMultiplier = "8";
+
+                } else {
+
+                        CauseWeightMultiplier = "1";
+                        ImpactWeightMultiplier = "1";
+                }
+
+        } else {
+
+                CauseWeightMultiplier = "1";
+                ImpactWeightMultiplier = "1";
+        }
+
+/*******************************************************/ 
+// STEP 4: SET UP EVENT WITH ENRICHMENT VALUES READY TO RETURN
+// ASSIGN FINAL CAUSE AND IMPACT WEIGHTS BASED ON DERIVED MULTIPLIERS
+
+        EventContainer.CauseWeight = Int(Int(CauseWeight) * Int(CauseWeightMultiplier));
+        EventContainer.ImpactWeight = Int(Int(ImpactWeight) * Int(ImpactWeightMultiplier));
+
+        // ASSIGN ALL OTHER VARIABLES
+        EventContainer.NormalisedAlarmCode = Int(NormalisedAlarmCode);
+        EventContainer.NormalisedAlarmName = String(NormalisedAlarmName);
+        EventContainer.ScopeID = String(ScopeID);
+        EventContainer.SiteName = String(SiteName);
+
+/*******************************************************/ 
+// STEP 5: UPDATE THE EVENT IN THE OBJECTSERVER
+// RETURN DERIVED VALUES TO THE EVENT
+
+        ReturnEvent(EventContainer);
+
+}

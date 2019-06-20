@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl-pl" lang="pl-pl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Generowanie pułapek protokołu SNMP" />
+<meta name="abstract" content="Sposób generowania pułapek protokołu SNMP. Funkcja ta może również być używana do testowania plików reguł, które zostały wygenerowane przez program MIB Manager." />
+<meta name="Description" content="Sposób generowania pułapek protokołu SNMP. Funkcja ta może również być używana do testowania plików reguł, które zostały wygenerowane przez program MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-27" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="pl-pl" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus wersja 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Generowanie pułapek protokołu SNMP</h1>
+<div class="body taskbody"><p class="shortdesc">Sposób generowania pułapek protokołu SNMP. Funkcja ta może również być używana do testowania plików reguł, które zostały wygenerowane przez program <span class="keyword">MIB Manager</span>. </p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedura</h2></div><p class="li stepsection">Aby wygenerować pułapkę SNMP:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Kliknij opcję <img class="image" src="../gifs/trap.gif" alt="Ikona pułapki" /> <span class="ph uicontrol">Pułapka</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">W polu <span class="ph uicontrol">Adres docelowy</span> podaj nazwę hosta i adres IP komputera, na którym jest uruchomiona usługa Trapd SNMP.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">W polu <span class="ph uicontrol">Port docelowy</span> podaj port UDP, na którym nasłuchuje usługa Trapd SNMP.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">W polu <span class="ph uicontrol">Społeczność</span> podaj poprawny łańcuch dla menedżera Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">W zależności od typu pułapki, którą generujesz, sekcja <span class="ph uicontrol">Powiązania zmiennej</span> może być widoczna w oknie <span class="keyword wintitle">Wygeneruj pułapkę SNMP</span>. Pola dostępne w sekcji <span class="ph uicontrol">Powiązania zmiennej</span> również zależą od typu generowanej pułapki.</span> <p class="p">Wskaż kursorem myszy nazwy pól <span class="ph uicontrol">Powiązania zmiennej</span>, aby wyświetlić szczegóły składni wartości pola. Można podać wiele wartości oddzielonych przecinkami. Te wartości będą losowo wybrane do utworzenia pułapki.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">W polu <span class="ph uicontrol">Powtórz metrykę</span> podaj liczbę pułapek (od 1 do 1000), która może być wygenerowana.</span> <p class="p">Jeśli zostanie podana duża liczba, pułapki są generowane w krótkich odstępach czasu, co może spowodować podniesienie alarmu w menedżerze Trapd. Dla wartości większych niż 1 (&gt; 1) i dla wartości określonych w formie listy rozdzielonej średnikami, program <span class="keyword">MIB Manager</span> losowo wybiera z określonych list i generuje pułapki z dowolnymi wartościami przedstawionymi jako powiązania zmienne. </p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Kliknij opcję <span class="ph uicontrol">Wykonaj</span>, aby wygenerować pułapkę.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Wyniki</h2></div>Pole <span class="ph uicontrol">Wynik</span> w oknie <span class="keyword wintitle">Wygeneruj pułapkę SNMP</span> wskazuje, czy pułapka została wysłana pomyślnie.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Temat nadrzędny:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="Za pomocą programu MIB Manager można analizować moduły MIB i tworzyć pliki reguł programu Netcool.">Używanie programu Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Biblioteka</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Wsparcie</a> |</span>
+<br />
+</div>
+</body>
+</html>

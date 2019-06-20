@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn" xml:lang="zh-cn">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="应答和取消应答事件" />
+<meta name="abstract" content="可以在事件列表内应答和取消应答事件，但仅当您有许可权时才能进行此操作。" />
+<meta name="description" content="可以在事件列表内应答和取消应答事件，但仅当您有许可权时才能进行此操作。" />
+<meta name="DC.subject" content="事件列表, 应答事件, 取消应答事件, 应答, 事件, 取消应答" />
+<meta name="keywords" content="事件列表, 应答事件, 取消应答事件, 应答, 事件, 取消应答" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_workingwithevents.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_startingeventlist.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_selectingdeselecting.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_acknowledgingdeack" />
+<meta name="DC.Language" content="zh-cn" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_workingwithevents.html" />
+<title>应答和取消应答事件</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_acknowledgingdeack">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus V7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">应答和取消应答事件</h1>
+<div class="body taskbody"><p class="shortdesc">可以在事件列表内应答和取消应答事件，但仅当您有许可权时才能进行此操作。</p>
+<div class="section context"><div class="note note"><span class="notetitle">注：</span> 仅能应答和取消应答分配给您、您的组或 <samp class="ph tt">nobody</samp> 用户的事件。</div>
+<p class="p">要应答所有选定事件，请单击<span class="ph menucascade"><span class="ph uicontrol">警报</span> &gt; <span class="ph uicontrol">应答</span></span>。 状态行显示了应答事件的数量，以及因为未分配给您而无法应答的事件数量。</p>
+<div class="p">如果由系统管理员进行配置，那么只要应答了事件列表内的事件，就需要输入日志项。
+如果是这种情况，那么只要应答事件就会打开“<span class="keyword wintitle">日志项</span>”窗口。 如下所示完成此窗口： <dl class="dl"><dt class="dt dlterm"><em class="ph i">日志列表框</em></dt>
+<dd class="dd">如果该列表框由系统管理员进行配置，那么它将显示系统管理员所输入的现有日志文本。 请完成日志项。</dd>
+<dd class="dd">如果该列表框由系统管理员进行配置，那么它可能会对您显示提示窗口或弹出菜单以便您输入或选择信息。 每个日志项的字符数限制为 4096 个字符以内。</dd>
+<dt class="dt dlterm">确定</dt>
+<dd class="dd">单击该按钮可将输入的文本保存到日志中并确认警报。 使用工具时，该文本附加于选定警报的日志中。 并将自动添加您的用户名、日期和时间。 </dd>
+<dt class="dt dlterm">关闭</dt>
+<dd class="dd">单击该按钮可关闭该窗口，而不保存您的输入。</dd>
+</dl>
+</div>
+<p class="p">要取消应答所有选定事件，请单击<span class="ph menucascade"><span class="ph uicontrol">警报</span> &gt; <span class="ph uicontrol">取消应答</span></span>。 状态行显示了已取消应答事件的数量，以及因为未分配给您而无法取消应答的事件数量。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>父主题：</strong> <a class="link" href="omn_usr_el_workingwithevents.html" title="要处理事件列表内的事件，必须先选择事件。">处理事件</a></div>
+</div>
+<div class="relinfo reltasks"><strong>相关任务</strong>:<br />
+<div><a class="link" href="omn_usr_el_startingeventlist.html" title="要监视和管理事件列表内的警报，您必须使用有效认证凭证连接到正在运行的 ObjectServer。 您可以从 Conductor、命令行或 Windows 开始菜单启动事件列表。">启动事件列表</a></div>
+<div><a class="link" href="omn_usr_el_selectingdeselecting.html" title="要处理事件列表内的一个或多个事件，您必须首先选择事件。 然后您可以使用警报菜单中的选项来操作事件。 您还可以从选定事件的列表中取消选择一个或多个事件。">选择和取消选择事件</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">库</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">支持</a> |</span>
+<br />
+<span class="runningfooter">上次更新时间：2012 年 11 月</span><br /></div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Configuring server communication information" />
+<meta name="abstract" content="You must maintain server communication information for the Tivoli Netcool/OMNIbus server components. You can use the Server Editor to create and modify communication details for the server components, test server activity, and add backup (or failover) servers and listeners." />
+<meta name="Description" content="You must maintain server communication information for the Tivoli Netcool/OMNIbus server components. You can use the Server Editor to create and modify communication details for the server components, test server activity, and add backup (or failover) servers and listeners." />
+<meta name="DC.subject" content="server communication information, configuring, Server Editor" />
+<meta name="keywords" content="server communication information, configuring, Server Editor" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_configuringpropsettservcomm.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_con_ipv6_configurationunix.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-06" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_configuringservercomminfo" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_configuringpropsettservcomm.html" />
+<title>Configuring server communication information</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_configuringservercomminfo">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Version 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Configuring server communication information</h1>
+<div class="body taskbody"><p class="shortdesc">You must maintain server communication information for
+the <span class="keyword">Tivoli Netcool/OMNIbus</span> server
+components. You can use the Server Editor to create and modify communication
+details for the server components, test server activity, and add backup
+(or failover) servers and listeners. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel">About this task</h2></div>To configure server communication information:</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Perform the appropriate action for your operating system:</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d25459e29-option">Operating system</th>
+<th valign="bottom" align="left" id="d25459e29-desc">Action</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d25459e29-option" id="d25459e36" class="stentry choption" width="20%"><strong>UNIX</strong></td>
+<td valign="top" headers="d25459e29-desc d25459e36" class="stentry chdesc" width="80%">Perform either of the following actions:<ul class="ul"><li class="li">Click the <span class="ph uicontrol">Interfaces</span> button on the UNIX Conductor.</li>
+<li class="li">Enter <kbd class="ph userinput">$NCHOME/omnibus/bin/nco_xigen</kbd> on
+the command line.</li>
+</ul>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d25459e29-option" id="d25459e56" class="stentry choption" width="20%"><strong>Windows</strong></td>
+<td valign="top" headers="d25459e29-desc d25459e56" class="stentry chdesc" width="80%">Perform either of the following actions:<ul class="ul"><li class="li">Click <span class="ph menucascade"><span class="ph uicontrol">Start</span> &gt; <span class="ph uicontrol">Programs</span> &gt; <span class="ph uicontrol">Netcool Suite</span> &gt; <span class="ph uicontrol">System Utilities</span> &gt; <span class="ph uicontrol">Servers Editor</span></span>. </li>
+<li class="li">Open the <span class="ph uicontrol">Conductor</span> menu by right-clicking
+the bus icon in the desktop tray, and then click <span class="ph uicontrol">Servers</span>.</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+The Server Editor opens.</li>
+<li class="li step stepexpand"><span class="ph cmd">Complete this window as follows:</span> <dl class="dl"><dt class="dt dlterm"><em class="ph i">Server list</em></dt>
+<dd class="dd">The server list shows existing server components and their settings:<dl class="dl"><dt class="dt dlterm">Server</dt>
+<dd class="dd">This column displays the name of each server that is defined for
+this workstation. The default server names are:<ul class="ul"><li class="li">NCOMS: The default name for ObjectServers</li>
+<li class="li">NCO_PROXY: The default name for proxy servers</li>
+<li class="li">NCO_GATE: The default name for gateways</li>
+<li class="li">NCO_PA: The default name for process agents</li>
+</ul>
+</dd>
+<dd class="dd">On Windows, the host workstation for the server
+must have a <dfn class="term">listener</dfn> entry, and the host workstation
+and any other workstation that connects to that server must have a <dfn class="term">client</dfn> entry.</dd>
+<dd class="dd">Backup ObjectServers appear below the primary ObjectServer in
+the Server Editor. To hide the list of backup ObjectServers, double-click
+the primary ObjectServer name or server icon. The backup ObjectServers
+are hidden and the letter <em class="ph i">C</em> appears in the server icon. Double-click
+again to display the backup ObjectServers. The server icon returns
+to normal. </dd>
+<dt class="dt dlterm">Hostname</dt>
+<dd class="dd">This column displays the host name or IP address of the workstation
+on which the server component is installed.<div class="note note"><span class="notetitle">Note:</span> After
+installation, the default host name on UNIX and Linux operating systems
+for all server components is <span class="ph filepath">omnihost</span>. You must
+change this to the host name of the host computer. On Windows, the
+host name is automatically set to the host name of the host computer
+during installation.</div>
+</dd>
+<dt class="dt dlterm">Port</dt>
+<dd class="dd">This column displays the port on which the server component listens
+for unencrypted connections.</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">On UNIX, this column displays the port on which
+the server component listens for encrypted connections. On UNIX systems,
+a server component can have a standard port, an SSL port, or both,
+defined.</dd>
+<dd class="dd">On Windows, this column displays the word <samp class="ph tt">yes</samp> for
+encrypted connections. On Windows systems,
+the same port number is used for both encrypted and unencrypted connections.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm"><em class="ph i">Server panel</em></dt>
+<dd class="dd">Use the server panel fields to enter or edit the details of each
+server component. If you are editing the details of an existing server
+component, you must first select the relevant row in the server list,
+so that the details are shown within the server panel fields.<dl class="dl"><dt class="dt dlterm">Name</dt>
+<dd class="dd">Type the name of a new server component or edit the name of an
+existing component. On Windows,
+you can also use the drop-down list to select a name. Use the following
+suffixes when naming components: _PROXY for proxy servers, _GATE for
+gateways, and _PA for process agents.<div class="note note"><span class="notetitle">Note:</span> The name of
+a server entry must consist of 29 or fewer uppercase letters and cannot
+begin with an integer.</div>
+</dd>
+<dt class="dt dlterm">Host</dt>
+<dd class="dd">Type or edit the host name or IP address of the workstation on
+which the server component is installed. (For new server components
+on UNIX, the name is set to <samp class="ph tt">omnihost</samp> by default, and must
+be changed to the actual host name or IP address.)</dd>
+<dd class="dd">If you type an IP address, you can specify an IPv4 or IPv6 address.
+For example:<ul class="ul"><li class="li"><kbd class="ph userinput">192.168.0.1</kbd></li>
+<li class="li"><kbd class="ph userinput">2094:82a:2a6e:123:503:badd:fe43:f552</kbd></li>
+</ul>
+</dd>
+<dt class="dt dlterm">Port</dt>
+<dd class="dd">On UNIX, if you want clients using unencrypted
+connections to be able to connect to the server, type a valid, unused
+port number in this field. To disallow unencrypted connections, do
+not set the port.</dd>
+<dd class="dd">On Windows, type a valid, unused port number
+in this field.</dd>
+<dt class="dt dlterm">SSL</dt>
+<dd class="dd">On UNIX, type a valid, unused port number in this
+field if you want clients using encrypted connections to be able to
+connect to the server. To disallow encrypted connections, do not set
+the port. </dd>
+<dd class="dd">On Windows, select this check box to indicate
+that the port accepts encrypted connections from clients that use
+SSL. <div class="note note"><span class="notetitle">Note:</span> On UNIX systems, a server component can have a
+standard port, an SSL port, or both ports defined. On Windows systems, the same port number is
+used for either type of connection.</div>
+</dd>
+<dt class="dt dlterm">Listener (Windows only)</dt>
+<dd class="dd">Select this check box if this is a listener entry on the host
+workstation for the server. Clear the <span class="ph uicontrol">Listener</span> check
+box if this is a client entry.</dd>
+<dt class="dt dlterm">Add</dt>
+<dd class="dd">Click this button to add new, unique server details to the server
+list.</dd>
+<dt class="dt dlterm">Remove/Update</dt>
+<dd class="dd">This button changes based on whether you have made any changes
+to the server component that is currently selected. Click <span class="ph uicontrol">Remove</span> if
+you want to remove the server component that is currently selected
+from the server list. Click <span class="ph uicontrol">Update</span> to refresh
+the server list with updated details of an existing server component.</dd>
+<dt class="dt dlterm">Test</dt>
+<dd class="dd">Click this button to test that you can connect to the server that
+is selected in the server list. The Server Editor attempts to contact
+the server on the specified host and port. A window shows the result
+of the test command.</dd>
+</dl>
+</dd>
+<dt class="dt dlterm"><em class="ph i">Priority panel</em></dt>
+<dd class="dd">The server priority fields enable you to raise or lower the priority
+of server components that are configured as failover systems. For
+example, suppose an ObjectServer called NCOMS_PRI is configured with
+a backup called NCOMS_BAK. Using the <span class="ph uicontrol">Raise</span> or <span class="ph uicontrol">Lower</span> buttons,
+you can raise the priority of NCOMS_BAK to be the primary ObjectServer
+and NCOMS_PRI to be the backup.<dl class="dl"><dt class="dt dlterm">Raise</dt>
+<dd class="dd">Click this button to raise the priority of the selected server
+component by one level.</dd>
+<dt class="dt dlterm">Lower</dt>
+<dd class="dd">Click this button to lower the priority of the selected server
+component by one level.</dd>
+<dt class="dt dlterm">Generate All (UNIX only)</dt>
+<dd class="dd">Click this button to generate interfaces files for all UNIX operating
+systems. When you apply your changes (using the <span class="ph uicontrol">Apply</span> button),
+this generates interfaces files named <span class="ph filepath">$NCHOME/etc/interfaces.<var class="keyword varname">arch</var></span>,
+where <span class="ph filepath"><var class="keyword varname">arch</var></span> represents individual UNIX platform
+names; for example, <span class="ph filepath">interfaces.hpux11</span> and <span class="ph filepath">interfaces.solaris2</span>.</dd>
+<dt class="dt dlterm">Show Groups (Windows only) </dt>
+<dd class="dd">On Windows, select this check box to group each
+server by name within the server list, with backup servers and listeners
+identified following the client entry.</dd>
+</dl>
+</dd>
+</dl>
+<dl class="dl"><dt class="dt dlterm">Apply (UNIX only)</dt>
+<dd class="dd">Click this button to apply the changes to the interfaces file.
+Any server components that were added to the server list, removed
+from the server list, or edited, will be saved to this file.</dd>
+<dt class="dt dlterm">OK (Windows only)</dt>
+<dd class="dd">Click this button to save your changes and close this window.</dd>
+<dt class="dt dlterm">Close (UNIX)/Cancel (Windows)</dt>
+<dd class="dd">Click this button to either close this window after saving your
+changes with the <span class="ph uicontrol">Apply</span> button, or to close
+this window without saving your changes.</dd>
+<dt class="dt dlterm">Import (UNIX only)</dt>
+<dd class="dd">Click this button to import communication details. </dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="omn_usr_configuringpropsettservcomm.html" title="You can configure properties for Tivoli Netcool/OMNIbus components, and communication information for the server components from the UNIX and Windows Conductors. On Windows, you can perform these two functions in a combined task within a settings window. On UNIX, you can also change the date format in event lists.">Configuring properties, server communication, and settings</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="omn_con_ipv6_configurationunix.html" title="Tivoli Netcool/OMNIbus provides support for both IPv4 and IPv6. The components can operate and coexist on a network supporting IPv4 only, IPv6 only, or a dual IPv4 and IPv6 configuration.">IPv6 configuration</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Library</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Support</a> |</span>
+<br />
+</div>
+</body>
+</html>

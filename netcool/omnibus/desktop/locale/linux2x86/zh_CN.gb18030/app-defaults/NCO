@@ -1,0 +1,1932 @@
+
+
+!
+! Ident $Id: Global.res 1.9 1999/07/23 16:50:43 chris Development $
+!
+
+NCO*foreground: White
+NCO*background: Slate Grey
+NCO*fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*iconFontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*XmText.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*XmTextField.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*XmLabel.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*status_line.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*user_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+NCO*server_field.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:,-*-*-medium-r-normal--24-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--24-*-*-*-*-*-iso*-*:large
+
+NCO*XmToggleButton.selectColor: red
+NCO*XmToggleButton.fillOnSelect: True
+NCO*XmToggleButtonGadget.selectColor: red
+NCO*XmToggleButtonGadget.fillOnSelect: True
+NCO*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+NCO*main_area.background: Cadet Blue
+NCO*dir_area.background: Cadet Blue
+NCO*XmTextField.background: Cadet Blue
+NCO*XmText.background: Cadet Blue
+
+NCO*status_line.background: Slate Grey
+NCO*user_field.background: Slate Grey
+NCO*server_field.background: Slate Grey
+
+NCO*XmXrtIntField.background: Cadet Blue
+
+NCO*error_dialog_popup.title: 错误
+NCO*warning_dialog_popup.title: 警告
+
+NCO*XmLabel.translations: #override\n	<Btn2Down>: DoNothing()
+
+NCO*XmPushButton.translations: #override\n	<Btn2Down>: DoNothing()
+
+
+!
+! Ident: $Id: Global.res 1.2 1997/02/20 14:36:47 adam Development $
+!
+
+
+*viewBuilderSortFontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:
+*view_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+
+*view_builder*vb_new_question_dialog_popup.title: 放弃更改？
+*view_builder*vb_new_question_dialog.messageString: 创建新视图会使已修改的定义丢失\n 确定要这么做吗？
+*view_builder*vb_new_question_dialog.okLabelString: 是
+*view_builder*vb_new_question_dialog.cancelLabelString: 否
+*view_builder*vb_new_question_dialog.helpLabelString: 帮助
+
+*view_builder*vb_open_question_dialog_popup.title: 放弃更改？
+*view_builder*vb_open_question_dialog.messageString: 打开新视图会使已修改的定义丢失\n 确定要这么做吗？
+*view_builder*vb_open_question_dialog.okLabelString: 是
+*view_builder*vb_open_question_dialog.cancelLabelString: 否
+*view_builder*vb_open_question_dialog.helpLabelString: 帮助
+
+*view_builder*vb_exit_question_dialog_popup.title: 放弃更改？
+*view_builder*vb_exit_question_dialog.messageString: 关闭此窗口会使已修改的定义丢失\n 确定要这么做吗？
+*view_builder*vb_exit_question_dialog.okLabelString: 是
+*view_builder*vb_exit_question_dialog.cancelLabelString: 否
+*view_builder*vb_exit_question_dialog.helpLabelString: 帮助
+
+*view_builder*display_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:
+
+*view_builder*display_matrix.gridType:	XmGRID_SHADOW_IN
+*view_builder*display_matrix.height:         80
+*view_builder*display_matrix.rows:           2
+*view_builder*display_matrix.columns:        1
+*view_builder*display_matrix.columnWidths:   10
+
+*view_builder*display_matrix.cellMarginWidth: 		2
+*view_builder*display_matrix.cellMarginHeight: 		2
+*view_builder*display_matrix.cellShadowThickness:	1
+*view_builder*display_matrix.cellShadowType: 		XmSHADOW_OUT
+
+*view_builder*display_matrix.showArrows: True
+*view_builder*display_matrix.allowColumnResize: True
+
+*view_builder*display_matrix.foreground: black
+*view_builder*display_matrix.rowLabelColor: White
+*view_builder*display_matrix.columnLabelColor: White
+*view_builder*display_matrix.selectedBackground: White
+*view_builder*display_matrix.selectedForeground: black
+
+*view_builder*display_matrix.translations:   #replace\n			Shift Ctrl<Btn1Down>: ResizeColumns()\n                        <Btn1Down>:      SelectCell(select)\n                        <Btn2Down>:      SelectCell(drag)\n                        <Btn3Down>:      SelectCell(menu)
+*view_builder*display_matrix.traversalOn:	False
+
+*view_builder*display_column_list.translations:	#override\n			<Btn2Down>:      VbDpyDragStart()
+*view_builder*sort_column_list.translations:	#override\n			<Btn2Down>:      VbSortDragStart()
+
+*view_builder*display_matrix.labelFont: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:
+
+*view_builder*vb_extension_dialog_popup.title: 使用不正确的扩展名？
+*view_builder*vb_extension_dialog.messageString: 指定的文件名没有 .elv 扩展名\n确定要以此文件名保存数据吗？
+*view_builder*vb_extension_dialog.okLabelString: 是
+*view_builder*vb_extension_dialog.cancelLabelString: 否
+*view_builder*vb_extension_dialog.helpLabelString: 帮助
+! Generated by X-Designer
+
+
+! view_builder
+*view_builder*view_builder.width: 500
+*view_builder*view_builder.title: 视图构建器
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*view_builder*file_cascade_button.labelString: 文件(F)
+*view_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*view_builder*file_new_button.labelString: 新建(N)
+*view_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*view_builder*file_open_button.labelString: 打开(O)...
+*view_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*view_builder*file_save_button.labelString: 保存(S)
+*view_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*view_builder*file_save_as_button.labelString: 另存为(A)...
+*view_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*view_builder*file_close_button.labelString: 关闭(C)
+*view_builder*file_close_button.mnemonic: C
+
+! vb_mb
+
+! vb_apply_button
+*view_builder*vb_apply_button.labelString: 应用
+
+! vb_close_button
+*view_builder*vb_close_button.labelString: 关闭
+
+! vb_help_button
+*view_builder*vb_help_button.labelString: 帮助
+
+! form2
+
+! label1
+*view_builder*name_label.labelString: 视图名称
+
+! name_field
+
+! view_editable_toggle
+*view_builder*view_editable_toggle.labelString: 可编辑
+
+! frame2
+
+! dnd_target
+
+! disp_cols_form
+*view_builder*disp_cols_form.paneMinimum: 1
+
+! label2
+*view_builder*display_columns_label.labelString: 显示列
+
+! frame4
+
+! display_matrix
+
+! rowcol1
+
+! disp_add_button
+*view_builder*disp_add_button.labelString: 添加
+
+! disp_remove_button
+*view_builder*disp_remove_button.labelString: 除去
+
+! display_column_list
+
+! rowcol2
+
+! move_first_button
+*view_builder*move_first_button.labelString: 移至第一个
+
+! move_left_button
+*view_builder*move_left_button.labelString: 左移
+
+! move_right_button
+*view_builder*move_right_button.labelString: 右移
+
+! move_last_button
+*view_builder*move_last_button.labelString: 移至最后一个
+
+! aligner1
+
+! column_label
+*view_builder*column_label.labelString: 列
+
+! column_field
+
+! title_label
+*view_builder*title_label.labelString: 标题
+
+! title_field
+
+! column_align_menu
+*view_builder*column_align_menu.labelString: 对齐
+
+! label3
+
+! column_align_beginning
+*view_builder*column_align_beginning.labelString: 左对齐
+
+! column_align_center
+*view_builder*column_align_center.labelString: 居中
+
+! column_align_end
+*view_builder*column_align_end.labelString: 右对齐
+
+! title_align_menu
+*view_builder*title_align_menu.labelString: 对齐
+
+! label4
+
+! title_align_beginning
+*view_builder*title_align_beginning.labelString: 左对齐
+
+! title_align_center
+*view_builder*title_align_center.labelString: 居中
+
+! title_align_end
+*view_builder*title_align_end.labelString: 右对齐
+
+! width_label
+*view_builder*width_label.labelString: 宽度
+
+! width_scale
+
+! label5
+*view_builder*column_details_label.labelString: 列详细信息
+
+! label6
+*view_builder*num_fixed_label.labelString: 固定列
+
+! num_fixed_scale
+
+! sort_cols_form
+*view_builder*sort_cols_form.paneMinimum: 1
+
+! label7
+*view_builder*sort_columns_label.labelString: 列排序
+
+! sort_column_list
+
+! rowcol3
+
+! sort_add_button
+*view_builder*sort_add_button.labelString: 添加
+
+! sort_remove_button
+*view_builder*sort_remove_button.labelString: 除去
+
+! sort_sw
+
+! sort_da
+
+! rowcol4
+
+! move_top_button
+*view_builder*move_top_button.labelString: 移至顶部
+
+! move_up_button
+*view_builder*move_up_button.labelString: 上移
+
+! move_down_button
+*view_builder*move_down_button.labelString: 下移
+
+! move_bottom_button
+*view_builder*move_bottom_button.labelString: 移至底部
+
+! restrict_rows_rowcol
+
+! label16
+*view_builder*label16.labelString: 限制行数
+
+! restrict_rows_sub_rowcol
+
+! restrict_rows_toggle
+*view_builder*restrict_rows_toggle.labelString: 限制行数
+
+! min_label
+*view_builder*min_label.labelString: 最小值
+
+! restrict_rows_min_spin
+
+! max_label
+*view_builder*max_label.labelString: 最大值
+
+! restrict_rows_max_spin
+
+! default_label
+*view_builder*default_label.labelString: 缺省值
+
+! restrict_rows_default_spin
+
+! restrict_rows_from_eventlist_toggle
+*view_builder*restrict_rows_from_eventlist_toggle.labelString: 从事件列表设置
+
+
+! vb_sort_popup
+*view_builder*vb_sort_popup.menuPost: <Button3>
+
+! sp_change_button
+*view_builder*sp_change_button.labelString: 更改
+
+! sp_top_button
+*view_builder*sp_top_button.labelString: 移至顶部
+
+! sp_up_button
+*view_builder*sp_up_button.labelString: 上移
+
+! sp_down_button
+*view_builder*sp_down_button.labelString: 下移
+
+! sp_bottom_button
+*view_builder*sp_bottom_button.labelString: 移至底部
+
+! sp_delete_button
+*view_builder*sp_delete_button.labelString: 除去
+
+! vb_display_popup
+*view_builder*vb_display_popup.menuPost: <Button3>
+
+! dp_first_button
+*view_builder*dp_first_button.labelString: 移至第一个
+
+! dp_left_button
+*view_builder*dp_left_button.labelString: 左移
+
+! dp_right_button
+*view_builder*dp_right_button.labelString: 右移
+
+! dp_last_button
+*view_builder*dp_last_button.labelString: 移至最后一个
+
+! dp_delete_button
+*view_builder*dp_delete_button.labelString: 除去
+
+
+! vb_save_dialog
+*view_builder*vb_save_dialog.title: 保存视图...
+
+! vb_save_file_sb
+*view_builder*vb_save_file_sb.applyLabelString: 过滤
+*view_builder*vb_save_file_sb.okLabelString: 确定
+*view_builder*vb_save_file_sb.cancelLabelString: 取消
+*view_builder*vb_save_file_sb.helpLabelString: 帮助
+*view_builder*vb_save_file_sb.selectionLabelString: 选择
+*view_builder*vb_save_file_sb.filterLabelString: 文件过滤器
+*view_builder*vb_save_file_sb.fileListLabelString: 文件
+*view_builder*vb_save_file_sb.dirListLabelString: 目录
+*view_builder*vb_save_file_sb.pattern: *.elv
+
+! label10
+*view_builder*vb_save_file_sb.FilterLabel.labelString: 文件过滤器
+
+! save_backup_toggle
+*view_builder*save_backup_toggle.labelString: 备份现有文件
+
+
+! vb_open_dialog
+*view_builder*vb_open_dialog.title: 打开视图...
+
+! vb_open_file_sb
+*view_builder*vb_open_file_sb.applyLabelString: 过滤
+*view_builder*vb_open_file_sb.okLabelString: 确定
+*view_builder*vb_open_file_sb.cancelLabelString: 取消
+*view_builder*vb_open_file_sb.helpLabelString: 帮助
+*view_builder*vb_open_file_sb.selectionLabelString: 选择
+*view_builder*vb_open_file_sb.filterLabelString: 文件过滤器
+*view_builder*vb_open_file_sb.fileListLabelString: 文件
+*view_builder*vb_open_file_sb.dirListLabelString: 目录
+*view_builder*vb_open_file_sb.pattern: *.elv
+
+! label14
+*view_builder*vb_open_file_sb.FilterLabel.labelString: 文件过滤器
+
+!
+! SCCS: @(#)Global.res (libfb) 3.5 01/15/97 14:08:49
+!
+
+
+*filter_builder*XmToggleButton.selectColor: red
+*filter_builder*XmToggleButton.fillOnSelect: True
+*filter_builder*XmToggleButtonGadget.selectColor: red
+*filter_builder*XmToggleButtonGadget.fillOnSelect: True
+*filter_builder*XmMenuShell*XmToggleButton.indicatorSize: 12
+
+*filter_builder*XmTextField.background: Cadet Blue
+*filter_builder*XmText.background: Cadet Blue
+
+*filter_builder*status_line.background: Slate Grey
+*filter_builder*user_field.background: Slate Grey
+*filter_builder*server_field.background: Slate Grey
+
+*filter_builder*int_conversions_combo*XmList*background: CadetBlue
+
+
+*filter_builder*string_editor.width: 80
+
+*filter_builder*fb_new_question_dialog_popup.title: 放弃更改？
+*filter_builder*fb_new_question_dialog.messageString: 创建新过滤器会使已修改的定义丢失\n 确定要这么做吗？
+*filter_builder*fb_new_question_dialog.okLabelString: 是
+*filter_builder*fb_new_question_dialog.cancelLabelString: 否
+*filter_builder*fb_new_question_dialog.helpLabelString: 帮助
+
+*filter_builder*fb_open_question_dialog_popup.title: 放弃更改？
+*filter_builder*fb_open_question_dialog.messageString: 打开新过滤器会使已修改的定义丢失\n 确定要这么做吗？
+*filter_builder*fb_open_question_dialog.okLabelString: 是
+*filter_builder*fb_open_question_dialog.cancelLabelString: 否
+*filter_builder*fb_open_question_dialog.helpLabelString: 帮助
+
+*filter_builder*fb_exit_question_dialog_popup.title: 放弃更改？
+*filter_builder*fb_exit_question_dialog.messageString: 关闭此窗口会使已修改的定义丢失\n 确定要这么做吗？
+*filter_builder*fb_exit_question_dialog.okLabelString: 是
+*filter_builder*fb_exit_question_dialog.cancelLabelString: 否
+*filter_builder*fb_exit_question_dialog.helpLabelString: 帮助
+
+*filter_builder*fb_extension_dialog_popup.title: 使用不正确的扩展名？
+*filter_builder*fb_extension_dialog.messageString: 指定的文件名没有 .elf 扩展名\n确定要以此文件名保存数据吗？
+*filter_builder*fb_extension_dialog.okLabelString: 是
+*filter_builder*fb_extension_dialog.cancelLabelString: 否
+*filter_builder*fb_extension_dialog.helpLabelString: 帮助
+
+*filter_builder*component_button.translations: #override\n		<Btn2Down>:	FbDoNothing()
+
+! LIBFB_MSG0001
+NCO*filter_builder.libfbPasteMismatch.messageString: 粘贴操作中的表不匹配
+! LIBFB_MSG0002
+NCO*fb_edit_mb.libfbInvalidSQL.messageString: SQL 语句无效。请检查语句内容。
+! LIBFB_MSG0003
+NCO*fb_edit_mb.libfbInvalidComplex.messageString: 复杂表达式语句无效。请检查语句内容。
+! LIBFB_MSG0004
+NCO*libfbInvalidLeftExpr.messageString: 表达式左侧内容无效。请检查\n所用字面值和列引用的指定数据类型以及相关的运算符。
+! Generated by X-Designer
+
+
+! fb_edit_dialog
+*filter_builder*fb_edit_dialog.title: 编辑过滤器 SQL
+
+! fb_edit_mb
+
+! fb_edit_ok_button
+*filter_builder*fb_edit_ok_button.labelString: 确定
+
+! fb_edit_cancel_button
+*filter_builder*fb_edit_cancel_button.labelString: 取消
+
+! fb_edit_help_button
+*filter_builder*fb_edit_help_button.labelString: 帮助
+
+! fb_edit_text
+
+
+! filter_builder
+*filter_builder*filter_builder.width: 850
+*filter_builder*filter_builder.height: 700
+*filter_builder*filter_builder.title: 过滤器构建器
+
+! form1
+
+! menu_bar
+
+! file_cascade_button
+*filter_builder*file_cascade_button.labelString: 文件(F)
+*filter_builder*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_new_button
+*filter_builder*file_new_button.labelString: 新建(N)
+*filter_builder*file_new_button.mnemonic: N
+
+! file_open_button
+*filter_builder*file_open_button.labelString: 打开(O)...
+*filter_builder*file_open_button.mnemonic: O
+
+! file_save_button
+*filter_builder*file_save_button.labelString: 保存(S)
+*filter_builder*file_save_button.mnemonic: S
+
+! file_save_as_button
+*filter_builder*file_save_as_button.labelString: 另存为(A)...
+*filter_builder*file_save_as_button.mnemonic: A
+
+! file_close_button
+*filter_builder*file_close_button.labelString: 关闭(C)
+*filter_builder*file_close_button.mnemonic: C
+
+! edit_cascade_button
+*filter_builder*edit_cascade_button.labelString: 编辑(E)
+*filter_builder*edit_cascade_button.mnemonic: E
+
+! edit_menu
+
+! edit_cut_button
+*filter_builder*edit_cut_button.labelString: 剪切(T)
+*filter_builder*edit_cut_button.mnemonic: t
+*filter_builder*edit_cut_button.accelerator: Shift<Key>osfDelete
+*filter_builder*edit_cut_button.acceleratorText: Shift+Del
+
+! edit_copy_button
+*filter_builder*edit_copy_button.labelString: 复制(C)
+*filter_builder*edit_copy_button.mnemonic: C
+*filter_builder*edit_copy_button.accelerator: Ctrl<Key>osfInsert
+*filter_builder*edit_copy_button.acceleratorText: Ctrl+Insert
+
+! edit_paste_button
+*filter_builder*edit_paste_button.labelString: 粘贴(P)
+*filter_builder*edit_paste_button.mnemonic: P
+*filter_builder*edit_paste_button.accelerator: Shift<Key>osfInsert
+*filter_builder*edit_paste_button.acceleratorText: Shift+Ins
+
+! fb_mb
+
+! form2
+
+! label1
+*filter_builder*name_label.labelString: 过滤器名称
+
+! name_field
+
+! filter_editable_toggle
+*filter_builder*filter_editable_toggle.labelString: 可编辑
+
+! frame2
+
+! dnd_target
+
+! separator3
+
+! button_rc
+
+! rowcol4
+
+! predicate_button
+*filter_builder*predicate_button.labelString: 条件
+
+! negate_button
+*filter_builder*negate_button.labelString: 否定
+
+! leading_logical_button
+*filter_builder*leading_logical_button.labelString: 前导\n逻辑
+
+! trailing_logical_button
+*filter_builder*trailing_logical_button.labelString: 结尾\n逻辑
+
+! subquery_button
+*filter_builder*subquery_button.labelString: 子查询
+
+! rowcol3
+
+! edit_delcomp_button
+*filter_builder*edit_delcomp_button.labelString: 删除\n元素
+
+! edit_deltree_button
+*filter_builder*edit_deltree_button.labelString: 删除\n树
+
+! rowcol2
+
+! fb_edit_sql_button
+*filter_builder*fb_edit_sql_button.labelString: 编辑\nSQL...
+
+! separator6
+
+! main_sw
+*filter_builder*main_sw.height: 330
+
+! tree
+
+! separator5
+
+! sql_text
+
+! separator7
+
+! form
+
+! in_form
+
+! rowcol1
+
+! fb_in_value_add_button
+*filter_builder*form*fb_in_value_add_button.labelString: 添加
+
+! fb_in_value_remove_button
+*filter_builder*form*fb_in_value_remove_button.labelString: 除去
+
+! in_list
+
+! separator8
+
+! metric_form
+
+! metric_function_menu
+*filter_builder*metric_function_menu.labelString: 度量值：
+
+! label2
+
+! metric_avg_button
+*filter_builder*metric_avg_button.labelString: 平均值
+
+! metric_count_button
+*filter_builder*metric_count_button.labelString: 计数
+
+! metric_sum_button
+*filter_builder*metric_sum_button.labelString: 合计
+
+! metric_min_button
+*filter_builder*metric_min_button.labelString: 最小值
+
+! metric_max_button
+*filter_builder*metric_max_button.labelString: 最大值
+
+! metric_field_menu
+*filter_builder*metric_field_menu.labelString: 对应项：
+
+! label3
+
+! metric_field_button
+
+! fb_apply_button
+*filter_builder*fb_apply_button.labelString: 应用
+
+! fb_close_button
+*filter_builder*fb_close_button.labelString: 关闭
+
+! fb_help_button
+*filter_builder*fb_help_button.labelString: 帮助
+
+
+! fb_save_dialog
+*filter_builder*fb_save_dialog.title: 保存过滤器...
+
+! fb_save_file_sb
+*filter_builder*fb_save_file_sb.applyLabelString: 过滤
+*filter_builder*fb_save_file_sb.okLabelString: 确定
+*filter_builder*fb_save_file_sb.cancelLabelString: 取消
+*filter_builder*fb_save_file_sb.helpLabelString: 帮助
+*filter_builder*fb_save_file_sb.selectionLabelString: 选择
+*filter_builder*fb_save_file_sb.filterLabelString: 文件过滤器
+*filter_builder*fb_save_file_sb.fileListLabelString: 文件
+*filter_builder*fb_save_file_sb.dirListLabelString: 目录
+*filter_builder*fb_save_file_sb.pattern: *.elf
+
+! label6
+*filter_builder*fb_save_file_sb.FilterLabel.labelString: 文件过滤器
+
+! save_backup_toggle
+*filter_builder*save_backup_toggle.labelString: 保存现有文件
+
+
+! fb_open_dialog
+*filter_builder*fb_open_dialog.title: 打开过滤器...
+
+! fb_open_file_sb
+*filter_builder*fb_open_file_sb.applyLabelString: 过滤
+*filter_builder*fb_open_file_sb.okLabelString: 确定
+*filter_builder*fb_open_file_sb.cancelLabelString: 取消
+*filter_builder*fb_open_file_sb.helpLabelString: 帮助
+*filter_builder*fb_open_file_sb.selectionLabelString: 选择
+*filter_builder*fb_open_file_sb.filterLabelString: 文件过滤器
+*filter_builder*fb_open_file_sb.fileListLabelString: 文件
+*filter_builder*fb_open_file_sb.dirListLabelString: 目录
+*filter_builder*fb_open_file_sb.pattern: *.elf
+
+! label10
+*filter_builder*fb_open_file_sb.FilterLabel.labelString: 文件过滤器
+
+
+! predicate_component
+
+! predicate_type_menu
+*filter_builder*predicate_type_menu.labelString: 表达式类型
+
+! label23
+
+! predicate_type_simple
+*filter_builder*predicate_type_simple.labelString: 简单
+
+! predicate_type_complex
+*filter_builder*predicate_type_complex.labelString: 复杂
+
+! predicate_type_freeform
+*filter_builder*predicate_type_freeform.labelString: 自由格式
+
+! predicate_field_menu
+*filter_builder*predicate_field_menu.labelString: 列
+
+! label12
+
+! predicate_field_menu_button
+
+! predicate_op_menu
+*filter_builder*predicate_op_menu.labelString: 运算符
+
+! label13
+
+! predicate_op_menu_button
+
+! predicate_op_menu_rc
+
+! predicate_op_eq_button
+*filter_builder*predicate_op_eq_button.labelString: 等于
+
+! predicate_op_lt_button
+*filter_builder*predicate_op_lt_button.labelString: 小于
+
+! predicate_op_lte_button
+*filter_builder*predicate_op_lte_button.labelString: 小于等于
+
+! predicate_op_like_button
+*filter_builder*predicate_op_like_button.labelString: 近似于
+
+! predicate_op_in_button
+*filter_builder*predicate_op_in_button.labelString: 包含于
+
+! predicate_op_ne_button
+*filter_builder*predicate_op_ne_button.labelString: 不等于
+
+! predicate_op_gt_button
+*filter_builder*predicate_op_gt_button.labelString: 大于
+
+! predicate_op_gte_button
+*filter_builder*predicate_op_gte_button.labelString: 大于等于
+
+! predicate_op_nlike_button
+*filter_builder*predicate_op_nlike_button.labelString: 不近似于
+
+! predicate_op_nin_button
+*filter_builder*predicate_op_nin_button.labelString: 不包含于
+
+! logical_component
+
+! logical_and_toggle
+*filter_builder*logical_and_toggle.labelString: 逻辑与（AND）
+
+! logical_or_toggle
+*filter_builder*logical_or_toggle.labelString: 逻辑或（OR）
+
+! subquery_component
+
+! subquery_selection_menu
+*filter_builder*subquery_selection_menu.labelString: 列
+
+! label14
+
+! subquery_selection_menu_button
+
+! subquery_op_menu
+*filter_builder*subquery_op_menu.labelString: 运算符
+
+! label15
+
+! subquery_op_menu_button
+
+! subquery_op_menu_rc
+
+! subquery_op_in_button
+*filter_builder*subquery_op_in_button.labelString: 包含于
+
+! subquery_op_nin_button
+*filter_builder*subquery_op_nin_button.labelString: 不包含于
+
+! subquery_field_menu
+*filter_builder*subquery_field_menu.labelString: 选择
+
+! label16
+
+! subquery_field_menu_button
+
+! subquery_table_menu
+*filter_builder*subquery_table_menu.labelString: 从
+
+! label17
+
+! subquery_table_menu_button
+
+! subquery_table_menu_rc
+
+! subquery_status_table_button
+
+! subquery_details_table_button
+
+! subquery_journal_table_button
+
+! time_editor
+
+! te_type_menu
+
+! te_absolute_button
+*filter_builder*te_absolute_button.labelString: 绝对
+
+! te_relative_button
+*filter_builder*te_relative_button.labelString: 相对
+
+! te_relative_field
+
+! te_absolute_form
+
+! label22
+*filter_builder*date_day_label.labelString: dd:
+
+! te_field1
+
+! te_up1
+
+! te_down1
+
+! label19
+*filter_builder*date_month_label.labelString: mm:
+
+! te_field2
+
+! te_up2
+
+! te_down2
+
+! label20
+*filter_builder*date_year_label.labelString: yyyy:
+
+! te_field3
+
+! te_up3
+
+! te_down3
+
+! label24
+*filter_builder*time_hour_label.labelString: hh:
+
+! te_field4
+
+! te_up4
+
+! te_down4
+
+! label26
+*filter_builder*time_minute_label.labelString: mm:
+
+! te_field5
+
+! te_up5
+
+! te_down5
+
+! label27
+*filter_builder*time_second_label.labelString: ss:
+
+! te_field6
+
+! te_up6
+
+! te_down6
+
+! int_editor
+
+! int_conversions_menu
+
+! int_conversions_combo
+
+! int_field
+*filter_builder*int_field.width: 80
+
+! int_inc_button
+
+! int_dec_button
+
+! exp_editor
+
+! complex_text_sb_h
+
+! complex_text_sb_v
+
+! complex_text_fld
+
+! complex_edit_btn
+*filter_builder*complex_edit_btn.labelString: 编辑...
+
+! Generated by X-Designer
+
+
+! about_dialog
+NCO*about_dialog.allowShellResize: false
+NCO*about_dialog.title: 关于...
+
+! about_form
+NCO*about_form.autoUnmanage: false
+
+! about_image
+
+! Generated by X-Designer
+
+
+! sdown_dialog
+NCO*sdown_dialog.allowShellResize: true
+NCO*sdown_dialog.title: 连接失败
+
+! sdown_mb
+NCO*sdown_mb.autoUnmanage: true
+NCO*sdown_mb.dialogType: DIALOG_ERROR
+NCO*sdown_mb.messageAlignment: ALIGNMENT_CENTER
+NCO*sdown_mb.messageString: 尝试连接的服务器\n可能没有响应。\n\n请使用其他服务器名称重试。
+NCO*sdown_mb.okLabelString: 确定
+NCO*sdown_mb.cancelLabelString: 取消
+NCO*sdown_mb.helpLabelString: 帮助
+
+! button2
+NCO*sdown_mb.Help.sensitive: false
+
+
+! fatal_dialog
+NCO*fatal_dialog.allowShellResize: true
+NCO*fatal_dialog.title: 登录失败
+
+! fatal_mb
+NCO*fatal_mb.autoUnmanage: true
+NCO*fatal_mb.dialogType: DIALOG_ERROR
+NCO*fatal_mb.messageAlignment: ALIGNMENT_CENTER
+NCO*fatal_mb.messageString: 未能识别您提供的\n用户名和/或密码。\n\n对不起，您用完了三次尝试机会！
+NCO*fatal_mb.okLabelString: 确定
+NCO*fatal_mb.cancelLabelString: 取消
+NCO*fatal_mb.helpLabelString: 帮助
+
+! button5
+NCO*fatal_mb.Help.sensitive: false
+
+
+! attempt_dialog
+NCO*attempt_dialog.allowShellResize: true
+NCO*attempt_dialog.title: 登录失败
+
+! attempt_mb
+NCO*attempt_mb.autoUnmanage: true
+NCO*attempt_mb.dialogType: DIALOG_ERROR
+NCO*attempt_mb.messageAlignment: ALIGNMENT_CENTER
+NCO*attempt_mb.messageString: 未能识别您提供的\n用户名和/或密码。请重试。
+NCO*attempt_mb.okLabelString: 确定
+NCO*attempt_mb.cancelLabelString: 取消
+NCO*attempt_mb.helpLabelString: 帮助
+
+! button8
+NCO*attempt_mb.Help.sensitive: false
+
+
+! login_dialog
+NCO*login_dialog.allowShellResize: true
+NCO*login_dialog.title: 登录
+
+! login_mb
+NCO*login_mb.autoUnmanage: false
+NCO*login_mb.dialogType: DIALOG_TEMPLATE
+
+! login_ok_button
+NCO*login_ok_button.labelString: 确定
+
+! login_cancel_button
+NCO*login_cancel_button.labelString: 取消
+
+! login_help_button
+NCO*login_help_button.sensitive: false
+NCO*login_help_button.labelString: 帮助
+
+! login_mframe
+
+! login_mform
+
+! login_tframe
+NCO*login_tframe.shadowType: SHADOW_OUT
+NCO*login_tframe.marginHeight: 3
+NCO*login_tframe.marginWidth: 3
+
+! login_big_label
+NCO*login_big_label.labelString:  
+NCO*login_big_label.alignment: ALIGNMENT_CENTER
+
+! login_msg
+NCO*login_little_label.labelString: 请输入用户名和\n密码以继续
+
+! login_credentials
+
+! login_username_label
+NCO*login_username_label.labelString: 用户名
+
+! login_username_field
+NCO*login_username_field.xrtGearResizeWidth: true
+
+! login_password_label
+NCO*login_password_label.labelString: 密码
+
+! login_password_field
+NCO*login_password_field.xrtGearResizeWidth: true
+
+! login_sep
+
+! login_server_menu
+NCO*login_server_menu.navigationType: TAB_GROUP
+NCO*login_server_menu.labelString: 服务器
+
+! login_server_label
+
+! login_server_cascade
+
+NCO*OclMessage.MSG_00003.messageString: 警告：
+NCO*OclMessage.MSG_00004.messageString: 错误：
+NCO*OclMessage.MSG_00005.messageString: 致命错误：
+NCO*OclMessage.MSG_00006.messageString: 您不是有效的用户\n
+NCO*OclMessage.MSG_00007.messageString: 打开客户机错误：
+NCO*OclMessage.MSG_00008.messageString: 打开客户机消息：
+NCO*OclMessage.MSG_00009.messageString: 服务器消息：
+NCO*OclMessage.MSG_00010.messageString: 未能分配服务器上下文\n
+NCO*OclMessage.MSG_00011.messageString: 未能初始化服务器上下文\n
+NCO*OclMessage.MSG_00012.messageString: 未能设置客户机消息回调\n
+NCO*OclMessage.MSG_00013.messageString: 未能设置服务器消息回调\n
+NCO*OclMessage.MSG_00014.messageString: 意外的服务器关闭\n
+NCO*OclMessage.MSG_00015.messageString: 未能分配连接上下文\n
+NCO*OclMessage.MSG_00016.messageString: 未能设置连接属性：用户名\n
+NCO*OclMessage.MSG_00017.messageString: 未能设置连接属性：密码\n
+NCO*OclMessage.MSG_00018.messageString: 未能设置连接属性：应用程序名称\n
+NCO*OclMessage.MSG_00019.messageString: 未能连接\n
+NCO*OclMessage.MSG_00020.messageString: 未能断开连接\n
+NCO*OclMessage.MSG_00021.messageString: 未能删除连接上下文\n
+NCO*OclMessage.MSG_00022.messageString: 未能关闭服务器上下文\n
+NCO*OclMessage.MSG_00023.messageString: 未能删除服务器上下文\n
+NCO*OclMessage.MSG_00024.messageString: 未能分配命令上下文\n
+NCO*OclMessage.MSG_00025.messageString: 未能处理命令\n
+NCO*OclMessage.MSG_00026.messageString: 未能发送命令\n
+NCO*OclMessage.MSG_00027.messageString: 未能终止命令\n
+NCO*OclMessage.MSG_00028.messageString: 未能执行 SQL 请求\n
+NCO*OclMessage.MSG_00029.messageString: %1$s：无法打开显示\n
+NCO*OclMessage.MSG_00030.messageString: 未知选项：%1$s\n
+NCO*OclMessage.MSG_00031.messageString: 未能连接到对象服务器\n
+NCO*OclMessage.MSG_00032.messageString: 警告：无法修正 XKeysymDB 路径！\n
+NCO*OclMessage.MSG_00033.messageString: 未能获取服务器主机名\n
+NCO*OclMessage.MSG_00034.messageString: 未能使用数据库警报\n
+NCO*OclMessage.MSG_00035.messageString: 未能设置接口属性\n
+NCO*OclMessage.MSG_00036.messageString: 消息编号解码：层 %1$ld，源点 %2$ld，严重性 %3$ld，编号 %4$ld\n
+NCO*OclMessage.MSG_00037.messageString: 消息字符串：%1$s\n
+NCO*OclMessage.MSG_00038.messageString: 操作系统错误：%1$s\n
+NCO*OclMessage.MSG_00039.messageString: 消息编号解码：编号 %1$ld，严重性 %2$ld，状态 %3$ld，行 %4$ld\n
+NCO*OclMessage.MSG_00040.messageString: 来自服务器“%1$s”\n
+NCO*OclMessage.MSG_00041.messageString: 过程“%1$s”\n
+NCO*OclMessage.MSG_00042.messageString: 消息字符串：%1$s\n
+NCO*OclMessage.MSG_00043.messageString: ** 开始扩展诊断跟踪 **\n
+NCO*OclMessage.MSG_00044.messageString: ** 结束扩展诊断跟踪 **\n
+NCO*OclMessage.MSG_00045.messageString: 结果处理失败\n
+NCO*OclMessage.MSG_00046.messageString: 返回意外结果\n
+NCO*OclMessage.MSG_00047.messageString: 列绑定失败\n
+NCO*OclMessage.MSG_00048.messageString: 行访存失败\n
+NCO*OclMessage.MSG_00049.messageString: 字段“%1$s”不存在于表“%2$s”中，或者类型错误\n
+NCO*OclMessage.MSG_00050.messageString: 紧急：
+NCO*OclMessage.MSG_00051.messageString: SelectCell() 的参数个数无效\n
+NCO*OclMessage.MSG_00058.messageString: 过滤器=“
+NCO*OclMessage.MSG_00059.messageString: 视图=“
+NCO*OclMessage.MSG_00060.messageString: \ - 全局冻结
+NCO*OclMessage.MSG_00061.messageString: \ - 冻结
+NCO*OclMessage.MSG_00062.messageString: 用法：%1$s [选项]\n\n其中选项可以是：\n
+NCO*OclMessage.MSG_00063.messageString: \011-config(-elc) <name>\011 初始配置文件\n
+NCO*OclMessage.MSG_00066.messageString: 缺省值
+NCO*OclMessage.MSG_00067.messageString: \011-username <name>\011 用于连接的用户名\n
+NCO*OclMessage.MSG_00068.messageString: \011-password <name>\011 用于连接的用户密码\n
+NCO*OclMessage.MSG_00069.messageString: \011-server <name>\011 要连接的对象服务器\n
+NCO*OclMessage.MSG_00070.messageString: \011-help\011\011 显示此帮助文本\n
+NCO*OclMessage.MSG_00071.messageString: \011-version\011 显示版本信息\n
+NCO*OclMessage.MSG_00072.messageString: \011-nlw\011\011 不显示许可证到期警告\n
+NCO*OclMessage.MSG_00073.messageString: \011-diagnostic\011 显示扩展诊断消息\n
+NCO*OclMessage.MSG_00074.messageString: \n以下“标准”X 选项也可接受：\n
+NCO*OclMessage.MSG_00075.messageString: \011-background 或 -bg <color>\n
+NCO*OclMessage.MSG_00077.messageString: \011-bordercolor 或 -bd <color>\n
+NCO*OclMessage.MSG_00079.messageString: \011-foreground 或 -fg <color>\n
+NCO*OclMessage.MSG_00076.messageString: \011-borderwidth 或 -bw <n>\n
+NCO*OclMessage.MSG_00078.messageString: \011-display <dpy>\n
+NCO*OclMessage.MSG_00080.messageString: \011-font 或 -fn <font>\n
+NCO*OclMessage.MSG_00081.messageString: \011-geometry <geometry>\n
+NCO*OclMessage.MSG_00082.messageString: \011-iconic\n
+NCO*OclMessage.MSG_00083.messageString: \011-name <name>\n
+NCO*OclMessage.MSG_00084.messageString: \011-reverse 或 -rv\n
+NCO*OclMessage.MSG_00085.messageString: \011-selectionTimeout\n
+NCO*OclMessage.MSG_00086.messageString: \011-synchronous\n
+NCO*OclMessage.MSG_00087.messageString: \011-title <name>\n
+NCO*OclMessage.MSG_00088.messageString: \011-xrm <resource>\n
+NCO*OclMessage.MSG_00089.messageString: \n选项也可指定为最短唯一缩写形式\n（除非另有说明）。\n
+NCO*OclMessage.MSG_00090.messageString: \n%1$s - V%2$s
+NCO*OclMessage.MSG_00102.messageString: 未能获取“%1$s”的表描述
+NCO*OclMessage.MSG_00103.messageString: 
+NCO*OclMessage.MSG_00104.messageString: 
+NCO*OclMessage.MSG_00105.messageString: 
+NCO*OclMessage.MSG_00106.messageString: 序列号 %1$d 的日志项
+NCO*OclMessage.MSG_00108.messageString: 未能创建备份文件\n
+NCO*OclMessage.MSG_00109.messageString: 未能将配置保存到\n%1$s\n
+NCO*OclMessage.MSG_00110.messageString: 未能从 %1$s\n 装入配置 \n
+NCO*OclMessage.MSG_00112.messageString: \011-cmap\011\011 使用专用颜色映射图（无缩写）\n
+NCO*OclMessage.MSG_00113.messageString: [无]
+NCO*OclMessage.MSG_00114.messageString: 未能过滤 %1$s\n 中的定义 \n
+NCO*OclMessage.MSG_00115.messageString: 未能查看 %1$s\n 中的定义 \n
+NCO*OclMessage.MSG_00116.messageString: \ : 
+NCO*OclMessage.MSG_00117.messageString: 就绪。
+NCO*OclMessage.MSG_00118.messageString: 配置已保存。
+NCO*OclMessage.MSG_00119.messageString: 所有显示均已刷新。
+NCO*OclMessage.MSG_00121.messageString: 所有事件窗口均已关闭。
+NCO*OclMessage.MSG_00122.messageString: 新窗口已打开。
+NCO*OclMessage.MSG_00127.messageString: \011-noauto\011\011 不要启用启动组中的工具\n
+NCO*OclMessage.MSG_00128.messageString: \011-directory <name>\011 设置启动目录\n
+NCO*OclMessage.MSG_00135.messageString: 正在打开新窗口...
+NCO*OclMessage.MSG_00137.messageString: 正在解析 %1$s -“%2$s”（位于行 %3$d）
+NCO*OclMessage.MSG_00138.messageString: 首选项
+NCO*OclMessage.MSG_00139.messageString: SQL 文本
+NCO*OclMessage.MSG_00140.messageString: 未能构建转换表\n
+NCO*OclMessage.MSG_00141.messageString: 未能构建可视表\n
+NCO*OclMessage.MSG_00142.messageString: 未能构建类表\n
+NCO*OclMessage.MSG_00144.messageString: 未能装入首选项\n
+NCO*OclMessage.MSG_00145.messageString: 未能构建用户表\n
+NCO*OclMessage.MSG_00147.messageString: 事件列表
+NCO*OclMessage.MSG_00148.messageString: 未能保存首选项
+NCO*OclMessage.MSG_00149.messageString: 未能创建像素图
+NCO*OclMessage.MSG_00153.messageString: 工具字符串
+NCO*OclMessage.MSG_00154.messageString: 正在运行“%1$s”...
+NCO*OclMessage.MSG_00155.messageString: “%1$s”已终止（读错误）
+NCO*OclMessage.MSG_00156.messageString: “%1$s”已终止（ioctl 错误）
+NCO*OclMessage.MSG_00157.messageString: “%1$s”已完成
+NCO*OclMessage.MSG_00159.messageString: 事件列表配置
+NCO*OclMessage.MSG_00160.messageString: 视图构建器
+NCO*OclMessage.MSG_00161.messageString: 未能将视图数据保存到\n%1$s\n
+NCO*OclMessage.MSG_00164.messageString: 哑元
+NCO*OclMessage.MSG_00165.messageString: 未能创建个人库目录：%1$s
+NCO*OclMessage.MSG_00167.messageString: <内部>
+NCO*OclMessage.MSG_00169.messageString: 未能将过滤器数据保存到\n%1$s\n
+NCO*OclMessage.MSG_00171.messageString: 字符串未终止
+NCO*OclMessage.MSG_00172.messageString: 字符无效
+NCO*OclMessage.MSG_00175.messageString: 过滤器构建器
+NCO*OclMessage.MSG_00212.messageString: 未能启动事件列表
+NCO*OclMessage.MSG_00232.messageString: 执行器
+NCO*OclMessage.MSG_00233.messageString: 接口
+NCO*OclMessage.MSG_00234.messageString: 属性
+NCO*OclMessage.MSG_00235.messageString: 浏览器
+NCO*OclMessage.MSG_00240.messageString: 警告：无法修正 X NLS 路径！\n
+NCO*OclMessage.MSG_00246.messageString: 启动事件列表(S)...
+NCO*OclMessage.MSG_00247.messageString: 启动过滤器构建器(S)...
+NCO*OclMessage.MSG_00248.messageString: 启动视图构建器(S)...
+NCO*OclMessage.MSG_00249.messageString: 启动目标视图(S)...
+NCO*OclMessage.MSG_00250.messageString: 启动映射编辑器(S)...
+NCO*OclMessage.MSG_00256.messageString: 操作系统错误：%1$s
+NCO*OclMessage.MSG_00257.messageString: %1$s 系统调用失败：%2$s
+NCO*OclMessage.MSG_00260.messageString: 无法打开目录 %1$s
+NCO*OclMessage.MSG_00274.messageString: 目录浏览器
+NCO*OclMessage.MSG_00284.messageString: 未能打开接口文件：%1$s
+NCO*OclMessage.MSG_00285.messageString: 帮助
+NCO*OclMessage.MSG_00293.messageString: \011-page <name>\011\011 初始帮助页面\n
+NCO*OclMessage.MSG_00303.messageString: 关闭
+NCO*OclMessage.MSG_00304.messageString: 无
+NCO*OclMessage.MSG_00310.messageString: 接口文件中找不到任何条目
+NCO*OclMessage.MSG_00317.messageString: 内部初始化失败\n
+NCO*OclMessage.MSG_00327.messageString: 背景
+NCO*OclMessage.MSG_00328.messageString: 注释
+NCO*OclMessage.MSG_00329.messageString: 对象
+NCO*OclMessage.MSG_00353.messageString: 网格
+NCO*OclMessage.MSG_00354.messageString: 未能检索到警报信息
+NCO*OclMessage.MSG_00356.messageString: 事件信息：序列号 %1$d 的警报状态
+NCO*OclMessage.MSG_00357.messageString: 内存耗尽
+NCO*OclMessage.MSG_00371.messageString: 未找到缺省字体！
+NCO*OclMessage.MSG_00375.messageString: 正在检查：%1$s
+NCO*OclMessage.MSG_00385.messageString: ___SEVERITY_%1$d___
+NCO*OclMessage.MSG_00389.messageString: 正在启动事件列表...
+NCO*OclMessage.MSG_00390.messageString: 正在等待响应...
+NCO*OclMessage.MSG_00397.messageString: 实体：%1$s
+NCO*OclMessage.MSG_00404.messageString: 未能设置连接属性：主机名\n
+NCO*OclMessage.MSG_00405.messageString: 致命的服务器通信错误\n
+NCO*OclMessage.MSG_00406.messageString: 服务器返回了未知的数据类型 ---!
+NCO*OclMessage.MSG_00407.messageString: 服务器返回了未知的数据类型：%1$s.%2$s !
+NCO*OclMessage.MSG_00412.messageString: 必须指定一个搜索字段
+NCO*OclMessage.MSG_00413.messageString: 指定的值不是有效的正则表达式
+NCO*OclMessage.MSG_00414.messageString: 未能找到任何匹配的行
+NCO*OclMessage.MSG_00415.messageString: 未能（重新）连接到对象服务器
+NCO*OclMessage.MSG_00416.messageString: 序列号 %1$d 不再存在！
+NCO*OclMessage.MSG_00420.messageString: 日志项中无文本
+NCO*OclMessage.MSG_00424.messageString: 日志没有已分配警报
+NCO*OclMessage.MSG_00427.messageString: 未能在事件列表中找到警报。\n警报已删除。无法执行指定的操作。
+NCO*OclMessage.MSG_00428.messageString: 未能在事件列表中找到警报。\n警报已删除，无法访问。
+NCO*OclMessage.MSG_00429.messageString: 未能检索到任何已分配的警报。
+NCO*OclMessage.MSG_00435.messageString: 未能设置异步内存池\n
+NCO*OclMessage.MSG_00440.messageString: 表“%1$s”没有期望的 %2$d 列。
+NCO*OclMessage.MSG_00445.messageString: ___FLASH_SEV_%1$d___
+NCO*OclMessage.MSG_00447.messageString: 未能将颜色映射图中读/写颜色单元格分配为缺省可视单元格。\n\011  事件列表闪烁功能不可用。将缺省可视单元格设置为伪彩色。\n
+NCO*OclMessage.MSG_00457.messageString: 未能使用格式“%1$s”将日期从字符串转换为 UTC。
+NCO*OclMessage.MSG_00458.messageString: 未能找到操作标识 %1$d 的操作记录。无法执行工具。
+NCO*OclMessage.MSG_00459.messageString: 未能通过 XSendClient() 为关联的弹出子菜单生成客户机消息。
+NCO*OclMessage.MSG_00460.messageString: 未选中任何单元格
+NCO*OclMessage.MSG_00461.messageString: 剪贴板复制操作暂挂中...
+NCO*OclMessage.MSG_00462.messageString: 剪贴板复制操作完成。
+NCO*OclMessage.MSG_00463.messageString: 窗口解冻，但是设置了全局“全部冻结”选项 - 窗口未刷新
+NCO*OclMessage.MSG_00464.messageString: 对于拖放操作，行无效。
+NCO*OclMessage.MSG_00467.messageString: 行无效。
+NCO*OclMessage.MSG_00468.messageString: “全部冻结”期间将忽略“定时刷新”。
+NCO*OclMessage.MSG_00469.messageString: 定时刷新进行中...
+NCO*OclMessage.MSG_00470.messageString: 解冻窗口已更新。
+NCO*OclMessage.MSG_00471.messageString: 正在重新连接到服务器 - 请等待...
+NCO*OclMessage.MSG_00472.messageString: 服务器已断开连接 - 请尝试重新连接
+NCO*OclMessage.MSG_00473.messageString: 未能创建窗口！
+NCO*OclMessage.MSG_00474.messageString: 由于动态工具子系统未能找到警报菜单，因此其初始化失败。
+NCO*OclMessage.MSG_00475.messageString: 未能创建动态工具。
+NCO*OclMessage.MSG_00476.messageString: 未能为定位请求创建窗口！
+NCO*OclMessage.MSG_00477.messageString: 刷新时间无效。\n未保存首选项。
+NCO*OclMessage.MSG_00478.messageString: 未能通过 XSendClient() 生成客户机消息以清除级联客户机数据。
+NCO*OclMessage.MSG_00479.messageString: 未能找到附件的警报菜单定义。
+NCO*OclMessage.MSG_00480.messageString: 未能在动态工具系统中找到菜单标识 %1$d。
+NCO*OclMessage.MSG_00481.messageString: 未能管理当前所选类列表的菜单 %1$d 的菜单项。
+NCO*OclMessage.MSG_00482.messageString: 未能找到附件的子事件列表窗口工具菜单定义。
+NCO*OclMessage.MSG_00483.messageString: 致命的内存分配故障。
+NCO*OclMessage.MSG_00484.messageString: 未能找到附件的主事件列表窗口工具菜单定义。
+NCO*OclMessage.MSG_00485.messageString: 工具未影响到任何行。
+NCO*OclMessage.MSG_00486.messageString: %1$d 行受到工具影响。
+NCO*OclMessage.MSG_00487.messageString: 未能执行工具。动态工具错误（%1$d/%2$d）\n[ %3$s ]。
+NCO*OclMessage.MSG_00488.messageString: 用户终止了工具执行。
+NCO*OclMessage.MSG_00489.messageString: 由于动态工具子系统未能找到执行器工具菜单，因此其初始化失败。
+NCO*OclMessage.MSG_00490.messageString: 未能弹出日志对话框的警报菜单。工具错误（%1$d/%2$d）\n[ %3$s ]。
+NCO*OclMessage.MSG_00491.messageString: 未能确定已连接的 ObjectServer 的发行版本。
+NCO*OclMessage.MSG_00495.messageString: 刷新时间无效（最小值为 10 秒）。\n\011\011 未应用首选项。
+NCO*OclMessage.MSG_00497.messageString: 动态工具执行成功。
+NCO*OclMessage.MSG_00498.messageString: 动态工具执行失败。
+NCO*OclMessage.MSG_00499.messageString: 执行器已检测到您已连接的 ObjectServer 的版本\n为 V3.3。此 ObjectServer 不支持\n受 3.4 桌面支持的工具。\n\n应用程序将终止。
+NCO*OclMessage.MSG_00500.messageString: \011-masterserver <name>\011 要连接的主控对象服务器\n
+NCO*OclMessage.MSG_00501.messageString: \011-dualwrite <1/0>\011 双重写标志（1：双重写方式，0：单写方式）\n
+NCO*OclMessage.MSG_00504.messageString: [PRI]
+NCO*OclMessage.MSG_00505.messageString: [BAK]
+NCO*OclMessage.MSG_00506.messageString: 检测到主 ObjectServer
+NCO*OclMessage.MSG_00507.messageString: \n单击“确定”以重新连接主 ObjectServer。\n
+NCO*OclMessage.MSG_00508.messageString: ObjectServer 连接故障回复进行中...
+NCO*OclMessage.MSG_00509.messageString: 主 ObjectServer 故障回复完成。
+NCO*OclMessage.MSG_00510.messageString: 未能设置 CS_SEC_CHALLENGE
+NCO*OclMessage.MSG_00511.messageString: 未能设置 CS_CHALLENGE_CB
+NCO*OclMessage.MSG_00512.messageString: \n正在重新连接主要主控 ObjectServer。\nObjectServer 数据正在再同步，请等待。\n这可能需要几分钟...
+NCO*OclMessage.MSG_00513.messageString: 主控 ObjectServer 连接故障回复进行中...
+NCO*OclMessage.MSG_00514.messageString: 主要主控 ObjectServer 故障回复完成。
+NCO*OclMessage.MSG_00515.messageString: \n与主要主控 ObjectServer 的重新连接完成。
+NCO*OclMessage.MSG_00516.messageString: 未能获取远程主机名
+NCO*OclMessage.MSG_00517.messageString: 连接失败
+NCO*OclMessage.MSG_00518.messageString: 您没有删除此过滤器的许可权。
+NCO*OclMessage.MSG_00519.messageString: 您没有删除此视图的许可权。
+NCO*OclMessage.MSG_00520.messageString: 在 master.national 表或命令行中提供的主控服务器名称\n无效。请退出并重试。
+NCO*OclMessage.MSG_00521.messageString: 未能连接主控 ObjectServer。\n检查服务器是否正在运行，以及提供的用户名和密码\n在桌面 ObjectServer 和主控 ObjectServer 上是否相同。
+NCO*OclMessage.MSG_00522.messageString: 在视图“%1$s”中，参数“%2$s”超过\n允许的值，将限制为 %3$d\n\n
+NCO*OclMessage.MSG_00523.messageString: 窗口冻结 - 刷新后才会显示结果。
+NCO*OclMessage.MSG_00524.messageString: 窗口解冻 - 现在将刷新结果。
+NCO*OclMessage.MSG_00525.messageString: 您提供的用户名和密码组合\n不正确。请尝试重新连接。
+NCO*OclMessage.MSG_00526.messageString: 连接已断开。此时\n可能已经拒绝您访问对象服务器。\n如果此问题仍然存在，请联系系统管理员。
+NCO*OclMessage.MSG_00527.messageString: 您提供的用户名和密码组合\n不正确。\n\n对不起，您用完了 3 次尝试机会。
+NCO*OclMessage.MSG_00528.messageString: 连接已断开。此时\n可能已经拒绝您访问对象服务器。\n\n对不起，您用完了 3 次尝试机会。
+NCO*OclMessage.MSG_00540.messageString: 空行，没有要复制的内容。
+NCO*OclMessage.MSG_00541.messageString: 未能设置 sybase 连接超时\n
+NCO*OclMessage.MSG_00542.messageString: \011-networktimeout <seconds>\011 在用户操作后用于检测因硬件问题而失败的网络连接的时间\n
+NCO*OclMessage.MSG_00543.messageString: 未能重新（连接）主控对象服务器
+NCO*OclMessage.MSG_00544.messageString: 为网络超时设置的值无效。正在还原为 %1$d。
+NCO*OclMessage.MSG_00545.messageString: %1$s [PRI]
+NCO*OclMessage.MSG_00546.messageString: %1$s [BAK]
+NCO*OclMessage.MSG_00548.messageString: char_expansion_factor 必须处于范围 [%1$d-%2$d] 内。正在还原为 %3$d。
+NCO*OclMessage.MSG_00549.messageString: \011-char_expansion_factor [%1$d-%2$d]。允许客户机从 ObjectServer 接收数据时为每个字符分配更多字节。\n
+NCO*OclMessage.MSG_00550.messageString: \n单击“确定”重新连接主要主控 ObjectServer。\n
+NCO*OclMessage.MSG_00551.messageString: 从故障回复线程文件描述符读取时出错：%1$s
+NCO*OclMessage.MSG_00600.messageString: 未能获得有效的许可证。
+NCO*OclMessage.MSG_00601.messageString: 信息：
+NCO*OclMessage.MSG_00602.messageString: 未能装入首选项
+NCO*OclMessage.MSG_00603.messageString: 未能装入像素图文件：%1$s
+NCO*OclMessage.MSG_00604.messageString: 工具参数对话框
+NCO*OclMessage.MSG_00605.messageString: 转换为 UTC 整数
+NCO*OclMessage.MSG_00606.messageString: 无法隐藏命令行密码
+NCO*OclMessage.MSG_00607.messageString: \011-failbackpolltime <seconds>\011 连接到备份时，轮询主 ObjectServer 的尝试之间的时间间隔\n
+NCO*OclMessage.top_range_template.messageString: 前 [%1$d-%2$d]
+NCO*OclMessage.top_off_string.messageString: 顶部 [ 关闭 ]
+NCO*OclMessage.top_fixed_string.messageString: 顶部 [ 固定 ]
+NCO*OclMessage.restricted_range_template.messageString: 限制行数 [%1$d-%2$d]
+NCO*OclMessage.liboclLookupOpen.messageString: 无法打开查找文件（%1$s）\n
+NCO*OclMessage.liboclVersionFormat.messageString: %1$s V%2$s
+NCO*OclMessage.liboclReleaseId.messageString: 发行版标识：%1$s\n
+NCO*OclMessage.liboclLibraryRelease.messageString: Ocl 库发行版：%1$s\n
+NCO*OclMessage.liboclCompileDate.messageString: 软件编译日期：%1$s\n
+NCO*OclMessage.liboclSybaseRelease.messageString: Sybase Library R%1$s\n
+NCO*OclMessage.liboclServerUsedataFailed.messageString: 未能在服务器消息 CB 中获取用户数据。
+NCO*OclMessage.liboclChallengeUserdataFailed.messageString: 未能在提问 CB 中获取用户数据。
+NCO*OclMessage.liboclEventList.messageString: 事件列表信息
+NCO*OclMessage.liboclBusyFailed.messageString: 错误：未能启动忙碌消息。\n
+NCO*OclMessage.liboclAsyncFailed.messageString: 未能设置 CS_ASYNC_NOTIFS
+NCO*OclMessage.liboclPacketFailed.messageString: 未能设置 CS_PACKET_SIZE
+NCO*OclMessage.liboclAddressHandle.messageString: 创建 IP 地址句柄。（%1$d:%2$s）
+NCO*OclMessage.liboclIducConnection.messageString: IDUC 信道连接失败。connect()：%1$s
+NCO*OclMessage.liboclBlockIduc.messageString: IDUC 上的块 - 正在再同步
+NCO*OclMessage.liboclNotSet.messageString: 未设置 %1$s\n
+NCO*OclMessage.liboclDoesntContain.messageString: %1$s 不包含：\n
+NCO*OclMessage.liboclStartsWith.messageString: %1$s 始于：\n
+NCO*OclMessage.liboclPortInvalid.messageString: 端口“%1$s”在 %2$s 中无效\n
+NCO*OclMessage.liboclIducHostRedirect.messageString: SSH IDUC 重定向到主机“%1$s”\n
+NCO*OclMessage.liboclIducPortRedirect.messageString: SSH IDUC 重定向到端口“%1$ld”\n
+NCO*OclMessage.liboclHttpError.messageString: HTTP 错误 %1$3d - %2$s
+! DTOOLS_MSG001
+NCO*OclMessage.DTOOLS_MSG001.messageString: 内存分配失败。
+! DTOOLS_MSG002
+NCO*OclMessage.DTOOLS_MSG002.messageString: 未能描述表 %1$s。确保表存在于 ObjectServer 中。
+! DTOOLS_MSG003
+NCO*OclMessage.DTOOLS_MSG003.messageString: 表 %1$s 的列计数不正确。期望的是 %2$d 列。
+! DTOOLS_MSG004
+NCO*OclMessage.DTOOLS_MSG004.messageString: 系统表 %1$s 中某个必填字段的数据类型不正确。
+! DTOOLS_MSG005
+NCO*OclMessage.DTOOLS_MSG005.messageString: 未能创建字段描述符来访存表 %1$s 的表数据。
+! DTOOLS_MSG006
+NCO*OclMessage.DTOOLS_MSG006.messageString: 未能执行 SQL 语句从 %1$s 表访存必需数据。
+! DTOOLS_MSG007
+NCO*OclMessage.DTOOLS_MSG007.messageString: 已经创建了菜单 %1$d 的弹出菜单。
+! DTOOLS_MSG008
+NCO*OclMessage.DTOOLS_MSG008.messageString: 未能描述菜单定义 %1$d 中所定义的表。
+! DTOOLS_MSG009
+NCO*OclMessage.DTOOLS_MSG009.messageString: 未能找到菜单定义 %1$d 中所定义的某个字段。
+! DTOOLS_MSG010
+NCO*OclMessage.DTOOLS_MSG010.messageString: 未能找到由操作使用的提示定义中所引用的指定菜单定义。
+! DTOOLS_MSG011
+NCO*OclMessage.DTOOLS_MSG011.messageString: 动态工具子系统中发生了未知错误。
+! DTOOLS_MSG012
+NCO*OclMessage.DTOOLS_MSG012.messageString: 未能打开类型为“查找”的提示定义中所指定的查找文件。
+! DTOOLS_MSG013
+NCO*OclMessage.DTOOLS_MSG013.messageString: 操作中的提示引用扩展后长度为零。
+! DTOOLS_MSG014
+NCO*OclMessage.DTOOLS_MSG014.messageString: 未能找到菜单项标识为 %1$d 的操作中所引用的提示定义。
+! DTOOLS_MSG015
+NCO*OclMessage.DTOOLS_MSG015.messageString: 未能找到动态工具中所引用的操作 %1$d。
+! DTOOLS_MSG016
+NCO*OclMessage.DTOOLS_MSG016.messageString: 未能找到由菜单项引用为子菜单的菜单 %1$d。
+! DTOOLS_MSG017
+NCO*OclMessage.DTOOLS_MSG017.messageString: 对工具的访问权不足。
+! DTOOLS_MSG018
+NCO*OclMessage.DTOOLS_MSG018.messageString: 尝试弹出没有创建关联弹出窗口小部件集的菜单。
+! DTOOLS_MSG019
+NCO*OclMessage.DTOOLS_MSG019.messageString: 内部/外部/日志的第 %1$d 行处发生解析错误。
+! DTOOLS_MSG020
+NCO*OclMessage.DTOOLS_MSG020.messageString: 用户终止了操作的执行。
+! DTOOLS_MSG021
+NCO*OclMessage.DTOOLS_MSG021.messageString: 操作内部影响的执行失败。
+! DTOOLS_MSG022
+NCO*OclMessage.DTOOLS_MSG022.messageString: 未能为外部影响的流重定向创建管道结构。
+! DTOOLS_MSG023
+NCO*OclMessage.DTOOLS_MSG023.messageString: 未能派生进程以启动外部影响。\n[错误号：%1$d = %2$s]
+! DTOOLS_MSG024
+NCO*OclMessage.DTOOLS_MSG024.messageString: 未能执行外部影响。
+! DTOOLS_MSG025
+NCO*OclMessage.DTOOLS_MSG025.messageString: 未能将日志文本分为 16 255 个块组成的集合。
+! DTOOLS_MSG026
+NCO*OclMessage.DTOOLS_MSG026.messageString: 找不到系统表 %1$s 中的某个必填字段。
+! DTOOLS_MSG027
+NCO*OclMessage.DTOOLS_MSG027.messageString: 一般动态工具错误。
+! DTOOLS_MSG028
+NCO*OclMessage.DTOOLS_MSG028.messageString: 未能执行日志项。
+! DTOOLS_MSG029
+NCO*OclMessage.DTOOLS_MSG029.messageString: 未能转换为多字节字符串。
+! DTOOLS_MSG999
+NCO*OclMessage.DTOOLS_MSG999.messageString: <未知>
+! Generated by X-Designer
+
+
+! output_window
+NCO*output_window.allowShellResize: true
+NCO*output_window.title: 工具输出
+
+! output_mb
+NCO*output_mb.autoUnmanage: false
+NCO*output_mb.dialogType: DIALOG_TEMPLATE
+
+! output_sep
+
+! output_close_button
+NCO*output_close_button.labelString: 杀死
+
+! output_mform
+
+! output_label
+NCO*output_label.labelString: 输出
+NCO*output_label.alignment: ALIGNMENT_CENTER
+
+! output_scrolltext
+
+! output_text
+NCO*output_text.traversalOn: false
+NCO*output_text.columns: 40
+NCO*output_text.editable: false
+NCO*output_text.cursorPositionVisible: false
+NCO*output_text.fontList: -*-*-medium-r-normal--16-*-*-*-*-*-gb*-*;-*-*-medium-r-normal--16-*-*-*-*-*-iso*-*:
+NCO*output_text.editMode: MULTI_LINE_EDIT
+NCO*output_text.rows: 15
+
+
+! param_dialog
+NCO*param_dialog.allowShellResize: true
+
+! param_mb
+NCO*param_mb.dialogStyle: DIALOG_FULL_APPLICATION_MODAL
+NCO*param_mb.autoUnmanage: false
+NCO*param_mb.dialogType: DIALOG_TEMPLATE
+
+! param_ok_button
+NCO*param_ok_button.labelString: 确定
+
+! param_cancel_button
+NCO*param_cancel_button.labelString: 取消
+
+! param_help_button
+NCO*param_help_button.labelString: 帮助
+
+! param_form
+NCO*param_form.fractionBase: 3
+
+! label1
+NCO*param_label.labelString: 在下面输入必需参数
+
+! param_sep
+
+! ############################################################################
+! libOcl:Global.res - General library X resources.
+! ############################################################################
+
+! Msg.c: Message dialog related X resources.
+NCO*info_dialog.okLabelString: 确定
+NCO*error_dialog.okLabelString: 确定
+NCO*warning_dialog.okLabelString: 确定
+
+NCO*question_dialog.okLabelString: 确定
+NCO*question_dialog.cancelLabelString: 取消
+
+NCO*oclLocaleMsgWarning.messageString: 警告：
+NCO*oclLocaleMsgError.messageString: 错误：
+NCO*oclLocaleMsgFatal.messageString: 致命错误：
+
+NCO*OclMessage.accelerator.messageString: Ctrl+%1$c
+
+! Dynamic tools parameter dialog box resources.
+NCO*param_dialog*XmList*background: CadetBlue
+NCO*param_dialog*XmXrtDateField.background: CadetBlue
+NCO*param_dialog*XmXrtDateField.xrtFldEnterFormatList:DD-MM-YYYY hh:mm:ss,D-M-YYYY h:m:s
+NCO*output_window*XmText.background: Black
+
+! XRT Combo Box drop down colour re-source.
+NCOEvent*XmXrtGearCombo*XmList*background:CadetBlue
+
+! HPUX11/HPUX 10.20 work-arounds. Due to the default font set specifications
+! used by CDE, the HPUX library is unable to convert the font set due to
+! missing charsets. This should be OK, but on HPUX 11 our application will
+! crash in the widget creation as the application has no fonts. This is not
+! good. We override these resources here in order to prevent this error 
+! from occurring. :)
+
+
+
+! NCO_MSG0001
+NCO*status_line.readyString.messageString: 就绪。
+! NCO_MSG0002
+NCO*status_line.deleteFailed.messageString: 未能删除 %1$s。
+! NCO_MSG0003
+NCO*status_line.linkFailed.messageString: 链接操作失败
+! NCO_MSG0004
+NCO*status_line.copyLinkToSelf.messageString: 正在尝试将 %1$s 移动、复制或链接到其自身！
+! NCO_MSG0005
+NCO*status_line.copyFailed.messageString: 复制操作失败
+! NCO_MSG0006
+NCO*status_line.startupGroupUpdated.messageString: 启动组已更新
+! NCO_MSG0007
+NCO*status_line.dirOpenFail.messageString: 未能打开目录 %1$s。
+! NCO_MSG0008
+NCO*status_line.dirDisplayBuilding.messageString: 正在构建显示...
+! NCO_MSG0009
+NCO*status_line.dirDisplayBuilt.messageString: 目录显示已构建。
+! NCO_MSG0010
+NCO*status_line.toolsExecuteAbort.messageString: 用户放弃了工具执行。
+! NCO_MSG0011
+NCO*status_line.toolsExecuteFail.messageString: 未能启动工具。
+! NCO_MSG0012
+NCO*status_line.toolsExecuteSuccess.messageString: 工具成功启动。
+! NCO_MSG0013
+NCO*status_line.toolsExecute.messageString: 正在启动工具...
+! NCO_MSG0014
+NCO*elc_dock_label2.startElcNone.messageString: [无]
+! NCO_MSG0015
+NCO*status_line.moveFailed.messageString: 移动操作失败
+! NCO_MSG0016
+NCO*passwd_mb.passwordIncorrect.messageString: 密码不正确。
+! NCO_MSG0017
+NCO*passwd_mb.passwordVerify.messageString: 无法验证新密码。
+! NCO_MSG0018
+NCO*passwd_mb.passwordSetNew.messageString: 未能设置新密码！
+! NCO_MSG0019
+NCO*prefs_mb.invalidELRefreshTimeApply.messageString: 事件列表刷新时间无效（最小值为 10 秒）。\n未应用首选项。
+! NCO_MSG0020
+NCO*prefs_mb.invalidDURefreshTimeApply.messageString: 目录更新时间无效（最小值为 10 秒）。\n未应用首选项。
+! NCO_MSG0021
+NCO*prefs_mb.invalidELRefreshTimeSave.messageString: 事件列表刷新时间无效（最小值为 10 秒）。\n未保存首选项。
+! NCO_MSG0022
+NCO*prefs_mb.invalidDURefreshTimeSave.messageString: 目录更新时间无效（最小值为 10 秒）。\n未保存首选项。
+! NCO_MSG0023
+NCO*prefs_mb.prefsSave.messageString: 未能保存首选项。
+! NCO_MSG0024
+NCO*menu_sw.processSpawnFailed.messageString: 未能衍生“%1$s”！
+! NCO_MSG0025
+NCO*bannerLicense.messageString: 正在检查许可证...
+! NCO_MSG0026
+NCO*bannerLogin.messageString: 登录...
+! NCO_MSG0027
+NCO*bannerDragAndDrop.messageString: 拖放...
+! NCO_MSG0028
+NCO*bannerReferences.messageString: 首选项...
+! NCO_MSG0029
+NCO*bannerTools.messageString: 正在装入动态工具...
+! NCO_MSG0030
+NCO*bannerFilter.messageString: 过滤器构建器...
+! NCO_MSG0031
+NCO*bannerView.messageString: 视图构建器...
+! NCO_MSG0032
+NCO*bannerImages.messageString: 图像...
+! NCO_MSG0033
+NCO*bannerDirectories.messageString: 正在构建目录...
+! NCO_MSG0034
+NCO*bannerWidgets.messageString: 正在创建窗口小部件...
+! NCO_MSG0035
+NCO*bannerValues.messageString: 正在设置窗口小部件值...
+! NCO_MSG0036
+NCO*bannerComplete.messageString: 完成
+
+
+! Generated by X-Designer
+
+
+! panic_dialog
+NCO*panic_dialog.title: 服务器故障
+
+! panic_mb
+
+! panic_connect_button
+NCO*panic_connect_button.labelString: 连接
+
+! panic_exit_button
+NCO*panic_exit_button.labelString: 退出
+
+! panic_help_button
+NCO*panic_help_button.labelString: 帮助
+
+! label12
+NCO*panic_little_label.labelString: 您所连接的对象服务器\n看似发生故障。\n\n可以尝试重新连接、连接到其他对象服务器\n或退出该应用程序。\n\n发生故障时正在执行的任何操作\n都需要重新执行。\n\n可以通过填写以下字段，以其他用户身份连接。\n
+
+! label13
+NCO*panic_username_label.labelString: 用户名
+
+! panic_username_field
+
+! label14
+NCO*panic_password_label.labelString: 密码
+
+! panic_password_field
+
+! panic_server_menu
+NCO*panic_server_menu.labelString: 服务器
+
+! label15
+
+
+! passwd_dialog
+NCO*passwd_dialog.title: 更改密码
+
+! passwd_mb
+
+! passwd_ok_button
+NCO*passwd_ok_button.labelString: 确定
+
+! passwd_cancel_button
+NCO*passwd_cancel_button.labelString: 取消
+
+! passwd_help_button
+NCO*passwd_help_button.labelString: 帮助
+
+! label1
+NCO*current_label.labelString: 当前密码
+
+! passwd_current_field
+
+! label2
+NCO*new_label.labelString: 新密码
+
+! passwd_new_field
+
+! label3
+NCO*verify_label.labelString: 验证密码
+
+! passwd_verify_field
+
+
+! prefs_dialog
+NCO*prefs_dialog.title: 首选项
+
+! prefs_mb
+
+! prefs_apply_button
+NCO*prefs_apply_button.labelString: 应用
+
+! prefs_save_button
+NCO*prefs_save_button.labelString: 保存
+
+! prefs_close_button
+NCO*prefs_close_button.labelString: 关闭
+
+! prefs_undo_button
+NCO*prefs_undo_button.labelString: 撤销
+
+! prefs_help_button
+NCO*prefs_help_button.labelString: 帮助
+
+! prefs_conductor_tab
+NCO*prefs_conductor_tab.labelString: 执行器
+
+! prefs_eventlist_tab
+NCO*prefs_eventlist_tab.labelString: 事件列表
+
+! prefs_notification_tab
+NCO*prefs_notification_tab.labelString: 通知
+
+! conductor_frame
+
+! prefs_timed_dir_upd_toggle
+NCO*prefs_timed_dir_upd_toggle.labelString: 定时目录更新
+
+! prefs_update_time_field
+NCO*prefs_update_time_field.xrtFldValidChars: 0123456789
+
+! eventlist_frame
+
+! prefs_fs_number_toggle
+NCO*prefs_fs_number_toggle.labelString: 显示计数
+
+! prefs_fs_max_toggle
+NCO*prefs_fs_max_toggle.labelString: 显示最高严重性
+
+! prefs_fs_min_toggle
+NCO*prefs_fs_min_toggle.labelString: 显示最低严重性
+
+! prefs_fs_metric_toggle
+NCO*prefs_fs_metric_toggle.labelString: 显示度量值
+
+! prefs_colours_toggle
+NCO*prefs_colours_toggle.labelString: 显示事件列表颜色
+
+! prefs_sort_info_toggle
+NCO*prefs_sort_info_toggle.labelString: 排序详细信息
+
+! rowcol1
+
+! prefs_fs_lavalamp_toggle
+NCO*prefs_fs_lavalamp_toggle.labelString: 显示蜡灯
+
+! prefs_fs_histogram_toggle
+NCO*prefs_fs_histogram_toggle.labelString: 显示直方图
+
+! prefs_el_timed_refresh_tgl
+NCO*prefs_el_timed_refresh_tgl.labelString: 定时刷新
+
+! prefs_el_refresh_time_fld
+NCO*prefs_el_refresh_time_fld.xrtFldValidChars: 0123456789
+
+! prefs_event_flash_enable_toggle
+NCO*prefs_event_flash_enable_toggle.labelString: 启用闪烁
+
+! prefs_event_flash_time_gauge
+
+! prefs_event_flash_fast_label
+NCO*prefs_event_flash_fast_label.labelString: 快
+
+! prefs_event_flash_slow_label
+NCO*prefs_event_flash_slow_label.labelString: 慢
+
+! prefs_event_flash_brightness_gauge
+
+! prefs_event_flash_bright_label
+NCO*prefs_event_flash_bright_label.labelString: 亮
+
+! prefs_event_flash_dark_label
+NCO*prefs_event_flash_dark_label.labelString: 暗
+
+! notification_frame
+
+! prefs_notify_toggle
+NCO*prefs_notify_toggle.labelString: 缩为图标时通知
+
+! separator5
+
+! prefs_when_label
+NCO*prefs_when_label.labelString: 何时
+
+! prefs_notify_on_insert_toggle
+NCO*prefs_notify_on_insert_toggle.labelString: 新建
+
+! prefs_notify_on_update_toggle
+NCO*prefs_notify_on_update_toggle.labelString: 更改
+
+! prefs_notify_on_delete_toggle
+NCO*prefs_notify_on_delete_toggle.labelString: 删除
+
+! separator6
+
+! prefs_how_label
+NCO*prefs_how_label.labelString: 如何
+
+! prefs_notify_bell_toggle
+NCO*prefs_notify_bell_toggle.labelString: 闹钟
+
+! prefs_notify_icon_toggle
+NCO*prefs_notify_icon_toggle.labelString: 警报图标
+
+! prefs_notify_open_toggle
+NCO*prefs_notify_open_toggle.labelString: 打开窗口
+
+! prefs_notify_external_toggle
+NCO*prefs_notify_external_toggle.labelString: 运行外部命令
+
+! prefs_notify_external_field
+
+
+! bg_menu
+NCO*bg_menu.menuPost: <Button3>
+
+! bg_refresh_button
+NCO*bg_refresh_button.labelString: 刷新(R)
+NCO*bg_refresh_button.mnemonic: R
+NCO*bg_refresh_button.accelerator: Ctrl<Key>R
+NCO*bg_refresh_button.acceleratorText: Ctrl+R
+
+! bg_show_hidden_toggle
+NCO*bg_show_hidden_toggle.labelString: 显示隐藏文件(H)
+NCO*bg_show_hidden_toggle.mnemonic: H
+NCO*bg_show_hidden_toggle.accelerator: Ctrl<Key>H
+NCO*bg_show_hidden_toggle.acceleratorText: Ctrl+H
+
+! bg_show_backups_toggle
+NCO*bg_show_backups_toggle.labelString: 显示备份文件(B)
+NCO*bg_show_backups_toggle.mnemonic: B
+NCO*bg_show_backups_toggle.accelerator: Ctrl<Key>B
+NCO*bg_show_backups_toggle.acceleratorText: Ctrl+B
+
+! dir_menu
+NCO*dir_menu.menuPost: <Button3>
+
+! dir_label
+
+! dir_open_button
+NCO*dir_open_button.labelString: 打开目录(O)
+NCO*dir_open_button.mnemonic: O
+
+! obj_menu
+NCO*obj_menu.menuPost: <Button3>
+
+! obj_label
+
+! obj_start_button
+NCO*obj_start_button.labelString: 启动(S)
+NCO*obj_start_button.mnemonic: S
+
+! obj_start2_button
+NCO*obj_start2_button.labelString: 启动 2(M)
+NCO*obj_start2_button.mnemonic: M
+
+! obj_delete_button
+NCO*obj_delete_button.labelString: 删除(D)
+NCO*obj_delete_button.mnemonic: D
+
+! prefs_menu
+NCO*prefs_menu.menuPost: <Button3>
+
+! label7
+NCO*prefs_label.labelString: 首选项
+
+! prefs_edit_button
+NCO*prefs_edit_button.labelString: 编辑(E)...
+NCO*prefs_edit_button.mnemonic: E
+
+
+! exit_dialog
+NCO*exit_dialog.title: 确定要退出吗？
+
+! exit_mb
+NCO*exit_mb.messageString: 确定要退出吗？
+NCO*exit_mb.okLabelString: 确定
+NCO*exit_mb.cancelLabelString: 取消
+NCO*exit_mb.helpLabelString: 帮助
+
+! button1
+NCO*exit_mb.Cancel.labelString: 取消
+
+! button3
+NCO*exit_mb.OK.labelString: 确定
+
+
+! main_window
+NCO.width: 600
+NCO.height: 550
+NCO.title: 执行器
+
+! form12
+
+! menu_bar
+
+! file_cascade_button
+NCO*file_cascade_button.labelString: 文件(F)
+NCO*file_cascade_button.mnemonic: F
+
+! file_menu
+
+! file_passwd_button
+NCO*file_passwd_button.labelString: 更改密码(P)...
+NCO*file_passwd_button.mnemonic: P
+NCO*file_passwd_button.accelerator: Ctrl<Key>P
+NCO*file_passwd_button.acceleratorText: Ctrl+P
+
+! file_exit_button
+NCO*file_exit_button.labelString: 退出(X)
+NCO*file_exit_button.mnemonic: x
+
+! view_cascade_button
+NCO*view_cascade_button.labelString: 查看(V)
+NCO*view_cascade_button.mnemonic: V
+
+! view_refresh_button
+NCO*view_refresh_button.labelString: 刷新(R)
+NCO*view_refresh_button.mnemonic: R
+NCO*view_refresh_button.accelerator: Ctrl<Key>R
+NCO*view_refresh_button.acceleratorText: Ctrl+R
+
+! view_show_hidden_toggle
+NCO*view_show_hidden_toggle.labelString: 显示隐藏文件(H)
+NCO*view_show_hidden_toggle.mnemonic: H
+NCO*view_show_hidden_toggle.accelerator: Ctrl<Key>H
+NCO*view_show_hidden_toggle.acceleratorText: Ctrl+H
+
+! view_show_backups_toggle
+NCO*view_show_backups_toggle.labelString: 显示备份文件(B)
+NCO*view_show_backups_toggle.mnemonic: B
+NCO*view_show_backups_toggle.accelerator: Ctrl<Key>B
+NCO*view_show_backups_toggle.acceleratorText: Ctrl+B
+
+! tools_cascade_button
+NCO*tools_cascade_button.labelString: 工具(T)
+NCO*tools_cascade_button.mnemonic: T
+
+! help_cascade_button
+NCO*help_cascade_button.labelString: 帮助(H)
+NCO*help_cascade_button.mnemonic: H
+
+! help_menu
+
+! help_on_context_button
+NCO*help_on_context_button.labelString: 关于上下文(C)
+NCO*help_on_context_button.mnemonic: C
+NCO*help_on_context_button.accelerator: Shift<Key>osfHelp
+NCO*help_on_context_button.acceleratorText: Shift+Help
+
+! help_on_version_button
+NCO*help_on_version_button.labelString: 关于版本(V)
+NCO*help_on_version_button.mnemonic: V
+
+! frame5
+
+! elc_dock_label
+
+! elc_dock_label2
+
+! el_button
+
+! fb_button
+
+! vb_button
+
+! db_button
+
+! if_button
+
+! pr_button
+
+! frame7
+
+! label10
+NCO*personal_library_label.labelString: 个人库
+
+! main_sw
+
+! main_area
+
+! status_line
+
+! user_field
+
+! server_field
+
+
+! dir_window
+NCO*dir_window.width: 550
+NCO*dir_window.height: 400
+NCO*dir_window.title: 目录浏览器
+
+! dir_mb
+
+! dir_change_button
+NCO*dir_change_button.labelString: 刷新
+
+! dir_close_button
+NCO*dir_close_button.labelString: 关闭
+
+! dir_help_button
+NCO*dir_help_button.labelString: 帮助
+
+! label11
+NCO*dir_label.labelString: 目录
+
+! dir_field
+
+! dir_sw
+
+! dir_area
+

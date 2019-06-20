@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it-it" lang="it-it">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Generazione di trap SNMP" />
+<meta name="abstract" content="Come generare i trap SNMP. Questa funzionalità può essere utilizzata anche per testare i file delle regole generati da MIB Manager." />
+<meta name="Description" content="Come generare i trap SNMP. Questa funzionalità può essere utilizzata anche per testare i file delle regole generati da MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-09" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="trap" />
+<meta name="DC.Language" content="it-it" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>MIB Manager</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="trap">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus Versione 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">Generazione di trap SNMP</h1>
+<div class="body taskbody"><p class="shortdesc">Come generare i trap SNMP. Questa funzionalità può essere utilizzata anche
+per testare i file delle regole generati da <span class="keyword">MIB Manager</span>.</p>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">Procedura</h2></div><p class="li stepsection">Per generare un trap SNMP:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">Fare clic su <img class="image" src="../gifs/trap.gif" alt="Icona Trap" /> <span class="ph uicontrol">Trap</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Nel campo <span class="ph uicontrol">Indirizzo di destinazione</span>, specificare il nome host o l'indirizzo IP del computer su cui è in esecuzione un servizio Trapd SNMP.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Nel campo <span class="ph uicontrol">Porta di destinazione</span>, specificare la porta UDP
+su cui è in ascolto il servizio Trapd SNMP.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Nel campo <span class="ph uicontrol">Community</span>, specificare una stringa valida per il gestore Trapd.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">In base al tipo di trap che si desidera generare, una sezione
+<span class="ph uicontrol">Binding delle variabili</span> potrebbe essere visibile nella finestra
+<span class="keyword wintitle">Genera un trap SNMP</span>. I campi disponibili nella sezione <span class="ph uicontrol">Binding delle variabili</span> dipendono anche dal tipo di trap che viene generato.</span> <p class="p">Passare il mouse sui nomi del campo <span class="ph uicontrol">Binding delle variabili</span> per i dettagli sulla sintassi del valore dei campi. È possibile specificare più valori, separati da virgole. Questi valori verranno scelti casualmente per generare il trap.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Nel campo <span class="ph uicontrol">Metrica di ripetizione</span>, specificare il numero di trap (da 1 a 1000) che può essere generato.</span> <p class="p">Se si specifica un numero elevato, i trap vengono generati in rapida successione e possono causare un segnale acustico sul gestore Trapd. Per valori superiori a
+uno (&gt; 1) e per i valori specificati come elenchi separati da virgole,
+<span class="keyword">MIB Manager</span> effettua una selezione casuale dagli elenchi specificati e genera i
+trap con i valori arbitrari presentati come varbinds.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Fare clic su <span class="ph uicontrol">Esegui</span> per generare il trap.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">Risultati</h2></div>Il campo <span class="ph uicontrol">Risultato</span> nella finestra <span class="keyword wintitle">Genera un trap SNMP</span> indica se il trap è stato inviato correttamente.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Argomento principale:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="È possibile utilizzare MIB Manager per analizzare i moduli MIB e creare file delle regole Netcool.">Utilizzo di Netcool MIB Manager</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">Libreria</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">Supporto</a> |</span>
+<br />
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-jp" lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="MIB の概念および設計" />
+<meta name="abstract" content="特定のデバイスで使用するために定義されるすべての SNMP MIB モジュールは、そのデバイス用の MIB で構成されます。MIB という用語は、単一のモジュール定義を説明するために使用されることがありますが、これは技術的には正しくありません。MIB は、特定のデバイス (デバイスがハードウェアまたはソフトウェアに関連するかに関わらず) の管理に使用されるモジュールすべてを組み合わせたものです。このため、 ベンダー (または RFC ) で定義される、各モジュールのより正確な名前は、 SNMP MIB モジュールです。" />
+<meta name="Description" content="特定のデバイスで使用するために定義されるすべての SNMP MIB モジュールは、そのデバイス用の MIB で構成されます。MIB という用語は、単一のモジュール定義を説明するために使用されることがありますが、これは技術的には正しくありません。MIB は、特定のデバイス (デバイスがハードウェアまたはソフトウェアに関連するかに関わらず) の管理に使用されるモジュールすべてを組み合わせたものです。このため、 ベンダー (または RFC ) で定義される、各モジュールのより正確な名前は、 SNMP MIB モジュールです。" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-03-25" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_ref_mib_mibconcepts" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" />
+<title>MIB の概念および設計</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_ref_mib_mibconcepts">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 8.1</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">MIB の概念および設計</h1>
+<div class="body refbody"><p class="shortdesc">特定のデバイスで使用するために定義されるすべての SNMP MIB モジュールは、そのデバイス用の MIB で構成されます。MIB という用語は、単一のモジュール定義を説明するために使用されることがありますが、これは技術的には正しくありません。MIB は、特定のデバイス (デバイスがハードウェアまたはソフトウェアに関連するかに関わらず) の管理に使用されるモジュールすべてを組み合わせたものです。このため、
+ベンダー (または RFC ) で定義される、各モジュールのより正確な名前は、
+SNMP MIB モジュールです。</p>
+<div class="section"><p class="p">すべての MIB モジュールは、最終的には、
+ルート・モジュールの拡張機能です。個々のベンダーからリリースされたすべての MIB モジュールは、
+RFC1155-SMI で定義されたエンタープライズ・オブジェクトから拡張されています。このため、すべての
+SNMP エージェントは RFC1155 をサポートする必要があり、すべての MIB モジュールは
+RFC1155 の拡張機能です。</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__smi"><h2 class="title sectiontitle">管理情報の構造 (SMI)</h2><p class="p">SNMP 管理情報ベース (MIB) を拡張可能にするために、関連アイテムは、構造化階層を形成する MIB モジュールに配置されます。
+各 MIB モジュールは、以下の構造内に定義されます。</p>
+<p class="p"><samp class="ph codeph">ModuleName
+DEFINITIONS ::= BEGIN END</samp></p>
+<p class="p">モジュール内の <samp class="ph codeph">BEGIN</samp> タグおよび <samp class="ph codeph">END</samp> タグを使用して、いくつかのモジュールを単一のテキスト・ファイル内に定義できます。
+MIB コンパイラーは、単一ファイルに定義された任意の数のモジュールを処理できるように
+する必要がありますが、モジュールの定義があることを必須にしてはいけません。</p>
+<p class="p">モジュール内の定義されたあらゆる
+オブジェクトには規則があります。例えば、モジュール名は、大文字の英字で始まり、文字、数字、ハイフン (-)、または下線 (_) のみで構成される必要があります。オブジェクト名は、小文字の英字で始まり、文字、数字、ハイフン、または下線のみで構成される必要があります。MIB モジュール内のコメントは、2 つの連続するハイフン (--) で表され、この記号に続くテキストは、いずれの行でも無視できます。</p>
+<p class="p">MIB はモジュラー式で容易に拡張できる設計なので、モジュールを追加することにより、新規機能やデバイスをサポートできます。あるモジュールが、別のモジュールの拡張機能として作成される場合、モジュールには、<samp class="ph codeph">DEFINITIONS</samp> 行の下に <samp class="ph codeph">IMPORTS</samp> セクションが含まれます。<samp class="ph codeph">IMPORTS</samp> セクションでは、MIB 階層の上位モジュールで必要なオブジェクト、およびそのオブジェクトが定義されるモジュールが定義されます。</p>
+<div class="p">以下の例は RFC1157 の定義であり、RFC1155 からインポートされたオブジェクトが
+いくつか示されています。このセクションは、C または Perl などのプログラミング言語内や Netcool ルール・ファイル内の <samp class="ph codeph">include</samp> ステートメントと同じように表示できます。また、現在の MIB モジュール (RFC1157-SNMP) 内の
+オブジェクトを理解するには、以前の MIB モジュール (RFC1155-SMI) 内のオブジェクトも
+認識する必要があります。<pre class="pre codeblock"><code>RFC1157-SNMP DEFINITIONS ::= BEGIN IMPORTS ObjectName, ObjectSyntax, NetworkAddress, 
+IpAddress, TimeTicks FROM RFC1155-SMI;</code></pre>
+</div>
+<p class="p">インポートされた MIB 名を指定する時に、入力ミスがしばしば生じます。例えば、RFC1212 は、正しい名前である RFC-1212 ではなく、MIB モジュールとして参照される場合があります。<span class="keyword">MIB マネージャー</span>により解析エラーが強調表示される場合、<samp class="ph codeph">IMPORTS</samp> セクションをチェックして、MIB モジュールが正しい名前であることを確認する必要があります。
+一部の MIB モジュールには、<samp class="ph codeph">EXPORTS</samp> セクションも含まれています (これもセミコロンで終わります)。このセクションは、他の MIB モジュールが指定された同じオブジェクトを使用することを、MIB 作成者が想定していることを、読者に知らせます。ここでは、このセクションは関係がないため無視できます。</p>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_data"><h2 class="title sectiontitle">定義済みのデータ・タイプ</h2><p class="p">SNMP MIB モジュールは、ASN.13 (抽象構文記法 1) として知られるフォーマットで定義されます。ただし、SNMP は、ASN.14 の一部のみを使用します。ASN.1 は、
+ITU-T X.208 および ISO 8824 で定義されています。SNMP に適用される ASN.1 の一部は、RFC1155 で定義されています。RFC1155 では、以下の有効な
+SNMP データ型を定義しています。</p>
+<ul class="ul"><li class="li">プリミティブ型: INTEGER、OCTET STRING、OBJECT IDENTIFIER、NULL</li>
+<li class="li">コンストラクター型: SEQUENCE、SEQUENCE OF</li>
+<li class="li">定義型: NetworkAddress、IpAddress、Counter、Gauge、TimeTicks、Opaque</li>
+</ul>
+<p class="p">定義型は、プリミティブ型またはコンストラクター型の
+特定フォーマットを指定するために使用される仕組みです。MIB 作成者は、TEXTUAL-CONVENTION 構造を使用して追加の型を定義できます。</p>
+<div class="p"><samp class="ph codeph">DisplayString</samp> は定義型の好例です。SNMPv2-SMI-v1 MIB モジュールで、
+<samp class="ph codeph">DisplayString</samp> の v1 バージョンには以下の定義があります。<pre class="pre codeblock"><code>DisplayString ::= OCTET STRING (0..255)</code></pre>
+</div>
+<div class="p">SNMPv2-TC MIB モジュールで、<samp class="ph codeph">DisplayString</samp> の v2 バージョンには 以下の定義があります。<pre class="pre codeblock"><code>DisplayString ::= TEXTUAL-CONVENTION DISPLAY-HINT "255a" STATUS current DESCRIPTION 
+"Represents textual information taken from the NVT ASCII character set, as defined 
+in pages 4, 10-11 of RFC 854. To summarize RFC 854, the NVT ASCII repertoire 
+specifies: - the use of character codes 0-127 (decimal) - the graphics characters 
+(32-126) are interpreted as US ASCII - NUL, LF, CR, BEL, BS, HT, VT and FF have the 
+special meanings specified in RFC 854 - the other 25 codes have no standard 
+interpretation - the sequence 'CR LF' means newline - the sequence 'CR NUL' means 
+carriage-return - an 'LF' not preceded by a 'CR' means moving to the same column on 
+the next line. - the sequence 'CR x' for any x other than LF or NUL is illegal. 
+(Note that this also means that a string may end with either 'CR LF' or 'CR NUL', 
+but not with CR.) Any object defined using this syntax may not exceed 255 characters
+ in length." SYNTAX OCTET STRING (SIZE (0..255))</code></pre>
+上述の例では、<samp class="ph codeph">DisplayString</samp> が 0 から 255 文字の長さの OCTET STRING であることを示しています。インターネット標準 MIB の
+オブジェクト・タイプに対応する、各 OBJECT DESCRIPTOR は、一意のストリング、ニーモニック・ストリング、
+印刷可能ストリングでなければならないことに注意してください。</div>
+</div>
+<div class="section" id="omn_ref_mib_mibconcepts__def_objects"><h2 class="title sectiontitle">オブジェクトの定義</h2><p class="p">MIB モジュール作成時に生じる一般的な誤りは、一意でないオブジェクト名を作成してしまうことです。RFC1155 ステートメントの意味は、一意にする必要があるのは単一の MIB モジュール内のオブジェクトのみという意味だと言われています。既に説明したように、
+MIB はモジュールの完全なセットであり、組み合わされて、特定のデバイスの
+管理に使用されます。このため、任意の MIB モジュールで定義される
+すべてのオブジェクトは、オブジェクト自体のモジュール内だけではなく、インポートされた任意のモジュール内の
+その他のオブジェクト名、およびそれらのモジュールがインポートする可能性のある
+任意のモジュールにおいても一意にする必要があります。オブジェクト名を一意にする一般的な方法は、すべてのモジュール名の最初に、企業のチッカー・シンボルまたは会社名の短縮形を付けることです。</p>
+<p class="p">オブジェクトが定義されると、
+オブジェクトは、スパンニング・ツリーのような数値的階層に
+マッピングされます。オブジェクトが定義されるたびに、オブジェクトは親オブジェクトのリーフとして定義されます。以下の 3 つのルート・オブジェクトは、SNMP MIB ツリーで定義されます。</p>
+<ul class="ul"><li class="li"><samp class="ph codeph">ccitt</samp> (ルート・ノード 0)</li>
+<li class="li"><samp class="ph codeph">iso</samp> (ルート・ノード 1)</li>
+<li class="li"><samp class="ph codeph">joint-iso-ccitt</samp> (ルート・ノード 2)</li>
+</ul>
+<div class="p">MIB ツリー内のその他のすべてのノードは、これらの 3 つのルート・ノードのいずれかの
+子です。例えば、RFC1155-SMI では、以下のオブジェクトを定義しています。<pre class="pre codeblock"><code>internet OBJECT IDENTIFIER ::= { iso org(3) dod(6) 1 } directory OBJECT IDENTIFIER ::=
+ { internet 1 } mgmt OBJECT IDENTIFIER ::= { internet 2 } experimental OBJECT IDENTIFIER
+ ::= { internet 3 } private OBJECT IDENTIFIER ::= { internet 4 } enterprises OBJECT 
+IDENTIFIER ::= { private 1 }</code></pre>
+</div>
+<p class="p">これらの定義は、オブジェクト名、関連付けられたオブジェクト・タイプ、
+各オブジェクトの親の名前 (または親の番号付きリスト)、およびその親 (複数の場合あり) に
+対するこの子のリーフ番号を示しています。これらの項目の表示上の形式は
+階層形式です。</p>
+<p class="p"><span class="keyword wintitle">「MIB ツリー」</span>ビューでは、MIB ツリー内のノードを展開したり縮小したり
+することによって、ビュー内を移動します。MIB ツリーの最上位の
+ブランチには、MIB モジュールの名前が含まれており、
+各 MIB モジュール・ブランチの中には、MIB を構成するその他の
+エレメントが含まれています。モジュールが MIB に追加されると、
+オブジェクトが MIB ツリーに追加されます。各オブジェクトは、そのオブジェクト名またはそのオブジェクト ID (OID) により参照できます。最も正確な方法は、オブジェクトの OID を参照することです。
+オブジェクトの OID は、オブジェクトの番号として定義されており、ルート・ノードまで遡って続くそれぞれの祖先の番号が、それぞれを区切るピリオド (.) を使用して一緒に連結されます。エンタープライズ・オブジェクト (ノードまたはリーフ) の OID は、
+1.3.6.1.4.1 です。</p>
+<p class="p">多くのベンダーが、それぞれのオブジェクト名を汎用的に一意になるようにしていないため、2 つのベンダーが同じ名前を共有するオブジェクトを持つことがあります。このことにより、オブジェクトの識別にオブジェクト名を使用すると
+あいまいさになります。</p>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/omn_ref_mib_about_snmp.html" title="このセクションでは、Simple Network Management Protocol (SNMP) アーキテクチャー、 SNMP 管理情報ベース (MIB)、および MIB の追加概念のいくつかに関する追加情報を説明します。">SNMP について</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">ライブラリー</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+</div>
+</body>
+</html>

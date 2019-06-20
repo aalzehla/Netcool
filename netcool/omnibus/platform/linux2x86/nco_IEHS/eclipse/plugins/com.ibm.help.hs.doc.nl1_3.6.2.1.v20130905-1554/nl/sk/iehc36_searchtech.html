@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sk-sk" xml:lang="sk-sk">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2010" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2010" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta http-equiv="PICS-Label" content='(PICS-1.1 "http://www.icra.org/ratingsv02.html" l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) "http://www.rsac.org/ratingsv01.html" l gen true r (n 0 s 0 v 0 l 0) "http://www.classify.org/safesurf/" l gen true r (SS~~000 1))' />
+<meta name="DC.Type" content="topic" />
+<meta name="DC.Title" content="Spôsoby rozšíreného vyhľadávania" />
+<meta name="abstract" content="S použitím úvodzoviek, zástupných znakov alebo boolovských operátorov môžete vykonať rozšírenejšie vyhľadávanie, ktoré vráti menšiu skupinu výsledkov vyhľadávania." />
+<meta name="description" content="S použitím úvodzoviek, zástupných znakov alebo boolovských operátorov môžete vykonať rozšírenejšie vyhľadávanie, ktoré vráti menšiu skupinu výsledkov vyhľadávania." />
+<meta name="DC.Relation" scheme="URI" content="iehs36_searching.html" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="iehc36_improvresult" />
+<meta name="DC.Language" content="sk-sk" />
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="iehs36_searching.html" />
+<title>Spôsoby rozšíreného vyhľadávania</title>
+</head>
+<body id="iehc36_improvresult" role="main"><a name="iehc36_improvresult"><!-- --></a>
+<h1 class="title topictitle1">Spôsoby rozšíreného vyhľadávania</h1>
+<div class="body"><p class="shortdesc">S použitím úvodzoviek, zástupných znakov alebo boolovských operátorov môžete vykonať rozšírenejšie vyhľadávanie, ktoré vráti menšiu skupinu výsledkov vyhľadávania.</p>
+<ul class="ul"><li class="li">Keď vyhľadávate v systéme pomoci, môžete vyhľadať presné výrazy alebo spojenia,
+keď ich uzavriete do dvojitých úvodzoviek.<p class="p">Ak v poli <span class="ph uicontrol">Vyhľadávanie</span> zadáte napríklad <kbd class="ph userinput">"protokolový súbor"</kbd>,
+vyhľadajú sa všetky výskyty reťazca <em class="ph i">protokolový súbor</em>. Ak okolo výrazu nezadáte úvodzovky, budú vrátené témy, ktoré obsahujú inštancie oboch slov, <em class="ph i">protokolový</em> aj <em class="ph i">súbor</em>.</p>
+</li>
+<li class="li">Rozsah svojho vyhľadávania môžete rozšíriť, ak v ňom použijete zástupné znaky ako hviezdička (*) a otáznik (?).<ul class="ul"><li class="li">Hviezdičku (*) použite ako zastúpenie viacerých neznámych alebo premenných znakov v dotaze vyhľadávania. Ak napríklad zadáte výraz<kbd class="ph userinput">par*</kbd>, budú vrátené témy, ktoré obsahujú slová <em class="ph i">park</em>, <em class="ph i">parkovisko</em>, <em class="ph i">parkovanie</em> a ďalšie slová začínajúce na <em class="ph i">par</em>.<div class="note note"><span class="notetitle">Poznámka:</span>  Uplatňuje
+sa jedno obmedzenie pre vyhľadávací reťazec: pri použití znaku hviezdičky vo
+vyhľadávanom výraze musia byť pred hviezdičkou uvedené aspoň tri znaky.
+Podobne, vyhľadávaný výraz bez zástupného znaku musí obsahovať aspoň tri
+znaky.</div>
+</li>
+<li class="li">Znak otáznik použite namiesto jediného znaku v dotaze vyhľadávania.
+Ak napríklad zadáte <kbd class="ph userinput">par?</kbd>, budú vrátené témy, ktoré obsahujú slovo <em class="ph i">part</em>, ale nie <em class="ph i">parky</em> alebo <em class="ph i">parkovanie</em>.</li>
+</ul>
+<div class="note note"><span class="notetitle">Poznámka:</span> Ak použijete vyhľadávaný výraz s hviezdičkou (*), musia sa pred ňou nachádzať aspoň tri znaky.</div>
+</li>
+<li class="li">Ak chcete zadať konkrétnejší dotaz, môžete použiť boolovské operátory AND, OR a NOT. Napríklad:<dl class="dl"><dt class="dt dlterm">databáza AND "protokolový súbor"</dt>
+<dd class="dd">zúži výsledky vyhľadávania na témy, ktoré obsahujú výraz <em class="ph i">databáza</em> a frázu <em class="ph i">protokolový súbor</em>.</dd>
+<dt class="dt dlterm">databáza OR "protokolový súbor"</dt>
+<dd class="dd">rozšíri výsledky vyhľadávania na témy, ktoré obsahujú buď výraz <em class="ph i">databáza</em> alebo frázu <em class="ph i">protokolový súbor</em>.</dd>
+<dt class="dt dlterm">databáza NOT "protokolový súbor"</dt>
+<dd class="dd">zúži výsledky vyhľadávania na témy, ktoré obsahujú výraz <em class="ph i">databáza</em>, ale neobsahujú frázu <em class="ph i">protokolový súbor</em>.</dd>
+<dt class="dt dlterm">databáza OR "báza údajov" NOT "protokolový súbor"</dt>
+<dd class="dd">vyhľadá témy, ktoré obsahujú buď výraz <em class="ph i">databáza</em> alebo frázu <em class="ph i">báza údajov</em>, ale neobsahujú frázu <em class="ph i">protokolový súbor</em>.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Nadradená téma:</strong> <a class="link" href="iehs36_searching.html" title="Môžete prehľadávať všetky témy v systéme pomoci, prehľadávať jednotlivú tému alebo kolekciu tém, alebo vytvoriť rozsah vyhľadávania a hľadať len podmnožinu informácií. Vo výsledkoch vyhľadávania môže byť uvedených až 500 výsledkov zoradených podľa relevantnosti.">Hľadanie v systéme pomoci</a></div>
+</div>
+</div></body>
+</html>

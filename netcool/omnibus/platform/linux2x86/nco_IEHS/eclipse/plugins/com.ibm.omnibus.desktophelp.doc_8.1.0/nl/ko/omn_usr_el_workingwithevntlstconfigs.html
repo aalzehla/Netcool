@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko-kr" xml:lang="ko-kr">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="이벤트 목록 구성에 대한 작업" />
+<meta name="abstract" content="이벤트 목록 모니터 상자 창에서 모든 모니터 상자에 대해 정의되는 필터, 보기 및 기타 이벤트 구성을 저장할 수 있습니다. 이 정보는 이벤트 목록 구성(.elc) 파일 안에 저장됩니다." />
+<meta name="Description" content="이벤트 목록 모니터 상자 창에서 모든 모니터 상자에 대해 정의되는 필터, 보기 및 기타 이벤트 구성을 저장할 수 있습니다. 이 정보는 이벤트 목록 구성(.elc) 파일 안에 저장됩니다." />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_monitoringmanagevnts.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_savinglocevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_openinglocevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_openingremevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_savingremevntlstconfigs.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_creatingevntlstconfigunix.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_creatingevntlstconfigwin.html" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_el_unixevntlstcmdlineopt.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_el_workingwithevntlstconfigs" />
+<meta name="DC.Language" content="ko-kr" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_el_monitoringmanagevnts.html" />
+<title>이벤트 목록 구성에 대한 작업</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_el_workingwithevntlstconfigs">
+<span><strong>IBM Tivoli Netcool/OMNIbus, 버전 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">이벤트 목록 구성에 대한 작업</h1>
+<div class="body taskbody"><p class="shortdesc"><span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창에서 모든 모니터
+상자에 대해 정의되는 필터, 보기 및 기타 이벤트 구성을 저장할 수 있습니다. 이 정보는 이벤트 목록
+구성(<span class="ph filepath">.elc</span>) 파일 안에 저장됩니다. </p>
+<div class="section context"><p class="p">필요한 만큼 다른 구성 파일을 작성할 수 있고, 언제든지 다른 구성 파일을
+<span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창에 로드할 수 있습니다.</p>
+<p class="p">로컬로 저장되거나 원격 서버에 보유되는 이벤트 목록 구성을 열 수 있습니다.
+또한 이벤트 목록 구성을 로컬로 저장하거나
+HTTP 또는 FTP를 사용하여 액세스 가능한 원격 서버에 저장할 수 있습니다. </p>
+</div>
+<div class="related-links-steps">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_savinglocevntlstconfigs.html">로컬 이벤트 목록 구성 저장</a></span><br />
+<span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창에서 모니터 상자의 현재 그룹에
+대해 정의되는 필터, 보기 및 기타 경보 구성을 저장할 수 있고 추후 이 구성을 이벤트 목록에
+적용할 수 있습니다.
+현재 모니터 상자에 대해 구성되는 필터 중 임의의 필터를 수정한 경우
+저장하는 것이 유용하다는 것을 알 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_openinglocevntlstconfigs.html">로컬 이벤트 목록 구성 열기</a></span><br />
+이전에 하나 이상의 이벤트 목록 구성을 로컬로 저장했으면, 정의된 필터 및 보기와 일치하는 이벤트를 모니터하고 관리하기 위해
+연관된 이벤트 목록 구성 파일을 열 수 있습니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_openingremevntlstconfigs.html">원격 이벤트 목록 구성 열기</a></span><br />
+원격 서버에 있는 하나 이상의 이벤트 목록을 열기 위해
+원격 이벤트 목록 구성 파일을 열 수 있습니다. HTTP 또는 FTP를 사용하여 서버에 액세스할 수 있어야 합니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_savingremevntlstconfigs.html">원격 이벤트 목록 구성 저장</a></span><br />
+네트워크의 원격 서버에서 이벤트 목록 구성을 연 경우
+해당 구성을 해당 서버에 저장하도록 허가되지 않습니다.
+파일을 다른 위치에 저장해야 합니다.
+서버는 HTTP 또는 FTP를 사용하여 액세스 가능해야 합니다. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_creatingevntlstconfigunix.html">UNIX에서 이벤트 목록 구성 작성 및 편집</a></span><br />
+<span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창에 표시되는
+모니터 상자에 대한 필터 및 보기 정의를 보유하는 이벤트 목록 구성을 작성하거나
+편집할 수 있습니다.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="omn_usr_el_creatingevntlstconfigwin.html">Windows에서 이벤트 목록 구성 작성 및 편집</a></span><br />
+<span class="keyword wintitle">이벤트 목록</span> 모니터 상자 창에 표시되는
+모니터 상자에 대한 필터 및 보기 정의를 보유하는 이벤트 목록 구성을 작성하거나
+편집할 수 있습니다.</li>
+</ul>
+</div></div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>상위 주제:</strong> <a class="link" href="omn_usr_el_monitoringmanagevnts.html" title="이벤트 목록을 사용하여 경보를 모니터 및 관리할 수 있습니다. 경보는 ObjectServer가 이벤트, 알람, 메시지 또는 데이터 항목을 수신할 때 작성됩니다. 각 경보는 ObjectServer alerts.status 테이블의 행에 보유되어 있는 정보의 컬럼(또는 필드)으로 구성되어 있습니다.">이벤트 목록의 이벤트 모니터링 및 관리</a></div>
+</div>
+<div class="relinfo relref"><strong>관련 참조</strong>:<br />
+<div><a class="link" href="omn_usr_el_unixevntlstcmdlineopt.html" title="UNIX에서 nco_event 명령을 사용하여 이벤트 목록을 시작하는 경우, 다수의 명령행 옵션을 지정하여 구성을 수정할 수 있습니다. $NCHOME/omnibus/bin 디렉토리에서 이 명령을 실행할 수 있습니다.">UNIX 이벤트 목록 명령행 옵션</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">라이브러리</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">지원</a> |</span>
+<br />
+<span>마지막 업데이트 날짜: 2012년 11월</span><br /></div>
+</body>
+</html>

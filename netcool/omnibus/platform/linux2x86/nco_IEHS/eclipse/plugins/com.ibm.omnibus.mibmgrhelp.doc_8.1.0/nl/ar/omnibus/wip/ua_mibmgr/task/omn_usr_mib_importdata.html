@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ar-eg" lang="ar-eg" dir="rtl">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2014" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2014" />
+<meta name="copyright" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="DC.Rights.Owner" content="© .IBM حقوق النشر لشركة 2014" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="استقبال بيانات MIB" />
+<meta name="abstract" content="كيف يتم استقبال ملفات تعقب مشاكل SNMP في MIB Manager." />
+<meta name="Description" content="كيف يتم استقبال ملفات تعقب مشاكل SNMP في MIB Manager." />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" />
+<meta name="DC.Relation" scheme="URI" content="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" />
+<meta name="DC.Date" scheme="iso8601" content="2014-05-12" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_mib_importdata" />
+<meta name="DC.Language" content="ar-eg" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="../../../../ibmditar.css" />
+<link rel="stylesheet" type="text/css" href="../../../../swg_info_common.css" />
+<link rel="Start" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" />
+<title>استقبال بيانات MIB</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_mib_importdata">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus النسخة 8.1</strong><br /><hr align="يمين" /></span>
+<h1 class="title topictitle1">استقبال بيانات MIB</h1>
+<div class="body taskbody"><p class="shortdesc">كيف يتم استقبال ملفات تعقب مشاكل SNMP في MIB Manager.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel">قبل البدء</h2></div><p class="p">في نافذة <span class="keyword wintitle">التفضيلات</span>، حدد الأماكن الى MIBs التي يتم استخدامها عادة بواسطة MIBs للمورد. تأكد من وجود
+MIBs في الأدلة الخاصة بالمورد، وأن أي أرقام أجهزة مصاحبة توجد في الأدلة الفرعية.
+تأكد أيضا من أن هذه الأدلة لا تحتوي على أي ملفات نصية خلاف MIB. معظم MIBs يتم تركيبها داخل الدليل <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/base</span>، ويتم تركيب كل
+RFC MIBs  فى الدليل <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/mibs/rfc</span>.</p>
+<p class="p">قد تكون ملفات MIBs التي تقوم باستقبالها تعتمد على ملفات MIBs الأخرى. لضمان أن
+<span class="keyword">MIB Manager</span> يمكنه البحث عن MIBs التابع أثناء تنفيذ عملية الاستقبال،
+قم بتحديد مسار البحث الى أماكن ملفات MIB التابعة.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel">اجراء</h2></div><p class="li stepsection">لاستقبال بيانات MIB:</p><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">اضغط على <img class="image" src="../gifs/import.gif" alt="شارة استقبال MIB" /> <span class="ph uicontrol">استقبال</span>، أو من القائمة  اضغط <span class="ph menucascade"><span class="ph uicontrol">ملف</span> &gt; <span class="ph uicontrol">استقبال</span></span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">في مجال <span class="ph uicontrol">الدليل</span>، حدد مكان وحدات برامج MIB التي تريد استقبالها.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">لتجعل <span class="keyword">MIB Manager</span> يقوم بالتحليل اللغوى لكل ما يتم ايجاده من MIBs فى الدلائل الفرعية المتاحة،
+قم بتحديد مربع الاختيار <span class="ph uicontrol">اجتياز الدلائل الفرعية</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">اضغط <span class="ph uicontrol">استقبال</span>.</span> <p class="p">سيتم عرض نافذة <span class="keyword wintitle">حالة الاستقبال</span> أثناء التحليل اللغوي لوحدات برامج MIB.
+يعرض الجانب الأيمن من هذه النافذة عدد أنواع عناصر MIB المختلفة حيث يتم اكتشاف كلا منها أثناء التحليل اللغوي لملفات MIB التي تم استقبالها.</p>
+  بعد أن يتم اجراء التحليل اللغوى على MIBs، يقوم <span class="keyword">MIB Manager</span> بمراجعة كل وحدات برامج MIB واجراء تحليل لغوى على كل عناصر MIB التى يتم تحديد
+تحديد مكانها. بعد أن يتم اجراء التحليل اللغوى على كل العناصر، يقوم <span class="keyword">MIB Manager</span> بمراجعة كل MIB ويقوم بتشغيل عبارات الاستقبال
+لتحديد مكان أى وحدات برامج MIB المشار اليها. ان لم يكن فى الامكان تحديد مكان أى من وحدات برامج MIB
+فى وحدات برامج MIB تم استقبالها مسبقا، يقوم <span class="keyword">MIB Manager</span> بالبحث فى الدلائل المحددة فى مسار البحث. يعرض الجانب الأيسر من نافذة <span class="keyword wintitle">حالة الاستقبال</span> شارات توضح حالة أي عبارات استقبال تم ايجادها في ملفات MIBs التي تم استقبالها, كما هو موضح في الجدول التالي:
+<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="الشارات التي يتم عرضها في نافذة حالة الاستقبال والمعنى الخاص بهم." class="table" rules="all" frame="border" border="1"><span class="desc tabledesc"></span><thead class="thead" align="right"><tr class="row" valign="bottom"><th class="entry" valign="bottom" id="d8255e106">الشارة</th>
+<th class="entry" valign="bottom" id="d8255e108">الوصف</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/question_mark.gif" alt="علامة الاستفهام" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">تشير الى أن عبارة الاستقبال لم يتم حلها.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/tick.gif" alt="علامة اختيار" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">تشير الى أن عبارة الاستقبال تم حلها.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" headers="d8255e106 "><img class="image" src="../gifs/cross.gif" alt="علامة زائد" /></td>
+<td class="entry" valign="top" headers="d8255e108 ">تشير الى أن وحدة برامج MIB التي يتم الاشارة اليها في عبارة الاستقبال لا يمكن حلها.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p class="p">يمكنك عرض تسلسل عبارة الاستقبال بحيث يتم عرض وحدات برامج MIB باستخدام عبارات الاستقبال للاشارة الى وحدات برامج MIB الأخرى.</p>
+
+<p class="p">يتم عرض <span class="ph uicontrol">تم الاستقبال</span> بأعلى اطار الحالة عند تشغيل كل ملفات MIB التي تم استقبالها. يمكنك مشاهدة كل رسائل الحالة التي تم تكوينها خلال عملية الاستقبال من خلال ضغط <span class="ph uicontrol">مشاهدة السجل التاريخي للحالة</span> واستخدام الكشف المسقط الى  <span class="ph uicontrol">المشاهدة</span> لتحديد اختيار ترشيح بيانات.</p>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">اضغط <span class="ph uicontrol">الغاء</span> لاغلاق نافذة <span class="keyword wintitle">استقبال الحالة</span>.</span></li>
+</ol>
+<div class="section result"><div class="tasklabel"><h2 class="sectiontitle tasklabel">النتائج</h2></div><p class="p">يتم تجديد مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span> آليا لعرض أسماء وحدات برامج MIB التي تم استقبالها مؤخرا. يتم تجديد مشاهدة <span class="keyword wintitle">تسلسل OID</span> آليا لتعرض كل عناصر MIB التى تم استقبالها حديثا
+لاعادة بناء التسلسل، يقوم <span class="keyword">MIB Manager</span> بالبحث فى العقد الرئيسية بالتسلسل (<span class="ph filepath">iso</span> و <span class="ph filepath">ccitt</span>
+و <span class="ph filepath">joint-iso-ccitt</span>) بصفة متكررة للعقد الفرعية
+حتى يجد عقدة فرعية لا يوجد بها فروع مرفقة. اذا لم يتم اكتشاف أي أخطاء، سيتم عرض تسلسل MIB يتم نشره بالكامل في مشاهدة <span class="keyword wintitle">تسلسل OID</span>، التي تحتوي على عناصر تم تحليلها لغويا.</p>
+<p class="p">بالضغط على عنصر في مشاهدة <span class="keyword wintitle">تسلسل OID</span> يتم عرض العنصر آليا في مشاهدة <span class="keyword wintitle">وحدات برامج MIB</span>.
+تعرض مشاهدة <span class="keyword wintitle">التفاصيل</span> معلومات تفصيلية عن العنصر المحدد.</p>
+<p class="p">يتم تخزين وحدات برامج MIB التي تم استقبالها في ملف xml يمثل هيكل وحدة برامج MIB هذه. تقع ملفات xml فى الدليل <span class="ph filepath"><var class="keyword varname">NCHOME</var>/omnibus/var/mibmanager/data</span>.</p>
+<p class="p">اذا تم اكتشاف عبارات استقبال لم يتم حلها، قم بالاتصال بالمورد المسئول عن MIB أو MIBs غير الموجودة، قم باضافة الملف أو الملفات المفقودة الى مسار البحث ثم قم بتكرار عملية الاستقبال.</p>
+<div class="p"><div class="note note"><span class="notetitle">ملاحظة:</span> <p class="p">يقوم الموردين في بعض الأحيان بتحديد أسماء عناصر مكررة، أو تحديد اسم عنصر مماثل لاسم عنصر محدد في RFC.</p>
+
+<p class="p">على سبيل المثال,
+العنصر ذو الاسم <samp class="ph codeph">system</samp> يتم تعريفه في وحدة البرامج  SNMPv2-MI'
+مع OID 1.3.6.1.2.1.1 وعنصر آخر بالاسم <samp class="ph codeph">system</samp> يتم تعريفه في وحدة البرامج WINDOWS-NT-PERFORMANCE، مع OID 1.3.6.1.4.1.311.1.1.3.1.1.23.
+وعنصر بالاسم <samp class="ph codeph">sysDescr</samp> يتم تعريفه على انه <samp class="ph codeph">system.1</samp> في وحدة البرامج
+SNMPv2-MIB وعنصر آخر بالاسم  <samp class="ph codeph">sysFileReadOperationsPerSec</samp> يتم تعريفه على انه <samp class="ph codeph">system.1</samp> في وحدة البرامج WINDOWS-NT-PERFORMANCE.
+في هذه الحالة، يكون من غير الواضح العنصر الرئيسي الذي تكون العناصر الفرعية مصاحبة له.</p>
+
+<p class="p">عندما يتم تحديد مكان اسم رئيسى مكرر،
+يحاول <span class="keyword">MIB Manager</span> ايجاد العنصر الرئيسى المعرف فى نفس وحدة برامج
+MIB. في المثال السابق, يعد هذا WINDOWS-NT-PERFORMANCE.
+ان لم يتم تعريف أى من العناصر الرئيسية فى نفس وحدة برامج MIB، يقوم <span class="keyword">MIB Manager</span> عندئذ بالبحث لمعرفة ما اذا كان العنصر الرئيسى معرف فى وحدات برامج
+MIB أخرى يعتمد عليها العنصر. يقوم <span class="keyword">MIB Manager</span> ايضا بتعريف وحدات برامج MIB الأخرى التى تشير الى
+العنصر الرئيسى ويحدد أكثر ما يتم الرجوع اليه من اسماء العناصر الرئيسية. لكن، يمكن أن ينتج عن هذا تسلسل
+MIB غير صحيح يتم نشره وأكواد OIDs تم احتسابها بطريقة غير صحيحة. وبالتالي، فى كل مرة يقوم <span class="keyword">MIB Manager</span> بايجاد اسم عنصر مكرر، يقوم بتسجيل تحذير ويقوم بتسجيل
+التصرفات التى تم اجراؤها لحل التكرار فى ملف تصحيح الأخطاء.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>الموضوع الأصلي:</strong> <a class="link" href="../../../../omnibus/wip/ua_mibmgr/concept/using_the_mib_manager.html" title="يمكنك استخدام MIB Manager لاجراء تحليل لغوى على وحدات برامج MIB وتكوين ملفات قواعد Netcool.">استخدام Netcool MIB Manager</a></div>
+</div>
+<div class="relinfo relref"><strong>المرجع المتعلق</strong>:<br />
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_directory.html" title="استخدم تفضيلات الدليل لتحديد الأدلة التي يتم استخدامها لفرز MIBs التي تم استقبالها، وبيانات MIB وملفات القواعد التي تم تصديرها.">تحديد تفضيلات الدليل</a></div>
+<div><a class="link" href="../../../../omnibus/wip/ua_mibmgr/reference/pref_search.html" title="يصف هذا القسم كيفية تعريف تفضيلات MIB Manager التى يتم استخدامها للبحث عن ملفات MIB.">تحديد تفضيلات البحث</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://www.ibm.com/support/knowledgecenter/SSSHTQ/" target="_blank">المكتبة</a> |
+<a href="http://www.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">الدعم</a> |</span>
+<br />
+</div>
+</body>
+</html>

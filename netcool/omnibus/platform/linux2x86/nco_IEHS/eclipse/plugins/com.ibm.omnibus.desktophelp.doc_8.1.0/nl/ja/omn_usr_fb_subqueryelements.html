@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-jp" xml:lang="ja-jp">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corp. 2012" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corp. 2012" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" /><meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="サブ照会エレメント" />
+<meta name="abstract" content="フィルターを構成する際には、サブ照会エレメントを使用して条件内に照会を作成する ことができます。" />
+<meta name="Description" content="フィルターを構成する際には、サブ照会エレメントを使用して条件内に照会を作成する ことができます。" />
+<meta name="DC.subject" content="フィルター, サブ照会エレメント" />
+<meta name="keywords" content="フィルター, サブ照会エレメント" />
+<meta name="DC.Relation" scheme="URI" content="omn_usr_fb_componentsoffilter.html" />
+<meta name="DC.Date" scheme="iso8601" content="2012-09-10" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="omn_usr_fb_subqueryelements" />
+<meta name="DC.Language" content="ja-jp" />
+<meta name="IBM.Country" content="ZZ" />
+<link rel="stylesheet" type="text/css" href="ibmdita.css" />
+<link rel="stylesheet" type="text/css" href="swg_info_common.css" />
+<link rel="Start" href="omn_usr_fb_componentsoffilter.html" />
+<title>サブ照会エレメント</title>
+<script type="text/javascript" src="../../../../../com.ibm.srcf.doc/srcf.js"></script>
+</head>
+<body role="main" id="omn_usr_fb_subqueryelements">
+<span class="runningheader"><strong>IBM Tivoli Netcool/OMNIbus バージョン 7.4</strong><br /><hr align="left" /></span>
+<h1 class="title topictitle1">サブ照会エレメント</h1>
+<div class="body conbody"><p class="shortdesc">フィルターを構成する際には、サブ照会エレメントを使用して条件内に照会を作成する
+ことができます。</p>
+<div class="p">サブ照会エレメントは、以下の ObjectServer <samp class="ph tt">alerts</samp> データベース表内に保管されるデータの結果を照会して戻すのに使用することができます。<ul class="ul"><li class="li">alerts.details: この表にはイベントの詳細が保持され、「ID」列によって alerts.status
+表にリンクされます。</li>
+<li class="li">alerts.journal: この表にはイベント上で実行された作業の履歴が保持され、
+「シリアル」列によって alerts.status 表にリンクされます。</li>
+<li class="li">alerts.status: この表にはプローブによって検出された問題に関する状況情報が
+保持されます。</li>
+</ul>
+</div>
+<p class="p">例えば、alerts.journal 表内でジャーナル項目を持つイベントを検索したり、
+alerts.details 表内で特定の詳細属性を持つイベントを検索したりすることができます。</p>
+<p class="p">サブ照会エレメントの後には、条件、論理、および他のサブ照会エレメントを置くことができます。 これらのエレメントを使用すると、別の表の情報に対して選択基準を指定することができます。</p>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>親トピック:</strong> <a class="link" href="omn_usr_fb_componentsoffilter.html" title="フィルターは、エレメント の収集から構成されます。 使用可能なエレメント・タイプには、条件、論理、およびサブ照会エレメントがあります。">フィルターのコンポーネント</a></div>
+</div>
+</div><!--Arbortext, Inc., 1988-2006, v.4002--><?APT Element gi="div"?><?APT Element gi="span" attrs="class"?><div><p> </p><hr align="left" />
+<span class="runningfooter"><a href="http://publib.boulder.ibm.com/infocenter/tivihelp/v8r1/index.jsp" target="_blank">ライブラリー</a> |
+<a href="http://www-01.ibm.com/software/sysmgmt/products/support/IBMTivoliNetcoolOMNIbus.html" target="_blank">サポート</a> |</span>
+<br />
+<span class="runningfooter">最終更新: 2012 年 11 月</span><br /></div>
+</body>
+</html>
